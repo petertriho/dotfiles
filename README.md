@@ -11,7 +11,7 @@
 
 ### Instructions
 
-1. `stow -t ~ */`
+1. `stow --no-folding -t ~ */`
 
 ## Software
 
@@ -25,6 +25,7 @@
 ### Fish Shell
 
 #### Dependencies
+
 - [jorgeburcaran/fisher](https://github.com/jorgebucaran/fisher)
 - [franciscolourenco/done](https://github.com/franciscolourenco/done)
 - [wfxr/forgit](https://github.com/wfxr/forgit)
@@ -33,7 +34,8 @@
 ### Kitty Terminal
 
 #### Dependencies
-- [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes): 
+
+- [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes)  
 `ln -s ~/.config/kitty/kitty-themes/themes/Brogrammer.conf ~/.config/kitty/theme.conf`
 
 ### Neovim
