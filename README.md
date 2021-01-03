@@ -26,6 +26,7 @@
 
 #### Dependencies
 
+- [starship](https://starship.rs/)
 - [jorgeburcaran/fisher](https://github.com/jorgebucaran/fisher)
 - [franciscolourenco/done](https://github.com/franciscolourenco/done)
 - [wfxr/forgit](https://github.com/wfxr/forgit)
