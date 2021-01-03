@@ -1,0 +1,37 @@
+[
+  // See the onivim documentation for details on the format:
+  // https://onivim.github.io/docs/configuration/key-bindings
+  // Add key bindings here, for example:
+  // { "key": "<TAB>", "command": "workbench.action.quickOpen", when: "editorTextFocus" },
+  // { "key": "jk", "command": "vim.esc", when: "insertMode" },
+  {
+    "key": "<ENTER>",
+    "command": "acceptSelectedSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "<TAB>",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "<C-J>",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "<C-K>",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "<C-J>",
+    "command": "list.focusDown",
+    "when": "listFocus || textInputFocus"
+  },
+  {
+    "key": "<C-K>",
+    "command": "list.focusUp",
+    "when": "listFocus || textInputFocus"
+  }
+]

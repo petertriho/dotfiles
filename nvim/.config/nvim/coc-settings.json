@@ -1,0 +1,23 @@
+{
+    "diagnostic.errorSign": "✘",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "",
+
+    // coc-emoji
+    "coc.source.emoji.filetypes": ["markdown"],
+
+    // coc-explorer
+    "explorer.width": 30,
+    "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
+    "explorer.icon.enableNerdfont": true,
+    "explorer.file.showHiddenFiles": true,
+    "explorer.keyMappings.global": {
+        "o": ["expandable?", "expand", "open"],
+        "<cr>": ["expandable?", "expand", "open"],
+        "v": "open:vsplit"
+    },
+
+    // coc-spell-checker
+    "cSpell.maxNumberOfProblems": 20,
+    "cSpell.numSuggestions": 3
+}
