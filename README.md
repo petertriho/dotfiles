@@ -24,13 +24,23 @@
 
 ### Fish Shell
 
-(fish shell)
+#### Dependencies
+- [jorgeburcaran/fisher](https://github.com/jorgebucaran/fisher)
+- [franciscolourenco/done](https://github.com/franciscolourenco/done)
+- [wfxr/forgit](https://github.com/wfxr/forgit)
+- [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
 
 ### Kitty Terminal
 
-(kitty terminal)
+#### Dependencies
+- [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes): 
+`ln -s ~/.config/kitty/kitty-themes/themes/Brogrammer.conf ~/.config/kitty/theme.conf`
 
 ### Neovim
 
-(neovim)
+#### Dependencies
 
+- [vim-plug](https://github.com/junegunn/vim-plug)
+- [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
+- [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
+- [mbbill/undotree](https://github.com/mbbill/undotree)
