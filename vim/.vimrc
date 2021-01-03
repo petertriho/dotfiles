@@ -19,5 +19,6 @@ set smartindent                " indent according to syntax/style
 set backspace=indent,eol,start " better backspace
 set autoread                   " autoread if file changes elsewhere
 
-set nowrap                     " disable line wrappingfiletype plugin indent on       " turn on filetype detection, plugin, indent on
+set nowrap                     " disable line wrapping
+filetype plugin indent on       " turn on filetype detection, plugin, indent on
 syntax on                      " syntax highlighting
