@@ -20,5 +20,5 @@ set backspace=indent,eol,start " better backspace
 set autoread                   " autoread if file changes elsewhere
 
 set nowrap                     " disable line wrapping
-filetype plugin indent on       " turn on filetype detection, plugin, indent on
+filetype plugin indent on      " turn on filetype detection, plugin, indent on
 syntax on                      " syntax highlighting
