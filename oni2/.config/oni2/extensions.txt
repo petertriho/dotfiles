@@ -1,0 +1,11 @@
+GitHub.github-vscode-theme-1.1.5
+PKief.material-icon-theme-4.4.0
+bradlc.vscode-tailwindcss-0.5.6
+dbaeumer.vscode-eslint-2.1.8
+esbenp.prettier-vscode-5.8.0
+exiasr.hadolint-0.3.0
+foxundermoon.shell-format-7.0.1
+ms-python.python-2020.10.332292344
+redhat.vscode-yaml-0.13.0
+streetsidesoftware.code-spell-checker-1.10.2
+timonwong.shellcheck-0.12.2
