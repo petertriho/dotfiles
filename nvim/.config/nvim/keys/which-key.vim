@@ -1,7 +1,7 @@
 " which-key config
 call which_key#register('<Space>', "g:which_key_map")
-nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<space>'<cr>
-vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<space>'<cr>
+nnoremap <silent> <leader> :silent <C-u> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :silent <C-u> :silent WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map =  {}                                   " Create map to add keys to
 let g:which_key_sep = '→'                                   " Define a separator
