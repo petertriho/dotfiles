@@ -30,7 +30,7 @@ let g:which_key_map['v'] = ['<C-w>v',                                        'sp
 let g:which_key_map['q'] = ['q',                                             'quit']
 let g:which_key_map['w'] = ['w',                                             "write/save"]
 
-" A Mappings
+" A(ction) Mappings
 let g:which_key_map.a = {
       \ 'name': '+action',
       \ 'f': ['<Plug>(coc-fix-current)', 'fix']
@@ -42,3 +42,14 @@ let g:which_key_map.a.a = 'align'
 
 nmap <leader>al v<Plug>(coc-codeaction-selected)<esc>
 let g:which_key_map.a.l = 'list'
+
+" G(it) Mappings
+let g:which_key_map.g = {
+  \ 'name': '+git',
+  \ 's': [':G', 'status'],
+  \ 'c': [':Gcommit', 'commit'],
+  \ 'p': [':Gpull', 'pull'],
+  \ 'P': [':Gpush', 'push'],
+  \ 'g': [':diffget //3', 'diff left'],
+  \ 'h': [':diffget //2', 'diff right']
+  \ }
