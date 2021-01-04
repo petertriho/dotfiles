@@ -48,8 +48,8 @@ let g:which_key_map.g = {
   \ 'name': '+git',
   \ 's': [':G', 'status'],
   \ 'c': [':Gcommit', 'commit'],
-  \ 'p': [':Gpull', 'pull'],
-  \ 'P': [':Gpush', 'push'],
+  \ 'p': [':Gpush', 'push'],
+  \ 'P': [':Gpull', 'pull'],
   \ 'g': [':diffget //3', 'diff left'],
   \ 'h': [':diffget //2', 'diff right']
   \ }
