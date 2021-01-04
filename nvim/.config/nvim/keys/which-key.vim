@@ -21,6 +21,7 @@ let g:which_key_map[';'] = ['Commands',                                      'co
 let g:which_key_map['d'] = ['Bdelete',                                       'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = [':call OrganizeFormat()',                        'organize/format']
+let g:which_key_map['h'] = ['<C-w>s',                                        'split-below']
 let g:which_key_map['i'] = ['CocDiagnostics',                                'issues/diagnostics']
 let g:which_key_map['o'] = ['Files',                                         'open-file']
 let g:which_key_map['s'] = ['Rg',                                            'search']
