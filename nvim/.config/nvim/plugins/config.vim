@@ -13,7 +13,7 @@ let g:NERDCreateDefaultMappings = 0
 let g:winresizer_start_key = "<M-e>"
 
 " szw/vim-maximizer
-let g:maximizer_set_default_mapping = 0 " prevent default bindings
+let g:maximizer_set_default_mapping = 0 " disable default bindings
 
 " mbbill/undotree
 if has("persistent_undo")
@@ -27,5 +27,5 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " wesQ3/vim-windowsnap
-let g:windowswap_map_keys = 0 " prevent default bindings
+let g:windowswap_map_keys = 0 " disable default bindings
 

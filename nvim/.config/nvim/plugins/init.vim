@@ -18,7 +18,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'wesQ3/vim-windowswap'      " swap windows
     Plug 'simeji/winresizer'         " window resizer/mover
 
-    " Utilities
+    " Tools
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                        " fzf
     Plug 'junegunn/fzf.vim'                                                    " fzf helpers
     Plug 'iamcco/markdown-preview.nvim', 
