@@ -46,10 +46,11 @@ let g:which_key_map.a.l = 'list'
 " G(it) Mappings
 let g:which_key_map.g = {
   \ 'name': '+git',
-  \ 's': [':G', 'status'],
-  \ 'c': [':Gcommit', 'commit'],
-  \ 'p': [':Gpush', 'push'],
-  \ 'P': [':Gpull', 'pull'],
+  \ 's': [':G',           'status'],
+  \ 'b': [':GBranches',   'branches/checkout'],
+  \ 'c': [':Gcommit',     'commit'],
+  \ 'p': [':Gpush',       'push'],
+  \ 'P': [':Gpull',       'pull'],
   \ 'g': [':diffget //3', 'diff left'],
   \ 'h': [':diffget //2', 'diff right']
   \ }
