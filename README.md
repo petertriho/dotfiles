@@ -11,7 +11,9 @@
 
 ### Instructions
 
-1. `stow --no-folding -t ~ */`
+1. `mkdir -p ~/.dotfiles`
+2. `git clone https://github.com/petertriho/dotfiles.git ~/.dotfiles`
+3. `stow --no-folding -t ~ */`
 
 ## Software
 
