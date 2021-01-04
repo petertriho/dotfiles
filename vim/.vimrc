@@ -13,6 +13,7 @@ set relativenumber             " relative line number
 set hidden                     " allow changing buffers without saving
 
 set clipboard+=unnamedplus     " yank to clipboard
+set mouse=a                    " enable mouse
 
 set autoindent                 " apply indent to next line according to current
 set smartindent                " indent according to syntax/style
