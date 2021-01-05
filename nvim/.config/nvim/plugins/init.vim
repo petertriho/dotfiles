@@ -25,7 +25,6 @@ call plug#begin(stdpath('data') . '/plugged')
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree'                                                     " undotree
-    Plug 'mhinz/vim-signify'                                                   " git gutter
     Plug 'stsewd/fzf-checkout.vim'                                             " git checkout
     Plug 'szw/vim-maximizer'                                                   " window maximizer
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands

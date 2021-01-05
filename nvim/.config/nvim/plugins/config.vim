@@ -25,6 +25,7 @@ endif
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#hunks#coc_git = 1
 
 " wesQ3/vim-windowsnap
 let g:windowswap_map_keys = 0 " disable default bindings
