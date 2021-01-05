@@ -13,7 +13,7 @@ if status is-interactive
     set -g fish_cursor_visual block
 
     set -gx EDITOR nvim
-    set -gx PROJECT_PATHS $HOME/Documents/Github
+    set -gx PROJECT_PATHS $HOME/Documents/GitHub $HOME/Documents/Projects
 
     set -gx FZF_DEFAULT_COMMAND \
         "rg \
