@@ -51,6 +51,6 @@ let g:which_key_map.g = {
   \ 'c': [':Gcommit',     'commit'],
   \ 'p': [':Gpush',       'push'],
   \ 'P': [':Gpull',       'pull'],
-  \ 'g': [':diffget //3', 'diff left'],
-  \ 'h': [':diffget //2', 'diff right']
+  \ 'g': [':diffget //2', 'diff left'],
+  \ 'h': [':diffget //3', 'diff right']
   \ }
