@@ -18,15 +18,15 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 " Single Mappings
 let g:which_key_map['/'] = ['<Plug>NERDCommenterToggle',                     'comment']
 let g:which_key_map[';'] = ['Commands',                                      'commands']
+let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
+let g:which_key_map['|'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['d'] = ['Bdelete',                                       'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = [':call OrganizeFormat()',                        'organize/format']
-let g:which_key_map['h'] = ['<C-w>s',                                        'split-below']
 let g:which_key_map['i'] = ['CocDiagnostics',                                'issues/diagnostics']
 let g:which_key_map['o'] = ['Files',                                         'open-file']
 let g:which_key_map['s'] = ['Rg',                                            'search']
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
-let g:which_key_map['v'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['q'] = ['q',                                             'quit']
 let g:which_key_map['w'] = ['w',                                             "write/save"]
 

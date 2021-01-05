@@ -22,6 +22,7 @@
 - [Kitty Terminal](#kitty-terminal)
 - [Neovim](https://neovim.io/)
 - [Oni2](https://onivim.io/)
+- [Tmux](https://github.com/tmux/tmux)
 - [Vim](https://www.vim.org/)
 
 ### Fish Shell
@@ -49,3 +50,9 @@
 - [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 - [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
 - [mbbill/undotree](https://github.com/mbbill/undotree)
+
+### Tmux
+
+#### Dependencies
+
+- [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)

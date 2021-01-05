@@ -1,3 +1,6 @@
+" christoomey/vim-tmux-navigator
+let g:tmux_navigator_disable_when_zoomed = 1
+
 " easymotion/vim-easymotion
 let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
 nmap ' <Plug>(easymotion-prefix)

@@ -31,8 +31,9 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'vim-airline/vim-airline'                                             " status bar
 
     " Misc
-    Plug 'moll/vim-bbye'        " better buffer delete/wipeout
-    Plug 'psliwka/vim-smoothie' " smooth scrolling
+    Plug 'christoomey/vim-tmux-navigator' " better tmux navigation
+    Plug 'moll/vim-bbye'                  " better buffer delete/wipeout
+    Plug 'psliwka/vim-smoothie'           " smooth scrolling
 call plug#end()
 
 source $HOME/.config/nvim/plugins/theme.vim

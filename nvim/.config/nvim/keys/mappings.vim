@@ -9,12 +9,12 @@ nnoremap <silent> <S-Tab> :bprevious<cr>
 nnoremap <silent> <M-d> :Bdelete<cr>
 
 " Windows - Navigation
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-l> <C-w>l
-map <C-\> <C-w>p
-
+" Remove if no longer using vim-tmux-navigator plugin
+"map <C-j> <C-w>j
+"map <C-k> <C-w>k
+"map <C-h> <C-w>h
+"map <C-l> <C-w>l
+"map <C-\> <C-w>p
 
 " Windows - Resize
 nnoremap <silent> <M-k> :resize -2<cr>
