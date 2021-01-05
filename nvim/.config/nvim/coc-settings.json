@@ -19,5 +19,7 @@
 
     // coc-spell-checker
     "cSpell.maxNumberOfProblems": 20,
-    "cSpell.numSuggestions": 3
+    "cSpell.numSuggestions": 3,
+    "cSpell.showStatus": false,
+    "cSpell.allowCompoundWords": true
 }
