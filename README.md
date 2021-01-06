@@ -22,6 +22,7 @@
 - [Kitty Terminal](#kitty-terminal)
 - [Neovim](https://neovim.io/)
 - [Oni2](https://onivim.io/)
+- [Ranger](https://github.com/ranger/ranger)
 - [Tmux](https://github.com/tmux/tmux)
 - [Vim](https://www.vim.org/)
 
