@@ -57,4 +57,3 @@
 
 - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
 - [tmux-plugins/tmux-yank](https://github.com/tmux-plugins/tmux-yank)
-- [powerline](https://powerline.readthedocs.io/en/latest/usage/other.html#tmux-statusline)
