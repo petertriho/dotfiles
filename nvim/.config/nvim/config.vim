@@ -23,4 +23,4 @@ set autoread                   " autoread if file changes elsewhere
 set colorcolumn=80             " max column line
 set nowrap                     " disable line wrapping
 
-
+set termguicolors              " fix colors in tmux
