@@ -57,4 +57,3 @@
 #### Dependencies
 
 - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
-- [tmux-plugins/tmux-yank](https://github.com/tmux-plugins/tmux-yank)
