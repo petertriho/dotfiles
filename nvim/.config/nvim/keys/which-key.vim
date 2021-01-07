@@ -23,13 +23,15 @@ let g:which_key_map['|'] = ['<C-w>v',                                        'sp
 let g:which_key_map['d'] = ['Bdelete',                                       'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = [':call OrganizeFormat()',                        'organize/format']
-let g:which_key_map['h'] = [':nohlsearch',                                   'no-highlight']
 let g:which_key_map['i'] = ['CocDiagnostics',                                'issues/diagnostics']
 let g:which_key_map['o'] = ['Files',                                         'open-file']
 let g:which_key_map['s'] = ['Rg',                                            'search']
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
 let g:which_key_map['q'] = ['q',                                             'quit']
 let g:which_key_map['w'] = ['w',                                             "write/save"]
+
+nnoremap <silent> <leader>h :nohlsearch<CR>
+let g:which_key_map['h'] = 'no-highlight'
 
 " A(ction) Mappings
 let g:which_key_map.a = {
@@ -47,11 +49,11 @@ let g:which_key_map.a.l = 'list'
 " G(it) Mappings
 let g:which_key_map.g = {
   \ 'name': '+git',
-  \ 's': [':G',           'status'],
-  \ 'b': [':GBranches',   'branches'],
-  \ 'c': [':Gcommit',     'commit'],
-  \ 'p': [':Gpush',       'push'],
-  \ 'P': [':Gpull',       'pull'],
+  \ 's': ['G',            'status'],
+  \ 'b': ['GBranches',    'branches'],
+  \ 'c': ['Gcommit',      'commit'],
+  \ 'p': ['Gpush',        'push'],
+  \ 'P': ['Gpull',        'pull'],
   \ 'g': [':diffget //2', 'diff left'],
   \ 'h': [':diffget //3', 'diff right']
   \ }
