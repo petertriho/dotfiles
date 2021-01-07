@@ -1,5 +1,3 @@
-starship init fish | source
-
 if status is-interactive
     test -e {$HOME}/.iterm2_shell_integration.fish; and \
         source {$HOME}/.iterm2_shell_integration.fish
@@ -40,3 +38,5 @@ test -e /usr/local/opt/asdf/asdf.fish; and \
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
 
 set -g fish_user_paths "$HOME/.local/bin" $fish_user_paths
+
+starship init fish | source
