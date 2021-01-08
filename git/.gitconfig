@@ -1,0 +1,22 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Peter Ho
+	email = mail@petertriho.com
+[pull]
+	rebase = false
+
+[core]
+	# Remove when fixed
+	# https://github.com/dandavison/delta/issues/359
+	# https://github.com/wfxr/forgit/issues/121
+	pager = delta --side-by-side -w (get_delta_width)
+
+[delta]
+	syntax-theme = OneHalfDark
+
+[interactive]
+	diffFilter = delta --color-only

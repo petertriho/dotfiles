@@ -18,6 +18,7 @@
 ## Software
 
 - [Bat](https://github.com/sharkdp/bat)
+- [Delta](https://github.com/dandavison/delta)
 - [Fish Shell](https://fishshell.com/)
 - [Kitty Terminal](#kitty-terminal)
 - [Neovim](https://neovim.io/)

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+COLUMNS=$(tput cols);
+
+echo ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
