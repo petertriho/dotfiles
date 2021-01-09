@@ -36,6 +36,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
     Plug 'moll/vim-bbye'                      " better buffer delete/wipeout
     Plug 'psliwka/vim-smoothie'               " smooth scrolling
+    Plug 'tpope/vim-sensible'                 " sensible config
 call plug#end()
 
 source $HOME/.config/nvim/plugins/theme.vim
