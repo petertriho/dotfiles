@@ -72,10 +72,10 @@ endif
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
-" Use `[g` and `]g` to navigate diagnostics
+" Use `[i` and `]i` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [i <Plug>(coc-diagnostic-prev)
+nmap <silent> ]i <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -151,3 +151,7 @@ augroup CocExplorerDefault
     autocmd VimEnter * call <SID>DisableFileExplorer()
     autocmd VimEnter * call <SID>OpenDirHere(expand('<amatch>'))
 augroup end
+
+" coc-git
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
