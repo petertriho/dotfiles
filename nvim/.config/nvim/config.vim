@@ -22,3 +22,15 @@ set autoread                   " autoread if file changes elsewhere
 
 set colorcolumn=80             " max column line
 set nowrap                     " disable line wrapping
+
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup config
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup end
+
