@@ -48,6 +48,7 @@ let g:which_key_map.g = {
   \ 'name': '+git',
   \ 's': ['G',            'status'],
   \ 'b': ['GBranches',    'branches'],
+  \ 'B': ['GBrowse',      'browse'],
   \ 'c': ['Gcommit',      'commit'],
   \ 'p': ['Gpush',        'push'],
   \ 'P': ['Gpull',        'pull'],
