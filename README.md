@@ -41,7 +41,7 @@
 
 #### Dependencies
 
-- [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes)  
+- [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes)
 `ln -s ~/.config/kitty/kitty-themes/themes/Brogrammer.conf ~/.config/kitty/theme.conf`
 
 ### Neovim
@@ -52,6 +52,7 @@
 - [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 - [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
 - [mbbill/undotree](https://github.com/mbbill/undotree)
+- [tpope/rhubarb](https://github.com/tpope/vim-rhubarb)
 
 ### Tmux
 
