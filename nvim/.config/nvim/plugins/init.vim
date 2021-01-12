@@ -21,21 +21,23 @@ call plug#begin(stdpath('data') . '/plugged')
     " Tools
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                        " fzf
     Plug 'junegunn/fzf.vim'                                                    " fzf helpers
-    Plug 'iamcco/markdown-preview.nvim', 
+    Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree'                                                     " undotree
     Plug 'stsewd/fzf-checkout.vim'                                             " git checkout
     Plug 'szw/vim-maximizer'                                                   " window maximizer
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands
+    Plug 'tpope/vim-rhubarb'                                                   " github helper
     Plug 'vim-airline/vim-airline'                                             " status bar
 
     " Misc
     Plug 'christoomey/vim-tmux-navigator'     " better tmux navigation
-    Plug 'tmux-plugins/vim-tmux-focus-events' " tmux focus events
-    Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
     Plug 'moll/vim-bbye'                      " better buffer delete/wipeout
     Plug 'psliwka/vim-smoothie'               " smooth scrolling
+    Plug 'romainl/vim-cool'                   " automatically disables search highlighing
+    Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
+    Plug 'tmux-plugins/vim-tmux-focus-events' " tmux focus events
     Plug 'tpope/vim-sensible'                 " sensible config
 call plug#end()
 

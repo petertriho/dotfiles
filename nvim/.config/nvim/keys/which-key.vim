@@ -30,9 +30,6 @@ let g:which_key_map['u'] = ['UndotreeToggle',                                'un
 let g:which_key_map['q'] = ['q',                                             'quit']
 let g:which_key_map['w'] = ['w',                                             "write/save"]
 
-nnoremap <silent> <leader>h :nohlsearch<CR>
-let g:which_key_map['h'] = 'no-highlight'
-
 " A(ction) Mappings
 let g:which_key_map.a = {
       \ 'name': '+action',
