@@ -28,7 +28,6 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'stsewd/fzf-checkout.vim'                                             " git checkout
     Plug 'szw/vim-maximizer'                                                   " window maximizer
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands
-    Plug 'tpope/vim-rhubarb'                                                   " github helper
     Plug 'vim-airline/vim-airline'                                             " status bar
 
     " Misc
