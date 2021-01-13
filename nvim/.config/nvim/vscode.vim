@@ -45,7 +45,7 @@ nnoremap <leader>d <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<
 nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
 nnoremap <leader>f <Cmd>call <SID>organizeFormat()<CR>
 nnoremap <leader>i <Cmd>call VSCodeNotify('workbench.actions.view.problems')<CR>
-nnoremap <leader>o <Cmd>call VSCodeNotify('workbench.action.files.openFile')<CR>
+nnoremap <leader>o <Cmd>call VSCodeNotify('workbench.action.files.openFileFolder')<CR>
 nnoremap <leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
 nnoremap <leader>q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
 nnoremap <leader>w <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
