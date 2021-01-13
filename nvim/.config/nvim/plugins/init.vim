@@ -22,6 +22,7 @@ call plug#begin(stdpath('data') . '/plugged')
     " Tools
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                        " fzf
     Plug 'junegunn/fzf.vim'                                                    " fzf helpers
+    Plug 'junegunn/vim-peekaboo'                                               " show contents of registers
     Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
