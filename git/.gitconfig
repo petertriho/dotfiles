@@ -3,11 +3,13 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [user]
 	name = Peter Ho
 	email = mail@petertriho.com
+
 [pull]
-	rebase = false
+	rebase = true
 
 [core]
 	# Remove when fixed
@@ -20,3 +22,4 @@
 
 [interactive]
 	diffFilter = delta --color-only
+
