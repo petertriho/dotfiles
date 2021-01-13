@@ -19,7 +19,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 let g:which_key_map['/'] = ['<Plug>NERDCommenterToggle',                     'comment']
 let g:which_key_map[';'] = ['Commands',                                      'commands']
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
-let g:which_key_map['|'] = ['<C-w>v',                                        'split-right']
+let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['d'] = ['Bdelete',                                       'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = [':call OrganizeFormat()',                        'organize/format']
