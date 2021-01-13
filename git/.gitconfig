@@ -13,7 +13,7 @@
 	# Remove when fixed
 	# https://github.com/dandavison/delta/issues/359
 	# https://github.com/wfxr/forgit/issues/121
-	pager = delta --side-by-side -w (get_delta_width)
+	pager = bash -c 'delta --side-by-side -w $(get_delta_width)'
 
 [delta]
 	syntax-theme = OneHalfDark
