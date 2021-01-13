@@ -27,6 +27,9 @@ function! s:vscodeCommentary(...) abort
     call VSCodeCallRange('editor.action.commentLine', line1, line2, 0)
 endfunction
 
+nmap <Tab> :Tabnext<CR>
+nmap <S-Tab> :Tabprev<CR>
+
 " map space to leader
 let mapleader = " "
 nnoremap <space> <nop>
