@@ -12,6 +12,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'junegunn/vim-easy-align'  " align things
     Plug 'preservim/nerdcommenter'  " comments
     Plug 'tpope/vim-surround'       " change surrounds e.g. brackets
+    Plug 'tpope/vim-repeat'         " allow vim-surround to repeat with .
 
     " Motion
     Plug 'easymotion/vim-easymotion' " markers to move around
