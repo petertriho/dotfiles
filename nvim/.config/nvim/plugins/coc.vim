@@ -15,7 +15,6 @@ let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-python',
     \ 'coc-sh',
-    \ 'coc-spell-checker',
     \ 'coc-tailwindcss',
     \ 'coc-tsserver',
     \ 'coc-yaml',
