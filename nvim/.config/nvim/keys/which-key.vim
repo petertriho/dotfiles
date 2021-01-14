@@ -29,7 +29,8 @@ let g:which_key_map['o'] = ['Files',                                         'op
 let g:which_key_map['s'] = ['Rg',                                            'search']
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
 let g:which_key_map['q'] = ['q',                                             'quit']
-let g:which_key_map['w'] = ['w',                                             "write/save"]
+let g:which_key_map['w'] = ['w',                                             'write/save']
+let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
 
 " A(ction) Mappings
 let g:which_key_map.a = {
