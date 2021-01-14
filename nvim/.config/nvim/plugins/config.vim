@@ -1,25 +1,29 @@
 " christoomey/vim-tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
 
+" antoinemadec/coc-fzf
+let g:coc_fzf_preview = ''
+let g:coc_fzf_opts = []
+
 " easymotion/vim-easymotion
 let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
 nmap ' <Plug>(easymotion-prefix)
 nmap 'l <Plug>(easymotion-bd-jk)
 
 " luochen1990/rainbow
-let g:rainbow_active = 1 
+let g:rainbow_active = 1
 
 " preservim/nerdcommenter
 let g:NERDCreateDefaultMappings = 0
 
 " simeji/winresizer
-let g:winresizer_start_key = "<M-e>"
+let g:winresizer_start_key = '<M-e>'
 
 " szw/vim-maximizer
 let g:maximizer_set_default_mapping = 0 " disable default bindings
 
 " mbbill/undotree
-if has("persistent_undo")
+if has('persistent_undo')
     set undodir=$HOME/.undodir
     set undofile
 endif

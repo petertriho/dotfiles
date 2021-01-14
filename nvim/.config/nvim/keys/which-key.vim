@@ -24,6 +24,7 @@ let g:which_key_map['d'] = ['Bdelete',                                       'de
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = [':call OrganizeFormat()',                        'organize/format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
+let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all issues/diagnostics']
 let g:which_key_map['o'] = ['Files',                                         'open-file']
 let g:which_key_map['s'] = ['Rg',                                            'search']
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
@@ -50,6 +51,7 @@ let g:which_key_map.g = {
   \ 'b': ['GBranches',                   'branches'],
   \ 'B': [':CocCommand git.browserOpen', 'browse'],
   \ 'c': ['Gcommit',                     'commit'],
+  \ 'i': [':CocFzfList issues',          'issues'],
   \ 'p': ['Gpush',                       'push'],
   \ 'P': ['Gpull',                       'pull'],
   \ 'g': [':diffget //2',                'diff left'],
