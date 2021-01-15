@@ -15,5 +15,8 @@
         "o": ["expandable?", "expand", "open"],
         "<cr>": ["expandable?", "expand", "open"],
         "v": "open:vsplit"
-    }
+    },
+
+    // coc-prettier
+    "prettier.tabWidth": 4
 }
