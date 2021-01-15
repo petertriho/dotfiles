@@ -15,9 +15,10 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'tpope/vim-repeat'         " allow vim-surround to repeat with .
 
     " Motion
-    Plug 'easymotion/vim-easymotion' " markers to move around
-    Plug 'wesQ3/vim-windowswap'      " swap windows
+    Plug 'justinmk/vim-sneak'        " markers to move around
     Plug 'simeji/winresizer'         " window resizer/mover
+    "Plug 'unblevable/quick-scope'    " f/F, t/T motion helpers
+    Plug 'wesQ3/vim-windowswap'      " swap windows
 
     " Tools
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                        " fzf

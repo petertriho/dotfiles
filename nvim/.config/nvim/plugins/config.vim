@@ -1,17 +1,22 @@
-" christoomey/vim-tmux-navigator
-let g:tmux_navigator_disable_when_zoomed = 1
-
 " antoinemadec/coc-fzf
 let g:coc_fzf_preview = ''
 let g:coc_fzf_opts = []
 
-" easymotion/vim-easymotion
-let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
-nmap ' <Plug>(easymotion-prefix)
-nmap 'l <Plug>(easymotion-bd-jk)
+" christoomey/vim-tmux-navigator
+let g:tmux_navigator_disable_when_zoomed = 1
+
+" justinmk/vim-sneak
+let g:sneak#label = 1
+let g:sneak#use_ic_scs = 1
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
+
+" mbbill/undotree
+if has('persistent_undo')
+    set undodir=$HOME/.undodir
+    set undofile
+endif
 
 " preservim/nerdcommenter
 let g:NERDCreateDefaultMappings = 0
@@ -22,11 +27,8 @@ let g:winresizer_start_key = '<M-e>'
 " szw/vim-maximizer
 let g:maximizer_set_default_mapping = 0 " disable default bindings
 
-" mbbill/undotree
-if has('persistent_undo')
-    set undodir=$HOME/.undodir
-    set undofile
-endif
+" unblevable/quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " vim-airline/vim-airline
 let g:airline_theme = 'onedark'
