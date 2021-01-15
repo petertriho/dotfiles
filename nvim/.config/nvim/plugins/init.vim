@@ -17,7 +17,7 @@ call plug#begin(stdpath('data') . '/plugged')
     " Motion
     Plug 'justinmk/vim-sneak'        " markers to move around
     Plug 'simeji/winresizer'         " window resizer/mover
-    "Plug 'unblevable/quick-scope'    " f/F, t/T motion helpers
+    Plug 'unblevable/quick-scope'    " f/F, t/T motion helpers
     Plug 'wesQ3/vim-windowswap'      " swap windows
 
     " Tools

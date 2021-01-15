@@ -28,7 +28,8 @@ let g:winresizer_start_key = '<M-e>'
 let g:maximizer_set_default_mapping = 0 " disable default bindings
 
 " unblevable/quick-scope
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" cannot use ; and , with f/t https://github.com/unblevable/quick-scope/issues/55
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " vim-airline/vim-airline
 let g:airline_theme = 'onedark'
