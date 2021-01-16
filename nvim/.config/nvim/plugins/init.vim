@@ -14,16 +14,19 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'tpope/vim-surround'       " change surrounds e.g. brackets
     Plug 'tpope/vim-repeat'         " allow vim-surround to repeat with .
 
-    " Motion
+    " Motions
     Plug 'justinmk/vim-sneak'        " markers to move around
-    Plug 'simeji/winresizer'         " window resizer/mover
     Plug 'unblevable/quick-scope'    " f/F, t/T motion helpers
+
+    " Windows
+    Plug 'camspiers/lens.vim'        " auto window resizer
+    Plug 'simeji/winresizer'         " window resizer/mover
     Plug 'wesQ3/vim-windowswap'      " swap windows
 
     " Tools
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                        " fzf
     Plug 'junegunn/fzf.vim'                                                    " fzf helpers
-    Plug 'antoinemadec/coc-fzf'                                               " fzf for coc
+    Plug 'antoinemadec/coc-fzf'                                                " fzf for coc
     Plug 'junegunn/vim-peekaboo'                                               " show contents of registers
     Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
