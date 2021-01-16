@@ -21,10 +21,10 @@ nnoremap <silent> <M-k> :resize -2<cr>
 nnoremap <silent> <M-j> :resize +2<cr>
 nnoremap <silent> <M-h> :vertical resize -2<cr>
 nnoremap <silent> <M-l> :vertical resize +2<cr>
-map <M-=> <C-w>= 
+map <M-=> <C-w>=
 
 " Windows - Layout
-nnoremap <silent> <M-m> :MaximizerToggle!<cr>
+nnoremap <silent> <M-f> :MaximizerToggle!<cr>
 
 nnoremap <silent> <M-y> :call WindowSwap#MarkWindowSwap()<cr>
 nnoremap <silent> <M-p> :call WindowSwap#DoWindowSwap()<cr>
