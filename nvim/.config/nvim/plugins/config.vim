@@ -2,6 +2,9 @@
 let g:coc_fzf_preview = ''
 let g:coc_fzf_opts = []
 
+" editorconfig/editorconfig-vim
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 " christoomey/vim-tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
 
