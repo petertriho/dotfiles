@@ -19,7 +19,6 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'unblevable/quick-scope'    " f/F, t/T motion helpers
 
     " Windows
-    Plug 'camspiers/lens.vim'        " auto window resizer
     Plug 'simeji/winresizer'         " window resizer/mover
     Plug 'wesQ3/vim-windowswap'      " swap windows
 
