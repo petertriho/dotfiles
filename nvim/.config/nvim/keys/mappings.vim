@@ -9,8 +9,8 @@ nnoremap <silent> <S-Tab> :bprevious<CR>
 nnoremap <silent> <M-d> :Bdelete<CR>
 
 " Tabs
-nnoremap <silent> <C-n> :tnext<CR>
-nnoremap <silent> <C-p> :tprevious<CR>
+nnoremap <silent> <C-n> :tabnext<CR>
+nnoremap <silent> <C-p> :tabprevious<CR>
 
 " Windows - Navigation
 map <C-j> <C-w>j
