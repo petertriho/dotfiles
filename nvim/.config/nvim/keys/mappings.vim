@@ -4,9 +4,13 @@ let mapleader = "\<Space>"
 nnoremap <Space> <Nop>
 
 " Buffers
-nnoremap <silent> <Tab> :bnext<cr>
-nnoremap <silent> <S-Tab> :bprevious<cr>
-nnoremap <silent> <M-d> :Bdelete<cr>
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprevious<CR>
+nnoremap <silent> <M-d> :Bdelete<CR>
+
+" Tabs
+nnoremap <silent> <C-n> :tnext<CR>
+nnoremap <silent> <C-p> :tprevious<CR>
 
 " Windows - Navigation
 map <C-j> <C-w>j
@@ -16,21 +20,21 @@ map <C-l> <C-w>l
 map <C-\> <C-w>p
 
 " Windows - Resize
-nnoremap <silent> <M-k> :resize -2<cr>
-nnoremap <silent> <M-j> :resize +2<cr>
-nnoremap <silent> <M-h> :vertical resize -2<cr>
-nnoremap <silent> <M-l> :vertical resize +2<cr>
+nnoremap <silent> <M-k> :resize -2<CR>
+nnoremap <silent> <M-j> :resize +2<CR>
+nnoremap <silent> <M-h> :vertical resize -2<CR>
+nnoremap <silent> <M-l> :vertical resize +2<CR>
 map <M-=> <C-w>=
 
 " Windows - Layout
-nnoremap <silent> <M-f> :MaximizerToggle!<cr>
+nnoremap <silent> <M-f> :MaximizerToggle!<CR>
 
-nnoremap <silent> <M-y> :call WindowSwap#MarkWindowSwap()<cr>
-nnoremap <silent> <M-p> :call WindowSwap#DoWindowSwap()<cr>
-nnoremap <silent> <M-w> :call WindowSwap#EasyWindowSwap()<cr>
+nnoremap <silent> <M-y> :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <M-p> :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <M-w> :call WindowSwap#EasyWindowSwap()<CR>
 
-nnoremap <silent> <M-q> :q<cr>
+nnoremap <silent> <M-q> :q<CR>
 
 " Move lines
-vnoremap J :m '>+1<cr>gv=gv
-vnoremap K :m '<-2<cr>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
