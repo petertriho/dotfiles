@@ -2,6 +2,7 @@
 let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-cssmodules',
+    \ 'coc-docker',
     \ 'coc-emoji',
     \ 'coc-eslint',
     \ 'coc-explorer',
