@@ -1,2 +1,2 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 docker run --rm -v "$(pwd):/work" -u "$(id -u):$(id -g)" matejak/argbash "$@"
