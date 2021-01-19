@@ -21,10 +21,10 @@ if status is-interactive
          --follow \
          --no-ignore-vcs \
          --hidden \
-         --glob '!{.git/*,.env/*,__pycache__/*,node_modules/*}'
+         --glob '!{.git/*,.venv/*,__pycache__/*,node_modules/*}'
         "
     set -gx FZF_DEFAULT_OPTS \
-        "--exact 
+        "--exact
          --border \
          --cycle  \
          --reverse \
