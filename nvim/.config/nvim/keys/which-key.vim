@@ -49,7 +49,7 @@ let g:which_key_map.a.l = 'list'
 " G(it) Mappings
 let g:which_key_map.g = {
   \ 'name': '+git',
-  \ 's': ['G',                           'status'],
+  \ 's': [':belowright G',               'status'],
   \ 'b': ['GBranches',                   'branches'],
   \ 'B': [':CocCommand git.browserOpen', 'browse'],
   \ 'c': ['Gcommit',                     'commit'],
