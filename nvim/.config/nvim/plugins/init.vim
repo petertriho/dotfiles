@@ -19,8 +19,8 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'unblevable/quick-scope'    " f/F, t/T motion helpers
 
     " Windows
-    Plug 'simeji/winresizer'         " window resizer/mover
-    Plug 'wesQ3/vim-windowswap'      " swap windows
+    Plug 'simeji/winresizer'    " window resizer/mover
+    Plug 'szw/vim-maximizer'    " window maximizer
 
     " Tools
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                        " fzf
@@ -32,7 +32,6 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree'                                                     " undotree
     Plug 'stsewd/fzf-checkout.vim'                                             " git checkout
-    Plug 'szw/vim-maximizer'                                                   " window maximizer
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands
     Plug 'vim-airline/vim-airline'                                             " status bar
 

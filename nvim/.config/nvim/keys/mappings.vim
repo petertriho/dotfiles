@@ -25,15 +25,7 @@ nnoremap <silent> <M-j> :resize +2<CR>
 nnoremap <silent> <M-h> :vertical resize -2<CR>
 nnoremap <silent> <M-l> :vertical resize +2<CR>
 map <M-=> <C-w>=
-
-" Windows - Layout
 nnoremap <silent> <M-f> :MaximizerToggle!<CR>
-
-nnoremap <silent> <M-y> :call WindowSwap#MarkWindowSwap()<CR>
-nnoremap <silent> <M-p> :call WindowSwap#DoWindowSwap()<CR>
-nnoremap <silent> <M-w> :call WindowSwap#EasyWindowSwap()<CR>
-
-nnoremap <silent> <M-q> :q<CR>
 
 " Move lines
 vnoremap J :m '>+1<CR>gv=gv
