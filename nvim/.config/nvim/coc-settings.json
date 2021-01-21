@@ -3,6 +3,12 @@
     "diagnostic.warningSign": "",
     "diagnostic.infoSign": "",
 
+    // coc-diagnostic
+    "diagnostic-languageserver.filetypes": {
+        "sh": "shellcheck",
+        "dockerfile": "hadolint"
+    },
+
     // coc-emoji
     "coc.source.emoji.filetypes": ["markdown"],
 
@@ -18,5 +24,8 @@
     },
 
     // coc-prettier
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+
+    // coc-sh
+    "sh.highlightParsingErrors": false
 }
