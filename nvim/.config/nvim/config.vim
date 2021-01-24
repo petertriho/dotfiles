@@ -24,16 +24,3 @@ set mouse=a                    " enable mouse
 set nowrap                     " disable line wrapping
 
 set colorcolumn=80             " max column line
-
-let g:clipboard = {
-  \ 'name': 'pbcopy',
-  \ 'copy': {
-  \    '+': 'pbcopy',
-  \    '*': 'pbcopy',
-  \  },
-  \ 'paste': {
-  \    '+': 'pbpaste',
-  \    '*': 'pbpaste',
-  \ },
-  \ 'cache_enabled': 0,
-  \ }
