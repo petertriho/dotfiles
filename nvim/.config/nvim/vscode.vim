@@ -1,6 +1,6 @@
 call plug#begin(stdpath('data') . '/vscode')
     Plug 'asvetliakov/vim-easymotion'
-    Plug 'tpope/vim-surround'
+    Plug 'machakann/vim-sandwich'
 call plug#end()
 
 set clipboard+=unnamedplus " yank to clipboard
