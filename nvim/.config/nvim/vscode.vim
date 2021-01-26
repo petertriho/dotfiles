@@ -1,6 +1,7 @@
 call plug#begin(stdpath('data') . '/vscode')
     Plug 'asvetliakov/vim-easymotion'
     Plug 'machakann/vim-sandwich'
+    Plug 'unblevable/quick-scope'
 call plug#end()
 
 set clipboard+=unnamedplus " yank to clipboard
@@ -8,6 +9,14 @@ set clipboard+=unnamedplus " yank to clipboard
 let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
 nmap ' <Plug>(easymotion-prefix)
 nmap 'l <Plug>(easymotion-bd-jk)
+
+highlight OperatorSandwichBuns guifg='#aa91a0' gui=underline ctermfg=172 cterm=underline
+highlight OperatorSandwichChange guifg='#edc41f' gui=underline ctermfg='yellow' cterm=underline
+highlight OperatorSandwichAdd guibg='#b1fa87' gui=none ctermbg='green' cterm=none
+highlight OperatorSandwichDelete guibg='#cf5963' gui=none ctermbg='red' cterm=none
+
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 
 function! s:organizeFormat()
     call VSCodeNotify('editor.action.organizeImports')
