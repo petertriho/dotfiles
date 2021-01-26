@@ -36,14 +36,15 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'vim-airline/vim-airline'                                             " status bar
 
     " Misc
-    Plug 'editorconfig/editorconfig-vim'      " editorconfig
-    Plug 'moll/vim-bbye'                      " better buffer delete/wipeout
-    Plug 'psliwka/vim-smoothie'               " smooth scrolling
-    Plug 'romainl/vim-cool'                   " automatically disables search highlighing
-    Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
-    Plug 'tmux-plugins/vim-tmux-focus-events' " tmux focus events
-    Plug 'tpope/vim-sensible'                 " sensible config
-    Plug 'vim-scripts/BufOnly.vim'            " close all buffers except current
+    Plug 'editorconfig/editorconfig-vim'                        " editorconfig
+    Plug 'moll/vim-bbye'                                        " better buffer delete/wipeout
+    Plug 'psliwka/vim-smoothie',
+        \ { 'tag': '0c1696a9b3b8db8cdb567a5fe8b9d6d27e118c0b' } " smooth scrolling
+    Plug 'romainl/vim-cool'                                     " automatically disables search highlighing
+    Plug 'roxma/vim-tmux-clipboard'                             " vim-tmux clipboard sync
+    Plug 'tmux-plugins/vim-tmux-focus-events'                   " tmux focus events
+    Plug 'tpope/vim-sensible'                                   " sensible config
+    Plug 'vim-scripts/BufOnly.vim'                              " close all buffers except current
 call plug#end()
 
 source $HOME/.config/nvim/plugins/theme.vim
