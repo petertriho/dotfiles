@@ -54,8 +54,8 @@ let g:which_key_map.g = {
   \ 'B': [':CocCommand git.browserOpen', 'browse'],
   \ 'c': ['Gcommit',                     'commit'],
   \ 'i': [':CocFzfList issues',          'issues'],
-  \ 'p': ['Gpush',                       'push'],
-  \ 'P': ['Gpull',                       'pull'],
+  \ 'p': ['Gpull',                       'pull'],
+  \ 'P': ['Gpush',                       'push'],
   \ 'g': [':diffget //2',                'diff left'],
   \ 'h': [':diffget //3',                'diff right']
   \ }
