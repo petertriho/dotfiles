@@ -10,9 +10,9 @@ call plug#begin(stdpath('data') . '/plugged')
     " Text Helpers
     Plug 'AndrewRadev/tagalong.vim' " automatically change html tags
     Plug 'junegunn/vim-easy-align'  " align things
+    Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets
+    Plug 'mattn/emmet-vim'          " emmet
     Plug 'preservim/nerdcommenter'  " comments
-    Plug 'tpope/vim-surround'       " change surrounds e.g. brackets
-    Plug 'tpope/vim-repeat'         " allow vim-surround to repeat with .
 
     " Motions
     Plug 'justinmk/vim-sneak'        " markers to move around

@@ -11,6 +11,8 @@ let g:tmux_navigator_disable_when_zoomed = 1
 " justinmk/vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
+map ss <Plug>Sneak_s
+map sS <Plug>Sneak_S
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
