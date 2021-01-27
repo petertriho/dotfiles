@@ -21,6 +21,7 @@ let g:which_key_map[';'] = ['Commands',                                      'co
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
+let g:which_key_map['b'] = ['Twiggy',                                        'git-branches']
 let g:which_key_map['d'] = ['Bwipeout',                                      'wipeout-buffer']
 let g:which_key_map['D'] = ['Bdelete',                                       'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
@@ -51,7 +52,7 @@ let g:which_key_map.a.l = 'list'
 let g:which_key_map.g = {
   \ 'name': '+git',
   \ 's': [':belowright G',               'status'],
-  \ 'b': ['GBranches',                   'branches'],
+  \ 'b': ['Twiggy',                      'branches'],
   \ 'B': [':CocCommand git.browserOpen', 'browse'],
   \ 'c': ['Gcommit',                     'commit'],
   \ 'i': [':CocFzfList issues',          'issues'],

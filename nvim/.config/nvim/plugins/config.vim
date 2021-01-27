@@ -29,6 +29,9 @@ let g:NERDCreateDefaultMappings = 0
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
 
+" sodapopcan/vim-twiggy
+set shell=bash
+
 " szw/vim-maximizer
 let g:maximizer_set_default_mapping = 0 " disable default bindings
 
