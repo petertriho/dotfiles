@@ -28,7 +28,7 @@ map <M-=> <C-w>=
 nnoremap <silent> <M-f> :MaximizerToggle!<CR>
 
 " Move lines
-nnoremap J :m .+1<CR>==
-nnoremap K :m .-2<CR>==
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+nnoremap <silent> J :m .+1<CR>==
+nnoremap <silent> K :m .-2<CR>==
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
