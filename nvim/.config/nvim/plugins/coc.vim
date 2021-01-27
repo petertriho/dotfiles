@@ -157,6 +157,7 @@ endfunction
 
 " Taken from vim-easytree plugin, and changed to use coc-explorer
 augroup CocExplorerDefault
+    autocmd!
     autocmd VimEnter * call <SID>DisableFileExplorer()
     autocmd VimEnter * call <SID>OpenDirHere(expand('<amatch>'))
 augroup end
