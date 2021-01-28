@@ -8,17 +8,16 @@
 
 - MacOS (homebrew): `brew install stow`
 - Arch (pacman): `sudo pacman -S stow`
+- Ubuntu (apt): `sudo apt install stow`
 
 ### Instructions
 
-1. `mkdir -p ~/.dotfiles`
-2. `git clone https://github.com/petertriho/dotfiles.git ~/.dotfiles`
-3. `stow --no-folding -t ~ */`
+1. `git clone https://github.com/petertriho/dotfiles.git ~/.dotfiles`
+2. `stow --no-folding -t ~ */`
 
 ## Software
 
 - [Bat](https://github.com/sharkdp/bat)
-- [Delta](https://github.com/dandavison/delta)
 - [Fish Shell](https://fishshell.com/)
 - [Kitty Terminal](#kitty-terminal)
 - [Neovim](https://neovim.io/)
