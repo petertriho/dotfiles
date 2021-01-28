@@ -8,6 +8,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'sheerun/vim-polyglot'                               " syntax highlighting
 
     " Text Helpers
+    Plug 'alvan/vim-closetag'       " auto close html tags
     Plug 'AndrewRadev/tagalong.vim' " automatically change html tags
     Plug 'junegunn/vim-easy-align'  " align things
     Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets

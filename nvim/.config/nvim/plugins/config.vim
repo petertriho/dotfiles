@@ -1,3 +1,6 @@
+" alvan/vim-closetag
+let g:closetag_filenames = '*.html,*.jsx,*.tsx'
+
 " antoinemadec/coc-fzf
 let g:coc_fzf_preview = ''
 let g:coc_fzf_opts = []
