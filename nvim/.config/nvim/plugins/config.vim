@@ -8,9 +8,6 @@ let g:coc_fzf_opts = []
 " editorconfig/editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" christoomey/vim-tmux-navigator
-let g:tmux_navigator_disable_when_zoomed = 1
-
 " justinmk/vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
@@ -55,7 +52,4 @@ let g:airline_extensions = [
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#hunks#coc_git = 1
-
-" wesQ3/vim-windowsnap
-let g:windowswap_map_keys = 0 " disable default bindings
 
