@@ -23,7 +23,6 @@ let g:which_key_map['\'] = ['<C-w>v',                                        'sp
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
 let g:which_key_map['b'] = ['Twiggy',                                        'git-branches']
 let g:which_key_map['d'] = ['Bwipeout',                                      'wipeout-buffer']
-let g:which_key_map['D'] = ['Bdelete',                                       'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = [':call OrganizeFormat()',                        'organize/format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
@@ -34,6 +33,9 @@ let g:which_key_map['u'] = ['UndotreeToggle',                                'un
 let g:which_key_map['q'] = ['q',                                             'quit']
 let g:which_key_map['w'] = ['w',                                             'write/save']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
+
+nnoremap <silent> <leader>D :bufdo :Bwipeout<CR>
+let g:which_key_map.D = 'delete-all-buffers'
 
 " A(ction) Mappings
 let g:which_key_map.a = {
@@ -61,6 +63,17 @@ let g:which_key_map.g = {
   \ 'g': [':diffget //2',                'diff left'],
   \ 'h': [':diffget //3',                'diff right']
   \ }
+
+let g:which_key_map.1 = 'which_key_ignore'
+let g:which_key_map.2 = 'which_key_ignore'
+let g:which_key_map.3 = 'which_key_ignore'
+let g:which_key_map.4 = 'which_key_ignore'
+let g:which_key_map.5 = 'which_key_ignore'
+let g:which_key_map.6 = 'which_key_ignore'
+let g:which_key_map.7 = 'which_key_ignore'
+let g:which_key_map.8 = 'which_key_ignore'
+let g:which_key_map.9 = 'which_key_ignore'
+let g:which_key_map.0 = 'which_key_ignore'
 
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
