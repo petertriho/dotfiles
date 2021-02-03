@@ -41,3 +41,5 @@ set -gx COMPOSE_DOCKER_CLI_BUILD 1
 
 set -g fish_user_paths "$HOME/.local/bin" $fish_user_paths
 
+set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/openssl/include"
