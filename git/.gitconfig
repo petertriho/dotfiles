@@ -9,7 +9,7 @@
 	email = mail@petertriho.com
 
 [pull]
-	rebase = true
+	rebase = false
 
 [core]
 	# Remove when fixed
