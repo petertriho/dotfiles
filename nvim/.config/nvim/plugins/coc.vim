@@ -92,6 +92,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent> gh :call <SID>show_hover()<CR>
+nnoremap <silent> K :call <SID>show_hover()<CR>
 
 function! s:show_hover()
     if (index(['vim','help'], &filetype) >= 0)
