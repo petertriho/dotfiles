@@ -27,6 +27,7 @@ let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'ex
 let g:which_key_map['f'] = [':call OrganizeFormat()',                        'organize/format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
 let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all-issues/diagnostics']
+let g:which_key_map['l'] = [':copen',                                        'quickfix-list']
 let g:which_key_map['o'] = ['Files',                                         'open-file']
 let g:which_key_map['s'] = ['Rg',                                            'search']
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
