@@ -17,16 +17,16 @@
         "recursive",
         "recursiveSingle"
     ],
-    "explorer.width": 30,
-    "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
-    "explorer.icon.enableNerdfont": true,
+    "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root] [fullpath]",
     "explorer.file.showHiddenFiles": true,
+    "explorer.git.enable": false,
+    "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings.global": {
         "o": ["expandable?", "expand", "open"],
         "<cr>": ["expandable?", "expand", "open"],
         "v": "open:vsplit"
     },
-    "explorer.git.enable": false,
+    "explorer.width": 30,
 
     // coc-git
     "git.enableGutters": false,
