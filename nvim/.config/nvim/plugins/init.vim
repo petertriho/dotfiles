@@ -3,9 +3,9 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'joshdick/onedark.vim'
 
     " Language/Syntax Highlighting
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}           " code completion
-    Plug 'luochen1990/rainbow'                                " rainbow brackets
-    Plug 'sheerun/vim-polyglot'                               " syntax highlighting
+    Plug 'neoclide/coc.nvim', {'branch': 'release'} " code completion
+    Plug 'luochen1990/rainbow'                      " rainbow brackets
+    Plug 'sheerun/vim-polyglot'                     " syntax highlighting
 
     " Text Helpers
     Plug 'alvan/vim-closetag'       " auto close html tags
@@ -15,17 +15,17 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'preservim/nerdcommenter'  " comments
 
     " Motions
-    Plug 'justinmk/vim-sneak'        " markers to move around
-    Plug 'unblevable/quick-scope'    " f/F, t/T motion helpers
+    Plug 'justinmk/vim-sneak'     " markers to move around
+    Plug 'unblevable/quick-scope' " f/F, t/T motion helpers
 
     " Windows
-    Plug 'simeji/winresizer'    " window resizer/mover
-    Plug 'szw/vim-maximizer'    " window maximizer
+    Plug 'simeji/winresizer' " window resizer/mover
+    Plug 'szw/vim-maximizer' " window maximizer
 
     " Tools
+    Plug 'antoinemadec/coc-fzf'                                                " fzf for coc
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                        " fzf
     Plug 'junegunn/fzf.vim'                                                    " fzf helpers
-    Plug 'antoinemadec/coc-fzf'                                                " fzf for coc
     Plug 'junegunn/vim-peekaboo'                                               " show contents of registers
     Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
