@@ -17,7 +17,7 @@
         "recursive",
         "recursiveSingle"
     ],
-    "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root] [fullpath]",
+    "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root]",
     "explorer.file.showHiddenFiles": true,
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings.global": {
