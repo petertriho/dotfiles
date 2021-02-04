@@ -26,6 +26,11 @@
         "<cr>": ["expandable?", "expand", "open"],
         "v": "open:vsplit"
     },
+    "explorer.git.enable": false,
+
+    // coc-git
+    "git.enableGutters": false,
+    "git.realtimeGutters": false,
 
     // coc-prettier
     "prettier.tabWidth": 4,

@@ -163,4 +163,4 @@ augroup end
 " coc-git
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
-autocmd CursorHold * CocCommand git.refresh
+"autocmd CursorHold * CocCommand git.refresh

@@ -46,11 +46,9 @@ let g:airline_extensions = [
             \ 'branch',
             \ 'coc',
             \ 'fugitiveline',
-            \ 'hunks',
             \ 'tabline',
             \ ]
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#formatter = 'jsformatter'
-let g:airline#extensions#hunks#coc_git = 1
 
