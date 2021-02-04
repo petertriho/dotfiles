@@ -106,13 +106,13 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder.
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+"augroup mygroup
+    "autocmd!
+    "" Setup formatexpr specified filetype(s).
+    "autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    "" Update signature help on jump placeholder.
+    "autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"augroup end
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
@@ -163,4 +163,8 @@ augroup end
 " coc-git
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
-autocmd CursorHold * CocCommand git.refresh
+augroup cocgit
+    autocmd!
+    autocmd CursorHold * CocCommand git.refresh
+augroup end
+

@@ -29,6 +29,9 @@ let g:NERDCreateDefaultMappings = 0
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
 
+" skywind3000/asyncrun.vim
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
 " sodapopcan/vim-twiggy
 set shell=bash
 

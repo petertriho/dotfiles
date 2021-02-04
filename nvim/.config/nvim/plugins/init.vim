@@ -32,7 +32,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree'                                                     " undotree
     Plug 'sodapopcan/vim-twiggy'                                               " git branches
-    Plug 'tpope/vim-dispatch'                                                  " background tasks
+    Plug 'skywind3000/asyncrun.vim'                                            " async tasks
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands
     Plug 'vim-airline/vim-airline'                                             " status bar
 
