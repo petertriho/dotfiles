@@ -27,10 +27,6 @@
     },
     "explorer.width": 30,
 
-    // coc-git
-    "git.enableGutters": false,
-    "git.realtimeGutters": false,
-
     // coc-prettier
     "prettier.tabWidth": 4,
 
