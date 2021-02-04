@@ -19,7 +19,6 @@
     ],
     "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root] [fullpath]",
     "explorer.file.showHiddenFiles": true,
-    "explorer.git.enable": false,
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings.global": {
         "o": ["expandable?", "expand", "open"],
