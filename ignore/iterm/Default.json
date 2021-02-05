@@ -1,4 +1,5 @@
 {
+  "Working Directory" : "\/Users\/trihonometry",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
     "Green Component" : 0.8579363226890564,
@@ -43,6 +44,7 @@
     "telnet"
   ],
   "Scrollback Lines" : 1000,
+  "Draw Powerline Glyphs" : true,
   "Flashing Bell" : false,
   "Cursor Guide Color" : {
     "Red Component" : 0.70213186740875244,
@@ -344,7 +346,7 @@
     "Blue Component" : 0.1818375289440155
   },
   "Use Bold Font" : true,
-  "Silence Bell" : false,
+  "Silence Bell" : true,
   "Ansi 12 Color" : {
     "Green Component" : 0.50448882579803467,
     "Red Component" : 0.061654355376958847,
@@ -400,7 +402,7 @@
   "AWDS Pane Directory" : "",
   "Blur" : false,
   "Vertical Spacing" : 1,
-  "Normal Font" : "FiraCodeNerdFontComplete-Regular 16",
+  "Normal Font" : "JetBrainsMonoNerdFontComplete-Medium 16",
   "Ansi 7 Color" : {
     "Green Component" : 0.8579363226890564,
     "Red Component" : 0.84028750658035278,
@@ -408,8 +410,8 @@
   },
   "Place Prompt at First Column" : false,
   "AWDS Tab Directory" : "",
-  "AWDS Pane Option" : "No",
-  "Command" : "",
+  "AWDS Pane Option" : "Recycle",
+  "Command" : "\/bin\/bash",
   "Terminal Type" : "xterm-256color",
   "Horizontal Spacing" : 1,
   "Option Key Sends" : 2,
@@ -419,6 +421,7 @@
     "Red Component" : 1,
     "Blue Component" : 1
   },
+  "Unicode Version" : 9,
   "Ansi 6 Color" : {
     "Green Component" : 0.50448882579803467,
     "Red Component" : 0.061654355376958847,
@@ -432,6 +435,7 @@
   },
   "Screen" : -1,
   "AWDS Window Option" : "No",
+  "Initial Use Transparency" : false,
   "Non Ascii Font" : "Monaco 12",
   "Allow Paste Bracketing" : false,
   "Ansi 13 Color" : {
@@ -442,7 +446,7 @@
   "Columns" : 80,
   "Visual Bell" : true,
   "Custom Directory" : "Advanced",
-  "ASCII Ligatures" : false,
+  "ASCII Ligatures" : true,
   "Ansi 5 Color" : {
     "Green Component" : 0.35215187072753906,
     "Red Component" : 0.30770933628082275,
