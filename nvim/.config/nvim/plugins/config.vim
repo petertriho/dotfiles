@@ -50,6 +50,7 @@ let g:maximizer_set_default_mapping = 0 " disable default bindings
 
 " vim-airline/vim-airline
 let g:airline_theme = 'onedark'
+let g:airline_highlighting_cache = 1
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = [
             \ 'branch',
