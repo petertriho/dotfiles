@@ -25,6 +25,7 @@ let g:which_key_map['d'] = ['Bwipeout',                                      'wi
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = [':call OrganizeFormat()',                        'organize/format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
+let g:which_key_map['j'] = [':botright G',                                   'git-status']
 let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all-issues/diagnostics']
 let g:which_key_map['l'] = [':call asyncrun#quickfix_toggle(8)',             'quickfix-list']
 let g:which_key_map['o'] = ['Files',                                         'open-file']
@@ -53,15 +54,15 @@ let g:which_key_map.a.l = 'list'
 " G(it) Mappings
 let g:which_key_map.g = {
   \ 'name': '+git',
-  \ 's': [':belowright G',               'status'],
+  \ 's': [':botright G',                 'status'],
   \ 'b': ['Twiggy',                      'branches'],
   \ 'B': [':CocCommand git.browserOpen', 'browse'],
   \ 'c': ['Gcommit',                     'commit'],
   \ 'i': [':CocFzfList issues',          'issues'],
   \ 'p': ['Gpull',                       'pull'],
   \ 'P': ['Gpush',                       'push'],
-  \ 'g': [':diffget //2',                'diff left'],
-  \ 'h': [':diffget //3',                'diff right']
+  \ 'g': [':diffget //2',                'diff-left'],
+  \ 'h': [':diffget //3',                'diff-right']
   \ }
 
 let g:which_key_map.1 = 'which_key_ignore'
