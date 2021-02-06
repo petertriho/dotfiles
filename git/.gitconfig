@@ -17,6 +17,9 @@
 	# https://github.com/wfxr/forgit/issues/121
 	pager = bash -c 'delta --side-by-side -w $(get_delta_width)'
 
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
 [delta]
 	syntax-theme = OneHalfDark
 
