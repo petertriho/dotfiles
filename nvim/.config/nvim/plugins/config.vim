@@ -34,8 +34,13 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
 augroup asyncrun
     autocmd!
-    " automate opening quickfix window when AsyncRun starts (won't be triggered by other quickfix commands)
-    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+    " only show quickfix when error
+    autocmd User AsyncRunStop
+                  \ if g:asyncrun_status=='failure' |
+                  \   execute('call asyncrun#quickfix_toggle(8, 1)') |
+                  \ else |
+                  \   execute('call asyncrun#quickfix_toggle(8, 0)') |
+                  \ endif
 augroup end
 
 " sodapopcan/vim-twiggy
