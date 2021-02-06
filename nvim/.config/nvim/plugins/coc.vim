@@ -138,10 +138,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-function! OrganizeFormat()
-  call CocAction('format')
-endfunction
-
 " Make coc-explorer default
 function! s:DisableFileExplorer()
     au! FileExplorer
@@ -149,7 +145,7 @@ endfunction
 
 function! s:OpenDirHere(dir)
     if isdirectory(a:dir)
-	exec "silent CocCommand explorer --toggle --sources=file+ " . a:dir
+        exec "silent CocCommand explorer --toggle --sources=file+ " . a:dir
     endif
 endfunction
 

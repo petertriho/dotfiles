@@ -18,11 +18,6 @@ highlight OperatorSandwichDelete guibg='#e06c75' gui=none ctermbg='red' cterm=no
 highlight QuickScopePrimary guifg='#98c379' gui=underline ctermfg='green' cterm=underline
 highlight QuickScopeSecondary guifg='#e06c75' gui=underline ctermfg='red' cterm=underline
 
-function! s:organizeFormat()
-    call VSCodeNotify('editor.action.organizeImports')
-    call VSCodeNotify('editor.action.format')
-endfunction
-
 nmap <Tab> :Tabnext<CR>
 nmap <S-Tab> :Tabprev<CR>
 
@@ -30,22 +25,24 @@ nmap <S-Tab> :Tabprev<CR>
 let mapleader = " "
 nnoremap <space> <nop>
 
-nmap <leader>/ <Plug>VSCodeCommentaryLine
-xmap <leader>/ <Plug>VSCodeCommentary
+nmap <leader>c <Plug>VSCodeCommentaryLine
+xmap <leader>c <Plug>VSCodeCommentary
 
 nnoremap <C-Space> <Cmd>call VSCodeNotify('editor.action.triggerSuggest')<CR>
 
+nnoremap <leader>/ <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>- <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
 nnoremap <leader>\ <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
 nnoremap <leader>d <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
 nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
-nnoremap <leader>f <Cmd>call <SID>organizeFormat()<CR>
+nnoremap <leader>f <Cmd>call VSCodeNotify('editor.action.format')<CR>
 nnoremap <leader>i <Cmd>call VSCodeNotify('workbench.actions.view.problems')<CR>
-nnoremap <leader>o <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
+nnoremap <leader>o <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
 nnoremap <leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
 nnoremap <leader>q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
 nnoremap <leader>w <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
 
+nnoremap <leader>af <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nnoremap <leader>al <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
 
 " Navigation
