@@ -17,6 +17,7 @@ let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-pyright',
     \ 'coc-sh',
+    \ 'coc-tabnine',
     \ 'coc-tailwindcss',
     \ 'coc-tsserver',
     \ 'coc-yaml',
