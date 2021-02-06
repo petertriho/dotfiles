@@ -9,6 +9,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
     " Text Helpers
     Plug 'alvan/vim-closetag'       " auto close html tags
+    Plug 'AndrewRadev/tagalong.vim' " change html tags
     Plug 'junegunn/vim-easy-align'  " align things
     Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets
     Plug 'mattn/emmet-vim'          " emmet

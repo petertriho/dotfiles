@@ -26,3 +26,5 @@
 [interactive]
 	diffFilter = delta --color-only
 
+[fetch]
+	prune = true
