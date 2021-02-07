@@ -5,6 +5,7 @@ call plug#begin(stdpath('data') . '/vscode')
 call plug#end()
 
 set clipboard+=unnamedplus " yank to clipboard
+set lazyredraw             " speed up macros
 
 let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
 nmap ' <Plug>(easymotion-prefix)
