@@ -25,5 +25,8 @@ endif
 " Theme
 syntax on
 set background=dark
+let g:onedark_color_overrides = {
+            \ "cursor_grey": { "gui": "#1B1F25", "cterm": "236", "cterm16": "8" }
+            \}
 colorscheme onedark
 
