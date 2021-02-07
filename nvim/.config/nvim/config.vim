@@ -24,6 +24,7 @@ set mouse=a                    " enable mouse
 set nowrap                     " disable line wrapping
 
 set colorcolumn=80             " max column line
+set cursorline                 " highlight current line
 
 set noshowmode                 " disable mode indicator
 set timeoutlen=500             " speed up mapping delays
