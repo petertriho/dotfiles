@@ -42,7 +42,8 @@ let g:which_key_map.D = 'delete-all-buffers'
 " A(ction) Mappings
 let g:which_key_map.a = {
       \ 'name': '+action',
-      \ 'f': ['<Plug>(coc-fix-current)', 'fix']
+      \ 'f': ['<Plug>(coc-fix-current)', 'fix'],
+      \ 'r': ['<Plug>(coc-rename)',      'rename']
       \ }
 
 nmap <leader>aa <Plug>(EasyAlign)
