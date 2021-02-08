@@ -27,6 +27,13 @@
     },
     "explorer.width": 30,
 
+    // coc-git
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+
     // coc-prettier
     "prettier.tabWidth": 4,
 
