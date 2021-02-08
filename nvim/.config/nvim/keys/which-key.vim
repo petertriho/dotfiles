@@ -20,13 +20,14 @@ let g:which_key_map[';'] = ['Commands',                                      'co
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
+let g:which_key_map['A'] = ['<Plug>(coc-codeaction)',                        'codeaction']
 let g:which_key_map['b'] = ['Twiggy',                                        'git-branches']
 let g:which_key_map['c'] = ['<Plug>NERDCommenterToggle',                     'comment']
 let g:which_key_map['d'] = ['Bwipeout',                                      'wipeout-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = ['Format',                                        'format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
-let g:which_key_map['j'] = [':botright 10sp|0G',                                   'git-status']
+let g:which_key_map['j'] = [':botright 10sp|0G',                             'git-status']
 let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all-issues/diagnostics']
 let g:which_key_map['l'] = [':call asyncrun#quickfix_toggle(8)',             'quickfix-list']
 let g:which_key_map['o'] = ['OR',                                            'organize-imports']
@@ -50,13 +51,17 @@ nmap <leader>aa <Plug>(EasyAlign)
 xmap <leader>aa <Plug>(EasyAlign)
 let g:which_key_map.a.a = 'align'
 
+xmap <leader>ac  <Plug>(coc-codeaction-selected)
+nmap <leader>ac  <Plug>(coc-codeaction-selected)
+let g:which_key_map.a.c = 'codeaction'
+
 nmap <leader>al v<Plug>(coc-codeaction-selected)<esc>
 let g:which_key_map.a.l = 'list'
 
 " G(it) Mappings
 let g:which_key_map.g = {
   \ 'name': '+git',
-  \ 's': [':botright 10sp|0G',                 'status'],
+  \ 's': [':botright 10sp|0G',           'status'],
   \ 'b': ['Twiggy',                      'branches'],
   \ 'B': [':CocCommand git.browserOpen', 'browse'],
   \ 'c': ['Gcommit',                     'commit'],
