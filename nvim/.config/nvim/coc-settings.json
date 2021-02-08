@@ -38,5 +38,12 @@
     "prettier.tabWidth": 4,
 
     // coc-sh
-    "sh.highlightParsingErrors": false
+    "sh.highlightParsingErrors": false,
+
+    // coc-tabnine
+    "tabnine.priority": 60,
+
+    // coc-yank
+    "yank.highlight.duration": 200,
+    "yank.priority": 50,
 }
