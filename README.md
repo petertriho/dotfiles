@@ -35,6 +35,7 @@
 - [franciscolourenco/done](https://github.com/franciscolourenco/done)
 - [wfxr/forgit](https://github.com/wfxr/forgit)
 - [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
+- [sharkdp/vivid](https://github.com/sharkdp/vivid)
 
 ### Kitty Terminal
 
