@@ -29,7 +29,10 @@ if status is-interactive
          --cycle  \
          --reverse \
          --height '80%' \
-         --bind 'alt-j:preview-down,alt-k:preview-up,alt-a:select-all,alt-d:deselect-all'
+         --bind 'alt-j:preview-down,alt-k:preview-up,alt-a:select-all,alt-d:deselect-all' \
+         --color=dark \
+         --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe \
+         --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
         "
     set -gx FORGIT_FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
 end
