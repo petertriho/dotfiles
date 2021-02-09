@@ -27,7 +27,7 @@ let g:which_key_map['d'] = ['Bwipeout',                                      'wi
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = ['Format',                                        'format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
-let g:which_key_map['j'] = [':botright 10sp|0G',                             'git-status']
+let g:which_key_map['j'] = [':botright 20sp|0G',                             'git-status']
 let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all-issues/diagnostics']
 let g:which_key_map['l'] = [':call asyncrun#quickfix_toggle(8)',             'quickfix-list']
 let g:which_key_map['o'] = ['OR',                                            'organize-imports']
@@ -63,7 +63,7 @@ let g:which_key_map.a.l = 'list'
 " G(it) Mappings
 let g:which_key_map.g = {
   \ 'name': '+git',
-  \ 's': [':botright 10sp|0G',           'status'],
+  \ 's': [':botright 20sp|0G',           'status'],
   \ 'b': ['Twiggy',                      'branches'],
   \ 'B': [':CocCommand git.browserOpen', 'browse'],
   \ 'c': ['Gcommit',                     'commit'],
