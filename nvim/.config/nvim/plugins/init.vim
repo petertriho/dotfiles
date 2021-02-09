@@ -20,8 +20,9 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'unblevable/quick-scope' " f/F, t/T motion helpers
 
     " Windows
-    Plug 'simeji/winresizer' " window resizer/mover
-    Plug 'szw/vim-maximizer' " window maximizer
+    Plug 'camspiers/lens.vim' " automatic window resizer
+    Plug 'simeji/winresizer'  " window resizer/mover
+    Plug 'szw/vim-maximizer'  " window maximizer
 
     " Tools
     Plug 'antoinemadec/coc-fzf'                                                " fzf for coc
