@@ -31,6 +31,13 @@
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
 
+    // coc-markdownlint
+    "markdownlint.config": {
+        "MD013": false,
+        "MD024": false,
+        "MD030": false
+    },
+
     // coc-prettier
     "prettier.tabWidth": 4,
 
