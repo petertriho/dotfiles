@@ -42,7 +42,7 @@
 #### Dependencies
 
 - [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes)
-`ln -s ~/.config/kitty/kitty-themes/themes/Brogrammer.conf ~/.config/kitty/theme.conf`
+`ln -s ~/.config/kitty/kitty-themes/themes/OneDark.conf ~/.config/kitty/theme.conf`
 
 ### Neovim
 
