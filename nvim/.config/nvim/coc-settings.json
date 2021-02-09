@@ -13,10 +13,7 @@
     "coc.source.emoji.filetypes": ["markdown"],
 
     // coc-explorer
-    "explorer.autoExpandOptions": [
-        "recursive",
-        "recursiveSingle"
-    ],
+    "explorer.autoExpandOptions": ["recursive", "recursiveSingle"],
     "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root]",
     "explorer.file.showHiddenFiles": true,
     "explorer.icon.enableNerdfont": true,
@@ -37,6 +34,9 @@
     // coc-prettier
     "prettier.tabWidth": 4,
 
+    // coc-pyright
+    "python.formatting.provider": "black",
+
     // coc-sh
     "sh.highlightParsingErrors": false,
 
@@ -45,5 +45,5 @@
 
     // coc-yank
     "yank.highlight.duration": 200,
-    "yank.priority": 50,
+    "yank.priority": 50
 }
