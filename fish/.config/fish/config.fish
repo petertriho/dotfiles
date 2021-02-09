@@ -31,9 +31,9 @@ if status is-interactive
          --height '80%' \
          --bind 'alt-j:preview-down,alt-k:preview-up,alt-a:select-all,alt-d:deselect-all' \
          --color=dark \
-         --color=bg+:#1f1f1f,bg:-1,spinner:#ecba0f,hl:#5350b9 \
+         --color=bg+:#1f1f1f,bg:-1,spinner:#ecba0f,hl:#f3bd09 \
          --color=fg:-1,header:#5350b9,info:#f3bd09,pointer:#1dd361 \
-         --color=marker:#de352e,fg+:#1081d6,prompt:#1dd361,hl+:#5350b9
+         --color=marker:#de352e,fg+:#1081d6,prompt:#1dd361,hl+:#f3bd09
         "
     set -gx FORGIT_FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
 end
