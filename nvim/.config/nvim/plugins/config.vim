@@ -5,10 +5,6 @@ let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 let g:coc_fzf_preview = ''
 let g:coc_fzf_opts = []
 
-" camspiers/lens.vim
-let g:lens#animate = 0
-let g:lens#disabled_filetypes = ['coc-explorer', 'fugitive', 'fzf']
-
 " editorconfig/editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
