@@ -7,7 +7,7 @@ let g:coc_fzf_opts = []
 
 " camspiers/lens.vim
 let g:lens#animate = 0
-let g:lens#disabled_filetypes = ['fzf', 'coc-explorer']
+let g:lens#disabled_filetypes = ['coc-explorer', 'fugitive', 'fzf']
 
 " editorconfig/editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
