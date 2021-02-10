@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+if [ "$(which brew)" ]; then
+    echo "Updating homebrew packages ..."
+    brew update && brew upgrade
+fi
+
+if [ "$(which asdf)" ]; then
+    echo "Updating asdf + plugins ..."
+    asdf update
+    asdf plugin update --all
+fi
+
+if [ "$(which fisher)" ]; then
+    echo "Updating fish plugins ..."
+    fisher update
+fi
+
+if [ "$(which nvim)" ]; then
+    echo "Updating nvim plugins ..."
+    nvim -es -i NONE \
+        -c "PlugClean" \
+        -c "PlugUpdate" \
+        -c "PlugUpgrade" \
+        -c "CocUpdate" \
+        -c "qa"
+fi
+
+tmux_bin_dir="$HOME/.tmux/plugins/tpm/bin"
+
+if [ -d "$tmux_bin_dir" ]; then
+    echo "Updating tmux plugins ..."
+
+    "$tmux_bin_dir/clean_plugins"
+    "$tmux_bin_dir/install_plugins"
+    "$tmux_bin_dir/update_plugins" all
+fi
