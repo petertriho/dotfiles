@@ -2,7 +2,8 @@
 
 if [ "$(which brew)" ]; then
     echo "Updating homebrew packages ..."
-    brew update && brew upgrade
+    brew update
+    brew upgrade
 fi
 
 if [ "$(which asdf)" ]; then
