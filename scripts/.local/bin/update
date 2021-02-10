@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
 
-if [ "$(which brew)" ]; then
+if command -v brew &> /dev/null; then
     echo "Updating homebrew packages ..."
     brew update
     brew upgrade
 fi
 
-if [ "$(which asdf)" ]; then
+if command -v asdf &> /dev/null; then
     echo "Updating asdf + plugins ..."
     asdf update
     asdf plugin update --all
 fi
 
-if [ "$(which fisher)" ]; then
+if command -v fisher &> /dev/null; then
     echo "Updating fish plugins ..."
     fisher update
 fi
 
-if [ "$(which nvim)" ]; then
-    if [ "$(which brew)" ] && brew list | grep -q neovim; then
+if command -v nvim &> /dev/null; then
+    if command -v fisher &> /dev/null && brew list | grep -q neovim; then
         echo "Updating neovim ..."
         brew upgrade neovim --fetch-head
     fi
