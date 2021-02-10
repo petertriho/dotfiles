@@ -19,11 +19,11 @@ fi
 
 if [ "$(which nvim)" ]; then
     echo "Updating nvim plugins ..."
-    nvim -es -i NONE \
+    nvim -i NONE \
         -c "PlugClean" \
         -c "PlugUpdate" \
         -c "PlugUpgrade" \
-        -c "CocUpdate" \
+        -c "CocUpdateSync" \
         -c "qa"
 fi
 
