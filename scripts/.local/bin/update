@@ -18,10 +18,15 @@ if [ "$(which fisher)" ]; then
 fi
 
 if [ "$(which nvim)" ]; then
+    if [ "$(which brew)" ] && brew list | grep -q neovim; then
+        echo "Updating neovim ..."
+        brew upgrade neovim --fetch-head
+    fi
+
     echo "Updating nvim plugins ..."
     nvim \
         +CocUpdateSync \
-        +PlugClean \
+        +PlugClean! \
         +PlugUpdate \
         +PlugUpgrade \
         +qa
