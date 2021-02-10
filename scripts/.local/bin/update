@@ -19,12 +19,12 @@ fi
 
 if [ "$(which nvim)" ]; then
     echo "Updating nvim plugins ..."
-    nvim -i NONE \
-        -c "CocUpdateSync" \
-        -c "PlugClean" \
-        -c "PlugUpdate" \
-        -c "PlugUpgrade" \
-        -c "qa"
+    nvim \
+        +CocUpdateSync \
+        +PlugClean \
+        +PlugUpdate \
+        +PlugUpgrade \
+        +qa
 fi
 
 tmux_bin_dir="$HOME/.tmux/plugins/tpm/bin"
