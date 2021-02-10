@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 if [ -e "$HOME/.dotfiles" ]; then
     (cd "$HOME/.dotfiles" && \
-        git switch main && \
         git pull && \
         stow --no-folding -t ~ */
     )
