@@ -12,9 +12,9 @@ if command -v asdf &> /dev/null; then
     asdf plugin update --all
 fi
 
-if command -v fisher &> /dev/null; then
+if command -v fish &> /dev/null; then
     echo "Updating fish plugins ..."
-    fisher update
+    fish -c "fisher update"
 fi
 
 if command -v nvim &> /dev/null; then
@@ -40,3 +40,5 @@ if [ -d "$tmux_bin_dir" ]; then
     "$tmux_bin_dir/install_plugins"
     "$tmux_bin_dir/update_plugins" all
 fi
+
+exec "$SHELL"
