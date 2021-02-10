@@ -30,7 +30,6 @@ tmux_bin_dir="$HOME/.tmux/plugins/tpm/bin"
 
 if [ -d "$tmux_bin_dir" ]; then
     echo "Updating tmux plugins ..."
-
     "$tmux_bin_dir/clean_plugins"
     "$tmux_bin_dir/install_plugins"
     "$tmux_bin_dir/update_plugins" all
