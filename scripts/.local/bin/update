@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+if [ -e "$HOME/.dotfiles" ]; then
+    (cd "$HOME/.dotfiles" && \
+        git switch main && \
+        git pull
+    )
+fi
 
 if command -v brew &> /dev/null; then
     echo "Updating homebrew packages ..."
@@ -12,7 +18,7 @@ if command -v asdf &> /dev/null; then
     asdf plugin update --all
 fi
 
-if command -v fish &> /dev/null; then
+if command -v fish &> /dev/null && [ -f "$HOME/.config/fish/fish_plugins" ]; then
     echo "Updating fish plugins ..."
     fish -c "fisher update"
 fi
