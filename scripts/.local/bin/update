@@ -6,7 +6,6 @@ if [ -e "$HOME/.dotfiles" ]; then
         git pull && \
         stow --no-folding -t ~ */
     )
-    fish -c "set_abbr"
 fi
 
 if command -v brew &> /dev/null; then
@@ -24,6 +23,7 @@ fi
 if command -v fish &> /dev/null && [ -f "$HOME/.config/fish/fish_plugins" ]; then
     echo "Updating fish plugins ..."
     fish -c "fisher update"
+    fish -c "set_abbr"
 fi
 
 if command -v nvim &> /dev/null; then
