@@ -1,5 +1,8 @@
 starship init fish | source
 
+set -gx EDITOR nvim
+set -gx PROJECT_PATHS $HOME/Documents/GitHub $HOME/Documents/Projects
+
 if status is-interactive
     test -e {$HOME}/.iterm2_shell_integration.fish; and \
         source {$HOME}/.iterm2_shell_integration.fish
@@ -11,9 +14,6 @@ if status is-interactive
     set -g fish_cursor_insert line
     set -g fish_cursor_replace_one underscore
     set -g fish_cursor_visual block
-
-    set -gx EDITOR nvim
-    set -gx PROJECT_PATHS $HOME/Documents/GitHub $HOME/Documents/Projects
 
     set -gx FZF_DEFAULT_COMMAND \
        "rg" \
