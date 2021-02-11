@@ -1,23 +1,62 @@
 #!/usr/bin/env bash
 
 # Tmux Jump
+# Assumptions:
+# - Project is a web project with backend & frontend
+# - Project lives inside $PROJECTS directories (accessed via pj)
+# - Backend started with "docker-compose up -d"
+# - Frontend started with "yarn start"
+# - Backend folder = <project><separator><suffix> e.g. cool-backend
+# - Frontend folder = <project><separator><suffix> e.g. cool-frontend
+
+#set -euo pipefail
 
 project=$1
+bare_repo_folder=$2
+
+# TODO: Work with different separators
+#separators="-"
+
+# TODO: Work with different suffixes
+#backend_suffixes="backend server"
+#frontend_suffixes="frontend web-client client"
 
 if ! $(tmux list-sessions 2> /dev/null | grep -q "$project"); then
     tmux new-session -d -s "$project"
 
-    tmux rename-window -t "$project:1" "server"
-    tmux send-keys -t "$project:1" "pj $project-server" ENTER "clear" ENTER
+    separator="-"
+
+    cd_backend_cmd="pj ${project}${separator}server"
+    # TODO: Don't rely on pj here
+    bare_repo_check_cmd="$cd_backend_cmd; git rev-parse --is-bare-repository"
+    if [[ $(fish -c "$bare_repo_check_cmd") == "true" ]]; then
+        cd_backend_cmd="$cd_backend_cmd; cd $bare_repo_folder"
+    fi
+
+    tmux rename-window -t "$project:1" "backend"
+    tmux send-keys -t "$project:1" "$cd_backend_cmd" ENTER
+    tmux send-keys -t "$project:1" "clear" ENTER
+    #tmux send-keys -t "$project:1" "docker-compose up -d" ENTER
 
     tmux new-window -t "$project:2"
-    tmux send-keys -t "$project:2" "pj $project-server" ENTER "clear" ENTER
+    tmux send-keys -t "$project:2" "$cd_backend_cmd" ENTER
+    tmux send-keys -t "$project:2" "clear" ENTER
 
-    tmux new-window -t "$project:3" -n "client"
-    tmux send-keys -t "$project:3" "pj $project-web-client" ENTER "clear" ENTER
+
+    cd_frontend_cmd="pj ${project}${separator}web-client"
+    bare_repo_check_cmd="$cd_frontend_cmd; git rev-parse --is-bare-repository"
+    if [[ $(fish -c "$bare_repo_check_cmd") == "true" ]]; then
+        cd_frontend_cmd="$cd_frontend_cmd; cd $bare_repo_folder"
+    fi
+
+    tmux new-window -t "$project:3" -n "frontend"
+    tmux send-keys -t "$project:3" "$cd_frontend_cmd" ENTER
+    tmux send-keys -t "$project:3" "clear" ENTER
+    #tmux send-keys -t "$project:3" "yarn start" ENTER
 
     tmux new-window -t "$project:4"
-    tmux send-keys -t "$project:4" "pj $project-web-client" ENTER "clear" ENTER
+    tmux send-keys -t "$project:4" "$cd_frontend_cmd" ENTER
+    tmux send-keys -t "$project:4" "clear" ENTER
 fi
 
 tmux attach-session -t "$project:1"
