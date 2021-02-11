@@ -23,7 +23,7 @@ set clipboard+=unnamedplus     " yank to clipboard
 set mouse=a                    " enable mouse
 set nowrap                     " disable line wrapping
 set noerrorbells               " disable error bells
-set novisualbells              " disable visual bells
+set novisualbell              " disable visual bells
 
 filetype plugin indent on      " turn on filetype detection, plugin, indent on
 syntax on                      " syntax highlighting

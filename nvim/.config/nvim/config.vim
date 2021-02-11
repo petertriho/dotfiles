@@ -23,7 +23,7 @@ set clipboard+=unnamedplus     " yank to clipboard
 set mouse=a                    " enable mouse
 set nowrap                     " disable line wrapping
 set noerrorbells               " disable error bells
-set novisualbells              " disable visual bells
+set novisualbell              " disable visual bells
 
 set colorcolumn=80             " max column line
 set cursorline                 " highlight current line
