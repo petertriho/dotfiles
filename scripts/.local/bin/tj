@@ -12,7 +12,8 @@
 #set -euo pipefail
 
 project=$1
-bare_repo_folder=$2
+# TODO: Work with main & master
+bare_repo_folder=${2:-main}
 
 # TODO: Work with different separators
 #separators="-"
