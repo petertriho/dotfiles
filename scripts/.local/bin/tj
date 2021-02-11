@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Tmux Jump
+
+project=$1
+
+if ! $(tmux list-sessions | grep -q "$project"); then
+    tmux new-session -d -s "$project"
+
+    tmux rename-window -t "$project:1" "server"
+    tmux send-keys -t "$project:1" "pj $project-server" ENTER "clear" ENTER
+
+    tmux new-window -t "$project:2"
+    tmux send-keys -t "$project:2" "pj $project-server" ENTER "clear" ENTER
+
+    tmux new-window -t "$project:3" -n "client"
+    tmux send-keys -t "$project:3" "pj $project-web-client" ENTER "clear" ENTER
+
+    tmux new-window -t "$project:4"
+    tmux send-keys -t "$project:4" "pj $project-web-client" ENTER "clear" ENTER
+fi
+
+tmux attach-session -t "$project:1"
+
+
