@@ -4,7 +4,7 @@
 
 project=$1
 
-if ! $(tmux list-sessions | grep -q "$project"); then
+if ! $(tmux list-sessions 2> /dev/null | grep -q "$project"); then
     tmux new-session -d -s "$project"
 
     tmux rename-window -t "$project:1" "server"
