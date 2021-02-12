@@ -60,6 +60,6 @@ if ! $(tmux list-sessions 2> /dev/null | grep -q "$project"); then
     tmux send-keys -t "$project:4" "clear" ENTER
 fi
 
-tmux attach-session -t "$project:1"
+tmux attach-session -t "$project"
 
 
