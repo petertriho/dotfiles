@@ -39,6 +39,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
     " Misc
     Plug 'editorconfig/editorconfig-vim'                        " editorconfig
+    Plug 'edkolev/tmuxline.vim'                                 " tmux theme
     Plug 'moll/vim-bbye'                                        " better buffer delete/wipeout
     "Plug 'psliwka/vim-smoothie',
     "    \ { 'tag': '0c1696a9b3b8db8cdb567a5fe8b9d6d27e118c0b' } " smooth scrolling

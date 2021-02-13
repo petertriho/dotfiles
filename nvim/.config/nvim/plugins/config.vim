@@ -8,6 +8,16 @@ let g:coc_fzf_opts = []
 " editorconfig/editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
+" edkolev/tmuxline.vim
+let g:tmuxline_status_justify = 'left'
+let g:tmuxline_preset = {}
+let g:tmuxline_preset['a'] = '#S'
+let g:tmuxline_preset['win'] = ['#I', '#W #F']
+let g:tmuxline_preset['cwin'] = ['#I:#P', '#W #F']
+let g:tmuxline_preset['x'] = '#{prefix_highlight}'
+let g:tmuxline_preset['y'] = ['%Y-%m-%d', '%I:%M %P']
+let g:tmuxline_preset['z'] = '#h'
+
 " justinmk/vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
