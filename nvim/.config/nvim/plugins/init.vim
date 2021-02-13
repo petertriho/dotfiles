@@ -20,8 +20,8 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'unblevable/quick-scope' " f/F, t/T motion helpers
 
     " Windows
-    Plug 'simeji/winresizer'  " window resizer/mover
-    Plug 'szw/vim-maximizer'  " window maximizer
+    Plug 'simeji/winresizer' " window resizer/mover
+    Plug 'szw/vim-maximizer' " window maximizer
 
     " Tools
     Plug 'antoinemadec/coc-fzf'                                                " fzf for coc
@@ -31,15 +31,15 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
-    Plug 'mbbill/undotree'                                                     " undotree
-    Plug 'sodapopcan/vim-twiggy'                                               " git branches
+    Plug 'mbbill/undotree', { 'on': ['UndotreeShow', 'UndotreeToggle'] }       " undotree
+    Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }                           " git branches
     Plug 'skywind3000/asyncrun.vim'                                            " async tasks
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands
-    Plug 'vim-airline/vim-airline'                                             " status bar
+    Plug 'vim-airline/vim-airline'                                             " status line
 
     " Misc
     Plug 'editorconfig/editorconfig-vim'                        " editorconfig
-    Plug 'edkolev/tmuxline.vim'                                 " tmux theme
+    Plug 'edkolev/tmuxline.vim', { 'on': 'Tmuxline' }           " match tmux with airline theme
     Plug 'moll/vim-bbye'                                        " better buffer delete/wipeout
     "Plug 'psliwka/vim-smoothie',
     "    \ { 'tag': '0c1696a9b3b8db8cdb567a5fe8b9d6d27e118c0b' } " smooth scrolling
