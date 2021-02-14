@@ -1,7 +1,12 @@
 {
-    "diagnostic.errorSign": "✘",
-    "diagnostic.warningSign": "",
-    "diagnostic.infoSign": "",
+    "diagnostic.errorSign": "x",
+    "diagnostic.warningSign": "!",
+    "diagnostic.infoSign": "i",
+
+    "diagnostic.messageTarget": "echo",
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "diagnostic.virtualTextPrefix": "  ",
 
     // coc-diagnostic
     "diagnostic-languageserver.filetypes": {
