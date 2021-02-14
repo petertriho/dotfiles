@@ -31,7 +31,7 @@ let g:which_key_map['j'] = [':botright G',                                   'gi
 let g:which_key_map['l'] = [':call asyncrun#quickfix_toggle(8)',             'quickfix-list']
 let g:which_key_map['o'] = ['OR',                                            'organize-imports']
 let g:which_key_map['p'] = ['Gpull',                                         'git-pull']
-let g:which_key_map['P'] = [':AsyncRun Gpush',                               'git-push']
+let g:which_key_map['P'] = [':AsyncRun git push',                            'git-push']
 let g:which_key_map['s'] = ['Rg',                                            'search']
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
 let g:which_key_map['q'] = ['q',                                             'quit']
@@ -68,7 +68,7 @@ let g:which_key_map.g = {
   \ 'c': ['Gcommit',                     'commit'],
   \ 'i': [':CocFzfList issues',          'issues'],
   \ 'p': ['Gpull',                       'pull'],
-  \ 'P': [':AsyncRun Gpush',             'push'],
+  \ 'P': [':AsyncRun git push',          'push'],
   \ 'g': [':diffget //2',                'diff-left'],
   \ 'h': [':diffget //3',                'diff-right']
   \ }
