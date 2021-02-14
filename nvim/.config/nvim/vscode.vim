@@ -26,8 +26,10 @@ nmap <S-Tab> :Tabprev<CR>
 let mapleader = " "
 nnoremap <space> <nop>
 
-nmap <leader>c <Plug>VSCodeCommentaryLine
-xmap <leader>c <Plug>VSCodeCommentary
+xmap gc  <Plug>VSCodeCommentary
+nmap gc  <Plug>VSCodeCommentary
+omap gc  <Plug>VSCodeCommentary
+nmap gcc <Plug>VSCodeCommentaryLine
 
 nnoremap <C-Space> <Cmd>call VSCodeNotify('editor.action.triggerSuggest')<CR>
 
