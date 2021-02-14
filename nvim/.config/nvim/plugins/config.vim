@@ -33,9 +33,6 @@ if has('persistent_undo')
     set undofile
 endif
 
-" preservim/nerdcommenter
-let g:NERDCreateDefaultMappings = 0
-
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
 

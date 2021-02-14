@@ -13,7 +13,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'junegunn/vim-easy-align'  " align things
     Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets
     Plug 'mattn/emmet-vim'          " emmet
-    Plug 'preservim/nerdcommenter'  " comments
+    Plug 'tpope/vim-commentary'     " comments
 
     " Motions
     Plug 'justinmk/vim-sneak'     " markers to move around

@@ -22,7 +22,6 @@ let g:which_key_map['\'] = ['<C-w>v',                                        'sp
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
 let g:which_key_map['A'] = ['<Plug>(coc-codeaction)',                        'codeaction']
 let g:which_key_map['b'] = ['Twiggy',                                        'git-branches']
-let g:which_key_map['c'] = ['<Plug>NERDCommenterToggle',                     'comment']
 let g:which_key_map['d'] = ['Bwipeout',                                      'wipeout-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = ['Format',                                        'format']
