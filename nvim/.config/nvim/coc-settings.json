@@ -18,7 +18,7 @@
     "suggest.completionItemKindLabels": {
         "class": "CLS",
         "color": "CLR",
-        "constant": "CNT",
+        "constant": "CST",
         "default": "DFT",
         "enum": "ENU",
         "enumMember": "ENM",
@@ -26,7 +26,7 @@
         "field": "FLD",
         "file": "FLE",
         "folder": "FDR",
-        "function": "FUN",
+        "function": "FNC",
         "interface": "INT",
         "keyword": "KEY",
         "method": "MTD",
