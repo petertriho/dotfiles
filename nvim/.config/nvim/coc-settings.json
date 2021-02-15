@@ -8,7 +8,7 @@
     "diagnostic.messageTarget": "float",
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
-    "diagnostic.virtualTextPrefix": "  ",
+    "diagnostic.virtualTextPrefix": " \ufc62 ",
 
     "suggest.enablePreview": true,
     "suggest.removeDuplicateItems": true,
@@ -67,6 +67,13 @@
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
+
+    "git.addedSign.text": "\u239f",
+    "git.changeRemovedSign.text": "\u239f",
+    "git.changedSign.text": "\u239f",
+    "git.removedSign.text": "\u239f",
+    "git.topRemovedSign.text": "\u239f",
+
 
     // coc-markdownlint
     "markdownlint.config": {
