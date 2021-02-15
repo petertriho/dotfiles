@@ -1,13 +1,46 @@
 {
+    "codeLens.enable": true,
+
     "diagnostic.errorSign": "x",
-    "diagnostic.warningSign": "!",
     "diagnostic.infoSign": "i",
+    "diagnostic.hintSign": "h",
+    "diagnostic.warningSign": "!",
 
     "diagnostic.checkCurrentLine": true,
     "diagnostic.messageTarget": "echo",
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
-    "diagnostic.virtualTextPrefix": "  ",
+    "diagnostic.virtualTextPrefix": " \ue602 ",
+
+    "suggest.numberSelect": true,
+    "suggest.removeDuplicateItems": true,
+    "suggest.completionItemKindLabels": {
+        "class": "\uf0e8",
+        "color": "\ue22b",
+        "constant": "\uf8fe",
+        "default": "\uf29c",
+        "enum": "\uf435",
+        "enumMember": "\uf02b",
+        "event": "\ufacd",
+        "field": "\uf9be",
+        "file": "\uf723",
+        "folder": "\uf114",
+        "function": "\u0192",
+        "interface": "\uf417",
+        "keyword": "\uf1de",
+        "method": "\uf09a",
+        "module": "\uf40d",
+        "operator": "\u03a8",
+        "property": "\ue624",
+        "reference": "\ufa46",
+        "snippet": "\ue60b",
+        "struct": "\ufb44",
+        "text": "\ue612",
+        "typeParameter": "\uf728",
+        "unit": "\uf475",
+        "value": "\uf89f",
+        "variable": "\ue79b"
+    },
 
     // coc-diagnostic
     "diagnostic-languageserver.filetypes": {
@@ -55,6 +88,9 @@
 
     // coc-tabnine
     "tabnine.priority": 60,
+
+    // coc-tailwindcss
+    "tailwindCSS.emmetCompletions": true,
 
     // coc-yank
     "yank.highlight.duration": 200,
