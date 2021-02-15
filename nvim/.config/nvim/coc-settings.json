@@ -1,10 +1,10 @@
 {
     "codeLens.enable": true,
 
-    "diagnostic.errorSign": "✖",
-    "diagnostic.warningSign": "",
-    "diagnostic.infoSign": "●",
-    "diagnostic.hintSign": "○",
+    "diagnostic.errorSign": "x",
+    "diagnostic.warningSign": "!",
+    "diagnostic.infoSign": "i",
+    "diagnostic.hintSign": "h",
 
     "diagnostic.checkCurrentLine": true,
     "diagnostic.messageTarget": "echo",
@@ -64,25 +64,12 @@
     },
     "explorer.width": 30,
 
-    "explorer.git.icon.status.added": "✚",
-    "explorer.git.icon.status.deleted": "✖",
-    "explorer.git.icon.status.renamed": "➜",
-    "explorer.git.icon.status.unmerged": "═",
-    "explorer.git.icon.status.untracked": "",
-    "explorer.git.icon.status.modified": "✹",
-    "explorer.git.icon.status.ignored": "כֿ",
-
     // coc-git
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-
-    "git.addedSign.text": "┃",
-    "git.removedSign.text": "┃",
-    "git.changedSign.text": "┃",
-    "git.changeRemovedSign.text": "┃",
 
     // coc-markdownlint
     "markdownlint.config": {
