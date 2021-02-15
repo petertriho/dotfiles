@@ -5,13 +5,12 @@
     "diagnostic.warningSign": "!",
 
     "diagnostic.checkCurrentLine": true,
-    "diagnostic.messageTarget": "echo",
+    "diagnostic.messageTarget": "float",
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
     "diagnostic.virtualTextPrefix": "  ",
 
     "suggest.enablePreview": true,
-    "suggest.numberSelect": true,
     "suggest.removeDuplicateItems": true,
     "suggest.completionItemKindLabels": {
         "class": "CLS",
