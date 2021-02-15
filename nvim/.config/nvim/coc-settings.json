@@ -5,10 +5,10 @@
     "diagnostic.warningSign": "!",
 
     "diagnostic.checkCurrentLine": true,
-    "diagnostic.messageTarget": "float",
+    "diagnostic.messageTarget": "echo",
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
-    "diagnostic.virtualTextPrefix": " \ufc62 ",
+    "diagnostic.virtualTextPrefix": " \uf445 ",
 
     "suggest.enablePreview": true,
     "suggest.removeDuplicateItems": true,
