@@ -70,7 +70,7 @@
     "explorer.git.icon.status.unmerged": "═",
     "explorer.git.icon.status.untracked": "",
     "explorer.git.icon.status.modified": "✹",
-    "explorer.git.icon.status.ignored": "",
+    "explorer.git.icon.status.ignored": "כֿ",
 
     // coc-git
     "git.addedSign.hlGroup": "GitGutterAdd",
