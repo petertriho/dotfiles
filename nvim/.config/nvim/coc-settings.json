@@ -1,5 +1,6 @@
 {
     "codeLens.enable": true,
+    "codeLens.separator": "  ",
 
     "diagnostic.errorSign": "x",
     "diagnostic.hintSign": "h",
