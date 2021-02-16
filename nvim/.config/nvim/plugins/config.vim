@@ -89,15 +89,19 @@ endfunction
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 
 let g:async_status_old = ''
+let g:async_icon = ''
 function! Get_asyncrun_running()
     let async_status = g:asyncrun_status
     if async_status != g:async_status_old
         if async_status == 'running'
             call airline#parts#define_accent('asyncrun_status', 'running')
+            let g:async_icon = ''
         elseif async_status == 'success'
             call airline#parts#define_accent('asyncrun_status', 'success')
+            let g:async_icon = ''
         elseif async_status == 'failure'
             call airline#parts#define_accent('asyncrun_status', 'failure')
+            let g:async_icon = ''
         endif
 
         let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype'])
@@ -105,7 +109,7 @@ function! Get_asyncrun_running()
         let g:async_status_old = async_status
     endif
 
-    return async_status . " "
+    return g:async_icon . "  "
 endfunction
 
 call airline#parts#define_function('asyncrun_status', 'Get_asyncrun_running')
