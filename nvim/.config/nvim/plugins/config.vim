@@ -69,6 +69,7 @@ let g:airline_extensions = [
             \ 'coc',
             \ 'fugitiveline',
             \ 'tabline',
+            \ 'undotree',
             \ ]
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -99,13 +100,13 @@ function! Get_asyncrun_running()
             call airline#parts#define_accent('asyncrun_status', 'failure')
         endif
 
-        let g:airline_section_x = airline#section#create(['asyncrun_status'])
+        let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype'])
         AirlineRefresh
         let g:async_status_old = async_status
     endif
 
-    return async_status
+    return async_status . " "
 endfunction
 
 call airline#parts#define_function('asyncrun_status', 'Get_asyncrun_running')
-let g:airline_section_x = airline#section#create(['asyncrun_status'])
+let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype'])

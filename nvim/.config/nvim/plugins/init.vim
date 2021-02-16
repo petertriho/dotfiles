@@ -36,6 +36,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'skywind3000/asyncrun.vim'                                            " async tasks
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands
     Plug 'vim-airline/vim-airline'                                             " status line
+    Plug 'ryanoasis/vim-devicons'                                              " filetype icons
 
     " Misc
     Plug 'editorconfig/editorconfig-vim'                        " editorconfig
