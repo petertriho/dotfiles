@@ -70,11 +70,11 @@
     "git.removedSign.hlGroup": "GitGutterDelete",
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
 
-    "git.addedSign.text": "\u239f",
-    "git.changeRemovedSign.text": "\u239f",
-    "git.changedSign.text": "\u239f",
-    "git.removedSign.text": "\u239f",
-    "git.topRemovedSign.text": "\u239f",
+    "git.addedSign.text": "\u2503",
+    "git.changeRemovedSign.text": "\u2503",
+    "git.changedSign.text": "\u2503",
+    "git.removedSign.text": "\u2503",
+    "git.topRemovedSign.text": "\u2503",
 
 
     // coc-markdownlint

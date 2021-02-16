@@ -1,6 +1,7 @@
 call plug#begin(stdpath('data') . '/vscode')
     Plug 'asvetliakov/vim-easymotion'
     Plug 'machakann/vim-sandwich'
+    Plug 'machakann/vim-highlightedyank'
     Plug 'unblevable/quick-scope'
 call plug#end()
 
@@ -10,6 +11,10 @@ set lazyredraw             " speed up macros
 let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
 nmap ' <Plug>(easymotion-prefix)
 nmap 'l <Plug>(easymotion-bd-jk)
+
+let g:highlightedyank_highlight_duration = 200
+
+highlight HighlightedyankRegion guibg='#98c379' gui=none ctermbg='green' cterm=none
 
 highlight OperatorSandwichBuns guifg='#c678dd' gui=underline ctermfg='blue' cterm=underline
 highlight OperatorSandwichChange guifg='#e5c07b' gui=underline ctermfg='yellow' cterm=underline
