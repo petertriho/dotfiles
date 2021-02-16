@@ -12,7 +12,7 @@ let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
 nmap ' <Plug>(easymotion-prefix)
 nmap 'l <Plug>(easymotion-bd-jk)
 
-let g:highlightedyank_highlight_duration = 200
+let g:highlightedyank_highlight_duration = 300
 
 highlight HighlightedyankRegion guibg='#98c379' gui=none ctermbg='green' cterm=none
 

@@ -100,6 +100,6 @@
     "tailwindCSS.emmetCompletions": true,
 
     // coc-yank
-    "yank.highlight.duration": 200,
+    "yank.highlight.duration": 300,
     "yank.priority": 50
 }
