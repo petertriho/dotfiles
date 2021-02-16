@@ -53,7 +53,7 @@
     "explorer.autoExpandOptions": ["recursive", "recursiveSingle"],
     "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root]",
     "explorer.file.showHiddenFiles": true,
-    "explorer.git.icon.status.ignored": " I",
+    "explorer.git.icon.status.ignored": "",
     "explorer.git.icon.status.mixed": "\u25cf",
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings.global": {
