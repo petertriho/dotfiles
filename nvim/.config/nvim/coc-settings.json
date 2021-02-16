@@ -60,7 +60,7 @@
         "v": "open:vsplit"
     },
     "explorer.git.icon.status.ignored": "I",
-    "explorer.git.icon.status.mixed": "\u25ef",
+    "explorer.git.icon.status.mixed": "\u25cf",
     "explorer.width": 30,
 
     // coc-git
