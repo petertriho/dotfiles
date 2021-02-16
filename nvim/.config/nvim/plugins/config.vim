@@ -77,8 +77,8 @@ let g:airline#extensions#tabline#formatter = 'jsformatter'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_symbols.notexists = " U"
-let g:airline_symbols.dirty = " ?"
+let g:airline_symbols.notexists = " ?"
+let g:airline_symbols.dirty = " M"
 
 function! AirlineThemePatch(palette)
     let a:palette.accents.running = [ '', '', '', '', '' ]
