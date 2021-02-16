@@ -78,7 +78,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.notexists = " U"
-let g:airline_symbols.dirty = " M"
+let g:airline_symbols.dirty = " ?"
 
 function! AirlineThemePatch(palette)
     let a:palette.accents.running = [ '', '', '', '', '' ]

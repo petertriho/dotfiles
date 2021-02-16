@@ -55,8 +55,6 @@
     "explorer.file.showHiddenFiles": true,
     "explorer.git.icon.status.ignored": " I",
     "explorer.git.icon.status.mixed": "\u25cf",
-    "explorer.git.icon.status.untracked": "U",
-    "explorer.git.icon.status.unmerged": "?",
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings.global": {
         "o": ["expandable?", "expand", "open"],
