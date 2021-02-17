@@ -33,7 +33,7 @@ call plug#begin(stdpath('data') . '/plugged')
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree', { 'on': ['UndotreeShow', 'UndotreeToggle'] }       " undotree
-    Plug 'skywind3000/asyncrun.vim'                                            " async tasks
+    Plug 'skywind3000/asyncrun.vim', { 'on': 'AsyncRun' }                      " async tasks
     Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }                           " git branches
     Plug 'tpope/vim-fugitive'                                                  " git
     Plug 'vim-airline/vim-airline'                                             " status line

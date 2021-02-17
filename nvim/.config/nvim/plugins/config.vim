@@ -88,28 +88,30 @@ function! AirlineThemePatch(palette)
 endfunction
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 
-let g:async_status_old = ''
-let g:async_icon = ''
+let g:asyncrun_status = ''
+let g:asyncrun_status_prev = ''
+let g:asyncrun_status_icon = ''
 function! Get_asyncrun_running()
-    let async_status = g:asyncrun_status
-    if async_status != g:async_status_old
-        if async_status == 'running'
+    let asyncrun_status_curr = g:asyncrun_status
+
+    if asyncrun_status_curr != g:asyncrun_status_prev
+        if asyncrun_status_curr == 'running'
             call airline#parts#define_accent('asyncrun_status', 'running')
-            let g:async_icon = ''
-        elseif async_status == 'success'
+            let g:asyncrun_status_icon = ''
+        elseif asyncrun_status_curr == 'success'
             call airline#parts#define_accent('asyncrun_status', 'success')
-            let g:async_icon = ''
-        elseif async_status == 'failure'
+            let g:asyncrun_status_icon = ''
+        elseif asyncrun_status == 'failure'
             call airline#parts#define_accent('asyncrun_status', 'failure')
-            let g:async_icon = ''
+            let g:asyncrun_status_icon = ''
         endif
 
         let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype'])
         AirlineRefresh
-        let g:async_status_old = async_status
+        let g:asyncrun_status_prev = asyncrun_status_curr
     endif
 
-    return g:async_icon . "  "
+    return g:asyncrun_status_icon . "  "
 endfunction
 
 call airline#parts#define_function('asyncrun_status', 'Get_asyncrun_running')
