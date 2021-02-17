@@ -30,9 +30,9 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'junegunn/fzf.vim'                                                     " fzf helpers
     Plug 'junegunn/vim-peekaboo'                                                " show contents of registers
     Plug 'iamcco/markdown-preview.nvim',
-        \ { 'do': { -> mkdp#util#install() }, 'for': [ 'markdown', 'vim-plug' ] } " markdown browser preview
+        \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] } " markdown browser preview
     Plug 'liuchengxu/vim-which-key'                                             " keybindings guide popup
-    Plug 'mbbill/undotree', { 'on': [ 'UndotreeShow', 'UndotreeToggle' ] }      " undotree
+    Plug 'mbbill/undotree', { 'on': ['UndotreeShow', 'UndotreeToggle'] }      " undotree
     Plug 'skywind3000/asyncrun.vim', { 'on': 'AsyncRun' }                       " async tasks
     Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }                            " git branches
     Plug 'tpope/vim-fugitive'                                                   " git
