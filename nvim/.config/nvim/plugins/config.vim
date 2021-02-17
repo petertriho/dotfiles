@@ -52,6 +52,7 @@ augroup end
 
 " sodapopcan/vim-twiggy
 set shell=bash
+let g:twiggy_split_position = 'aboveleft'
 
 " szw/vim-maximizer
 let g:maximizer_set_default_mapping = 0 " disable default bindings
