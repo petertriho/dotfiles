@@ -23,7 +23,7 @@ set clipboard+=unnamedplus     " yank to clipboard
 set mouse=a                    " enable mouse
 set nowrap                     " disable line wrapping
 set noerrorbells               " disable error bells
-set novisualbell              " disable visual bells
+set novisualbell               " disable visual bells
 
 set colorcolumn=80             " max column line
 set cursorline                 " highlight current line
@@ -32,3 +32,6 @@ set noshowmode                 " disable mode indicator
 set timeoutlen=500             " speed up mapping delays
 set ttimeoutlen=10             " speed up key code delays
 set lazyredraw                 " speed up macros
+
+set splitright                 " default vertical split right
+set splitbelow                 " default horizonal split below
