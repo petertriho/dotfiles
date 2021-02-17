@@ -8,13 +8,13 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'sheerun/vim-polyglot'                     " syntax highlighting
 
     " Text Helpers
-    Plug 'alvan/vim-closetag'       " auto close html tags
-    Plug 'a-mg/vim-wobble'          " web text objects
-    Plug 'AndrewRadev/tagalong.vim' " change html tags
-    Plug 'junegunn/vim-easy-align'  " align things
-    Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets
-    Plug 'mattn/emmet-vim'          " emmet
-    Plug 'tpope/vim-commentary'     " comments
+    Plug 'alvan/vim-closetag'                             " auto close html tags
+    Plug 'a-mg/vim-wobble'                                " web text objects
+    Plug 'AndrewRadev/tagalong.vim'                       " change html tags
+    Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' } " align things
+    Plug 'machakann/vim-sandwich'                         " change surrounds e.g. brackets
+    Plug 'mattn/emmet-vim'                                " emmet
+    Plug 'tpope/vim-commentary'                           " comments
 
     " Motions
     Plug 'justinmk/vim-sneak'     " markers to move around
@@ -31,10 +31,10 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'junegunn/vim-peekaboo'                                               " show contents of registers
     Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
-    Plug 'lambdalisue/gina.vim'                                                " git
+    Plug 'lambdalisue/gina.vim', { 'on': 'Gina' }                              " git
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree', { 'on': ['UndotreeShow', 'UndotreeToggle'] }       " undotree
-    Plug 'skywind3000/asyncrun.vim'                                            " async tasks
+    Plug 'skywind3000/asyncrun.vim', { 'on': 'AsyncRun' }                      " async tasks
     Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }                           " git branches
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands
     Plug 'vim-airline/vim-airline'                                             " status line
