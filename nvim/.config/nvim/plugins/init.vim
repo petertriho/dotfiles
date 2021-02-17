@@ -31,7 +31,6 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'junegunn/vim-peekaboo'                                               " show contents of registers
     Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
-    Plug 'lambdalisue/gina.vim', { 'on': 'Gina' }                              " git
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree', { 'on': ['UndotreeShow', 'UndotreeToggle'] }       " undotree
     Plug 'skywind3000/asyncrun.vim'                                            " async tasks
