@@ -34,8 +34,8 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'lambdalisue/gina.vim'                                                " git
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree', { 'on': ['UndotreeShow', 'UndotreeToggle'] }       " undotree
-    Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }                           " git branches
     Plug 'skywind3000/asyncrun.vim'                                            " async tasks
+    Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }                           " git branches
     Plug 'tpope/vim-fugitive'                                                  " add :Git commands
     Plug 'vim-airline/vim-airline'                                             " status line
     Plug 'ryanoasis/vim-devicons'                                              " filetype icons
