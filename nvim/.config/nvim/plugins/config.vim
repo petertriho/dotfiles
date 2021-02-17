@@ -73,7 +73,7 @@ let g:airline_extensions = [
             \ ]
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#formatter = 'jsformatter'
+let g:airline#extensions#tabline#formatter = 'custom'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
