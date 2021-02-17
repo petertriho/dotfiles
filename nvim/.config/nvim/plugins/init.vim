@@ -4,8 +4,8 @@ call plug#begin(stdpath('data') . '/plugged')
 
     " Language/Syntax Highlighting
     Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
-    Plug 'luochen1990/rainbow'                       " rainbow brackets
-    Plug 'sheerun/vim-polyglot'                      " syntax highlighting
+    Plug 'luochen1990/rainbow'                        " rainbow brackets
+    Plug 'sheerun/vim-polyglot'                       " syntax highlighting
 
     " Text Helpers
     Plug 'alvan/vim-closetag'                             " auto close html tags
