@@ -25,7 +25,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'szw/vim-maximizer' " window maximizer
 
     " Tools
-    Plug 'antoinemadec/coc-fzf'                                                 " fzf for coc
+    Plug 'antoinemadec/coc-fzf', { 'on': ['CocFzfList', 'CocFzfListResume'] }   " fzf for coc
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " fzf
     Plug 'junegunn/fzf.vim'                                                     " fzf helpers
     Plug 'junegunn/vim-peekaboo'                                                " show contents of registers
