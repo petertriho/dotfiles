@@ -9,6 +9,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
     " Text Helpers
     Plug 'alvan/vim-closetag'       " auto close html tags
+    Plug 'a-mg/vim-wobble'          " web text objects
     Plug 'AndrewRadev/tagalong.vim' " change html tags
     Plug 'junegunn/vim-easy-align'  " align things
     Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets
@@ -30,6 +31,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'junegunn/vim-peekaboo'                                               " show contents of registers
     Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown browser preview
+    Plug 'lambdalisue/gina.vim'                                                " git
     Plug 'liuchengxu/vim-which-key'                                            " keybindings guide popup
     Plug 'mbbill/undotree', { 'on': ['UndotreeShow', 'UndotreeToggle'] }       " undotree
     Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }                           " git branches
