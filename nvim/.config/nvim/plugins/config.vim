@@ -83,9 +83,9 @@ let g:airline_symbols.notexists = " ?"
 let g:airline_symbols.dirty = " M"
 
 function! AirlineThemePatch(palette)
-    let a:palette.accents.running = [ '', '', '', '', '' ]
-    let a:palette.accents.success = [ '#98c379', '' , 'green', '', '' ]
-    let a:palette.accents.failure = [ '#e06c75', '' , 'red', '', '' ]
+    let a:palette.accents.running = ['#61afef', '', 'blue' , '', '']
+    let a:palette.accents.success = ['#98c379', '', 'green', '', '']
+    let a:palette.accents.failure = ['#e06c75', '', 'red'  , '', '']
 endfunction
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 
