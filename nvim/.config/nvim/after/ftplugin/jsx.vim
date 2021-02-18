@@ -1,6 +1,7 @@
 if exists("b:loaded_wobble_jsx") || !exists("g:loaded_wobble")
   finish
 endif
+
 let b:loaded_wobble_jsx = 1
 
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=Bgelv/\\v[{\"'."'".']+\r/\\v[}\"'."'".']+\r', 'aA', '+e')
@@ -12,11 +13,11 @@ call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=/\\v[{\"'."'".']+\rv/\\v[}\"'.
 call wobble#MapTextObject('vato\evi<of o'                    , 'aL' , '+e')
 call wobble#MapTextObject('vato\evi<oWo'                     , 'iL' , '+e')
 
-" call wobble#MapTextObject('vato\e/className\r:noh\rF v2f\"'  , 'aC' , '+e')
-" call wobble#MapTextObject('vato\e/className\r:noh\rf\"lvi\"' , 'iC' , '+e')
+call wobble#MapTextObject('vato\e/className\r/\\v[{}\"'."'".']+\rF=/\\v[{\"'."'".']+\rv/\\v[}\"'."'".']+\roloh', 'iC', '+e')
+call wobble#MapTextObject('vato\e/className\r/\\v[{}\"'."'".']+\rF=Bgelv/\\v[{\"'."'".']+\r/\\v[}\"'."'".']+\r', 'aC', '+e')
 
-" call wobble#MapTextObject('vato\e/id\r:noh\rF v2f\"'         , 'aI' , '+e')
-" call wobble#MapTextObject('vato\e/id\r:noh\rf\"lvi\"'        , 'iI' , '+e')
+call wobble#MapTextObject('vato\e/id\r/\\v[{}\"'."'".']+\rF=/\\v[{\"'."'".']+\rv/\\v[}\"'."'".']+\roloh', 'iC', '+e')
+call wobble#MapTextObject('vato\e/id\r/\\v[{}\"'."'".']+\rF=Bgelv/\\v[{\"'."'".']+\r/\\v[}\"'."'".']+\r', 'aC', '+e')
 
 " call wobble#MapTextObject('vi<geowo'                         , 'ic')
 
