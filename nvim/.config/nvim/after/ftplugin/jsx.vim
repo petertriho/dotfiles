@@ -24,6 +24,6 @@ call wobble#MapTextObject('vato\e/id\r/\\v[{}\"'."'".']+\rF=Bgelv/\\v[{\"'."'".'
 call wobble#MapTextObject('vi{geowo', 'ic')
 
 call wobble#MapLocalLeader('vato<esc>f>i<space>', 'aL')
-" call wobble#MapLocalLeader('vato<esc>/[ \>]<cr>:noh<cr>i className=""<esc>i', 'iC')
-" call wobble#MapLocalLeader('vato<esc>/className<cr>:noh<cr>2f"i<space>', 'aC')
-" call wobble#MapLocalLeader('vato<esc>/[ \>]<cr>:noh<cr>i id=""<esc>i', 'iI')
+call wobble#MapLocalLeader('vato<esc>/[ \>]<cr>:noh<cr>i className=""<esc>i', 'iC')
+call wobble#MapLocalLeader('vato<esc>/className<cr>:noh<cr>2f"i<space>', 'aC')
+call wobble#MapLocalLeader('vato<esc>/[ \>]<cr>:noh<cr>i id=""<esc>i', 'iI')
