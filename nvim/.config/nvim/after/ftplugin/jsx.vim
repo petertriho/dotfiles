@@ -6,7 +6,7 @@ let b:loaded_wobble_jsx = 1
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=Bgelv/\\v[{\"'."'".']+\r/\\v[}\"'."'".']+\r', 'aA', '+e')
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=Bv/\\v[{\"'."'".']+\r/\\v[}\"'."'".']+\r', 'iA', '+e')
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=gevBo', 'iN', '+e')
-" call wobble#MapTextObject('', 'iV')
+call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=/\\v[{\"'."'".']+\rv/\\v[}\"'."'".']+\roloh', 'iV', '+e')
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=/\\v[{\"'."'".']+\rv/\\v[}\"'."'".']+\r', 'aV', '+e')
 
 call wobble#MapTextObject('vato\evi<of o'                    , 'aL' , '+e')
