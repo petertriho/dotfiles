@@ -102,7 +102,7 @@ function! Get_asyncrun_running()
         elseif asyncrun_status_curr == 'success'
             call airline#parts#define_accent('asyncrun_status', 'success')
             let g:asyncrun_status_icon = ''
-        elseif asyncrun_status == 'failure'
+        elseif asyncrun_status_curr == 'failure'
             call airline#parts#define_accent('asyncrun_status', 'failure')
             let g:asyncrun_status_icon = ''
         endif
