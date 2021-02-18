@@ -15,7 +15,7 @@ let g:tmuxline_preset['a'] = '#S'
 let g:tmuxline_preset['win'] = ['#I', '#W #F']
 let g:tmuxline_preset['cwin'] = ['#I:#P', '#W #F']
 let g:tmuxline_preset['x'] = '#{prefix_highlight}'
-let g:tmuxline_preset['y'] = ['%Y-%m-%d', '%I:%M %P']
+let g:tmuxline_preset['y'] = ['%Y-%m-%d', '%I:%M %p']
 let g:tmuxline_preset['z'] = '#h'
 
 " justinmk/vim-sneak
