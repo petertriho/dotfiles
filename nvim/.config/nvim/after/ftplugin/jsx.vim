@@ -8,7 +8,7 @@ call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=Bgelv/\\v[{\"'."'".']+\r/\\v[}
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=Bv/\\v[{\"'."'".']+\r/\\v[}\"'."'".']+\r\e:nohl\rgv', 'iA', '+e')
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=Bgelv/\\v[{\"'."'".']+\r/\\v[}\"'."'".']+\r\e:nohl\rgv', 'aP', '+e')
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=Bv/\\v[{\"'."'".']+\r/\\v[}\"'."'".']+\r\e:nohl\rgv', 'iP', '+e')
-call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=gevBo:nohl\rgv', 'iN', '+e')
+call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=gevBo', 'iN', '+e')
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=/\\v[{\"'."'".']+\rv/\\v[}\"'."'".']+\roloh\e:nohl\rgv', 'iV', '+e')
 call wobble#MapTextObject('h/\\v[{}\"'."'".']+\rF=/\\v[{\"'."'".']+\rv/\\v[}\"'."'".']+\r\e:nohl\rgv', 'aV', '+e')
 
