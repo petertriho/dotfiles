@@ -9,7 +9,6 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'sheerun/vim-polyglot'                              " syntax highlighting
 
     " Text Helpers
-    Plug 'a-mg/vim-wobble'          " web text objects
     Plug 'alvan/vim-closetag'       " auto close html tags
     Plug 'AndrewRadev/tagalong.vim' " change html tags
     Plug 'junegunn/vim-easy-align'  " align things
