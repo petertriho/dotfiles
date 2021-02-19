@@ -24,6 +24,9 @@ let g:sneak#use_ic_scs = 1
 map ss <Plug>Sneak_s
 map sS <Plug>Sneak_S
 
+" kkoomen/vim-doge
+let g:doge_mapping = '<Leader>ad'
+
 " luochen1990/rainbow
 let g:rainbow_active = 1
 

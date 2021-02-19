@@ -56,6 +56,8 @@ xmap <leader>ac  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction-selected)
 let g:which_key_map.a.c = 'codeaction'
 
+let g:which_key_map.a.d = 'documentation-generator'
+
 nmap <leader>al v<Plug>(coc-codeaction-selected)<esc>
 let g:which_key_map.a.l = 'list'
 

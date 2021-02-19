@@ -3,18 +3,19 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'joshdick/onedark.vim'
 
     " Language/Syntax Highlighting
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
-    Plug 'luochen1990/rainbow'                        " rainbow brackets
-    Plug 'sheerun/vim-polyglot'                       " syntax highlighting
+    Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } } " documentation generator
+    Plug 'luochen1990/rainbow'                               " rainbow brackets
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }        " code completion
+    Plug 'sheerun/vim-polyglot'                              " syntax highlighting
 
     " Text Helpers
-    Plug 'a-mg/vim-wobble'                                " web text objects
-    Plug 'alvan/vim-closetag'                             " auto close html tags
-    Plug 'AndrewRadev/tagalong.vim'                       " change html tags
-    Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' } " align things
-    Plug 'machakann/vim-sandwich'                         " change surrounds e.g. brackets
-    Plug 'mattn/emmet-vim'                                " emmet
-    Plug 'tpope/vim-commentary'                           " comments
+    Plug 'a-mg/vim-wobble'          " web text objects
+    Plug 'alvan/vim-closetag'       " auto close html tags
+    Plug 'AndrewRadev/tagalong.vim' " change html tags
+    Plug 'junegunn/vim-easy-align'  " align things
+    Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets
+    Plug 'mattn/emmet-vim'          " emmet
+    Plug 'tpope/vim-commentary'     " comments
 
     " Motions
     Plug 'justinmk/vim-sneak'     " markers to move around
@@ -32,7 +33,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'iamcco/markdown-preview.nvim',
         \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] } " markdown browser preview
     Plug 'liuchengxu/vim-which-key'                                             " keybindings guide popup
-    Plug 'mbbill/undotree', { 'on': ['UndotreeShow', 'UndotreeToggle'] }        " undotree
+    Plug 'mbbill/undotree'                                                      " undotree
     Plug 'skywind3000/asyncrun.vim', { 'on': 'AsyncRun' }                       " async tasks
     Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }                            " git branches
     Plug 'tpope/vim-fugitive'                                                   " git
