@@ -2,6 +2,9 @@
 
 if [ -e "$HOME/.dotfiles" ]; then
     echo "Updating dotfiles ..."
+    (cd $HOME && \
+        find . -xtype l 2>/dev/null -exec rm {} \;
+    )
     (cd "$HOME/.dotfiles" && \
         git pull && \
         stow --no-folding -t ~ */
