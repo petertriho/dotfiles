@@ -36,6 +36,9 @@ if has('persistent_undo')
     set undofile
 endif
 
+" mg979/vim-visual-multi
+let g:VM_leader = '\'
+
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
 

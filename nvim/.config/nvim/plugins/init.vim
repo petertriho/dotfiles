@@ -14,6 +14,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'junegunn/vim-easy-align'  " align things
     Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets
     Plug 'mattn/emmet-vim'          " emmet
+    Plug 'mg979/vim-visual-multi'   " multi cursors
     Plug 'tpope/vim-commentary'     " comments
 
     " Motions

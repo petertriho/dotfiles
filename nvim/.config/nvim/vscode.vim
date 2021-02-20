@@ -9,8 +9,8 @@ set clipboard+=unnamedplus " yank to clipboard
 set lazyredraw             " speed up macros
 
 let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
-nmap ' <Plug>(easymotion-prefix)
-nmap 'l <Plug>(easymotion-bd-jk)
+nmap \ <Plug>(easymotion-prefix)
+nmap \l <Plug>(easymotion-bd-jk)
 
 let g:highlightedyank_highlight_duration = 300
 
