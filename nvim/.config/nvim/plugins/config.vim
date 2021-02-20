@@ -38,6 +38,7 @@ endif
 
 " mg979/vim-visual-multi
 let g:VM_leader = '\'
+let g:VM_theme = 'spacegray'
 
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
