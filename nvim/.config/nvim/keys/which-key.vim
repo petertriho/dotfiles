@@ -44,7 +44,7 @@ let g:which_key_map.D = 'delete-all-buffers'
 " A(ction) Mappings
 let g:which_key_map.a = {
       \ 'name': '+action',
-      \ 'f': ['<Plug>(coc-fix-current)', 'fix'],
+      \ 'q': ['<Plug>(coc-fix-current)', 'quickfix'],
       \ 'r': ['<Plug>(coc-rename)',      'rename']
       \ }
 
@@ -52,11 +52,15 @@ nmap <leader>aa <Plug>(EasyAlign)
 xmap <leader>aa <Plug>(EasyAlign)
 let g:which_key_map.a.a = 'align'
 
-xmap <leader>ac  <Plug>(coc-codeaction-selected)
-nmap <leader>ac  <Plug>(coc-codeaction-selected)
+xmap <leader>ac <Plug>(coc-codeaction-selected)
+nmap <leader>ac <Plug>(coc-codeaction-selected)
 let g:which_key_map.a.c = 'codeaction'
 
 let g:which_key_map.a.d = 'documentation-generator'
+
+xmap <leader>af <Plug>(coc-format-selected)
+nmap <leader>af <Plug>(coc-format-selected)
+let g:which_key_map.a.c = 'format-selected'
 
 nmap <leader>al v<Plug>(coc-codeaction-selected)<esc>
 let g:which_key_map.a.l = 'list'
