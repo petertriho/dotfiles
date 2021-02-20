@@ -177,3 +177,4 @@ augroup cocgit
     autocmd CursorHold * CocCommand git.refresh
 augroup end
 
+nmap <silent> <C-c> <Plug>(coc-cursors-position)

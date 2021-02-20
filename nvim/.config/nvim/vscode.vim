@@ -31,13 +31,14 @@ nmap <S-Tab> :Tabprev<CR>
 let mapleader = " "
 nnoremap <space> <nop>
 
-xmap gc  <Plug>VSCodeCommentary
-nmap gc  <Plug>VSCodeCommentary
-omap gc  <Plug>VSCodeCommentary
+xmap gc <Plug>VSCodeCommentary
+nmap gc <Plug>VSCodeCommentary
+omap gc <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
 
 nnoremap <C-Space> <Cmd>call VSCodeNotify('editor.action.triggerSuggest')<CR>
 
+nnoremap <leader><space> <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
 nnoremap <leader>/ <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>- <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
 nnoremap <leader>\ <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
@@ -49,7 +50,6 @@ nnoremap <leader>o <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
 nnoremap <leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
 nnoremap <leader>q <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nnoremap <leader>Q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
-nnoremap <leader>w <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
 
 nnoremap <leader>af <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nnoremap <leader>al <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>

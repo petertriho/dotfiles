@@ -15,6 +15,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single Mappings
+let g:which_key_map[' '] = ['w',                                             'write']
 let g:which_key_map['/'] = ['Files',                                         'files']
 let g:which_key_map[';'] = ['Commands',                                      'commands']
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
@@ -22,7 +23,8 @@ let g:which_key_map['\'] = ['<C-w>v',                                        'sp
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
 let g:which_key_map['A'] = ['<Plug>(coc-codeaction)',                        'codeaction']
 let g:which_key_map['b'] = ['Twiggy',                                        'git-branches']
-let g:which_key_map['d'] = ['Bwipeout',                                      'wipeout-buffer']
+let g:which_key_map['c'] = ['<Plug>(coc-cursors-position)',                  'cursors-position']
+let g:which_key_map['d'] = ['Bwipeout',                                      'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = ['Format',                                        'format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
@@ -36,11 +38,15 @@ let g:which_key_map['s'] = ['Rg',                                            'se
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
 let g:which_key_map['q'] = ['<Plug>(coc-fix-current)',                       'quickfix']
 let g:which_key_map['Q'] = ['q',                                             'quit']
-let g:which_key_map['w'] = ['w',                                             'write/save']
+let g:which_key_map['x'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
 
 nnoremap <silent> <leader>D :bufdo :Bwipeout<CR>
 let g:which_key_map.D = 'delete-all-buffers'
+
+nmap <silent> <leader>w <Plug>(coc-cursors-word)
+xmap <silent> <leader>w <Plug>(coc-cursors-range)
+let g:which_key_map.w = 'cursors-word'
 
 " A(ction) Mappings
 let g:which_key_map.a = {
@@ -55,7 +61,7 @@ let g:which_key_map.a.a = 'align'
 
 xmap <leader>ac <Plug>(coc-codeaction-selected)
 nmap <leader>ac <Plug>(coc-codeaction-selected)
-let g:which_key_map.a.c = 'codeaction'
+let g:which_key_map.a.c = 'codeaction-selected'
 
 let g:which_key_map.a.d = 'documentation-generator'
 
