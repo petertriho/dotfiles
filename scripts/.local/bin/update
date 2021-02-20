@@ -2,11 +2,11 @@
 
 if [ -e "$HOME/.dotfiles" ]; then
     echo "Updating dotfiles ..."
-    find -L "$HOME" -type l -exec rm -i {} \;
     (cd "$HOME/.dotfiles" && \
         git pull && \
         stow --no-folding -t ~ */
     )
+    find -L "$HOME" -type l -exec rm -i {} \;
 fi
 
 if command -v brew &> /dev/null; then
