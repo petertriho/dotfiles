@@ -47,7 +47,8 @@ nnoremap <leader>f <Cmd>call VSCodeNotify('editor.action.format')<CR>
 nnoremap <leader>i <Cmd>call VSCodeNotify('workbench.actions.view.problems')<CR>
 nnoremap <leader>o <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
 nnoremap <leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
-nnoremap <leader>q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
+nnoremap <leader>q <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
+nnoremap <leader>Q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
 nnoremap <leader>w <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
 
 nnoremap <leader>af <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
