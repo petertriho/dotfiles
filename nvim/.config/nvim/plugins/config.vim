@@ -39,6 +39,9 @@ endif
 " mg979/vim-visual-multi
 let g:VM_leader = '\'
 let g:VM_theme = 'spacegray'
+let g:VM_maps = {}
+let g:VM_maps['Add Cursor Down'] = '\j'
+let g:VM_maps['Add Cursor Up'] = '\k'
 
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
