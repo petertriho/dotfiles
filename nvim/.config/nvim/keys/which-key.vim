@@ -21,7 +21,6 @@ let g:which_key_map[';'] = ['Commands',                                      'co
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
-let g:which_key_map['A'] = ['<Plug>(coc-codeaction)',                        'codeaction']
 let g:which_key_map['b'] = ['Twiggy',                                        'git-branches']
 let g:which_key_map['c'] = ['<Plug>(coc-cursors-position)',                  'cursors-position']
 let g:which_key_map['d'] = ['Bwipeout',                                      'delete-buffer']
@@ -55,6 +54,7 @@ let g:which_key_map.w = 'cursors-word'
 " A(ction) Mappings
 let g:which_key_map.a = {
       \ 'name': '+action',
+      \ 'l': ['<Plug>(coc-codeaction)',  'codeaction-list'],
       \ 'q': ['<Plug>(coc-fix-current)', 'quickfix'],
       \ 'r': ['<Plug>(coc-rename)',      'rename']
       \ }
@@ -72,9 +72,6 @@ let g:which_key_map.a.d = 'documentation-generator'
 nmap <leader>af <Plug>(coc-format-selected)
 xmap <leader>af <Plug>(coc-format-selected)
 let g:which_key_map.a.f = 'format-selected'
-
-nmap <leader>al v<Plug>(coc-codeaction-selected)<esc>
-let g:which_key_map.a.l = 'codeaction-list'
 
 " G(it) Mappings
 let g:which_key_map.g = {
