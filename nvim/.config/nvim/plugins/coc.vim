@@ -18,6 +18,7 @@ let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-pyright',
     \ 'coc-sh',
+    \ 'coc-snippets',
     \ 'coc-tabnine',
     \ 'coc-tailwindcss',
     \ 'coc-tsserver',
@@ -172,3 +173,9 @@ augroup cocgit
     autocmd!
     autocmd CursorHold * CocCommand git.refresh
 augroup end
+
+" coc-snippets
+vmap <M-n> <Plug>(coc-snippets-select)
+imap <M-n> <Plug>(coc-snippets-expand-jump)
+let g:coc_snippet_next = '<M-n>'
+let g:coc_snippet_prev = '<M-p>'

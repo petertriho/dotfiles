@@ -3,6 +3,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'joshdick/onedark.vim'
 
     " Language/Syntax Highlighting
+    Plug 'honza/vim-snippets'                                " snippets
     Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } } " documentation generator
     Plug 'luochen1990/rainbow'                               " rainbow brackets
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }        " code completion

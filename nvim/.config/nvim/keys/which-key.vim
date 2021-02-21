@@ -73,6 +73,9 @@ nmap <leader>af <Plug>(coc-format-selected)
 xmap <leader>af <Plug>(coc-format-selected)
 let g:which_key_map.a.f = 'format-selected'
 
+xmap <leader>ax <Plug>(coc-convert-snippet)
+let g:which_key_map.a.x = 'visual-convert-snippet'
+
 " G(it) Mappings
 let g:which_key_map.g = {
   \ 'name': '+git',

@@ -92,6 +92,13 @@
     // coc-sh
     "sh.highlightParsingErrors": false,
 
+    // coc-snippets
+    "snippets.extends": {
+        "javascriptreact": ["javascript"],
+        "typescript": ["javascript"],
+        "typescriptreact": ["javascript"]
+    },
+
     // coc-tabnine
     "tabnine.priority": 60,
 

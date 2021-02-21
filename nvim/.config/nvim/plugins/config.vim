@@ -25,7 +25,7 @@ map ss <Plug>Sneak_s
 map sS <Plug>Sneak_S
 
 " kkoomen/vim-doge
-let g:doge_mapping = '<Leader>ad'
+let g:doge_mapping = '<leader>ad'
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
