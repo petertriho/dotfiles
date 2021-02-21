@@ -9,7 +9,7 @@
 	email = mail@petertriho.com
 
 [pull]
-	rebase = false
+	rebase = true
 
 [core]
 	# Remove when fixed
@@ -28,3 +28,6 @@
 
 [fetch]
 	prune = true
+
+[init]
+	defaultBranch = main
