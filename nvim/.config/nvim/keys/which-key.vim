@@ -44,6 +44,10 @@ let g:which_key_map['y'] = [':CocFzfList yank',                              'ya
 nnoremap <silent> <leader>D :bufdo :Bwipeout<CR>
 let g:which_key_map.D = 'delete-all-buffers'
 
+nmap <silent> <leader>r <Plug>(coc-range-select)
+xmap <silent> <leader>r <Plug>(coc-range-select)
+let g:which_key_map.r = 'range-select'
+
 nmap <silent> <leader>w <Plug>(coc-cursors-word)
 xmap <silent> <leader>w <Plug>(coc-cursors-range)
 let g:which_key_map.w = 'cursors-word'
@@ -59,18 +63,18 @@ nmap <leader>aa <Plug>(EasyAlign)
 xmap <leader>aa <Plug>(EasyAlign)
 let g:which_key_map.a.a = 'align'
 
-xmap <leader>ac <Plug>(coc-codeaction-selected)
 nmap <leader>ac <Plug>(coc-codeaction-selected)
+xmap <leader>ac <Plug>(coc-codeaction-selected)
 let g:which_key_map.a.c = 'codeaction-selected'
 
 let g:which_key_map.a.d = 'documentation-generator'
 
-xmap <leader>af <Plug>(coc-format-selected)
 nmap <leader>af <Plug>(coc-format-selected)
+xmap <leader>af <Plug>(coc-format-selected)
 let g:which_key_map.a.f = 'format-selected'
 
 nmap <leader>al v<Plug>(coc-codeaction-selected)<esc>
-let g:which_key_map.a.l = 'list'
+let g:which_key_map.a.l = 'codeaction-list'
 
 " G(it) Mappings
 let g:which_key_map.g = {
