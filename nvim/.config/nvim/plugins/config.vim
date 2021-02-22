@@ -20,13 +20,12 @@ let g:tmuxline_preset['z'] = '#h'
 
 " junegunn/fzf.vim
 " Rg seraches file contents only
-command! -bang -nargs=* Rg call
-            \ fzf#vim#grep(
-            \"rg --column --line-number --no-heading --color=always --smart-case "
-            \.shellescape(<q-args>),
-            \ 1,
-            \ {'options': '--delimiter : --nth 4..'},
-            \ <bang>0)
+command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \ 'rg --column --line-number --no-heading --color=always --smart-case '.
+    \ shellescape(<q-args>), 1,
+    \ fzf#vim#with_preview({ 'options': '--delimiter : --nth 2..' }),
+    \ <bang>0)
 
 " justinmk/vim-sneak
 let g:sneak#label = 1
