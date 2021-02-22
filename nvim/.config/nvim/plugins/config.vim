@@ -18,6 +18,16 @@ let g:tmuxline_preset['x'] = '#{prefix_highlight}'
 let g:tmuxline_preset['y'] = ['%Y-%m-%d', '%I:%M %p']
 let g:tmuxline_preset['z'] = '#h'
 
+" junegunn/fzf.vim
+" Rg seraches file contents only
+command! -bang -nargs=* Rg call
+            \ fzf#vim#grep(
+            \"rg --column --line-number --no-heading --color=always --smart-case "
+            \.shellescape(<q-args>),
+            \ 1,
+            \ {'options': '--delimiter : --nth 4..'},
+            \ <bang>0)
+
 " justinmk/vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
