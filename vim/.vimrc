@@ -30,3 +30,4 @@ syntax on                      " syntax highlighting
 
 set splitright                 " default vertical split right
 set splitbelow                 " default horizonal split below
+set title                      " set terminal's title
