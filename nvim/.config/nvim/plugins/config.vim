@@ -21,11 +21,11 @@ let g:tmuxline_preset['z'] = '#h'
 " junegunn/fzf.vim
 " Rg seraches file contents only
 command! -bang -nargs=* Rg
-    \ call fzf#vim#grep(
-    \ 'rg --column --line-number --no-heading --color=always --smart-case '.
-    \ shellescape(<q-args>), 1,
-    \ fzf#vim#with_preview({ 'options': '--delimiter : --nth 2..' }),
-    \ <bang>0)
+            \ call fzf#vim#grep(
+            \ 'rg --column --line-number --no-heading --color=always --smart-case '.
+            \ shellescape(<q-args>), 1,
+            \ fzf#vim#with_preview({ 'options': '--delimiter : --nth 2..' }),
+            \ <bang>0)
 
 " justinmk/vim-sneak
 let g:sneak#label = 1
@@ -35,6 +35,10 @@ map sS <Plug>Sneak_S
 
 " kkoomen/vim-doge
 let g:doge_mapping = '<leader>ad'
+
+" lukas-reineke/indent-blankline.nvim
+let g:indent_blankline_char = '│'
+let g:indent_blankline_char_highlight = 'EndOfBuffer'
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
