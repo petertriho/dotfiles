@@ -8,8 +8,10 @@ function! airline#extensions#tabline#formatters#custom#format(bufnr, buffers)
 
   if filename ==# 'index.js' || filename ==# 'index.jsx' || filename ==# 'index.ts' || filename ==# 'index.tsx' || filename ==# 'index.vue'
     return fnamemodify(buf, ':p:h:t') . '/i'
-  if filename ==# 'stories.js' || filename ==# 'stories.jsx' || filename ==# 'stories.ts' || filename ==# 'stories.tsx'
+  elseif filename ==# 'index.stories.js' || filename ==# 'index.stories.jsx' || filename ==# 'index.stories.ts' || filename ==# 'index.stories.tsx'
     return fnamemodify(buf, ':p:h:t') . '/'
+  elseif filename ==# 'index.test.js' || filename ==# 'index.test.jsx' || filename ==# 'index.test.ts' || filename ==# 'index.test.tsx'
+    return fnamemodify(buf, ':p:h:t') . '/ﭧ'
   elseif filename ==# 'styles.js' || filename ==# 'styles.ts' || filename ==# 'styles.jsx' || filename ==# 'styles.tsx' || filename ==# 'index.styles.js' || filename ==# 'index.styles.ts' || filename ==# 'styles.css' || filename ==# 'styles.scss'
     return fnamemodify(buf, ':p:h:t') . '/s'
   elseif filename ==# '__init__.py'
