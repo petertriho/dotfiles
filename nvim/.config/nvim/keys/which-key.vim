@@ -56,7 +56,8 @@ let g:which_key_map.a = {
       \ 'name': '+action',
       \ 'l': ['<Plug>(coc-codeaction)',  'codeaction-list'],
       \ 'q': ['<Plug>(coc-fix-current)', 'quickfix'],
-      \ 'r': ['<Plug>(coc-rename)',      'rename']
+      \ 'r': ['<Plug>(coc-rename)',      'rename'],
+      \ 'y': [':%y+',                    'yank-file']
       \ }
 
 nmap <leader>aa <Plug>(EasyAlign)
@@ -72,6 +73,9 @@ let g:which_key_map.a.d = 'documentation-generator'
 nmap <leader>af <Plug>(coc-format-selected)
 xmap <leader>af <Plug>(coc-format-selected)
 let g:which_key_map.a.f = 'format-selected'
+
+nmap <leader>ap ggVG"+p
+let g:which_key_map.a.p = 'paste-file'
 
 xmap <leader>ax <Plug>(coc-convert-snippet)
 let g:which_key_map.a.x = 'visual-convert-snippet'
