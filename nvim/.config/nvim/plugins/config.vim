@@ -38,7 +38,7 @@ let g:doge_mapping = '<leader>ad'
 
 " lukas-reineke/indent-blankline.nvim
 let g:indent_blankline_char = '│'
-let g:indent_blankline_char_highlight = 'EndOfBuffer'
+let g:indent_blankline_char_highlight = 'SpecialComment'
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
