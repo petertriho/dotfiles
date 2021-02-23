@@ -27,6 +27,6 @@ syntax on
 set background=dark
 let g:onedark_color_overrides = {
             \ "cursor_grey": { "gui": "#252525", "cterm": "235", "cterm16": "0" }
-\}
+            \}
 colorscheme onedark
 

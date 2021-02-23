@@ -1,8 +1,8 @@
 call plug#begin(stdpath('data') . '/vscode')
-    Plug 'asvetliakov/vim-easymotion'
-    Plug 'machakann/vim-sandwich'
-    Plug 'machakann/vim-highlightedyank'
-    Plug 'unblevable/quick-scope'
+Plug 'asvetliakov/vim-easymotion'
+Plug 'machakann/vim-sandwich'
+Plug 'machakann/vim-highlightedyank'
+Plug 'unblevable/quick-scope'
 call plug#end()
 
 set clipboard+=unnamedplus " yank to clipboard

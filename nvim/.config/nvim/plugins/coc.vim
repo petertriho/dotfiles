@@ -1,31 +1,31 @@
 " Coc
 let g:coc_global_extensions = [
-    \ 'coc-css',
-    \ 'coc-cssmodules',
-    \ 'coc-diagnostic',
-    \ 'coc-docker',
-    \ 'coc-emmet',
-    \ 'coc-emoji',
-    \ 'coc-eslint',
-    \ 'coc-explorer',
-    \ 'coc-git',
-    \ 'coc-highlight',
-    \ 'coc-html',
-    \ 'coc-json',
-    \ 'coc-markdownlint',
-    \ 'coc-marketplace',
-    \ 'coc-pairs',
-    \ 'coc-prettier',
-    \ 'coc-pyright',
-    \ 'coc-sh',
-    \ 'coc-snippets',
-    \ 'coc-tabnine',
-    \ 'coc-tailwindcss',
-    \ 'coc-tsserver',
-    \ 'coc-yaml',
-    \ 'coc-yank',
-    \ 'https://github.com/rodrigore/coc-tailwind-intellisense'
-  \ ]
+            \ 'coc-css',
+            \ 'coc-cssmodules',
+            \ 'coc-diagnostic',
+            \ 'coc-docker',
+            \ 'coc-emmet',
+            \ 'coc-emoji',
+            \ 'coc-eslint',
+            \ 'coc-explorer',
+            \ 'coc-git',
+            \ 'coc-highlight',
+            \ 'coc-html',
+            \ 'coc-json',
+            \ 'coc-markdownlint',
+            \ 'coc-marketplace',
+            \ 'coc-pairs',
+            \ 'coc-prettier',
+            \ 'coc-pyright',
+            \ 'coc-sh',
+            \ 'coc-snippets',
+            \ 'coc-tabnine',
+            \ 'coc-tailwindcss',
+            \ 'coc-tsserver',
+            \ 'coc-yaml',
+            \ 'coc-yank',
+            \ 'https://github.com/rodrigore/coc-tailwind-intellisense'
+            \ ]
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -55,15 +55,15 @@ endif
 
 " Use tab and ctrl + j/k for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 inoremap <silent><expr> <C-j>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 
@@ -82,7 +82,7 @@ endif
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+            \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 " Use `[i` and `]i` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -111,11 +111,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "augroup mygroup
-    "autocmd!
-    "" Setup formatexpr specified filetype(s).
-    "autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    "" Update signature help on jump placeholder.
-    "autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"autocmd!
+"" Setup formatexpr specified filetype(s).
+"autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+"" Update signature help on jump placeholder.
+"autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 "augroup end
 
 " Map function and class text objects
@@ -179,3 +179,4 @@ vmap <M-n> <Plug>(coc-snippets-select)
 imap <M-n> <Plug>(coc-snippets-expand-jump)
 let g:coc_snippet_next = '<M-n>'
 let g:coc_snippet_prev = '<M-p>'
+

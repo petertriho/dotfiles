@@ -37,6 +37,7 @@ map sS <Plug>Sneak_S
 let g:doge_mapping = '<leader>ad'
 
 " lukas-reineke/indent-blankline.nvim
+let g:indent_blankline_show_first_indent_level = v:false
 let g:indent_blankline_char = '│'
 let g:indent_blankline_char_highlight = 'SpecialComment'
 
@@ -140,3 +141,4 @@ endfunction
 
 call airline#parts#define_function('asyncrun_status', 'Get_asyncrun_running')
 let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype'])
+

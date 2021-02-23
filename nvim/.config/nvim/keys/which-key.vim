@@ -12,7 +12,7 @@ let g:which_key_max_size = 0
 " Hide status line
 autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+      \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single Mappings
 let g:which_key_map[' '] = ['w',                                             'write']
@@ -82,17 +82,17 @@ let g:which_key_map.a.x = 'visual-convert-snippet'
 
 " G(it) Mappings
 let g:which_key_map.g = {
-  \ 'name': '+git',
-  \ 's': ['G',                           'status'],
-  \ 'b': ['Twiggy',                      'branches'],
-  \ 'B': [':CocCommand git.browserOpen', 'browse'],
-  \ 'c': ['Gcommit',                     'commit'],
-  \ 'i': [':CocFzfList issues',          'issues'],
-  \ 'p': ['Gpull',                       'pull'],
-  \ 'P': [':AsyncRun git push',          'push'],
-  \ 'g': [':diffget //2',                'diff-left'],
-  \ 'h': [':diffget //3',                'diff-right']
-  \ }
+      \ 'name': '+git',
+      \ 's': ['G',                           'status'],
+      \ 'b': ['Twiggy',                      'branches'],
+      \ 'B': [':CocCommand git.browserOpen', 'browse'],
+      \ 'c': ['Gcommit',                     'commit'],
+      \ 'i': [':CocFzfList issues',          'issues'],
+      \ 'p': ['Gpull',                       'pull'],
+      \ 'P': [':AsyncRun git push',          'push'],
+      \ 'g': [':diffget //2',                'diff-left'],
+      \ 'h': [':diffget //3',                'diff-right']
+      \ }
 
 let g:which_key_map.1 = 'which_key_ignore'
 let g:which_key_map.2 = 'which_key_ignore'
