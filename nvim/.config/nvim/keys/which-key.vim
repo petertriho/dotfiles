@@ -54,9 +54,11 @@ let g:which_key_map.w = 'cursors-word'
 " A(ction) Mappings
 let g:which_key_map.a = {
       \ 'name': '+action',
+      \ 'j': ['SplitjoinJoin',           'join-lines'],
       \ 'l': ['<Plug>(coc-codeaction)',  'codeaction-list'],
       \ 'q': ['<Plug>(coc-fix-current)', 'quickfix'],
       \ 'r': ['<Plug>(coc-rename)',      'rename'],
+      \ 's': ['SplitjoinSplit',          'split-lines'],
       \ 'y': [':%y+',                    'yank-file']
       \ }
 

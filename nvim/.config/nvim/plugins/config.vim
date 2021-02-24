@@ -1,6 +1,10 @@
 " alvan/vim-closetag
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 
+" AndrewRadev/splitjoin.vim
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+
 " antoinemadec/coc-fzf
 let g:coc_fzf_preview = ''
 let g:coc_fzf_opts = []

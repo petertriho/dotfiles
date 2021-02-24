@@ -12,6 +12,7 @@ Plug 'sheerun/vim-polyglot'                                    " syntax highligh
 
 " Text Helpers
 Plug 'alvan/vim-closetag'       " auto close html tags
+Plug 'AndrewRadev/splitjoin.vim'     " split/join lines
 Plug 'AndrewRadev/tagalong.vim' " change html tags
 Plug 'junegunn/vim-easy-align'  " align things
 Plug 'machakann/vim-sandwich'   " change surrounds e.g. brackets
