@@ -67,11 +67,11 @@ augroup asyncrun
     autocmd!
     " only show quickfix when error
     autocmd User AsyncRunStop
-                  \ if g:asyncrun_status=='failure' |
-                  \   execute('call asyncrun#quickfix_toggle(8, 1)') |
-                  \ else |
-                  \   execute('call asyncrun#quickfix_toggle(8, 0)') |
-                  \ endif
+                \ if g:asyncrun_status=='failure' |
+                \   execute('call asyncrun#quickfix_toggle(8, 1)') |
+                \ else |
+                \   execute('call asyncrun#quickfix_toggle(8, 0)') |
+                \ endif
 augroup end
 
 " sodapopcan/vim-twiggy
