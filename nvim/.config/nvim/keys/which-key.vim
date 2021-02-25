@@ -55,7 +55,6 @@ let g:which_key_map.w = 'cursors-word'
 let g:which_key_map.a = {
       \ 'name': '+action',
       \ 'j': ['SplitjoinJoin',           'join-lines'],
-      \ 'l': ['<Plug>(coc-codeaction)',  'codeaction-list'],
       \ 'q': ['<Plug>(coc-fix-current)', 'quickfix'],
       \ 'r': ['<Plug>(coc-rename)',      'rename'],
       \ 's': ['SplitjoinSplit',          'split-lines'],
@@ -75,6 +74,9 @@ let g:which_key_map.a.d = 'documentation-generator'
 nmap <leader>af <Plug>(coc-format-selected)
 xmap <leader>af <Plug>(coc-format-selected)
 let g:which_key_map.a.f = 'format-selected'
+
+nmap <leader>al v<Plug>(coc-codeaction-selected)<esc>
+let g:which_key_map.a.l = 'codeaction-list'
 
 nmap <leader>ap ggVG"+p
 let g:which_key_map.a.p = 'paste-file'
