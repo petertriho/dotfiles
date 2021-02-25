@@ -31,6 +31,8 @@ let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'al
 let g:which_key_map['j'] = ['G',                                             'git-status']
 let g:which_key_map['l'] = [':call asyncrun#quickfix_toggle(8)',             'quickfix-list']
 let g:which_key_map['o'] = ['OR',                                            'organize-imports']
+let g:which_key_map['r'] = ['<Plug>(coc-range-select)',                      'range-select']
+let g:which_key_map['R'] = ['<Plug>(coc-range-select-backward)',             'range-select-backward']
 let g:which_key_map['p'] = ['Gpull',                                         'git-pull']
 let g:which_key_map['P'] = [':AsyncRun git push',                            'git-push']
 let g:which_key_map['s'] = ['Rg',                                            'search']
@@ -43,14 +45,6 @@ let g:which_key_map['y'] = [':CocFzfList yank',                              'ya
 nnoremap <silent> <leader>D :bufdo :Bwipeout<CR>
 let g:which_key_map.D = 'delete-all-buffers'
 
-nmap <silent> <leader>r <Plug>(coc-range-select)
-xmap <silent> <leader>r <Plug>(coc-range-select)
-let g:which_key_map.r = 'range-select'
-
-nmap <silent> <leader>R <Plug>(coc-range-select-backward)
-xmap <silent> <leader>R <Plug>(coc-range-select-backward)
-let g:which_key_map.R = 'range-select-backward'
-
 nmap <silent> <leader>w <Plug>(coc-cursors-word)
 xmap <silent> <leader>w <Plug>(coc-cursors-range)
 let g:which_key_map.w = 'cursors-word'
@@ -58,29 +52,21 @@ let g:which_key_map.w = 'cursors-word'
 " A(ction) Mappings
 let g:which_key_map.a = {
       \ 'name': '+action',
-      \ 'j': ['SplitjoinJoin',           'join-lines'],
-      \ 'q': ['<Plug>(coc-fix-current)', 'quickfix'],
-      \ 'r': ['<Plug>(coc-rename)',      'rename'],
-      \ 's': ['SplitjoinSplit',          'split-lines'],
-      \ 'y': [':%y+',                    'yank-file']
+      \ 'c': ['<Plug>(coc-codeaction-cursor)', 'codeaction-cursor'],
+      \ 'f': ['<Plug>(coc-format-selected)',   'format-selected'],
+      \ 'j': ['SplitjoinJoin',                 'join-lines'],
+      \ 'l': ['<Plug>(coc-codeaction-line)',   'codeaction-line'],
+      \ 'q': ['<Plug>(coc-fix-current)',       'quickfix'],
+      \ 'r': ['<Plug>(coc-rename)',            'rename'],
+      \ 's': ['SplitjoinSplit',                'split-lines'],
+      \ 'y': [':%y+',                          'yank-file']
       \ }
 
 nmap <leader>aa <Plug>(EasyAlign)
 xmap <leader>aa <Plug>(EasyAlign)
 let g:which_key_map.a.a = 'align'
 
-nmap <leader>ac <Plug>(coc-codeaction-selected)
-xmap <leader>ac <Plug>(coc-codeaction-selected)
-let g:which_key_map.a.c = 'codeaction-selected'
-
 let g:which_key_map.a.d = 'documentation-generator'
-
-nmap <leader>af <Plug>(coc-format-selected)
-xmap <leader>af <Plug>(coc-format-selected)
-let g:which_key_map.a.f = 'format-selected'
-
-nmap <leader>al v<Plug>(coc-codeaction-selected)<esc>
-let g:which_key_map.a.l = 'codeaction-list'
 
 nmap <leader>ap ggVG"+p
 let g:which_key_map.a.p = 'paste-file'
