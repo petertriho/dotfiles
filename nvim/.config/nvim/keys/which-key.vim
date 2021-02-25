@@ -47,6 +47,10 @@ nmap <silent> <leader>r <Plug>(coc-range-select)
 xmap <silent> <leader>r <Plug>(coc-range-select)
 let g:which_key_map.r = 'range-select'
 
+nmap <silent> <leader>R <Plug>(coc-range-select-backward)
+xmap <silent> <leader>R <Plug>(coc-range-select-backward)
+let g:which_key_map.R = 'range-select-backward'
+
 nmap <silent> <leader>w <Plug>(coc-cursors-word)
 xmap <silent> <leader>w <Plug>(coc-cursors-range)
 let g:which_key_map.w = 'cursors-word'
