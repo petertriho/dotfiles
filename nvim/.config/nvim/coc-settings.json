@@ -10,7 +10,6 @@
     "diagnostic.virtualTextCurrentLineOnly": false,
     "diagnostic.virtualTextPrefix": " \uf445 ",
 
-    "suggest.removeDuplicateItems": true,
     "suggest.completionItemKindLabels": {
         "class": " \uf816 (class)",
         "color": " \uf8d7 (color)",
@@ -39,6 +38,8 @@
         "value": " \uf89f (value)",
         "variable": "[\ue716](variable)"
     },
+    "suggest.numberSelect": true,
+    "suggest.removeDuplicateItems": true,
 
     // coc-diagnostic
     "diagnostic-languageserver.filetypes": {
