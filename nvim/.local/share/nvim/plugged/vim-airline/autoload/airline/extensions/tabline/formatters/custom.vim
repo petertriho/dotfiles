@@ -12,7 +12,7 @@ function! airline#extensions#tabline#formatters#custom#format(bufnr, buffers)
     return fnamemodify(buf, ':p:h:t') . '/'
   elseif filename ==# 'index.test.js' || filename ==# 'index.test.jsx' || filename ==# 'index.test.ts' || filename ==# 'index.test.tsx'
     return fnamemodify(buf, ':p:h:t') . '/ﭧ'
-  elseif filename ==# 'styles.js' || filename ==# 'styles.ts' || filename ==# 'styles.jsx' || filename ==# 'styles.tsx' || filename ==# 'index.styles.js' || filename ==# 'index.styles.ts' || filename ==# 'styles.css' || filename ==# 'styles.scss'
+  elseif filename ==# 'styles.js' || filename ==# 'styles.ts' || filename ==# 'styles.jsx' || filename ==# 'styles.tsx' || filename ==# 'index.styles.js' || filename ==# 'index.styles.ts' || filename ==# 'styles.css' || filename ==# 'styles.scss' || filename ==# 'styles.module.css' || filename ==# 'styles.module.scss'
     return fnamemodify(buf, ':p:h:t') . '/s'
   elseif filename ==# '__init__.py'
     return fnamemodify(buf, ':p:h:t') . '/_i_'
