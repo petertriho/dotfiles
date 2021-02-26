@@ -4,12 +4,6 @@
     "diagnostic.infoSign": "i",
     "diagnostic.warningSign": "!",
 
-    "diagnostic.checkCurrentLine": true,
-    "diagnostic.messageTarget": "echo",
-    "diagnostic.virtualText": true,
-    "diagnostic.virtualTextCurrentLineOnly": false,
-    "diagnostic.virtualTextPrefix": " \uf445 ",
-
     "suggest.completionItemKindLabels": {
         "class": " \uf816 (class)",
         "color": " \uf8d7 (color)",
@@ -38,7 +32,6 @@
         "value": " \uf89f (value)",
         "variable": "[\ue716](variable)"
     },
-    "suggest.numberSelect": true,
     "suggest.removeDuplicateItems": true,
 
     // coc-diagnostic
