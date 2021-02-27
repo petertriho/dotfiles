@@ -91,8 +91,8 @@ let g:which_key_map.g = {
 let g:which_key_map.w = {
       \ 'name': '+wiki',
       \ 'f': [':Files $VIMWIKI_PATH', 'find'],
+      \ 's': [':RgVW',                'search'],
       \ 'i': 'diary',
-      \ 's': 'select',
       \ 't': 'tab',
       \ 'w': 'win',
       \ }

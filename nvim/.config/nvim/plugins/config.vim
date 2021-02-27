@@ -31,6 +31,18 @@ command! -bang -nargs=* Rg
             \ fzf#vim#with_preview({ 'options': '--delimiter : --nth 2..' }),
             \ <bang>0)
 
+
+command! -bang -nargs=* RgVW
+            \ call fzf#vim#grep(
+            \ 'rg --column --line-number --no-heading --color=always --smart-case '.
+            \ shellescape(<q-args>), 1,
+            \ fzf#vim#with_preview({
+            \ 'options': '--delimiter : --nth 2..',
+            \ 'dir': $VIMWIKI_PATH
+            \ }),
+            \ <bang>0)
+
+
 " justinmk/vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
