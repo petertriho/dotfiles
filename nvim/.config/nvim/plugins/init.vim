@@ -48,6 +48,7 @@ Plug 'skywind3000/asyncrun.vim', { 'on': 'AsyncRun' }      " async tasks
 Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }           " git branches
 Plug 'tpope/vim-fugitive'                                  " git
 Plug 'vim-airline/vim-airline'                             " status line
+Plug 'vimwiki/vimwiki'                                     " personal wiki
 Plug 'ryanoasis/vim-devicons'                              " filetype icons
 
 " Misc
@@ -58,9 +59,6 @@ Plug 'romainl/vim-cool'                           " automatically disables searc
 Plug 'roxma/vim-tmux-clipboard'                   " vim-tmux clipboard sync
 Plug 'schickling/vim-bufonly'                     " close all buffers except current
 Plug 'tmux-plugins/vim-tmux-focus-events'         " tmux focus events
-"Plug 'psliwka/vim-smoothie',
-"    \ { 'tag': '0c1696a9b3b8db8cdb567a5fe8b9d6d27e118c0b' } " smooth scrolling
-"Plug 'tpope/vim-sensible'                                   " sensible config
 call plug#end()
 
 source $HOME/.config/nvim/plugins/theme.vim

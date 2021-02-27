@@ -146,3 +146,10 @@ endfunction
 call airline#parts#define_function('asyncrun_status', 'Get_asyncrun_running')
 let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype'])
 
+" vimwiki/vimwiki
+let g:vimwiki_list = [{
+            \ 'path': '~/Nextcloud/Documents/Notes',
+            \ 'syntax': 'markdown',
+            \ 'ext': '.md'
+            \ }]
+let g:vimwiki_global_ext = 0

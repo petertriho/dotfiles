@@ -45,9 +45,9 @@ let g:which_key_map['y'] = [':CocFzfList yank',                              'ya
 nnoremap <silent> <leader>D :bufdo :Bwipeout<CR>
 let g:which_key_map.D = 'delete-all-buffers'
 
-nmap <silent> <leader>w <Plug>(coc-cursors-word)
-xmap <silent> <leader>w <Plug>(coc-cursors-range)
-let g:which_key_map.w = 'cursors-word'
+nmap <silent> <leader>z <Plug>(coc-cursors-word)
+xmap <silent> <leader>z <Plug>(coc-cursors-range)
+let g:which_key_map.z = 'cursors-word'
 
 " A(ction) Mappings
 let g:which_key_map.a = {
