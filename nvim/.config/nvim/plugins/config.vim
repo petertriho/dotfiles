@@ -27,6 +27,7 @@ let g:tmuxline_preset['z'] = '#h'
 command! -bang -nargs=* Rg
             \ call fzf#vim#grep(
             \ 'rg --column --line-number --no-heading --color=always --smart-case '.
+            \ '--hidden --no-ignore-vcs --glob "!{.git/*,.venv/*,__pycache__/*,node_modules/*}" '.
             \ shellescape(<q-args>), 1,
             \ fzf#vim#with_preview({ 'options': '--delimiter : --nth 2..' }),
             \ <bang>0)
@@ -35,6 +36,7 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=* RgVW
             \ call fzf#vim#grep(
             \ 'rg --column --line-number --no-heading --color=always --smart-case '.
+            \ '--hidden --no-ignore-vcs --glob "!{.git/*,.venv/*,__pycache__/*,node_modules/*}" '.
             \ shellescape(<q-args>), 1,
             \ fzf#vim#with_preview({
             \ 'options': '--delimiter : --nth 2..',
