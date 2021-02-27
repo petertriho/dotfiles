@@ -59,14 +59,13 @@ let g:which_key_map.a = {
       \ 'q': ['<Plug>(coc-fix-current)',       'quickfix'],
       \ 'r': ['<Plug>(coc-rename)',            'rename'],
       \ 's': ['SplitjoinSplit',                'split-lines'],
-      \ 'y': [':%y+',                          'yank-file']
+      \ 'y': [':%y+',                          'yank-file'],
+      \ 'd': 'documentation-generator'
       \ }
 
 nmap <leader>aa <Plug>(EasyAlign)
 xmap <leader>aa <Plug>(EasyAlign)
 let g:which_key_map.a.a = 'align'
-
-let g:which_key_map.a.d = 'documentation-generator'
 
 nmap <leader>ap ggVG"+p
 let g:which_key_map.a.p = 'paste-file'
@@ -86,6 +85,16 @@ let g:which_key_map.g = {
       \ 'P': [':AsyncRun git push',          'push'],
       \ 'g': [':diffget //2',                'diff-left'],
       \ 'h': [':diffget //3',                'diff-right']
+      \ }
+
+" W(iki) Mappings
+let g:which_key_map.w = {
+      \ 'name': '+wiki',
+      \ 'f': [':FZF $VIMWIKI_PATH', 'find'],
+      \ 'i': 'diary',
+      \ 's': 'select',
+      \ 't': 'tab',
+      \ 'w': 'win',
       \ }
 
 let g:which_key_map.1 = 'which_key_ignore'
