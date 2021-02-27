@@ -6,18 +6,20 @@ vnoremap <silent> <leader> :silent <C-u> :silent WhichKeyVisual '<Space>'<CR>
 let g:which_key_map =  {}                                   " Create map to add keys to
 let g:which_key_sep = '→'                                   " Define a separator
 let g:which_key_display_names = {'<CR>': '↵', '<TAB>': '⇆'} " display icons
-let g:which_key_use_floating_win = 0                        " better looking floating win
-let g:which_key_max_size = 0
+let g:which_key_use_floating_win = 1                        " better looking floating win
+let g:which_key_max_size = 1
 
 " Hide status line
-autocmd! FileType which_key
-autocmd  FileType which_key set laststatus=0 noshowmode noruler
-      \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+augroup which_key
+      autocmd! FileType which_key
+      autocmd  FileType which_key set laststatus=0 noshowmode noruler
+            \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+augroup end
 
 " Single Mappings
 let g:which_key_map[' '] = ['w',                                             'write']
-let g:which_key_map['/'] = ['Files',                                         'files']
-let g:which_key_map[';'] = ['Commands',                                      'commands']
+let g:which_key_map['/'] = ['Commentary',                                    'commentary']
+let g:which_key_map[';'] = ['Files',                                         'files']
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
@@ -60,18 +62,16 @@ let g:which_key_map.a = {
       \ 'r': ['<Plug>(coc-rename)',            'rename'],
       \ 's': ['SplitjoinSplit',                'split-lines'],
       \ 'y': [':%y+',                          'yank-file'],
-      \ 'd': 'documentation-generator'
+      \ 'a': 'align',
+      \ 'd': 'documentation-generator',
+      \ 'p': 'paste-file',
+      \ 'x': 'visual-convert-snippet'
       \ }
 
 nmap <leader>aa <Plug>(EasyAlign)
 xmap <leader>aa <Plug>(EasyAlign)
-let g:which_key_map.a.a = 'align'
-
 nmap <leader>ap ggVG"+p
-let g:which_key_map.a.p = 'paste-file'
-
 xmap <leader>ax <Plug>(coc-convert-snippet)
-let g:which_key_map.a.x = 'visual-convert-snippet'
 
 " G(it) Mappings
 let g:which_key_map.g = {
@@ -90,12 +90,14 @@ let g:which_key_map.g = {
 " W(iki) Mappings
 let g:which_key_map.w = {
       \ 'name': '+wiki',
-      \ 'f': [':Files $VIMWIKI_PATH', 'find'],
-      \ 's': [':RgVW',                'search'],
+      \ 'f': [':Files $VIMWIKI_PATH', 'files'],
       \ 'i': 'diary',
+      \ 's': 'search',
       \ 't': 'tab',
       \ 'w': 'win',
       \ }
+
+nmap <silent> <leader>ws :RgVW<CR>
 
 let g:which_key_map.1 = 'which_key_ignore'
 let g:which_key_map.2 = 'which_key_ignore'

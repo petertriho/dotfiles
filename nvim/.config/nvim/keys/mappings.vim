@@ -24,8 +24,8 @@ nnoremap <silent> <M-k> :resize -2<CR>
 nnoremap <silent> <M-j> :resize +2<CR>
 nnoremap <silent> <M-h> :vertical resize -2<CR>
 nnoremap <silent> <M-l> :vertical resize +2<CR>
-map <M-=> <C-w>=
 nnoremap <silent> <M-f> :MaximizerToggle!<CR>
+map <M-=> <C-w>=
 
 " Move lines
 nnoremap <silent> <M-d> :m .+1<CR>==

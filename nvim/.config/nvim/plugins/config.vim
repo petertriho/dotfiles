@@ -23,21 +23,26 @@ let g:tmuxline_preset['y'] = ['%Y-%m-%d', '%I:%M %p']
 let g:tmuxline_preset['z'] = '#h'
 
 " junegunn/fzf.vim
-" Rg seraches file contents only
+" Rg searches file contents only
+let g:rg_vars = 'rg '.
+            \ '--column '.
+            \ '--line-number '.
+            \ '--no-heading '.
+            \ '--color=always --smart-case '.
+            \ '--hidden '.
+            \ '--no-ignore-vcs '.
+            \ '--glob "!{.git/*,.venv/*,__pycache__/*,node_modules/*}" '
+
 command! -bang -nargs=* Rg
-            \ call fzf#vim#grep(
-            \ 'rg --column --line-number --no-heading --color=always --smart-case '.
-            \ '--hidden --no-ignore-vcs --glob "!{.git/*,.venv/*,__pycache__/*,node_modules/*}" '.
-            \ shellescape(<q-args>), 1,
-            \ fzf#vim#with_preview({ 'options': '--delimiter : --nth 2..' }),
+            \ call fzf#vim#grep(g:rg_vars.shellescape(<q-args>), 1,
+            \ fzf#vim#with_preview({
+            \ 'options': '--delimiter : --nth 2..'
+            \ }),
             \ <bang>0)
 
 
 command! -bang -nargs=* RgVW
-            \ call fzf#vim#grep(
-            \ 'rg --column --line-number --no-heading --color=always --smart-case '.
-            \ '--hidden --no-ignore-vcs --glob "!{.git/*,.venv/*,__pycache__/*,node_modules/*}" '.
-            \ shellescape(<q-args>), 1,
+            \ call fzf#vim#grep(g:rg_vars.shellescape(<q-args>), 1,
             \ fzf#vim#with_preview({
             \ 'options': '--delimiter : --nth 2..',
             \ 'dir': $VIMWIKI_PATH
@@ -68,7 +73,8 @@ let g:rainbow_conf['guifgs'] = [
             \ '#e5c07b',
             \ '#61afef',
             \ '#c678dd',
-            \ '#56b6c2']
+            \ '#56b6c2'
+            \ ]
 
 " mbbill/undotree
 if has('persistent_undo')
