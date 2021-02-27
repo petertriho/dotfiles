@@ -59,6 +59,14 @@ let g:indent_blankline_char_highlight = 'SpecialComment'
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
+let g:rainbow_conf = {}
+let g:rainbow_conf['guifgs'] = [
+            \ '#e06c75',
+            \ '#98c379',
+            \ '#e5c07b',
+            \ '#61afef',
+            \ '#c678dd',
+            \ '#56b6c2']
 
 " mbbill/undotree
 if has('persistent_undo')
