@@ -148,7 +148,7 @@ let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype']
 
 " vimwiki/vimwiki
 let g:vimwiki_list = [{
-            \ 'path': '~/Nextcloud/Documents/Notes',
+            \ 'path': $VIMWIKI_PATH,
             \ 'syntax': 'markdown',
             \ 'ext': '.md'
             \ }]
