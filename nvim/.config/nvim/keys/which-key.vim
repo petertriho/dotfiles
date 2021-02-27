@@ -90,7 +90,7 @@ let g:which_key_map.g = {
 " W(iki) Mappings
 let g:which_key_map.w = {
       \ 'name': '+wiki',
-      \ 'f': [':FZF $VIMWIKI_PATH', 'find'],
+      \ 'f': [':Files $VIMWIKI_PATH', 'find'],
       \ 'i': 'diary',
       \ 's': 'select',
       \ 't': 'tab',
