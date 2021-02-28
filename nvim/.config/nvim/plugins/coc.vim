@@ -130,10 +130,6 @@ augroup end
 " coc-git
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
-augroup cocgit
-    autocmd!
-    autocmd CursorHold * CocCommand git.refresh
-augroup end
 
 " coc-snippets
 vmap <M-n> <Plug>(coc-snippets-select)

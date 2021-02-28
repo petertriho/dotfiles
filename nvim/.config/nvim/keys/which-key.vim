@@ -17,7 +17,6 @@ augroup end
 
 " Single Mappings
 let g:which_key_map[' '] = ['w',                                             'write']
-let g:which_key_map['/'] = ['Commentary',                                    'commentary']
 let g:which_key_map[';'] = ['Files',                                         'files']
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
@@ -42,6 +41,10 @@ let g:which_key_map['q'] = ['<Plug>(coc-fix-current)',                       'qu
 let g:which_key_map['Q'] = ['q',                                             'quit']
 let g:which_key_map['x'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
+
+nmap <silent> <leader>/ :Commentary<CR>
+xmap <silent> <leader>/ :Commentary<CR>
+let g:which_key_map['/'] = 'commentary'
 
 nnoremap <silent> <leader>D :bufdo :Bwipeout<CR>
 let g:which_key_map.D = 'delete-all-buffers'

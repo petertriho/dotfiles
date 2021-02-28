@@ -35,6 +35,9 @@ xmap gc <Plug>VSCodeCommentary
 nmap gc <Plug>VSCodeCommentary
 omap gc <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
+
+xmap <leader>/ <Plug>VSCodeCommentary
+omap <leader>/ <Plug>VSCodeCommentary
 nmap <leader>/ <Plug>VSCodeCommentaryLine
 
 nnoremap <C-space> <Cmd>call VSCodeNotify('editor.action.triggerSuggest')<CR>
