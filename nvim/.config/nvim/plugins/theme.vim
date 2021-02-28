@@ -30,3 +30,4 @@ let g:onedark_color_overrides = {
             \ }
 colorscheme onedark
 
+set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾
