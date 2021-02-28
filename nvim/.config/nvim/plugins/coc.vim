@@ -27,31 +27,13 @@ let g:coc_global_extensions = [
             \ 'https://github.com/rodrigore/coc-tailwind-intellisense'
             \ ]
 
-" TextEdit might fail if hidden is not set.
 set hidden
-
-" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
-" Give more space for displaying messages.
 set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
 set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has('patch-8.1.1564')
-    " Recently vim can merge signcolumn and number column into one
-    set signcolumn=number
-else
-    set signcolumn=yes
-endif
+set signcolumn=yes
 
 " Use tab and ctrl + j/k for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
@@ -65,7 +47,6 @@ inoremap <silent><expr> <C-j>
             \ <SID>check_back_space() ? '\<TAB>' :
             \ coc#refresh()
 inoremap <expr><C-k> pumvisible() ? '\<C-p>' : '\<C-h>'
-
 
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -84,12 +65,9 @@ endif
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
             \: '\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>'
 
-" Use `[i` and `]i` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [i <Plug>(coc-diagnostic-prev)
 nmap <silent> ]i <Plug>(coc-diagnostic-next)
 
-" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -107,19 +85,8 @@ function! s:show_hover()
     endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-"augroup mygroup
-"autocmd!
-"" Setup formatexpr specified filetype(s).
-"autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"" Update signature help on jump placeholder.
-"autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-"augroup end
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -139,13 +106,8 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
     vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '\<C-b>'
 endif
 
-" Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call CocActionAsync('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 " Make coc-explorer default
@@ -159,7 +121,6 @@ function! s:OpenDirHere(dir)
     endif
 endfunction
 
-" Taken from vim-easytree plugin, and changed to use coc-explorer
 augroup CocExplorerDefault
     autocmd!
     autocmd VimEnter * call <SID>DisableFileExplorer()
