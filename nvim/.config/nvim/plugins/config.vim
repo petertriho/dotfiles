@@ -109,7 +109,7 @@ augroup asyncrun
 augroup end
 
 " sodapopcan/vim-twiggy
-set shell=/usr/bin/env\ bash
+set shell=bash
 let g:twiggy_split_position = 'aboveleft'
 
 " szw/vim-maximizer
