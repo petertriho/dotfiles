@@ -1,7 +1,7 @@
 call plug#begin(stdpath('data') . '/vscode')
 Plug 'asvetliakov/vim-easymotion'
-Plug 'machakann/vim-sandwich'
 Plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-sandwich'
 Plug 'unblevable/quick-scope'
 call plug#end()
 
@@ -31,29 +31,29 @@ nmap <S-Tab> :Tabprev<CR>
 let mapleader = ' '
 nnoremap <space> <nop>
 
-xmap gc <Plug>VSCodeCommentary
 nmap gc <Plug>VSCodeCommentary
 omap gc <Plug>VSCodeCommentary
+xmap gc <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
 
-xmap <leader>/ <Plug>VSCodeCommentary
 omap <leader>/ <Plug>VSCodeCommentary
+xmap <leader>/ <Plug>VSCodeCommentary
 nmap <leader>/ <Plug>VSCodeCommentaryLine
 
 nnoremap <C-space> <Cmd>call VSCodeNotify('editor.action.triggerSuggest')<CR>
 
 nnoremap <leader><space> <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
-nnoremap <leader>; <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>- <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
+nnoremap <leader>; <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>\ <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
 nnoremap <leader>d <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
 nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
 nnoremap <leader>f <Cmd>call VSCodeNotify('editor.action.format')<CR>
 nnoremap <leader>i <Cmd>call VSCodeNotify('workbench.actions.view.problems')<CR>
 nnoremap <leader>o <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
-nnoremap <leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
 nnoremap <leader>q <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nnoremap <leader>Q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
+nnoremap <leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
 
 nnoremap <leader>af <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nnoremap <leader>al <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>

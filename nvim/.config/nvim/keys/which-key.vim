@@ -17,10 +17,10 @@ augroup end
 
 " Single Mappings
 let g:which_key_map[' '] = ['w',                                             'write']
-let g:which_key_map[';'] = ['Files',                                         'files']
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
-let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
+let g:which_key_map[';'] = ['Files',                                         'files']
+let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['b'] = ['Twiggy',                                        'git-branches']
 let g:which_key_map['c'] = ['<Plug>(coc-cursors-position)',                  'cursors-position']
 let g:which_key_map['d'] = ['Bwipeout',                                      'delete-buffer']
@@ -28,18 +28,18 @@ let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'ex
 let g:which_key_map['f'] = ['Format',                                        'format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
 let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all-issues/diagnostics']
-let g:which_key_map['j'] = [':call ToggleGstatus(1)',                        'git-status-vertical']
 let g:which_key_map['J'] = [':call ToggleGstatus(0)',                        'git-status']
+let g:which_key_map['j'] = [':call ToggleGstatus(1)',                        'git-status-vertical']
 let g:which_key_map['l'] = [':call asyncrun#quickfix_toggle(8)',             'quickfix-list']
 let g:which_key_map['o'] = ['OR',                                            'organize-imports']
-let g:which_key_map['r'] = ['<Plug>(coc-range-select)',                      'range-select']
-let g:which_key_map['R'] = ['<Plug>(coc-range-select-backward)',             'range-select-backward']
-let g:which_key_map['p'] = ['Gpull',                                         'git-pull']
 let g:which_key_map['P'] = [':AsyncRun git push',                            'git-push']
-let g:which_key_map['s'] = ['Rg',                                            'search']
-let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
+let g:which_key_map['p'] = ['Gpull',                                         'git-pull']
 let g:which_key_map['q'] = ['<Plug>(coc-fix-current)',                       'quickfix']
 let g:which_key_map['Q'] = ['q',                                             'quit']
+let g:which_key_map['r'] = ['<Plug>(coc-range-select)',                      'range-select']
+let g:which_key_map['R'] = ['<Plug>(coc-range-select-backward)',             'range-select-backward']
+let g:which_key_map['s'] = ['Rg',                                            'search']
+let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
 let g:which_key_map['x'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
 
@@ -63,18 +63,21 @@ let g:which_key_map.a = {
       \ 'l': ['<Plug>(coc-codeaction-line)',   'codeaction-line'],
       \ 'q': ['<Plug>(coc-fix-current)',       'quickfix'],
       \ 'r': ['<Plug>(coc-rename)',            'rename'],
-      \ 's': ['SplitjoinSplit',                'split-lines'],
+      \ 'x': ['SplitjoinSplit',                'split-lines'],
       \ 'y': [':%y+',                          'yank-file'],
       \ 'a': 'align',
       \ 'd': 'documentation-generator',
       \ 'p': 'paste-file',
-      \ 'x': 'visual-convert-snippet'
+      \ 's': 'sort',
+      \ 'v': 'visual-convert-snippet'
       \ }
 
 nmap <leader>aa <Plug>(EasyAlign)
 xmap <leader>aa <Plug>(EasyAlign)
+nmap <leader>as :sort i<CR>
+xmap <leader>as :sort i<CR>
 nmap <leader>ap ggVG"+p
-xmap <leader>ax <Plug>(coc-convert-snippet)
+xmap <leader>av <Plug>(coc-convert-snippet)
 
 " G(it) Mappings
 let g:which_key_map.g = {
