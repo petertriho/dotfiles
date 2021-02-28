@@ -32,4 +32,3 @@ nnoremap <silent> <M-d> :m .+1<CR>==
 nnoremap <silent> <M-u> :m .-2<CR>==
 vnoremap <silent> <M-d> :m '>+1<CR>gv=gv
 vnoremap <silent> <M-u> :m '<-2<CR>gv=gv
-

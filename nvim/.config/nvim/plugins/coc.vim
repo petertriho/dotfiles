@@ -84,7 +84,10 @@ function! s:show_hover()
     endif
 endfunction
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup coc
+    autocmd!
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup end
 
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -120,7 +123,7 @@ function! s:OpenDirHere(dir)
     endif
 endfunction
 
-augroup CocExplorerDefault
+augroup coc_explorer
     autocmd!
     autocmd VimEnter * call <SID>DisableFileExplorer()
     autocmd VimEnter * call <SID>OpenDirHere(expand('<amatch>'))
@@ -135,4 +138,3 @@ vmap <M-n> <Plug>(coc-snippets-select)
 imap <M-n> <Plug>(coc-snippets-expand-jump)
 let g:coc_snippet_next = '<M-n>'
 let g:coc_snippet_prev = '<M-p>'
-
