@@ -35,7 +35,7 @@ set splitbelow                    " default horizonal split below
 filetype plugin indent on         " turn on filetype detection, plugin, indent on
 syntax on                         " syntax highlighting
 
-set timeoutlen=500                 " speed up mapping
-set ttimeout                       " speed up key code
-set ttimeoutlen=10                 " speed up key code
-set lazyredraw                     " speed up macros
+set timeoutlen=500                " speed up mapping
+set ttimeout                      " speed up key code
+set ttimeoutlen=10                " speed up key code
+set lazyredraw                    " speed up macros
