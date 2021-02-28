@@ -1,7 +1,7 @@
 " Mappings
 " Leader
-let mapleader = "\<Space>"
-nnoremap <Space> <Nop>
+let mapleader = ' '
+nnoremap <space> <nop>
 
 " Buffers
 nnoremap <silent> <Tab> :bnext<CR>
