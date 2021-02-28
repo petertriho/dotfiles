@@ -117,15 +117,17 @@ let g:maximizer_set_default_mapping = 0 " disable default bindings
 
 " tpope/vim-fugitive
 function! ToggleGstatus(vertical, ...)
-    if buflisted(bufname('.git/index'))
-        bdelete .git/index
-    else
-        if a:vertical == 0
-            Gstatus
-        else
-            vertical Gstatus
-        endif
-    endif
+    for l:winnr in range(1, winnr('$'))
+		if !empty(getwinvar(l:winnr, 'fugitive_status'))
+			execute l:winnr.'close'
+		else
+            if a:vertical == 0
+                Gstatus
+            else
+                vertical Gstatus
+            endif
+		endif
+	endfor
 endfunction
 
 
