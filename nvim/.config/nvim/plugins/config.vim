@@ -115,6 +115,20 @@ let g:twiggy_split_position = 'aboveleft'
 " szw/vim-maximizer
 let g:maximizer_set_default_mapping = 0 " disable default bindings
 
+" tpope/vim-fugitive
+function! ToggleGstatus(vertical, ...)
+    if buflisted(bufname('.git/index'))
+        bdelete .git/index
+    else
+        if a:vertical == 0
+            Gstatus
+        else
+            vertical Gstatus
+        endif
+    endif
+endfunction
+
+
 " unblevable/quick-scope
 " cannot use ; and , with f/t https://github.com/unblevable/quick-scope/issues/55
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

@@ -28,7 +28,8 @@ let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'ex
 let g:which_key_map['f'] = ['Format',                                        'format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
 let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all-issues/diagnostics']
-let g:which_key_map['j'] = ['G',                                             'git-status']
+let g:which_key_map['j'] = [':call ToggleGstatus(1)',                        'git-status-vertical']
+let g:which_key_map['J'] = [':call ToggleGstatus(0)',                        'git-status']
 let g:which_key_map['l'] = [':call asyncrun#quickfix_toggle(8)',             'quickfix-list']
 let g:which_key_map['o'] = ['OR',                                            'organize-imports']
 let g:which_key_map['r'] = ['<Plug>(coc-range-select)',                      'range-select']
@@ -78,7 +79,7 @@ xmap <leader>ax <Plug>(coc-convert-snippet)
 " G(it) Mappings
 let g:which_key_map.g = {
       \ 'name': '+git',
-      \ 's': ['G',                           'status'],
+      \ 's': [':call ToggleGstatus(0)',      'status'],
       \ 'b': ['Twiggy',                      'branches'],
       \ 'B': [':CocCommand git.browserOpen', 'browse'],
       \ 'c': ['Gcommit',                     'commit'],
