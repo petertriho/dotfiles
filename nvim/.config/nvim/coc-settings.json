@@ -106,6 +106,6 @@
     },
 
     // coc-yank
-    "yank.highlight.duration": 300,
+    "yank.highlight.duration": 200,
     "yank.priority": 50
 }
