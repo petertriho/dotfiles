@@ -25,6 +25,7 @@ nnoremap <silent> <M-j> :resize +2<CR>
 nnoremap <silent> <M-h> :vertical resize -2<CR>
 nnoremap <silent> <M-l> :vertical resize +2<CR>
 nnoremap <silent> <M-f> :MaximizerToggle!<CR>
+nnoremap <silent> <M-g> :Goyo<CR>
 map <M-=> <C-w>=
 
 " Move lines

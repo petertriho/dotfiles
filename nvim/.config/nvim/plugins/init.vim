@@ -30,6 +30,7 @@ Plug  'tpope/vim-repeat'      " repeat vim-sneak
 Plug 'unblevable/quick-scope' " f/F, t/T motion helpers
 
 " Windows
+Plug 'junegunn/goyo.vim' " zen mode
 Plug 'simeji/winresizer' " window resizer/mover
 Plug 'szw/vim-maximizer' " window maximizer
 
