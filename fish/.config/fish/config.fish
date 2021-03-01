@@ -23,7 +23,7 @@ if status is-interactive
        "--follow" \
        "--no-ignore-vcs" \
        "--hidden" \
-       "--glob '!{.git/*,.venv/*,__pycache__/*,node_modules/*}'"
+       "--glob '!{.git/*,.venv/*,__pycache__/*,node_modules/*,build/*,dist/*}'"
     set -gx FZF_DEFAULT_OPTS \
        "--exact" \
        "--border" \
