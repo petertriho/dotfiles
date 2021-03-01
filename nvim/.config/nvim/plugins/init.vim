@@ -26,6 +26,7 @@ Plug 'tpope/vim-commentary'      " comments
 
 " Motions
 Plug 'justinmk/vim-sneak'     " markers to move around
+Plug  'tpope/vim-repeat'      " repeat vim-sneak
 Plug 'unblevable/quick-scope' " f/F, t/T motion helpers
 
 " Windows
