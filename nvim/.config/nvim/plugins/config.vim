@@ -138,8 +138,6 @@ endfunction
 " unblevable/quick-scope
 " cannot use ; and , with f/t https://github.com/unblevable/quick-scope/issues/55
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-highlight QuickScopePrimary guifg='#61afef' gui=underline ctermfg='blue' cterm=underline
-highlight QuickScopeSecondary guifg='#e06c75' gui=underline ctermfg='red' cterm=underline
 
 " vim-airline/vim-airline
 let g:airline_theme = 'onedark'
