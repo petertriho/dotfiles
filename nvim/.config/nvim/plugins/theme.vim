@@ -26,6 +26,7 @@ endif
 syntax on
 set background=dark
 let g:onedark_color_overrides = {
+            \ 'cursor_grey': { 'gui': '#212121', 'cterm': '235', 'cterm16': '0' },
             \ 'vertsplit': { "gui": "#2C323C", "cterm": "236", "cterm16": "8" }
             \ }
 colorscheme onedark
