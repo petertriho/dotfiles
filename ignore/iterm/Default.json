@@ -377,11 +377,11 @@
   "Window Type" : 0,
   "Use Bright Bold" : true,
   "Cursor Text Color" : {
-    "Red Component" : 0.098039217293262482,
+    "Red Component" : 0.10000000000000001,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.094117648899555206,
+    "Blue Component" : 0.10000000000000001,
     "Alpha Component" : 1,
-    "Green Component" : 0.098039217293262482
+    "Green Component" : 0.10000000000000001
   },
   "Default Bookmark" : "No",
   "Cursor Color" : {
