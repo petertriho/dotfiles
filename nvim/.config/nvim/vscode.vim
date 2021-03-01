@@ -16,12 +16,12 @@ let g:highlightedyank_highlight_duration = 300
 
 highlight HighlightedyankRegion guibg='#98c379' gui=underline ctermbg='green' cterm=underline
 
-highlight OperatorSandwichBuns guifg='#c678dd' gui=underline ctermfg='blue' cterm=underline
+highlight OperatorSandwichBuns guifg='#c678dd' gui=underline ctermfg='purple' cterm=underline
 highlight OperatorSandwichChange guifg='#e5c07b' gui=underline ctermfg='yellow' cterm=underline
 highlight OperatorSandwichAdd guibg='#98c379' gui=underline ctermbg='green' cterm=underline
 highlight OperatorSandwichDelete guibg='#e06c75' gui=underline ctermbg='red' cterm=underline
 
-highlight QuickScopePrimary guifg='#98c379' gui=underline ctermfg='green' cterm=underline
+highlight QuickScopePrimary guifg='#61afef' gui=underline ctermfg='blue' cterm=underline
 highlight QuickScopeSecondary guifg='#e06c75' gui=underline ctermfg='red' cterm=underline
 
 nmap <Tab> :Tabnext<CR>
