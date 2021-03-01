@@ -44,6 +44,7 @@ nnoremap <C-space> <Cmd>call VSCodeNotify('editor.action.triggerSuggest')<CR>
 
 nnoremap <leader><space> <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
 nnoremap <leader>- <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
+nnoremap <leader>. :Only!<CR>
 nnoremap <leader>; <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>\ <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
 nnoremap <leader>d <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
