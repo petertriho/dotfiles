@@ -49,7 +49,7 @@ augroup which_key
       autocmd! FileType which_key
       autocmd  FileType which_key set laststatus=0 noshowmode noruler
             \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
-augroup end
+augroup END
 
 " Single Mappings
 let g:which_key_map[' '] = ['w',                                             'write']

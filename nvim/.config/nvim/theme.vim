@@ -12,7 +12,7 @@ if (has('autocmd') && !has('gui_running'))
         autocmd ColorScheme * call onedark#set_highlight('Normal', { 'fg': s:white }) " `bg` will not be styled since there is no `bg` setting
         autocmd ColorScheme * highlight QuickScopePrimary guifg='#61afef' gui=underline ctermfg='blue' cterm=underline
         autocmd ColorScheme * highlight QuickScopeSecondary guifg='#e06c75' gui=underline ctermfg='red' cterm=underline
-    augroup end
+    augroup END
 endif
 
 " Theme

@@ -176,7 +176,7 @@ augroup asyncrun
                 \ else |
                 \   execute('call asyncrun#quickfix_toggle(8, 0)') |
                 \ endif
-augroup end
+augroup END
 
 " sodapopcan/vim-twiggy
 set shell=bash

@@ -87,7 +87,7 @@ endfunction
 augroup coc
     autocmd!
     autocmd CursorHold * silent call CocActionAsync('highlight')
-augroup end
+augroup END
 
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -127,7 +127,7 @@ augroup coc_explorer
     autocmd!
     autocmd VimEnter * call <SID>DisableFileExplorer()
     autocmd VimEnter * call <SID>OpenDirHere(expand('<amatch>'))
-augroup end
+augroup END
 
 " coc-git
 nmap [g <Plug>(coc-git-prevchunk)
