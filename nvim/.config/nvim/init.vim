@@ -1,10 +1,12 @@
 if exists('g:vscode')
     " vscode extension
-    source $HOME/.config/nvim/vscode.vim
+    runtime vscode.vim
 else
     " ordinary neovim
-    source $HOME/.config/nvim/config.vim
-    source $HOME/.config/nvim/plugins/init.vim
-    source $HOME/.config/nvim/keys/init.vim
+    runtime config.vim
+    runtime plugins.vim
+    runtime theme.vim
+    runtime coc.vim
+    runtime keys.vim
 endif
 
