@@ -48,6 +48,8 @@ command! -bang -nargs=* RgVW
             \ }),
             \ <bang>0)
 
+" junegunn/goyo.vim
+let g:goyo_linenr = 1
 
 " justinmk/vim-sneak
 let g:sneak#label = 1
