@@ -6,9 +6,7 @@ if [ -e "$HOME/.dotfiles" ]; then
         git pull && \
         stow --no-folding -t ~ */
     )
-    if [ -n "$1" ]; then
-        find -L "$HOME" -type l -exec rm -i {} \;
-    fi
+    find -L "$HOME/.config" -type l -exec rm -i {} \;
 fi
 
 if command -v brew &> /dev/null; then
