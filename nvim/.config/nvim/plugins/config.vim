@@ -28,10 +28,9 @@ let g:rg_vars = 'rg '.
             \ '--column '.
             \ '--line-number '.
             \ '--no-heading '.
-            \ '--color=always --smart-case '.
+            \ '--color=always '.
             \ '--hidden '.
-            \ '--no-ignore-vcs '.
-            \ '--glob "!{.git/*,.venv/*,__pycache__/*,node_modules/*,build/*,dist/*}" '
+            \ '--glob "!{.git/*}" '
 
 command! -bang -nargs=* Rg
             \ call fzf#vim#grep(g:rg_vars.shellescape(<q-args>), 1,
