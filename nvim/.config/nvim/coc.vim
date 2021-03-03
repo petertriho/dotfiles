@@ -123,7 +123,7 @@ function! s:OpenDirHere(dir)
     endif
 endfunction
 
-augroup coc_explorer
+augroup cocexplorer
     autocmd!
     autocmd VimEnter * call <SID>DisableFileExplorer()
     autocmd VimEnter * call <SID>OpenDirHere(expand('<amatch>'))

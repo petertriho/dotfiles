@@ -200,7 +200,6 @@ function! ToggleGstatus(vertical, ...)
 	endfor
 endfunction
 
-
 " unblevable/quick-scope
 " cannot use ; and , with f/t https://github.com/unblevable/quick-scope/issues/55
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
