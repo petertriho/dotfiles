@@ -57,7 +57,7 @@ let g:which_key_map['-'] = ['<C-w>s',                                        'sp
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
 let g:which_key_map[';'] = ['Files',                                         'files']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
-let g:which_key_map['b'] = ['Twiggy',                                        'git-branches']
+let g:which_key_map['b'] = ['GBranches',                                     'git-branches']
 let g:which_key_map['c'] = ['<Plug>(coc-cursors-position)',                  'cursors-position']
 let g:which_key_map['d'] = ['Bwipeout',                                      'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
@@ -119,7 +119,7 @@ xmap <Leader>av <Plug>(coc-convert-snippet)
 let g:which_key_map.g = {
       \ 'name': '+git',
       \ 's': [':call ToggleGstatus(0)',      'status'],
-      \ 'b': ['Twiggy',                      'branches'],
+      \ 'b': ['GBranches',                   'branches'],
       \ 'B': [':CocCommand git.browserOpen', 'browse'],
       \ 'c': ['Gcommit',                     'commit'],
       \ 'i': [':CocFzfList issues',          'issues'],

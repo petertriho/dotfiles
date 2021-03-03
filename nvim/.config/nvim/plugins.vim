@@ -47,11 +47,11 @@ Plug 'iamcco/markdown-preview.nvim',
 Plug 'liuchengxu/vim-which-key'                            " keybindings guide popup
 Plug 'mbbill/undotree'                                     " undotree
 Plug 'skywind3000/asyncrun.vim', { 'on': 'AsyncRun' }      " async tasks
-Plug 'sodapopcan/vim-twiggy', { 'on': 'Twiggy' }           " git branches
+Plug 'stsewd/fzf-checkout.vim', { 'on': 'GBranches' }      " git branches
 Plug 'tpope/vim-fugitive'                                  " git
 Plug 'vim-airline/vim-airline'                             " status line
-Plug 'vimwiki/vimwiki'                                     " personal wiki
 Plug 'ryanoasis/vim-devicons'                              " filetype icons
+Plug 'vimwiki/vimwiki'                                     " personal wiki
 
 " Misc
 Plug 'editorconfig/editorconfig-vim'              " editorconfig
@@ -178,10 +178,6 @@ augroup asyncrun
                 \   execute('call asyncrun#quickfix_toggle(8, 0)') |
                 \ endif
 augroup END
-
-" sodapopcan/vim-twiggy
-set shell=bash
-let g:twiggy_split_position = 'aboveleft'
 
 " szw/vim-maximizer
 let g:maximizer_set_default_mapping = 0 " disable default bindings
