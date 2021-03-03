@@ -235,7 +235,7 @@ let g:airline_theme_patch_func = 'AirlineThemePatch'
 let g:asyncrun_status = ''
 let g:asyncrun_status_prev = ''
 let g:asyncrun_status_icon = ''
-function! Get_asyncrun_running()
+function! GetAsyncrunRunning()
     let asyncrun_status_curr = g:asyncrun_status
 
     if asyncrun_status_curr != g:asyncrun_status_prev
@@ -258,7 +258,7 @@ function! Get_asyncrun_running()
     return g:asyncrun_status_icon . "  "
 endfunction
 
-call airline#parts#define_function('asyncrun_status', 'Get_asyncrun_running')
+call airline#parts#define_function('asyncrun_status', 'GetAsyncrunRunning')
 let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype'])
 
 " vimwiki/vimwiki

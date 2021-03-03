@@ -45,7 +45,7 @@ let g:which_key_display_names = {'<CR>': '↵', '<TAB>': '⇆'}
 let g:which_key_use_floating_win = 0
 let g:which_key_max_size = 0
 
-augroup which_key
+augroup which-key
       autocmd! FileType which_key
       autocmd  FileType which_key set laststatus=0 noshowmode noruler
             \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler

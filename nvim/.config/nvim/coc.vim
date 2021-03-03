@@ -112,23 +112,6 @@ command! -nargs=0 Format :call CocActionAsync('format')
 command! -nargs=? Fold :call CocActionAsync('fold', <f-args>)
 command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" Make coc-explorer default
-function! s:DisableFileExplorer()
-    au! FileExplorer
-endfunction
-
-function! s:OpenDirHere(dir)
-    if isdirectory(a:dir)
-        exec 'silent CocCommand explorer --toggle --sources=file+ ' . a:dir
-    endif
-endfunction
-
-augroup cocexplorer
-    autocmd!
-    autocmd VimEnter * call <SID>DisableFileExplorer()
-    autocmd VimEnter * call <SID>OpenDirHere(expand('<amatch>'))
-augroup END
-
 " coc-git
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
