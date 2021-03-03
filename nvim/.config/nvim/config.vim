@@ -41,6 +41,8 @@ set ttimeout                       " speed up key code
 set ttimeoutlen=10                 " speed up key code
 set lazyredraw                     " speed up macros
 
+set shell=sh
+
 if exists($VIRTUAL_ENV)
     let g:python3_host_prog=substitute(system('which -a python3 | head -n2 | tail -n1'), '\n', '', 'g')
 else
