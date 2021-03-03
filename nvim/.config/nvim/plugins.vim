@@ -94,8 +94,9 @@ let g:rg_vars = 'rg '.
             \ '--line-number '.
             \ '--no-heading '.
             \ '--color=always '.
+            \ '--smart-case '.
             \ '--hidden '.
-            \ '--glob "!{.git/*}" '
+            \ '--glob "!{.git/*,}" '
 
 command! -bang -nargs=* Rg
             \ call fzf#vim#grep(g:rg_vars.shellescape(<q-args>), 1,
@@ -235,7 +236,7 @@ let g:airline_theme_patch_func = 'AirlineThemePatch'
 let g:asyncrun_status = ''
 let g:asyncrun_status_prev = ''
 let g:asyncrun_status_icon = ''
-function! GetAsyncrunRunning()
+function! GetAsyncrunStatus()
     let asyncrun_status_curr = g:asyncrun_status
 
     if asyncrun_status_curr != g:asyncrun_status_prev
@@ -258,7 +259,7 @@ function! GetAsyncrunRunning()
     return g:asyncrun_status_icon . "  "
 endfunction
 
-call airline#parts#define_function('asyncrun_status', 'GetAsyncrunRunning')
+call airline#parts#define_function('asyncrun_status', 'GetAsyncrunStatus')
 let g:airline_section_x = airline#section#create(['asyncrun_status', 'filetype'])
 
 " vimwiki/vimwiki

@@ -1,11 +1,11 @@
 " Mappings
 " Leader
 let mapleader = ' '
-nnoremap <space> <nop>
+nnoremap <Space> <NOP>
 
 " Buffers
-nnoremap <silent> <Tab> :bnext<CR>
-nnoremap <silent> <S-Tab> :bprevious<CR>
+nnoremap <silent> <TAB> :bnext<CR>
+nnoremap <silent> <S-TAB> :bprevious<CR>
 nnoremap <silent> <M-d> :Bdelete<CR>
 
 " Tabs
@@ -35,9 +35,9 @@ vnoremap <silent> <M-d> :m '>+1<CR>gv=gv
 vnoremap <silent> <M-u> :m '<-2<CR>gv=gv
 
 " which-key config
-call which_key#register('<space>', 'g:which_key_map')
-nnoremap <silent> <leader> :silent <C-u> :silent WhichKey '<space>'<CR>
-vnoremap <silent> <leader> :silent <C-u> :silent WhichKeyVisual '<space>'<CR>
+call which_key#register('<Space>', 'g:which_key_map')
+nnoremap <silent> <Leader> :silent <C-u> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <Leader> :silent <C-u> :silent WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map =  {}
 let g:which_key_sep = '→'
@@ -79,15 +79,15 @@ let g:which_key_map['u'] = ['UndotreeToggle',                                'un
 let g:which_key_map['x'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
 
-nmap <silent> <leader>/ :Commentary<CR>
-xmap <silent> <leader>/ :Commentary<CR>
+nmap <silent> <Leader>/ :Commentary<CR>
+xmap <silent> <Leader>/ :Commentary<CR>
 let g:which_key_map['/'] = 'commentary'
 
-nnoremap <silent> <leader>D :bufdo :Bwipeout<CR>
+nnoremap <silent> <Leader>D :bufdo :Bwipeout<CR>
 let g:which_key_map.D = 'delete-all-buffers'
 
-nmap <silent> <leader>z <Plug>(coc-cursors-word)
-xmap <silent> <leader>z <Plug>(coc-cursors-range)
+nmap <silent> <Leader>z <Plug>(coc-cursors-word)
+xmap <silent> <Leader>z <Plug>(coc-cursors-range)
 let g:which_key_map.z = 'cursors-word'
 
 " A(ction) Mappings
@@ -108,12 +108,12 @@ let g:which_key_map.a = {
       \ 'v': 'visual-convert-snippet'
       \ }
 
-nmap <leader>aa <Plug>(EasyAlign)
-xmap <leader>aa <Plug>(EasyAlign)
-nmap <leader>as :sort i<CR>
-xmap <leader>as :sort i<CR>
-nmap <leader>ap ggVG"+p
-xmap <leader>av <Plug>(coc-convert-snippet)
+nmap <Leader>aa <Plug>(EasyAlign)
+xmap <Leader>aa <Plug>(EasyAlign)
+nmap <Leader>as :sort i<CR>
+xmap <Leader>as :sort i<CR>
+nmap <Leader>ap ggVG"+p
+xmap <Leader>av <Plug>(coc-convert-snippet)
 
 " G(it) Mappings
 let g:which_key_map.g = {
@@ -139,7 +139,7 @@ let g:which_key_map.w = {
       \ 'w': 'win',
       \ }
 
-nmap <silent> <leader>ws :RgVW<CR>
+nmap <silent> <Leader>ws :RgVW<CR>
 
 let g:which_key_map.1 = 'which_key_ignore'
 let g:which_key_map.2 = 'which_key_ignore'
@@ -152,13 +152,13 @@ let g:which_key_map.8 = 'which_key_ignore'
 let g:which_key_map.9 = 'which_key_ignore'
 let g:which_key_map.0 = 'which_key_ignore'
 
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>0 <Plug>AirlineSelectTab0
+nmap <Leader>1 <Plug>AirlineSelectTab1
+nmap <Leader>2 <Plug>AirlineSelectTab2
+nmap <Leader>3 <Plug>AirlineSelectTab3
+nmap <Leader>4 <Plug>AirlineSelectTab4
+nmap <Leader>5 <Plug>AirlineSelectTab5
+nmap <Leader>6 <Plug>AirlineSelectTab6
+nmap <Leader>7 <Plug>AirlineSelectTab7
+nmap <Leader>8 <Plug>AirlineSelectTab8
+nmap <Leader>9 <Plug>AirlineSelectTab9
+nmap <Leader>0 <Plug>AirlineSelectTab0
