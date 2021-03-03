@@ -34,7 +34,7 @@ if command -v nvim &> /dev/null; then
     fi
 
     echo "Updating nvim plugins ..."
-    nvim -es \
+    nvim \
         +CocStart \
         +CocUpdateSync \
         +PlugClean! \
