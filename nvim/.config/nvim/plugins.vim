@@ -157,6 +157,10 @@ let g:rainbow_conf['guifgs'] = [
 
 " mbbill/undotree
 if has('persistent_undo')
+    if !isdirectory($HOME . '/.undodir')
+        call mkdir($HOME . '/.undodir')
+    endif
+
     set undodir=$HOME/.undodir
     set undofile
 endif
