@@ -29,7 +29,7 @@ nmap <S-TAB> :Tabprev<CR>
 
 " map space to leader
 let mapleader = ' '
-nnoremap <Space> <NOP>
+noremap <Space> <NOP>
 
 nmap gc <Plug>VSCodeCommentary
 omap gc <Plug>VSCodeCommentary
