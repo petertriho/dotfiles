@@ -27,7 +27,7 @@ Plug 'tpope/vim-commentary'      " comments
 
 " Motions
 Plug 'justinmk/vim-sneak'     " markers to move around
-Plug  'tpope/vim-repeat'      " repeat vim-sneak
+Plug 'tpope/vim-repeat'       " repeat vim-sneak
 Plug 'unblevable/quick-scope' " f/F, t/T motion helpers
 
 " Windows
@@ -37,32 +37,38 @@ Plug 'szw/vim-maximizer' " window maximizer
 
 " Tools
 Plug 'antoinemadec/coc-fzf',
-            \ { 'on': ['CocFzfList', 'CocFzfListResume'] } " fzf for coc
+            \ { 'on': [
+            \ 'CocFzfList',
+            \ 'CocFzfListResume'
+            \ ] }                               " fzf for coc
 Plug 'junegunn/fzf',
- \ { 'do': { -> fzf#install() } }                          " fzf
-Plug 'junegunn/fzf.vim'                                    " fzf helpers
-Plug 'junegunn/vim-peekaboo'                               " show contents of registers
+ \ { 'do': { -> fzf#install() } }               " fzf
+Plug 'junegunn/fzf.vim'                         " fzf helpers
+Plug 'junegunn/vim-peekaboo'                    " show contents of registers
 Plug 'iamcco/markdown-preview.nvim',
             \ { 'do': { -> mkdp#util#install() },
-            \ 'for': ['markdown', 'vim-plug'] }            " markdown browser preview
-Plug 'liuchengxu/vim-which-key'                            " keybindings guide popup
-Plug 'mbbill/undotree'                                     " undotree
-Plug 'skywind3000/asyncrun.vim', { 'on': 'AsyncRun' }      " async tasks
-Plug 'stsewd/fzf-checkout.vim', { 'on': 'GBranches' }      " git branches
-Plug 'tpope/vim-fugitive'                                  " git
-Plug 'vim-airline/vim-airline'                             " status line
-Plug 'ryanoasis/vim-devicons'                              " filetype icons
-Plug 'vimwiki/vimwiki'                                     " personal wiki
+            \ 'for': ['markdown', 'vim-plug'] } " markdown browser preview
+Plug 'liuchengxu/vim-which-key'                 " keybindings guide popup
+Plug 'mbbill/undotree'                          " undotree
+Plug 'skywind3000/asyncrun.vim',
+            \ { 'on': 'AsyncRun' }              " async tasks
+Plug 'stsewd/fzf-checkout.vim',
+            \ { 'on': 'GBranches' }             " git branches
+Plug 'tpope/vim-fugitive'                       " git
+Plug 'vim-airline/vim-airline'                  " status line
+Plug 'ryanoasis/vim-devicons'                   " filetype icons
+Plug 'vimwiki/vimwiki'                          " personal wiki
 
 " Misc
-Plug 'editorconfig/editorconfig-vim'              " editorconfig
-Plug 'edkolev/tmuxline.vim', { 'on': 'Tmuxline' } " match tmux with airline theme
-Plug 'moll/vim-bbye'                              " better buffer delete/wipeout
-Plug 'romainl/vim-cool'                           " automatically disables search highlighing
-Plug 'roxma/vim-tmux-clipboard'                   " vim-tmux clipboard sync
-Plug 'ryvnf/readline.vim'                         " readline cmdline mappings
-Plug 'schickling/vim-bufonly'                     " close all buffers except current
-Plug 'tmux-plugins/vim-tmux-focus-events'         " tmux focus events
+Plug 'editorconfig/editorconfig-vim'      " editorconfig
+Plug 'edkolev/tmuxline.vim',
+            \ { 'on': 'Tmuxline' }        " match tmux with airline theme
+Plug 'moll/vim-bbye'                      " better buffer delete/wipeout
+Plug 'romainl/vim-cool'                   " automatically disables search highlighing
+Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
+Plug 'ryvnf/readline.vim'                 " readline cmdline mappings
+Plug 'schickling/vim-bufonly'             " close all buffers except current
+Plug 'tmux-plugins/vim-tmux-focus-events' " tmux focus events
 call plug#end()
 
 " alvan/vim-closetag
