@@ -51,7 +51,6 @@
 - [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 - [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 - [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
-- [mbbill/undotree](https://github.com/mbbill/undotree)
 - [neoclide/coc-git](https://github.com/neoclide/coc-git)
 - [koalaman/shellcheck](https://github.com/koalaman/shellcheck)
 - [hadolint/hadolint](https://github.com/hadolint/hadolint)
