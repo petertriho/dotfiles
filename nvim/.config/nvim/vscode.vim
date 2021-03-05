@@ -11,6 +11,19 @@ Plug 'tpope/vim-repeat'
 Plug 'unblevable/quick-scope'
 call plug#end()
 
+function! s:vscodeBetterAlign(...) abort
+    if !a:0
+        let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+        return 'g@'
+    elseif a:0 > 1
+        let [line1, line2] = [a:1, a:2]
+    else
+        let [line1, line2] = [line("'["), line("']")]
+    endif
+
+    call VSCodeCallRange('wwm.aligncode', line1, line2, 0)
+endfunction
+
 " AndrewRadev/splitjoin.vim
 let g:splitjoin_split_mapping = ''
 let g:splitjoin_join_mapping = ''
@@ -63,6 +76,7 @@ nnoremap <Leader>q <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nnoremap <Leader>Q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
 nnoremap <Leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
 
+xnoremap <expr> <Leader>aa <SID>vscodeBetterAlign()
 nmap <Leader>aj :SplitjoinJoin<CR>
 xnoremap <expr> <Leader>af <SID>vscodeFormat()
 nnoremap <expr> <Leader>af <SID>vscodeFormat() . '_'
