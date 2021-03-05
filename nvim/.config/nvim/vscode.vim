@@ -45,6 +45,10 @@ nmap gcc <Plug>VSCodeCommentaryLine
 let mapleader = ' '
 noremap <Space> <NOP>
 
+omap <Leader>/ <Plug>VSCodeCommentary
+xmap <Leader>/ <Plug>VSCodeCommentary
+nmap <Leader>/ <Plug>VSCodeCommentaryLine
+
 nnoremap <Leader><Space> <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
 nnoremap <Leader>- <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
 nnoremap <Leader>. :Only!<CR>
