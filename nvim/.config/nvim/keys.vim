@@ -4,13 +4,13 @@ let mapleader = ' '
 noremap <Space> <NOP>
 
 " Buffers
-nnoremap <silent> <TAB> :bnext<CR>
-nnoremap <silent> <S-TAB> :bprevious<CR>
-nnoremap <silent> <M-d> :Bdelete<CR>
+noremap <silent> <TAB> :bnext<CR>
+noremap <silent> <S-TAB> :bprevious<CR>
+noremap <silent> <M-d> :Bdelete<CR>
 
 " Tabs
-nnoremap <silent> <C-n> :tabnext<CR>
-nnoremap <silent> <C-p> :tabprevious<CR>
+noremap <silent> <C-n> :tabnext<CR>
+noremap <silent> <C-p> :tabprevious<CR>
 
 " Windows - Navigation
 map <C-j> <C-w>j
@@ -20,12 +20,12 @@ map <C-l> <C-w>l
 map <C-\> <C-w>p
 
 " Windows - Resize
-nnoremap <silent> <M-k> :resize -2<CR>
-nnoremap <silent> <M-j> :resize +2<CR>
-nnoremap <silent> <M-h> :vertical resize -2<CR>
-nnoremap <silent> <M-l> :vertical resize +2<CR>
-nnoremap <silent> <M-f> :MaximizerToggle!<CR>
-nnoremap <silent> <M-g> :Goyo<CR>
+noremap <silent> <M-k> :resize -2<CR>
+noremap <silent> <M-j> :resize +2<CR>
+noremap <silent> <M-h> :vertical resize -2<CR>
+noremap <silent> <M-l> :vertical resize +2<CR>
+noremap <silent> <M-f> :MaximizerToggle!<CR>
+noremap <silent> <M-g> :Goyo<CR>
 map <M-=> <C-w>=
 
 " Move lines
@@ -40,8 +40,6 @@ nnoremap <silent> <Leader> :silent <C-u> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <Leader> :silent <C-u> :silent WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map =  {}
-let g:which_key_sep = '→'
-let g:which_key_display_names = {'<CR>': '↵', '<TAB>': '⇆'}
 let g:which_key_use_floating_win = 0
 let g:which_key_max_size = 0
 
@@ -108,9 +106,7 @@ let g:which_key_map.a = {
       \ 'v': 'visual-convert-snippet'
       \ }
 
-nmap <Leader>aa <Plug>(EasyAlign)
-xmap <Leader>aa <Plug>(EasyAlign)
-nmap <Leader>as :sort i<CR>
+map <Leader>aa <Plug>(EasyAlign)
 xmap <Leader>as :sort i<CR>
 nmap <Leader>ap ggVG"+p
 xmap <Leader>av <Plug>(coc-convert-snippet)
@@ -139,7 +135,7 @@ let g:which_key_map.w = {
       \ 'w': 'win',
       \ }
 
-nmap <silent> <Leader>ws :RgVW<CR>
+map <silent> <Leader>ws :RgVW<CR>
 
 let g:which_key_map.1 = 'which_key_ignore'
 let g:which_key_map.2 = 'which_key_ignore'
@@ -152,13 +148,13 @@ let g:which_key_map.8 = 'which_key_ignore'
 let g:which_key_map.9 = 'which_key_ignore'
 let g:which_key_map.0 = 'which_key_ignore'
 
-nmap <Leader>1 <Plug>AirlineSelectTab1
-nmap <Leader>2 <Plug>AirlineSelectTab2
-nmap <Leader>3 <Plug>AirlineSelectTab3
-nmap <Leader>4 <Plug>AirlineSelectTab4
-nmap <Leader>5 <Plug>AirlineSelectTab5
-nmap <Leader>6 <Plug>AirlineSelectTab6
-nmap <Leader>7 <Plug>AirlineSelectTab7
-nmap <Leader>8 <Plug>AirlineSelectTab8
-nmap <Leader>9 <Plug>AirlineSelectTab9
-nmap <Leader>0 <Plug>AirlineSelectTab0
+map <Leader>1 <Plug>AirlineSelectTab1
+map <Leader>2 <Plug>AirlineSelectTab2
+map <Leader>3 <Plug>AirlineSelectTab3
+map <Leader>4 <Plug>AirlineSelectTab4
+map <Leader>5 <Plug>AirlineSelectTab5
+map <Leader>6 <Plug>AirlineSelectTab6
+map <Leader>7 <Plug>AirlineSelectTab7
+map <Leader>8 <Plug>AirlineSelectTab8
+map <Leader>9 <Plug>AirlineSelectTab9
+map <Leader>0 <Plug>AirlineSelectTab0

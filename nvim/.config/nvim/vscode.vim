@@ -47,12 +47,10 @@ highlight OperatorSandwichDelete guibg='#e06c75' gui=underline ctermbg='red' cte
 highlight QuickScopePrimary guifg='#61afef' gui=underline ctermfg='blue' cterm=underline
 highlight QuickScopeSecondary guifg='#e06c75' gui=underline ctermfg='red' cterm=underline
 
-nmap <TAB> :Tabnext<CR>
-nmap <S-TAB> :Tabprev<CR>
+map <TAB> :Tabnext<CR>
+map <S-TAB> :Tabprev<CR>
 
-nmap gc <Plug>VSCodeCommentary
-omap gc <Plug>VSCodeCommentary
-xmap gc <Plug>VSCodeCommentary
+map gc <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
 
 let mapleader = ' '
@@ -62,38 +60,33 @@ omap <Leader>/ <Plug>VSCodeCommentary
 xmap <Leader>/ <Plug>VSCodeCommentary
 nmap <Leader>/ <Plug>VSCodeCommentaryLine
 
-nnoremap <Leader><Space> <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
-nnoremap <Leader>- <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
-nnoremap <Leader>. :Only!<CR>
-nnoremap <Leader>; <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
-nnoremap <Leader>\ <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
-nnoremap <Leader>d <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
-nnoremap <Leader>e <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
-nnoremap <Leader>f <Cmd>call VSCodeNotify('editor.action.format')<CR>
-nnoremap <Leader>i <Cmd>call VSCodeNotify('workbench.actions.view.problems')<CR>
-nnoremap <Leader>o <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
-nnoremap <Leader>q <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
-nnoremap <Leader>Q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
-nnoremap <Leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
+noremap <Leader><Space> <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
+noremap <Leader>- <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
+noremap <Leader>. :Only!<CR>
+noremap <Leader>; <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
+noremap <Leader>\ <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
+noremap <Leader>d <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
+noremap <Leader>e <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
+noremap <Leader>f <Cmd>call VSCodeNotify('editor.action.format')<CR>
+noremap <Leader>i <Cmd>call VSCodeNotify('workbench.actions.view.problems')<CR>
+noremap <Leader>o <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
+noremap <Leader>q <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
+noremap <Leader>Q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
+noremap <Leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
 
 xnoremap <expr> <Leader>aa <SID>vscodeBetterAlign()
 nmap <Leader>aj :SplitjoinJoin<CR>
-xnoremap <expr> <Leader>af <SID>vscodeFormat()
 nnoremap <expr> <Leader>af <SID>vscodeFormat() . '_'
-nnoremap <Leader>al <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
-nmap <Leader>as :sort i<CR>
-xmap <Leader>as :sort i<CR>
-nmap <Leader>ap ggVG"+p
-nnoremap <Leader>aq <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
+xnoremap <expr> <Leader>af <SID>vscodeFormat()
+noremap <Leader>al <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
+map <Leader>as :sort i<CR>
+map <Leader>ap ggVG"+p
+noremap <Leader>aq <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nmap <Leader>ax :SplitjoinSplit<CR>
-nmap <Leader>ay :%y+<CR>
+map <Leader>ay :%y+<CR>
 
 " Navigation
-nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
-xnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
-nnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR>
-xnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR>
-nnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
-xnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
-nnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
-xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
+noremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
+noremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR>
+noremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
+noremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
