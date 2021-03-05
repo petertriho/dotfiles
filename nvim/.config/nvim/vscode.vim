@@ -1,46 +1,49 @@
-call plug#begin(stdpath('data') . '/vscode')
-Plug 'asvetliakov/vim-easymotion'
-Plug 'machakann/vim-highlightedyank'
-Plug 'machakann/vim-sandwich'
-Plug 'unblevable/quick-scope'
-call plug#end()
-
 set clipboard+=unnamedplus " yank to clipboard
 set lazyredraw             " speed up macros
 
+call plug#begin(stdpath('data') . '/vscode')
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'asvetliakov/vim-easymotion'
+Plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'unblevable/quick-scope'
+call plug#end()
+
+" AndrewRadev/splitjoin.vim
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+
+" asvetliakov/vim-easymotion
 let g:EasyMotion_smartcase = 1 " turn on case-insensitive feature
 nmap s <Plug>(easymotion-prefix)
 nmap sl <Plug>(easymotion-bd-jk)
 
+" machakann/vim-highlightedyank
+highlight HighlightedyankRegion guibg='#98c379' gui=underline ctermbg='green' cterm=underline
 let g:highlightedyank_highlight_duration = 200
 
-highlight HighlightedyankRegion guibg='#98c379' gui=underline ctermbg='green' cterm=underline
-
-highlight OperatorSandwichBuns guifg='#c678dd' gui=underline ctermfg='purple' cterm=underline
+" machakann/vim-sandwich
+highlight OperatorSandwichBuns guifg='#c678dd' gui=underline ctermfg='blue' cterm=underline
 highlight OperatorSandwichChange guifg='#e5c07b' gui=underline ctermfg='yellow' cterm=underline
 highlight OperatorSandwichAdd guibg='#98c379' gui=underline ctermbg='green' cterm=underline
 highlight OperatorSandwichDelete guibg='#e06c75' gui=underline ctermbg='red' cterm=underline
 
+" unblevable/quick-scope
 highlight QuickScopePrimary guifg='#61afef' gui=underline ctermfg='blue' cterm=underline
 highlight QuickScopeSecondary guifg='#e06c75' gui=underline ctermfg='red' cterm=underline
 
 nmap <TAB> :Tabnext<CR>
 nmap <S-TAB> :Tabprev<CR>
 
-" map space to leader
-let mapleader = ' '
-noremap <Space> <NOP>
-
 nmap gc <Plug>VSCodeCommentary
 omap gc <Plug>VSCodeCommentary
 xmap gc <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
 
-omap <Leader>/ <Plug>VSCodeCommentary
-xmap <Leader>/ <Plug>VSCodeCommentary
-nmap <Leader>/ <Plug>VSCodeCommentaryLine
-
-nnoremap <C-space> <Cmd>call VSCodeNotify('editor.action.triggerSuggest')<CR>
+let mapleader = ' '
+noremap <Space> <NOP>
 
 nnoremap <Leader><Space> <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
 nnoremap <Leader>- <Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>
@@ -56,8 +59,16 @@ nnoremap <Leader>q <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nnoremap <Leader>Q <Cmd>call VSCodeNotify('workbench.action.closeEditorsInGroup')<CR>
 nnoremap <Leader>s <Cmd>call VSCodeNotify('workbench.view.search')<CR>
 
-nnoremap <Leader>af <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
+nmap <Leader>aj :SplitjoinJoin<CR>
+xnoremap <expr> <Leader>af <SID>vscodeFormat()
+nnoremap <expr> <Leader>af <SID>vscodeFormat() . '_'
 nnoremap <Leader>al <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
+nmap <Leader>as :sort i<CR>
+xmap <Leader>as :sort i<CR>
+nmap <Leader>ap ggVG"+p
+nnoremap <Leader>aq <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
+nmap <Leader>ax :SplitjoinSplit<CR>
+nmap <Leader>ay :%y+<CR>
 
 " Navigation
 nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
