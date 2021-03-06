@@ -68,6 +68,7 @@ noremap <Leader>\ <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
 noremap <Leader>d <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
 noremap <Leader>e <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
 noremap <Leader>f <Cmd>call VSCodeNotify('editor.action.format')<CR>
+map <Leader>h :nohlsearch<CR>
 noremap <Leader>i <Cmd>call VSCodeNotify('workbench.actions.view.problems')<CR>
 noremap <Leader>o <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
 noremap <Leader>q <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>

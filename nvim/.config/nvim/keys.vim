@@ -60,6 +60,7 @@ let g:which_key_map['c'] = ['<Plug>(coc-cursors-position)',                  'cu
 let g:which_key_map['d'] = ['Bwipeout',                                      'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = ['Format',                                        'format']
+let g_which_key_map['h'] = ['nohlsearch',                                    'highlight-off']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
 let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all-issues/diagnostics']
 let g:which_key_map['j'] = [':call ToggleGstatus(0)',                        'git-status']
