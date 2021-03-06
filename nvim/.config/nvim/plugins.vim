@@ -3,16 +3,16 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'joshdick/onedark.vim'
 
 " Language/Syntax Highlighting
-Plug 'honza/vim-snippets'                             " snippets
+Plug 'honza/vim-snippets'                              " snippets
 Plug 'kkoomen/vim-doge',
-            \ { 'do': { -> doge#install() } }         " documentation generator
+            \ { 'do': { -> doge#install() } }          " documentation generator
 Plug 'lukas-reineke/indent-blankline.nvim',
-            \ { 'branch': 'lua'}                      " indent lines
-Plug 'luochen1990/rainbow'                            " rainbow brackets
+            \ { 'branch': 'lua' }                      " indent lines
+Plug 'luochen1990/rainbow'                             " rainbow brackets
 Plug 'neoclide/coc.nvim',
-            \ {'branch': 'master',
-            \ 'do': 'yarn install --frozen-lockfile'} " lsp
-Plug 'sheerun/vim-polyglot'                           " syntax highlighting
+            \ { 'branch': 'master',
+            \ 'do': 'yarn install --frozen-lockfile' } " lsp
+Plug 'sheerun/vim-polyglot'                            " syntax highlighting
 
 " Text Helpers
 Plug 'alvan/vim-closetag'        " auto close html tags
