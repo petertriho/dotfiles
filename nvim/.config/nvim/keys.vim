@@ -77,8 +77,7 @@ let g:which_key_map['u'] = ['UndotreeToggle',                                'un
 let g:which_key_map['x'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
 
-nmap <silent> <Leader>/ :Commentary<CR>
-xmap <silent> <Leader>/ :Commentary<CR>
+map <silent> <Leader>/ :Commentary<CR>
 let g:which_key_map['/'] = 'commentary'
 
 nnoremap <silent> <Leader>D :bufdo :Bwipeout<CR>
