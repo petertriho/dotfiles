@@ -29,7 +29,6 @@ Plug 'tpope/vim-speeddating'     " date helpers
 
 " Motions
 Plug 'justinmk/vim-sneak'     " markers to move around
-Plug 'tpope/vim-repeat'       " repeat vim-sneak
 Plug 'unblevable/quick-scope' " f/F, t/T motion helpers
 
 " Windows
@@ -70,6 +69,7 @@ Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
 Plug 'ryvnf/readline.vim'                 " readline cmdline mappings
 Plug 'schickling/vim-bufonly'             " close all buffers except current
 Plug 'tmux-plugins/vim-tmux-focus-events' " tmux focus events
+Plug 'tpope/vim-repeat'                   " repeat things
 Plug 'tpope/vim-unimpaired'               " [] mappings
 call plug#end()
 
