@@ -24,6 +24,8 @@ Plug 'mattn/emmet-vim'           " emmet
 Plug 'mg979/vim-visual-multi'    " multi cursors
 Plug 'tpope/vim-abolish'         " change case
 Plug 'tpope/vim-commentary'      " comments
+Plug 'tpope/vim-characterize'    " character representation
+Plug 'tpope/vim-speeddating'     " date helpers
 
 " Motions
 Plug 'justinmk/vim-sneak'     " markers to move around
@@ -64,11 +66,11 @@ Plug 'editorconfig/editorconfig-vim'      " editorconfig
 Plug 'edkolev/tmuxline.vim',
             \ { 'on': 'Tmuxline' }        " match tmux with airline theme
 Plug 'moll/vim-bbye'                      " better buffer delete/wipeout
-Plug 'romainl/vim-cool'                   " automatically disables search highlighing
 Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
 Plug 'ryvnf/readline.vim'                 " readline cmdline mappings
 Plug 'schickling/vim-bufonly'             " close all buffers except current
 Plug 'tmux-plugins/vim-tmux-focus-events' " tmux focus events
+Plug 'tpope/vim-unimpaired'               " [] mappings
 call plug#end()
 
 " alvan/vim-closetag
