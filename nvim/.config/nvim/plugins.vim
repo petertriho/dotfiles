@@ -44,7 +44,7 @@ Plug 'antoinemadec/coc-fzf',
             \ 'CocFzfListResume'
             \ ] }                               " fzf for coc
 Plug 'junegunn/fzf',
- \ { 'do': { -> fzf#install() } }               " fzf
+            \ { 'do': { -> fzf#install() } }    " fzf
 Plug 'junegunn/fzf.vim'                         " fzf helpers
 Plug 'junegunn/vim-peekaboo'                    " show contents of registers
 Plug 'iamcco/markdown-preview.nvim',
