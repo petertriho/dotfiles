@@ -22,6 +22,7 @@ Plug 'junegunn/vim-easy-align'   " align things
 Plug 'machakann/vim-sandwich'    " change surrounds e.g. brackets
 Plug 'mattn/emmet-vim'           " emmet
 Plug 'mg979/vim-visual-multi'    " multi cursors
+Plug 'rbong/vim-flog'            " git log viewer
 Plug 'tpope/vim-abolish'         " change case
 Plug 'tpope/vim-commentary'      " comments
 Plug 'tpope/vim-characterize'    " character representation
