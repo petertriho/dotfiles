@@ -1,102 +1,97 @@
 {
+    "coc.source.emoji.filetypes": [
+        "markdown"
+    ],
+    "diagnostic-languageserver.filetypes": {
+        "dockerfile": "hadolint",
+        "sh": "shellcheck"
+    },
     "diagnostic.errorSign": "x",
     "diagnostic.hintSign": "h",
     "diagnostic.infoSign": "i",
     "diagnostic.warningSign": "!",
-
-    "suggest.completionItemKindLabels": {
-        "class": " \uf816 (class)",
-        "color": " \uf8d7 (color)",
-        "constant": " \uf6fc (constant)",
-        "constructor": " \ue20f (constructor)",
-        "default": " \ue612 (default)",
-        "enum": " \ufa57 (enum)",
-        "enumMember": " \uf15d (enum-member)",
-        "event": " \uf0e7 (event)",
-        "field": " \ue716 (field)",
-        "file": " \uf723 (file)",
-        "folder": " \uf115 (folder)",
-        "function": " \uf6a6 (function)",
-        "interface": " \ue729 (interface)",
-        "keyword": " \uf767 (keyword)",
-        "method": " \uf6a6 (method)",
-        "module": " \uf668 (module)",
-        "operator": " \uf694 (operator)",
-        "property": " \uf0ad (property)",
-        "reference": " \uf481 (reference)",
-        "snippet": " \uf64c (snippet)",
-        "struct": " \uf1b3 (struct)",
-        "text": " \uf52b (text)",
-        "typeParameter": "<\uf783>(type-parameter)",
-        "unit": " \ue21f (unit)",
-        "value": " \uf89f (value)",
-        "variable": "[\ue716](variable)"
-    },
-    "suggest.removeDuplicateItems": true,
-
-    // coc-diagnostic
-    "diagnostic-languageserver.filetypes": {
-        "sh": "shellcheck",
-        "dockerfile": "hadolint"
-    },
-
-    // coc-emoji
-    "coc.source.emoji.filetypes": ["markdown"],
-
-    // coc-explorer
-    "explorer.autoExpandOptions": ["recursive", "recursiveSingle"],
+    "explorer.autoExpandOptions": [
+        "recursive",
+        "recursiveSingle"
+    ],
     "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root]",
     "explorer.file.showHiddenFiles": true,
-    "explorer.git.icon.status.ignored": "I",
-    "explorer.git.icon.status.mixed": "\u25cf",
+    "explorer.git.icon.status.ignored": "i",
+    "explorer.git.icon.status.mixed": "●",
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings.global": {
-        "o": ["expandable?", "expand", "open"],
-        "<cr>": ["expandable?", "expand", "open"],
+        "<cr>": [
+            "expandable?",
+            "expand",
+            "open"
+        ],
+        "o": [
+            "expandable?",
+            "expand",
+            "open"
+        ],
         "v": "open:vsplit"
     },
     "explorer.width": 30,
-
-    // coc-git
     "git.addedSign.hlGroup": "GitGutterAdd",
-    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "git.addedSign.text": "┃",
     "git.changedSign.hlGroup": "GitGutterChange",
+    "git.changedSign.text": "┃",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "git.changeRemovedSign.text": "┃",
     "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.removedSign.text": "┃",
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
-
-    "git.addedSign.text": "\u2503",
-    "git.changeRemovedSign.text": "\u2503",
-    "git.changedSign.text": "\u2503",
-    "git.removedSign.text": "\u2503",
-    "git.topRemovedSign.text": "\u2503",
-
-    // coc-markdownlint
+    "git.topRemovedSign.text": "┃",
     "markdownlint.config": {
         "MD013": false,
         "MD024": false,
         "MD030": false
     },
-
-    // coc-prettier
     "prettier.tabWidth": 4,
-
-    // coc-pyright
     "python.formatting.provider": "black",
-
-    // coc-sh
     "sh.highlightParsingErrors": false,
-
-    // coc-snippets
     "snippets.extends": {
-        "javascriptreact": ["javascript"],
-        "typescript": ["javascript"],
-        "typescriptreact": ["javascript"]
+        "javascriptreact": [
+            "javascript"
+        ],
+        "typescript": [
+            "javascript"
+        ],
+        "typescriptreact": [
+            "javascript"
+        ]
     },
-
-    // coc-tabnine
+    "suggest.completionItemKindLabels": {
+        "class": "  (class)",
+        "color": "  (color)",
+        "constant": "  (constant)",
+        "constructor": "  (constructor)",
+        "default": "  (default)",
+        "enum": " 練 (enum)",
+        "enumMember": "  (enum-member)",
+        "event": "  (event)",
+        "field": "  (field)",
+        "file": "  (file)",
+        "folder": "  (folder)",
+        "function": "  (function)",
+        "interface": "  (interface)",
+        "keyword": "  (keyword)",
+        "method": "  (method)",
+        "module": "  (module)",
+        "operator": "  (operator)",
+        "property": "  (property)",
+        "reference": "  (reference)",
+        "snippet": "  (snippet)",
+        "struct": "  (struct)",
+        "text": "  (text)",
+        "typeParameter": "<>(type-parameter)",
+        "unit": "  (unit)",
+        "value": "  (value)",
+        "variable": "[](variable)"
+    },
+    "suggest.removeDuplicateItems": true,
     "tabnine.priority": 60,
-
-    // coc-tailwindcss
     "tailwindCSS.emmetCompletions": true,
     "tailwindCSS.headwind.classRegex": {
         "javascript": "(?:\\bclass(?:Name)?\\s*=[\\w\\d\\s_,{}\\(\\)\\[\\]]*[\"'`]([\\w\\d\\s_\\-\\:\\/${}]+)[\"'`][\\w\\d\\s_,{}\\(\\)\\[\\]]*)|(?:\\btw\\s*`([\\w\\d\\s_\\-\\:\\/]*)`)",
@@ -104,8 +99,6 @@
         "typescript": "(?:\\bclass(?:Name)?\\s*=[\\w\\d\\s_,{}\\(\\)\\[\\]]*[\"'`]([\\w\\d\\s_\\-\\:\\/${}]+)[\"'`][\\w\\d\\s_,{}\\(\\)\\[\\]]*)|(?:\\btw\\s*`([\\w\\d\\s_\\-\\:\\/]*)`)",
         "typescriptreact": "(?:\\bclass(?:Name)?\\s*=[\\w\\d\\s_,{}\\(\\)\\[\\]]*[\"'`]([\\w\\d\\s_\\-\\:\\/${}]+)[\"'`][\\w\\d\\s_,{}\\(\\)\\[\\]]*)|(?:\\btw\\s*`([\\w\\d\\s_\\-\\:\\/]*)`)"
     },
-
-    // coc-yank
     "yank.highlight.duration": 200,
     "yank.priority": 50
 }
