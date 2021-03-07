@@ -42,6 +42,13 @@ if command -v nvim &> /dev/null; then
         +"PlugUpdate --sync" \
         +PlugUpgrade \
         +qa
+
+    nvim -u $HOME/.config/nvim/vscode.vim \
+        +PlugClean! \
+        +"PlugInstall --sync" \
+        +"PlugUpdate --sync" \
+        +PlugUpgrade \
+        +qa
 fi
 
 tmux_bin_dir="$HOME/.tmux/plugins/tpm/bin"
