@@ -43,7 +43,7 @@ if command -v nvim &> /dev/null; then
         +PlugUpgrade \
         +qa
 
-    nvim -u $HOME/.config/nvim/vscode.vim \
+    nvim -es -u $HOME/.config/nvim/vscode.vim \
         +PlugClean! \
         +"PlugInstall --sync" \
         +"PlugUpdate --sync" \
