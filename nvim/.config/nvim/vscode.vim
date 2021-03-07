@@ -8,6 +8,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
 Plug 'unblevable/quick-scope'
 call plug#end()
 
