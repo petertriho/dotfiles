@@ -6,8 +6,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'honza/vim-snippets'                              " snippets
 Plug 'kkoomen/vim-doge',
             \ { 'do': { -> doge#install() } }          " documentation generator
-Plug 'lukas-reineke/indent-blankline.nvim',
-            \ { 'branch': 'lua' }                      " indent lines
 Plug 'luochen1990/rainbow'                             " rainbow brackets
 Plug 'neoclide/coc.nvim',
             \ { 'branch': 'master',
