@@ -10,7 +10,6 @@ Plug 'luochen1990/rainbow'                             " rainbow brackets
 Plug 'neoclide/coc.nvim',
             \ { 'branch': 'master',
             \ 'do': 'yarn install --frozen-lockfile' } " lsp
-Plug 'pantharshit00/vim-prisma'                        " prisma syntax highlighting
 Plug 'sheerun/vim-polyglot'                            " syntax highlighting
 
 " Text Helpers
