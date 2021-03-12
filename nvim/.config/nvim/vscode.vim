@@ -35,7 +35,7 @@ nmap s <Plug>(easymotion-prefix)
 nmap sl <Plug>(easymotion-bd-jk)
 
 " machakann/vim-highlightedyank
-highlight HighlightedyankRegion guibg='#98c379' gui=underline ctermbg='green' cterm=underline
+highlight HighlightedyankRegion guibg='#abb2bf' gui=underline ctermbg='brblack' cterm=underline
 let g:highlightedyank_highlight_duration = 200
 
 " machakann/vim-sandwich
