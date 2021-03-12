@@ -25,6 +25,7 @@ if command -v fish &> /dev/null && [ -f "$HOME/.config/fish/fish_plugins" ]; the
     echo "Updating fish plugins ..."
     fish -c "fisher update"
     fish -c "set_abbr"
+    fish -c "set_theme"
 fi
 
 if command -v nvim &> /dev/null; then
