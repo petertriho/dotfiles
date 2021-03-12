@@ -19,10 +19,7 @@
 
 - [Bat](https://github.com/sharkdp/bat)
 - [Fish Shell](https://fishshell.com/)
-- [Kitty Terminal](#kitty-terminal)
 - [Neovim](https://neovim.io/)
-- [Oni2](https://onivim.io/)
-- [Ranger](https://github.com/ranger/ranger)
 - [Tmux](https://github.com/tmux/tmux)
 - [Vim](https://www.vim.org/)
 
@@ -36,13 +33,6 @@
 - [wfxr/forgit](https://github.com/wfxr/forgit)
 - [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
 - [sharkdp/vivid](https://github.com/sharkdp/vivid)
-
-### Kitty Terminal
-
-#### Dependencies
-
-- [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes)
-`ln -s ~/.config/kitty/kitty-themes/themes/OneDark.conf ~/.config/kitty/theme.conf`
 
 ### Neovim
 
