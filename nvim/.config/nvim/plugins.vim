@@ -129,8 +129,8 @@ let g:goyo_linenr = 1
 " justinmk/vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
-map ss <Plug>Sneak_s
-map sS <Plug>Sneak_S
+nmap ss <Plug>Sneak_s
+nmap sS <Plug>Sneak_S
 xmap s <Plug>Sneak_s
 xmap S <Plug>Sneak_S
 omap s <Plug>Sneak_s
