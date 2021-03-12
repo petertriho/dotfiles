@@ -1,6 +1,6 @@
 set hlsearch                       " highlight all search results
 set ignorecase                     " case insensitive search
-set incsearch                      " show incremental search results as you type
+set incsearch                      " show incremental search incrementally
 set smartcase                      " case sensitive search (> 0 uppercase charater)
 
 set number                         " display line number
@@ -40,6 +40,10 @@ set timeoutlen=500                 " speed up mapping
 set ttimeout                       " speed up key code
 set ttimeoutlen=10                 " speed up key code
 set lazyredraw                     " speed up macros
+
+if has('nvim')
+    set inccommand=nosplit         " show substitutions incrementally
+endif
 
 set shell=bash
 
