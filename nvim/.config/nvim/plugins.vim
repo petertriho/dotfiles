@@ -61,8 +61,7 @@ Plug 'vimwiki/vimwiki'                          " personal wiki
 
 " Misc
 Plug 'editorconfig/editorconfig-vim'      " editorconfig
-Plug 'edkolev/tmuxline.vim',
-            \ { 'on': 'Tmuxline' }        " match tmux with airline theme
+Plug 'edkolev/tmuxline.vim'               " match tmux with airline theme
 Plug 'moll/vim-bbye'                      " better buffer delete/wipeout
 Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
 Plug 'ryvnf/readline.vim'                 " readline cmdline mappings
@@ -91,7 +90,7 @@ let g:tmuxline_status_justify = 'left'
 let g:tmuxline_preset = {}
 let g:tmuxline_preset['a'] = '#S'
 let g:tmuxline_preset['win'] = ['#I', '#W #F']
-let g:tmuxline_preset['cwin'] = ['#I:#P', '#W #F']
+let g:tmuxline_preset['cwin'] = ['#I', '#W #F']
 let g:tmuxline_preset['x'] = '#{prefix_highlight}'
 let g:tmuxline_preset['y'] = ['%Y-%m-%d', '%I:%M %p']
 let g:tmuxline_preset['z'] = '#h'
@@ -138,11 +137,6 @@ omap S <Plug>Sneak_S
 
 " kkoomen/vim-doge
 let g:doge_mapping = '<leader>ad'
-
-" lukas-reineke/indent-blankline.nvim
-let g:indent_blankline_show_first_indent_level = v:false
-let g:indent_blankline_char = '│'
-let g:indent_blankline_char_highlight = 'SpecialComment'
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
