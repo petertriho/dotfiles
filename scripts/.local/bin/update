@@ -35,8 +35,6 @@ function tool:fish {
         fish -c "fisher update"
         fish -c "set_abbr"
         fish -c "set_theme"
-
-        exec "$SHELL"
     fi
 }
 
@@ -84,6 +82,8 @@ function tool:all {
     tool:fish
     tool:nvim
     tool:tmux
+
+    exec "$SHELL"
 }
 
 function tool:help {
