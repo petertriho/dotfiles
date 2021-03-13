@@ -43,6 +43,7 @@ function tool:nvim {
         if command -v brew &> /dev/null && brew list | grep -q neovim; then
             echo "Updating neovim ..."
             brew upgrade neovim --fetch-head
+            brew reinstall -s neovim
         fi
 
         echo "Updating nvim plugins ..."
