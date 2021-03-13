@@ -3,7 +3,7 @@
 # set -euo pipefail
 
 function tool:dotfiles {
-    if [ -e "$HOME/.dotfiles" ]; then
+    if [ -d "$HOME/.dotfiles" ]; then
         echo "Updating dotfiles ..."
         (cd "$HOME/.dotfiles" && \
             git pull && \
@@ -13,19 +13,19 @@ function tool:dotfiles {
     fi
 }
 
-function tool:brew {
-    if command -v brew &> /dev/null; then
-        echo "Updating homebrew packages ..."
-        brew update
-        brew upgrade
-    fi
-}
-
 function tool:asdf {
     if command -v asdf &> /dev/null; then
         echo "Updating asdf & plugins ..."
         asdf update
         asdf plugin update --all
+    fi
+}
+
+function tool:brew {
+    if command -v brew &> /dev/null; then
+        echo "Updating homebrew packages ..."
+        brew update
+        brew upgrade
     fi
 }
 
