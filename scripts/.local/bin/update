@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-function dotfiles {
+function tool:dotfiles {
     if [ -e "$HOME/.dotfiles" ]; then
         echo "Updating dotfiles ..."
         (cd "$HOME/.dotfiles" && \
@@ -13,7 +13,7 @@ function dotfiles {
     fi
 }
 
-function brew {
+function tool:brew {
     if command -v brew &> /dev/null; then
         echo "Updating homebrew packages ..."
         brew update
@@ -21,8 +21,7 @@ function brew {
     fi
 }
 
-function asdf {
-    # asdf
+function tool:asdf {
     if command -v asdf &> /dev/null; then
         echo "Updating asdf & plugins ..."
         asdf update
@@ -30,7 +29,7 @@ function asdf {
     fi
 }
 
-function fish {
+function tool:fish {
     if command -v fish &> /dev/null && [ -f "$HOME/.config/fish/fish_plugins" ]; then
         echo "Updating fish plugins ..."
         fish -c "fisher update"
@@ -41,7 +40,7 @@ function fish {
     fi
 }
 
-function neovim {
+function tool:nvim {
     if command -v nvim &> /dev/null; then
         if command -v brew &> /dev/null && brew list | grep -q neovim; then
             echo "Updating neovim ..."
@@ -67,7 +66,7 @@ function neovim {
     fi
 }
 
-function tmux {
+function tool:tmux {
     tmux_bin_dir="$HOME/.tmux/plugins/tpm/bin"
 
     if [ -d "$tmux_bin_dir" ]; then
@@ -78,21 +77,21 @@ function tmux {
     fi
 }
 
-function all {
-    dotfiles
-    apt
-    scoop
-    brew
-    asdf
-    fish
-    neovim
-    tmux
+function tool:all {
+    tool:dotfiles
+    tool:apt
+    tool:scoop
+    tool:brew
+    tool:asdf
+    tool:fish
+    tool:nvim
+    tool:tmux
 }
 
-function help {
+function tool:help {
     printf "%s <tools> [args]\n\nTools:\n" "${0}"
 
-    compgen -A function | grep -v "^_" | cat -n
+    compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat -n
 }
 
-"${@:-all}"
+"tool:${@:-all}"
