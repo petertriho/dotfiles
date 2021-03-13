@@ -79,7 +79,6 @@ function tool:tmux {
 
 function tool:all {
     tool:dotfiles
-    tool:apt
     tool:scoop
     tool:brew
     tool:asdf
