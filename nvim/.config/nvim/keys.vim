@@ -86,6 +86,9 @@ let g:which_key_map.D = 'delete-all-buffers'
 map <silent> <Leader>h :nohlsearch<CR>
 let g:which_key_map.h = 'highlight-off'
 
+map <Leader>t :ToggleAlternate<CR>
+let g:which_key_map.t = 'toggle-alternate'
+
 nmap <silent> <Leader>z <Plug>(coc-cursors-word)
 xmap <silent> <Leader>z <Plug>(coc-cursors-range)
 let g:which_key_map.z = 'cursors-word'
@@ -105,11 +108,13 @@ let g:which_key_map.a = {
       \ 'd': 'documentation-generator',
       \ 'p': 'paste-file',
       \ 's': 'sort',
+      \ 't': 'toggle-alternate',
       \ 'v': 'visual-convert-snippet'
       \ }
 
 map <Leader>aa <Plug>(EasyAlign)
 xmap <Leader>as :sort i<CR>
+map <Leader>at :ToggleAlternate<CR>
 nmap <Leader>ap ggVG"+p
 xmap <Leader>av <Plug>(coc-convert-snippet)
 
@@ -121,6 +126,7 @@ let g:which_key_map.g = {
       \ 'B': [':CocCommand git.browserOpen', 'browse'],
       \ 'c': ['Gcommit',                     'commit'],
       \ 'i': [':CocFzfList issues',          'issues'],
+      \ 'l': ['Flogsplit',                   'logs'],
       \ 'p': ['Gpull',                       'pull'],
       \ 'P': [':AsyncRun git push',          'push'],
       \ 'g': [':diffget //2',                'diff-left'],

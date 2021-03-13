@@ -13,18 +13,18 @@ Plug 'neoclide/coc.nvim',
 Plug 'sheerun/vim-polyglot'                            " syntax highlighting
 
 " Text Helpers
-Plug 'alvan/vim-closetag'        " auto close html tags
-Plug 'AndrewRadev/splitjoin.vim' " split/join lines
-Plug 'AndrewRadev/tagalong.vim'  " change html tags
-Plug 'junegunn/vim-easy-align'   " align things
-Plug 'machakann/vim-sandwich'    " change surrounds e.g. brackets
-Plug 'mattn/emmet-vim'           " emmet
-Plug 'mg979/vim-visual-multi'    " multi cursors
-Plug 'rbong/vim-flog'            " git log viewer
-Plug 'tpope/vim-abolish'         " change case
-Plug 'tpope/vim-commentary'      " comments
-Plug 'tpope/vim-characterize'    " character representation
-Plug 'tpope/vim-speeddating'     " date helpers
+Plug 'alvan/vim-closetag'         " auto close html tags
+Plug 'AndrewRadev/splitjoin.vim'  " split/join lines
+Plug 'AndrewRadev/tagalong.vim'   " change html tags
+Plug 'junegunn/vim-easy-align'    " align things
+Plug 'machakann/vim-sandwich'     " change surrounds e.g. brackets
+Plug 'mattn/emmet-vim'            " emmet
+Plug 'mg979/vim-visual-multi'     " multi cursors
+Plug 'rmagatti/alternate-toggler' " toggle alternate values
+Plug 'tpope/vim-abolish'          " change case
+Plug 'tpope/vim-commentary'       " comments
+Plug 'tpope/vim-characterize'     " character representation
+Plug 'tpope/vim-speeddating'      " date helpers
 
 " Motions
 Plug 'justinmk/vim-sneak'     " markers to move around
@@ -54,6 +54,8 @@ Plug 'skywind3000/asyncrun.vim',
             \ { 'on': 'AsyncRun' }              " async tasks
 Plug 'stsewd/fzf-checkout.vim',
             \ { 'on': 'GBranches' }             " git branches
+Plug 'rbong/vim-flog',
+            \ { 'on': ['Flog', 'Flogsplit']}    " git log viewer
 Plug 'tpope/vim-fugitive'                       " git
 Plug 'vim-airline/vim-airline'                  " status line
 Plug 'ryanoasis/vim-devicons'                   " filetype icons
@@ -169,6 +171,15 @@ let g:VM_maps['Find Under'] = '<C-c>'
 let g:VM_maps['Find Subword Under'] = '<C-c>'
 let g:VM_maps['Add Cursor Down'] = '\j'
 let g:VM_maps['Add Cursor Up'] = '\k'
+
+" rmagatti/alternate-toggler
+let g:at_custom_alternates = {
+            \ 'true': 'false',
+            \ 'True': 'False',
+            \ '1': '0',
+            \ 'yes': 'no',
+            \ 'Yes': 'No',
+            \ }
 
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
