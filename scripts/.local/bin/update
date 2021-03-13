@@ -95,5 +95,4 @@ function help {
     compgen -A function | grep -v "^_" | cat -n
 }
 
-TIMEFORMAT=$'\nUpdate completed in %3lR'
-time "${@:-default}"
+"${@:-all}"
