@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+# set -euo pipefail
 
 function tool:dotfiles {
     if [ -e "$HOME/.dotfiles" ]; then
@@ -24,7 +24,7 @@ function tool:brew {
 function tool:asdf {
     if command -v asdf &> /dev/null; then
         echo "Updating asdf & plugins ..."
-        asdf update &> /dev/null
+        asdf update
         asdf plugin update --all
     fi
 }
