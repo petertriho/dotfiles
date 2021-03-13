@@ -79,7 +79,6 @@ function tool:tmux {
 
 function tool:all {
     tool:dotfiles
-    tool:scoop
     tool:brew
     tool:asdf
     tool:fish
