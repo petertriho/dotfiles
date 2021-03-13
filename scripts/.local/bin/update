@@ -1,64 +1,99 @@
 #!/usr/bin/env bash
 
-if [ -e "$HOME/.dotfiles" ]; then
-    echo "Updating dotfiles ..."
-    (cd "$HOME/.dotfiles" && \
-        git pull && \
-        stow --no-folding -t ~ */
-    )
-    find -L "$HOME/.config" -type l -exec rm -i {} \;
-fi
+set -euo pipefail
 
-if command -v brew &> /dev/null; then
-    echo "Updating homebrew packages ..."
-    brew update
-    brew upgrade
-fi
-
-if command -v asdf &> /dev/null; then
-    echo "Updating asdf & plugins ..."
-    asdf update
-    asdf plugin update --all
-fi
-
-if command -v fish &> /dev/null && [ -f "$HOME/.config/fish/fish_plugins" ]; then
-    echo "Updating fish plugins ..."
-    fish -c "fisher update"
-    fish -c "set_abbr"
-    fish -c "set_theme"
-fi
-
-if command -v nvim &> /dev/null; then
-    if command -v brew &> /dev/null && brew list | grep -q neovim; then
-        echo "Updating neovim ..."
-        brew upgrade neovim --fetch-head
+function dotfiles {
+    if [ -e "$HOME/.dotfiles" ]; then
+        echo "Updating dotfiles ..."
+        (cd "$HOME/.dotfiles" && \
+            git pull && \
+            stow --no-folding -t ~ */
+        )
+        find -L "$HOME/.config" -type l -exec rm -i {} \;
     fi
+}
 
-    echo "Updating nvim plugins ..."
-    nvim \
-        +CocStart \
-        +CocUpdateSync \
-        +PlugClean! \
-        +"PlugInstall --sync" \
-        +"PlugUpdate --sync" \
-        +PlugUpgrade \
-        +qa
+function brew {
+    if command -v brew &> /dev/null; then
+        echo "Updating homebrew packages ..."
+        brew update
+        brew upgrade
+    fi
+}
 
-    nvim -es -u $HOME/.config/nvim/vscode.vim \
-        +PlugClean! \
-        +"PlugInstall --sync" \
-        +"PlugUpdate --sync" \
-        +PlugUpgrade \
-        +qa
-fi
+function asdf {
+    # asdf
+    if command -v asdf &> /dev/null; then
+        echo "Updating asdf & plugins ..."
+        asdf update
+        asdf plugin update --all
+    fi
+}
 
-tmux_bin_dir="$HOME/.tmux/plugins/tpm/bin"
+function fish {
+    if command -v fish &> /dev/null && [ -f "$HOME/.config/fish/fish_plugins" ]; then
+        echo "Updating fish plugins ..."
+        fish -c "fisher update"
+        fish -c "set_abbr"
+        fish -c "set_theme"
 
-if [ -d "$tmux_bin_dir" ]; then
-    echo "Updating tmux plugins ..."
-    "$tmux_bin_dir/clean_plugins"
-    "$tmux_bin_dir/install_plugins"
-    "$tmux_bin_dir/update_plugins" all
-fi
+        exec "$SHELL"
+    fi
+}
 
-exec "$SHELL"
+function neovim {
+    if command -v nvim &> /dev/null; then
+        if command -v brew &> /dev/null && brew list | grep -q neovim; then
+            echo "Updating neovim ..."
+            brew upgrade neovim --fetch-head
+        fi
+
+        echo "Updating nvim plugins ..."
+        nvim \
+            +CocStart \
+            +CocUpdateSync \
+            +PlugClean! \
+            +"PlugInstall --sync" \
+            +"PlugUpdate --sync" \
+            +PlugUpgrade \
+            +qa
+
+        nvim -es -u $HOME/.config/nvim/vscode.vim \
+            +PlugClean! \
+            +"PlugInstall --sync" \
+            +"PlugUpdate --sync" \
+            +PlugUpgrade \
+            +qa
+    fi
+}
+
+function tmux {
+    tmux_bin_dir="$HOME/.tmux/plugins/tpm/bin"
+
+    if [ -d "$tmux_bin_dir" ]; then
+        echo "Updating tmux plugins ..."
+        "$tmux_bin_dir/clean_plugins"
+        "$tmux_bin_dir/install_plugins"
+        "$tmux_bin_dir/update_plugins" all
+    fi
+}
+
+function all {
+    dotfiles
+    apt
+    scoop
+    brew
+    asdf
+    fish
+    neovim
+    tmux
+}
+
+function help {
+    printf "%s <tools> [args]\n\nTools:\n" "${0}"
+
+    compgen -A function | grep -v "^_" | cat -n
+}
+
+TIMEFORMAT=$'\nUpdate completed in %3lR'
+time "${@:-default}"
