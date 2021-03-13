@@ -61,7 +61,8 @@ Plug 'vimwiki/vimwiki'                          " personal wiki
 
 " Misc
 Plug 'editorconfig/editorconfig-vim'      " editorconfig
-Plug 'edkolev/tmuxline.vim'               " match tmux with airline theme
+Plug 'edkolev/tmuxline.vim',
+            \ { 'on': 'Tmuxline' }        " match tmux with airline theme
 Plug 'moll/vim-bbye'                      " better buffer delete/wipeout
 Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
 Plug 'ryvnf/readline.vim'                 " readline cmdline mappings
