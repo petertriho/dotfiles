@@ -56,7 +56,7 @@ function tool:nvim {
             +PlugUpgrade \
             +qa
 
-        nvim -es -u $HOME/.config/nvim/vscode.vim \
+        nvim -es -u "$HOME/.config/nvim/vscode.vim" \
             +PlugClean! \
             +"PlugInstall --sync" \
             +"PlugUpdate --sync" \
@@ -66,13 +66,20 @@ function tool:nvim {
 }
 
 function tool:tmux {
-    tmux_bin_dir="$HOME/.tmux/plugins/tpm/bin"
+    tmux_dir="$HOME/.tmux"
+    tpm_bin_dir="$tmux_dir/plugins/tpm/bin"
 
-    if [ -d "$tmux_bin_dir" ]; then
+    if [ -d "$tpm_bin_dir" ]; then
         echo "Updating tmux plugins ..."
-        "$tmux_bin_dir/clean_plugins"
-        "$tmux_bin_dir/install_plugins"
-        "$tmux_bin_dir/update_plugins" all
+        "$tpm_bin_dir/clean_plugins"
+        "$tpm_bin_dir/install_plugins"
+        "$tpm_bin_dir/update_plugins" all
+
+        if [ -d "$tmux_dir/plugins/tmux-thumbs" ]; then
+            echo "Building tmux-thumbs ..."
+            cd "$tmux_dir/plugins/tmux-thumbs" && \
+                cargo build --release --target-dir=target
+        fi
     fi
 }
 
