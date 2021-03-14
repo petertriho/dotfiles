@@ -2,17 +2,6 @@
 
 # set -euo pipefail
 
-function tool:dotfiles {
-    if [ -d "$HOME/.dotfiles" ]; then
-        echo "Updating dotfiles ..."
-        (cd "$HOME/.dotfiles" && \
-            git pull && \
-            stow --no-folding -t ~ */
-        )
-        find -L "$HOME/.config" -type l -exec rm -i {} \;
-    fi
-}
-
 function tool:asdf {
     if command -v asdf &> /dev/null; then
         echo "Updating asdf & plugins ..."
@@ -26,6 +15,17 @@ function tool:brew {
         echo "Updating homebrew packages ..."
         brew update
         brew upgrade
+    fi
+}
+
+function tool:dotfiles {
+    if [ -d "$HOME/.dotfiles" ]; then
+        echo "Updating dotfiles ..."
+        (cd "$HOME/.dotfiles" && \
+            git pull && \
+            stow --no-folding -t ~ */
+        )
+        find -L "$HOME/.config" -type l -exec rm -i {} \;
     fi
 }
 
