@@ -64,6 +64,7 @@ Plug 'ryanoasis/vim-devicons'                   " filetype icons
 Plug 'vimwiki/vimwiki'                          " personal wiki
 
 " Misc
+Plug 'antoinemadec/FixCursorHold.nvim'    " improve cursorhold performance
 Plug 'editorconfig/editorconfig-vim'      " editorconfig
 Plug 'edkolev/tmuxline.vim',
             \ { 'on': 'Tmuxline' }        " match tmux with airline theme
@@ -86,6 +87,9 @@ let g:splitjoin_join_mapping = ''
 " antoinemadec/coc-fzf
 let g:coc_fzf_preview = ''
 let g:coc_fzf_opts = []
+
+" antoinemadec/FixCursorHold.nvim
+let g:cursorhold_updatetime = 100
 
 " editorconfig/editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
