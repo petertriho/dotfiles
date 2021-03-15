@@ -9,11 +9,11 @@ function! SetColors()
         let s:white = { 'gui': g:terminal_color_7, 'cterm': '145', 'cterm16' : '7' }
         call onedark#set_highlight('Normal', { 'fg': s:white }) " `bg` will not be styled since there is no `bg` setting
 
-        highlight QuickScopePrimary guifg=g:terminal_color_4 gui=underline ctermfg='blue' cterm=underline
-        highlight QuickScopeSecondary guifg=g:terminal_color_1 gui=underline ctermfg='red' cterm=underline
+        execute 'highlight QuickScopePrimary guifg=' . g:terminal_color_4 . ' gui=underline ctermfg=blue cterm=underline'
+        execute 'highlight QuickScopeSecondary guifg=' . g:terminal_color_1 . ' gui=underline ctermfg=red cterm=underline'
 
-        highlight Sneak guifg='#ffffff' guibg=g:terminal_color_5 ctermfg='white' ctermbg='magenta'
-        highlight SneakScope guibg=terminal_color_7 ctermbg='white'
+        execute 'highlight Sneak guifg=#ffffff guibg=' . g:terminal_color_5 . ' ctermfg=white ctermbg=magenta'
+        execute 'highlight SneakScope guibg=' . g:terminal_color_7 . ' ctermbg=white'
 
         let g:rainbow_conf = {}
         let g:rainbow_conf['guifgs'] = [
