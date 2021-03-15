@@ -143,15 +143,6 @@ let g:doge_mapping = '<leader>ad'
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
-let g:rainbow_conf = {}
-let g:rainbow_conf['guifgs'] = [
-            \ '#e06c75',
-            \ '#98c379',
-            \ '#e5c07b',
-            \ '#61afef',
-            \ '#c678dd',
-            \ '#56b6c2'
-            \ ]
 
 " mbbill/undotree
 if has('persistent_undo')
@@ -240,13 +231,6 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.notexists = " ?"
 let g:airline_symbols.dirty = " M"
-
-function! AirlineThemePatch(palette)
-    let a:palette.accents.running = ['#e5c07b', '', 'yellow' , '', '']
-    let a:palette.accents.success = ['#98c379', '', 'green', '', '']
-    let a:palette.accents.failure = ['#e06c75', '', 'red'  , '', '']
-endfunction
-let g:airline_theme_patch_func = 'AirlineThemePatch'
 
 let g:asyncrun_status = ''
 let g:asyncrun_status_prev = ''
