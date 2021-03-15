@@ -16,6 +16,7 @@ Plug 'sheerun/vim-polyglot'                            " syntax highlighting
 Plug 'alvan/vim-closetag'         " auto close html tags
 Plug 'AndrewRadev/splitjoin.vim'  " split/join lines
 Plug 'AndrewRadev/tagalong.vim'   " change html tags
+Plug 'chaoren/vim-wordmotion'     " better word motions
 Plug 'junegunn/vim-easy-align'    " align things
 Plug 'machakann/vim-sandwich'     " change surrounds e.g. brackets
 Plug 'mattn/emmet-vim'            " emmet
@@ -25,6 +26,7 @@ Plug 'tpope/vim-abolish'          " change case
 Plug 'tpope/vim-commentary'       " comments
 Plug 'tpope/vim-characterize'     " character representation
 Plug 'tpope/vim-speeddating'      " date helpers
+Plug 'wellle/targets.vim'         " text objects
 
 " Motions
 Plug 'justinmk/vim-sneak'     " markers to move around
