@@ -5,7 +5,7 @@ if (has('termguicolors'))
     set termguicolors
 endif
 
-function SetColors()
+function! SetColors()
         let s:white = { 'gui': g:terminal_color_7, 'cterm': '145', 'cterm16' : '7' }
         call onedark#set_highlight('Normal', { 'fg': s:white }) " `bg` will not be styled since there is no `bg` setting
 
