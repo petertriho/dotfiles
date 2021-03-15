@@ -77,8 +77,8 @@ function tool:tmux {
 
         if [ -d "$tmux_dir/plugins/tmux-thumbs" ]; then
             echo "Building tmux-thumbs ..."
-            cd "$tmux_dir/plugins/tmux-thumbs" && \
-                cargo build --release --target-dir=target
+            (cd "$tmux_dir/plugins/tmux-thumbs" && \
+                cargo build --release --target-dir=target)
         fi
     fi
 }
