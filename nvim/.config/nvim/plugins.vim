@@ -6,7 +6,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'honza/vim-snippets'                              " snippets
 Plug 'kkoomen/vim-doge',
             \ { 'do': {
-            \ -> doge#install({ 'headless' : 1}) } }   " documentation generator
+            \ -> doge#install({ 'headless': 1 }) } }   " documentation generator
 Plug 'luochen1990/rainbow'                             " rainbow brackets
 Plug 'neoclide/coc.nvim',
             \ { 'branch': 'master',
