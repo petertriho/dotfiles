@@ -94,12 +94,7 @@
     "suggest.removeDuplicateItems": true,
     "tabnine.priority": 60,
     "tailwindCSS.emmetCompletions": true,
-    "tailwindCSS.headwind.classRegex": {
-        "javascript": "(?:\\bclass(?:Name)?\\s*=[\\w\\d\\s_,{}\\(\\)\\[\\]]*[\"'`]([\\w\\d\\s_\\-\\:\\/${}]+)[\"'`][\\w\\d\\s_,{}\\(\\)\\[\\]]*)|(?:\\btw\\s*`([\\w\\d\\s_\\-\\:\\/]*)`)",
-        "javascriptreact": "(?:\\bclass(?:Name)?\\s*=[\\w\\d\\s_,{}\\(\\)\\[\\]]*[\"'`]([\\w\\d\\s_\\-\\:\\/${}]+)[\"'`][\\w\\d\\s_,{}\\(\\)\\[\\]]*)|(?:\\btw\\s*`([\\w\\d\\s_\\-\\:\\/]*)`)",
-        "typescript": "(?:\\bclass(?:Name)?\\s*=[\\w\\d\\s_,{}\\(\\)\\[\\]]*[\"'`]([\\w\\d\\s_\\-\\:\\/${}]+)[\"'`][\\w\\d\\s_,{}\\(\\)\\[\\]]*)|(?:\\btw\\s*`([\\w\\d\\s_\\-\\:\\/]*)`)",
-        "typescriptreact": "(?:\\bclass(?:Name)?\\s*=[\\w\\d\\s_,{}\\(\\)\\[\\]]*[\"'`]([\\w\\d\\s_\\-\\:\\/${}]+)[\"'`][\\w\\d\\s_,{}\\(\\)\\[\\]]*)|(?:\\btw\\s*`([\\w\\d\\s_\\-\\:\\/]*)`)"
-    },
+    "tailwindCSS.experimental.showPixelValues": true,
     "yank.highlight.duration": 200,
     "yank.priority": 50
 }
