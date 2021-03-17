@@ -1,6 +1,7 @@
 {
     "coc.source.emoji.filetypes": [
-        "markdown"
+        "markdown",
+        "gitcommit"
     ],
     "diagnostic-languageserver.filetypes": {
         "dockerfile": "hadolint",
