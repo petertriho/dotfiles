@@ -1,8 +1,5 @@
 {
-    "coc.source.emoji.filetypes": [
-        "markdown",
-        "gitcommit"
-    ],
+    "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
     "diagnostic-languageserver.filetypes": {
         "dockerfile": "hadolint",
         "sh": "shellcheck"
@@ -11,26 +8,15 @@
     "diagnostic.hintSign": "h",
     "diagnostic.infoSign": "i",
     "diagnostic.warningSign": "!",
-    "explorer.autoExpandOptions": [
-        "recursive",
-        "recursiveSingle"
-    ],
+    "explorer.autoExpandOptions": ["recursive", "recursiveSingle"],
     "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root]",
     "explorer.file.showHiddenFiles": true,
     "explorer.git.icon.status.ignored": "i",
     "explorer.git.icon.status.mixed": "●",
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings.global": {
-        "<cr>": [
-            "expandable?",
-            "expand",
-            "open"
-        ],
-        "o": [
-            "expandable?",
-            "expand",
-            "open"
-        ],
+        "<cr>": ["expandable?", "expand", "open"],
+        "o": ["expandable?", "expand", "open"],
         "v": "open:vsplit"
     },
     "explorer.width": 30,
@@ -53,15 +39,9 @@
     "python.formatting.provider": "black",
     "sh.highlightParsingErrors": false,
     "snippets.extends": {
-        "javascriptreact": [
-            "javascript"
-        ],
-        "typescript": [
-            "javascript"
-        ],
-        "typescriptreact": [
-            "javascript"
-        ]
+        "javascriptreact": ["javascript"],
+        "typescript": ["javascript"],
+        "typescriptreact": ["javascript"]
     },
     "suggest.completionItemKindLabels": {
         "class": "  (class)",
@@ -95,6 +75,7 @@
     "tabnine.priority": 60,
     "tailwindCSS.emmetCompletions": true,
     "tailwindCSS.experimental.showPixelValues": true,
+    "tailwindCSS.experimental.classRegex": ["class[\\w]*\\s*=\\s*[{\"'`]+(.*)[\"'`}]+"],
     "yank.highlight.duration": 200,
     "yank.priority": 50
 }
