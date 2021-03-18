@@ -21,7 +21,6 @@ Plug 'chaoren/vim-wordmotion'     " better word motions
 Plug 'junegunn/vim-easy-align'    " align things
 Plug 'machakann/vim-sandwich'     " change surrounds e.g. brackets
 Plug 'mattn/emmet-vim'            " emmet
-Plug 'mg979/vim-visual-multi'     " multi cursors
 Plug 'rmagatti/alternate-toggler' " toggle alternate values
 Plug 'tpope/vim-abolish'          " change case
 Plug 'tpope/vim-commentary'       " comments
@@ -160,15 +159,6 @@ if has('persistent_undo')
     set undodir=$HOME/.undodir
     set undofile
 endif
-
-" mg979/vim-visual-multi
-let g:VM_leader = '\'
-let g:VM_theme = 'spacegray'
-let g:VM_maps = {}
-let g:VM_maps['Find Under'] = '<C-c>'
-let g:VM_maps['Find Subword Under'] = '<C-c>'
-let g:VM_maps['Add Cursor Down'] = '\j'
-let g:VM_maps['Add Cursor Up'] = '\k'
 
 " rmagatti/alternate-toggler
 let g:at_custom_alternates = {
