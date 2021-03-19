@@ -10,11 +10,11 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- g   git
     abbr -a -U -- gb  'git branch'
     abbr -a -U -- gc  'git commit'
-    abbr -a -U -- gch 'git checkout'
+    abbr -a -U -- gco 'git checkout'
     abbr -a -U -- gf  'git fetch'
     abbr -a -U -- gm  'git merge'
     abbr -a -U -- grb 'git rebase'
-    abbr -a -U -- gre 'git reset'
+    abbr -a -U -- grs 'git reset'
     abbr -a -U -- gpl 'git pull'
     abbr -a -U -- gps 'git push'
     abbr -a -U -- gs  'git status'
