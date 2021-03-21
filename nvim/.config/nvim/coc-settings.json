@@ -15,8 +15,8 @@
     "explorer.git.icon.status.mixed": "●",
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappings.global": {
-        "<cr>": ["expandable?", "expand", "open"],
-        "o": ["expandable?", "expand", "open"],
+        "<cr>": ["expandable?", "expand", "open:select:keep"],
+        "o": ["expandable?", "expand", "open:select:keep"],
         "v": "open:vsplit"
     },
     "explorer.width": 30,
