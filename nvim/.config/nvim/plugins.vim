@@ -7,6 +7,8 @@ Plug 'honza/vim-snippets'                              " snippets
 Plug 'kkoomen/vim-doge',
             \ { 'do': {
             \ -> doge#install({ 'headless': 1 }) } }   " documentation generator
+Plug 'lukas-reineke/indent-blankline.nvim',
+            \ { 'branch': 'lua' }                      " indentation guides
 Plug 'luochen1990/rainbow'                             " rainbow brackets
 Plug 'neoclide/coc.nvim',
             \ { 'branch': 'master',
@@ -146,6 +148,11 @@ omap S <Plug>Sneak_S
 
 " kkoomen/vim-doge
 let g:doge_mapping = '<leader>ad'
+
+" lukas-reineke/indent-blankline.nvim
+let g:indent_blankline_show_first_indent_level = v:false
+let g:indent_blankline_char = '│'
+let g:indent_blankline_char_highlight = 'SpecialComment'
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
