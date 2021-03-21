@@ -7,16 +7,18 @@
 # <optional footer>
 #
 # ** Type
-# * 🤖 chore - build process or auxiliary tool changes
-# * 🎡 ci - ci related changes
-# * ✏️  docs - documentation only changes
-# * 🎸 feat - a new feature
-# * 🐛 fix - a bug fix
-# * ⚡️ perf - a code change that improves performance
-# * 💡 refactor - a code change that neither fixes a bug or adds a feature
-# * 🏹 release - create a release commit
-# * 💄 style - markup, white-space, formatting, missing semi-colons...
-# * 💍 test - adding missing tests
+# * 👷 build:    build process or auxiliary tool changes
+# * 🤖 chore:    build process or auxiliary tool changes
+# * 💚 ci:       ci/cd related changes
+# * 📝 docs:     documentation only changes
+# * ✨ feat:     a new feature
+# * 🐛 fix:      a bug fix
+# * ⚡️ perf:     a code change that improves performance
+# * ♻️  refactor: a code change that neither fixes a bug or adds a feature
+# * 🚀 release:  create a release commit
+# * ⏪ revert:   revert previous changes
+# * 🎨 style:    markup, white-space, formatting, missing semi-colons...
+# * ✅ test:     adding missing tests
 #
 # ** Subject
 # * use the imperative, present tense: "change" not "changed" nor "changes"
