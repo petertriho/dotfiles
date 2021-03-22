@@ -93,8 +93,12 @@ function tool:all {
     exec "$SHELL"
 }
 
+function tool:list {
+    compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat
+}
+
 function tool:help {
-    printf "%s <tools> [args]\n\nTools:\n" "${0}"
+    printf "Usage: %s TOOL [args]\n\nTools:\n" "${0}"
 
     compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat -n
 }
