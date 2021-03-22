@@ -153,6 +153,7 @@ let g:doge_mapping = '<leader>ad'
 let g:indent_blankline_show_first_indent_level = v:false
 let g:indent_blankline_char = '│'
 let g:indent_blankline_char_highlight = 'SpecialComment'
+let g:indent_blankline_filetype_exclude = ['coc-explorer']
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
