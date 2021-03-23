@@ -39,3 +39,5 @@ set timeoutlen=500                " speed up mapping
 set ttimeout                      " speed up key code
 set ttimeoutlen=10                " speed up key code
 set lazyredraw                    " speed up macros
+
+colorscheme peachpuff
