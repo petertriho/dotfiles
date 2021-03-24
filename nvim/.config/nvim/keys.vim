@@ -56,7 +56,7 @@ let g:which_key_map['.'] = ['Bufonly',                                       'on
 let g:which_key_map[';'] = ['Files',                                         'files']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
 let g:which_key_map['b'] = ['GBranches',                                     'git-branches']
-let g:which_key_map['c'] = ['<Plug>(coc-cursors-position)',                  'cursors-position']
+let g:which_key_map['c'] = ['<Plug>(coc-git-chunkinfo)',                     'git-chunkinfo']
 let g:which_key_map['d'] = ['Bwipeout',                                      'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
 let g:which_key_map['f'] = ['Format',                                        'format']
@@ -74,6 +74,7 @@ let g:which_key_map['r'] = ['<Plug>(coc-range-select)',                      'ra
 let g:which_key_map['R'] = ['<Plug>(coc-range-select-backward)',             'range-select-backward']
 let g:which_key_map['s'] = ['Rg',                                            'search']
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
+let g:which_key_map['v'] = ['<Plug>(coc-cursors-position)',                  'cursors-position']
 let g:which_key_map['x'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
 
@@ -121,16 +122,16 @@ xmap <Leader>av <Plug>(coc-convert-snippet)
 " G(it) Mappings
 let g:which_key_map.g = {
       \ 'name': '+git',
-      \ 's': [':call ToggleGstatus(0)',      'status'],
-      \ 'b': ['GBranches',                   'branches'],
       \ 'B': [':CocCommand git.browserOpen', 'browse'],
-      \ 'c': ['Gcommit',                     'commit'],
+      \ 'b': ['GBranches',                   'branches'],
+      \ 'c': ['<Plug>(coc-git-chunkinfo)',   'chunkinfo'],
+      \ 'g': [':diffget //2',                'diff-left'],
+      \ 'h': [':diffget //3',                'diff-right'],
       \ 'i': [':CocFzfList issues',          'issues'],
       \ 'l': ['Flogsplit',                   'logs'],
-      \ 'p': ['Gpull',                       'pull'],
       \ 'P': [':AsyncRun git push',          'push'],
-      \ 'g': [':diffget //2',                'diff-left'],
-      \ 'h': [':diffget //3',                'diff-right']
+      \ 'p': ['Gpull',                       'pull'],
+      \ 's': [':call ToggleGstatus(0)',      'status']
       \ }
 
 " W(iki) Mappings
