@@ -37,6 +37,7 @@
     },
     "prettier.tabWidth": 4,
     "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--line-length 88"],
     "sh.highlightParsingErrors": false,
     "snippets.extends": {
         "javascriptreact": ["javascript"],
@@ -75,7 +76,9 @@
     "tabnine.priority": 60,
     "tailwindCSS.emmetCompletions": true,
     "tailwindCSS.experimental.showPixelValues": true,
-    "tailwindCSS.experimental.classRegex": ["class[\\w]*\\s*=\\s*[{\"'`]+(.*)[\"'`}]+"],
+    "tailwindCSS.experimental.classRegex": [
+        "class[\\w]*\\s*=\\s*[{\"'`]+(.*)[\"'`}]+"
+    ],
     "yank.highlight.duration": 200,
     "yank.priority": 50
 }
