@@ -78,6 +78,11 @@ let g:which_key_map['v'] = ['<Plug>(coc-cursors-position)',                  'cu
 let g:which_key_map['x'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
 
+nmap <Leader><TAB> <Plug>(fzf-maps-n)
+xmap <Leader><TAB> <Plug>(fzf-maps-x)
+omap <Leader><TAB> <Plug>(fzf-maps-o)
+let g:which_key_map['<Tab>'] = 'mappings'
+
 map <silent> <Leader>/ :Commentary<CR>
 let g:which_key_map['/'] = 'commentary'
 
