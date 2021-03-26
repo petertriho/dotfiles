@@ -113,7 +113,6 @@ let g:rg_vars = 'rg '.
             \ '--line-number '.
             \ '--no-heading '.
             \ '--color=always '.
-            \ '--smart-case '.
             \ '--hidden '.
             \ '--glob "!{.git/*,}" '
 
@@ -123,7 +122,6 @@ function! RipgrepFzf(query, fullscreen)
             \ '--line-number '.
             \ '--no-heading '.
             \ '--color=always '.
-            \ '--smart-case '.
             \ '--hidden '.
             \ '--glob "!{.git/*,}" '.
             \ '-- %s || true'
