@@ -1,5 +1,6 @@
 {
     "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
+    "cSpell.allowCompoundWords": true,
     "diagnostic-languageserver.filetypes": {
         "dockerfile": "hadolint",
         "sh": "shellcheck"
