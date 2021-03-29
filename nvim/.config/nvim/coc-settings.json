@@ -37,7 +37,7 @@
     },
     "prettier.tabWidth": 4,
     "python.formatting.provider": "black",
-    "python.formatting.blackArgs": ["--line-length 88"],
+    "python.formatting.blackArgs": ["--line-length=88"],
     "sh.highlightParsingErrors": false,
     "snippets.extends": {
         "javascriptreact": ["javascript"],
