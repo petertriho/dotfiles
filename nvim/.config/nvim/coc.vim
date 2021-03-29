@@ -19,6 +19,7 @@ let g:coc_global_extensions = [
             \ 'coc-sh',
             \ 'coc-svg',
             \ 'coc-snippets',
+            \ 'coc-spell-checker',
             \ 'coc-tabnine',
             \ 'coc-tsserver',
             \ 'coc-yaml',
