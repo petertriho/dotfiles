@@ -38,6 +38,7 @@
     "prettier.tabWidth": 4,
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": ["--line-length=88"],
+    "pyright.organizeimports.provider": "isort",
     "sh.highlightParsingErrors": false,
     "snippets.extends": {
         "javascriptreact": ["javascript"],
