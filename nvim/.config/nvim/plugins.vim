@@ -93,6 +93,10 @@ let g:coc_fzf_opts = []
 " antoinemadec/FixCursorHold.nvim
 let g:cursorhold_updatetime = 100
 
+
+" chaoren/vim-wordmotion
+let g:wordmotion_prefix = '\'
+
 " editorconfig/editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
