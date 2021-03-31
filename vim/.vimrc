@@ -28,7 +28,7 @@ set title                         " set terminal's title
 set titlestring=vim\ %t\ %M\ (%F) " terminal title format
 
 set splitright                    " default vertical split right
-set splitbelow                    " default horizonal split below
+set splitbelow                    " default horizontal split below
 
 filetype plugin indent on         " turn on filetype detection, plugin, indent on
 syntax on                         " syntax highlighting

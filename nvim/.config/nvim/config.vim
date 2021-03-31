@@ -28,7 +28,7 @@ set title                          " set terminal's title
 set titlestring=nvim\ %t\ %M\ (%F) " terminal title format
 
 set splitright                     " default vertical split right
-set splitbelow                     " default horizonal split below
+set splitbelow                     " default horizontal split below
 
 set colorcolumn=80                 " max column line
 set cursorline                     " highlight current line
