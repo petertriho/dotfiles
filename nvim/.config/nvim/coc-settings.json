@@ -1,6 +1,6 @@
 {
-    "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
     "cSpell.allowCompoundWords": true,
+    "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
     "diagnostic-languageserver.filetypes": {
         "dockerfile": "hadolint",
         "sh": "shellcheck"
@@ -23,10 +23,10 @@
     "explorer.width": 30,
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.addedSign.text": "┃",
-    "git.changedSign.hlGroup": "GitGutterChange",
-    "git.changedSign.text": "┃",
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
     "git.changeRemovedSign.text": "┃",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.changedSign.text": "┃",
     "git.removedSign.hlGroup": "GitGutterDelete",
     "git.removedSign.text": "┃",
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
@@ -37,9 +37,9 @@
         "MD030": false
     },
     "prettier.tabWidth": 4,
-    "python.formatting.provider": "black",
-    "python.formatting.blackArgs": ["--line-length=88"],
     "pyright.organizeimports.provider": "isort",
+    "python.formatting.blackArgs": ["--line-length=88"],
+    "python.formatting.provider": "black",
     "sh.highlightParsingErrors": false,
     "snippets.extends": {
         "javascriptreact": ["javascript"],
@@ -77,10 +77,10 @@
     "suggest.removeDuplicateItems": true,
     "tabnine.priority": 60,
     "tailwindCSS.emmetCompletions": true,
-    "tailwindCSS.experimental.showPixelValues": true,
     "tailwindCSS.experimental.classRegex": [
         "class[\\w]*\\s*=\\s*[{\"'`]+(.*)[\"'`}]+"
     ],
+    "tailwindCSS.experimental.showPixelValues": true,
     "yank.highlight.duration": 200,
     "yank.priority": 50
 }
