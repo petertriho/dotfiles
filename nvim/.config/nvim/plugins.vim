@@ -133,9 +133,10 @@ function! RipgrepFzf(query, fullscreen)
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': [
         \ '--phony',
+        \ '--delimiter', ':',
+        \ '--nth', '2..',
         \ '--query', a:query,
-        \ '--bind', 'change:reload:'.reload_command,
-        \ '--delimiter', '--nth 2..'
+        \ '--bind', 'change:reload:'.reload_command
         \  ]}
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
