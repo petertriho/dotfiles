@@ -37,9 +37,25 @@
         "yml"
     ],
     "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
+    "diagnostic-languageserver.mergeConfig": true,
     "diagnostic-languageserver.filetypes": {
         "dockerfile": "hadolint",
         "sh": "shellcheck"
+    },
+    "diagnostic-languageserver.formatters": {
+        "rustywind": {
+            "command": "rustywind",
+            "args": ["--stdin"],
+            "isStdout": true,
+            "rootPatterns": ["tailwind.config.js"],
+            "requiredFiles": ["tailwind.config.js"]
+        }
+    },
+    "diagnostic-languageserver.formatFiletypes": {
+        "javascript": "rustywind",
+        "javascriptreact": "rustywind",
+        "typescript": "rustywind",
+        "typescriptreact": "rustywind"
     },
     "diagnostic.errorSign": "x",
     "diagnostic.hintSign": "h",
@@ -75,6 +91,7 @@
         "MD024": false,
         "MD030": false
     },
+    "prettier.eslintIntegration": true,
     "prettier.tabWidth": 4,
     "pyright.organizeimports.provider": "isort",
     "python.formatting.blackArgs": ["--line-length=88"],
