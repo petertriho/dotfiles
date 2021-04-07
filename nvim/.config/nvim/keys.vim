@@ -55,7 +55,7 @@ let g:which_key_map['-'] = ['<C-w>s',                                        'sp
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
 let g:which_key_map[';'] = ['Files',                                         'files']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
-let g:which_key_map['b'] = ['GBranches',                                     'git-branches']
+let g:which_key_map['b'] = ['Buffers',                                       'buffers']
 let g:which_key_map['c'] = ['<Plug>(coc-git-chunkinfo)',                     'git-chunkinfo']
 let g:which_key_map['d'] = ['Bwipeout',                                      'delete-buffer']
 let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
