@@ -93,7 +93,6 @@ let g:coc_fzf_opts = []
 " antoinemadec/FixCursorHold.nvim
 let g:cursorhold_updatetime = 100
 
-
 " chaoren/vim-wordmotion
 let g:wordmotion_prefix = '\'
 
@@ -193,6 +192,9 @@ let g:at_custom_alternates = {
             \ 'yes': 'no',
             \ 'Yes': 'No',
             \ }
+
+" sheerun/vim-polyglot
+let g:polygot_disabled = ['autoindent', 'sensible']
 
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
