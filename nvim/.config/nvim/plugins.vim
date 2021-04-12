@@ -175,6 +175,12 @@ let g:indent_blankline_filetype_exclude = [
       \ 'typescriptreact'
       \ ]
 
+augroup indent-blankline
+    autocmd!
+    autocmd FileType javascriptreact,typescriptreact let b:indent_blankline_enabled = v:false
+    autocmd FileType coc-explorer let b:indent_blankline_enabled = v:false
+augroup END
+
 " luochen1990/rainbow
 let g:rainbow_active = 1
 
