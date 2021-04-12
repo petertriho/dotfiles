@@ -169,12 +169,7 @@ let g:doge_mapping = '<leader>ad'
 " lukas-reineke/indent-blankline.nvim
 let g:indent_blankline_show_first_indent_level = v:false
 let g:indent_blankline_char = '│'
-let g:indent_blankline_filetype_exclude = ['coc-explorer']
-
-augroup indent-blankline
-    autocmd!
-    autocmd FileType javascriptreact,typescriptreact let b:indent_blankline_enabled = v:false
-augroup END
+let g:indent_blankline_filetype_exclude = ['coc-explorer', "javascriptreact", "typescriptreact"]
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
