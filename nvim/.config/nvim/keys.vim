@@ -74,9 +74,9 @@ let g:which_key_map['r'] = ['<Plug>(coc-range-select)',                      'ra
 let g:which_key_map['R'] = ['<Plug>(coc-range-select-backward)',             'range-select-backward']
 let g:which_key_map['s'] = ['Rg',                                            'search']
 let g:which_key_map['u'] = ['UndotreeToggle',                                'undotree']
-let g:which_key_map['v'] = ['<Plug>(coc-cursors-position)',                  'cursors-position']
-let g:which_key_map['x'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
+let g:which_key_map['x'] = ['<Plug>(coc-cursors-position)',                  'cursors-position']
 let g:which_key_map['y'] = [':CocFzfList yank',                              'yank']
+let g:which_key_map['z'] = ['<Plug>(coc-cursors-operator)',                  'cursors-operator']
 
 nmap <Leader><TAB> <Plug>(fzf-maps-n)
 xmap <Leader><TAB> <Plug>(fzf-maps-x)
@@ -95,8 +95,8 @@ let g:which_key_map.h = 'highlight-off'
 map <Leader>t :ToggleAlternate<CR>
 let g:which_key_map.t = 'toggle-alternate'
 
-nmap <silent> <Leader>z <Plug>(coc-cursors-word)
-xmap <silent> <Leader>z <Plug>(coc-cursors-range)
+nmap <silent> <Leader>v <Plug>(coc-cursors-word)
+xmap <silent> <Leader>v <Plug>(coc-cursors-range)
 let g:which_key_map.z = 'cursors-word'
 
 " A(ction) Mappings
