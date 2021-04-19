@@ -4,9 +4,9 @@ function set_abbr --description "Set abbr(eviations)"
     end
 
     abbr -a -U -- d   docker
-    abbr -a -U -- dc  docker-compose
-    abbr -a -U -- dcl 'docker-compose logs -f -t --tail=100'
-    abbr -a -U -- dcu 'docker-compose up -d'
+    abbr -a -U -- dc  docker compose
+    abbr -a -U -- dcl 'docker compose logs -f -t --tail=100'
+    abbr -a -U -- dcu 'docker compose up -d'
     abbr -a -U -- g   git
     abbr -a -U -- gb  'git branch'
     abbr -a -U -- gc  'git commit'
