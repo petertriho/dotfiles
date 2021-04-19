@@ -66,16 +66,16 @@ Plug 'ryanoasis/vim-devicons'                   " filetype icons
 Plug 'vimwiki/vimwiki'                          " personal wiki
 
 " Misc
-Plug 'antoinemadec/FixCursorHold.nvim'    " improve cursorhold performance
-Plug 'editorconfig/editorconfig-vim'      " editorconfig
+Plug 'antoinemadec/FixCursorHold.nvim' " improve cursorhold performance
+Plug 'editorconfig/editorconfig-vim'   " editorconfig
 Plug 'edkolev/tmuxline.vim',
-            \ { 'on': 'Tmuxline' }        " match tmux with airline theme
-Plug 'moll/vim-bbye'                      " better buffer delete/wipeout
-Plug 'roxma/vim-tmux-clipboard'           " vim-tmux clipboard sync
-Plug 'ryvnf/readline.vim'                 " readline cmdline mappings
-Plug 'schickling/vim-bufonly'             " close all buffers except current
-Plug 'tpope/vim-repeat'                   " repeat things
-Plug 'tpope/vim-unimpaired'               " [] mappings
+            \ { 'on': 'Tmuxline' }     " match tmux with airline theme
+Plug 'moll/vim-bbye'                   " better buffer delete/wipeout
+Plug 'roxma/vim-tmux-clipboard'        " vim-tmux clipboard sync
+Plug 'ryvnf/readline.vim'              " readline cmdline mappings
+Plug 'schickling/vim-bufonly'          " close all buffers except current
+Plug 'tpope/vim-repeat'                " repeat things
+Plug 'tpope/vim-unimpaired'            " [] mappings
 call plug#end()
 
 " alvan/vim-closetag
@@ -119,24 +119,24 @@ let g:rg_vars = 'rg '.
             \ '--glob "!{.git/*,}" '
 
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg '.
-            \ '--column '.
-            \ '--line-number '.
-            \ '--no-heading '.
-            \ '--color=always '.
-            \ '--hidden '.
-            \ '--glob "!{.git/*,}" '.
-            \ '-- %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': [
-        \ '--phony',
-        \ '--delimiter', ':',
-        \ '--nth', '2..',
-        \ '--query', a:query,
-        \ '--bind', 'change:reload:'.reload_command
-        \  ]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+    let command_fmt = 'rg '.
+                \ '--column '.
+                \ '--line-number '.
+                \ '--no-heading '.
+                \ '--color=always '.
+                \ '--hidden '.
+                \ '--glob "!{.git/*,}" '.
+                \ '-- %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': [
+                \ '--phony',
+                \ '--delimiter', ':',
+                \ '--nth', '2..',
+                \ '--query', a:query,
+                \ '--bind', 'change:reload:'.reload_command
+                \  ]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
 command! -bang -nargs=* Rg call RipgrepFzf(<q-args>, <bang>0)
@@ -169,10 +169,10 @@ let g:doge_mapping = '<leader>ad'
 let g:indent_blankline_show_first_indent_level = v:false
 let g:indent_blankline_char = '│'
 let g:indent_blankline_filetype_exclude = [
-      \ 'coc-explorer',
-      \ 'javascriptreact',
-      \ 'typescriptreact'
-      \ ]
+            \ 'coc-explorer',
+            \ 'javascriptreact',
+            \ 'typescriptreact'
+            \ ]
 
 augroup indent-blankline
     autocmd!
@@ -228,16 +228,16 @@ let g:maximizer_set_default_mapping = 0 " disable default bindings
 " tpope/vim-fugitive
 function! ToggleGstatus(vertical, ...)
     for l:winnr in range(1, winnr('$'))
-		if !empty(getwinvar(l:winnr, 'fugitive_status'))
-			execute l:winnr.'close'
-		else
+        if !empty(getwinvar(l:winnr, 'fugitive_status'))
+            execute l:winnr.'close'
+        else
             if a:vertical == 0
                 Gstatus
             else
                 vertical Gstatus
             endif
-		endif
-	endfor
+        endif
+    endfor
 endfunction
 
 " unblevable/quick-scope

@@ -1,5 +1,5 @@
 if exists("did_load_custom_filetypes")
-  finish
+    finish
 endif
 let did_load_custom_filetypes = 1
 

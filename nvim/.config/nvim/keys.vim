@@ -44,9 +44,9 @@ let g:which_key_use_floating_win = 0
 let g:which_key_max_size = 0
 
 augroup which-key
-      autocmd! FileType which_key
-      autocmd  FileType which_key set laststatus=0 noshowmode noruler
-            \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+    autocmd! FileType which_key
+    autocmd  FileType which_key set laststatus=0 noshowmode noruler
+                \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 augroup END
 
 " Single Mappings
@@ -101,22 +101,22 @@ let g:which_key_map.z = 'cursors-word'
 
 " A(ction) Mappings
 let g:which_key_map.a = {
-      \ 'name': '+action',
-      \ 'c': ['<Plug>(coc-codeaction-cursor)', 'codeaction-cursor'],
-      \ 'f': ['<Plug>(coc-format-selected)',   'format-selected'],
-      \ 'j': ['SplitjoinJoin',                 'join-lines'],
-      \ 'l': ['<Plug>(coc-codeaction-line)',   'codeaction-line'],
-      \ 'q': ['<Plug>(coc-fix-current)',       'quickfix'],
-      \ 'r': ['<Plug>(coc-rename)',            'rename'],
-      \ 'x': ['SplitjoinSplit',                'split-lines'],
-      \ 'y': [':%y+',                          'yank-file'],
-      \ 'a': 'align',
-      \ 'd': 'documentation-generator',
-      \ 'p': 'paste-file',
-      \ 's': 'sort',
-      \ 't': 'toggle-alternate',
-      \ 'v': 'visual-convert-snippet'
-      \ }
+            \ 'name': '+action',
+            \ 'c': ['<Plug>(coc-codeaction-cursor)', 'codeaction-cursor'],
+            \ 'f': ['<Plug>(coc-format-selected)',   'format-selected'],
+            \ 'j': ['SplitjoinJoin',                 'join-lines'],
+            \ 'l': ['<Plug>(coc-codeaction-line)',   'codeaction-line'],
+            \ 'q': ['<Plug>(coc-fix-current)',       'quickfix'],
+            \ 'r': ['<Plug>(coc-rename)',            'rename'],
+            \ 'x': ['SplitjoinSplit',                'split-lines'],
+            \ 'y': [':%y+',                          'yank-file'],
+            \ 'a': 'align',
+            \ 'd': 'documentation-generator',
+            \ 'p': 'paste-file',
+            \ 's': 'sort',
+            \ 't': 'toggle-alternate',
+            \ 'v': 'visual-convert-snippet'
+            \ }
 
 map <Leader>aa <Plug>(EasyAlign)
 xmap <Leader>as :sort i<CR>
@@ -126,28 +126,28 @@ xmap <Leader>av <Plug>(coc-convert-snippet)
 
 " G(it) Mappings
 let g:which_key_map.g = {
-      \ 'name': '+git',
-      \ 'B': [':CocCommand git.browserOpen', 'browse'],
-      \ 'b': ['GBranches',                   'branches'],
-      \ 'c': ['<Plug>(coc-git-chunkinfo)',   'chunkinfo'],
-      \ 'g': [':diffget //2',                'diff-left'],
-      \ 'h': [':diffget //3',                'diff-right'],
-      \ 'i': [':CocFzfList issues',          'issues'],
-      \ 'l': ['Flogsplit',                   'logs'],
-      \ 'P': [':AsyncRun git push',          'push'],
-      \ 'p': ['Gpull',                       'pull'],
-      \ 's': [':call ToggleGstatus(0)',      'status']
-      \ }
+            \ 'name': '+git',
+            \ 'B': [':CocCommand git.browserOpen', 'browse'],
+            \ 'b': ['GBranches',                   'branches'],
+            \ 'c': ['<Plug>(coc-git-chunkinfo)',   'chunkinfo'],
+            \ 'g': [':diffget //2',                'diff-left'],
+            \ 'h': [':diffget //3',                'diff-right'],
+            \ 'i': [':CocFzfList issues',          'issues'],
+            \ 'l': ['Flogsplit',                   'logs'],
+            \ 'P': [':AsyncRun git push',          'push'],
+            \ 'p': ['Gpull',                       'pull'],
+            \ 's': [':call ToggleGstatus(0)',      'status']
+            \ }
 
 " W(iki) Mappings
 let g:which_key_map.w = {
-      \ 'name': '+wiki',
-      \ 'f': [':Files $VIMWIKI_PATH', 'files'],
-      \ 'i': 'diary',
-      \ 's': 'search',
-      \ 't': 'tab',
-      \ 'w': 'win',
-      \ }
+            \ 'name': '+wiki',
+            \ 'f': [':Files $VIMWIKI_PATH', 'files'],
+            \ 'i': 'diary',
+            \ 's': 'search',
+            \ 't': 'tab',
+            \ 'w': 'win',
+            \ }
 
 map <silent> <Leader>ws :RgVW<CR>
 
