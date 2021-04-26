@@ -27,6 +27,11 @@ let g:coc_global_extensions = [
             \ 'https://github.com/rodrigore/coc-tailwind-intellisense'
             \ ]
 
+
+let g:coc_filetype_map = {
+            \ 'vimwiki': 'markdown',
+            \ }
+
 set hidden
 set nobackup
 set nowritebackup
