@@ -108,22 +108,22 @@ let g:which_key_map.a = {
             \ 'l': ['<Plug>(coc-codeaction-line)',     'codeaction-line'],
             \ 'q': ['<Plug>(coc-fix-current)',         'quickfix'],
             \ 'r': ['<Plug>(coc-rename)',              'rename'],
+            \ 'v': ['<Plug>(coc-codeaction-selected)', 'codeaction-selected'],
             \ 'x': ['SplitjoinSplit',                  'split-lines'],
             \ 'y': [':%y+',                            'yank-file'],
-            \ 'z': ['<Plug>(coc-codeaction-selected)', 'codeaction-selected'],
             \ 'a': 'align',
             \ 'd': 'documentation-generator',
             \ 'p': 'paste-file',
             \ 's': 'sort',
             \ 't': 'toggle-alternate',
-            \ 'v': 'visual-convert-snippet'
+            \ 'z': 'convert-snippet'
             \ }
 
 map <Leader>aa <Plug>(EasyAlign)
 xmap <Leader>as :sort i<CR>
 map <Leader>at :ToggleAlternate<CR>
 nmap <Leader>ap ggVG"+p
-xmap <Leader>av <Plug>(coc-convert-snippet)
+xmap <Leader>az <Plug>(coc-convert-snippet)
 
 " G(it) Mappings
 let g:which_key_map.g = {
