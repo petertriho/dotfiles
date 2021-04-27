@@ -16,6 +16,7 @@ let g:coc_global_extensions = [
             \ 'coc-pairs',
             \ 'coc-prettier',
             \ 'coc-pyright',
+            \ 'coc-react-refactor',
             \ 'coc-sh',
             \ 'coc-snippets',
             \ 'coc-spell-checker',
