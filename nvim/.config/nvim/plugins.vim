@@ -45,6 +45,7 @@ Plug 'antoinemadec/coc-fzf',
             \ 'CocFzfList',
             \ 'CocFzfListResume'
             \ ] }                               " fzf for coc
+Plug 'chumakd/scratch.vim'                      " scratch window
 Plug 'junegunn/fzf',
             \ { 'do': { -> fzf#install() } }    " fzf
 Plug 'junegunn/fzf.vim'                         " fzf helpers

@@ -52,6 +52,7 @@ augroup END
 " Single Mappings
 let g:which_key_map[' '] = ['w',                                             'write']
 let g:which_key_map['-'] = ['<C-w>s',                                        'split-below']
+let g:which_key_map[','] = ['ScratchPreview',                                'scratch-preview']
 let g:which_key_map['.'] = ['Bufonly',                                       'only-buffer']
 let g:which_key_map[';'] = ['Files',                                         'files']
 let g:which_key_map['\'] = ['<C-w>v',                                        'split-right']
