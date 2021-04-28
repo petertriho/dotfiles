@@ -96,6 +96,9 @@ let g:cursorhold_updatetime = 100
 " chaoren/vim-wordmotion
 let g:wordmotion_prefix = '\'
 
+" chumakd/scratch.vim
+let g:scratch_persistence_file = '/tmp/scratch.txt'
+
 " editorconfig/editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
