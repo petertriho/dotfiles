@@ -94,8 +94,10 @@
     "prettier.eslintIntegration": true,
     "prettier.tabWidth": 4,
     "pyright.organizeimports.provider": "isort",
+    "python.analysis.diagnosticMode": "workspace",
     "python.formatting.blackArgs": ["--line-length=88"],
     "python.formatting.provider": "black",
+    "python.linting.flake8Enabled": true,
     "sh.highlightParsingErrors": false,
     "snippets.extends": {
         "javascriptreact": ["javascript"],
