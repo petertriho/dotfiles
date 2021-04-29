@@ -136,7 +136,7 @@
     "tabnine.priority": 60,
     "tailwindCSS.emmetCompletions": true,
     "tailwindCSS.experimental.classRegex": [
-        "[\\w]*[cC]lass[\\w]*\\s*=\\s*[{\"'`]+(.*)[\"'`}]+"
+        "[\\w]*[cC]lass[\\w]*\\s*[:=]\\s*[{\"'`]+(.*)[\"'`}]+"
     ],
     "tailwindCSS.experimental.showPixelValues": true,
     "yank.highlight.duration": 200,
