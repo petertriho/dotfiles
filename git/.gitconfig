@@ -21,7 +21,7 @@
 	# fetch = +refs/heads/*:refs/remotes/origin/*
 
 [delta]
-	syntax-theme = OneHalfDark
+	syntax-theme = base16-256
 
 [interactive]
 	diffFilter = delta --color-only
