@@ -96,6 +96,7 @@
     "pyright.organizeimports.provider": "isort",
     "python.analysis.diagnosticMode": "workspace",
     "python.analysis.typeCheckingMode": "off",
+    "python.formatting.blackArgs": ["--line-length=88"],
     "python.formatting.provider": "black",
     "python.linting.flake8Enabled": true,
     "sh.highlightParsingErrors": false,
