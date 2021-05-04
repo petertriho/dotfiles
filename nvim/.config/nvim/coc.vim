@@ -25,7 +25,7 @@ let g:coc_global_extensions = [
             \ 'coc-tsserver',
             \ 'coc-yaml',
             \ 'coc-yank',
-            \ 'https://github.com/rodrigore/coc-tailwind-intellisense'
+            \ 'https://github.com/petertriho/coc-tailwind-intellisense'
             \ ]
 
 
