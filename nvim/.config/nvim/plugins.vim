@@ -14,6 +14,7 @@ Plug 'neoclide/coc.nvim',
             \ { 'branch': 'master',
             \ 'do': 'yarn install --frozen-lockfile' } " lsp
 Plug 'sheerun/vim-polyglot'                            " syntax highlighting
+Plug 'wellle/tmux-complete.vim'                        " completion from tmux
 
 " Text Helpers
 Plug 'alvan/vim-closetag'         " auto close html tags
