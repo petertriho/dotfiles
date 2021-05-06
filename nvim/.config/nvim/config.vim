@@ -50,3 +50,27 @@ if exists('$VIRTUAL_ENV')
 else
     let g:python3_host_prog=substitute(system('which python3'), '\n', '', 'g')
 endif
+
+if !exists("g:uname")
+    if has("win64") || has("win32") || has("win16")
+        let g:uname = "Windows"
+    else
+        let g:uname = substitute(system('uname'), '\n', '', '')
+    endif
+endif
+
+if g:uname == 'Linux'
+    " for wsl
+    let g:clipboard = {
+            \ 'name': 'win32yank',
+            \ 'copy': {
+            \    '+': 'win32yank.exe -i --crlf',
+            \    '*': 'win32yank.exe -i --crlf',
+            \  },
+            \ 'paste': {
+            \    '+': 'win32yank.exe -o --lf',
+            \    '*': 'win32yank.exe -o --lf',
+            \ },
+            \ 'cache_enabled': 0,
+            \ }
+endif
