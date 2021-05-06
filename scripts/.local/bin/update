@@ -2,6 +2,16 @@
 
 # set -euo pipefail
 
+function tool:apt {
+    if command -v apt &> /dev/null; then
+        echo "Updating apt packages ..."
+        sudo apt update
+        sudo apt -y upgrade
+        sudo apt autoremove
+        sudo apt clean
+    fi
+}
+
 function tool:asdf {
     if command -v asdf &> /dev/null; then
         echo "Updating asdf & plugins ..."
@@ -64,6 +74,21 @@ function tool:nvim {
     fi
 }
 
+function tool:scoop {
+    if command -v scoop &> /dev/null; then
+        echo "Updating scoop packages ..."
+        pwsh="powershell.exe -NoProfile -NoLogo -NonInteractive cd ~;"
+        $pwsh "scoop update *"
+
+        echo "Updating neovim plugins (windows) ..."
+        cat $HOME/.dotfiles/ignore/nvim/init.vim | clip.exe
+        $pwsh 'Get-Clipboard -Raw | Out-File -encoding utf8 $env:LOCALAPPDATA\nvim\init.vim'
+        cat $HOME/.dotfiles/nvim/.config/nvim/vscode.vim | clip.exe
+        $pwsh 'Get-Clipboard -Raw | Out-File -encoding utf8 $env:LOCALAPPDATA\nvim\vscode.vim'
+        $pwsh 'nvim -es -u $env:LOCALAPPDATA\nvim\vscode.vim +PlugClean! +"PlugInstall --sync" +"PlugUpdate --sync" +PlugUpgrade +qa'
+    fi
+}
+
 function tool:tmux {
     tmux_dir="$HOME/.tmux"
     tpm_bin_dir="$tmux_dir/plugins/tpm/bin"
@@ -84,6 +109,8 @@ function tool:tmux {
 
 function tool:all {
     tool:dotfiles
+    tool:apt
+    tool:scoop
     tool:brew
     tool:asdf
     tool:fish
