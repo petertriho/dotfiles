@@ -51,9 +51,9 @@ else
     let g:python3_host_prog=substitute(system('which python3'), '\n', '', 'g')
 endif
 
-if !exists("g:uname")
-    if has("win64") || has("win32") || has("win16")
-        let g:uname = "Windows"
+if !exists('g:uname')
+    if has('win64') || has('win32') || has('win16')
+        let g:uname = 'Windows'
     else
         let g:uname = substitute(system('uname'), '\n', '', '')
     endif
