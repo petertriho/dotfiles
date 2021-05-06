@@ -109,8 +109,12 @@ function tool:tmux {
 
 function tool:all {
     tool:dotfiles
-    tool:apt
-    tool:scoop
+
+    if [ "$(uname)" == "Linux" ]; then
+        tool:apt
+        tool:scoop
+    fi
+
     tool:brew
     tool:asdf
     tool:fish
