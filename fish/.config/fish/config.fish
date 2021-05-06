@@ -1,7 +1,28 @@
 fish_add_path $HOME/.local/bin
 
-test -e /usr/local/opt/asdf/asdf.fish; and \
-   source /usr/local/opt/asdf/asdf.fish
+switch (uname)
+   case Linux
+      set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
+      set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
+      set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
+      set -gx MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
+      set -gx INFOPATH $HOMEBREW_PREFIX/share/info $INFOPATH
+
+      fish_add_path $HOMEBREW_PREFIX/sbin
+      fish_add_path $HOMEBREW_PREFIX/bin
+
+      test -e /opt/asdf-vm/asdf.fish; and \
+         source /opt/asdf-vm/asdf.fish
+
+      set -g FORGIT_COPY_CMD 'win32yank.exe -i'
+   case Darwin
+      test -e /usr/local/opt/asdf/asdf.fish; and \
+         source /usr/local/opt/asdf/asdf.fish
+
+      test -e {$HOME}/.iterm2_shell_integration.fish; and \
+         source {$HOME}/.iterm2_shell_integration.fish
+
+end
 
 set -gx EDITOR nvim
 set -gx PROJECT_PATHS $HOME/Documents/GitHub $HOME/Documents/Projects
@@ -12,9 +33,6 @@ set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/openssl/include"
 
 if status is-interactive
-   test -e {$HOME}/.iterm2_shell_integration.fish; and \
-      source {$HOME}/.iterm2_shell_integration.fish
-
    starship init fish | source
 
    set -gx FZF_DEFAULT_COMMAND \
