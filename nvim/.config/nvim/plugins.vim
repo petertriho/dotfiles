@@ -20,13 +20,13 @@ Plug 'wellle/tmux-complete.vim'                        " completion from tmux
 Plug 'alvan/vim-closetag'         " auto close html tags
 Plug 'AndrewRadev/splitjoin.vim'  " split/join lines
 Plug 'AndrewRadev/tagalong.vim'   " change html tags
+Plug 'b3nj5m1n/kommentary'        " comments
 Plug 'chaoren/vim-wordmotion'     " better word motions
 Plug 'junegunn/vim-easy-align'    " align things
 Plug 'machakann/vim-sandwich'     " change surrounds e.g. brackets
 Plug 'mattn/emmet-vim'            " emmet
 Plug 'rmagatti/alternate-toggler' " toggle alternate values
 Plug 'tpope/vim-abolish'          " change case
-Plug 'tpope/vim-commentary'       " comments
 Plug 'tpope/vim-characterize'     " character representation
 Plug 'tpope/vim-speeddating'      " date helpers
 Plug 'wellle/targets.vim'         " text objects

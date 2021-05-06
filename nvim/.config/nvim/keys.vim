@@ -84,7 +84,9 @@ xmap <Leader><TAB> <Plug>(fzf-maps-x)
 omap <Leader><TAB> <Plug>(fzf-maps-o)
 let g:which_key_map['<Tab>'] = 'mappings'
 
-map <silent> <Leader>/ :Commentary<CR>
+nmap <silent> <Leader>/ <Plug>kommentary_line_default
+xmap <silent> <Leader>/ <Plug>kommentary_visual_default
+omap <silent> <Leader>/ <Plug>kommentary_motion_default
 let g:which_key_map['/'] = 'commentary'
 
 nnoremap <silent> <Leader>D :bufdo :Bwipeout<CR>
