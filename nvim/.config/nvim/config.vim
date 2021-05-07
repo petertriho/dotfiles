@@ -74,3 +74,22 @@ if g:uname == 'Linux'
             \ 'cache_enabled': 0,
             \ }
 endif
+
+" sheerun/vim-polyglot
+let g:polygot_disabled = [
+            \ 'autoindent',
+            \ 'sensible',
+            \ 'css',
+            \ 'go',
+            \ 'graphql',
+            \ 'html5',
+            \ 'javascript',
+            \ 'json',
+            \ 'jsonc',
+            \ 'jsx',
+            \ 'python',
+            \ 'scss',
+            \ 'toml',
+            \ 'typescript',
+            \ 'yaml'
+            \ ]
