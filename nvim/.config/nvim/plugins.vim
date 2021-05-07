@@ -179,6 +179,7 @@ omap S <Plug>Sneak_S
 let g:doge_mapping = '<leader>ad'
 
 " lukas-reineke/indent-blankline.nvim
+let g:indent_blankline_use_treesitter = v:true
 let g:indent_blankline_show_first_indent_level = v:false
 let g:indent_blankline_char = '│'
 let g:indent_blankline_filetype_exclude = [
@@ -251,7 +252,6 @@ require 'nvim-treesitter.configs'.setup {
 }
 EOF
 
-
 " rmagatti/alternate-toggler
 let g:at_custom_alternates = {
             \ 'true': 'false',
@@ -260,9 +260,6 @@ let g:at_custom_alternates = {
             \ 'yes': 'no',
             \ 'Yes': 'No',
             \ }
-
-" sheerun/vim-polyglot
-let g:polygot_disabled = ['autoindent', 'sensible']
 
 " simeji/winresizer
 let g:winresizer_start_key = '<M-e>'
