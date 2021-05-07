@@ -221,6 +221,7 @@ require 'nvim-treesitter.configs'.setup {
         "json",
         "jsonc",
         "python",
+        "regex",
         "scss",
         "toml",
         "tsx",
