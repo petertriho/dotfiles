@@ -16,6 +16,16 @@ Plug 'neoclide/coc.nvim',
 Plug 'sheerun/vim-polyglot'                            " syntax highlighting
 Plug 'wellle/tmux-complete.vim'                        " completion from tmux
 
+" Treesitter
+Plug 'JoosepAlviste/nvim-ts-context-commentstring' " commentstring based on context
+" Plug 'theHamsta/nvim-treesitter-pairs'             " pair objects
+Plug 'nvim-treesitter/nvim-treesitter',
+            \ { 'do': ':TSUpdate' }                " syntax highlighting + parser
+Plug 'nvim-treesitter/nvim-treesitter-textobjects' " textobjects
+" Plug 'p00f/nvim-ts-rainbow'                        " rainbow brackets
+Plug 'romgrk/nvim-treesitter-context'              " context
+
+
 " Text Helpers
 Plug 'alvan/vim-closetag'         " auto close html tags
 Plug 'AndrewRadev/splitjoin.vim'  " split/join lines
@@ -197,6 +207,46 @@ if has('persistent_undo')
     set undodir=$HOME/.undodir
     set undofile
 endif
+
+" nvim-treesitter/nvim-treesitter
+lua << EOF
+require 'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+        "bash",
+        "comment",
+        "css",
+        "go",
+        "graphql",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "jsonc",
+        "python",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "yaml"
+    },
+    context_commentstring = {
+        enable = true
+    },
+    highlight = {
+        enable = true
+    },
+    incremental_selection = {
+        enable = true
+    },
+    indentation = {
+        enable = true
+    },
+    textobjects = {
+        enable = true
+    }
+}
+EOF
+
 
 " rmagatti/alternate-toggler
 let g:at_custom_alternates = {
