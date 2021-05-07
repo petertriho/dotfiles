@@ -9,7 +9,6 @@ Plug 'kkoomen/vim-doge',
             \ -> doge#install({ 'headless': 1 }) } }   " documentation generator
 Plug 'lukas-reineke/indent-blankline.nvim',
             \ { 'branch': 'lua' }                      " indentation guides
-Plug 'luochen1990/rainbow'                             " rainbow brackets
 Plug 'neoclide/coc.nvim',
             \ { 'branch': 'master',
             \ 'do': 'yarn install --frozen-lockfile' } " lsp
@@ -22,9 +21,8 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring' " commentstring based on cont
 Plug 'nvim-treesitter/nvim-treesitter',
             \ { 'do': ':TSUpdate' }                " syntax highlighting + parser
 Plug 'nvim-treesitter/nvim-treesitter-textobjects' " textobjects
-" Plug 'p00f/nvim-ts-rainbow'                        " rainbow brackets
+Plug 'p00f/nvim-ts-rainbow'                        " rainbow brackets
 Plug 'romgrk/nvim-treesitter-context'              " context
-
 
 " Text Helpers
 Plug 'alvan/vim-closetag'         " auto close html tags
@@ -240,6 +238,11 @@ require 'nvim-treesitter.configs'.setup {
     },
     indentation = {
         enable = true
+    },
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = 1000
     },
     textobjects = {
         enable = true

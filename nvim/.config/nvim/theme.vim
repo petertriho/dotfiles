@@ -15,15 +15,13 @@ function! SetColors()
     execute 'highlight Sneak guifg=#ffffff guibg=' . g:terminal_color_5 . ' ctermfg=white ctermbg=magenta'
     execute 'highlight SneakScope guibg=' . g:terminal_color_7 . ' ctermbg=white'
 
-    let g:rainbow_conf = {}
-    let g:rainbow_conf['guifgs'] = [
-                \ g:terminal_color_1,
-                \ g:terminal_color_2,
-                \ g:terminal_color_3,
-                \ g:terminal_color_4,
-                \ g:terminal_color_5,
-                \ g:terminal_color_6,
-                \ ]
+    execute 'highlight rainbowcol1 guifg=' . g:terminal_color_1
+    execute 'highlight rainbowcol2 guifg=' . g:terminal_color_2
+    execute 'highlight rainbowcol3 guifg=' . g:terminal_color_3
+    execute 'highlight rainbowcol4 guifg=' . g:terminal_color_4
+    execute 'highlight rainbowcol5 guifg=' . g:terminal_color_5
+    execute 'highlight rainbowcol6 guifg=' . g:terminal_color_6
+    execute 'highlight rainbowcol7 guifg=' . g:terminal_color_7
 
     function! AirlineThemePatch(palette)
         let a:palette.accents.running = [g:terminal_color_3, '', 'yellow' , '', '']
