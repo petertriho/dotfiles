@@ -62,6 +62,8 @@ Plug 'junegunn/vim-peekaboo'                    " show contents of registers
 Plug 'iamcco/markdown-preview.nvim',
             \ { 'do': { -> mkdp#util#install() },
             \ 'for': ['markdown', 'vim-plug'] } " markdown browser preview
+Plug 'kyazdani42/nvim-web-devicons'             " for file icons
+Plug 'kyazdani42/nvim-tree.lua'                 " file explorer
 Plug 'liuchengxu/vim-which-key'                 " keybindings guide popup
 Plug 'mbbill/undotree'                          " undotree
 Plug 'skywind3000/asyncrun.vim',
@@ -175,6 +177,10 @@ xmap S <Plug>Sneak_S
 omap s <Plug>Sneak_s
 omap S <Plug>Sneak_S
 
+" kyazdani42/nvim-tree.lua
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_git_hl = 1
+
 " kkoomen/vim-doge
 let g:doge_mapping = '<leader>ad'
 
@@ -183,7 +189,7 @@ let g:indent_blankline_use_treesitter = v:true
 let g:indent_blankline_show_first_indent_level = v:false
 let g:indent_blankline_char = '│'
 let g:indent_blankline_filetype_exclude = [
-            \ 'coc-explorer',
+            \ 'NvimTree',
             \ 'javascriptreact',
             \ 'typescriptreact'
             \ ]

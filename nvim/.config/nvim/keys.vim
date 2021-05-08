@@ -59,7 +59,7 @@ let g:which_key_map['\'] = ['<C-w>v',                                        'sp
 let g:which_key_map['b'] = ['Buffers',                                       'buffers']
 let g:which_key_map['c'] = ['<Plug>(coc-git-chunkinfo)',                     'git-chunkinfo']
 let g:which_key_map['d'] = ['Bwipeout',                                      'delete-buffer']
-let g:which_key_map['e'] = [':CocCommand explorer --toggle --sources=file+', 'explorer']
+let g:which_key_map['e'] = ['NvimTreeToggle',                                'explorer']
 let g:which_key_map['f'] = ['Format',                                        'format']
 let g:which_key_map['i'] = [':CocFzfList diagnostics --current-buf',         'issues/diagnostics']
 let g:which_key_map['I'] = [':CocFzfList diagnostics',                       'all-issues/diagnostics']
