@@ -64,18 +64,6 @@
     "diagnostic.virtualTextCurrentLineOnly": false,
     "diagnostic.virtualTextPrefix": "  ",
     "diagnostic.warningSign": "!",
-    "explorer.autoExpandOptions": ["recursive", "recursiveSingle"],
-    "explorer.file.root.template": "[icon] [git & 1] [hidden & 1][root]",
-    "explorer.file.showHiddenFiles": true,
-    "explorer.git.icon.status.ignored": "i",
-    "explorer.git.icon.status.mixed": "●",
-    "explorer.icon.enableNerdfont": true,
-    "explorer.keyMappings.global": {
-        "<cr>": ["expandable?", "expand", "open:select:keep"],
-        "o": ["expandable?", "expand", "open:select:keep"],
-        "v": "open:vsplit"
-    },
-    "explorer.width": 30,
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.addedSign.text": "┃",
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
