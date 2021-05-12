@@ -131,7 +131,7 @@ let g:rg_vars = 'rg '.
             \ '--no-heading '.
             \ '--color=always '.
             \ '--hidden '.
-            \ '--glob "!{.git/*,}" '
+            \ '--glob "!{.git/*,node_modules/*,.venv/*}" '
 
 function! RipgrepFzf(query, fullscreen)
     let command_fmt = 'rg '.
@@ -140,7 +140,7 @@ function! RipgrepFzf(query, fullscreen)
                 \ '--no-heading '.
                 \ '--color=always '.
                 \ '--hidden '.
-                \ '--glob "!{.git/*,}" '.
+                \ '--glob "!{.git/*,node_modules/*,.venv/*}" '.
                 \ '-- %s || true'
     let initial_command = printf(command_fmt, shellescape(a:query))
     let reload_command = printf(command_fmt, '{q}')
