@@ -7,8 +7,8 @@ Plug 'honza/vim-snippets'                              " snippets
 Plug 'kkoomen/vim-doge',
             \ { 'do': {
             \ -> doge#install({ 'headless': 1 }) } }   " documentation generator
-Plug 'lukas-reineke/indent-blankline.nvim',
-            \ { 'branch': 'lua' }                      " indentation guides
+" Plug 'lukas-reineke/indent-blankline.nvim',
+"             \ { 'branch': 'lua' }                      " indentation guides
 Plug 'neoclide/coc.nvim',
             \ { 'branch': 'master',
             \ 'do': 'yarn install --frozen-lockfile' } " lsp
