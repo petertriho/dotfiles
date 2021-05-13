@@ -18,3 +18,11 @@ require('lualine').setup{
 }
 
 vim.g.edge_transparent_background = 1
+
+vim.cmd([[
+highlight! link BufferVisible BufferInactive
+highlight! link BufferVisibleIndex BufferInactiveIndex
+highlight! link BufferVisibleMod BufferInactiveMod
+highlight! link BufferVisibleSign BufferInactiveSign
+highlight! link BufferVisibleTarget BufferInactiveTarget
+]])
