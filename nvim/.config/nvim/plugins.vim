@@ -294,9 +294,9 @@ function! ToggleGstatus(vertical, ...)
             execute l:winnr.'close'
         else
             if a:vertical == 0
-                Gstatus
+                Git
             else
-                vertical Gstatus
+                vertical G
             endif
         endif
     endfor
