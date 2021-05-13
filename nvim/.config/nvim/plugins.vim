@@ -13,7 +13,7 @@ Plug 'neoclide/coc.nvim',
             \ { 'branch': 'master',
             \ 'do': 'yarn install --frozen-lockfile' } " lsp
 Plug 'sheerun/vim-polyglot'                            " syntax highlighting
-Plug 'wellle/tmux-complete.vim'                        " completion from tmux
+" Plug 'wellle/tmux-complete.vim'                        " completion from tmux
 
 " Treesitter
 Plug 'JoosepAlviste/nvim-ts-context-commentstring' " commentstring based on context
