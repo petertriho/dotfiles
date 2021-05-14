@@ -289,17 +289,16 @@ let g:maximizer_set_default_mapping = 0 " disable default bindings
 
 " tpope/vim-fugitive
 function! ToggleGstatus(vertical, ...)
-    for l:winnr in range(1, winnr('$'))
-        if !empty(getwinvar(l:winnr, 'fugitive_status'))
-            execute l:winnr.'close'
+    let fugitive_buffer_name = bufname('.git/*index')
+    if buflisted(fugitive_buffer_name)
+        execute "bd " . fugitive_buffer_name
+    else
+        if a:vertical == 0
+            Git
         else
-            if a:vertical == 0
-                Git
-            else
-                vertical G
-            endif
+            vertical Git
         endif
-    endfor
+    endif
 endfunction
 
 " unblevable/quick-scope
