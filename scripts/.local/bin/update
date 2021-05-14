@@ -54,23 +54,6 @@ function tool:nvim {
             echo "Updating neovim ..."
             brew upgrade neovim --fetch-head
         fi
-
-        echo "Updating nvim plugins ..."
-        nvim \
-            +CocStart \
-            +CocUpdateSync \
-            +PlugClean! \
-            +"PlugInstall --sync" \
-            +"PlugUpdate --sync" \
-            +PlugUpgrade \
-            +qa
-
-        nvim -es -u "$HOME/.config/nvim/vscode.vim" \
-            +PlugClean! \
-            +"PlugInstall --sync" \
-            +"PlugUpdate --sync" \
-            +PlugUpgrade \
-            +qa
     fi
 }
 
@@ -79,13 +62,6 @@ function tool:scoop {
         echo "Updating scoop packages ..."
         pwsh="powershell.exe -NoProfile -NoLogo -NonInteractive cd ~;"
         $pwsh "scoop update *"
-
-        echo "Updating neovim plugins (windows) ..."
-        cat $HOME/.dotfiles/ignore/nvim/init.vim | clip.exe
-        $pwsh 'Get-Clipboard -Raw | Out-File -encoding utf8 $env:LOCALAPPDATA\nvim\init.vim'
-        cat $HOME/.dotfiles/nvim/.config/nvim/vscode.vim | clip.exe
-        $pwsh 'Get-Clipboard -Raw | Out-File -encoding utf8 $env:LOCALAPPDATA\nvim\vscode.vim'
-        $pwsh 'nvim -es -u $env:LOCALAPPDATA\nvim\vscode.vim +PlugClean! +"PlugInstall --sync" +"PlugUpdate --sync" +PlugUpgrade +qa'
     fi
 }
 
