@@ -12,13 +12,16 @@
 -- coc-git
 -- coc-highlight
 -- multiline
+-- https://github.com/liuchengxu/vista.vim
+-- https://github.com/folke/too-comments.nvim
+--
 
 require('packer').startup(
     function(use)
 	use 'wbthomason/packer.nvim'
 
     -- theme
-    use 'sainnhe/edge'
+    use 'shaunsingh/moonlight.nvim'
 
     -- language/syntax highlighting
     use {
@@ -81,6 +84,8 @@ require('packer').startup(
     use 'wellle/targets.vim'
 
     -- tools
+    use 'nvim-lua/plenary.nvim'
+    use 'nvim-lua/popup.nvim'
 	use 'kyazdani42/nvim-web-devicons'
 	use {
 	    'kyazdani42/nvim-tree.lua',
@@ -91,7 +96,7 @@ require('packer').startup(
 	    requires = { 'kyazdani42/nvim-web-devicons' }
     }
     use {
-        'romgrk/barbar.nvim',
+        'akinsho/nvim-bufferline.lua',
 	    requires = { 'kyazdani42/nvim-web-devicons' }
     }
     use 'chumakd/scratch.vim'
@@ -105,6 +110,11 @@ require('packer').startup(
     -- misc
     use 'antoinemadec/FixCursorHold.nvim'
     use 'editorconfig/editorconfig-vim'
+    use  {
+        'numtostr/BufOnly.nvim',
+        opt = true,
+        cmd = { 'BufOnly' }
+    }
     use 'roxma/vim-tmux-clipboard'
     use 'ryvnf/readline.vim'
     use 'tpope/vim-repeat'
@@ -146,8 +156,47 @@ vim.g.indent_blankline_filetype_exclude = {
     'typescriptreact'
 }
 
--- romgrk/barbar.nvim
-vim.g.bufferline = {
-    icon_separator_active = '',
-    icon_separator_inactive = ''
+-- nvim-treesitter/nvim-treesitter
+require 'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+        "bash",
+        "comment",
+        "css",
+        "go",
+        "graphql",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "jsonc",
+        "lua",
+        "python",
+        "regex",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "yaml"
+    },
+    context_commentstring = {
+        enable = true
+    },
+    highlight = {
+        enable = true
+    },
+    incremental_selection = {
+        enable = true
+    },
+    indentation = {
+        enable = true
+    },
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = 1000
+    },
+    textobjects = {
+        enable = true
+    }
 }
+

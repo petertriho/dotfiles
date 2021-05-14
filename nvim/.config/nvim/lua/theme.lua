@@ -1,13 +1,11 @@
 vim.o.termguicolors = true
-vim.g.edge_better_performance = 1
 
-vim.cmd('colorscheme edge')
+require('moonlight').set()
 
-local custom_lualine_theme = require'lualine.themes.auto'
-
+-- hoob3rt/lualine.nvim
 require('lualine').setup{
     options = {
-        theme = 'auto'
+        theme = 'moonlight'
     },
     extensions = {
         'fzf',
@@ -17,12 +15,16 @@ require('lualine').setup{
     }
 }
 
-vim.g.edge_transparent_background = 1
-
-vim.cmd([[
-highlight! link BufferVisible BufferInactive
-highlight! link BufferVisibleIndex BufferInactiveIndex
-highlight! link BufferVisibleMod BufferInactiveMod
-highlight! link BufferVisibleSign BufferInactiveSign
-highlight! link BufferVisibleTarget BufferInactiveTarget
-]])
+-- akinsho/nvim-bufferline.lua
+require('bufferline').setup {
+    options = {
+        numbers = "ordinal",
+        number_style = "",
+        offsets = {{
+            filetype = "NvimTree",
+            text = "EXPLORER",
+            highlight = "Directory",
+            text_align = "left"
+        }}
+    }
+}

@@ -4,8 +4,8 @@ set_keymap('n', '<Space>', '<Nop>', options)
 vim.g.mapleader = ' '
 
 -- Buffers
-set_keymap('n', '<S-Tab>', ':BufferPrevious<CR>', options)
-set_keymap('n', '<Tab>', ':BufferNext<CR>', options)
+set_keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', options)
+set_keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', options)
 
 -- Tabs
 set_keymap('n', '<C-p>', ':tabprevious<CR>', options)
@@ -39,9 +39,9 @@ local keymaps = {
     ['-'] = { '<C-w>s', 'split-below' },
     ['\\'] = { '<C-w>v', 'split-right' },
     [','] = { ':ScratchPreview<CR>', 'scratch-preview' },
-    ['.'] = { ':BufferCloseAllButCurrent<CR>', 'only-buffer' },
+    ['.'] = { ':BufOnly<CR>', 'only-buffer' },
     ['/'] = 'commentary',
-    b = { ':BufferPick<CR>', 'buffer-pick' },
+    b = { ':BufferLinePick<CR>', 'buffer-pick' },
     d = { ':BufferWipeout<CR>', 'delete-buffer' },
     e = { '<CMD>NvimTreeToggle<CR>', 'explorer' },
     h = { ':nohl<CR>', 'no-highlight' },
@@ -62,16 +62,16 @@ keymaps['8'] = 'which_key_ignore'
 keymaps['9'] = 'which_key_ignore'
 keymaps['0'] = 'which_key_ignore'
 
-set_keymap('', '<leader>1', ':BufferGoto 1<CR>', {})
-set_keymap('', '<leader>2', ':BufferGoto 2<CR>', {})
-set_keymap('', '<leader>3', ':BufferGoto 3<CR>', {})
-set_keymap('', '<leader>4', ':BufferGoto 4<CR>', {})
-set_keymap('', '<leader>5', ':BufferGoto 5<CR>', {})
-set_keymap('', '<leader>6', ':BufferGoto 6<CR>', {})
-set_keymap('', '<leader>7', ':BufferGoto 7<CR>', {})
-set_keymap('', '<leader>8', ':BufferGoto 8<CR>', {})
-set_keymap('', '<leader>9', ':BufferGoto 9<CR>', {})
-set_keymap('', '<leader>0', ':BufferLast<CR>', {})
+set_keymap('', '<leader>1', ':lua require"bufferline".go_to_buffer(1)<CR>', {})
+set_keymap('', '<leader>2', ':lua require"bufferline".go_to_buffer(2)<CR>', {})
+set_keymap('', '<leader>3', ':lua require"bufferline".go_to_buffer(3)<CR>', {})
+set_keymap('', '<leader>4', ':lua require"bufferline".go_to_buffer(4)<CR>', {})
+set_keymap('', '<leader>5', ':lua require"bufferline".go_to_buffer(5)<CR>', {})
+set_keymap('', '<leader>6', ':lua require"bufferline".go_to_buffer(6)<CR>', {})
+set_keymap('', '<leader>7', ':lua require"bufferline".go_to_buffer(7)<CR>', {})
+set_keymap('', '<leader>8', ':lua require"bufferline".go_to_buffer(8)<CR>', {})
+set_keymap('', '<leader>9', ':lua require"bufferline".go_to_buffer(9)<CR>', {})
+set_keymap('', '<leader>0', ':lua require"bufferline".go_to_buffer(10)<CR>', {})
 
 wk.register(keymaps, {
     prefix = '<Leader>',
