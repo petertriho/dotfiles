@@ -110,6 +110,11 @@ require('packer').startup(
     -- misc
     use 'antoinemadec/FixCursorHold.nvim'
     use 'editorconfig/editorconfig-vim'
+    use {
+        'moll/vim-bbye',
+        opt = true,
+        cmd = { 'Bwipeout' }
+    }
     use  {
         'numtostr/BufOnly.nvim',
         opt = true,

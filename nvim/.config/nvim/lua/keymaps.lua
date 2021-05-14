@@ -42,7 +42,7 @@ local keymaps = {
     ['.'] = { ':BufOnly<CR>', 'only-buffer' },
     ['/'] = 'commentary',
     b = { ':BufferLinePick<CR>', 'buffer-pick' },
-    d = { ':BufferWipeout<CR>', 'delete-buffer' },
+    d = { ':Bwipeout<CR>', 'delete-buffer' },
     e = { '<CMD>NvimTreeToggle<CR>', 'explorer' },
     h = { ':nohl<CR>', 'no-highlight' },
 }
