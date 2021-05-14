@@ -1,11 +1,11 @@
 vim.o.termguicolors = true
 
-require('moonlight').set()
+vim.cmd[[colorscheme tokyonight]]
 
 -- hoob3rt/lualine.nvim
 require('lualine').setup{
     options = {
-        theme = 'moonlight'
+        theme = 'tokyonight'
     },
     extensions = {
         'fzf',

@@ -21,7 +21,7 @@ require('packer').startup(
 	use 'wbthomason/packer.nvim'
 
     -- theme
-    use 'shaunsingh/moonlight.nvim'
+    use 'folke/tokyonight.nvim'
 
     -- language/syntax highlighting
     use {
