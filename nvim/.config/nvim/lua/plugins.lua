@@ -65,11 +65,8 @@ require('packer').startup(
     }
     use 'andymass/vim-matchup'
     use 'b3nj5m1n/kommentary'
-    use {
-        'junegunn/vim-easy-align',
-        opt = true,
-        cmd = { 'EasyAlign' }
-    }
+    use 'junegunn/vim-easy-align'
+
     use 'machakann/vim-sandwich'
     use 'mattn/emmet-vim'
     use 'monaqa/dial.nvim'
@@ -94,12 +91,12 @@ require('packer').startup(
     use {
         'simnalamburt/vim-mundo',
         opt = true,
-        cmd = { 'MundoToggle' }
+        cmd = 'MundoToggle'
     }
     use {
         'skywind3000/asyncrun.vim',
         opt = true,
-        cmd = { 'AsyncRun' }
+        cmd = 'AsyncRun'
     }
 
     -- motions
@@ -114,12 +111,12 @@ require('packer').startup(
     use {
         'moll/vim-bbye',
         opt = true,
-        cmd = { 'Bwipeout' }
+        cmd = 'Bwipeout'
     }
     use  {
         'numtostr/BufOnly.nvim',
         opt = true,
-        cmd = { 'BufOnly' }
+        cmd = 'BufOnly'
     }
     use 'roxma/vim-tmux-clipboard'
     use 'ryvnf/readline.vim'
