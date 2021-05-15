@@ -35,6 +35,6 @@ function set_theme --description "Set ansi theme"
     set -U fish_pager_color_prefix      brgreen
     set -U fish_pager_color_progress    white
 
-    set -Ux LS_COLORS                   (vivid generate one-dark)
+    set -Ux LS_COLORS                   (vivid generate tokyonight)
     set -Ux FORGIT_LOG_GRAPH_ENABLE     true
 end
