@@ -1,3 +1,4 @@
+vim.g.tokyonight_style = 'night'
 vim.cmd("colorscheme tokyonight")
 
 -- hoob3rt/lualine.nvim
