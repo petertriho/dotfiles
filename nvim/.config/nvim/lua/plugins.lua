@@ -201,7 +201,16 @@ require 'nvim-treesitter.configs'.setup {
         max_file_lines = 1000
     },
     textobjects = {
-        enable = true
+        enable = true,
+        select = {
+            enable = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+            }
+        }
     }
 }
 
