@@ -53,10 +53,6 @@ require('packer').startup(
         requires = 'nvim-treesitter/nvim-treesitter'
     }
     use {
-        'theHamsta/nvim-treesitter-pairs',
-        requires = 'nvim-treesitter/nvim-treesitter'
-    }
-    use {
         'windwp/nvim-ts-autotag',
         requires = 'nvim-treesitter/nvim-treesitter'
     }
@@ -67,6 +63,7 @@ require('packer').startup(
         opt = true,
         cmd = { 'SplitjoinJoin', 'SplitjoinSplit' }
     }
+    use 'andymass/vim-matchup'
     use 'b3nj5m1n/kommentary'
     use {
         'junegunn/vim-easy-align',
@@ -215,7 +212,7 @@ require('nvim-treesitter.configs').setup {
     indentation = {
         enable = true
     },
-    pairs = {
+    matchup = {
         enable = true
     },
     rainbow = {
