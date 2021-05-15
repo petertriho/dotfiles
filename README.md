@@ -38,6 +38,8 @@
 
 #### Dependencies
 
+-   [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+
 -   [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 -   [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 -   [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
