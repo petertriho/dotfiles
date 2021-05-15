@@ -1,4 +1,12 @@
 vim.g.tokyonight_style = 'night'
+vim.g.tokyonight_sidebars = {
+    'Mundo',
+    'MundoDiff'
+}
+vim.g.tokyonight_colors = {
+    bg_sidebar = '#16161E',
+    bg_float = '#16161E'
+}
 vim.cmd("colorscheme tokyonight")
 
 -- hoob3rt/lualine.nvim
