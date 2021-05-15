@@ -76,20 +76,19 @@ set_keymap('', '<Leader>0', '<CMD>lua require"bufferline".go_to_buffer(10)<CR>',
 
 keymaps['a'] = {
     name = '+action',
+    a = { '<Plug>(EasyAlign)', 'align'},
     j = { '<CMD>SplitjoinJoin<CR>', 'join-lines' },
     p = { 'ggVG"+p', 'paste-file' },
     x = { '<CMD>SplitJoinSplit<CR>', 'split-lines' },
     y = { '<CMD>%y+<CR>', 'yank-file' }
 }
 
-keymaps['a']['a'] = 'align'
-set_keymap('', '<Leader>aa', '<Plug>(EasyAlign)', {})
-
 keymaps['a']['s'] = 'sort'
 set_keymap('x', '<Leader>as', '<CMD>sort i<CR>', {})
 
 wk.register(keymaps, {
     prefix = '<Leader>',
+    mode = '',
     silent = true,
     noremap = true
 })
