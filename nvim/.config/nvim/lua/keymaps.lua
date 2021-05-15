@@ -44,6 +44,7 @@ local keymaps = {
     d = { '<CMD>Bwipeout<CR>', 'delete-buffer' },
     e = { '<CMD>NvimTreeToggle<CR>', 'explorer' },
     h = { ':nohl<CR>', 'no-highlight' },
+    u = { '<CMD>MundoToggle<CR>', 'undotree' }
 }
 
 keymaps['/'] = 'commentary'

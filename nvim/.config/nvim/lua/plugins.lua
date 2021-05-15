@@ -4,14 +4,12 @@
 -- might still need polyglot
 -- markdown preview  https://github.com/npxbr/glow.nvim and https://github.com/davidgranstrom/nvim-markdown-preview
 -- replace fzf with telescope (or have both?)
--- undotree
 -- fugitive replacement
 -- vim wiki
 -- coc-git
 -- coc-highlight
 -- multiline
 -- https://github.com/liuchengxu/vista.vim
--- https://github.com/folke/too-comments.nvim
 -- vim-doge
 
 require('packer').startup(
@@ -22,6 +20,10 @@ require('packer').startup(
     use 'folke/tokyonight.nvim'
 
     -- language/syntax highlighting
+    use {
+        'folke/todo-comments.nvim',
+        requires = "nvim-lua/plenary.nvim"
+    }
     use {
         'lukas-reineke/indent-blankline.nvim',
         branch = 'lua'
@@ -36,27 +38,27 @@ require('packer').startup(
     }
     use {
         'JoosepAlviste/nvim-ts-context-commentstring',
-        requires = { 'nvim-treesitter/nvim-treesitter' }
+        requires = 'nvim-treesitter/nvim-treesitter'
     }
     use {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        requires = { 'nvim-treesitter/nvim-treesitter' }
+        requires = 'nvim-treesitter/nvim-treesitter'
     }
     use {
         'p00f/nvim-ts-rainbow',
-        requires = { 'nvim-treesitter/nvim-treesitter' }
+        requires = 'nvim-treesitter/nvim-treesitter'
     }
     use {
         'romgrk/nvim-treesitter-context',
-        requires = { 'nvim-treesitter/nvim-treesitter' }
+        requires = 'nvim-treesitter/nvim-treesitter'
     }
     use {
         'theHamsta/nvim-treesitter-pairs',
-        requires = { 'nvim-treesitter/nvim-treesitter' }
+        requires = 'nvim-treesitter/nvim-treesitter'
     }
     use {
         'windwp/nvim-ts-autotag',
-        requires = { 'nvim-treesitter/nvim-treesitter' }
+        requires = 'nvim-treesitter/nvim-treesitter'
     }
 
     -- text helpers
@@ -78,21 +80,25 @@ require('packer').startup(
     use 'windwp/nvim-autopairs'
 
     -- tools
-	use 'kyazdani42/nvim-web-devicons'
-	use {
-	    'kyazdani42/nvim-tree.lua',
-	    requires = { 'kyazdani42/nvim-web-devicons' }
-    }
-    use {
-        'hoob3rt/lualine.nvim',
-	    requires = { 'kyazdani42/nvim-web-devicons' }
-    }
     use {
         'akinsho/nvim-bufferline.lua',
-	    requires = { 'kyazdani42/nvim-web-devicons' }
+	    requires = 'kyazdani42/nvim-web-devicons'
     }
     use 'chumakd/scratch.vim'
 	use 'folke/which-key.nvim'
+    use {
+        'hoob3rt/lualine.nvim',
+	    requires = 'kyazdani42/nvim-web-devicons'
+    }
+	use {
+	    'kyazdani42/nvim-tree.lua',
+	    requires = 'kyazdani42/nvim-web-devicons'
+    }
+    use {
+        'simnalamburt/vim-mundo',
+        opt = true,
+        cmd = { 'MundoToggle' }
+    }
     use {
         'skywind3000/asyncrun.vim',
         opt = true,
@@ -147,6 +153,9 @@ vim.g.EditorConfig_exclude_patterns = { 'fugitive://.*' }
 -- kyazdani42/nvim-tree.lua
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
+
+-- folke/todo-comments.nvim
+require('todo-comments').setup()
 
 -- lukas-reineke/indent-blankline.nvim
 vim.g.indent_blankline_use_treesitter = true
@@ -238,6 +247,18 @@ require('nvim-treesitter.configs').setup {
 -- phaazon/hop.nvim
 set_keymap('', 'ss', '<CMD>HopChar1<CR>', { silent = true })
 set_keymap('', 'sl', '<CMD>HopLine<CR>', { silent = true })
+
+-- simnalamburt/vim-mundo
+vim.cmd([[
+if has('persistent_undo')
+    if !isdirectory($HOME . '/.undodir')
+        call mkdir($HOME . '/.undodir')
+    endif
+
+    set undodir=$HOME/.undodir
+    set undofile
+endif
+]])
 
 -- windwp/nvim-autopairs
 require('nvim-autopairs').setup()

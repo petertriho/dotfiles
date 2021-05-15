@@ -4,7 +4,11 @@ vim.cmd("colorscheme tokyonight")
 -- hoob3rt/lualine.nvim
 require('lualine').setup {
     options = {
-        theme = 'tokyonight'
+        theme = 'tokyonight',
+        disabled_filetypes = {
+            'Mundo',
+            'MundoDiff'
+        }
     },
     sections = {
         lualine_x = { 'filetype' }
@@ -20,13 +24,21 @@ require('lualine').setup {
 -- akinsho/nvim-bufferline.lua
 require('bufferline').setup {
     options = {
-        numbers = "ordinal",
+        numbers = 'ordinal',
         number_style = "",
-        offsets = {{
-            filetype = "NvimTree",
-            text = "EXPLORER",
-            highlight = "Directory",
-            text_align = "left"
-        }}
+        offsets = {
+            {
+                filetype = 'NvimTree',
+                text = 'EXPLORER',
+                highlight = 'Directory',
+                text_align = 'center'
+            },
+            {
+                filetype = 'Mundo',
+                text = 'UNDOTREE',
+                highlight = 'Directory',
+                text_align = 'center'
+            }
+        }
     }
 }

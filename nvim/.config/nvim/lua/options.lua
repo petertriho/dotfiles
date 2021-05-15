@@ -12,6 +12,7 @@ o.inccommand = 'nosplit'
 o.incsearch = true
 o.lazyredraw = true
 o.mouse = 'a'
+o.signcolumn = 'yes'
 o.shell = 'bash'
 o.shiftwidth = 4
 o.showmode = false
