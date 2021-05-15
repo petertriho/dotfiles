@@ -23,6 +23,7 @@ o.splitbelow = true
 o.splitright = true
 o.swapfile = false
 o.tabstop = 4
+o.termguicolors = true
 o.timeoutlen = 500
 o.title = true
 o.titlestring = 'nvim %t %M (%F)'
@@ -31,14 +32,14 @@ o.ttimeoutlen = 10
 o.visualbell = false
 
 -- window
-local wo = vim.wo 
+local wo = vim.wo
 wo.colorcolumn = '80'
 wo.cursorline = true
 wo.number = true
 wo.relativenumber = true
 wo.wrap = false
 
-if vim.loop.os_uname().sysname == 'Linux' then 
+if vim.loop.os_uname().sysname == 'Linux' then
     vim.g.clipboard = {
 	name = 'win32yank',
 	copy = {

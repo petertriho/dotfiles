@@ -2,10 +2,8 @@
 -- neoclide/coc.nvim -> switch to native lsp
 -- honzo/vim-snippets
 -- might still need polyglot
--- install hop to replace sneak https://github.com/phaazon/hop.nvim
 -- markdown preview  https://github.com/npxbr/glow.nvim and https://github.com/davidgranstrom/nvim-markdown-preview
 -- replace fzf with telescope (or have both?)
--- find replacements for texthelpers
 -- undotree
 -- fugitive replacement
 -- vim wiki
@@ -14,7 +12,7 @@
 -- multiline
 -- https://github.com/liuchengxu/vista.vim
 -- https://github.com/folke/too-comments.nvim
---
+-- vim-doge
 
 require('packer').startup(
     function(use)
@@ -28,6 +26,7 @@ require('packer').startup(
         'lukas-reineke/indent-blankline.nvim',
         branch = 'lua'
     }
+    use 'norcalli/nvim-colorizer.lua'
     use 'wellle/tmux-complete.vim'
 
     -- treesitter
@@ -55,17 +54,18 @@ require('packer').startup(
         'theHamsta/nvim-treesitter-pairs',
         requires = { 'nvim-treesitter/nvim-treesitter' }
     }
+    use {
+        'windwp/nvim-ts-autotag',
+        requires = { 'nvim-treesitter/nvim-treesitter' }
+    }
 
     -- text helpers
-    use 'alvan/vim-closetag'
     use {
         'AndrewRadev/splitjoin.vim',
         opt = true,
         cmd = { 'SplitjoinJoin', 'SplitjoinSplit' }
     }
-    use 'AndrewRadev/tagalong.vim'
     use 'b3nj5m1n/kommentary'
-    use 'chaoren/vim-wordmotion'
     use {
         'junegunn/vim-easy-align',
         opt = true,
@@ -73,19 +73,11 @@ require('packer').startup(
     }
     use 'machakann/vim-sandwich'
     use 'mattn/emmet-vim'
-    use {
-        'rmagatti/alternate-toggler',
-        opt = true,
-        cmd = { 'ToggleAlternate' }
-    }
+    use 'monaqa/dial.nvim'
     use 'tpope/vim-abolish'
-    use 'tpope/vim-characterize'
-    use 'tpope/vim-speeddating'
-    use 'wellle/targets.vim'
+    use 'windwp/nvim-autopairs'
 
     -- tools
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-lua/popup.nvim'
 	use 'kyazdani42/nvim-web-devicons'
 	use {
 	    'kyazdani42/nvim-tree.lua',
@@ -107,6 +99,12 @@ require('packer').startup(
         cmd = { 'AsyncRun' }
     }
 
+    -- motions
+    use 'chaoren/vim-wordmotion'
+    use 'phaazon/hop.nvim'
+    use 'wellle/targets.vim'
+    use 'unblevable/quick-scope'
+
     -- misc
     use 'antoinemadec/FixCursorHold.nvim'
     use 'editorconfig/editorconfig-vim'
@@ -124,12 +122,11 @@ require('packer').startup(
     use 'ryvnf/readline.vim'
     use 'tpope/vim-repeat'
     use 'tpope/vim-unimpaired'
-    use 'unblevable/quick-scope'
 
     end
 )
--- alvan/vim-closetag
-vim.g.closetag_filenames = '*.html,*.jsx,*.tsx'
+
+local set_keymap = vim.api.nvim_set_keymap
 
 -- AndrewRadev/splitjoin.vim
 vim.g.splitjoin_split_mapping = ''
@@ -161,8 +158,19 @@ vim.g.indent_blankline_filetype_exclude = {
     'typescriptreact'
 }
 
+-- monaqa/dial.nvim
+set_keymap('n', '<C-a>', '<Plug>(dial-increment)', { silent = true })
+set_keymap('n', '<C-x>', '<Plug>(dial-decrement)', { silent = true })
+set_keymap('v', '<C-a>', '<Plug>(dial-increment)', { silent = true })
+set_keymap('v', '<C-x>', '<Plug>(dial-decrement)', { silent = true })
+set_keymap('v', 'g<C-a>', '<Plug>(dial-increment-additional)', { silent = true })
+set_keymap('v', 'g<C-x>', '<Plug>(dial-decrement-additional)', { silent = true })
+
+-- norcalli/nvim-colorizer.lua
+require('colorizer').setup()
+
 -- nvim-treesitter/nvim-treesitter
-require 'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
     ensure_installed = {
         "bash",
         "comment",
@@ -183,6 +191,9 @@ require 'nvim-treesitter.configs'.setup {
         "typescript",
         "yaml"
     },
+    autotag = {
+        enable = true
+    },
     context_commentstring = {
         enable = true
     },
@@ -195,13 +206,23 @@ require 'nvim-treesitter.configs'.setup {
     indentation = {
         enable = true
     },
+    pairs = {
+        enable = true
+    },
     rainbow = {
         enable = true,
         extended_mode = true,
-        max_file_lines = 1000
+        max_file_lines = 1000,
+        colors = {
+            '#f7768e',
+            '#9ece6a',
+            '#e0af68',
+            '#7aa2f7',
+            '#bb9af7',
+            '#7dcfff'
+        }
     },
     textobjects = {
-        enable = true,
         select = {
             enable = true,
             keymaps = {
@@ -214,3 +235,9 @@ require 'nvim-treesitter.configs'.setup {
     }
 }
 
+-- phaazon/hop.nvim
+set_keymap('', 'ss', '<CMD>HopChar1<CR>', { silent = true })
+set_keymap('', 'sl', '<CMD>HopLine<CR>', { silent = true })
+
+-- windwp/nvim-autopairs
+require('nvim-autopairs').setup()

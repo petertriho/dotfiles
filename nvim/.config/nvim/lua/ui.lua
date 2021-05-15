@@ -1,9 +1,7 @@
-vim.o.termguicolors = true
-
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd("colorscheme tokyonight")
 
 -- hoob3rt/lualine.nvim
-require('lualine').setup{
+require('lualine').setup {
     options = {
         theme = 'tokyonight'
     },

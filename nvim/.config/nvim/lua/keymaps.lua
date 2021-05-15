@@ -4,8 +4,8 @@ set_keymap('n', '<Space>', '<Nop>', options)
 vim.g.mapleader = ' '
 
 -- Buffers
-set_keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', options)
-set_keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', options)
+set_keymap('n', '<S-Tab>', '<CMD>BufferLineCyclePrev<CR>', options)
+set_keymap('n', '<Tab>', '<CMD>BufferLineCycleNext<CR>', options)
 
 -- Tabs
 set_keymap('n', '<C-p>', ':tabprevious<CR>', options)
@@ -15,7 +15,7 @@ set_keymap('n', '<C-n>', ':tabnext<CR>', options)
 set_keymap('', '<C-j>', '<C-w>j', {})
 set_keymap('', '<C-k>', '<C-w>k', {})
 set_keymap('', '<C-h>', '<C-w>h', {})
-set_keymap('', '<C-l>', '<C-w>l' ,{})
+set_keymap('', '<C-l>', '<C-w>l', {})
 set_keymap('', '<C-\\>', '<C-w>p', {})
 
 -- Windows: Resize
@@ -38,10 +38,10 @@ local keymaps = {
     [' '] = { ':w<CR>', 'write' },
     ['-'] = { '<C-w>s', 'split-below' },
     ['\\'] = { '<C-w>v', 'split-right' },
-    [','] = { ':ScratchPreview<CR>', 'scratch-preview' },
-    ['.'] = { ':BufOnly<CR>', 'only-buffer' },
-    b = { ':BufferLinePick<CR>', 'buffer-pick' },
-    d = { ':Bwipeout<CR>', 'delete-buffer' },
+    [','] = { '<CMD>ScratchPreview<CR>', 'scratch-preview' },
+    ['.'] = { '<CMD>BufOnly<CR>', 'only-buffer' },
+    b = { '<CMD>BufferLinePick<CR>', 'buffer-pick' },
+    d = { '<CMD>Bwipeout<CR>', 'delete-buffer' },
     e = { '<CMD>NvimTreeToggle<CR>', 'explorer' },
     h = { ':nohl<CR>', 'no-highlight' },
 }
@@ -62,16 +62,30 @@ keymaps['8'] = 'which_key_ignore'
 keymaps['9'] = 'which_key_ignore'
 keymaps['0'] = 'which_key_ignore'
 
-set_keymap('', '<Leader>1', ':lua require"bufferline".go_to_buffer(1)<CR>', {})
-set_keymap('', '<Leader>2', ':lua require"bufferline".go_to_buffer(2)<CR>', {})
-set_keymap('', '<Leader>3', ':lua require"bufferline".go_to_buffer(3)<CR>', {})
-set_keymap('', '<Leader>4', ':lua require"bufferline".go_to_buffer(4)<CR>', {})
-set_keymap('', '<Leader>5', ':lua require"bufferline".go_to_buffer(5)<CR>', {})
-set_keymap('', '<Leader>6', ':lua require"bufferline".go_to_buffer(6)<CR>', {})
-set_keymap('', '<Leader>7', ':lua require"bufferline".go_to_buffer(7)<CR>', {})
-set_keymap('', '<Leader>8', ':lua require"bufferline".go_to_buffer(8)<CR>', {})
-set_keymap('', '<Leader>9', ':lua require"bufferline".go_to_buffer(9)<CR>', {})
-set_keymap('', '<Leader>0', ':lua require"bufferline".go_to_buffer(10)<CR>', {})
+set_keymap('', '<Leader>1', '<CMD>lua require"bufferline".go_to_buffer(1)<CR>', {})
+set_keymap('', '<Leader>2', '<CMD>lua require"bufferline".go_to_buffer(2)<CR>', {})
+set_keymap('', '<Leader>3', '<CMD>lua require"bufferline".go_to_buffer(3)<CR>', {})
+set_keymap('', '<Leader>4', '<CMD>lua require"bufferline".go_to_buffer(4)<CR>', {})
+set_keymap('', '<Leader>5', '<CMD>lua require"bufferline".go_to_buffer(5)<CR>', {})
+set_keymap('', '<Leader>6', '<CMD>lua require"bufferline".go_to_buffer(6)<CR>', {})
+set_keymap('', '<Leader>7', '<CMD>lua require"bufferline".go_to_buffer(7)<CR>', {})
+set_keymap('', '<Leader>8', '<CMD>lua require"bufferline".go_to_buffer(8)<CR>', {})
+set_keymap('', '<Leader>9', '<CMD>lua require"bufferline".go_to_buffer(9)<CR>', {})
+set_keymap('', '<Leader>0', '<CMD>lua require"bufferline".go_to_buffer(10)<CR>', {})
+
+keymaps['a'] = {
+    name = '+action',
+    j = { '<CMD>SplitjoinJoin<CR>', 'join-lines' },
+    p = { 'ggVG"+p', 'paste-file' },
+    x = { '<CMD>SplitJoinSplit<CR>', 'split-lines' },
+    y = { '<CMD>%y+<CR>', 'yank-file' }
+}
+
+keymaps['a']['a'] = 'align'
+set_keymap('', '<Leader>aa', '<Plug>(EasyAlign)', {})
+
+keymaps['a']['s'] = 'sort'
+set_keymap('x', '<Leader>as', '<CMD>sort i<CR>', {})
 
 wk.register(keymaps, {
     prefix = '<Leader>',
