@@ -31,6 +31,11 @@ require('packer').startup(
     use 'norcalli/nvim-colorizer.lua'
     use 'wellle/tmux-complete.vim'
 
+    -- lsp
+    use 'neovim/nvim-lspconfig'
+    use 'kabouzeid/nvim-lspinstall'
+    use 'hrsh7th/nvim-compe'
+
     -- treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -128,3 +133,4 @@ require('packer').startup(
 
 require('plugins/config')
 require('plugins/treesitter')
+require('plugins/lsp')

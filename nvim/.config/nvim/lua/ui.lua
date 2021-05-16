@@ -9,26 +9,6 @@ vim.g.tokyonight_colors = {
 }
 vim.cmd("colorscheme tokyonight")
 
--- hoob3rt/lualine.nvim
-require('lualine').setup {
-    options = {
-        theme = 'tokyonight',
-        disabled_filetypes = {
-            'Mundo',
-            'MundoDiff'
-        }
-    },
-    sections = {
-        lualine_x = { 'filetype' }
-    },
-    extensions = {
-        'fzf',
-        'fugitive',
-        'nvim-tree',
-        'quickfix'
-    }
-}
-
 -- akinsho/nvim-bufferline.lua
 require('bufferline').setup {
     options = {
@@ -48,5 +28,25 @@ require('bufferline').setup {
                 text_align = 'center'
             }
         }
+    }
+}
+
+-- hoob3rt/lualine.nvim
+require('lualine').setup {
+    options = {
+        theme = 'tokyonight',
+        disabled_filetypes = {
+            'Mundo',
+            'MundoDiff'
+        }
+    },
+    sections = {
+        lualine_x = { 'filetype' }
+    },
+    extensions = {
+        'fzf',
+        'fugitive',
+        'nvim-tree',
+        'quickfix'
     }
 }

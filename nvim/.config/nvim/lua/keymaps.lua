@@ -44,7 +44,8 @@ local keymaps = {
     d = { '<CMD>Bwipeout<CR>', 'delete-buffer' },
     e = { '<CMD>NvimTreeToggle<CR>', 'explorer' },
     h = { ':nohl<CR>', 'no-highlight' },
-    u = { '<CMD>MundoToggle<CR>', 'undotree' }
+    u = { '<CMD>MundoToggle<CR>', 'undotree' },
+    f = 'format'
 }
 
 keymaps['/'] = 'commentary'
@@ -76,19 +77,28 @@ set_keymap('', '<Leader>0', '<CMD>lua require"bufferline".go_to_buffer(10)<CR>',
 
 keymaps['a'] = {
     name = '+action',
-    a = { '<Plug>(EasyAlign)', 'align'},
     j = { '<CMD>SplitjoinJoin<CR>', 'join-lines' },
+    r = { '<CMD>lua vim.lsp.buf.rename()<CR>', 'rename' },
     p = { 'ggVG"+p', 'paste-file' },
     x = { '<CMD>SplitJoinSplit<CR>', 'split-lines' },
     y = { '<CMD>%y+<CR>', 'yank-file' }
 }
 
+keymaps['a']['a'] = 'align'
+set_keymap('', '<Leader>aa', '<Plug>(EasyAlign)', {})
+
 keymaps['a']['s'] = 'sort'
 set_keymap('x', '<Leader>as', '<CMD>sort i<CR>', {})
 
+keymaps['l'] = {
+    name = '+lsp',
+    d = { '<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', 'line-diagnostics' },
+    l = { '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>', 'loclist' }
+}
+
 wk.register(keymaps, {
     prefix = '<Leader>',
-    mode = '',
+    mode = 'n',
     silent = true,
     noremap = true
 })

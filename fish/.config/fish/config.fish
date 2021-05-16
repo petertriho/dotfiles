@@ -54,7 +54,7 @@ if status is-interactive
       "--bind 'alt-j:preview-down,alt-k:preview-up'" \
       "--bind 'alt-a:select-all,alt-d:deselect-all'" \
       "--color=dark" \
-      "--color=fg:-1,bg:-1,hl:#bb9af7,fg+:#c0caf5,bg+:#1d202f,hl+:#414868" \
+      "--color=fg:-1,bg:-1,hl:#bb9af7,fg+:#c0caf5,bg+:#292e42,hl+:#414868" \
       "--color=info:#9ece6a,prompt:#7aa2f7,pointer:#f7768e,marker:#e0af68,spinner:#7dcfff,header:#7dcfff"
    set -gx FORGIT_FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
    set fzf_fd_opts --hidden --exclude .git

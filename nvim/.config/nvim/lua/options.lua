@@ -3,6 +3,7 @@ local o = vim.o
 o.autoindent = true
 o.autoread = true
 o.backspace = 'indent,eol,start'
+o.completeopt = 'menuone,noselect'
 o.clipboard = 'unnamedplus'
 o.errorbells = false
 o.expandtab = true
@@ -38,6 +39,7 @@ wo.colorcolumn = '80'
 wo.cursorline = true
 wo.number = true
 wo.relativenumber = true
+wo.signcolumn = 'yes'
 wo.wrap = false
 
 if vim.loop.os_uname().sysname == 'Linux' then
