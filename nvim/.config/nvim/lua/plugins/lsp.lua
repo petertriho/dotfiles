@@ -66,56 +66,62 @@ end
 
 _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then
-        return t "<C-n>"
-    elseif vim.fn.call("vsnip#available", {1}) == 1 then
-        return t "<Plug>(vsnip-expand-or-jump)"
+        return t '<C-n>'
+    elseif vim.fn.call('vsnip#available', {1}) == 1 then
+        return t '<Plug>(vsnip-expand-or-jump)'
     elseif check_back_space() then
-        return t "<Tab>"
+        return t '<Tab>'
     else
         return vim.fn['compe#complete']()
     end
 end
 _G.s_tab_complete = function()
     if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-    elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-        return t "<Plug>(vsnip-jump-prev)"
+        return t '<C-p>'
+    elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
+        return t '<Plug>(vsnip-jump-prev)'
     else
-        return t "<S-Tab>"
+        return t '<S-Tab>'
     end
 end
 
 _G.c_j_complete = function()
     if vim.fn.pumvisible() == 1 then
-        return t "<C-n>"
-    elseif vim.fn.call("vsnip#available", {1}) == 1 then
-        return t "<Plug>(vsnip-expand-or-jump)"
+        return t '<C-n>'
+    elseif vim.fn.call('vsnip#available', {1}) == 1 then
+        return t '<Plug>(vsnip-expand-or-jump)'
     elseif check_back_space() then
-        return t "<C-j>"
+        return t '<C-j>'
     else
         return vim.fn['compe#complete']()
     end
 end
 _G.c_k_complete = function()
     if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-    elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-        return t "<Plug>(vsnip-jump-prev)"
+        return t '<C-p>'
+    elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
+        return t '<Plug>(vsnip-jump-prev)'
     else
-        return t "<C-k>"
+        return t '<C-k>'
     end
 end
 
 local set_keymap = vim.api.nvim_set_keymap
-set_keymap("i", "<C-j>", "v:lua.c_j_complete()", { expr = true })
-set_keymap("s", "<C-j>", "v:lua.c_j_complete()", { expr = true })
-set_keymap("i", "<C-k>", "v:lua.c_k_complete()", { expr = true })
-set_keymap("s", "<C-k>", "v:lua.c_k_complete()", { expr = true })
+set_keymap('i', '<C-j>', 'v:lua.c_j_complete()', { expr = true })
+set_keymap('s', '<C-j>', 'v:lua.c_j_complete()', { expr = true })
+set_keymap('i', '<C-k>', 'v:lua.c_k_complete()', { expr = true })
+set_keymap('s', '<C-k>', 'v:lua.c_k_complete()', { expr = true })
 
-set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
-set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
-set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+set_keymap('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+set_keymap('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+
+set_keymap('i', '<C-Space>', 'compe#complete()', { silent = true, expr = true, noremap = true})
+set_keymap('i', '<CR>', 'compe#confirm("<CR>")', { silent = true, expr = true, noremap = true })
+set_keymap('i', '<C-e>', 'compe#close()', { silent = true, expr = true, noremap = true })
+set_keymap('i', '<C-d>', 'compe#scroll({ "delta": -4 })', { silent = true, expr = true, noremap = true })
+set_keymap('i', '<C-f>', 'compe#scroll({ "delta": +4 })', { silent = true, expr = true, noremap = true })
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
