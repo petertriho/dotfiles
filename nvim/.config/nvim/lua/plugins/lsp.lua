@@ -88,10 +88,10 @@ end
 
 local set_keymap = vim.api.nvim_set_keymap
 local complete_opts = { expr = true }
-set_keymap('i', '<C-j>', 'v:lua.c_tab_complete("<C-j>")', complete_opts)
-set_keymap('s', '<C-j>', 'v:lua.c_tab_complete("<C-j>")', complete_opts)
-set_keymap('i', '<C-k>', 'v:lua.c_s_tab_complete("<C-k>")', complete_opts)
-set_keymap('s', '<C-k>', 'v:lua.c_s_tab_complete("<C-k>")', complete_opts)
+set_keymap('i', '<C-j>', 'v:lua.tab_complete("<C-j>")', complete_opts)
+set_keymap('s', '<C-j>', 'v:lua.tab_complete("<C-j>")', complete_opts)
+set_keymap('i', '<C-k>', 'v:lua.s_tab_complete("<C-k>")', complete_opts)
+set_keymap('s', '<C-k>', 'v:lua.s_tab_complete("<C-k>")', complete_opts)
 
 set_keymap('i', '<Tab>', 'v:lua.tab_complete("<Tab>")', complete_opts)
 set_keymap('s', '<Tab>', 'v:lua.tab_complete("<Tab>")', complete_opts)
