@@ -21,7 +21,11 @@ vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
 
 -- folke/todo-comments.nvim
--- require('todo-comments').setup()
+require('todo-comments').setup {
+    highlight = {
+        comments_only = false
+    }
+}
 
 -- lukas-reineke/indent-blankline.nvim
 vim.g.indent_blankline_use_treesitter = true
