@@ -2,7 +2,7 @@
 local required_servers = {
     "bash",
     "css",
-    "diagnosticls",
+    -- "diagnosticls",
     "dockerfile",
     "go",
     "graphql",
@@ -196,9 +196,3 @@ local function setup_servers()
 end
 
 setup_servers()
-
--- reload
-require'lspinstall'.post_install_hook = function ()
-    setup_servers()
-    vim.cmd("bufdo e")
-end
