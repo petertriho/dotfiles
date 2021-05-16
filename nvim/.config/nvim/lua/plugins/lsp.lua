@@ -1,4 +1,4 @@
--- Install missing servers
+-- Install
 local required_servers = {
     "bash",
     "css",
@@ -15,20 +15,20 @@ local required_servers = {
     "typescript",
     "yaml"
 }
-local installed_servers = require'lspinstall'.installed_servers()
+local installed_servers = require('lspinstall').installed_servers()
 for _, server in pairs(required_servers) do
     if not vim.tbl_contains(installed_servers, server) then
         require'lspinstall'.install_server(server)
     end
 end
 
--- autocompletion
-require'compe'.setup {
+-- Completion
+require('compe').setup {
     enabled = true;
     autocomplete = true;
     debug = false;
     min_length = 1;
-    preselect = 'enable';
+    preselect = 'always';
     throttle_time = 80;
     source_timeout = 200;
     incomplete_delay = 400;
@@ -47,6 +47,7 @@ require'compe'.setup {
             priority = 5000
         };
         tmux = true;
+        vnip = true;
     };
 }
 
@@ -64,64 +65,45 @@ local check_back_space = function()
     end
 end
 
-_G.tab_complete = function()
+_G.tab_complete = function(key)
     if vim.fn.pumvisible() == 1 then
         return t '<C-n>'
     elseif vim.fn.call('vsnip#available', {1}) == 1 then
         return t '<Plug>(vsnip-expand-or-jump)'
     elseif check_back_space() then
-        return t '<Tab>'
+        return t(key)
     else
         return vim.fn['compe#complete']()
     end
 end
-_G.s_tab_complete = function()
+_G.s_tab_complete = function(key)
     if vim.fn.pumvisible() == 1 then
         return t '<C-p>'
     elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
         return t '<Plug>(vsnip-jump-prev)'
     else
-        return t '<S-Tab>'
-    end
-end
-
-_G.c_j_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t '<C-n>'
-    elseif vim.fn.call('vsnip#available', {1}) == 1 then
-        return t '<Plug>(vsnip-expand-or-jump)'
-    elseif check_back_space() then
-        return t '<C-j>'
-    else
-        return vim.fn['compe#complete']()
-    end
-end
-_G.c_k_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t '<C-p>'
-    elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
-        return t '<Plug>(vsnip-jump-prev)'
-    else
-        return t '<C-k>'
+        return t(key)
     end
 end
 
 local set_keymap = vim.api.nvim_set_keymap
-set_keymap('i', '<C-j>', 'v:lua.c_j_complete()', { expr = true })
-set_keymap('s', '<C-j>', 'v:lua.c_j_complete()', { expr = true })
-set_keymap('i', '<C-k>', 'v:lua.c_k_complete()', { expr = true })
-set_keymap('s', '<C-k>', 'v:lua.c_k_complete()', { expr = true })
+local complete_opts = { expr = true }
+set_keymap('i', '<C-j>', 'v:lua.c_tab_complete("<C-j>")', complete_opts)
+set_keymap('s', '<C-j>', 'v:lua.c_tab_complete("<C-j>")', complete_opts)
+set_keymap('i', '<C-k>', 'v:lua.c_s_tab_complete("<C-k>")', complete_opts)
+set_keymap('s', '<C-k>', 'v:lua.c_s_tab_complete("<C-k>")', complete_opts)
 
-set_keymap('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
-set_keymap('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
-set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
-set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+set_keymap('i', '<Tab>', 'v:lua.tab_complete("<Tab>")', complete_opts)
+set_keymap('s', '<Tab>', 'v:lua.tab_complete("<Tab>")', complete_opts)
+set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete("<S-Tab>")', complete_opts)
+set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete("<S-Tab>")', complete_opts)
 
-set_keymap('i', '<C-Space>', 'compe#complete()', { silent = true, expr = true, noremap = true})
-set_keymap('i', '<CR>', 'compe#confirm("<CR>")', { silent = true, expr = true, noremap = true })
-set_keymap('i', '<C-e>', 'compe#close()', { silent = true, expr = true, noremap = true })
-set_keymap('i', '<C-d>', 'compe#scroll({ "delta": -4 })', { silent = true, expr = true, noremap = true })
-set_keymap('i', '<C-f>', 'compe#scroll({ "delta": +4 })', { silent = true, expr = true, noremap = true })
+local compe_opts = { silent = true, expr = true, noremap = true }
+set_keymap('i', '<C-Space>', 'compe#complete()', compe_opts)
+set_keymap('i', '<CR>', 'compe#confirm("<CR>")', compe_opts)
+set_keymap('i', '<C-e>', 'compe#close()', compe_opts)
+set_keymap('i', '<C-d>', 'compe#scroll({ "delta": -4 })', compe_opts)
+set_keymap('i', '<C-f>', 'compe#scroll({ "delta": +4 })', compe_opts)
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -129,7 +111,7 @@ local on_attach = function(client, bufnr)
 
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    local opts = { noremap=true, silent=true }
+    local opts = { noremap = true, silent = true }
     buf_set_keymap('n', 'gD', '<CMD>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<CMD>lua vim.lsp.buf.hover()<CR>', opts)
@@ -184,11 +166,11 @@ local function make_config()
     }
 end
 
--- lsp-install
+-- Setup
 local function setup_servers()
-    require'lspinstall'.setup()
+    require('lspinstall').setup()
 
-    local servers = require'lspinstall'.installed_servers()
+    local servers = require('lspinstall').installed_servers()
 
     for _, server in pairs(servers) do
         local config = make_config()
@@ -197,7 +179,7 @@ local function setup_servers()
             config.settings = lua_settings
         end
 
-        require'lspconfig'[server].setup(config)
+        require('lspconfig')[server].setup(config)
     end
 end
 
