@@ -32,8 +32,6 @@ set_keymap('v', '<M-u>', ":m '<-2<CR>gv=gv", options)
 set_keymap('v', '<M-d>', ":m '>+1<CR>gv=gv", options)
 
 -- Which Key
-local wk = require('which-key')
-
 local keymaps = {
     [' '] = { ':w<CR>', 'write' },
     ['-'] = { '<C-w>s', 'split-below' },
@@ -44,8 +42,7 @@ local keymaps = {
     d = { '<CMD>Bwipeout<CR>', 'delete-buffer' },
     e = { '<CMD>NvimTreeToggle<CR>', 'explorer' },
     h = { ':nohl<CR>', 'no-highlight' },
-    u = { '<CMD>MundoToggle<CR>', 'undotree' },
-    f = 'format'
+    u = { '<CMD>MundoToggle<CR>', 'undotree' }
 }
 
 keymaps['/'] = 'commentary'
@@ -96,7 +93,7 @@ keymaps['l'] = {
     l = { '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>', 'loclist' }
 }
 
-wk.register(keymaps, {
+require('which-key').register(keymaps, {
     prefix = '<Leader>',
     mode = 'n',
     silent = true,

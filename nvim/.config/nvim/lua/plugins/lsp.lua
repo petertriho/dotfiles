@@ -52,6 +52,9 @@ require('compe').setup {
 }
 
 -- Keymaps
+local keymaps = {
+}
+
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -123,9 +126,11 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
     if client.resolved_capabilities.document_formatting then
-        buf_set_keymap("n", "<Space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+        buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+        keymaps['f'] = 'format'
     elseif client.resolved_capabilities.document_range_formatting then
-        buf_set_keymap("n", "<Space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+        buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+        keymaps['f'] = 'format'
     end
 
     if client.resolved_capabilities.document_highlight then
@@ -181,6 +186,13 @@ local function setup_servers()
 
         require('lspconfig')[server].setup(config)
     end
+
+    require('which-key').register(keymaps, {
+        prefix = '<Leader>',
+        mode = 'n',
+        silent = true,
+        noremap = true
+    })
 end
 
 setup_servers()
