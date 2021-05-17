@@ -1,19 +1,19 @@
 -- Install
 local required_servers = {
-    "bash",
-    "css",
-    -- "diagnosticls",
-    "dockerfile",
-    "go",
-    "graphql",
-    "html",
-    "json",
-    "lua",
-    "python",
-    "tailwindcss",
-    "terraform",
-    "typescript",
-    "yaml"
+    'bash',
+    'css',
+    'dockerfile',
+    'efm',
+    'go',
+    'graphql',
+    'html',
+    'json',
+    'lua',
+    'python',
+    'tailwindcss',
+    'terraform',
+    'typescript',
+    'yaml'
 }
 local installed_servers = require('lspinstall').installed_servers()
 for _, server in pairs(required_servers) do
@@ -52,6 +52,7 @@ require('compe').setup {
 }
 
 -- Keymaps
+local wk = require('which-key')
 local keymaps = {
 }
 
@@ -142,6 +143,13 @@ local on_attach = function(client, bufnr)
         augroup END
         ]], false)
     end
+
+    wk.register(keymaps, {
+        prefix = '<Leader>',
+        mode = 'n',
+        silent = true,
+        noremap = true
+    })
 end
 
 local lua_settings = {
@@ -186,13 +194,6 @@ local function setup_servers()
 
         require('lspconfig')[server].setup(config)
     end
-
-    require('which-key').register(keymaps, {
-        prefix = '<Leader>',
-        mode = 'n',
-        silent = true,
-        noremap = true
-    })
 end
 
 setup_servers()
