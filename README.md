@@ -39,6 +39,8 @@
 #### Dependencies
 
 -   [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+-   [mantoni/eslint_d.js](https://github.com/mantoni/eslint_d.js)
+-   [fsouza/prettierd](https://github.com/fsouza/prettierd)
 
 -   [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 -   [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)

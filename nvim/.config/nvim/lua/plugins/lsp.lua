@@ -152,21 +152,25 @@ local on_attach = function(client, bufnr)
     })
 end
 
-local lua_settings = {
-    Lua = {
-        runtime = {
-            version = 'LuaJIT',
-            path = vim.split(package.path, ';'),
-        },
-        diagnostics = {
-            globals = {'vim'},
-        },
-        workspace = {
-            library = {
-                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+
+-- Config
+local lua_config = {
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+                path = vim.split(package.path, ';'),
             },
-        },
+            diagnostics = {
+                globals = {'vim'},
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                },
+            },
+        }
     }
 }
 
@@ -179,6 +183,10 @@ local function make_config()
     }
 end
 
+local function merge_config(first, second)
+    for k, v in pairs(second) do first[k] = v end
+end
+
 -- Setup
 local function setup_servers()
     require('lspinstall').setup()
@@ -189,7 +197,7 @@ local function setup_servers()
         local config = make_config()
 
         if server == "lua" then
-            config.settings = lua_settings
+            merge_config(config, lua_config)
         end
 
         require('lspconfig')[server].setup(config)

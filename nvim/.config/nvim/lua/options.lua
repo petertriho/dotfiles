@@ -23,7 +23,6 @@ o.smarttab = true
 o.softtabstop = 4
 o.splitbelow = true
 o.splitright = true
-o.swapfile = false
 o.tabstop = 4
 o.termguicolors = true
 o.timeoutlen = 500
@@ -41,6 +40,10 @@ wo.number = true
 wo.relativenumber = true
 wo.signcolumn = 'yes'
 wo.wrap = false
+
+-- buffer
+local bo = vim.bo
+bo.swapfile = false
 
 if vim.loop.os_uname().sysname == 'Linux' then
     vim.g.clipboard = {
