@@ -153,7 +153,46 @@ local on_attach = function(client, bufnr)
 end
 
 
+
 -- Config
+local eslint = {
+    lintCommand = 'eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}',
+    lintIgnoreExitCode = true,
+    lintStdin = true,
+    lintFormats = {
+        '%f(%l,%c): %tarning %m',
+        '%f(%l,%c): %rror %m'
+    },
+    lintSource = 'eslint'
+}
+
+local prettier = {
+    formatCommand = 'prettierd ${INPUT}',
+    formatStdin = true,
+}
+
+local efm_config =  {
+    init_options = {
+        documentFormatting = true
+    },
+    root_dir = vim.loop.cwd,
+    settings = {
+        rootMarkers = { '.git/' },
+        languages = {
+            typescript = { prettier, eslint },
+            javascript = { prettier, eslint },
+            typescriptreact = { prettier, eslint },
+            javascriptreact = { prettier, eslint },
+            yaml = { prettier },
+            json = { prettier },
+            html = { prettier },
+            scss = { prettier },
+            css = { prettier },
+            markdown = { prettier },
+        }
+    }
+}
+
 local lua_config = {
     settings = {
         Lua = {
@@ -196,8 +235,10 @@ local function setup_servers()
     for _, server in pairs(servers) do
         local config = make_config()
 
-        if server == "lua" then
+        if server == 'lua' then
             merge_config(config, lua_config)
+        elseif server == 'efm' then
+            merge_config(config, efm_config)
         end
 
         require('lspconfig')[server].setup(config)
