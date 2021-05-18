@@ -171,7 +171,6 @@ end
 
 
 -- Config
-local util = require('lspconfig/util')
 local black = {
     formatCommand = "black --fast -",
     formatStdin = true
