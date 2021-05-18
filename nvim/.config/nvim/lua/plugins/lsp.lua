@@ -15,12 +15,28 @@ local required_servers = {
     "typescript",
     "yaml"
 }
-local installed_servers = require("lspinstall").installed_servers()
-for _, server in pairs(required_servers) do
-    if not vim.tbl_contains(installed_servers, server) then
-        require"lspinstall".install_server(server)
+
+local M = {}
+
+M.lsp_install_missing = function()
+    local installed_servers = require("lspinstall").installed_servers()
+    for _, server in pairs(required_servers) do
+        if not vim.tbl_contains(installed_servers, server) then
+            require("lspinstall").install_server(server)
+        end
     end
 end
+
+M.lsp_update_all = function()
+    local installed_servers = require("lspinstall").installed_servers()
+    for _, server in pairs(installed_servers) do
+        require("lspinstall").install_server(server)
+    end
+    M.lsp_install_missing()
+end
+
+vim.cmd [[command! LspInstallMissing lua require('plugins/lsp').lsp_install_missing()]]
+vim.cmd [[command! LspUpdateAll lua require('plugins/lsp').lsp_update_all()]]
 
 -- Completion
 require("compe").setup {
@@ -290,3 +306,5 @@ local function setup_servers()
 end
 
 setup_servers()
+
+return M
