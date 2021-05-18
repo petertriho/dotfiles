@@ -155,6 +155,11 @@ end
 
 
 -- Config
+local black = {
+    formatCommand = "black --fast -",
+    formatStdin = true
+}
+
 local eslint = {
     lintCommand = 'eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}',
     lintIgnoreExitCode = true,
@@ -166,9 +171,21 @@ local eslint = {
     lintSource = 'eslint'
 }
 
+local isort = {
+    formatCommand = "isort --stdout --profile black -",
+    formatStdin = true
+}
+
 local prettier = {
     formatCommand = 'prettierd ${INPUT}',
     formatStdin = true,
+}
+
+local shellcheck = {
+    lintCommand = "shellcheck -f gcc -x -",
+    lintStdin = true,
+    lintFormats = {"%f=%l:%c: %trror: %m", "%f=%l:%c: %tarning: %m", "%f=%l:%c: %tote: %m"},
+    lintSource = "shellcheck"
 }
 
 local efm_config =  {
@@ -179,16 +196,18 @@ local efm_config =  {
     settings = {
         rootMarkers = { '.git/' },
         languages = {
-            typescript = { prettier, eslint },
+            css = { prettier },
             javascript = { prettier, eslint },
-            typescriptreact = { prettier, eslint },
             javascriptreact = { prettier, eslint },
-            yaml = { prettier },
             json = { prettier },
             html = { prettier },
-            scss = { prettier },
-            css = { prettier },
             markdown = { prettier },
+            python = { isort, black },
+            scss = { prettier },
+            sh = { shellcheck },
+            typescript = { prettier, eslint },
+            typescriptreact = { prettier, eslint },
+            yaml = { prettier },
         }
     }
 }
