@@ -1,5 +1,5 @@
 local set_keymap = vim.api.nvim_set_keymap
-local options = { noremap = true, silent = true }
+local options = {noremap = true, silent = true}
 set_keymap("n", "<Space>", "<Nop>", options)
 vim.g.mapleader = " "
 
@@ -33,26 +33,26 @@ set_keymap("v", "<M-d>", ':m ">+1<CR>gv=gv', options)
 
 -- Which Key
 local keymaps = {
-    [" "] = { ":w<CR>", "write" },
-    ["-"] = { "<C-w>s", "split-below" },
-    ["\\"] = { "<C-w>v", "split-right" },
-    [","] = { "<CMD>ScratchPreview<CR>", "scratch-preview" },
-    ["."] = { "<CMD>BufOnly<CR>", "only-buffer" },
-    [";"] = { "<CMD>Telescope find_files hidden=true<CR>", "find-files"},
-    b = { "<CMD>BufferLinePick<CR>", "buffer-pick" },
-    d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
-    e = { "<CMD>NvimTreeToggle<CR>", "explorer" },
-    h = { ":nohl<CR>", "no-highlight" },
-    j = { ":call ToggleGstatus(0)<CR>", "git-status" },
-    J = { ":call ToggleGstatus(0)<CR>", "git-status-vertical" },
-    s = { "<CMD>Telescope live_grep<CR>", "search-text"},
-    u = { "<CMD>MundoToggle<CR>", "undotree" }
+    [" "] = {":w<CR>", "write"},
+    ["-"] = {"<C-w>s", "split-below"},
+    ["\\"] = {"<C-w>v", "split-right"},
+    [","] = {"<CMD>ScratchPreview<CR>", "scratch-preview"},
+    ["."] = {"<CMD>BufOnly<CR>", "only-buffer"},
+    [";"] = {"<CMD>Telescope find_files hidden=true<CR>", "find-files"},
+    b = {"<CMD>BufferLinePick<CR>", "buffer-pick"},
+    d = {"<CMD>Bwipeout<CR>", "delete-buffer"},
+    e = {"<CMD>NvimTreeToggle<CR>", "explorer"},
+    h = {":nohl<CR>", "no-highlight"},
+    j = {":call ToggleGstatus(0)<CR>", "git-status"},
+    J = {":call ToggleGstatus(0)<CR>", "git-status-vertical"},
+    s = {"<CMD>Telescope live_grep<CR>", "search-text"},
+    u = {"<CMD>MundoToggle<CR>", "undotree"}
 }
 
 keymaps["/"] = "commentary"
-set_keymap("n", "<Leader>/", "<Plug>kommentary_line_default", { silent = true })
-set_keymap("x", "<Leader>/", "<Plug>kommentary_visual_default", { silent = true })
-set_keymap("o", "<Leader>/", "<Plug>kommentary_motion_default", { silent = true })
+set_keymap("n", "<Leader>/", "<Plug>kommentary_line_default", {silent = true})
+set_keymap("x", "<Leader>/", "<Plug>kommentary_visual_default", {silent = true})
+set_keymap("o", "<Leader>/", "<Plug>kommentary_motion_default", {silent = true})
 
 keymaps["1"] = "which_key_ignore"
 keymaps["2"] = "which_key_ignore"
@@ -65,24 +65,34 @@ keymaps["8"] = "which_key_ignore"
 keymaps["9"] = "which_key_ignore"
 keymaps["0"] = "which_key_ignore"
 
-set_keymap("", "<Leader>1", "<CMD>lua require'bufferline'.go_to_buffer(1)<CR>", {})
-set_keymap("", "<Leader>2", "<CMD>lua require'bufferline'.go_to_buffer(2)<CR>", {})
-set_keymap("", "<Leader>3", "<CMD>lua require'bufferline'.go_to_buffer(3)<CR>", {})
-set_keymap("", "<Leader>4", "<CMD>lua require'bufferline'.go_to_buffer(4)<CR>", {})
-set_keymap("", "<Leader>5", "<CMD>lua require'bufferline'.go_to_buffer(5)<CR>", {})
-set_keymap("", "<Leader>6", "<CMD>lua require'bufferline'.go_to_buffer(6)<CR>", {})
-set_keymap("", "<Leader>7", "<CMD>lua require'bufferline'.go_to_buffer(7)<CR>", {})
-set_keymap("", "<Leader>8", "<CMD>lua require'bufferline'.go_to_buffer(8)<CR>", {})
-set_keymap("", "<Leader>9", "<CMD>lua require'bufferline'.go_to_buffer(9)<CR>", {})
-set_keymap("", "<Leader>0", "<CMD>lua require'bufferline'.go_to_buffer(10)<CR>", {})
+set_keymap("", "<Leader>1", "<CMD>lua require'bufferline'.go_to_buffer(1)<CR>",
+           {})
+set_keymap("", "<Leader>2", "<CMD>lua require'bufferline'.go_to_buffer(2)<CR>",
+           {})
+set_keymap("", "<Leader>3", "<CMD>lua require'bufferline'.go_to_buffer(3)<CR>",
+           {})
+set_keymap("", "<Leader>4", "<CMD>lua require'bufferline'.go_to_buffer(4)<CR>",
+           {})
+set_keymap("", "<Leader>5", "<CMD>lua require'bufferline'.go_to_buffer(5)<CR>",
+           {})
+set_keymap("", "<Leader>6", "<CMD>lua require'bufferline'.go_to_buffer(6)<CR>",
+           {})
+set_keymap("", "<Leader>7", "<CMD>lua require'bufferline'.go_to_buffer(7)<CR>",
+           {})
+set_keymap("", "<Leader>8", "<CMD>lua require'bufferline'.go_to_buffer(8)<CR>",
+           {})
+set_keymap("", "<Leader>9", "<CMD>lua require'bufferline'.go_to_buffer(9)<CR>",
+           {})
+set_keymap("", "<Leader>0", "<CMD>lua require'bufferline'.go_to_buffer(10)<CR>",
+           {})
 
 keymaps["a"] = {
     name = "+action",
-    j = { "<CMD>SplitjoinJoin<CR>", "join-lines" },
-    r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "rename" },
-    p = { 'ggVG"+p', 'paste-file' },
-    x = { "<CMD>SplitjoinSplit<CR>", "split-lines" },
-    y = { "<CMD>%y+<CR>", "yank-file" }
+    j = {"<CMD>SplitjoinJoin<CR>", "join-lines"},
+    r = {"<CMD>lua vim.lsp.buf.rename()<CR>", "rename"},
+    p = {'ggVG"+p', 'paste-file'},
+    x = {"<CMD>SplitjoinSplit<CR>", "split-lines"},
+    y = {"<CMD>%y+<CR>", "yank-file"}
 }
 
 keymaps["a"]["a"] = "align"
@@ -93,18 +103,21 @@ set_keymap("x", "<Leader>as", "<CMD>sort i<CR>", {})
 
 keymaps["g"] = {
     name = "+git",
-    b = { "<CMD>GitBlameToggle<CR>", "blame" },
-    g = { ":diffget //2<CR>", "diff-left" },
-    h = { ":diffget //3<CR>", "diff-right" },
-    i = { ":Octo issue list<CR>", "gh-issues" },
-    l = { ":Telescope git_commits<CR>", "logs" },
-    p = { ":Octo pr list<CR>", "gh-issues" },
+    b = {"<CMD>GitBlameToggle<CR>", "blame"},
+    g = {":diffget //2<CR>", "diff-left"},
+    h = {":diffget //3<CR>", "diff-right"},
+    i = {":Octo issue list<CR>", "gh-issues"},
+    l = {":Telescope git_commits<CR>", "logs"},
+    p = {":Octo pr list<CR>", "gh-issues"}
 }
 
 keymaps["l"] = {
     name = "+lsp",
-    d = { "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "line-diagnostics" },
-    l = { "<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>", "loclist" }
+    d = {
+        "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
+        "line-diagnostics"
+    },
+    l = {"<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>", "loclist"}
 }
 
 require("which-key").register(keymaps, {

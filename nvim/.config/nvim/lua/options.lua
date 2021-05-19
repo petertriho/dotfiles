@@ -47,35 +47,33 @@ bo.swapfile = false
 
 if vim.loop.os_uname().sysname == "Linux" then
     vim.g.clipboard = {
-	name = "win32yank",
-	copy = {
-	    ["+"] = "win32yank.exe -i --crlf",
-	    ["*"] = "win32yank.exe -i --crlf",
-	},
-	paste = {
-	    ["+"] = "win32yank.exe -o --lf",
-	    ["*"] = "win32yank.exe -o --lf",
-	},
-	["cache_enabled"] = 0,
+        name = "win32yank",
+        copy = {
+            ["+"] = "win32yank.exe -i --crlf",
+            ["*"] = "win32yank.exe -i --crlf"
+        },
+        paste = {
+            ["+"] = "win32yank.exe -o --lf",
+            ["*"] = "win32yank.exe -o --lf"
+        },
+        ["cache_enabled"] = 0
     }
 end
 
-vim.cmd(
-[[
+vim.cmd([[
 if exists("VIRTUAL_ENV")
 	let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
 else
 	let g:python3_host_prog=substitute(system("which python3"), "\n", "", "g")
 endif
-]]
-)
+]])
 
 local function set_augroups(definitions)
     for group_name, definition in pairs(definitions) do
         vim.cmd("augroup " .. group_name)
         vim.cmd("autocmd!")
         for _, def in pairs(definition) do
-            local command = table.concat(vim.tbl_flatten { "autocmd", def }, " ")
+            local command = table.concat(vim.tbl_flatten {"autocmd", def}, " ")
             vim.cmd(command)
         end
         vim.cmd("augroup END")
@@ -85,8 +83,7 @@ end
 set_augroups({
     _general = {
         {
-            "TextYankPost",
-            "*",
+            "TextYankPost", "*",
             "lua require('vim.highlight').on_yank({ higroup = 'Search', timeout = 200 })"
         }
     }

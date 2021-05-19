@@ -7,38 +7,25 @@
 -- multiline
 -- https://github.com/liuchengxu/vista.vim
 -- vim-doge
-
-require("packer").startup(
-    function(use)
-	use "wbthomason/packer.nvim"
+require("packer").startup(function(use)
+    use "wbthomason/packer.nvim"
 
     -- ui
     use "folke/tokyonight.nvim"
     use {
         "akinsho/nvim-bufferline.lua",
-	    requires = "kyazdani42/nvim-web-devicons"
+        requires = "kyazdani42/nvim-web-devicons"
     }
-    use {
-        "Famiu/feline.nvim",
-	    requires = "kyazdani42/nvim-web-devicons"
-    }
-    use {
-        "lewis6991/gitsigns.nvim",
-        requires = "nvim-lua/plenary.nvim"
-    }
+    use {"Famiu/feline.nvim", requires = "kyazdani42/nvim-web-devicons"}
+    use {"lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim"}
 
     -- language/syntax highlighting
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup()
-        end
+        config = function() require("todo-comments").setup() end
     }
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        branch = "lua"
-    }
+    use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     use "norcalli/nvim-colorizer.lua"
     use "wellle/tmux-complete.vim"
 
@@ -55,10 +42,7 @@ require("packer").startup(
     }
 
     -- treesitter
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
-    }
+    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
     use {
         "JoosepAlviste/nvim-ts-context-commentstring",
         requires = "nvim-treesitter/nvim-treesitter"
@@ -67,24 +51,18 @@ require("packer").startup(
         "nvim-treesitter/nvim-treesitter-textobjects",
         requires = "nvim-treesitter/nvim-treesitter"
     }
-    use {
-        "p00f/nvim-ts-rainbow",
-        requires = "nvim-treesitter/nvim-treesitter"
-    }
+    use {"p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"}
     use {
         "romgrk/nvim-treesitter-context",
         requires = "nvim-treesitter/nvim-treesitter"
     }
-    use {
-        "windwp/nvim-ts-autotag",
-        requires = "nvim-treesitter/nvim-treesitter"
-    }
+    use {"windwp/nvim-ts-autotag", requires = "nvim-treesitter/nvim-treesitter"}
 
     -- text helpers
     use {
         "AndrewRadev/splitjoin.vim",
         opt = true,
-        cmd = { "SplitjoinJoin", "SplitjoinSplit" }
+        cmd = {"SplitjoinJoin", "SplitjoinSplit"}
     }
     use "andymass/vim-matchup"
     use "b3nj5m1n/kommentary"
@@ -98,22 +76,12 @@ require("packer").startup(
 
     -- tools
     use "chumakd/scratch.vim"
-    use {
-        "f-person/git-blame.nvim",
-        opt = true,
-        cmd = "GitBlameToggle"
-    }
-	use "folke/which-key.nvim"
-	use {
-	    "kyazdani42/nvim-tree.lua",
-	    requires = "kyazdani42/nvim-web-devicons"
-    }
+    use {"f-person/git-blame.nvim", opt = true, cmd = "GitBlameToggle"}
+    use "folke/which-key.nvim"
+    use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
     use {
         "nvim-telescope/telescope.nvim",
-        requires = {
-            "nvim-lua/popup.nvim",
-            "nvim-lua/plenary.nvim"
-        }
+        requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}
     }
     use {
         "nvim-telescope/telescope-fzy-native.nvim",
@@ -122,25 +90,14 @@ require("packer").startup(
     use {
         "pwntester/octo.nvim",
         requires = {
-            "kyazdani42/nvim-web-devicons",
-            "nvim-telescope/telescope.nvim"
+            "kyazdani42/nvim-web-devicons", "nvim-telescope/telescope.nvim"
         },
-        config = function()
-           require("octo").setup()
-        end,
+        config = function() require("octo").setup() end,
         opt = true,
         cmd = "Octo"
     }
-    use {
-        "simnalamburt/vim-mundo",
-        opt = true,
-        cmd = "MundoToggle"
-    }
-    use {
-        "skywind3000/asyncrun.vim",
-        opt = true,
-        cmd = "AsyncRun"
-    }
+    use {"simnalamburt/vim-mundo", opt = true, cmd = "MundoToggle"}
+    use {"skywind3000/asyncrun.vim", opt = true, cmd = "AsyncRun"}
     -- Look into https://github.com/TimUntersberger/neogit
     use 'tpope/vim-fugitive'
 
@@ -153,23 +110,14 @@ require("packer").startup(
     -- misc
     use "antoinemadec/FixCursorHold.nvim"
     use "editorconfig/editorconfig-vim"
-    use {
-        "moll/vim-bbye",
-        opt = true,
-        cmd = "Bwipeout"
-    }
-    use  {
-        "numtostr/BufOnly.nvim",
-        opt = true,
-        cmd = "BufOnly"
-    }
+    use {"moll/vim-bbye", opt = true, cmd = "Bwipeout"}
+    use {"numtostr/BufOnly.nvim", opt = true, cmd = "BufOnly"}
     use "roxma/vim-tmux-clipboard"
     use "ryvnf/readline.vim"
     use "tpope/vim-repeat"
     use "tpope/vim-unimpaired"
 
-    end
-)
+end)
 
 require("plugins/config")
 require("plugins/treesitter")

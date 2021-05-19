@@ -40,10 +40,14 @@
 
 -   [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 -   [cli/cli](https://github.com/cli/cli)
+-   [DavidAnson/markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
 -   [fsouza/prettierd](https://github.com/fsouza/prettierd)
 -   [hadolint/hadolint](https://github.com/hadolint/hadolint)
 -   [koalaman/shellcheck](https://github.com/koalaman/shellcheck)
+-   [Koihik/LuaFormatter](https://github.com/Koihik/LuaFormatter)
+-   [luarocks/luarocks](https://github.com/luarocks/luarocks)
 -   [mantoni/eslint_d.js](https://github.com/mantoni/eslint_d.js)
+-   [mvdan/sh](https://github.com/mvdan/sh)
 -   [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 -   [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
