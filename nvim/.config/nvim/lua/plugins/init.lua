@@ -2,7 +2,6 @@
 -- might still need polyglot
 -- markdown preview  https://github.com/npxbr/glow.nvim and https://github.com/davidgranstrom/nvim-markdown-preview
 -- replace fzf with telescope (or have both?)
--- fugitive replacement
 -- vim wiki
 -- coc-git
 -- multiline
@@ -69,10 +68,10 @@ require("packer").startup(
         "p00f/nvim-ts-rainbow",
         requires = "nvim-treesitter/nvim-treesitter"
     }
-    --[[ use {
+    use {
         "romgrk/nvim-treesitter-context",
         requires = "nvim-treesitter/nvim-treesitter"
-    } ]]
+    }
     use {
         "windwp/nvim-ts-autotag",
         requires = "nvim-treesitter/nvim-treesitter"
@@ -111,6 +110,8 @@ require("packer").startup(
         opt = true,
         cmd = "AsyncRun"
     }
+    -- Look into https://github.com/TimUntersberger/neogit
+    use 'tpope/vim-fugitive'
 
     -- motions
     use "chaoren/vim-wordmotion"

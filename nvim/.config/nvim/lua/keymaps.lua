@@ -42,6 +42,8 @@ local keymaps = {
     d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
     e = { "<CMD>NvimTreeToggle<CR>", "explorer" },
     h = { ":nohl<CR>", "no-highlight" },
+    j = { ":call ToggleGstatus(0)<CR>", "git-status" },
+    J = { ":call ToggleGstatus(0)<CR>", "git-status-vertical" },
     u = { "<CMD>MundoToggle<CR>", "undotree" }
 }
 

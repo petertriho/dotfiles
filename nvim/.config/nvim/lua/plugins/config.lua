@@ -50,6 +50,22 @@ set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", { silent = true }
 -- norcalli/nvim-colorizer.lua
 require("colorizer").setup()
 
+-- tpope/vim-fugitive
+vim.cmd([[
+function! ToggleGstatus(vertical, ...)
+    let fugitive_buffer_name = bufname('.git/*index')
+    if buflisted(fugitive_buffer_name)
+        execute "bd " . fugitive_buffer_name
+    else
+        if a:vertical == 0
+            Git
+        else
+            vertical Git
+        endif
+    endif
+endfunction
+]])
+
 -- phaazon/hop.nvim
 set_keymap("", "ss", "<CMD>HopChar1<CR>", { silent = true })
 set_keymap("", "sl", "<CMD>HopLine<CR>", { silent = true })
