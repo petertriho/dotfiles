@@ -95,6 +95,11 @@ require("packer").startup(
 
     -- tools
     use "chumakd/scratch.vim"
+    use {
+        "f-person/git-blame.nvim",
+        opt = true,
+        cmd = "GitBlameToggle"
+    }
 	use "folke/which-key.nvim"
 	use {
 	    "kyazdani42/nvim-tree.lua",

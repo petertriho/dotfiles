@@ -20,6 +20,9 @@ vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
 
+-- f-person/git-blame.nvim
+vim.g.gitblame_enabled = 0
+
 -- folke/todo-comments.nvim
 require("todo-comments").setup()
 

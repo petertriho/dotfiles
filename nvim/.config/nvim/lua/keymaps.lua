@@ -89,6 +89,13 @@ set_keymap("", "<Leader>aa", "<Plug>(EasyAlign)", {})
 keymaps["a"]["s"] = "sort"
 set_keymap("x", "<Leader>as", "<CMD>sort i<CR>", {})
 
+keymaps["g"] = {
+    name = "+git",
+    b = { "<CMD>GitBlameToggle<CR>", "blame" },
+    g = { ":diffget //2", "diff-left" },
+    h = { ":diffget //3", "diff-right" },
+}
+
 keymaps["l"] = {
     name = "+lsp",
     d = { "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "line-diagnostics" },
