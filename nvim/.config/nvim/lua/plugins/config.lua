@@ -76,6 +76,7 @@ require("telescope").setup{
         }
     }
 }
+require("telescope").load_extension("fzy_native")
 
 -- phaazon/hop.nvim
 set_keymap("", "ss", "<CMD>HopChar1<CR>", { silent = true })

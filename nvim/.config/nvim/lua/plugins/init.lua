@@ -116,6 +116,10 @@ require("packer").startup(
         }
     }
     use {
+        "nvim-telescope/telescope-fzy-native.nvim",
+        requires = "nvim-telescope/telescope.nvim"
+    }
+    use {
         "pwntester/octo.nvim",
         requires = {
             "kyazdani42/nvim-web-devicons",
