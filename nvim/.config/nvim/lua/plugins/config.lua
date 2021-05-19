@@ -23,9 +23,6 @@ vim.g.nvim_tree_git_hl = 1
 -- f-person/git-blame.nvim
 vim.g.gitblame_enabled = 0
 
--- folke/todo-comments.nvim
-require("todo-comments").setup()
-
 -- lukas-reineke/indent-blankline.nvim
 vim.g.indent_blankline_use_treesitter = true
 vim.g.indent_blankline_show_first_indent_level = false
@@ -53,21 +50,32 @@ set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", { silent = true }
 -- norcalli/nvim-colorizer.lua
 require("colorizer").setup()
 
--- tpope/vim-fugitive
-vim.cmd([[
-function! ToggleGstatus(vertical, ...)
-    let fugitive_buffer_name = bufname('.git/*index')
-    if buflisted(fugitive_buffer_name)
-        execute "bd " . fugitive_buffer_name
-    else
-        if a:vertical == 0
-            Git
-        else
-            vertical Git
-        endif
-    endif
-endfunction
-]])
+-- nvim-telescope/telescope.nvim
+local actions = require('telescope.actions')
+require("telescope").setup{
+    defaults = {
+        vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden'
+        },
+        mappings = {
+            i = {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+            },
+            n = {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+            }
+        }
+    }
+}
 
 -- phaazon/hop.nvim
 set_keymap("", "ss", "<CMD>HopChar1<CR>", { silent = true })
@@ -83,6 +91,22 @@ if has("persistent_undo")
     set undodir=$HOME/.undodir
     set undofile
 endif
+]])
+
+-- tpope/vim-fugitive
+vim.cmd([[
+function! ToggleGstatus(vertical, ...)
+    let fugitive_buffer_name = bufname('.git/*index')
+    if buflisted(fugitive_buffer_name)
+        execute "bd " . fugitive_buffer_name
+    else
+        if a:vertical == 0
+            Git
+        else
+            vertical Git
+        endif
+    endif
+endfunction
 ]])
 
 -- windwp/nvim-autopairs

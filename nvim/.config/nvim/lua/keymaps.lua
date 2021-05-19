@@ -38,12 +38,14 @@ local keymaps = {
     ["\\"] = { "<C-w>v", "split-right" },
     [","] = { "<CMD>ScratchPreview<CR>", "scratch-preview" },
     ["."] = { "<CMD>BufOnly<CR>", "only-buffer" },
+    [";"] = { "<CMD>Telescope find_files hidden=true<CR>", "find-files"},
     b = { "<CMD>BufferLinePick<CR>", "buffer-pick" },
     d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
     e = { "<CMD>NvimTreeToggle<CR>", "explorer" },
     h = { ":nohl<CR>", "no-highlight" },
     j = { ":call ToggleGstatus(0)<CR>", "git-status" },
     J = { ":call ToggleGstatus(0)<CR>", "git-status-vertical" },
+    s = { "<CMD>Telescope live_grep<CR>", "search-text"},
     u = { "<CMD>MundoToggle<CR>", "undotree" }
 }
 
@@ -92,8 +94,10 @@ set_keymap("x", "<Leader>as", "<CMD>sort i<CR>", {})
 keymaps["g"] = {
     name = "+git",
     b = { "<CMD>GitBlameToggle<CR>", "blame" },
-    g = { ":diffget //2", "diff-left" },
-    h = { ":diffget //3", "diff-right" },
+    g = { ":diffget //2<CR>", "diff-left" },
+    h = { ":diffget //3<CR>", "diff-right" },
+    i = { ":Octo issue list<CR>", "gh-issues" },
+    p = { ":Octo pr list<CR>", "gh-issues" },
 }
 
 keymaps["l"] = {

@@ -39,15 +39,17 @@
 #### Dependencies
 
 -   [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
--   [mantoni/eslint_d.js](https://github.com/mantoni/eslint_d.js)
+-   [cli/cli](https://github.com/cli/cli)
 -   [fsouza/prettierd](https://github.com/fsouza/prettierd)
+-   [hadolint/hadolint](https://github.com/hadolint/hadolint)
+-   [koalaman/shellcheck](https://github.com/koalaman/shellcheck)
+-   [mantoni/eslint_d.js](https://github.com/mantoni/eslint_d.js)
+-   [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 -   [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 -   [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 -   [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
 -   [neoclide/coc-git](https://github.com/neoclide/coc-git)
--   [koalaman/shellcheck](https://github.com/koalaman/shellcheck)
--   [hadolint/hadolint](https://github.com/hadolint/hadolint)
 
 ### Tmux
 

@@ -30,7 +30,10 @@ require("packer").startup(
     -- language/syntax highlighting
     use {
         "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim"
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup()
+        end
     }
     use {
         "lukas-reineke/indent-blankline.nvim",
@@ -104,6 +107,25 @@ require("packer").startup(
 	use {
 	    "kyazdani42/nvim-tree.lua",
 	    requires = "kyazdani42/nvim-web-devicons"
+    }
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            "nvim-lua/popup.nvim",
+            "nvim-lua/plenary.nvim"
+        }
+    }
+    use {
+        "pwntester/octo.nvim",
+        requires = {
+            "kyazdani42/nvim-web-devicons",
+            "nvim-telescope/telescope.nvim"
+        },
+        config = function()
+           require("octo").setup()
+        end,
+        opt = true,
+        cmd = "Octo"
     }
     use {
         "simnalamburt/vim-mundo",
