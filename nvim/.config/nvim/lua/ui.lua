@@ -56,9 +56,16 @@ local vi_mode_utils = require("feline.providers.vi_mode")
 
 local properties = {
     force_inactive = {
-        filetypes = {},
-        buftypes = {},
-        bufnames = {}
+        filetypes = {
+            "NvimTree",
+            "Mundo",
+            "MundoDiff",
+            "packer",
+            "fugitive",
+            "fugitiveblame"
+        },
+        buftypes = { "terminal" },
+        bufnames = { }
     }
 }
 
@@ -138,6 +145,18 @@ components.left.active = {
     }
 }
 
+components.left.inactive = {
+    {
+        provider = "file_info",
+        hl = {
+            fg = "bg_statusline",
+            bg = "fg_sidebar",
+        },
+        left_sep = "block",
+        right_sep = "right_filled",
+    },
+}
+
 components.right.active = {
     {
         provider = "diagnostic_info",
@@ -182,36 +201,45 @@ components.right.active = {
     },
     {
         provider = "position",
-        hl = {
-            fg = "blue",
-            bg = "fg_gutter",
-        },
+        hl = function()
+            return {
+                fg = vi_mode_utils.get_mode_color(),
+                bg = "fg_gutter",
+                style = "bold"
+            }
+        end,
         left_sep = "left_filled"
     },
     {
         provider = "",
-        hl = {
-            fg = "blue",
-            bg = "fg_gutter",
-        }
+        hl = function()
+            return {
+                fg = vi_mode_utils.get_mode_color(),
+                bg = "fg_gutter",
+            }
+        end,
     },
     {
         provider = "line_percentage",
-        hl = {
-            fg = "black",
-            bg = "blue",
-            style = "bold"
-        },
+        hl = function()
+            return {
+                fg = "black",
+                bg = vi_mode_utils.get_mode_color(),
+                style = "bold"
+            }
+        end,
         left_sep = "block",
         right_sep = "block"
     },
     {
         provider = "scroll_bar",
-        hl = {
-            fg = "blue",
-            bg = "bg_dark",
-            style = "bold"
-        }
+        hl = function()
+            return {
+                fg = vi_mode_utils.get_mode_color(),
+                bg = "black",
+                style = "bold"
+            }
+        end,
     }
 }
 

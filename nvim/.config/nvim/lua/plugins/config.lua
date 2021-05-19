@@ -29,6 +29,12 @@ vim.g.indent_blankline_show_first_indent_level = false
 vim.g.indent_blankline_char = "│"
 vim.g.indent_blankline_filetype_exclude = {
     "NvimTree",
+    "lspinfo",
+    "Mundo",
+    "MundoDiff",
+    "packer",
+    "fugitive",
+    "fugitiveblame",
     "javascriptreact",
     "typescriptreact"
 }
