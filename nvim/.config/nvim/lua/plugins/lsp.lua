@@ -202,6 +202,8 @@ local shellcheck = {
 
 local shfmt = {formatCommand = "shfmt -ci -s -bn", formatStdin = true}
 
+local rustywind = {formatCommand = "rustywind --stdin", formatStdin = true}
+
 local efm_config = {
     init_options = {documentFormatting = true},
     filetypes = {
@@ -215,19 +217,19 @@ local efm_config = {
             "setup.py"
         },
         languages = {
-            css = {prettier},
+            css = {rustywind, prettier},
             dockerfile = {hadolint},
             javascript = {prettier, eslint},
-            javascriptreact = {prettier, eslint},
+            javascriptreact = {rustywind, prettier, eslint},
             json = {prettier},
-            html = {prettier},
+            html = {rustywind, prettier},
             lua = {luaformat},
             markdown = {prettier, markdownlint2},
             python = {isort, black},
-            scss = {prettier},
+            scss = {rustywind, prettier},
             sh = {shfmt, shellcheck},
             typescript = {prettier, eslint},
-            typescriptreact = {prettier, eslint},
+            typescriptreact = {rustywind, prettier, eslint},
             yaml = {prettier}
         }
     }

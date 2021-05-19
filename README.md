@@ -49,6 +49,7 @@
 -   [mantoni/eslint_d.js](https://github.com/mantoni/eslint_d.js)
 -   [mvdan/sh](https://github.com/mvdan/sh)
 -   [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+-   [avencera/rustywind](https://github.com/avencera/rustywind)
 
 -   [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 -   [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
