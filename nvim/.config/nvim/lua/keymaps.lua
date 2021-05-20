@@ -46,6 +46,7 @@ local keymaps = {
     j = {":call ToggleGstatus(0)<CR>", "git-status"},
     J = {":call ToggleGstatus(0)<CR>", "git-status-vertical"},
     s = {"<CMD>Telescope live_grep<CR>", "search-text"},
+    t = {"<CMD>Trouble<CR>", "trouble"},
     u = {"<CMD>MundoToggle<CR>", "undotree"}
 }
 
@@ -109,15 +110,6 @@ keymaps["g"] = {
     i = {":Octo issue list<CR>", "gh-issues"},
     l = {":Telescope git_commits<CR>", "logs"},
     p = {":Octo pr list<CR>", "gh-issues"}
-}
-
-keymaps["l"] = {
-    name = "+lsp",
-    d = {
-        "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
-        "line-diagnostics"
-    },
-    l = {"<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>", "loclist"}
 }
 
 require("which-key").register(keymaps, {

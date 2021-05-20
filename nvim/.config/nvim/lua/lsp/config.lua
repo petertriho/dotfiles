@@ -8,12 +8,16 @@ local eslint = {
     lintSource = "eslint"
 }
 
+local fixjson = {formatCommand = "fixjson"}
+
 local hadolint = {lintCommand = "hadolint", lintFormats = {"%f:%l %m"}}
 
 local isort = {
     formatCommand = "isort --quiet --stdout --profile black -",
     formatStdin = true
 }
+
+local jq = {lintCommand = "jq ."}
 
 local luaformat = {
     formatCommand = "lua-format --single-quote-to-double-quote  -i",
@@ -45,7 +49,7 @@ return {
     css = {},
     dockerfile = {},
     efm = {
-        init_options = {documentFormatting = true},
+        init_options = {documentFormatting = true, codeAction = true},
         filetypes = {
             "css", "dockerfile", "javascript", "javascriptreact", "json",
             "html", "lua", "markdown", "python", "scss", "sh", "typescript",
@@ -61,7 +65,7 @@ return {
                 dockerfile = {hadolint},
                 javascript = {prettier, eslint},
                 javascriptreact = {rustywind, prettier, eslint},
-                json = {prettier},
+                json = {jq, fixjson},
                 html = {rustywind, prettier},
                 lua = {luaformat},
                 markdown = {prettier, markdownlint2},

@@ -31,10 +31,12 @@ require("packer").startup(function(use)
 
     -- lsp
     use "neovim/nvim-lspconfig"
-    use "kabouzeid/nvim-lspinstall"
+    use "glepnir/lspsaga.nvim"
     use "hrsh7th/nvim-compe"
     use "hrsh7th/vim-vsnip"
     use "hrsh7th/vim-vsnip-integ"
+    use "kabouzeid/nvim-lspinstall"
+    use "onsails/lspkind-nvim"
     use {
         "tzachar/compe-tabnine",
         requires = "hrsh7th/nvim-compe",
@@ -78,6 +80,13 @@ require("packer").startup(function(use)
     use "chumakd/scratch.vim"
     use {"f-person/git-blame.nvim", opt = true, cmd = "GitBlameToggle"}
     use "folke/which-key.nvim"
+    use {
+        "folke/trouble.nvim",
+        opt = true,
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require("trouble").setup() end,
+        cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"}
+    }
     use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
     use {
         "nvim-telescope/telescope.nvim",

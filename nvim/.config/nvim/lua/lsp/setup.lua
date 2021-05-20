@@ -24,7 +24,7 @@ vim.cmd [[command! LspUpdateAll call v:lua.lsp_update_all()]]
 
 -- Setup
 local wk = require("which-key")
-local keymaps = {}
+local keymaps = {l = {}}
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
@@ -37,17 +37,6 @@ local on_attach = function(client, bufnr)
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     local opts = {noremap = true, silent = true}
-    buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
-    buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
-    buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
-    buf_set_keymap("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
-    buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
-    buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
-    buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
-                   opts)
-    buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-                   opts)
 
     if client.resolved_capabilities.document_formatting then
         buf_set_keymap("n", "<Leader>f",
@@ -65,9 +54,49 @@ local on_attach = function(client, bufnr)
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        autocmd CursorHold <buffer> lua require'lspsaga.diagnostic'.show_cursor_diagnostics()
+        autocmd CursorHoldI * silent! lua require'lspsaga.signaturehelp'.signature_help()
         augroup END
         ]], false)
     end
+
+    if client.resolved_capabilities.find_references then
+        buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    end
+
+    if client.resolved_capabilities.goto_definition then
+        buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
+        buf_set_keymap("n", "<Leader>ld", "<CMD>Lspsaga preview_definition<CR>",
+                       opts)
+        keymaps["l"]["d"] = "definition-preview"
+        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
+        buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>",
+                       opts)
+    end
+
+    if client.resolved_capabilities.hover then
+        --[[ buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+        buf_set_keymap("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", opts) ]]
+        buf_set_keymap("n", "K", "<CMD>Lspsaga hover_doc<CR>", opts)
+    end
+
+    if client.resolved_capabilities.rename then
+        buf_set_keymap("n", "<Leader>r",
+                       "<CMD>lua require'lsp.rename'.rename()<CR>", opts)
+        keymaps["r"] = "rename"
+    end
+
+    buf_set_keymap("n", "gh", "<CMD>Lspsaga lsp_finder<CR>", opts)
+    -- buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
+    buf_set_keymap("n", "gs", "<CMD>Lspsaga signature_help<CR>", opts)
+    buf_set_keymap("n", "[d", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
+                   opts)
+    buf_set_keymap("n", "]d", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
+                   opts)
+
+    buf_set_keymap("n", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
+    buf_set_keymap("v", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
+    keymaps["c"] = "code-action"
 
     wk.register(keymaps, {
         prefix = "<Leader>",
@@ -91,6 +120,7 @@ local lsp_config = require("lsp/config")
 
 M.setup = function()
     require("lspinstall").setup()
+    require("lspsaga").init_lsp_saga()
 
     local servers = require("lspinstall").installed_servers()
 
