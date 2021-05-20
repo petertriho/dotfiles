@@ -8,7 +8,7 @@ local eslint = {
     lintSource = "eslint"
 }
 
-local fixjson = {formatCommand = "fixjson"}
+local fixjson = {formatCommand = "fixjson", formatStdin = true}
 
 local hadolint = {lintCommand = "hadolint", lintFormats = {"%f:%l %m"}}
 
@@ -81,7 +81,7 @@ return {
     go = {},
     graphql = {},
     html = {},
-    json = {},
+    json = {init_options = {provideFormatter = false}},
     lua = {
         settings = {
             Lua = {

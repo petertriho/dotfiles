@@ -158,6 +158,8 @@ M.setup = function()
 
         if server == "efm" then
             merge_config(config, lsp_config.efm)
+        elseif server == "json" then
+            merge_config(config, lsp_config.json)
         elseif server == "lua" then
             merge_config(config, lsp_config.lua)
         elseif server == "typescript" then
