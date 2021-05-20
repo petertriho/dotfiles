@@ -49,7 +49,7 @@ return {
     css = {},
     dockerfile = {},
     efm = {
-        init_options = {documentFormatting = true, codeAction = true},
+        init_options = {documentFormatting = true},
         filetypes = {
             "css", "dockerfile", "javascript", "javascriptreact", "json",
             "html", "lua", "markdown", "python", "scss", "sh", "typescript",
