@@ -28,8 +28,8 @@ set_keymap("", "<M-=>", "<C-w>=", {})
 -- Move lines
 set_keymap("n", "<M-u>", ":m .-2<CR>==", options)
 set_keymap("n", "<M-d>", ":m .+1<CR>==", options)
-set_keymap("v", "<M-u>", ':m "<-2<CR>gv=gv', options)
-set_keymap("v", "<M-d>", ':m ">+1<CR>gv=gv', options)
+set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", options)
+set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", options)
 
 -- Which Key
 local keymaps = {
