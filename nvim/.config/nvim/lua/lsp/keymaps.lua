@@ -11,7 +11,7 @@ local check_back_space = function()
     end
 end
 
-_G.tab_complete = function(key)
+_G.complete_next = function(key)
     if vim.fn.pumvisible() == 1 then
         return t "<C-n>"
     elseif vim.fn.call("vsnip#available", {1}) == 1 then
@@ -23,7 +23,7 @@ _G.tab_complete = function(key)
     end
 end
 
-_G.s_tab_complete = function(key)
+_G.complete_prev = function(key)
     if vim.fn.pumvisible() == 1 then
         return t "<C-p>"
     elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
@@ -35,15 +35,15 @@ end
 
 local set_keymap = vim.api.nvim_set_keymap
 local complete_opts = {expr = true}
-set_keymap("i", "<C-j>", "v:lua.tab_complete('<C-j>')", complete_opts)
-set_keymap("s", "<C-j>", "v:lua.tab_complete('<C-j>')", complete_opts)
-set_keymap("i", "<C-k>", "v:lua.s_tab_complete('<C-k>')", complete_opts)
-set_keymap("s", "<C-k>", "v:lua.s_tab_complete('<C-k>')", complete_opts)
+set_keymap("i", "<C-j>", "v:lua.complete_next('<C-j>')", complete_opts)
+set_keymap("s", "<C-j>", "v:lua.complete_next('<C-j>')", complete_opts)
+set_keymap("i", "<C-k>", "v:lua.complete_prev('<C-k>')", complete_opts)
+set_keymap("s", "<C-k>", "v:lua.complete_prev('<C-k>')", complete_opts)
 
-set_keymap("i", "<Tab>", "v:lua.tab_complete('<Tab>')", complete_opts)
-set_keymap("s", "<Tab>", "v:lua.tab_complete('<Tab>')", complete_opts)
-set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete('<S-Tab>')", complete_opts)
-set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete('<S-Tab>')", complete_opts)
+set_keymap("i", "<Tab>", "v:lua.complete_next('<Tab>')", complete_opts)
+set_keymap("s", "<Tab>", "v:lua.complete_next('<Tab>')", complete_opts)
+set_keymap("i", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", complete_opts)
+set_keymap("s", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", complete_opts)
 
 local compe_opts = {silent = true, expr = true, noremap = true}
 set_keymap("i", "<C-Space>", "compe#complete()", compe_opts)
