@@ -38,6 +38,7 @@ require("packer").startup(function(use)
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use "kabouzeid/nvim-lspinstall"
     use "onsails/lspkind-nvim"
+    use "rafamadriz/friendly-snippets"
     use {
         "tzachar/compe-tabnine",
         requires = "hrsh7th/nvim-compe",
