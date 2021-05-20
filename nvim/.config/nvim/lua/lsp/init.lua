@@ -18,7 +18,7 @@ require("compe").setup {
         calc = true,
         nvim_lsp = true,
         nvim_lua = true,
-        tabnine = {priority = 5000},
+        tabnine = {priority = 0},
         tmux = true,
         vnip = true
     }
