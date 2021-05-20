@@ -2,7 +2,7 @@ local M = {}
 
 -- Install
 function _G.lsp_install_missing()
-    local configs = require("lsp/configs")
+    local configs = require("lsp/config")
     local installed_servers = require("lspinstall").installed_servers()
     for server, _ in pairs(configs) do
         if not vim.tbl_contains(installed_servers, server) then
