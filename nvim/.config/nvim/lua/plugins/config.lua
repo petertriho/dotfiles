@@ -1,3 +1,5 @@
+local config = {}
+
 local set_keymap = vim.api.nvim_set_keymap
 
 -- AndrewRadev/splitjoin.vim
@@ -23,6 +25,10 @@ vim.g.nvim_tree_git_hl = 1
 -- f-person/git-blame.nvim
 vim.g.gitblame_enabled = 0
 
+-- folke/todo-comments.nvim
+config["folke/todo-comments.nvim"] =
+    function() require("todo-comments").setup() end
+
 -- lukas-reineke/indent-blankline.nvim
 vim.g.indent_blankline_use_treesitter = true
 vim.g.indent_blankline_show_first_indent_level = false
@@ -44,12 +50,12 @@ set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {silent = true})
 require("colorizer").setup()
 
 -- nvim-telescope/telescope.nvim
-local actions = require('telescope.actions')
+local actions = require("telescope.actions")
 require("telescope").setup {
     defaults = {
         vimgrep_arguments = {
-            'rg', '--color=never', '--no-heading', '--with-filename',
-            '--line-number', '--column', '--smart-case', '--hidden'
+            "rg", "--color=never", "--no-heading", "--with-filename",
+            "--line-number", "--column", "--smart-case", "--hidden"
         },
         mappings = {
             i = {
@@ -69,6 +75,9 @@ require("telescope").load_extension("fzy_native")
 -- phaazon/hop.nvim
 set_keymap("", "ss", "<CMD>HopChar1<CR>", {silent = true})
 set_keymap("", "sl", "<CMD>HopLine<CR>", {silent = true})
+
+-- pwntester/octo.nvim
+config["pwntester/octo.nvim"] = function() require("octo").setup() end
 
 -- simnalamburt/vim-mundo
 vim.cmd([[
@@ -100,3 +109,5 @@ endfunction
 
 -- windwp/nvim-autopairs
 require("nvim-autopairs").setup()
+
+return config

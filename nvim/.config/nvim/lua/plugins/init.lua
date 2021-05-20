@@ -7,6 +7,8 @@
 -- multiline
 -- https://github.com/liuchengxu/vista.vim
 -- vim-doge
+local config = require("plugins/config")
+
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
@@ -23,7 +25,7 @@ require("packer").startup(function(use)
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = function() require("todo-comments").setup() end
+        config = config["folke/todo-comments.nvim"]
     }
     use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     use "norcalli/nvim-colorizer.lua"
@@ -92,7 +94,7 @@ require("packer").startup(function(use)
         requires = {
             "kyazdani42/nvim-web-devicons", "nvim-telescope/telescope.nvim"
         },
-        config = function() require("octo").setup() end,
+        config = config["pwntester/octo.nvim"],
         opt = true,
         cmd = "Octo"
     }
