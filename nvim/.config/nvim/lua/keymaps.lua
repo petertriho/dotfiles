@@ -46,7 +46,7 @@ local keymaps = {
     j = {":call ToggleGstatus(0)<CR>", "git-status"},
     J = {":call ToggleGstatus(0)<CR>", "git-status-vertical"},
     s = {"<CMD>Telescope live_grep<CR>", "search-text"},
-    t = {"<CMD>Trouble<CR>", "trouble"},
+    t = {"<CMD>TroubleToggle<CR>", "trouble"},
     u = {"<CMD>MundoToggle<CR>", "undotree"}
 }
 
