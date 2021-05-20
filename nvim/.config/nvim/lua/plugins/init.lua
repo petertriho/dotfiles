@@ -7,8 +7,6 @@
 -- multiline
 -- https://github.com/liuchengxu/vista.vim
 -- vim-doge
-local config = require("plugins/config")
-
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
@@ -25,7 +23,7 @@ require("packer").startup(function(use)
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = config["folke/todo-comments.nvim"]
+        config = function() require("todo-comments").setup() end
     }
     use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     use "norcalli/nvim-colorizer.lua"
@@ -94,14 +92,14 @@ require("packer").startup(function(use)
         requires = {
             "kyazdani42/nvim-web-devicons", "nvim-telescope/telescope.nvim"
         },
-        config = config["pwntester/octo.nvim"],
+        config = function() require("octo").setup() end,
         opt = true,
         cmd = "Octo"
     }
     use {"simnalamburt/vim-mundo", opt = true, cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", opt = true, cmd = "AsyncRun"}
     -- Look into https://github.com/TimUntersberger/neogit
-    use 'tpope/vim-fugitive'
+    use "tpope/vim-fugitive"
 
     -- motions
     use "chaoren/vim-wordmotion"

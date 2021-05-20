@@ -1,5 +1,3 @@
-local config = {}
-
 local set_keymap = vim.api.nvim_set_keymap
 
 -- AndrewRadev/splitjoin.vim
@@ -24,10 +22,6 @@ vim.g.nvim_tree_git_hl = 1
 
 -- f-person/git-blame.nvim
 vim.g.gitblame_enabled = 0
-
--- folke/todo-comments.nvim
-config["folke/todo-comments.nvim"] =
-    function() require("todo-comments").setup() end
 
 -- lukas-reineke/indent-blankline.nvim
 vim.g.indent_blankline_use_treesitter = true
@@ -76,9 +70,6 @@ require("telescope").load_extension("fzy_native")
 set_keymap("", "ss", "<CMD>HopChar1<CR>", {silent = true})
 set_keymap("", "sl", "<CMD>HopLine<CR>", {silent = true})
 
--- pwntester/octo.nvim
-config["pwntester/octo.nvim"] = function() require("octo").setup() end
-
 -- simnalamburt/vim-mundo
 vim.cmd([[
 if has("persistent_undo")
@@ -109,5 +100,3 @@ endfunction
 
 -- windwp/nvim-autopairs
 require("nvim-autopairs").setup()
-
-return config
