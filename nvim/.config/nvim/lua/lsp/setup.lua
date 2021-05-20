@@ -98,7 +98,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("v", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
     keymaps["c"] = "code-action"
 
-    buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+    buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>",
+                   opts)
     keymaps["q"] = "quickfix"
 
     wk.register(keymaps, {
@@ -107,6 +108,31 @@ local on_attach = function(client, bufnr)
         silent = true,
         noremap = true
     })
+end
+
+local on_attach_ts = function(client, bufnr)
+    on_attach(client, bufnr)
+
+    local ts_utils = require("nvim-lsp-ts-utils")
+    ts_utils.setup {eslint_bin = "eslint_d"}
+    ts_utils.setup_client(client)
+
+    local opts = {noremap = true, silent = true}
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":TSLspOrganize<CR>",
+                                opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>q", ":TSLspFixCurrent<CR>",
+                                opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>r", ":TSLspRenameFile<CR>",
+                                opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>i", ":TSLspImportAll<CR>",
+                                opts)
+
+    wk.register({
+        o = "organize-imports",
+        q = "quickfix",
+        r = "rename",
+        i = "import-all"
+    }, {prefix = "<Leader>", mode = "n", silent = true, noremap = true})
 end
 
 local function make_base_config()
@@ -134,6 +160,9 @@ M.setup = function()
             merge_config(config, lsp_config.efm)
         elseif server == "lua" then
             merge_config(config, lsp_config.lua)
+        elseif server == "typescript" then
+            merge_config(config, lsp_config.typescript)
+            merge_config(config, {on_attach = on_attach_ts})
         end
 
         require("lspconfig")[server].setup(config)
