@@ -1,5 +1,7 @@
 -- nvim-treesitter/nvim-treesitter
-require('nvim-treesitter.configs').setup {
+local colors = require("tokyonight.colors").setup()
+
+require("nvim-treesitter.configs").setup {
     ensure_installed = {
         "bash", "comment", "css", "go", "graphql", "html", "javascript",
         "jsdoc", "json", "jsonc", "lua", "python", "regex", "scss", "toml",
@@ -16,7 +18,8 @@ require('nvim-treesitter.configs').setup {
         extended_mode = true,
         max_file_lines = 1000,
         colors = {
-            '#f7768e', '#9ece6a', '#e0af68', '#7aa2f7', '#bb9af7', '#7dcfff'
+            colors.red, colors.green, colors.yellow, colors.blue,
+            colors.magenta, colors.cyan
         }
     },
     textobjects = {

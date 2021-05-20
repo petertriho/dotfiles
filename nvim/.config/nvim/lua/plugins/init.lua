@@ -123,4 +123,3 @@ end)
 
 require("plugins/config")
 require("plugins/treesitter")
-require("plugins/lsp")
