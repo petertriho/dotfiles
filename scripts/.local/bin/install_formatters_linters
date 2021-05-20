@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function main {
+    brew install hadolint \
+        shellcheck \
+        shfmt
+
+    brew install cmake luarocks
+    luarocks install --server=https://luarocks.org/dev luaformatter
+
+    yarn global add markdownlint-cli2 \
+        @fsouza/prettierd \
+        eslint_d \
+        rustywind
+}
+
+main
+
