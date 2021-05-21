@@ -30,6 +30,7 @@ o.titlestring = "nvim %t %M (%F)"
 o.ttimeout = true
 o.ttimeoutlen = 10
 o.visualbell = false
+vim.cmd[[set shortmess+=c]]
 
 -- window
 local wo = vim.wo
