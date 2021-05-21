@@ -38,7 +38,7 @@ function main {
 		yarn global add markdownlint-cli2
     fi
 
-	if ! command -v pretterd &>/dev/null; then
+	if ! command -v prettierd &>/dev/null; then
 		yarn global add @fsouza/prettierd
 	fi
 
