@@ -80,12 +80,6 @@ require("lspkind").init()
 set_keymap("", "ss", "<CMD>HopChar1<CR>", {silent = true})
 set_keymap("", "sl", "<CMD>HopLine<CR>", {silent = true})
 
--- sheerun/polyglot
-vim.g.polyglot_disabled = {
-    "autoindent", "sensible", "css", "go", "graphql", "html5", "javascript",
-    "json", "jsonc", "jsx", "python", "scss", "toml", "typescript", "yaml"
-}
-
 -- simnalamburt/vim-mundo
 vim.cmd([[
 if has("persistent_undo")
