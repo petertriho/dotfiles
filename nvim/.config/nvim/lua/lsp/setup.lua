@@ -135,13 +135,25 @@ local on_attach_ts = function(client, bufnr)
     }, {prefix = "<Leader>", mode = "n", silent = true, noremap = true})
 end
 
+local on_init = function(client)
+    print("LSP (" .. client.name .. ") started!")
+
+    if client.config.flags then
+        client.config.flags.allow_incremental_sync = true
+    end
+end
+
 local function make_base_config()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities.textDocument.completion.completionItem.resolveSupport = {
         properties = {"documentation", "detail", "additionalTextEdits"}
     }
-    return {capabilities = capabilities, on_attach = on_attach}
+    return {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        on_init = on_init
+    }
 end
 
 local function merge_config(first, second)
