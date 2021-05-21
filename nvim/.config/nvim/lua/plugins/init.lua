@@ -56,7 +56,7 @@ require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter-textobjects",
         requires = "nvim-treesitter/nvim-treesitter"
     }
-    use {"p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"}
+    -- use {"p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"}
     use {
         "romgrk/nvim-treesitter-context",
         requires = "nvim-treesitter/nvim-treesitter"
