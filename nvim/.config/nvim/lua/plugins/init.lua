@@ -27,7 +27,7 @@ require("packer").startup(function(use)
     }
     use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     use "norcalli/nvim-colorizer.lua"
-    use 'sheerun/vim-polyglot'
+    use "sheerun/vim-polyglot"
     use "wellle/tmux-complete.vim"
 
     -- lsp
@@ -91,6 +91,7 @@ require("packer").startup(function(use)
         cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"}
     }
     use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
+    use {"npxbr/glow.nvim", opt = true, cmd = "Glow"}
     use {
         "nvim-telescope/telescope.nvim",
         requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}

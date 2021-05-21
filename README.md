@@ -19,6 +19,7 @@
 
 -   [Bat](https://github.com/sharkdp/bat)
 -   [Fish Shell](https://fishshell.com/)
+-   [Glow](https://github.com/charmbracelet/glow)
 -   [Neovim](https://neovim.io/)
 -   [Tmux](https://github.com/tmux/tmux)
 -   [Vim](https://www.vim.org/)
