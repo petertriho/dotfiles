@@ -68,10 +68,8 @@ else
 endif
 ]])
 
-vim.g.polygot_disabled = {
-    "autoindent", "sensible", "css", "go", "graphql", "html5", "javascript",
-    "json", "jsonc", "jsx", "python", "scss", "toml", "typescript", "yaml"
-}
+-- sheerun/polyglot
+vim.g.polyglot_disabled = {"autoindent", "sensible"}
 
 local function set_augroups(definitions)
     for group_name, definition in pairs(definitions) do
