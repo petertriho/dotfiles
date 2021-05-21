@@ -20,7 +20,7 @@ require("compe").setup {
         nvim_lua = true,
         tabnine = {priority = 0},
         tmux = true,
-        vnip = true
+        vsnip = true
     }
 }
 
