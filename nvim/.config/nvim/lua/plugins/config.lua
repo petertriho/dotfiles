@@ -23,6 +23,13 @@ vim.g.nvim_tree_git_hl = 1
 -- f-person/git-blame.nvim
 vim.g.gitblame_enabled = 0
 
+-- hrsh7th/vim-vsnip
+vim.g.vsnip_filetypes = {
+    javascriptreact = {"javascript"},
+    typescript = {"javascript"},
+    typescriptreact = {"javascript"}
+}
+
 -- lukas-reineke/indent-blankline.nvim
 vim.g.indent_blankline_use_treesitter = true
 vim.g.indent_blankline_show_first_indent_level = false

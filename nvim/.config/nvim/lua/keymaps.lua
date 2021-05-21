@@ -55,6 +55,14 @@ set_keymap("n", "<Leader>/", "<Plug>kommentary_line_default", {silent = true})
 set_keymap("x", "<Leader>/", "<Plug>kommentary_visual_default", {silent = true})
 set_keymap("o", "<Leader>/", "<Plug>kommentary_motion_default", {silent = true})
 
+keymaps["x"] = "snippet-select"
+set_keymap("n", "<Leader>x", "<Plug>(vsnip-select-text)", {silent = true})
+set_keymap("x", "<Leader>x", "<Plug>(vsnip-select-text)", {silent = true})
+
+keymaps["X"] = "snippet-cut"
+set_keymap("n", "<Leader>X", "<Plug>(vsnip-cut-text)", {silent = true})
+set_keymap("x", "<Leader>X", "<Plug>(vsnip-cut-text)", {silent = true})
+
 keymaps["1"] = "which_key_ignore"
 keymaps["2"] = "which_key_ignore"
 keymaps["3"] = "which_key_ignore"
@@ -91,7 +99,7 @@ keymaps["a"] = {
     name = "+action",
     j = {"<CMD>SplitjoinJoin<CR>", "join-lines"},
     r = {"<CMD>lua vim.lsp.buf.rename()<CR>", "rename"},
-    p = {'ggVG"+p', 'paste-file'},
+    p = {"ggVG\"+p", "paste-file"},
     x = {"<CMD>SplitjoinSplit<CR>", "split-lines"},
     y = {"<CMD>%y+<CR>", "yank-file"}
 }
