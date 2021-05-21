@@ -22,9 +22,9 @@ function main {
 		luarocks install --server=https://luarocks.org/dev luaformatter
 	fi
 
-	if ! command -v pretterd &>/dev/null; then
-		yarn global add @fsouza/prettierd
-	fi
+    if ! command -v dotenv-linter &>/dev/null; then
+        yarn global add dotenv-linter
+    fi
 
 	if ! command -v eslint_d &>/dev/null; then
 		yarn global add eslint_d
@@ -37,6 +37,11 @@ function main {
 	if ! command -v markdownlint-cli2 &>/dev/null; then
 		yarn global add markdownlint-cli2
     fi
+
+	if ! command -v pretterd &>/dev/null; then
+		yarn global add @fsouza/prettierd
+	fi
+
 
 	if ! command -v rustywind &>/dev/null; then
 		yarn global add rustywind

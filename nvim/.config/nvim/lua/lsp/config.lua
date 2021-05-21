@@ -1,5 +1,10 @@
 local black = {formatCommand = "black --fast --quiet -", formatStdin = true}
 
+local dotenv_linter = {
+    lintCommand = "dotenv-linter",
+    lintFormats = {"%f:%l %m"}
+}
+
 local eslint = {
     lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
@@ -24,7 +29,7 @@ local luaformat = {
     formatStdin = true
 }
 
-local markdownlint2 = {
+local markdownlint = {
     lintCommand = "markdownlint-cli2 ${INPUT}",
     lintFormats = {"%f:%l %m", "%f:%l:%c %m", "%f: %l: %m"}
 }
@@ -51,9 +56,9 @@ return {
     efm = {
         init_options = {documentFormatting = true},
         filetypes = {
-            "css", "dockerfile", "javascript", "javascriptreact", "json",
-            "html", "lua", "markdown", "python", "scss", "sh", "typescript",
-            "typescriptreact", "yaml"
+            "conf", "css", "dockerfile", "javascript", "javascriptreact",
+            "json", "html", "lua", "markdown", "python", "scss", "sh",
+            "typescript", "typescriptreact", "yaml"
         },
         settings = {
             rootMarkers = {
@@ -61,6 +66,7 @@ return {
                 "jsconfig.json", "setup.py"
             },
             languages = {
+                conf = {dotenv_linter},
                 css = {rustywind, prettier},
                 dockerfile = {hadolint},
                 javascript = {prettier, eslint},
@@ -68,7 +74,7 @@ return {
                 json = {jq, fixjson},
                 html = {rustywind, prettier},
                 lua = {luaformat},
-                markdown = {prettier, markdownlint2},
+                markdown = {prettier, markdownlint},
                 python = {isort, black},
                 scss = {rustywind, prettier},
                 sh = {shfmt, shellcheck},
