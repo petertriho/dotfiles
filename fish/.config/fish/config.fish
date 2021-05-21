@@ -57,6 +57,11 @@ if status is-interactive
       "--color=fg:-1,bg:-1,hl:#bb9af7,fg+:#c0caf5,bg+:#292e42,hl+:#414868" \
       "--color=info:#9ece6a,prompt:#7aa2f7,pointer:#f7768e,marker:#e0af68,spinner:#7dcfff,header:#7dcfff"
    set -gx FORGIT_FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
+
+   set -g FORGIT_GI_REPO_REMOTE https://github.com/dvcs/gitignore
+   set -g FORGIT_GI_REPO_LOCAL $HOME/.cache/forgit/gi/repos/dvcs/gitignore
+   set -g FORGIT_GI_TEMPLATES $FORGIT_GI_REPO_LOCAL/templates
+
    set fzf_fd_opts --hidden --exclude .git
 
    bind \e\cf __fzf_search_current_dir
