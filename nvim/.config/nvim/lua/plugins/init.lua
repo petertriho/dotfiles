@@ -27,6 +27,7 @@ require("packer").startup(function(use)
     }
     use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     use "norcalli/nvim-colorizer.lua"
+    use 'sheerun/vim-polyglot'
     use "wellle/tmux-complete.vim"
 
     -- lsp

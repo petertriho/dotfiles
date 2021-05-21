@@ -13,7 +13,6 @@ o.inccommand = "nosplit"
 o.incsearch = true
 o.lazyredraw = true
 o.mouse = "a"
-o.signcolumn = "yes"
 o.shell = "bash"
 o.shiftwidth = 4
 o.showmode = false
@@ -67,6 +66,11 @@ else
 	let g:python3_host_prog=substitute(system("which python3"), "\n", "", "g")
 endif
 ]])
+
+vim.g.polygot_disabled = {
+    "autoindent", "sensible", "css", "go", "graphql", "html5", "javascript",
+    "json", "jsonc", "jsx", "python", "scss", "toml", "typescript", "yaml"
+}
 
 local function set_augroups(definitions)
     for group_name, definition in pairs(definitions) do
