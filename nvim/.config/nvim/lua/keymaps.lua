@@ -52,16 +52,24 @@ local keymaps = {
     u = {"<CMD>MundoToggle<CR>", "undotree"}
 }
 
+local visual_keymaps = {}
+
+local operator_keymaps = {}
+
 keymaps["/"] = "commentary"
+visual_keymaps["/"] = "commentary"
+operator_keymaps["/"] = "commentary"
 set_keymap("n", "<Leader>/", "<Plug>kommentary_line_default", {silent = true})
 set_keymap("x", "<Leader>/", "<Plug>kommentary_visual_default", {silent = true})
 set_keymap("o", "<Leader>/", "<Plug>kommentary_motion_default", {silent = true})
 
 keymaps["x"] = "snippet-select"
+visual_keymaps["x"] = "snippet-select"
 set_keymap("n", "<Leader>x", "<Plug>(vsnip-select-text)", {silent = true})
 set_keymap("x", "<Leader>x", "<Plug>(vsnip-select-text)", {silent = true})
 
 keymaps["X"] = "snippet-cut"
+visual_keymaps["X"] = "snippet-cut"
 set_keymap("n", "<Leader>X", "<Plug>(vsnip-cut-text)", {silent = true})
 set_keymap("x", "<Leader>X", "<Plug>(vsnip-cut-text)", {silent = true})
 
@@ -75,6 +83,17 @@ keymaps["7"] = "which_key_ignore"
 keymaps["8"] = "which_key_ignore"
 keymaps["9"] = "which_key_ignore"
 keymaps["0"] = "which_key_ignore"
+
+visual_keymaps["1"] = "which_key_ignore"
+visual_keymaps["2"] = "which_key_ignore"
+visual_keymaps["3"] = "which_key_ignore"
+visual_keymaps["4"] = "which_key_ignore"
+visual_keymaps["5"] = "which_key_ignore"
+visual_keymaps["6"] = "which_key_ignore"
+visual_keymaps["7"] = "which_key_ignore"
+visual_keymaps["8"] = "which_key_ignore"
+visual_keymaps["9"] = "which_key_ignore"
+visual_keymaps["0"] = "which_key_ignore"
 
 set_keymap("", "<Leader>1", "<CMD>lua require'bufferline'.go_to_buffer(1)<CR>",
            {})
@@ -106,10 +125,13 @@ keymaps["a"] = {
     y = {"<CMD>%y+<CR>", "yank-file"}
 }
 
+visual_keymaps["a"] = {}
+
 keymaps["a"]["a"] = "align"
+visual_keymaps["a"]["a"] = "align"
 set_keymap("", "<Leader>aa", "<Plug>(EasyAlign)", {})
 
-keymaps["a"]["s"] = "sort"
+visual_keymaps["a"]["s"] = "sort"
 set_keymap("x", "<Leader>as", "<CMD>sort i<CR>", {})
 
 keymaps["g"] = {
@@ -125,6 +147,20 @@ keymaps["g"] = {
 require("which-key").register(keymaps, {
     prefix = "<Leader>",
     mode = "n",
+    silent = true,
+    noremap = true
+})
+
+require("which-key").register(visual_keymaps, {
+    prefix = "<Leader>",
+    mode = "x",
+    silent = true,
+    noremap = true
+})
+
+require("which-key").register(operator_keymaps, {
+    prefix = "<Leader>",
+    mode = "o",
     silent = true,
     noremap = true
 })
