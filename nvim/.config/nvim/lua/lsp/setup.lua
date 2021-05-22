@@ -24,7 +24,7 @@ vim.cmd [[command! LspUpdateAll call v:lua.lsp_update_all()]]
 
 -- Setup
 local wk = require("which-key")
-local keymaps = {l = {}}
+local keymaps = {a = {}, l = {}}
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
