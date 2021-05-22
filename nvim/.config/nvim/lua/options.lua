@@ -41,6 +41,7 @@ o.smarttab = true
 o.softtabstop = 4
 o.splitbelow = true
 o.splitright = true
+o.swapfile = false
 o.tabstop = 4
 o.termguicolors = true
 o.timeoutlen = 500
