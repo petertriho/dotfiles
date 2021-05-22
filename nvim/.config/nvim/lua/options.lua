@@ -70,8 +70,9 @@ endif
 
 -- sheerun/polyglot
 vim.g.polyglot_disabled = {
-    "autoindent", "sensible", "css", "go", "graphql", "html5", "javascript",
-    "json", "jsonc", "jsx", "python", "scss", "toml", "typescript", "yaml"
+    "autoindent", "sensible", "css", "dockerfile", "fish", "go", "graphql",
+    "html5", "javascript", "json", "jsonc", "jsx", "python", "scss", "toml",
+    "typescript", "yaml"
 }
 
 local function set_augroups(definitions)
