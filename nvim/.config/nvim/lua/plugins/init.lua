@@ -85,8 +85,8 @@ require("packer").startup(function(use)
     use "folke/which-key.nvim"
     use {
         "folke/trouble.nvim",
-        opt = true,
         requires = "kyazdani42/nvim-web-devicons",
+        opt = true,
         config = function() require("trouble").setup() end,
         cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"}
     }
@@ -113,6 +113,10 @@ require("packer").startup(function(use)
     use {"skywind3000/asyncrun.vim", opt = true, cmd = "AsyncRun"}
     -- Look into https://github.com/TimUntersberger/neogit
     use "tpope/vim-fugitive"
+    use {
+        "windwp/nvim-spectre",
+        requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim"}
+    }
 
     -- motions
     use "chaoren/vim-wordmotion"

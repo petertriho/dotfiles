@@ -110,3 +110,6 @@ endfunction
 
 -- windwp/nvim-autopairs
 require("nvim-autopairs").setup()
+
+-- windwp/nvim-spectre
+require("spectre").setup()

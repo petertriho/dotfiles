@@ -46,6 +46,7 @@ local keymaps = {
     j = {":call ToggleGstatus(0)<CR>", "git-status"},
     J = {":call ToggleGstatus(0)<CR>", "git-status-vertical"},
     p = {"<CMD>Glow<CR>", "preview"},
+    r = {":lua require('spectre').open()<CR>", "find-replace"},
     s = {"<CMD>Telescope live_grep<CR>", "search-text"},
     t = {"<CMD>TroubleToggle<CR>", "trouble"},
     u = {"<CMD>MundoToggle<CR>", "undotree"}
