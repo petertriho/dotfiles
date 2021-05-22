@@ -13,8 +13,6 @@ vim.cmd([[
     endfunction
 ]])
 
-local set_keymap = vim.api.nvim_set_keymap
-
 local config = {
     ["AndrewRadev/splitjoin.vim"] = function()
         vim.g.splitjoin_split_mapping = ""
