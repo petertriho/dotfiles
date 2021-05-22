@@ -39,6 +39,10 @@ vim.g.indent_blankline_filetype_exclude = {
     "fugitiveblame", "javascriptreact", "typescriptreact"
 }
 
+-- mg979/vim-visual-multi
+vim.g.VM_leader = "\\"
+vim.g.VM_theme = "spacegray"
+
 -- monaqa/dial.nvim
 set_keymap("n", "<C-a>", "<Plug>(dial-increment)", {silent = true})
 set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", {silent = true})

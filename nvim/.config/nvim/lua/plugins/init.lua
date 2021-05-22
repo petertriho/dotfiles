@@ -91,6 +91,7 @@ require("packer").startup(function(use)
         cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"}
     }
     use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
+    use "mg979/vim-visual-multi"
     use {"npxbr/glow.nvim", opt = true, cmd = "Glow"}
     use {
         "nvim-telescope/telescope.nvim",
