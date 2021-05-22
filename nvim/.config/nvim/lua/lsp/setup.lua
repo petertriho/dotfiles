@@ -98,9 +98,9 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("v", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
     keymaps["c"] = "code-action"
 
-    buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>",
+    buf_set_keymap("n", "<Leader>aq", "<CMD>lua vim.lsp.buf.code_action()<CR>",
                    opts)
-    keymaps["q"] = "quickfix"
+    keymaps["a"]["q"] = "quickfix"
 
     wk.register(keymaps, {
         prefix = "<Leader>",
