@@ -31,6 +31,16 @@ set_keymap("n", "<M-d>", ":m .+1<CR>==", options)
 set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", options)
 set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", options)
 
+set_keymap("", "ss", "<CMD>HopChar1<CR>", {silent = true})
+set_keymap("", "sl", "<CMD>HopLine<CR>", {silent = true})
+
+set_keymap("n", "<C-a>", "<Plug>(dial-increment)", {silent = true})
+set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", {silent = true})
+set_keymap("v", "<C-a>", "<Plug>(dial-increment)", {silent = true})
+set_keymap("v", "<C-x>", "<Plug>(dial-decrement)", {silent = true})
+set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {silent = true})
+set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {silent = true})
+
 -- Which Key
 local keymaps = {
     [" "] = {":w<CR>", "write"},

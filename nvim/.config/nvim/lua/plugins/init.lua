@@ -1,12 +1,8 @@
 -- TODO:
--- might still need polyglot
--- markdown preview  https://github.com/npxbr/glow.nvim and https://github.com/davidgranstrom/nvim-markdown-preview
--- replace fzf with telescope (or have both?)
--- vim wiki
 -- coc-git
--- multiline
--- https://github.com/liuchengxu/vista.vim
 -- vim-doge
+local config = require("plugins/config")
+
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
@@ -23,18 +19,25 @@ require("packer").startup(function(use)
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = function() require("todo-comments").setup() end
+        config = config["folke/todo-comments.nvim"]
     }
-    use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
-    use "norcalli/nvim-colorizer.lua"
-    use "sheerun/vim-polyglot"
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        branch = "lua",
+        start = config["lukas-reineke/indent-blankline.nvim"]
+    }
+    use {
+        "norcalli/nvim-colorizer.lua",
+        config = config["norcalli/nvim-colorizer.lua"]
+    }
+    use {"sheerun/vim-polyglot", start = config["sheerun/vim-polyglot"]}
     use "wellle/tmux-complete.vim"
 
     -- lsp
     use "neovim/nvim-lspconfig"
     use "glepnir/lspsaga.nvim"
     use "hrsh7th/nvim-compe"
-    use "hrsh7th/vim-vsnip"
+    use {"hrsh7th/vim-vsnip", start = config["hrsh7th/vim-vsnip"]}
     use "hrsh7th/vim-vsnip-integ"
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use "kabouzeid/nvim-lspinstall"
@@ -56,7 +59,7 @@ require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter-textobjects",
         requires = "nvim-treesitter/nvim-treesitter"
     }
-    -- use {"p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"}
+    use {"p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"}
     use {
         "romgrk/nvim-treesitter-context",
         requires = "nvim-treesitter/nvim-treesitter"
@@ -66,7 +69,7 @@ require("packer").startup(function(use)
     -- text helpers
     use {
         "AndrewRadev/splitjoin.vim",
-        opt = true,
+        start = config["AndrewRadev/splitjoin.vim"],
         cmd = {"SplitjoinJoin", "SplitjoinSplit"}
     }
     use "andymass/vim-matchup"
@@ -74,69 +77,86 @@ require("packer").startup(function(use)
     use "junegunn/vim-easy-align"
 
     use "machakann/vim-sandwich"
-    use "mattn/emmet-vim"
-    use "monaqa/dial.nvim"
+    use {"mattn/emmet-vim", keys = "<C-y>"}
+    use {"monaqa/dial.nvim", keys = {"<C-a>", "<C-x>"}}
     use "tpope/vim-abolish"
-    use "windwp/nvim-autopairs"
+    use {"windwp/nvim-autopairs", config = config["windwp/nvim-autopairs"]}
 
     -- tools
-    use "chumakd/scratch.vim"
-    use {"f-person/git-blame.nvim", opt = true, cmd = "GitBlameToggle"}
+    use {
+        "chumakd/scratch.vim",
+        start = config["chumakd/scratch.vim"],
+        cmd = "ScratchPreview"
+    }
+    use {
+        "f-person/git-blame.nvim",
+        start = config["f-person/git-blame.nvim"],
+        cmd = "GitBlameToggle"
+    }
     use "folke/which-key.nvim"
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
-        opt = true,
-        config = function() require("trouble").setup() end,
+        config = config["folke/trouble.nvim"],
         cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"}
     }
-    use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
-    use "mg979/vim-visual-multi"
-    use {"npxbr/glow.nvim", opt = true, cmd = "Glow"}
+    use {
+        "kyazdani42/nvim-tree.lua",
+        requires = "kyazdani42/nvim-web-devicons",
+        start = config["kyazdani42/nvim-tree.lua"],
+        cmd = {
+            "NvimTreeOpen", "NvimTreeClose", "NvimTreeToggle",
+            "NvimTreeRefresh", "NvimTreeFindFile", "NvimTreeClipboard"
+        }
+    }
+    use {"mg979/vim-visual-multi", start = config["mg979/vim-visual-multi"]}
+    use {"npxbr/glow.nvim", cmd = "Glow"}
     use {
         "nvim-telescope/telescope.nvim",
-        requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}
+        requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
+        config = config["nvim-telescope/telescope.nvim"],
+        cmd = "Telescope"
     }
-    use {
-        "nvim-telescope/telescope-fzy-native.nvim",
-        requires = "nvim-telescope/telescope.nvim"
-    }
-    use {
+    use "nvim-telescope/telescope-fzy-native.nvim"
+    --[[ use {
         "pwntester/octo.nvim",
         requires = {
             "kyazdani42/nvim-web-devicons", "nvim-telescope/telescope.nvim"
         },
-        config = function() require("octo").setup() end,
-        opt = true,
+        config = config["pwntester/octo.nvim"],
         cmd = "Octo"
-    }
-    use {"simnalamburt/vim-mundo", opt = true, cmd = "MundoToggle"}
-    use {"skywind3000/asyncrun.vim", opt = true, cmd = "AsyncRun"}
-    -- Look into https://github.com/TimUntersberger/neogit
-    use "tpope/vim-fugitive"
-    use "vimwiki/vimwiki"
+    } ]]
+    use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
+    use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}
+    use {"tpope/vim-fugitive", cmd = {"G", "Git"}}
+    use {"vimwiki/vimwiki", config = config["vimwiki/vimwiki"]}
     use {
         "windwp/nvim-spectre",
-        requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim"}
+        requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim"},
+        config = config["windwp/nvim-spectre"]
     }
 
     -- motions
-    use "chaoren/vim-wordmotion"
-    use "phaazon/hop.nvim"
+    use {"chaoren/vim-wordmotion", start = config["chaoren/vim-wordmotion"]}
+    use {"phaazon/hop.nvim", cmd = {"HopChar1", "HopLine"}}
     use "wellle/targets.vim"
     use "unblevable/quick-scope"
 
     -- misc
-    use "antoinemadec/FixCursorHold.nvim"
-    use "editorconfig/editorconfig-vim"
-    use {"moll/vim-bbye", opt = true, cmd = "Bwipeout"}
-    use {"numtostr/BufOnly.nvim", opt = true, cmd = "BufOnly"}
+    use {
+        "antoinemadec/FixCursorHold.nvim",
+        start = config["antoinemadec/FixCursorHold.nvim"]
+    }
+    use {
+        "editorconfig/editorconfig-vim",
+        start = config["editorconfig/editorconfig-vim"]
+    }
+    use {"moll/vim-bbye", cmd = "Bwipeout"}
+    use {"numtostr/BufOnly.nvim", cmd = "BufOnly"}
     use "roxma/vim-tmux-clipboard"
     use "ryvnf/readline.vim"
     use "tpope/vim-repeat"
-    use "tpope/vim-unimpaired"
-
+    use {"tpope/vim-unimpaired", keys = {"[", "]"}}
 end)
 
-require("plugins/config")
 require("plugins/treesitter")

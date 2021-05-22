@@ -1,3 +1,22 @@
+vim.g.loaded_gzip = 1
+vim.g.loaded_tar = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_zip = 1
+vim.g.loaded_zipPlugin = 1
+vim.g.loaded_getscript = 1
+vim.g.loaded_getscriptPlugin = 1
+vim.g.loaded_vimball = 1
+vim.g.loaded_vimballPlugin = 1
+vim.g.loaded_matchit = 1
+vim.g.loaded_matchparen = 1
+vim.g.loaded_2html_plugin = 1
+vim.g.loaded_logiPat = 1
+vim.g.loaded_rrhelper = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwSettings = 1
+vim.g.loaded_netrwFileHandlers = 1
+
 -- global
 local o = vim.o
 o.autoindent = true
@@ -68,12 +87,16 @@ else
 endif
 ]])
 
--- sheerun/polyglot
-vim.g.polyglot_disabled = {
-    "autoindent", "sensible", "css", "dockerfile", "fish", "go", "graphql",
-    "html5", "javascript", "json", "jsonc", "jsx", "python", "scss", "toml",
-    "typescript", "yaml"
-}
+vim.cmd([[
+if has("persistent_undo")
+    if !isdirectory($HOME . "/.undodir")
+        call mkdir($HOME . "/.undodir")
+    endif
+
+    set undodir=$HOME/.undodir
+    set undofile
+endif
+]])
 
 local function set_augroups(definitions)
     for group_name, definition in pairs(definitions) do
@@ -93,5 +116,6 @@ set_augroups({
             "TextYankPost", "*",
             "lua require('vim.highlight').on_yank({ higroup = 'Search', timeout = 200 })"
         }
-    }
+    },
+    _plugins = {{"BufEnter,BufRead,BufNewFile", "NvimTree", "NvimTreeRefresh"}}
 })

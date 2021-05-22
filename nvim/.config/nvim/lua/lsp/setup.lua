@@ -81,9 +81,9 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.rename then
-        buf_set_keymap("n", "<Leader>r",
+        buf_set_keymap("n", "<Leader>ar",
                        "<CMD>lua require'lsp.rename'.rename()<CR>", opts)
-        keymaps["r"] = "rename"
+        keymaps["a"]["r"] = "rename"
     end
 
     buf_set_keymap("n", "gh", "<CMD>Lspsaga lsp_finder<CR>", opts)
