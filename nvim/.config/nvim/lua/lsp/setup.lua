@@ -27,6 +27,10 @@ local wk = require("which-key")
 local keymaps = {a = {}, l = {}}
 
 local on_attach = function(client, bufnr)
+    if client.config.flags then
+        client.config.flags.allow_incremental_sync = true
+    end
+
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
@@ -111,6 +115,8 @@ local on_attach = function(client, bufnr)
 end
 
 local on_attach_ts = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+
     on_attach(client, bufnr)
 
     local ts_utils = require("nvim-lsp-ts-utils")
@@ -135,25 +141,13 @@ local on_attach_ts = function(client, bufnr)
     }, {prefix = "<Leader>", mode = "n", silent = true, noremap = true})
 end
 
-local on_init = function(client)
-    print("LSP (" .. client.name .. ") started!")
-
-    if client.config.flags then
-        client.config.flags.allow_incremental_sync = true
-    end
-end
-
 local function make_base_config()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities.textDocument.completion.completionItem.resolveSupport = {
         properties = {"documentation", "detail", "additionalTextEdits"}
     }
-    return {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        on_init = on_init
-    }
+    return {capabilities = capabilities, on_attach = on_attach}
 end
 
 local function merge_config(first, second)

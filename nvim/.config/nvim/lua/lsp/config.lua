@@ -7,10 +7,12 @@ local dotenv_linter = {
 
 local eslint = {
     lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
-    lintIgnoreExitCode = true,
-    lintStdin = true,
     lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m"},
-    lintSource = "eslint"
+    lintStdin = true,
+    lintIgnoreExitCode = true,
+    lintSource = "eslint",
+    formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+    formatStdin = true
 }
 
 local fixjson = {formatCommand = "fixjson", formatStdin = true}
