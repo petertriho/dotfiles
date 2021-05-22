@@ -76,7 +76,10 @@ local config = {
                         ["<C-k>"] = actions.move_selection_previous
                     }
                 },
-                file_ignore_patterns = {".git"}
+                file_ignore_patterns = {".git"},
+                prompt_position = "top",
+                sorting_strategy = "ascending",
+                layout_defaults = {horizontal = {preview_width = 0.6}}
             }
         }
         require("telescope").load_extension("fzy_native")
