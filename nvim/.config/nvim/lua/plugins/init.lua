@@ -60,10 +60,10 @@ require("packer").startup(function(use)
         requires = "nvim-treesitter/nvim-treesitter"
     }
     use {"p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"}
-    use {
+    --[[ use {
         "romgrk/nvim-treesitter-context",
         requires = "nvim-treesitter/nvim-treesitter"
-    }
+    } ]]
     use {"windwp/nvim-ts-autotag", requires = "nvim-treesitter/nvim-treesitter"}
 
     -- text helpers
