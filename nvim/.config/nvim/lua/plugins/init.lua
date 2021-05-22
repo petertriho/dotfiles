@@ -113,10 +113,13 @@ require("packer").startup(function(use)
     use {"npxbr/glow.nvim", cmd = "Glow"}
     use {
         "nvim-telescope/telescope.nvim",
-        requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
-        config = config["nvim-telescope/telescope.nvim"]
+        requires = {
+            "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-fzy-native.nvim"
+        },
+        config = config["nvim-telescope/telescope.nvim"],
+        cmd = "Telescope"
     }
-    use "nvim-telescope/telescope-fzy-native.nvim"
     --[[ use {
         "pwntester/octo.nvim",
         requires = {
