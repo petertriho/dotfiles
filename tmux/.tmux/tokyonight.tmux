@@ -37,6 +37,6 @@ set -g status-right "#[fg=${bg_dark},bg=${bg_dark},nobold,nounderscore,noitalics
 
 setw -g window-status-activity-style "underscore,fg=${fg_dark},bg=#${bg_dark}"
 setw -g window-status-separator ""
-setw -g window-status-style "none,fg=${fg_dark},bg=${bg_dark}"
+setw -g window-status-style "${none},fg=${fg_dark},bg=${bg_dark}"
 setw -g window-status-format "#[fg=${bg_dark},bg=${bg_dark},nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=${bg_dark},bg=${bg_dark},nobold,nounderscore,noitalics]"
 setw -g window-status-current-format "#[fg=${bg_dark},bg=${fg_gutter},nobold,nounderscore,noitalics]#[fg=${blue},bg=${fg_gutter},bold] #I  #W #F #[fg=${fg_gutter},bg=${bg_dark},nobold,nounderscore,noitalics]"
