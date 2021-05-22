@@ -175,8 +175,12 @@ M.setup = function()
             merge_config(config, lsp_config.efm)
         elseif server == "json" then
             merge_config(config, lsp_config.json)
+        elseif server == "html" then
+            merge_config(config, lsp_config.html)
         elseif server == "lua" then
             merge_config(config, lsp_config.lua)
+        elseif server == "tailwindcss" then
+            merge_config(config, lsp_config.tailwindcss)
         elseif server == "typescript" then
             merge_config(config, lsp_config.typescript)
             merge_config(config, {on_attach = on_attach_ts})

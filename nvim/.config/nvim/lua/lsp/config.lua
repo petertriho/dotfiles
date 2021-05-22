@@ -86,7 +86,14 @@ return {
     },
     go = {},
     graphql = {},
-    html = {},
+    html = {
+        filetypes = {
+            "aspnetcorerazor", "blade", "django-html", "edge", "ejs", "eruby",
+            "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "jade",
+            "leaf", "liquid", "mdx", "mustache", "njk", "nunjucks", "php",
+            "razor", "slim", "twig", "vue", "svelte"
+        }
+    },
     json = {init_options = {provideFormatter = false}},
     lua = {
         settings = {
@@ -106,7 +113,17 @@ return {
         }
     },
     python = {},
-    tailwindcss = {},
+    tailwindcss = {
+        filetypes = {
+            "aspnetcorerazor", "blade", "django-html", "edge", "eelixir", "ejs",
+            "erb", "eruby", "gohtml", "haml", "handlebars", "hbs", "html",
+            "html-eex", "jade", "leaf", "liquid", "mdx", "mustache", "njk",
+            "nunjucks", "php", "razor", "slim", "twig", "css", "less",
+            "postcss", "sass", "scss", "stylus", "sugarss", "javascript",
+            "javascriptreact", "reason", "rescript", "typescript",
+            "typescriptreact", "vue", "svelte"
+        }
+    },
     terraform = {},
     typescript = {},
     yaml = {}
