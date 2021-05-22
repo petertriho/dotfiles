@@ -113,3 +113,9 @@ require("nvim-autopairs").setup()
 
 -- windwp/nvim-spectre
 require("spectre").setup()
+
+-- vimwiki/vimwiki
+vim.g.vimwiki_list = {
+    {path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md"}
+}
+vim.g.vimwiki_global_ext = 0

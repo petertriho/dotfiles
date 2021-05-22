@@ -113,6 +113,7 @@ require("packer").startup(function(use)
     use {"skywind3000/asyncrun.vim", opt = true, cmd = "AsyncRun"}
     -- Look into https://github.com/TimUntersberger/neogit
     use "tpope/vim-fugitive"
+    use "vimwiki/vimwiki"
     use {
         "windwp/nvim-spectre",
         requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim"}
