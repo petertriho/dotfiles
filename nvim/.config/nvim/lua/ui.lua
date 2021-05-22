@@ -22,7 +22,12 @@ require("bufferline").setup {
                 highlight = "Directory",
                 text_align = "center"
             }
-        }
+        },
+        custom_filter = function(buf_number)
+            if vim.bo[buf_number].filetype ~= "fugitive" then
+                return true
+            end
+        end
     }
 }
 
