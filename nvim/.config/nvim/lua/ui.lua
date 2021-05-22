@@ -28,6 +28,7 @@ require("bufferline").setup {
 
 local colors = require("tokyonight.colors").setup()
 
+-- famiu/feline.nvim
 local vi_mode_colors = {
     NORMAL = "blue",
     OP = "blue",
