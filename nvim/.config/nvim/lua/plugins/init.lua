@@ -24,7 +24,7 @@ require("packer").startup(function(use)
     use {
         "lukas-reineke/indent-blankline.nvim",
         branch = "lua",
-        start = config["lukas-reineke/indent-blankline.nvim"]
+        config = config["lukas-reineke/indent-blankline.nvim"]
     }
     use {
         "norcalli/nvim-colorizer.lua",
@@ -156,7 +156,7 @@ require("packer").startup(function(use)
     use "roxma/vim-tmux-clipboard"
     use "ryvnf/readline.vim"
     use "tpope/vim-repeat"
-    use {"tpope/vim-unimpaired", keys = {"[", "]"}}
+    use {"tpope/vim-unimpaired", keys = {"[", "]", "y"}}
 end)
 
 require("plugins/treesitter")
