@@ -144,6 +144,8 @@ keymaps["g"] = {
     p = {":Octo pr list<CR>", "gh-issues"}
 }
 
+keymaps["w"] = {name = "+wiki"}
+
 require("which-key").register(keymaps, {
     prefix = "<Leader>",
     mode = "n",
