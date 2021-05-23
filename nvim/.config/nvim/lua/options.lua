@@ -65,20 +65,26 @@ wo.wrap = false
 local bo = vim.bo
 bo.swapfile = false
 
-if vim.loop.os_uname().sysname == "Linux" then
-    vim.g.clipboard = {
-        name = "win32yank",
-        copy = {
-            ["+"] = "win32yank.exe -i --crlf",
-            ["*"] = "win32yank.exe -i --crlf"
-        },
-        paste = {
-            ["+"] = "win32yank.exe -o --lf",
-            ["*"] = "win32yank.exe -o --lf"
-        },
-        ["cache_enabled"] = 0
-    }
+local proc_version = io.open("/proc/version", "r")
+if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
+    local proc_version_text = proc_version:read()
+
+    if proc_version_text:match("microsoft") then
+        vim.g.clipboard = {
+            name = "win32yank",
+            copy = {
+                ["+"] = "win32yank.exe -i --crlf",
+                ["*"] = "win32yank.exe -i --crlf"
+            },
+            paste = {
+                ["+"] = "win32yank.exe -o --lf",
+                ["*"] = "win32yank.exe -o --lf"
+            },
+            ["cache_enabled"] = 0
+        }
+    end
 end
+proc_version:close()
 
 vim.cmd([[
 if exists("VIRTUAL_ENV")
