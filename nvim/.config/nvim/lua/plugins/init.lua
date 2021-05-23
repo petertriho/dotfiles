@@ -69,6 +69,11 @@ require("packer").startup(function(use)
         run = ":TSUpdate"
     }
     use {
+        "andymass/vim-matchup",
+        require = "nvim-treesitter/nvim-treesitter",
+        after = "nvim-treesitter"
+    }
+    use {
         "JoosepAlviste/nvim-ts-context-commentstring",
         requires = "nvim-treesitter/nvim-treesitter",
         after = "nvim-treesitter"
@@ -99,7 +104,6 @@ require("packer").startup(function(use)
         start = config["AndrewRadev/splitjoin.vim"],
         cmd = {"SplitjoinJoin", "SplitjoinSplit"}
     }
-    use "andymass/vim-matchup"
     use "b3nj5m1n/kommentary"
     use {"junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)"}
 
