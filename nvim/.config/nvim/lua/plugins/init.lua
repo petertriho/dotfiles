@@ -6,6 +6,8 @@ local config = require("plugins/config")
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
+    use "nvim-lua/plenary.nvim"
+
     -- ui
     use "folke/tokyonight.nvim"
     use {
@@ -13,25 +15,12 @@ require("packer").startup(function(use)
         requires = "kyazdani42/nvim-web-devicons"
     }
     use {"Famiu/feline.nvim", requires = "kyazdani42/nvim-web-devicons"}
-    use {"lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim"}
-
-    -- language/syntax highlighting
     use {
-        "folke/todo-comments.nvim",
+        "lewis6991/gitsigns.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = config["folke/todo-comments.nvim"]
+        config = config["lewis6991/gitsigns.nvim"],
+        opt = true
     }
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        branch = "lua",
-        config = config["lukas-reineke/indent-blankline.nvim"]
-    }
-    use {
-        "norcalli/nvim-colorizer.lua",
-        config = config["norcalli/nvim-colorizer.lua"]
-    }
-    use {"sheerun/vim-polyglot", start = config["sheerun/vim-polyglot"]}
-    use "wellle/tmux-complete.vim"
 
     -- lsp
     use "neovim/nvim-lspconfig"
@@ -49,23 +38,60 @@ require("packer").startup(function(use)
         requires = "hrsh7th/nvim-compe",
         run = "chmod +x ./install.sh; ./install.sh"
     }
+    -- TODO: Check if inside tmux environment
+    use "wellle/tmux-complete.vim"
+
+    -- syntax highlighting
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = config["folke/todo-comments.nvim"],
+        opt = true
+    }
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        branch = "lua",
+        config = config["lukas-reineke/indent-blankline.nvim"],
+        opt = true
+    }
+    use {
+        "norcalli/nvim-colorizer.lua",
+        config = config["norcalli/nvim-colorizer.lua"],
+        opt = true
+    }
+    use {"sheerun/vim-polyglot", start = config["sheerun/vim-polyglot"]}
 
     -- treesitter
-    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        config = function() require("plugins/treesitter") end,
+        opt = true,
+        run = ":TSUpdate"
+    }
     use {
         "JoosepAlviste/nvim-ts-context-commentstring",
-        requires = "nvim-treesitter/nvim-treesitter"
+        requires = "nvim-treesitter/nvim-treesitter",
+        after = "nvim-treesitter"
     }
     use {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        requires = "nvim-treesitter/nvim-treesitter"
+        requires = "nvim-treesitter/nvim-treesitter",
+        after = "nvim-treesitter"
     }
-    use {"p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter"}
+    use {
+        "p00f/nvim-ts-rainbow",
+        requires = "nvim-treesitter/nvim-treesitter",
+        after = "nvim-treesitter"
+    }
     --[[ use {
         "romgrk/nvim-treesitter-context",
         requires = "nvim-treesitter/nvim-treesitter"
     } ]]
-    use {"windwp/nvim-ts-autotag", requires = "nvim-treesitter/nvim-treesitter"}
+    use {
+        "windwp/nvim-ts-autotag",
+        requires = "nvim-treesitter/nvim-treesitter",
+        after = "nvim-treesitter"
+    }
 
     -- text helpers
     use {
@@ -115,7 +141,7 @@ require("packer").startup(function(use)
     use {
         "nvim-telescope/telescope.nvim",
         requires = {
-            "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim",
+            "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim",
             "nvim-telescope/telescope-fzy-native.nvim"
         },
         config = config["nvim-telescope/telescope.nvim"],
@@ -145,7 +171,7 @@ require("packer").startup(function(use)
     use {"chaoren/vim-wordmotion", start = config["chaoren/vim-wordmotion"]}
     use {"phaazon/hop.nvim", cmd = {"HopChar1", "HopLine"}}
     use "wellle/targets.vim"
-    use "unblevable/quick-scope"
+    use {"unblevable/quick-scope", opt = true}
 
     -- misc
     use {
@@ -163,5 +189,3 @@ require("packer").startup(function(use)
     use "tpope/vim-repeat"
     use {"tpope/vim-unimpaired", keys = {"[", "]", "y"}}
 end)
-
-require("plugins/treesitter")

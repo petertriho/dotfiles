@@ -44,6 +44,42 @@ local config = {
             typescriptreact = {"javascript"}
         }
     end,
+    ["lewis6991/gitsigns.nvim"] = function()
+        require("gitsigns").setup {
+            signs = {
+                add = {
+                    hl = "GitSignsAdd",
+                    text = "│",
+                    numhl = "GitSignsAddNr",
+                    linehl = "GitSignsAddLn"
+                },
+                change = {
+                    hl = "GitSignsChange",
+                    text = "│",
+                    numhl = "GitSignsChangeNr",
+                    linehl = "GitSignsChangeLn"
+                },
+                delete = {
+                    hl = "GitSignsDelete",
+                    text = "│",
+                    numhl = "GitSignsDeleteNr",
+                    linehl = "GitSignsDeleteLn"
+                },
+                topdelete = {
+                    hl = "GitSignsDelete",
+                    text = "│",
+                    numhl = "GitSignsDeleteNr",
+                    linehl = "GitSignsDeleteLn"
+                },
+                changedelete = {
+                    hl = "GitSignsChange",
+                    text = "│",
+                    numhl = "GitSignsChangeNr",
+                    linehl = "GitSignsChangeLn"
+                }
+            }
+        }
+    end,
     ["lukas-reineke/indent-blankline.nvim"] = function()
         vim.g.indent_blankline_use_treesitter = true
         vim.g.indent_blankline_show_first_indent_level = false
