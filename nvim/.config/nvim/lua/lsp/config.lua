@@ -124,6 +124,15 @@ return {
             "postcss", "sass", "scss", "stylus", "sugarss", "javascript",
             "javascriptreact", "reason", "rescript", "typescript",
             "typescriptreact", "vue", "svelte"
+        },
+        settings = {
+            tailwindCSS = {
+                experimental = {
+                    classRegex = {
+                        "[\\w]*[cC]lass[\\w]*\\s*[:=]\\s*[{\"'`]+(.*)[\"'`}]+"
+                    }
+                }
+            }
         }
     },
     terraform = {},
