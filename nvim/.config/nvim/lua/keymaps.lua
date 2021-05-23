@@ -154,6 +154,7 @@ keymaps["g"] = {
     p = {"<CMD>Octo pr list<CR>", "gh-issues"}
 }
 
+keymaps["l"] = {name = "+lsp"}
 keymaps["w"] = {name = "+wiki"}
 
 require("which-key").register(keymaps, {
