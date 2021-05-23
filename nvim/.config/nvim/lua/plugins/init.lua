@@ -163,7 +163,7 @@ require("packer").startup(function(use)
     use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}
     use {"tpope/vim-fugitive", cmd = {"G", "Git"}}
-    use {"vimwiki/vimwiki", config = config["vimwiki/vimwiki"]}
+    use {"vimwiki/vimwiki", config = config["vimwiki/vimwiki"], opt = true}
     use {
         "windwp/nvim-spectre",
         requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim"},
