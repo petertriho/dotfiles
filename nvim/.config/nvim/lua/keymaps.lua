@@ -149,9 +149,9 @@ keymaps["g"] = {
     b = {"<CMD>GitBlameToggle<CR>", "blame"},
     g = {":diffget //2<CR>", "diff-left"},
     h = {":diffget //3<CR>", "diff-right"},
-    i = {":Octo issue list<CR>", "gh-issues"},
-    l = {":Telescope git_commits<CR>", "logs"},
-    p = {":Octo pr list<CR>", "gh-issues"}
+    i = {"<CMD>Octo issue list<CR>", "gh-issues"},
+    l = {"<CMD>Telescope git_commits<CR>", "logs"},
+    p = {"<CMD>Octo pr list<CR>", "gh-issues"}
 }
 
 keymaps["w"] = {name = "+wiki"}

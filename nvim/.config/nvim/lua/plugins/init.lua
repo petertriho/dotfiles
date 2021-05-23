@@ -75,12 +75,12 @@ require("packer").startup(function(use)
     }
     use "andymass/vim-matchup"
     use "b3nj5m1n/kommentary"
-    use "junegunn/vim-easy-align"
+    use {"junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)"}
 
     use "machakann/vim-sandwich"
-    use {"mattn/emmet-vim", keys = "<C-y>"}
-    use {"monaqa/dial.nvim", keys = {"<C-a>", "<C-x>"}}
-    use "tpope/vim-abolish"
+    use "mattn/emmet-vim"
+    use "monaqa/dial.nvim"
+    use {"tpope/vim-abolish", cmd = "Subvert", keys = "cr"}
     use {"windwp/nvim-autopairs", config = config["windwp/nvim-autopairs"]}
 
     -- tools
@@ -119,16 +119,17 @@ require("packer").startup(function(use)
             "nvim-telescope/telescope-fzy-native.nvim"
         },
         config = config["nvim-telescope/telescope.nvim"],
-        cmd = "Telescope"
+        cmd = "Telescope",
+        module = "telescope"
     }
-    --[[ use {
+    use {
         "pwntester/octo.nvim",
         requires = {
             "kyazdani42/nvim-web-devicons", "nvim-telescope/telescope.nvim"
         },
         config = config["pwntester/octo.nvim"],
         cmd = "Octo"
-    } ]]
+    }
     use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}
     use {"tpope/vim-fugitive", cmd = {"G", "Git"}}
@@ -136,7 +137,8 @@ require("packer").startup(function(use)
     use {
         "windwp/nvim-spectre",
         requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim"},
-        config = config["windwp/nvim-spectre"]
+        config = config["windwp/nvim-spectre"],
+        module = "spectre"
     }
 
     -- motions
