@@ -3,7 +3,7 @@ if exists("did_load_custom_filetypes")
 endif
 let did_load_custom_filetypes = 1
 
-augroup custom-filetype-detect
+augroup custom_filetype_detect
     autocmd!
     autocmd BufRead,BufNewFile *.dockerfile set filetype=dockerfile
     autocmd BufRead,BufNewFile .env,*.env.* set filetype=conf
