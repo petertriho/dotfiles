@@ -172,7 +172,8 @@ M.setup = function()
         elseif server == "html" then
             merge_config(config, lsp_config.html)
         elseif server == "lua" then
-            merge_config(config, lsp_config.lua)
+            -- merge_config(config, lsp_config.lua)
+            config = require("lua-dev").setup()
         elseif server == "tailwindcss" then
             merge_config(config, lsp_config.tailwindcss)
         elseif server == "typescript" then

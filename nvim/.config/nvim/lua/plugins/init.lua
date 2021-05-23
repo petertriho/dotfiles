@@ -35,6 +35,7 @@ require("packer").startup(function(use)
 
     -- lsp
     use "neovim/nvim-lspconfig"
+    use {"folke/lua-dev.nvim", filetype = "lua"}
     use "glepnir/lspsaga.nvim"
     use "hrsh7th/nvim-compe"
     use {"hrsh7th/vim-vsnip", start = config["hrsh7th/vim-vsnip"]}
@@ -110,7 +111,7 @@ require("packer").startup(function(use)
         }
     }
     use {"mg979/vim-visual-multi", start = config["mg979/vim-visual-multi"]}
-    use {"npxbr/glow.nvim", cmd = "Glow"}
+    use {"npxbr/glow.nvim", cmd = "Glow", ft = "markdown"}
     use {
         "nvim-telescope/telescope.nvim",
         requires = {

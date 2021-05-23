@@ -98,7 +98,7 @@ return {
     },
     json = {init_options = {provideFormatter = false}},
     lua = {
-        settings = {
+        --[[ settings = {
             Lua = {
                 runtime = {
                     version = "LuaJIT",
@@ -112,7 +112,7 @@ return {
                     }
                 }
             }
-        }
+        } ]]
     },
     python = {},
     tailwindcss = {
