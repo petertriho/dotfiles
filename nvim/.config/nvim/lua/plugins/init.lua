@@ -38,8 +38,13 @@ require("packer").startup(function(use)
         requires = "hrsh7th/nvim-compe",
         run = "chmod +x ./install.sh; ./install.sh"
     }
-    -- TODO: Check if inside tmux environment
-    use "wellle/tmux-complete.vim"
+    use {
+        "wellle/tmux-complete.vim",
+        cond = function()
+            local tmux = os.getenv("TMUX")
+            return tmux ~= nil and tmux ~= ""
+        end
+    }
 
     -- syntax highlighting
     use {
