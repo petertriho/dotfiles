@@ -38,13 +38,7 @@ require("packer").startup(function(use)
         requires = "hrsh7th/nvim-compe",
         run = "chmod +x ./install.sh; ./install.sh"
     }
-    use {
-        "wellle/tmux-complete.vim",
-        cond = function()
-            local tmux = os.getenv("TMUX")
-            return tmux ~= nil and tmux ~= ""
-        end
-    }
+    use "wellle/tmux-complete.vim"
 
     -- syntax highlighting
     use {
@@ -168,7 +162,7 @@ require("packer").startup(function(use)
     use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}
     use {"tpope/vim-fugitive", cmd = {"G", "Git"}}
-    use {"vimwiki/vimwiki", config = config["vimwiki/vimwiki"], opt = true}
+    use {"vimwiki/vimwiki", config = config["vimwiki/vimwiki"]}
     use {
         "windwp/nvim-spectre",
         requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim"},
