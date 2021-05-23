@@ -3,111 +3,118 @@
 # set -euo pipefail
 
 function tool:apt {
-    if command -v apt &> /dev/null; then
-        echo "Updating apt packages ..."
-        sudo apt update
-        sudo apt -y upgrade
-        sudo apt autoremove
-        sudo apt clean
-    fi
+	if command -v apt &>/dev/null; then
+		echo "Updating apt packages ..."
+		sudo apt update
+		sudo apt -y upgrade
+		sudo apt autoremove
+		sudo apt clean
+	fi
 }
 
 function tool:asdf {
-    if command -v asdf &> /dev/null; then
-        echo "Updating asdf & plugins ..."
-        asdf update
-        asdf plugin update --all
-    fi
+	if command -v asdf &>/dev/null; then
+		echo "Updating asdf & plugins ..."
+		asdf update
+		asdf plugin update --all
+	fi
 }
 
 function tool:brew {
-    if command -v brew &> /dev/null; then
-        echo "Updating homebrew packages ..."
-        brew update
-        brew upgrade
-    fi
+	if command -v brew &>/dev/null; then
+		echo "Updating homebrew packages ..."
+		brew update
+		brew upgrade
+	fi
 }
 
 function tool:dotfiles {
-    if [ -d "$HOME/.dotfiles" ]; then
-        echo "Updating dotfiles ..."
-        (cd "$HOME/.dotfiles" && \
-            git pull && \
-            stow --no-folding -t ~ */
-        )
-        find -L "$HOME/.config" -type l -exec rm -i {} \;
-    fi
+	if [ -d "$HOME/.dotfiles" ]; then
+		echo "Updating dotfiles ..."
+		(
+			cd "$HOME/.dotfiles" \
+				&& git pull \
+				&& stow --no-folding -t ~ */
+		)
+		find -L "$HOME/.config" -type l -exec rm -i {} \;
+	fi
 }
 
 function tool:fish {
-    if command -v fish &> /dev/null && [ -f "$HOME/.config/fish/fish_plugins" ]; then
-        echo "Updating fish plugins ..."
-        fish -c "fisher update"
-        fish -c "set_abbr"
-        fish -c "set_theme"
-    fi
+	if command -v fish &>/dev/null && [ -f "$HOME/.config/fish/fish_plugins" ]; then
+		echo "Updating fish plugins ..."
+		fish -c "fisher update"
+		fish -c "set_abbr"
+		fish -c "set_theme"
+	fi
 }
 
 function tool:nvim {
-    if command -v nvim &> /dev/null; then
-        if command -v brew &> /dev/null && brew list | grep -q neovim; then
-            echo "Updating neovim ..."
-            brew upgrade neovim --fetch-head
-        fi
-    fi
+	if command -v nvim &>/dev/null; then
+		if command -v brew &>/dev/null && brew list | grep -q neovim; then
+			echo "Updating neovim ..."
+			brew upgrade neovim --fetch-head
+		fi
+	fi
 }
 
 function tool:scoop {
-    if command -v scoop &> /dev/null; then
-        echo "Updating scoop packages ..."
-        pwsh="powershell.exe -NoProfile -NoLogo -NonInteractive cd ~;"
-        $pwsh "scoop update *"
-    fi
+	if command -v scoop &>/dev/null; then
+		echo "Updating scoop packages ..."
+		pwsh="powershell.exe -NoProfile -NoLogo -NonInteractive cd ~;"
+		$pwsh "scoop update *"
+	fi
 }
 
 function tool:tmux {
-    tmux_dir="$HOME/.tmux"
-    tpm_bin_dir="$tmux_dir/plugins/tpm/bin"
+	tmux_dir="$HOME/.tmux"
+	tpm_bin_dir="$tmux_dir/plugins/tpm/bin"
 
-    if [ -d "$tpm_bin_dir" ]; then
-        echo "Updating tmux plugins ..."
-        "$tpm_bin_dir/clean_plugins"
-        "$tpm_bin_dir/install_plugins"
-        "$tpm_bin_dir/update_plugins" all
+	if [ -d "$tpm_bin_dir" ]; then
+		echo "Updating tmux plugins ..."
+		"$tpm_bin_dir/clean_plugins"
+		"$tpm_bin_dir/install_plugins"
+		"$tpm_bin_dir/update_plugins" all
 
-        if [ -d "$tmux_dir/plugins/tmux-thumbs" ]; then
-            echo "Building tmux-thumbs ..."
-            (cd "$tmux_dir/plugins/tmux-thumbs" && \
-                cargo build --release --target-dir=target)
-        fi
-    fi
+		if [ -d "$tmux_dir/plugins/tmux-thumbs" ]; then
+			echo "Building tmux-thumbs ..."
+			(cd "$tmux_dir/plugins/tmux-thumbs" \
+				&& cargo build --release --target-dir=target)
+		fi
+	fi
+}
+
+function tool:misc {
+	echo "Installing missing formatters and linters ..."
+	install_formatters_linters
 }
 
 function tool:all {
-    tool:dotfiles
+	tool:dotfiles
 
-    if [ "$(uname)" == "Linux" ]; then
-        tool:apt
-        tool:scoop
-    fi
+	if [ "$(uname)" == "Linux" ]; then
+		tool:apt
+		tool:scoop
+	fi
 
-    tool:brew
-    tool:asdf
-    tool:fish
-    tool:nvim
-    tool:tmux
+	tool:brew
+	tool:asdf
+	tool:fish
+	tool:nvim
+	tool:tmux
+    tool:misc
 
-    exec "$SHELL"
+	exec "$SHELL"
 }
 
 function tool:list {
-    compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat
+	compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat
 }
 
 function tool:help {
-    printf "Usage: %s [TOOL] [ARGS]\n\nTools:\n" "${0}"
+	printf "Usage: %s [TOOL] [ARGS]\n\nTools:\n" "${0}"
 
-    compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat -n
+	compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat -n
 }
 
 "tool:${@:-all}"
