@@ -1,20 +1,22 @@
 local M = {}
 
+local lspinstall = require("lspinstall")
+
 -- Install
 function _G.lsp_install_missing()
     local configs = require("lsp/config")
-    local installed_servers = require("lspinstall").installed_servers()
+    local installed_servers = lspinstall.installed_servers()
     for server, _ in pairs(configs) do
         if not vim.tbl_contains(installed_servers, server) then
-            require("lspinstall").install_server(server)
+            lspinstall.install_server(server)
         end
     end
 end
 
 function _G.lsp_update_all()
-    local installed_servers = require("lspinstall").installed_servers()
+    local installed_servers = lspinstall.installed_servers()
     for _, server in pairs(installed_servers) do
-        require("lspinstall").install_server(server)
+        lspinstall.install_server(server)
     end
     _G.lsp_install_missing()
 end
@@ -171,10 +173,10 @@ end
 local lsp_config = require("lsp/config")
 
 M.setup = function()
-    require("lspinstall").setup()
+    lspinstall.setup()
     require("lspsaga").init_lsp_saga()
 
-    local servers = require("lspinstall").installed_servers()
+    local servers = lspinstall.installed_servers()
 
     for _, server in pairs(servers) do
         local config = make_base_config()
