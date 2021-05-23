@@ -83,8 +83,9 @@ if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
             ["cache_enabled"] = 0
         }
     end
+
+    proc_version:close()
 end
-proc_version:close()
 
 vim.cmd([[
 if exists("VIRTUAL_ENV")
