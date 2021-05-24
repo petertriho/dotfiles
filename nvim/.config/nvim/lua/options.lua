@@ -124,6 +124,5 @@ set_augroups({
             "TextYankPost", "*",
             "lua require('vim.highlight').on_yank({ higroup = 'Search', timeout = 200 })"
         }
-    },
-    _plugins = {{"BufEnter,BufRead,BufNewFile", "NvimTree", "NvimTreeRefresh"}}
+    }
 })

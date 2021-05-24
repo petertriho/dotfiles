@@ -29,8 +29,13 @@ local config = {
         vim.g.EditorConfig_exclude_patterns = {"fugitive://.*"}
     end,
     ["kyazdani42/nvim-tree.lua"] = function()
+        require("nvim-tree.events").on_nvim_tree_ready(function()
+            vim.cmd("NvimTreeRefresh")
+        end)
+        vim.g.nvim_tree_follow = 1
         vim.g.nvim_tree_indent_markers = 1
         vim.g.nvim_tree_git_hl = 1
+        vim.g.nvim_tree_lsp_diagnostics = 1
     end,
     ["folke/todo-comments.nvim"] = function()
         require("todo-comments").setup()
