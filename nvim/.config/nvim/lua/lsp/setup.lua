@@ -70,9 +70,9 @@ local on_attach = function(client, bufnr)
 
     if client.resolved_capabilities.goto_definition then
         buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
-        buf_set_keymap("n", "<Leader>ld", "<CMD>Lspsaga preview_definition<CR>",
+        buf_set_keymap("n", "<Leader>lp", "<CMD>Lspsaga preview_definition<CR>",
                        opts)
-        keymaps["l"]["d"] = "definition-preview"
+        keymaps["l"]["p"] = "preview-definition"
         buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
         buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>",
                        opts)

@@ -146,15 +146,60 @@ set_keymap("x", "<Leader>as", "<CMD>sort i<CR>", {})
 
 keymaps["g"] = {
     name = "+git",
-    b = {"<CMD>GitBlameToggle<CR>", "blame"},
+    b = {"<CMD>lua require('telescope.builtin').git_branches()<CR>", "branches"},
     g = {":diffget //2<CR>", "diff-left"},
     h = {":diffget //3<CR>", "diff-right"},
     i = {"<CMD>Octo issue list<CR>", "gh-issues"},
-    l = {"<CMD>Telescope git_commits<CR>", "logs"},
-    p = {"<CMD>Octo pr list<CR>", "gh-issues"}
+    l = {"<CMD>lua require('telescope.builtin').git_commits()<CR>", "logs"},
+    p = {"<CMD>Octo pr list<CR>", "gh-pr"},
+    s = {"<CMD>lua require('telescope.builtin').git_stashes()<CR>", "stashes"},
+    t = {"<CMD>GitBlameToggle<CR>", "toggle-blame"}
 }
 
-keymaps["l"] = {name = "+lsp"}
+keymaps["l"] = {
+    name = "+lsp",
+    c = {
+        "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", "code-actions"
+    },
+    d = {
+        name = "+diagnostics",
+        d = {
+            "<CMD>lua require('telescope.builtin').document_diagnostics()<CR>",
+            "document"
+        },
+        w = {
+            "<CMD>lua require('telescope.builtin').workspace_diagnostics()<CR>",
+            "workspace"
+        }
+    },
+    D = {"<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", "definitions"},
+    i = {
+        "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>",
+        "implementations"
+    },
+    r = {"<CMD>lua require('telescope.builtin').lsp_references()<CR>", "references"},
+    s = {
+        name = "+symbols",
+        d = {
+            "<CMD>lua require('telescope.builtin').document_symbols()<CR>", "document"
+        },
+        w = {
+            "<CMD>lua require('telescope.builtin').workspace_symbols()<CR>",
+            "workspace"
+        },
+        W = {
+            "<CMD>lua require('telescope.builtin').dynamic_workspace_symbols()<CR>",
+            "dynamic-workspace"
+        }
+    }
+}
+visual_keymaps["l"] = {
+    name = "+lsp",
+    c = {
+        "<CMD>lua require('telescope.builtin').lsp_range_code_actions()",
+        "code-actions"
+    }
+}
 keymaps["w"] = {name = "+wiki"}
 
 require("which-key").register(keymaps, {
