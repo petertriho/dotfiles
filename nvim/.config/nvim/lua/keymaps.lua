@@ -128,21 +128,18 @@ set_keymap("", "<Leader>0", "<CMD>lua require'bufferline'.go_to_buffer(10)<CR>",
 
 keymaps["a"] = {
     name = "+action",
+    a = {"<Plug>(EasyAlign)", "align"},
     j = {"<CMD>SplitjoinJoin<CR>", "join-lines"},
-    r = {"<CMD>lua vim.lsp.buf.rename()<CR>", "rename"},
     p = {"ggVG\"+p", "paste-file"},
     x = {"<CMD>SplitjoinSplit<CR>", "split-lines"},
     y = {"<CMD>%y+<CR>", "yank-file"}
 }
 
-visual_keymaps["a"] = {}
-
-keymaps["a"]["a"] = "align"
-visual_keymaps["a"]["a"] = "align"
-set_keymap("", "<Leader>aa", "<Plug>(EasyAlign)", {})
-
-visual_keymaps["a"]["s"] = "sort"
-set_keymap("x", "<Leader>as", "<CMD>sort i<CR>", {})
+visual_keymaps["a"] = {
+    name = "+action",
+    a = {"<Plug>(EasyAlign)", "align"},
+    s = {"<CMD>sort i<CR>", "sort"}
+}
 
 keymaps["g"] = {
     name = "+git",
@@ -159,7 +156,8 @@ keymaps["g"] = {
 keymaps["l"] = {
     name = "+lsp",
     c = {
-        "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", "code-actions"
+        "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>",
+        "code-actions"
     },
     d = {
         name = "+diagnostics",
@@ -172,16 +170,23 @@ keymaps["l"] = {
             "workspace"
         }
     },
-    D = {"<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", "definitions"},
+    D = {
+        "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>",
+        "definitions"
+    },
     i = {
         "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>",
         "implementations"
     },
-    r = {"<CMD>lua require('telescope.builtin').lsp_references()<CR>", "references"},
+    r = {
+        "<CMD>lua require('telescope.builtin').lsp_references()<CR>",
+        "references"
+    },
     s = {
         name = "+symbols",
         d = {
-            "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", "document"
+            "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>",
+            "document"
         },
         w = {
             "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>",
