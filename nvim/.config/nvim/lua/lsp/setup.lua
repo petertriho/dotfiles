@@ -265,7 +265,7 @@ M.setup = function()
             merge_config(config, lsp_config.tailwindcss)
         elseif server == "typescript" then
             merge_config(config, lsp_config.typescript)
-            merge_config(config, {on_attach = on_attach_ts})
+            config.on_attach = on_attach_ts
         end
 
         require("lspconfig")[server].setup(config)

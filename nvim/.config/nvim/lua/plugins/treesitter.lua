@@ -4,8 +4,8 @@ local colors = require("tokyonight.colors").setup()
 require("nvim-treesitter.configs").setup {
     ensure_installed = {
         "bash", "css", "dockerfile", "fish", "go", "graphql", "html",
-        "javascript", "json", "jsonc", "lua", "python", "regex",
-        "scss", "toml", "tsx", "typescript", "yaml"
+        "javascript", "json", "jsonc", "lua", "python", "regex", "scss", "toml",
+        "tsx", "typescript", "yaml"
     },
     autotag = {enable = true},
     context_commentstring = {enable = true},
@@ -42,4 +42,3 @@ require("nvim-treesitter.configs").setup {
         }
     }
 }
-

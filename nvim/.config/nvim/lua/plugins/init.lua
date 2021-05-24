@@ -194,3 +194,5 @@ require("packer").startup(function(use)
     use "tpope/vim-repeat"
     use "tpope/vim-unimpaired"
 end)
+
+require("plugins/lazyload")
