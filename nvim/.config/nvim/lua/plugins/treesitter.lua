@@ -7,6 +7,7 @@ require("nvim-treesitter.configs").setup {
         "javascript", "json", "jsonc", "lua", "python", "regex", "scss", "toml",
         "tsx", "typescript", "yaml"
     },
+    autopairs = {enable = true},
     autotag = {enable = true},
     context_commentstring = {enable = true},
     highlight = {enable = true},

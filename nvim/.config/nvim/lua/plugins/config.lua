@@ -140,7 +140,9 @@ local config = {
             "scss", "toml", "typescript", "yaml"
         }
     end,
-    ["windwp/nvim-autopairs"] = function() require("nvim-autopairs").setup() end,
+    ["windwp/nvim-autopairs"] = function()
+        require("nvim-autopairs").setup({check_ts = true})
+    end,
     ["windwp/nvim-spectre"] = function() require("spectre").setup() end,
     ["vimwiki/vimwiki"] = function()
         vim.g.vimwiki_list = {
