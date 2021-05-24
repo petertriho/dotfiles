@@ -27,6 +27,7 @@ vim.cmd [[command! LspUpdateAll call v:lua.lsp_update_all()]]
 -- Setup
 local wk = require("which-key")
 local keymaps = {a = {}, l = {}}
+local visual_keymaps = {a = {}, l = {}}
 
 local on_attach = function(client, bufnr)
     if client.config.flags then
@@ -48,10 +49,12 @@ local on_attach = function(client, bufnr)
         buf_set_keymap("n", "<Leader>f",
                        "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
         keymaps["f"] = "format"
-    elseif client.resolved_capabilities.document_range_formatting then
-        buf_set_keymap("n", "<Leader>f",
+    end
+
+    if client.resolved_capabilities.document_range_formatting then
+        buf_set_keymap("x", "<Leader>f",
                        "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-        keymaps["f"] = "format"
+        visual_keymaps["f"] = "format"
     end
 
     if client.resolved_capabilities.document_highlight then
@@ -108,23 +111,43 @@ local on_attach = function(client, bufnr)
                    opts)
 
     buf_set_keymap("n", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
-    buf_set_keymap("v", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
     keymaps["c"] = "code-action"
 
+    buf_set_keymap("v", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
+    visual_keymaps["c"] = "code-action"
+
     buf_set_keymap("n", "<Leader>al", "<CMD>Lspsaga code_action<CR>", opts)
+    keymaps["a"]["l"] = "list"
+
     buf_set_keymap("v", "<Leader>al", "<CMD>Lspsaga code_action<CR>", opts)
-    keymaps["a"]["l"] = "list-action"
+    visual_keymaps["a"]["l"] = "list"
 
     buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>",
                    opts)
     keymaps["q"] = "quickfix"
+
+    buf_set_keymap("n", "<Leader>q",
+                   "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
+    visual_keymaps["q"] = "quickfix"
+
     buf_set_keymap("n", "<Leader>aq", "<CMD>lua vim.lsp.buf.code_action()<CR>",
                    opts)
     keymaps["a"]["q"] = "quickfix"
 
+    buf_set_keymap("n", "<Leader>aq",
+                   "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
+    visual_keymaps["a"]["q"] = "quickfix"
+
     wk.register(keymaps, {
         prefix = "<Leader>",
         mode = "n",
+        silent = true,
+        noremap = true
+    })
+
+    wk.register(keymaps, {
+        prefix = "<Leader>",
+        mode = "v",
         silent = true,
         noremap = true
     })
