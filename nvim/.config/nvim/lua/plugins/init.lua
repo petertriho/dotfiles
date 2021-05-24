@@ -192,5 +192,5 @@ require("packer").startup(function(use)
     use "roxma/vim-tmux-clipboard"
     use "ryvnf/readline.vim"
     use "tpope/vim-repeat"
-    use {"tpope/vim-unimpaired", keys = {"[", "]", "y"}}
+    use "tpope/vim-unimpaired"
 end)
