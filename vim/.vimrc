@@ -1,5 +1,7 @@
 set hlsearch                      " highlight all search results
 set incsearch                     " show incremental search incrementally
+set ignorecase                    " case insensitive
+set smartcase                     " case sensitive if upper
 
 set number                        " display line number
 set relativenumber                " relative line number

@@ -121,6 +121,12 @@ local config = {
                 prompt_position = "top",
                 sorting_strategy = "ascending",
                 layout_defaults = {horizontal = {preview_width = 0.6}}
+            },
+            extensions = {
+                fzy_native = {
+                    override_generic_sorter = true,
+                    override_file_sorter = true
+                }
             }
         }
         require("telescope").load_extension("fzy_native")
