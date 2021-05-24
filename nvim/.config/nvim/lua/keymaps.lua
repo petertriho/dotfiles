@@ -31,8 +31,8 @@ set_keymap("n", "<M-d>", ":m .+1<CR>==", options)
 set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", options)
 set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", options)
 
-set_keymap("", "ss", "<CMD>HopChar1<CR>", {silent = true})
-set_keymap("", "sl", "<CMD>HopLine<CR>", {silent = true})
+set_keymap("", "ss", "<CMD>HopChar1<CR>", options)
+set_keymap("", "sl", "<CMD>HopLine<CR>", options)
 
 set_keymap("n", "<C-a>", "<Plug>(dial-increment)", options)
 set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", options)
@@ -44,11 +44,12 @@ set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", options)
 -- Which Key
 local keymaps = {
     [" "] = {":w<CR>", "write"},
-    ["-"] = {"<C-w>s", "split-below"},
-    ["\\"] = {"<C-w>v", "split-right"},
     [","] = {"<CMD>ScratchPreview<CR>", "scratch-preview"},
+    ["-"] = {"<C-w>s", "split-below"},
     ["."] = {"<CMD>BufOnly<CR>", "only-buffer"},
+    ["/"] = {"<Plug>kommentary_line_default", "commentary"},
     [";"] = {"<CMD>Telescope find_files hidden=true<CR>", "find-files"},
+    ["\\"] = {"<C-w>v", "split-right"},
     b = {"<CMD>BufferLinePick<CR>", "buffer-pick"},
     d = {"<CMD>Bwipeout<CR>", "delete-buffer"},
     e = {"<CMD>NvimTreeToggle<CR>", "explorer"},
@@ -62,26 +63,17 @@ local keymaps = {
     u = {"<CMD>MundoToggle<CR>", "undotree"}
 }
 
-local visual_keymaps = {}
+local visual_keymaps = {
+    ["/"] = {"<Plug>kommentary_visual_default", "commentary"},
+    x = {"<Plug>(vsnip-select-text)", "snippet-select"},
+    X = {"<Plug>(vsnip-cut-text)", "snippet-cut"}
+}
 
-local operator_keymaps = {}
-
-keymaps["/"] = "commentary"
-visual_keymaps["/"] = "commentary"
-operator_keymaps["/"] = "commentary"
-set_keymap("n", "<Leader>/", "<Plug>kommentary_line_default", {silent = true})
-set_keymap("x", "<Leader>/", "<Plug>kommentary_visual_default", {silent = true})
-set_keymap("o", "<Leader>/", "<Plug>kommentary_motion_default", {silent = true})
-
-keymaps["x"] = "snippet-select"
-visual_keymaps["x"] = "snippet-select"
-set_keymap("n", "<Leader>x", "<Plug>(vsnip-select-text)", {silent = true})
-set_keymap("x", "<Leader>x", "<Plug>(vsnip-select-text)", {silent = true})
-
-keymaps["X"] = "snippet-cut"
-visual_keymaps["X"] = "snippet-cut"
-set_keymap("n", "<Leader>X", "<Plug>(vsnip-cut-text)", {silent = true})
-set_keymap("x", "<Leader>X", "<Plug>(vsnip-cut-text)", {silent = true})
+local operator_keymaps = {
+    ["/"] = {"<Plug>kommentary_motion_default", "commentary"},
+    x = {"<Plug>(vsnip-select-text)", "snippet-select"},
+    X = {"<Plug>(vsnip-cut-text)", "snippet-cut"}
+}
 
 keymaps["1"] = "which_key_ignore"
 keymaps["2"] = "which_key_ignore"
@@ -138,7 +130,7 @@ keymaps["a"] = {
 visual_keymaps["a"] = {
     name = "+action",
     a = {"<Plug>(EasyAlign)", "align"},
-    s = {"<CMD>sort i<CR>", "sort"}
+    s = {":sort i<CR>", "sort"}
 }
 
 keymaps["g"] = {
