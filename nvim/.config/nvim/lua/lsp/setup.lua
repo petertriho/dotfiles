@@ -1,12 +1,12 @@
 local M = {}
 
 local lspinstall = require("lspinstall")
+local lsp_config = require("lsp/config")
 
 -- Install
 function _G.lsp_install_missing()
-    local configs = require("lsp/config")
     local installed_servers = lspinstall.installed_servers()
-    for server, _ in pairs(configs) do
+    for server, _ in pairs(lsp_config) do
         if not vim.tbl_contains(installed_servers, server) then
             lspinstall.install_server(server)
         end
@@ -240,8 +240,6 @@ end
 local function merge_config(first, second)
     for k, v in pairs(second) do first[k] = v end
 end
-
-local lsp_config = require("lsp/config")
 
 M.setup = function()
     lspinstall.setup()
