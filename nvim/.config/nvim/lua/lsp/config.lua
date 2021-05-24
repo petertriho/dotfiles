@@ -60,7 +60,7 @@ return {
         filetypes = {
             "conf", "css", "dockerfile", "javascript", "javascriptreact",
             "json", "html", "lua", "markdown", "python", "scss", "sh",
-            "typescript", "typescriptreact", "yaml"
+            "typescript", "typescriptreact", "vimwiki", "yaml"
         },
         settings = {
             rootMarkers = {
@@ -77,6 +77,7 @@ return {
                 html = {rustywind, prettier},
                 lua = {luaformat},
                 markdown = {prettier, markdownlint},
+                vimwiki = {prettier, markdownlint},
                 python = {isort, black},
                 scss = {rustywind, prettier},
                 sh = {shfmt, shellcheck},
