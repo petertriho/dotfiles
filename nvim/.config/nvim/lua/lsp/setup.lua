@@ -45,6 +45,18 @@ local on_attach = function(client, bufnr)
 
     local opts = {noremap = true, silent = true}
 
+    buf_set_keymap("n", "<Leader>lf", "<CMD>Lspsaga lsp_finder<CR>", opts)
+    keymaps["l"]["f"] = "finder"
+
+    buf_set_keymap("n", "K",
+                   "<CMD>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>",
+                   opts)
+
+    buf_set_keymap("n", "[d", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
+                   opts)
+    buf_set_keymap("n", "]d", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
+                   opts)
+
     if client.resolved_capabilities.document_formatting then
         buf_set_keymap("n", "<Leader>f",
                        "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
@@ -95,48 +107,40 @@ local on_attach = function(client, bufnr)
         keymaps["a"]["r"] = "rename"
     end
 
-    buf_set_keymap("n", "<Leader>lf", "<CMD>Lspsaga lsp_finder<CR>", opts)
-    keymaps["l"]["f"] = "finder"
+    if client.resolved_capabilities.signature_help then
+        -- buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
+        buf_set_keymap("n", "gs", "<CMD>Lspsaga signature_help<CR>", opts)
+    end
 
-    buf_set_keymap("n", "K",
-                   "<CMD>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>",
-                   opts)
+    if client.resolved_capabilities.code_action then
+        buf_set_keymap("n", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
+        keymaps["c"] = "code-action"
 
-    -- buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
-    buf_set_keymap("n", "gs", "<CMD>Lspsaga signature_help<CR>", opts)
+        buf_set_keymap("v", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
+        visual_keymaps["c"] = "code-action"
 
-    buf_set_keymap("n", "[d", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
-                   opts)
-    buf_set_keymap("n", "]d", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
-                   opts)
+        buf_set_keymap("n", "<Leader>al", "<CMD>Lspsaga code_action<CR>", opts)
+        keymaps["a"]["l"] = "list"
 
-    buf_set_keymap("n", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
-    keymaps["c"] = "code-action"
+        buf_set_keymap("v", "<Leader>al", "<CMD>Lspsaga code_action<CR>", opts)
+        visual_keymaps["a"]["l"] = "list"
 
-    buf_set_keymap("v", "<Leader>c", "<CMD>Lspsaga code_action<CR>", opts)
-    visual_keymaps["c"] = "code-action"
+        buf_set_keymap("n", "<Leader>q",
+                       "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+        keymaps["q"] = "quickfix"
 
-    buf_set_keymap("n", "<Leader>al", "<CMD>Lspsaga code_action<CR>", opts)
-    keymaps["a"]["l"] = "list"
+        buf_set_keymap("n", "<Leader>q",
+                       "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
+        visual_keymaps["q"] = "quickfix"
 
-    buf_set_keymap("v", "<Leader>al", "<CMD>Lspsaga code_action<CR>", opts)
-    visual_keymaps["a"]["l"] = "list"
+        buf_set_keymap("n", "<Leader>aq",
+                       "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+        keymaps["a"]["q"] = "quickfix"
 
-    buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>",
-                   opts)
-    keymaps["q"] = "quickfix"
-
-    buf_set_keymap("n", "<Leader>q",
-                   "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
-    visual_keymaps["q"] = "quickfix"
-
-    buf_set_keymap("n", "<Leader>aq", "<CMD>lua vim.lsp.buf.code_action()<CR>",
-                   opts)
-    keymaps["a"]["q"] = "quickfix"
-
-    buf_set_keymap("n", "<Leader>aq",
-                   "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
-    visual_keymaps["a"]["q"] = "quickfix"
+        buf_set_keymap("n", "<Leader>aq",
+                       "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
+        visual_keymaps["a"]["q"] = "quickfix"
+    end
 
     wk.register(keymaps, {
         prefix = "<Leader>",
