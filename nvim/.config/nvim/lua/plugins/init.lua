@@ -6,8 +6,6 @@ local config = require("plugins/config")
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
-    use "nvim-lua/plenary.nvim"
-
     -- ui
     use "folke/tokyonight.nvim"
     use {
@@ -29,7 +27,7 @@ require("packer").startup(function(use)
     use "hrsh7th/nvim-compe"
     use {"hrsh7th/vim-vsnip", start = config["hrsh7th/vim-vsnip"]}
     use "hrsh7th/vim-vsnip-integ"
-    use "jose-elias-alvarez/nvim-lsp-ts-utils"
+    use {"jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils"}
     use "kabouzeid/nvim-lspinstall"
     use "onsails/lspkind-nvim"
     use "rafamadriz/friendly-snippets"
