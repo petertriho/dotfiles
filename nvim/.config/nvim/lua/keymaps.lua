@@ -164,11 +164,11 @@ keymaps["l"] = {
     d = {
         name = "+diagnostics",
         d = {
-            "<CMD>lua require('telescope.builtin').document_diagnostics()<CR>",
+            "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>",
             "document"
         },
         w = {
-            "<CMD>lua require('telescope.builtin').workspace_diagnostics()<CR>",
+            "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>",
             "workspace"
         }
     },
@@ -181,14 +181,14 @@ keymaps["l"] = {
     s = {
         name = "+symbols",
         d = {
-            "<CMD>lua require('telescope.builtin').document_symbols()<CR>", "document"
+            "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", "document"
         },
         w = {
-            "<CMD>lua require('telescope.builtin').workspace_symbols()<CR>",
+            "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>",
             "workspace"
         },
         W = {
-            "<CMD>lua require('telescope.builtin').dynamic_workspace_symbols()<CR>",
+            "<CMD>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
             "dynamic-workspace"
         }
     }
