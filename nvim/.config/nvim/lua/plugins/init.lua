@@ -87,10 +87,11 @@ require("packer").startup(function(use)
         requires = "nvim-treesitter/nvim-treesitter",
         after = "nvim-treesitter"
     }
-    --[[ use {
+    use {
         "romgrk/nvim-treesitter-context",
-        requires = "nvim-treesitter/nvim-treesitter"
-    } ]]
+        requires = "nvim-treesitter/nvim-treesitter",
+        after = "nvim-treesitter"
+    }
     use {
         "windwp/nvim-ts-autotag",
         requires = "nvim-treesitter/nvim-treesitter",
@@ -186,7 +187,8 @@ require("packer").startup(function(use)
         start = config["editorconfig/editorconfig-vim"]
     }
     use {"moll/vim-bbye", cmd = "Bwipeout"}
-    use {"numtostr/BufOnly.nvim", cmd = "BufOnly"}
+    -- use {"numtostr/BufOnly.nvim", cmd = "BufOnly"}
+    use {"schickling/vim-bufonly", cmd = "BufOnly"}
     use "roxma/vim-tmux-clipboard"
     use "ryvnf/readline.vim"
     use "tpope/vim-repeat"
