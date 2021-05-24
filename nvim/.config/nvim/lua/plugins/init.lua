@@ -172,7 +172,7 @@ require("packer").startup(function(use)
     }
 
     -- motions
-    use {"chaoren/vim-wordmotion", start = config["chaoren/vim-wordmotion"]}
+    use {"chaoren/vim-wordmotion", config = config["chaoren/vim-wordmotion"]}
     use {"phaazon/hop.nvim", cmd = {"HopChar1", "HopLine"}}
     use "wellle/targets.vim"
     use {"unblevable/quick-scope", opt = true}
