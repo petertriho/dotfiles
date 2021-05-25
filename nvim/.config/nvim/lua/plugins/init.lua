@@ -192,7 +192,6 @@ require("packer").startup(function(use)
     -- use {"moll/vim-bbye", cmd = "Bwipeout"}
     -- use {"numtostr/BufOnly.nvim", cmd = "BufOnly"}
     use {"schickling/vim-bufonly", cmd = "BufOnly"}
-    use "roxma/vim-tmux-clipboard"
     use "ryvnf/readline.vim"
     use "tpope/vim-repeat"
     use "tpope/vim-unimpaired"
