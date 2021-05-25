@@ -91,6 +91,11 @@ require("packer").startup(function(use)
         after = "nvim-treesitter"
     }
     use {
+        "windwp/nvim-autopairs",
+        config = config["windwp/nvim-autopairs"],
+        after = "nvim-treesitter"
+    }
+    use {
         "windwp/nvim-ts-autotag",
         requires = "nvim-treesitter/nvim-treesitter",
         after = "nvim-treesitter"
@@ -109,7 +114,6 @@ require("packer").startup(function(use)
     use "mattn/emmet-vim"
     use "monaqa/dial.nvim"
     use {"tpope/vim-abolish", cmd = "Subvert", keys = "cr"}
-    use {"windwp/nvim-autopairs", config = config["windwp/nvim-autopairs"]}
 
     -- tools
     use {
