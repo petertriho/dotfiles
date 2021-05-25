@@ -184,9 +184,7 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.rename then
-        keymaps["a"]["r"] = {
-            "<CMD>lua require'lsp.rename'.rename()<CR>", "rename"
-        }
+        keymaps["a"]["r"] = {"<CMD>Lspsaga rename<CR>", "rename"}
     end
 
     if client.resolved_capabilities.signature_help then
