@@ -36,7 +36,13 @@ local markdownlint = {
     lintFormats = {"%f:%l %m", "%f:%l:%c %m", "%f: %l: %m"}
 }
 
-local prettier = {formatCommand = "prettierd ${INPUT}", formatStdin = true}
+local prettier = {
+    formatCommand = "prettierd ${INPUT}",
+    formatStdin = true,
+    env = {
+        "PRETTIERD_DEFAULT_CONFIG=~/.config/format-lint/.prettierrc.json"
+    }
+}
 
 local rustywind = {formatCommand = "rustywind --stdin", formatStdin = true}
 
@@ -60,7 +66,8 @@ return {
         filetypes = {
             "conf", "css", "dockerfile", "javascript", "javascriptreact",
             "json", "html", "lua", "markdown", "python", "scss", "sh",
-            "typescript", "typescriptreact", "vimwiki", "yaml"
+            "typescript", "typescriptreact", "vimwiki", "yaml",
+            "yaml.docker-compose"
         },
         settings = {
             rootMarkers = {
@@ -83,7 +90,8 @@ return {
                 sh = {shfmt, shellcheck},
                 typescript = {prettier, eslint},
                 typescriptreact = {rustywind, prettier, eslint},
-                yaml = {prettier}
+                yaml = {prettier},
+                ["yaml.docker-compose"] = {prettier}
             }
         }
     },
@@ -138,5 +146,5 @@ return {
     },
     terraform = {},
     typescript = {},
-    yaml = {}
+    yaml = {filetypes = {"yaml", "yaml.docker-compose"}}
 }

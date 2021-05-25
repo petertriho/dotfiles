@@ -264,6 +264,8 @@ M.setup = function()
         elseif server == "typescript" then
             merge_config(config, lsp_config.typescript)
             config.on_attach = on_attach_ts
+        elseif server == "yaml" then
+            merge_config(config, lsp_config.yaml)
         end
 
         require("lspconfig")[server].setup(config)
