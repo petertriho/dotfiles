@@ -188,7 +188,7 @@ require("packer").startup(function(use)
         "editorconfig/editorconfig-vim",
         start = config["editorconfig/editorconfig-vim"]
     }
-    use {"famiu/bufdelete.nvim", cmd = "BufOnly"}
+    use {"famiu/bufdelete.nvim", cmd = "Bwipeout"}
     -- use {"moll/vim-bbye", cmd = "Bwipeout"}
     -- use {"numtostr/BufOnly.nvim", cmd = "BufOnly"}
     use {"schickling/vim-bufonly", cmd = "BufOnly"}
