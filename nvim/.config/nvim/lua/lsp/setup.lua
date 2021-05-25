@@ -63,7 +63,7 @@ local on_attach = function(client, bufnr)
     local opts = {noremap = true, silent = true}
 
     buf_set_keymap("n", "K",
-                   "<CMD>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>",
+                   "<CMD>lua require('lspsaga.diagnostic').show_cursor_diagnostics()<CR>",
                    opts)
     buf_set_keymap("n", "[d", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
                    opts)
@@ -72,10 +72,14 @@ local on_attach = function(client, bufnr)
 
     if client.resolved_capabilities.code_action then
         keymaps["c"] = {"<CMD>Lspsaga code_action<CR>", "code-action"}
-        visual_keymaps["c"] = {"<CMD>Lspsaga code_action<CR>", "code-action"}
+        visual_keymaps["c"] = {
+            ":<C-U>Lspsaga range_code_action<CR>", "code-action"
+        }
 
         keymaps["a"]["l"] = {"<CMD>Lspsaga code_action<CR>", "list"}
-        visual_keymaps["a"]["l"] = {"<CMD>Lspsaga code_action<CR>", "list"}
+        visual_keymaps["a"]["l"] = {
+            ":<C-U>Lspsaga range_code_action<CR>", "list"
+        }
 
         keymaps["l"]["c"] = {
             "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>",
@@ -139,7 +143,7 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.find_references then
-        buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+        buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", opts)
         keymaps["l"]["r"] = {
             "<CMD>lua require('telescope.builtin').lsp_references()<CR>",
             "references"
@@ -171,6 +175,12 @@ local on_attach = function(client, bufnr)
         buf_set_keymap("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", opts) ]]
         buf_set_keymap("n", "gh", "<CMD>Lspsaga hover_doc<CR>", opts)
         keymaps["l"]["h"] = {"<CMD>Lspsaga hover_doc<CR>", "hover-doc"}
+        buf_set_keymap("n", "<C-f>",
+                       "<CMD>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
+                       opts)
+        buf_set_keymap("n", "<C-b>",
+                       "<CMD>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
+                       opts)
     end
 
     if client.resolved_capabilities.rename then
