@@ -39,9 +39,7 @@ local markdownlint = {
 local prettier = {
     formatCommand = "prettierd ${INPUT}",
     formatStdin = true,
-    env = {
-        "PRETTIERD_DEFAULT_CONFIG=~/.config/format-lint/.prettierrc.json"
-    }
+    env = {"PRETTIERD_DEFAULT_CONFIG=~/.config/format-lint/.prettierrc.json"}
 }
 
 local rustywind = {formatCommand = "rustywind --stdin", formatStdin = true}
