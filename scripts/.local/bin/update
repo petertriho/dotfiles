@@ -56,6 +56,14 @@ function tool:nvim {
 			brew upgrade neovim --fetch-head
 		fi
 	fi
+
+	echo "Updating neovim plugins ..."
+	nvim \
+		+"autocmd User PackerComplete sleep 100m | qall" \
+		+PackerClean
+	nvim \
+		+"autocmd User PackerComplete sleep 100m | qall" \
+		+PackerSync
 }
 
 function tool:scoop {
@@ -89,6 +97,11 @@ function tool:misc {
 	install_formatters_linters
 }
 
+function tool:yarn {
+    echo "Updating yarn global packages ..."
+    yarn global upgrade --latest
+}
+
 function tool:all {
 	tool:dotfiles
 
@@ -102,7 +115,8 @@ function tool:all {
 	tool:fish
 	tool:nvim
 	tool:tmux
-    tool:misc
+	tool:misc
+    tool:yarn
 
 	exec "$SHELL"
 }
