@@ -48,7 +48,7 @@ local keymaps = {
     ["-"] = {"<C-w>s", "split-below"},
     ["."] = {"<CMD>BufOnly<CR>", "only-buffer"},
     ["/"] = {"<Plug>kommentary_line_default", "commentary"},
-    [";"] = {"<CMD>Telescope find_files<CR>", "find-files"},
+    [";"] = {"<CMD>Telescope find_files hidden=true<CR>", "find-files"},
     ["\\"] = {"<C-w>v", "split-right"},
     b = {"<CMD>BufferLinePick<CR>", "buffer-pick"},
     d = {"<CMD>Bwipeout<CR>", "delete-buffer"},
