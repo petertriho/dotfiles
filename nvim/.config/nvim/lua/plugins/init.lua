@@ -23,7 +23,7 @@ require("packer").startup(function(use)
     -- lsp
     use "neovim/nvim-lspconfig"
     use {"folke/lua-dev.nvim", filetype = "lua"}
-    use "glepnir/lspsaga.nvim"
+    use {"glepnir/lspsaga.nvim", config = config["glepnir/lspsaga.nvim"]}
     use "hrsh7th/nvim-compe"
     use {"hrsh7th/vim-vsnip", start = config["hrsh7th/vim-vsnip"]}
     use "hrsh7th/vim-vsnip-integ"

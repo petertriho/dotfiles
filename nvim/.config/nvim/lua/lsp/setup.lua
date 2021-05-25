@@ -253,7 +253,6 @@ end
 
 M.setup = function()
     lspinstall.setup()
-    require("lspsaga").init_lsp_saga()
 
     local servers = lspinstall.installed_servers()
 
