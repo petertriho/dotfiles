@@ -148,6 +148,15 @@ keymaps["g"] = {
 
 keymaps["w"] = {name = "+wiki"}
 
+keymaps["S"] = {
+    "<CMD>lua require('telescope.builtin').live_grep({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
+    "search-wiki"
+}
+keymaps["W"] = {
+    "<CMD>lua require('telescope.builtin').find_files({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
+    "find-wiki"
+}
+
 require("which-key").register(keymaps, {
     prefix = "<Leader>",
     mode = "n",
