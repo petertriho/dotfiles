@@ -1,6 +1,6 @@
 -- folke/tokyonight.nvim
 vim.g.tokyonight_style = "night"
-vim.g.tokyonight_sidebars = {"Mundo", "MundoDiff"}
+vim.g.tokyonight_sidebars = {"Mundo", "MundoDiff", "DiffViewFiles"}
 vim.g.tokyonight_colors = {bg_sidebar = "#16161e", bg_float = "#16161e"}
 vim.cmd("colorscheme tokyonight")
 
@@ -24,7 +24,8 @@ require("bufferline").setup {
             }
         },
         custom_filter = function(buf_number)
-            if vim.bo[buf_number].filetype ~= "fugitive" then
+            if vim.bo[buf_number].filetype ~= "fugitive" or
+                vim.bo[buf_number].filetpe ~= "NeogitStatus" then
                 return true
             end
         end
@@ -58,7 +59,7 @@ local properties = {
     force_inactive = {
         filetypes = {
             "NvimTree", "Mundo", "MundoDiff", "packer", "fugitive",
-            "fugitiveblame"
+            "fugitiveblame", "NeogitStatus", "DiffviewFiles"
         },
         buftypes = {"terminal"},
         bufnames = {}

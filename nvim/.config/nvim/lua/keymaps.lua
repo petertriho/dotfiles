@@ -56,7 +56,7 @@ local keymaps = {
     e = {"<CMD>NvimTreeToggle<CR>", "explorer"},
     h = {":nohl<CR>", "no-highlight"},
     j = {":call ToggleGstatus(0)<CR>", "git-status"},
-    J = {":call ToggleGstatus(1)<CR>", "git-status-vertical"},
+    J = {":Neogit kind=split<CR>", "neo-git-status"},
     p = {"<CMD>Glow<CR>", "preview"},
     r = {":lua require('spectre').open()<CR>", "find-replace"},
     s = {"<CMD>Telescope live_grep<CR>", "search-text"},

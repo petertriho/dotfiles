@@ -47,7 +47,8 @@ local config = {
         local set_keymap = vim.api.nvim_set_keymap
         local options = {noremap = true, silent = true}
         set_keymap("n", "<M-t>", ":Lspsaga open_floaterm<CR>", options)
-        set_keymap("t", "<M-t>", "<C-\\><C-n>:Lspsaga close_floaterm<CR>", options)
+        set_keymap("t", "<M-t>", "<C-\\><C-n>:Lspsaga close_floaterm<CR>",
+                   options)
     end,
     ["hrsh7th/vim-vsnip"] = function()
         vim.g.vsnip_filetypes = {
@@ -98,7 +99,8 @@ local config = {
         vim.g.indent_blankline_char = "│"
         vim.g.indent_blankline_filetype_exclude = {
             "NvimTree", "lspinfo", "Mundo", "MundoDiff", "packer", "fugitive",
-            "fugitiveblame", "javascriptreact", "typescriptreact"
+            "fugitiveblame", "javascriptreact", "typescriptreact",
+            "NeogitStatus", "DiffViewFiles"
         }
     end,
     ["mg979/vim-visual-multi"] = function()
@@ -146,6 +148,9 @@ local config = {
             "graphql", "html5", "javascript", "json", "jsonc", "jsx", "python",
             "scss", "toml", "typescript", "yaml"
         }
+    end,
+    ["TimUntersberger/neogit"] = function()
+        require("neogit").setup({integrations = {diffview = true}})
     end,
     ["windwp/nvim-autopairs"] = function()
         require("nvim-autopairs").setup({check_ts = true})

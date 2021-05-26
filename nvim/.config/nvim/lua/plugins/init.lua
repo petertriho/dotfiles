@@ -164,6 +164,13 @@ require("packer").startup(function(use)
     }
     use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}
+    use {
+        "TimUntersberger/neogit",
+        requires = {"nvim-lua/plenary.nvim", "sindrets/diffview.nvim"},
+        config = config["TimUntersberger/neogit"],
+        cmd = "Neogit",
+        module = "neogit"
+    }
     use {"tpope/vim-fugitive", cmd = {"G", "Git"}}
     use {"vimwiki/vimwiki", config = config["vimwiki/vimwiki"]}
     use {
