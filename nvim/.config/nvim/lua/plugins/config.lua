@@ -139,13 +139,6 @@ local config = {
     end,
     ["onsails/lspkind-nvim"] = function() require("lspkind").init() end,
     ["pwntester/octo.nvim"] = function() require("octo").setup() end,
-    ["sheerun/vim-polyglot"] = function()
-        vim.g.polyglot_disabled = {
-            "autoindent", "sensible", "css", "dockerfile", "fish", "go",
-            "graphql", "html5", "javascript", "json", "jsonc", "jsx", "python",
-            "scss", "toml", "typescript", "yaml"
-        }
-    end,
     ["TimUntersberger/neogit"] = function()
         require("neogit").setup({integrations = {diffview = true}})
     end,

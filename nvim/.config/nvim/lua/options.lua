@@ -127,3 +127,9 @@ set_augroups({
         }
     }
 })
+
+vim.g.polyglot_disabled = {
+    "autoindent", "sensible", "css", "dockerfile", "fish", "go", "graphql",
+    "html5", "javascript", "javascriptreact", "json", "jsonc", "jsx", "python",
+    "scss", "toml", "typescript", "typescriptreact", "yaml"
+}
