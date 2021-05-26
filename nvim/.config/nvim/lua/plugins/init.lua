@@ -61,27 +61,32 @@ require("packer").startup(function(use)
     -- treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
-        config = function() require("plugins/treesitter") end,
+        config = config["nvim-treesitter/nvim-treesitter"],
+        opt = true,
         run = ":TSUpdate"
     }
     use {
         "andymass/vim-matchup",
         require = "nvim-treesitter/nvim-treesitter",
+        config = config["andymass/vim-matchup"],
         after = "nvim-treesitter"
     }
     use {
         "JoosepAlviste/nvim-ts-context-commentstring",
         requires = "nvim-treesitter/nvim-treesitter",
+        config = config["JoosepAlviste/nvim-ts-context-commentstring"],
         after = "nvim-treesitter"
     }
     use {
         "nvim-treesitter/nvim-treesitter-textobjects",
         requires = "nvim-treesitter/nvim-treesitter",
+        config = config["nvim-treesitter/nvim-treesitter-textobjects"],
         after = "nvim-treesitter"
     }
     use {
         "p00f/nvim-ts-rainbow",
         requires = "nvim-treesitter/nvim-treesitter",
+        config = config["p00f/nvim-ts-rainbow"],
         after = "nvim-treesitter"
     }
     use {
@@ -91,12 +96,14 @@ require("packer").startup(function(use)
     }
     use {
         "windwp/nvim-autopairs",
+        requires = "nvim-treesitter/nvim-treesitter",
         config = config["windwp/nvim-autopairs"],
         after = "nvim-treesitter"
     }
     use {
         "windwp/nvim-ts-autotag",
         requires = "nvim-treesitter/nvim-treesitter",
+        config = config["windwp/nvim-ts-autotag"],
         after = "nvim-treesitter"
     }
 
