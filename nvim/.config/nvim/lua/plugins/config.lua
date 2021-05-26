@@ -29,9 +29,6 @@ local config = {
         vim.g.EditorConfig_exclude_patterns = {"fugitive://.*"}
     end,
     ["kyazdani42/nvim-tree.lua"] = function()
-        require("nvim-tree.events").on_nvim_tree_ready(function()
-            vim.cmd("NvimTreeRefresh")
-        end)
         vim.g.nvim_tree_follow = 1
         vim.g.nvim_tree_indent_markers = 1
         vim.g.nvim_tree_git_hl = 1
@@ -42,7 +39,9 @@ local config = {
     ["folke/trouble.nvim"] = function() require("trouble").setup() end,
     ["f-person/git-blame.nvim"] = function() vim.g.gitblame_enabled = 0 end,
     ["glepnir/lspsaga.nvim"] = function()
-        require("lspsaga").init_lsp_saga()
+        require("lspsaga").init_lsp_saga({
+            rename_prompt_prefix = ""
+        })
 
         local set_keymap = vim.api.nvim_set_keymap
         local options = {noremap = true, silent = true}
