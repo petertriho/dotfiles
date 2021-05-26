@@ -24,8 +24,8 @@ require("bufferline").setup {
             }
         },
         custom_filter = function(buf_number)
-            if vim.bo[buf_number].filetype ~= "fugitive" or
-                vim.bo[buf_number].filetpe ~= "NeogitStatus" then
+            if vim.bo[buf_number].filetype ~= "fugitive" and
+                vim.bo[buf_number].filetype ~= "NeogitStatus" then
                 return true
             end
         end
