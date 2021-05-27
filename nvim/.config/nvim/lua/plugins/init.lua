@@ -69,7 +69,7 @@ require("packer").startup(function(use)
         "andymass/vim-matchup",
         require = "nvim-treesitter/nvim-treesitter",
         config = config["andymass/vim-matchup"],
-        after = "nvim-treesitter"
+        opt = true
     }
     use {
         "JoosepAlviste/nvim-ts-context-commentstring",
@@ -204,10 +204,11 @@ require("packer").startup(function(use)
     use {"famiu/bufdelete.nvim", cmd = "Bwipeout"}
     -- use {"moll/vim-bbye", cmd = "Bwipeout"}
     -- use {"numtostr/BufOnly.nvim", cmd = "BufOnly"}
-    use {"schickling/vim-bufonly", cmd = "BufOnly"}
     use "ryvnf/readline.vim"
+    use {"schickling/vim-bufonly", cmd = "BufOnly"}
     use "tpope/vim-repeat"
-    use "tpope/vim-unimpaired"
+    use {"tpope/vim-unimpaired", opt = true}
+    use {"tweekmonster/startuptime.vim", cmd = "StartupTime"}
 end)
 
 require("plugins/lazyload")
