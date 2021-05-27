@@ -25,7 +25,7 @@ vim.cmd [[command! LspInstallMissing call v:lua.lsp_install_missing()]]
 vim.cmd [[command! LspUpdateAll call v:lua.lsp_update_all()]]
 
 -- Setup
-local wk = require("which-key")
+local register = require("which-key").register
 local keymaps = {a = {name = "+action"}, l = {name = "+lsp"}}
 local visual_keymaps = {a = {name = "+action"}, l = {name = "+lsp"}}
 
@@ -195,7 +195,7 @@ local on_attach = function(client, bufnr)
                        options)
     end
 
-    wk.register(keymaps, {
+    register(keymaps, {
         prefix = "<Leader>",
         mode = "n",
         buffer = bufnr,
@@ -203,7 +203,7 @@ local on_attach = function(client, bufnr)
         noremap = true
     })
 
-    wk.register(keymaps, {
+    register(keymaps, {
         prefix = "<Leader>",
         mode = "v",
         buffer = bufnr,

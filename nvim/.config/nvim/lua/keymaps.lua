@@ -157,23 +157,13 @@ keymaps["W"] = {
     "find-wiki"
 }
 
-require("which-key").register(keymaps, {
-    prefix = "<Leader>",
-    mode = "n",
-    silent = true,
-    noremap = true
-})
+local register = require("which-key").register
 
-require("which-key").register(visual_keymaps, {
-    prefix = "<Leader>",
-    mode = "x",
-    silent = true,
-    noremap = true
-})
+register(keymaps,
+         {prefix = "<Leader>", mode = "n", silent = true, noremap = true})
 
-require("which-key").register(operator_keymaps, {
-    prefix = "<Leader>",
-    mode = "o",
-    silent = true,
-    noremap = true
-})
+register(visual_keymaps,
+         {prefix = "<Leader>", mode = "x", silent = true, noremap = true})
+
+register(operator_keymaps,
+         {prefix = "<Leader>", mode = "o", silent = true, noremap = true})
