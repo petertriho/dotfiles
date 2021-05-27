@@ -126,6 +126,15 @@ set_augroups({
             "TextYankPost", "*",
             "lua require('vim.highlight').on_yank({ higroup = 'Search', timeout = 200 })"
         }
+    },
+    _color = {
+        {
+            "ColorScheme", "*",
+            "highlight QuickScopePrimary guifg=#7aa2f7 gui=underline ctermfg=blue cterm=underline"
+        }, {
+            "ColorScheme", "*",
+            "highlight QuickScopeSecondary guifg=#f7768e gui=underline ctermfg=red cterm=underline"
+        }
     }
 })
 
