@@ -54,9 +54,9 @@ local keymaps = {
     b = {"<CMD>BufferLinePick<CR>", "buffer-pick"},
     d = {"<CMD>Bwipeout<CR>", "delete-buffer"},
     e = {"<CMD>NvimTreeToggle<CR>", "explorer"},
-    h = {":nohl<CR>", "no-highlight"},
     j = {":call ToggleGstatus(0)<CR>", "git-status"},
     J = {":Neogit kind=split<CR>", "neo-git-status"},
+    n = {":nohl<CR>", "no-highlight"},
     p = {"<CMD>Glow<CR>", "preview"},
     r = {":lua require('spectre').open()<CR>", "find-replace"},
     s = {"<CMD>Telescope live_grep<CR>", "search-text"},
@@ -145,6 +145,16 @@ keymaps["g"] = {
     p = {"<CMD>Octo pr list<CR>", "gh-pr"},
     s = {"<CMD>lua require('telescope.builtin').git_stashes()<CR>", "stashes"},
     t = {"<CMD>GitBlameToggle<CR>", "toggle-blame"}
+}
+
+keymaps["h"] = {
+    name = "+hunks",
+    s = "stage",
+    u = "undo-stage",
+    r = "reset-hunk",
+    R = "reset-buffer",
+    p = "preview",
+    b = "blame"
 }
 
 keymaps["w"] = {name = "+wiki"}
