@@ -231,7 +231,7 @@ local on_attach_ts = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>i", ":TSLspImportAll<CR>",
                                 opts)
 
-    wk.register({
+    register({
         o = "organize-imports",
         q = "quickfix",
         a = {r = "rename"},
