@@ -48,6 +48,6 @@ set_keymap("s", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", complete_opts)
 local compe_opts = {silent = true, expr = true, noremap = true}
 set_keymap("i", "<C-Space>", "compe#complete()", compe_opts)
 set_keymap("i", "<CR>", "compe#confirm('<CR>')", compe_opts)
-set_keymap("i", "<C-e>", "compe#close()", compe_opts)
-set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })", compe_opts)
+set_keymap("i", "<C-c>", "compe#close()", compe_opts)
 set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", compe_opts)
+set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", compe_opts)
