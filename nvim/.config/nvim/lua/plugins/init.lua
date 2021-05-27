@@ -1,6 +1,5 @@
 -- TODO:
 -- coc-git
--- vim-doge
 local config = require("plugins/config")
 
 require("packer").startup(function(use)
@@ -113,6 +112,7 @@ require("packer").startup(function(use)
         start = config["AndrewRadev/splitjoin.vim"],
         cmd = {"SplitjoinJoin", "SplitjoinSplit"}
     }
+    use {"chaoren/vim-wordmotion", config = config["chaoren/vim-wordmotion"]}
     use "b3nj5m1n/kommentary"
     use {"junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)"}
 
@@ -120,6 +120,7 @@ require("packer").startup(function(use)
     use "mattn/emmet-vim"
     use "monaqa/dial.nvim"
     use {"tpope/vim-abolish", cmd = "Subvert", keys = "cr"}
+    use "wellle/targets.vim"
 
     -- tools
     use {
@@ -187,9 +188,7 @@ require("packer").startup(function(use)
     }
 
     -- motions
-    use {"chaoren/vim-wordmotion", config = config["chaoren/vim-wordmotion"]}
     use {"phaazon/hop.nvim", cmd = {"HopChar1", "HopLine"}}
-    use "wellle/targets.vim"
     use {"unblevable/quick-scope", opt = true}
 
     -- misc
@@ -202,8 +201,11 @@ require("packer").startup(function(use)
         start = config["editorconfig/editorconfig-vim"]
     }
     use {"famiu/bufdelete.nvim", cmd = "Bwipeout"}
-    -- use {"moll/vim-bbye", cmd = "Bwipeout"}
-    -- use {"numtostr/BufOnly.nvim", cmd = "BufOnly"}
+    use {
+        "kkoomen/vim-doge",
+        config = config["kkoomen/vim-doge"],
+        run = ":call doge#install({ 'headless': 1 })"
+    }
     use "ryvnf/readline.vim"
     use {"schickling/vim-bufonly", cmd = "BufOnly"}
     use "tpope/vim-repeat"

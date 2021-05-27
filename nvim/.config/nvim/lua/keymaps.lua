@@ -122,6 +122,7 @@ set_keymap("", "<Leader>0", "<CMD>lua require'bufferline'.go_to_buffer(10)<CR>",
 keymaps["a"] = {
     name = "+action",
     a = {"<Plug>(EasyAlign)", "align"},
+    d = "doc-gen",
     j = {"<CMD>SplitjoinJoin<CR>", "join-lines"},
     p = {"ggVG\"+p", "paste-file"},
     x = {"<CMD>SplitjoinSplit<CR>", "split-lines"},

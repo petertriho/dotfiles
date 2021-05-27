@@ -36,6 +36,7 @@ local config = {
             context_commentstring = {enable = true}
         })
     end,
+    ["kkoomen/vim-doge"] = function() vim.g.doge_mapping = "<Leader>ad" end,
     ["kyazdani42/nvim-tree.lua"] = function()
         vim.g.nvim_tree_follow = 1
         vim.g.nvim_tree_indent_markers = 1
