@@ -1,14 +1,3 @@
-vim.g.loaded_compe_emoji = 1
-vim.g.loaded_compe_luasnip = 1
-vim.g.loaded_compe_omni = 1
-vim.g.loaded_compe_snippets_nvim = 1
-vim.g.loaded_compe_spell = 1
-vim.g.loaded_compe_tags = 1
-vim.g.loaded_compe_treesitter = 1
-vim.g.loaded_compe_ultisnips = 1
-vim.g.loaded_compe_vim_lsc = 1
-vim.g.loaded_compe_vim_lsp = 1
-
 require("compe").setup {
     enabled = true,
     autocomplete = true,
