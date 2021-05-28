@@ -135,18 +135,22 @@ components.right.active = {
     {
         provider = "diagnostic_info",
         enabled = function() return lsp.diagnostics_exist("Information") end,
+        icon = "  ",
         hl = {fg = "blue"}
     }, {
         provider = "diagnostic_hints",
         enabled = function() return lsp.diagnostics_exist("Hint") end,
+        icon = "  ",
         hl = {fg = "cyan"}
     }, {
         provider = "diagnostic_warnings",
         enabled = function() return lsp.diagnostics_exist("Warning") end,
+        icon = "  ",
         hl = {fg = "yellow"}
     }, {
         provider = "diagnostic_errors",
         enabled = function() return lsp.diagnostics_exist("Error") end,
+        icon = "  ",
         hl = {fg = "red"}
     }, {provider = "lsp_client_names", left_sep = " ", right_sep = " "},
     {provider = "file_type", left_sep = {"left", " "}, right_sep = " "}, {
