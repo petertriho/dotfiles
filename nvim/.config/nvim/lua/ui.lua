@@ -91,6 +91,7 @@ components.left.active = {
         end
     }, {
         provider = "file_info",
+        file_modified_icon = "",
         hl = function()
             return {
                 fg = vi_mode_utils.get_mode_color(),
