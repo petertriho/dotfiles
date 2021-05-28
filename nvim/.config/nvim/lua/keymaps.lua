@@ -51,7 +51,7 @@ local keymaps = {
     [";"] = {"<CMD>Telescope find_files hidden=true<CR>", "find-files"},
     [":"] = {"<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files"},
     ["\\"] = {"<C-w>v", "split-right"},
-    b = {"<CMD>BufferLinePick<CR>", "buffer-pick"},
+    b = {"<CMD>Telescope buffers<CR>", "buffers"},
     d = {"<CMD>Bwipeout<CR>", "delete-buffer"},
     e = {"<CMD>NvimTreeToggle<CR>", "explorer"},
     j = {":call ToggleGstatus(0)<CR>", "git-status"},
