@@ -48,7 +48,14 @@ local config = {
     ["folke/trouble.nvim"] = function() require("trouble").setup() end,
     ["f-person/git-blame.nvim"] = function() vim.g.gitblame_enabled = 0 end,
     ["glepnir/lspsaga.nvim"] = function()
-        require("lspsaga").init_lsp_saga({rename_prompt_prefix = ""})
+        require("lspsaga").init_lsp_saga({
+            rename_prompt_prefix = "",
+            use_saga_diagnostic_sign = true,
+            error_sign = "",
+            warn_sign = "",
+            hint_sign = "",
+            infor_sign = ""
+        })
 
         local set_keymap = vim.api.nvim_set_keymap
         local options = {noremap = true, silent = true}
