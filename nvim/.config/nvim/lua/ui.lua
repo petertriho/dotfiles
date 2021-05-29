@@ -10,6 +10,7 @@ require("bufferline").setup {
         numbers = "ordinal",
         number_style = "",
         diagnostics = "nvim_lsp",
+        modified_icon= "",
         offsets = {
             {
                 filetype = "NvimTree",
