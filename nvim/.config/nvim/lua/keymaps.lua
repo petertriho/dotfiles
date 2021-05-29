@@ -61,7 +61,8 @@ local keymaps = {
     r = {":lua require('spectre').open()<CR>", "find-replace"},
     s = {"<CMD>Telescope live_grep<CR>", "search-text"},
     t = {"<CMD>TroubleToggle<CR>", "trouble"},
-    u = {"<CMD>MundoToggle<CR>", "undotree"}
+    u = {"<CMD>MundoToggle<CR>", "undotree"},
+    z = {"<CMD>ZenMode<CR>", "zenmode"}
 }
 
 local visual_keymaps = {

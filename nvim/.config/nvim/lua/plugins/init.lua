@@ -141,6 +141,11 @@ require("packer").startup(function(use)
         cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"}
     }
     use {
+        "folke/zen-mode.nvim",
+        config = config["folke/zen-mode-nvim"],
+        cmd = {"ZenMode"}
+    }
+    use {
         "kyazdani42/nvim-tree.lua",
         requires = "kyazdani42/nvim-web-devicons",
         config = config["kyazdani42/nvim-tree.lua"],
