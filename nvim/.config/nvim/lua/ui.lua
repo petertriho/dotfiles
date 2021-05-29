@@ -10,7 +10,7 @@ require("bufferline").setup {
         numbers = "ordinal",
         number_style = "",
         diagnostics = "nvim_lsp",
-        modified_icon= "",
+        modified_icon= "*",
         offsets = {
             {
                 filetype = "NvimTree",
@@ -92,7 +92,7 @@ components.left.active = {
         end
     }, {
         provider = "file_info",
-        file_modified_icon = "",
+        file_modified_icon = "*",
         hl = function()
             return {
                 fg = vi_mode_utils.get_mode_color(),
