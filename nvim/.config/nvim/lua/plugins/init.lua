@@ -184,7 +184,7 @@ require("packer").startup(function(use)
         module = "neogit"
     }
     use {"tpope/vim-fugitive", cmd = {"G", "Git"}}
-    use {"vimwiki/vimwiki", config = config["vimwiki/vimwiki"]}
+    use {"vimwiki/vimwiki", opt = true}
     use {
         "windwp/nvim-spectre",
         requires = {"nvim-lua/plenary.nvim", "nvim-lua/popup.nvim"},
@@ -201,6 +201,7 @@ require("packer").startup(function(use)
         "antoinemadec/FixCursorHold.nvim",
         start = config["antoinemadec/FixCursorHold.nvim"]
     }
+    use {"dstein64/vim-startuptime", cmd = "StartupTime"}
     use {
         "editorconfig/editorconfig-vim",
         start = config["editorconfig/editorconfig-vim"]
@@ -215,7 +216,6 @@ require("packer").startup(function(use)
     use {"schickling/vim-bufonly", cmd = "BufOnly"}
     use "tpope/vim-repeat"
     use {"tpope/vim-unimpaired", opt = true}
-    use {"tweekmonster/startuptime.vim", cmd = "StartupTime"}
 end)
 
 require("plugins/lazyload")

@@ -215,13 +215,7 @@ local config = {
     ["windwp/nvim-ts-autotag"] = function()
         require("nvim-treesitter.configs").setup({autotag = {enable = true}})
     end,
-    ["windwp/nvim-spectre"] = function() require("spectre").setup() end,
-    ["vimwiki/vimwiki"] = function()
-        vim.g.vimwiki_list = {
-            {path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md"}
-        }
-        vim.g.vimwiki_global_ext = 0
-    end
+    ["windwp/nvim-spectre"] = function() require("spectre").setup() end
 }
 
 return config
