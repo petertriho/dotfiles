@@ -135,7 +135,8 @@ set_augroups({
             "ColorScheme", "*",
             "highlight QuickScopeSecondary guifg=#f7768e gui=underline ctermfg=red cterm=underline"
         }
-    }
+    },
+    _lsp = {{"BufRead", "*", "call vsnip#get_complete_items(bufnr())"}}
 })
 
 vim.g.polyglot_disabled = {
