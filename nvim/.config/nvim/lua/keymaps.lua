@@ -71,12 +71,6 @@ local visual_keymaps = {
     X = {"<Plug>(vsnip-cut-text)", "snippet-cut"}
 }
 
-local operator_keymaps = {
-    ["/"] = {"<Plug>kommentary_motion_default", "commentary"},
-    x = {"<Plug>(vsnip-select-text)", "snippet-select"},
-    X = {"<Plug>(vsnip-cut-text)", "snippet-cut"}
-}
-
 keymaps["1"] = "which_key_ignore"
 keymaps["2"] = "which_key_ignore"
 keymaps["3"] = "which_key_ignore"
@@ -176,6 +170,3 @@ register(keymaps,
 
 register(visual_keymaps,
          {prefix = "<Leader>", mode = "x", silent = true, noremap = true})
-
-register(operator_keymaps,
-         {prefix = "<Leader>", mode = "o", silent = true, noremap = true})
