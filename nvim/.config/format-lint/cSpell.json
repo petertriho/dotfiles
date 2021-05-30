@@ -1,5 +1,22 @@
 {
     "version": "0.1",
     "language": "en",
-    "allowCompoundWords": true
+    "allowCompoundWords": true,
+    "dictionaries": [
+        "en_US",
+        "en-gb",
+        "companies",
+        "softwareTerms",
+        "misc",
+        "typescript",
+        "node",
+        "go",
+        "python",
+        "html",
+        "css",
+        "bash",
+        "fonts",
+        "filetypes",
+        "npm"
+    ]
 }
