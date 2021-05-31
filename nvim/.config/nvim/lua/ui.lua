@@ -10,7 +10,7 @@ require("bufferline").setup {
         numbers = "ordinal",
         number_style = "",
         diagnostics = "nvim_lsp",
-        modified_icon= "",
+        modified_icon = "",
         offsets = {
             {
                 filetype = "NvimTree",
@@ -138,22 +138,22 @@ components.right.active = {
         provider = "diagnostic_info",
         enabled = function() return lsp.diagnostics_exist("Information") end,
         icon = "  ",
-        hl = {fg = "blue"}
+        hl = {fg = "info"}
     }, {
         provider = "diagnostic_hints",
         enabled = function() return lsp.diagnostics_exist("Hint") end,
         icon = "  ",
-        hl = {fg = "cyan"}
+        hl = {fg = "hint"}
     }, {
         provider = "diagnostic_warnings",
         enabled = function() return lsp.diagnostics_exist("Warning") end,
         icon = "  ",
-        hl = {fg = "yellow"}
+        hl = {fg = "warning"}
     }, {
         provider = "diagnostic_errors",
         enabled = function() return lsp.diagnostics_exist("Error") end,
         icon = "  ",
-        hl = {fg = "red"}
+        hl = {fg = "error"}
     }, {provider = "lsp_client_names", left_sep = " ", right_sep = " "},
     {provider = "file_type", left_sep = {"left", " "}, right_sep = " "}, {
         provider = "position",
