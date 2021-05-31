@@ -155,7 +155,7 @@ require("packer").startup(function(use)
         },
         commit = "23935ff0036e26dbfe14e6aee96a7653ee704336"
     }
-    use {"mg979/vim-visual-multi", start = config["mg979/vim-visual-multi"]}
+    use {"mg979/vim-visual-multi", config = config["mg979/vim-visual-multi"]}
     use {"npxbr/glow.nvim", cmd = "Glow", ft = "markdown"}
     use {
         "nvim-telescope/telescope.nvim",
