@@ -1,0 +1,45 @@
+## focus
+cmd + ctrl - x : yabai -m window --focus recent
+cmd + ctrl - h : yabai -m window --focus west
+cmd + ctrl - j : yabai -m window --focus south
+cmd + ctrl - k : yabai -m window --focus north
+cmd + ctrl - l : yabai -m window --focus east
+cmd + ctrl - z : yabai -m window --focus stack.prev
+cmd + ctrl - c : yabai -m window --focus stack.next
+
+## move
+cmd + ctrl + shift - h : yabai -m window --warp west
+cmd + ctrl + shift - j : yabai -m window --warp south
+cmd + ctrl + shift - k : yabai -m window --warp north
+cmd + ctrl + shift - l : yabai -m window --warp east
+
+## resize
+cmd + ctrl + alt - 0 : yabai -m space --balance
+cmd + ctrl + alt - h : yabai -m window west --resize right:-100:0 2> /dev/null || yabai -m window --resize right:-100:0
+cmd + ctrl + alt - j : yabai -m window north --resize bottom:0:100 2> /dev/null || yabai -m window --resize bottom:0:100
+cmd + ctrl + alt - k : yabai -m window south --resize top:0:-100 2> /dev/null || yabai -m window --resize top:0:-100
+cmd + ctrl + alt - l : yabai -m window east --resize left:100:0 2> /dev/null || yabai -m window --resize left:100:0
+cmd + ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
+cmd + ctrl + alt - d : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
+
+## float
+cmd + ctrl + alt - up    : yabai -m window --grid 1:1:0:0:1:1
+cmd + ctrl + alt - left  : yabai -m window --grid 1:2:0:0:1:1
+cmd + ctrl + alt - right : yabai -m window --grid 1:2:1:0:1:1
+
+## create/destroy
+cmd + ctrl + shift - i : yabai -m window --insert stack
+cmd + ctrl + shift - t : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+cmd + ctrl + alt - t : yabai -m space --create && \
+                index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                yabai -m space --focus "${index}"
+cmd + ctrl + alt - w : yabai -m space --destroy
+
+
+# open
+## terminal
+cmd + ctrl - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
+
