@@ -1,10 +1,11 @@
 local black = {formatCommand = "black --fast --quiet -", formatStdin = true}
 
---[[ local cspell = {
+local cspell = {
     lintCommand = "cspell --config=$HOME/.config/format-lint/cSpell.json stdin",
     lintStdin = true,
-    lintFormats = {"%f:%l:%c - %m"}
-} ]]
+    lintFormats = {"%f:%l:%c %t %m"},
+    lintCategoryMap = {["-"] = "I"}
+}
 
 local dotenv_linter = {
     lintCommand = "dotenv-linter",
@@ -79,7 +80,7 @@ return {
                 "jsconfig.json", "setup.py"
             },
             languages = {
-                -- ["="] = {cspell},
+                ["="] = {cspell},
                 conf = {dotenv_linter},
                 css = {rustywind, prettier},
                 dockerfile = {hadolint},
