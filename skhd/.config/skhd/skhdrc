@@ -14,7 +14,7 @@ cmd + ctrl + shift - k : yabai -m window --warp north
 cmd + ctrl + shift - l : yabai -m window --warp east
 
 ## resize
-cmd + ctrl + alt - 0 : yabai -m space --balance
+cmd + ctrl + alt - 0x18 : yabai -m space --balance
 cmd + ctrl + alt - h : yabai -m window west --resize right:-100:0 2> /dev/null || yabai -m window --resize right:-100:0
 cmd + ctrl + alt - j : yabai -m window north --resize bottom:0:100 2> /dev/null || yabai -m window --resize bottom:0:100
 cmd + ctrl + alt - k : yabai -m window south --resize top:0:-100 2> /dev/null || yabai -m window --resize top:0:-100
