@@ -152,8 +152,7 @@ require("packer").startup(function(use)
         cmd = {
             "NvimTreeOpen", "NvimTreeClose", "NvimTreeToggle",
             "NvimTreeRefresh", "NvimTreeFindFile", "NvimTreeClipboard"
-        },
-        commit = "23935ff0036e26dbfe14e6aee96a7653ee704336"
+        }
     }
     use {"mg979/vim-visual-multi", config = config["mg979/vim-visual-multi"]}
     use {"npxbr/glow.nvim", cmd = "Glow", ft = "markdown"}
