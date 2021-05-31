@@ -64,10 +64,10 @@ local on_attach = function(client, bufnr)
                    "<CMD>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>",
                    options)
     buf_set_keymap("n", "[e",
-                   "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev<CR>",
+                   "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()<CR>",
                    options)
     buf_set_keymap("n", "]e",
-                   "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next<CR>",
+                   "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>",
                    options)
 
     if client.resolved_capabilities.code_action then
