@@ -52,7 +52,10 @@ o.ttimeout = true
 o.ttimeoutlen = 10
 o.updatetime = 100
 o.visualbell = false
-vim.cmd [[set shortmess+=c]]
+vim.cmd([[
+set shortmess+=c
+set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾
+]])
 
 -- window
 local wo = vim.wo
