@@ -21,6 +21,7 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- gst 'git stash'
     abbr -a -U -- gsw 'git switch'
     abbr -a -U -- ll  'ls -la'
+    abbr -a -U -- rmf 'rm -rf'
     abbr -a -U -- t   tmux
     abbr -a -U -- ta  'tmux attach-session -t'
     abbr -a -U -- tk  'tmux kill-session -t'
