@@ -40,30 +40,6 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                        "manipulators": [
-                            {
-                                "description": "Change left_ctrl to command+control+option.",
-                                "from": {
-                                    "key_code": "left_control",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control",
-                                        "modifiers": [
-                                            "left_alt"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
                     }
                 ]
             },
