@@ -4,14 +4,21 @@ cmd + ctrl - h : yabai -m window --focus west
 cmd + ctrl - j : yabai -m window --focus south
 cmd + ctrl - k : yabai -m window --focus north
 cmd + ctrl - l : yabai -m window --focus east
+
 cmd + ctrl - z : yabai -m window --focus stack.prev
 cmd + ctrl - c : yabai -m window --focus stack.next
+
+cmd + ctrl - p : yabai -m space --focus prev
+cmd + ctrl - n : yabai -m space --focus next
 
 ## move
 cmd + ctrl + shift - h : yabai -m window --warp west
 cmd + ctrl + shift - j : yabai -m window --warp south
 cmd + ctrl + shift - k : yabai -m window --warp north
 cmd + ctrl + shift - l : yabai -m window --warp east
+
+cmd + ctrl + shift - p : yabai -m space --move prev
+cmd + ctrl + shift - n : yabai -m space --move next
 
 ## resize
 cmd + ctrl + alt - 0x18 : yabai -m space --balance
@@ -37,7 +44,6 @@ cmd + ctrl + alt - t : yabai -m space --create && \
                 index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
                 yabai -m space --focus "${index}"
 cmd + ctrl + alt - w : yabai -m space --destroy
-
 
 # open
 ## terminal
