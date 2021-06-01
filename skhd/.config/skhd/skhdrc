@@ -1,51 +1,51 @@
-## focus
-cmd + ctrl - x : yabai -m window --focus recent
-cmd + ctrl - h : yabai -m window --focus west
-cmd + ctrl - j : yabai -m window --focus south
-cmd + ctrl - k : yabai -m window --focus north
-cmd + ctrl - l : yabai -m window --focus east
+# focus
+alt + ctrl - x : yabai -m window --focus recent
+alt + ctrl - h : yabai -m window --focus west
+alt + ctrl - j : yabai -m window --focus south
+alt + ctrl - k : yabai -m window --focus north
+alt + ctrl - l : yabai -m window --focus east
 
-cmd + ctrl - z : yabai -m window --focus stack.prev
-cmd + ctrl - c : yabai -m window --focus stack.next
+alt + ctrl - z : yabai -m window --focus stack.prev
+alt + ctrl - c : yabai -m window --focus stack.next
 
-cmd + ctrl - p : yabai -m space --focus prev
-cmd + ctrl - n : yabai -m space --focus next
+alt + ctrl - p : yabai -m space --focus prev
+alt + ctrl - n : yabai -m space --focus next
 
-## move
-cmd + ctrl + shift - h : yabai -m window --warp west
-cmd + ctrl + shift - j : yabai -m window --warp south
-cmd + ctrl + shift - k : yabai -m window --warp north
-cmd + ctrl + shift - l : yabai -m window --warp east
+# move
+alt + shift - h : yabai -m window --warp west
+alt + shift - j : yabai -m window --warp south
+alt + shift - k : yabai -m window --warp north
+alt + shift - l : yabai -m window --warp east
 
-cmd + ctrl + shift - p : yabai -m space --move prev
-cmd + ctrl + shift - n : yabai -m space --move next
+alt + shift - p : yabai -m space --move prev
+alt + shift - n : yabai -m space --move next
 
-## resize
-cmd + ctrl + alt - 0x18 : yabai -m space --balance
-cmd + ctrl + alt - h : yabai -m window west --resize right:-100:0 2> /dev/null || yabai -m window --resize right:-100:0
-cmd + ctrl + alt - j : yabai -m window north --resize bottom:0:100 2> /dev/null || yabai -m window --resize bottom:0:100
-cmd + ctrl + alt - k : yabai -m window south --resize top:0:-100 2> /dev/null || yabai -m window --resize top:0:-100
-cmd + ctrl + alt - l : yabai -m window east --resize left:100:0 2> /dev/null || yabai -m window --resize left:100:0
-cmd + ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
-cmd + ctrl + alt - d : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
+# resize
+alt + ctrl + shift - 0x18 : yabai -m space --balance
+alt + ctrl + shift - h : yabai -m window west --resize right:-100:0 2> /dev/null || yabai -m window --resize right:-100:0
+alt + ctrl + shift - j : yabai -m window north --resize bottom:0:100 2> /dev/null || yabai -m window --resize bottom:0:100
+alt + ctrl + shift - k : yabai -m window south --resize top:0:-100 2> /dev/null || yabai -m window --resize top:0:-100
+alt + ctrl + shift - l : yabai -m window east --resize left:100:0 2> /dev/null || yabai -m window --resize left:100:0
+alt + ctrl + shift - f : yabai -m window --toggle zoom-fullscreen
+alt + ctrl + shift - d : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
 
-## float
-cmd + ctrl + alt - up    : yabai -m window --grid 1:1:0:0:1:1
-cmd + ctrl + alt - left  : yabai -m window --grid 1:2:0:0:1:1
-cmd + ctrl + alt - right : yabai -m window --grid 1:2:1:0:1:1
+# float
+alt + ctrl + shift - up    : yabai -m window --grid 1:1:0:0:1:1
+alt + ctrl + shift - left  : yabai -m window --grid 1:2:0:0:1:1
+alt + ctrl + shift - right : yabai -m window --grid 1:2:1:0:1:1
 
-## create/destroy
-cmd + ctrl + shift - i : yabai -m window --insert stack
-cmd + ctrl + shift - t : yabai -m space --create && \
+# create/destroy
+alt + ctrl - i : yabai -m window --insert stack
+alt + ctrl - t : yabai -m space --create
+alt + ctrl - w : yabai -m space --destroy
+
+alt + shift - t : yabai -m space --create && \
                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
-cmd + ctrl + alt - t : yabai -m space --create && \
+alt + ctrl + shift - t : yabai -m space --create && \
                 index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
                 yabai -m space --focus "${index}"
-cmd + ctrl + alt - w : yabai -m space --destroy
 
-# open
-## terminal
-cmd + ctrl - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
-
+# terminal
+alt + ctrl - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
