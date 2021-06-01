@@ -1,5 +1,5 @@
 vim.cmd([[
-function! ToggleGstatus()
+function! ToggleGitStatus()
     let buffer_name = bufname('.git/*index')
     if buflisted(buffer_name)
         execute "bd " . buffer_name
