@@ -53,6 +53,7 @@ local keymaps = {
     ["\\"] = {"<C-w>v", "split-right"},
     b = {"<CMD>Telescope buffers<CR>", "buffers"},
     d = {"<CMD>Bwipeout<CR>", "delete-buffer"},
+    D = {":bufdo :Bwipeout<CR>", "delete-all-buffers"},
     e = {"<CMD>NvimTreeToggle<CR>", "explorer"},
     j = {":call ToggleGitStatus()<CR>", "git-status"},
     J = {":call ToggleNeogitStatus()<CR>", "neo-git-status"},
