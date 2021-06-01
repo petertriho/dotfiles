@@ -121,6 +121,7 @@ keymaps["a"] = {
     d = "doc-gen",
     j = {"<CMD>SplitjoinJoin<CR>", "join-lines"},
     p = {"ggVG\"+p", "paste-file"},
+    s = {"<CMD>ISwap<CR>", "swap"},
     x = {"<CMD>SplitjoinSplit<CR>", "split-lines"},
     y = {"<CMD>%y+<CR>", "yank-file"}
 }

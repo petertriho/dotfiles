@@ -115,9 +115,9 @@ require("packer").startup(function(use)
     use {"chaoren/vim-wordmotion", config = config["chaoren/vim-wordmotion"]}
     use "b3nj5m1n/kommentary"
     use {"junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)"}
-
     use "machakann/vim-sandwich"
     use "mattn/emmet-vim"
+    use {"mizlan/iswap.nvim", cmd = "ISwap"}
     use "monaqa/dial.nvim"
     use {"tpope/vim-abolish", cmd = "Subvert", keys = "cr"}
     use "wellle/targets.vim"
