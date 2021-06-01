@@ -1,16 +1,21 @@
 vim.cmd([[
-    function! ToggleGstatus(vertical, ...)
-        let fugitive_buffer_name = bufname('.git/*index')
-        if buflisted(fugitive_buffer_name)
-            execute "bd " . fugitive_buffer_name
-        else
-            if a:vertical == 0
-                Git
-            else
-                vertical Git
-            endif
-        endif
-    endfunction
+function! ToggleGstatus()
+    let buffer_name = bufname('.git/*index')
+    if buflisted(buffer_name)
+        execute "bd " . buffer_name
+    else
+        Git
+    endif
+endfunction
+
+function! ToggleNeogitStatus()
+    let buffer_name = bufname('NeogitStatus')
+    if buflisted(buffer_name)
+        execute "bd " . buffer_name
+    else
+        Neogit kind=split
+    endif
+endfunction
 ]])
 
 local config = {
