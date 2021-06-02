@@ -77,6 +77,11 @@ require("packer").startup(function(use)
         after = "nvim-treesitter"
     }
     use {
+        "mizlan/iswap.nvim",
+        requires = "nvim-treesitter/nvim-treesitter",
+        cmd = "ISwap"
+    }
+    use {
         "nvim-treesitter/nvim-treesitter-textobjects",
         requires = "nvim-treesitter/nvim-treesitter",
         config = config["nvim-treesitter/nvim-treesitter-textobjects"],
@@ -117,7 +122,6 @@ require("packer").startup(function(use)
     use {"junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)"}
     use "machakann/vim-sandwich"
     use "mattn/emmet-vim"
-    use {"mizlan/iswap.nvim", cmd = "ISwap"}
     use "monaqa/dial.nvim"
     use {"tpope/vim-abolish", cmd = "Subvert", keys = "cr"}
     use "wellle/targets.vim"
