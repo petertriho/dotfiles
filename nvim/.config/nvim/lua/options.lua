@@ -102,11 +102,13 @@ endif
 
 vim.cmd([[
 if has("persistent_undo")
-    if !isdirectory($HOME . "/.undodir")
-        call mkdir($HOME . "/.undodir")
+   let target_path = expand('~/.undodir')
+
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
     endif
 
-    set undodir=$HOME/.undodir
+    let &undodir=target_path
     set undofile
 endif
 ]])
