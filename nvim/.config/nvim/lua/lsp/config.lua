@@ -130,6 +130,7 @@ return {
         } ]]
     },
     python = {},
+    rust = {},
     tailwindcss = {
         filetypes = {
             "aspnetcorerazor", "blade", "django-html", "edge", "eelixir", "ejs",
