@@ -23,11 +23,14 @@ require("packer").startup(function(use)
     use "neovim/nvim-lspconfig"
     use {"folke/lua-dev.nvim", filetype = "lua"}
     use {"glepnir/lspsaga.nvim", config = config["glepnir/lspsaga.nvim"]}
-    use "hrsh7th/nvim-compe"
-    use {"hrsh7th/vim-vsnip", start = config["hrsh7th/vim-vsnip"]}
-    use "hrsh7th/vim-vsnip-integ"
     use {"jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils"}
     use "kabouzeid/nvim-lspinstall"
+
+    -- completion
+    use "hrsh7th/nvim-compe"
+    use "andersevenrud/compe-tmux"
+    use {"hrsh7th/vim-vsnip", start = config["hrsh7th/vim-vsnip"]}
+    use "hrsh7th/vim-vsnip-integ"
     use {"onsails/lspkind-nvim", config = config["onsails/lspkind-nvim"]}
     use "rafamadriz/friendly-snippets"
     use {
@@ -35,7 +38,6 @@ require("packer").startup(function(use)
         requires = "hrsh7th/nvim-compe",
         run = "chmod +x ./install.sh; ./install.sh"
     }
-    use "wellle/tmux-complete.vim"
 
     -- syntax highlighting
     use {
