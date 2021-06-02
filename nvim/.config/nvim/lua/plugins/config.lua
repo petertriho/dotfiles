@@ -165,8 +165,8 @@ local config = {
         require("nvim-treesitter.configs").setup {
             ensure_installed = {
                 "bash", "css", "dockerfile", "fish", "go", "graphql", "html",
-                "javascript", "json", "jsonc", "lua", "python", "regex", "scss",
-                "toml", "tsx", "typescript", "yaml"
+                "javascript", "json", "jsonc", "lua", "python", "regex", "rust",
+                "scss", "toml", "tsx", "typescript", "yaml"
             },
             highlight = {enable = true},
             incremental_selection = {
