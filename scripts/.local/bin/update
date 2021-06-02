@@ -83,12 +83,6 @@ function tool:tmux {
 		"$tpm_bin_dir/clean_plugins"
 		"$tpm_bin_dir/install_plugins"
 		"$tpm_bin_dir/update_plugins" all
-
-		if [ -d "$tmux_dir/plugins/tmux-thumbs" ]; then
-			echo "Building tmux-thumbs ..."
-			(cd "$tmux_dir/plugins/tmux-thumbs" \
-				&& cargo build --release --target-dir=target)
-		fi
 	fi
 }
 
