@@ -52,7 +52,6 @@ local config = {
     end,
     ["folke/trouble.nvim"] = function() require("trouble").setup() end,
     ["folke/zenmode.nvim"] = function() require("zen-mode").setup() end,
-    ["f-person/git-blame.nvim"] = function() vim.g.gitblame_enabled = 0 end,
     ["glepnir/lspsaga.nvim"] = function()
         require("lspsaga").init_lsp_saga({
             rename_prompt_prefix = "",

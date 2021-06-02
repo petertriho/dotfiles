@@ -132,11 +132,6 @@ require("packer").startup(function(use)
         start = config["chumakd/scratch.vim"],
         cmd = "ScratchPreview"
     }
-    use {
-        "f-person/git-blame.nvim",
-        start = config["f-person/git-blame.nvim"],
-        cmd = "GitBlameToggle"
-    }
     use "folke/which-key.nvim"
     use {
         "folke/trouble.nvim",

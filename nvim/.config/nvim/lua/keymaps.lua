@@ -141,7 +141,7 @@ keymaps["g"] = {
     l = {"<CMD>lua require('telescope.builtin').git_commits()<CR>", "logs"},
     p = {"<CMD>Octo pr list<CR>", "gh-pr"},
     s = {"<CMD>lua require('telescope.builtin').git_stashes()<CR>", "stashes"},
-    t = {"<CMD>GitBlameToggle<CR>", "toggle-blame"}
+    t = {"<CMD>Gitsigns toggle_current_line_blame<CR>", "toggle-blame"}
 }
 
 keymaps["h"] = {
