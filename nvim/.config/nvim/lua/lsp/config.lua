@@ -90,12 +90,12 @@ return {
                 html = {rustywind, prettier},
                 lua = {luaformat},
                 markdown = {prettier, markdownlint},
-                vimwiki = {prettier, markdownlint},
                 python = {isort, black},
                 scss = {rustywind, prettier},
                 sh = {shfmt, shellcheck},
                 typescript = {prettier, eslint},
                 typescriptreact = {rustywind, prettier, eslint},
+                vimwiki = {prettier, markdownlint},
                 yaml = {prettier},
                 ["yaml.docker-compose"] = {prettier}
             }
