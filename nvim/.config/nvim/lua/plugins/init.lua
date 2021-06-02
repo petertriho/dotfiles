@@ -28,7 +28,7 @@ require("packer").startup(function(use)
     use "hrsh7th/vim-vsnip-integ"
     use {"jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils"}
     use "kabouzeid/nvim-lspinstall"
-    use "onsails/lspkind-nvim"
+    use {"onsails/lspkind-nvim", config = config["onsails/lspkind-nvim"]}
     use "rafamadriz/friendly-snippets"
     use {
         "tzachar/compe-tabnine",
