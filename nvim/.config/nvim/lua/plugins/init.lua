@@ -149,6 +149,7 @@ require("packer").startup(function(use)
     use {
         "kyazdani42/nvim-tree.lua",
         requires = "kyazdani42/nvim-web-devicons",
+        commit="34a657fd5a35eae2b1905dfa0aaa0a989e2f2695",
         config = config["kyazdani42/nvim-tree.lua"],
         cmd = {
             "NvimTreeOpen", "NvimTreeClose", "NvimTreeToggle",
