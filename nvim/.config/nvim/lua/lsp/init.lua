@@ -18,7 +18,11 @@ require("compe").setup {
         nvim_lsp = true,
         nvim_lua = true,
         path = true,
-        tabnine = {priority = 0},
+        tabnine = {
+            priority = 0,
+            max_num_results = 4,
+            show_prediction_strength = true
+        },
         tmux = {all_panes = true},
         vsnip = true
     }
