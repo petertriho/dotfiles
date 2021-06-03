@@ -5,6 +5,8 @@ local config = require("plugins/config")
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
+    use "nvim-lua/plenary.nvim"
+
     -- ui
     use "folke/tokyonight.nvim"
     use {
@@ -14,7 +16,6 @@ require("packer").startup(function(use)
     use {"Famiu/feline.nvim", requires = "kyazdani42/nvim-web-devicons"}
     use {
         "lewis6991/gitsigns.nvim",
-        requires = "nvim-lua/plenary.nvim",
         config = config["lewis6991/gitsigns.nvim"],
         opt = true
     }
@@ -149,7 +150,7 @@ require("packer").startup(function(use)
     use {
         "kyazdani42/nvim-tree.lua",
         requires = "kyazdani42/nvim-web-devicons",
-        commit="34a657fd5a35eae2b1905dfa0aaa0a989e2f2695",
+        commit = "34a657fd5a35eae2b1905dfa0aaa0a989e2f2695",
         config = config["kyazdani42/nvim-tree.lua"],
         cmd = {
             "NvimTreeOpen", "NvimTreeClose", "NvimTreeToggle",
@@ -175,6 +176,15 @@ require("packer").startup(function(use)
         },
         config = config["pwntester/octo.nvim"],
         cmd = "Octo"
+    }
+    use {
+        "RishabhRD/nvim-cheat.sh",
+        requires = "RishabhRD/popfix",
+        config = config["RishabhRD/nvim-cheat.sh"],
+        cmd = {
+            "Cheat", "CheatWithoutComments", "CheatList",
+            "CheatListWithoutComments"
+        }
     }
     use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}

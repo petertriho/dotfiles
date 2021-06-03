@@ -213,6 +213,9 @@ local config = {
         })
     end,
     ["pwntester/octo.nvim"] = function() require("octo").setup() end,
+    ["RishabhRD/nvim-cheat.sh"] = function()
+        vim.g.cheat_default_window_layout = "vertical_split"
+    end,
     ["TimUntersberger/neogit"] = function()
         require("neogit").setup({integrations = {diffview = true}})
     end,
