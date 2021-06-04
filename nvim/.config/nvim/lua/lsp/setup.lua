@@ -73,20 +73,20 @@ local on_attach = function(client, bufnr)
     if client.resolved_capabilities.code_action then
         keymaps["k"] = {
             "<CMD>lua require('lspsaga.codeaction').code_action()<CR>",
-            "kode-action"
+            "code-action"
         }
         visual_keymaps["k"] = {
             ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>",
-            "kode-action"
+            "code-action"
         }
 
-        keymaps["q"] = {
+        keymaps["K"] = {
             "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>",
-            "quickfix"
+            "code-action"
         }
-        visual_keymaps["q"] = {
+        visual_keymaps["K"] = {
             "<CMD>lua require('telescope.builtin').lsp_range_code_actions()",
-            "quickfix"
+            "code-action"
         }
 
         keymaps["l"]["c"] = {
