@@ -89,8 +89,8 @@ function tool:misc {
 }
 
 function tool:yarn {
-    echo "Updating yarn global packages ..."
-    yarn global upgrade --latest
+	echo "Updating yarn global packages ..."
+	yarn global upgrade --latest
 }
 
 function tool:all {
@@ -107,7 +107,7 @@ function tool:all {
 	tool:nvim
 	tool:tmux
 	tool:misc
-    tool:yarn
+	tool:yarn
 
 	exec "$SHELL"
 }
