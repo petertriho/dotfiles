@@ -60,9 +60,6 @@ function tool:nvim {
 	echo "Updating neovim plugins ..."
 	nvim \
 		+"autocmd User PackerComplete sleep 100m | qall" \
-		+PackerClean
-	nvim \
-		+"autocmd User PackerComplete sleep 100m | qall" \
 		+PackerSync
 }
 
