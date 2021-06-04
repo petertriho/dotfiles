@@ -122,6 +122,13 @@ local config = {
             "NeogitStatus", "DiffViewFiles"
         }
     end,
+    ["mg979/vim-visual-multi"] = function()
+        vim.g.VM_leader = "\\"
+        vim.g.VM_maps = {
+            ["Find Under"] = "<C-m>",
+            ["Find Subword Under"] = "<C-m>"
+        }
+    end,
     ["norcalli/nvim-colorizer.lua"] = function() require("colorizer").setup() end,
     ["nvim-telescope/telescope.nvim"] = function()
         local actions = require("telescope.actions")
