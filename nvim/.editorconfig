@@ -8,7 +8,7 @@ indent_style = space
 indent_size = 4
 
 [*.sh]
-shell_variant = posix
+shell_variant = bash
 binary_next_line = true
 switch_case_indent = true
 space_redirects = true
