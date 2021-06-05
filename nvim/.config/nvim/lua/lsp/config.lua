@@ -51,7 +51,10 @@ local prettier = {
 
 local rustywind = {formatCommand = "rustywind --stdin", formatStdin = true}
 
-local shfmt = {formatCommand = "shfmt -ci -s -bn", formatStdin = true}
+local shfmt = {
+    formatCommand = "shfmt -s -i 4 -bn -ci -sr -kp",
+    formatStdin = true
+}
 
 local shellcheck = {
     lintCommand = "shellcheck -f gcc -x -",

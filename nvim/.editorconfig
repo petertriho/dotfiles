@@ -7,6 +7,13 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
+[*.sh]
+shell_variant = posix
+binary_next_line = true
+switch_case_indent = true
+space_redirects = true
+keep_padding = true
+
 [*.yaml,*.yml]
 indent_size = 2
 
