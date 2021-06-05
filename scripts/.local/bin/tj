@@ -22,7 +22,7 @@ bare_repo_folder=${2:-main}
 #backend_suffixes="backend server"
 #frontend_suffixes="frontend web-client client"
 
-if ! $(tmux list-sessions 2> /dev/null | grep -q "$project"); then
+if ! eval "$(tmux list-sessions 2> /dev/null | grep -q "$project")"; then
     tmux new-session -d -s "$project"
 
     separator="-"
@@ -43,7 +43,6 @@ if ! $(tmux list-sessions 2> /dev/null | grep -q "$project"); then
     tmux send-keys -t "$project:2" "$cd_backend_cmd" ENTER
     tmux send-keys -t "$project:2" "clear" ENTER
 
-
     cd_frontend_cmd="pj ${project}${separator}web-client"
     bare_repo_check_cmd="$cd_frontend_cmd; git rev-parse --is-bare-repository"
     if [[ $(fish -c "$bare_repo_check_cmd") == "true" ]]; then
@@ -61,5 +60,3 @@ if ! $(tmux list-sessions 2> /dev/null | grep -q "$project"); then
 fi
 
 tmux attach-session -t "$project"
-
-

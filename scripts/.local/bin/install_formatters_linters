@@ -1,57 +1,56 @@
 #!/usr/bin/env bash
 
 function main {
-	if ! command -v hadolint &>/dev/null; then
-		brew install hadolint
-	fi
+    if ! command -v hadolint &> /dev/null; then
+        brew install hadolint
+    fi
 
-	if ! command -v jq &>/dev/null; then
-		brew install jq
-	fi
+    if ! command -v jq &> /dev/null; then
+        brew install jq
+    fi
 
-	if ! command -v shellcheck &>/dev/null; then
-		brew install shellcheck
-	fi
+    if ! command -v shellcheck &> /dev/null; then
+        brew install shellcheck
+    fi
 
-	if ! command -v shfmt &>/dev/null; then
-		brew install shfmt
-	fi
+    if ! command -v shfmt &> /dev/null; then
+        brew install shfmt
+    fi
 
-	if ! command -v lua-format &>/dev/null; then
-		brew install cmake luarocks
-		luarocks install --server=https://luarocks.org/dev luaformatter
-	fi
+    if ! command -v lua-format &> /dev/null; then
+        brew install cmake luarocks
+        luarocks install --server=https://luarocks.org/dev luaformatter
+    fi
 
     if ! command -v cspell &> /dev/null; then
         yarn global add cspell
     fi
 
-    if ! command -v dotenv-linter &>/dev/null; then
+    if ! command -v dotenv-linter &> /dev/null; then
         yarn global add dotenv-linter
     fi
 
-	if ! command -v eslint_d &>/dev/null; then
-		yarn global add eslint_d
-	fi
+    if ! command -v eslint_d &> /dev/null; then
+        yarn global add eslint_d
+    fi
 
-	if ! command -v fixjson &>/dev/null; then
+    if ! command -v fixjson &> /dev/null; then
         yarn global add fixjson
     fi
 
-	if ! command -v markdownlint-cli2 &>/dev/null; then
-		yarn global add markdownlint-cli2
+    if ! command -v markdownlint-cli2 &> /dev/null; then
+        yarn global add markdownlint-cli2
     fi
 
-	if ! command -v prettierd &>/dev/null; then
-		yarn global add @fsouza/prettierd
-	fi
-
-
-	if ! command -v rustywind &>/dev/null; then
-		yarn global add rustywind
+    if ! command -v prettierd &> /dev/null; then
+        yarn global add @fsouza/prettierd
     fi
 
-	asdf reshim
+    if ! command -v rustywind &> /dev/null; then
+        yarn global add rustywind
+    fi
+
+    asdf reshim
 }
 
 main
