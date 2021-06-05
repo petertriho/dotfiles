@@ -154,5 +154,3 @@ vim.g.vimwiki_list = {
     {path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md"}
 }
 vim.g.vimwiki_global_ext = 0
-
-vim.g.nvim_tree_hijack_cursor = 0
