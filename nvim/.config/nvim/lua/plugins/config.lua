@@ -121,9 +121,7 @@ local config = {
             "NeogitStatus", "DiffViewFiles"
         }
     end,
-    ["mg979/vim-visual-multi"] = function()
-        vim.g.VM_leader = "\\"
-    end,
+    ["mg979/vim-visual-multi"] = function() vim.g.VM_leader = "\\" end,
     ["norcalli/nvim-colorizer.lua"] = function() require("colorizer").setup() end,
     ["nvim-telescope/telescope.nvim"] = function()
         local actions = require("telescope.actions")
@@ -221,7 +219,10 @@ local config = {
     ["windwp/nvim-ts-autotag"] = function()
         require("nvim-treesitter.configs").setup({autotag = {enable = true}})
     end,
-    ["windwp/nvim-spectre"] = function() require("spectre").setup() end
+    ["windwp/nvim-spectre"] = function() require("spectre").setup() end,
+    ["winston0410/range-highlight.nvim"] = function()
+        require("range-highlight").setup()
+    end
 }
 
 return config

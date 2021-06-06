@@ -1,9 +1,9 @@
 function LazyLoad()
     local loader = require("packer").loader
     local plugins = {
-        "nvim-treesitter", "vim-matchup", "vim-unimpaired",
-        "gitsigns.nvim", "todo-comments.nvim", "indent-blankline.nvim",
-        "nvim-colorizer.lua", "quick-scope", "vimwiki"
+        "nvim-treesitter", "vim-matchup", "vim-unimpaired", "gitsigns.nvim",
+        "todo-comments.nvim", "indent-blankline.nvim", "nvim-colorizer.lua",
+        "quick-scope", "cmd-parser.nvim", "range-highlight.nvim", "vimwiki"
     }
     for _, plugin in pairs(plugins) do loader(plugin) end
 end

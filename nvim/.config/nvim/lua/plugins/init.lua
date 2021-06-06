@@ -59,6 +59,12 @@ require("packer").startup(function(use)
         opt = true
     }
     use "sheerun/vim-polyglot"
+    use {
+        "winston0410/range-highlight.nvim",
+        requires = "winston0410/cmd-parser.nvim",
+        config = config["winston0410/range-highlight.nvim"],
+        opt = true
+    }
 
     -- treesitter
     use {
