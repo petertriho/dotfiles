@@ -2,7 +2,6 @@ fish_add_path $HOME/.local/bin
 
 switch (uname)
     case Linux
-        if test -e /proc/version && test -n (string match -r "microsoft" (cat "/proc/version"))
             set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
             set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
             set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
@@ -15,6 +14,7 @@ switch (uname)
             test -e /opt/asdf-vm/asdf.fish; and \
                 source /opt/asdf-vm/asdf.fish
 
+        if test -e /proc/version && test -n (string match -r "microsoft" (cat "/proc/version"))
             set -gx FORGIT_COPY_CMD "win32yank.exe -i"
         end
     case Darwin
