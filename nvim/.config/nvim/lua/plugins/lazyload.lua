@@ -3,7 +3,7 @@ function LazyLoad()
     local plugins = {
         "nvim-treesitter", "vim-matchup", "vim-unimpaired", "gitsigns.nvim",
         "todo-comments.nvim", "indent-blankline.nvim", "nvim-colorizer.lua",
-        "quick-scope", "cmd-parser.nvim", "range-highlight.nvim", "vimwiki"
+        "quick-scope", "vimwiki"
     }
     for _, plugin in pairs(plugins) do loader(plugin) end
 end
