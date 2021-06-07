@@ -22,6 +22,13 @@ local eslint = {
     formatStdin = true
 }
 
+local fish = {
+    lintCommand = "fish -n ${INPUT}",
+    lintFormats = {"%f (line %l): %m"}
+}
+
+local fish_indent = {formatCommand = "fish_indent", formatStdin = true}
+
 local fixjson = {formatCommand = "fixjson", formatStdin = true}
 
 local hadolint = {lintCommand = "hadolint", lintFormats = {"%f:%l %m"}}
@@ -65,6 +72,11 @@ local shellcheck = {
     lintSource = "shellcheck"
 }
 
+local write_good = {
+    lintCommand = "write-good ${INPUT}",
+    lintFormats = {"%m on line %l at column %c"}
+}
+
 return {
     bash = {},
     css = {},
@@ -72,9 +84,9 @@ return {
     efm = {
         init_options = {documentFormatting = true},
         filetypes = {
-            "conf", "css", "dockerfile", "javascript", "javascriptreact",
-            "json", "html", "lua", "markdown", "python", "scss", "sh",
-            "typescript", "typescriptreact", "vimwiki", "yaml",
+            "conf", "css", "dockerfile", "fish", "html", "javascript",
+            "javascriptreact", "json", "lua", "markdown", "python", "scss",
+            "sh", "typescript", "typescriptreact", "vimwiki", "yaml",
             "yaml.docker-compose"
         },
         settings = {
@@ -87,18 +99,19 @@ return {
                 conf = {dotenv_linter},
                 css = {rustywind, prettier},
                 dockerfile = {hadolint},
+                html = {rustywind, prettier},
                 javascript = {prettier, eslint},
                 javascriptreact = {rustywind, prettier, eslint},
                 json = {jq, fixjson},
-                html = {rustywind, prettier},
+                fish = {fish_indent, fish},
                 lua = {luaformat},
-                markdown = {prettier, markdownlint},
+                markdown = {prettier, markdownlint, write_good},
                 python = {isort, black},
                 scss = {rustywind, prettier},
                 sh = {shfmt, shellcheck},
                 typescript = {prettier, eslint},
                 typescriptreact = {rustywind, prettier, eslint},
-                vimwiki = {prettier, markdownlint},
+                vimwiki = {prettier, markdownlint, write_good},
                 yaml = {prettier},
                 ["yaml.docker-compose"] = {prettier}
             }
