@@ -140,14 +140,13 @@ set_augroups({
             "ColorScheme", "*",
             "highlight QuickScopeSecondary guifg=#f7768e gui=underline ctermfg=red cterm=underline"
         }
-    },
-    _lsp = {{"BufRead", "*", "call vsnip#get_complete_items(bufnr())"}}
+    }
 })
 
 vim.g.polyglot_disabled = {
-    "autoindent", "sensible", "css", "dockerfile", "fish.plugin", "go", "graphql",
-    "html5", "javascript", "javascriptreact", "json", "jsonc", "jsx", "python",
-    "scss", "toml", "typescript", "typescriptreact", "yaml"
+    "autoindent", "sensible", "css", "dockerfile", "fish.plugin", "go",
+    "graphql", "html5", "javascript", "javascriptreact", "json", "jsonc", "jsx",
+    "python", "scss", "toml", "typescript", "typescriptreact", "yaml"
 }
 
 vim.g.vimwiki_list = {

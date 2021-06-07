@@ -1,5 +1,5 @@
 -- TODO:
--- coc-git
+-- coc-git: gh issues autocomplete
 local config = require("plugins/config")
 
 require("packer").init({max_jobs = 50})
@@ -17,6 +17,7 @@ require("packer").startup(function(use)
     use {"Famiu/feline.nvim", requires = "kyazdani42/nvim-web-devicons"}
     use {
         "lewis6991/gitsigns.nvim",
+        requires = "nvim-lua/plenary.nvim",
         config = config["lewis6991/gitsigns.nvim"],
         opt = true
     }
@@ -29,16 +30,29 @@ require("packer").startup(function(use)
     use "kabouzeid/nvim-lspinstall"
 
     -- completion
-    use "hrsh7th/nvim-compe"
-    use "andersevenrud/compe-tmux"
-    use {"hrsh7th/vim-vsnip", start = config["hrsh7th/vim-vsnip"]}
-    use "hrsh7th/vim-vsnip-integ"
-    use {"onsails/lspkind-nvim", config = config["onsails/lspkind-nvim"]}
-    use "rafamadriz/friendly-snippets"
+    use {
+        "hrsh7th/nvim-compe",
+        config = config["hrsh7th/nvim-compe"],
+        opt = true
+    }
+    use {"andersevenrud/compe-tmux", after = "nvim-compe"}
+    use {
+        "hrsh7th/vim-vsnip",
+        config = config["hrsh7th/vim-vsnip"],
+        after = "nvim-compe"
+    }
+    use {"hrsh7th/vim-vsnip-integ", after = "nvim-compe"}
+    use {
+        "onsails/lspkind-nvim",
+        config = config["onsails/lspkind-nvim"],
+        after = "nvim-compe"
+    }
+    use {"rafamadriz/friendly-snippets", after = "nvim-compe"}
     use {
         "tzachar/compe-tabnine",
         requires = "hrsh7th/nvim-compe",
-        run = "chmod +x ./install.sh; ./install.sh"
+        run = "chmod +x ./install.sh; ./install.sh",
+        after = "nvim-compe"
     }
 
     -- syntax highlighting
@@ -59,7 +73,7 @@ require("packer").startup(function(use)
         config = config["norcalli/nvim-colorizer.lua"],
         opt = true
     }
-    use "sheerun/vim-polyglot"
+    use {"sheerun/vim-polyglot", opt = true}
 
     -- treesitter
     use {
@@ -83,6 +97,7 @@ require("packer").startup(function(use)
     use {
         "mizlan/iswap.nvim",
         requires = "nvim-treesitter/nvim-treesitter",
+        after = "nvim-treesitter",
         cmd = "ISwap"
     }
     use {
@@ -146,7 +161,7 @@ require("packer").startup(function(use)
     use {
         "folke/zen-mode.nvim",
         config = config["folke/zen-mode-nvim"],
-        cmd = {"ZenMode"}
+        cmd = "ZenMode"
     }
     use {
         "kyazdani42/nvim-tree.lua",
