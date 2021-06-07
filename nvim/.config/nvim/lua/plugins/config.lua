@@ -219,10 +219,7 @@ local config = {
     ["windwp/nvim-ts-autotag"] = function()
         require("nvim-treesitter.configs").setup({autotag = {enable = true}})
     end,
-    ["windwp/nvim-spectre"] = function() require("spectre").setup() end,
-    ["winston0410/range-highlight.nvim"] = function()
-        require("range-highlight").setup()
-    end
+    ["windwp/nvim-spectre"] = function() require("spectre").setup() end
 }
 
 return config
