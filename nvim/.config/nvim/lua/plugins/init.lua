@@ -2,6 +2,7 @@
 -- coc-git
 local config = require("plugins/config")
 
+require("packer").init({max_jobs = 50})
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
@@ -227,6 +228,11 @@ require("packer").startup(function(use)
     use {"schickling/vim-bufonly", cmd = "BufOnly"}
     use "tpope/vim-repeat"
     use {"tpope/vim-unimpaired", opt = true}
+    use {
+        "winston0410/range-highlight.nvim",
+        requires = "winston0410/cmd-parser.nvim",
+        config = config["winston0410/range-highlight.nvim"]
+    }
 end)
 
 require("plugins/lazyload")
