@@ -4,41 +4,48 @@ local cspell = {
     lintCommand = "cspell --config=$HOME/.config/format-lint/cSpell.json stdin",
     lintStdin = true,
     lintFormats = {"%f:%l:%c %t %m"},
-    lintCategoryMap = {["-"] = "I"}
+    lintCategoryMap = {["-"] = "I"},
+    lintSource = "cSpell"
 }
 
 local dotenv_linter = {
-    lintCommand = "dotenv-linter",
-    lintFormats = {"%f:%l %m"}
+    lintCommand = "dotenv-linter ${INPUT}",
+    lintFormats = {"%f:%l %m"},
+    lintSource = "dotenv-linter"
 }
 
 local eslint = {
     lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
-    lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m"},
+    lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %trror %m"},
     lintStdin = true,
     lintIgnoreExitCode = true,
     lintSource = "eslint",
-    formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+    formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename ${INPUT}",
     formatStdin = true
 }
 
 local fish = {
     lintCommand = "fish -n ${INPUT}",
-    lintFormats = {"%f (line %l): %m"}
+    lintFormats = {"%f (line %l): %m"},
+    lintSource = "fish"
 }
 
 local fish_indent = {formatCommand = "fish_indent", formatStdin = true}
 
 local fixjson = {formatCommand = "fixjson", formatStdin = true}
 
-local hadolint = {lintCommand = "hadolint", lintFormats = {"%f:%l %m"}}
+local hadolint = {
+    lintCommand = "hadolint --no-color ${INPUT}",
+    lintFormats = {"%f:%l %m %tarning: %m", "%f:%l %m %tnfo: %m", "%f:%l:%c %m"},
+    lintSource = "hadolint"
+}
 
 local isort = {
     formatCommand = "isort --quiet --stdout --profile black -",
     formatStdin = true
 }
 
-local jq = {lintCommand = "jq ."}
+local jq = {lintCommand = "jq .", lintSource = "jq"}
 
 local luaformat = {
     formatCommand = "lua-format --single-quote-to-double-quote  -i",
@@ -74,7 +81,8 @@ local shellcheck = {
 
 local write_good = {
     lintCommand = "write-good ${INPUT}",
-    lintFormats = {"%m on line %l at column %c"}
+    lintFormats = {"%m on line %l at column %c"},
+    lintSource = "write-good"
 }
 
 return {
