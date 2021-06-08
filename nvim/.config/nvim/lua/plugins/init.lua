@@ -73,7 +73,7 @@ require("packer").startup(function(use)
         config = config["norcalli/nvim-colorizer.lua"],
         opt = true
     }
-    use {"sheerun/vim-polyglot", opt = true}
+    use "sheerun/vim-polyglot"
 
     -- treesitter
     use {
