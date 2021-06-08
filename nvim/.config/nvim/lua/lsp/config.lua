@@ -45,7 +45,11 @@ local isort = {
     formatStdin = true
 }
 
-local jq = {lintCommand = "jq .", lintSource = "jq"}
+local jq = {
+    lintCommand = "jq .",
+    lintFormats = {"parse %trror: %m at line %l, column %c"},
+    lintSource = "jq"
+}
 
 local luaformat = {
     formatCommand = "lua-format --single-quote-to-double-quote  -i",
@@ -60,7 +64,9 @@ local markdownlint = {
 local prettier = {
     formatCommand = "prettierd ${INPUT}",
     formatStdin = true,
-    env = {"PRETTIERD_DEFAULT_CONFIG=$HOME/.config/format-lint/.prettierrc.json"}
+    env = {
+        "PRETTIERD_DEFAULT_CONFIG=$HOME/.config/format-lint/.prettierrc.json"
+    }
 }
 
 local rustywind = {formatCommand = "rustywind --stdin", formatStdin = true}
