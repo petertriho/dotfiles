@@ -22,6 +22,14 @@ function main {
         luarocks install --server=https://luarocks.org/dev luaformatter
     fi
 
+    if ! command -v black &> /dev/null; then
+        pip install black
+    fi
+
+    if ! command -v isort &> /dev/null; then
+        pip install isort
+    fi
+
     if ! command -v cspell &> /dev/null; then
         yarn global add cspell
     fi
