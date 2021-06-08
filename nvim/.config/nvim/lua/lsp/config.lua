@@ -32,7 +32,7 @@ local fish = {
 
 local fish_indent = {formatCommand = "fish_indent", formatStdin = true}
 
-local fixjson = {formatCommand = "fixjson", formatStdin = true}
+local fixjson = {formatCommand = "fixjson --indent 4", formatStdin = true}
 
 local hadolint = {
     lintCommand = "hadolint --no-color ${INPUT}",
