@@ -61,13 +61,7 @@ local markdownlint = {
     lintFormats = {"%f:%l %m", "%f:%l:%c %m", "%f: %l: %m"}
 }
 
-local prettier = {
-    formatCommand = "prettierd ${INPUT}",
-    formatStdin = true,
-    env = {
-        "PRETTIERD_DEFAULT_CONFIG=$HOME/.config/format-lint/.prettierrc.json"
-    }
-}
+local prettier = {formatCommand = "prettierd ${INPUT}", formatStdin = true}
 
 local rustywind = {formatCommand = "rustywind --stdin", formatStdin = true}
 
