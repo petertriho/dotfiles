@@ -123,7 +123,7 @@ function tool:list {
 }
 
 function tool:help {
-    printf "Usage: %s [TOOL] [ARGS]\n\nTools:\n" "${0}"
+    printf "Usage: %s [TOOL] [ARGS]\n\nTools:\n" "$0"
 
     compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat -n
 }
