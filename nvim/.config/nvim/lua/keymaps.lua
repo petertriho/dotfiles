@@ -44,7 +44,7 @@ set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", options)
 -- Which Key
 local keymaps = {
     [" "] = {":w<CR>", "write"},
-    ["'"] = {"<CMD>DBUI<CR>", "db"},
+    ["'"] = {"<CMD>DBUIToggle<CR>", "db"},
     [","] = {"<CMD>ScratchPreview<CR>", "scratch-preview"},
     ["-"] = {"<C-w>s", "split-below"},
     ["."] = {"<CMD>BufOnly<CR>", "only-buffer"},

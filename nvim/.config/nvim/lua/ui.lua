@@ -1,6 +1,6 @@
 -- folke/tokyonight.nvim
 vim.g.tokyonight_style = "night"
-vim.g.tokyonight_sidebars = {"Mundo", "MundoDiff", "DiffViewFiles"}
+vim.g.tokyonight_sidebars = {"Mundo", "MundoDiff", "DiffViewFiles", "dbui"}
 vim.g.tokyonight_colors = {bg_sidebar = "#16161e", bg_float = "#16161e"}
 vim.cmd("colorscheme tokyonight")
 
@@ -20,6 +20,11 @@ require("bufferline").setup {
             }, {
                 filetype = "Mundo",
                 text = "UNDOTREE",
+                highlight = "Directory",
+                text_align = "center"
+            }, {
+                filetype = "dbui",
+                text = "DATABASE",
                 highlight = "Directory",
                 text_align = "center"
             }
@@ -81,7 +86,7 @@ local properties = {
     force_inactive = {
         filetypes = {
             "NvimTree", "Mundo", "MundoDiff", "packer", "fugitive",
-            "fugitiveblame", "NeogitStatus", "DiffviewFiles"
+            "fugitiveblame", "NeogitStatus", "DiffviewFiles", "dbui"
         },
         buftypes = {"terminal"},
         bufnames = {}
