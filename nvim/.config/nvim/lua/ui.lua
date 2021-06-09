@@ -56,6 +56,27 @@ local vi_mode_colors = {
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
+require("feline.providers").add_provider("file_name", function(component)
+    local filename = vim.fn.expand("%:t")
+    if vim.bo.modified then
+        local modified_icon = component.file_modified_icon or "●"
+        modified_str = modified_icon .. " "
+    else
+        modified_str = ""
+    end
+
+    return filename .. " " .. modified_str
+end)
+
+require("feline.providers").add_provider("file_type2", function(component)
+    local extension = vim.fn.expand("%:e")
+
+    local icon = component.icon or
+                     require("nvim-web-devicons").get_icon("", extension,
+                                                           {default = true})
+    return icon .. " " .. vim.bo.filetype:upper()
+end)
+
 local properties = {
     force_inactive = {
         filetypes = {
@@ -91,7 +112,7 @@ components.left.active = {
             return {fg = vi_mode_utils.get_mode_color(), bg = "fg_gutter"}
         end
     }, {
-        provider = "file_info",
+        provider = "file_name",
         file_modified_icon = "",
         hl = function()
             return {
@@ -105,6 +126,7 @@ components.left.active = {
     }, {
         provider = "git_branch",
         icon = " ",
+        enabled = function() return vim.b.gitsigns_status_dict end,
         left_sep = " ",
         right_sep = {" ", "right"}
     },
@@ -126,7 +148,7 @@ components.left.active = {
 
 components.left.inactive = {
     {
-        provider = "file_info",
+        provider = "file_name",
         hl = {fg = "bg_statusline", bg = "fg_sidebar"},
         left_sep = "block",
         right_sep = "right_filled"
@@ -154,8 +176,12 @@ components.right.active = {
         enabled = function() return lsp.diagnostics_exist("Error") end,
         icon = "  ",
         hl = {fg = "error"}
-    }, {provider = "lsp_client_names", left_sep = " ", right_sep = " "},
-    {provider = "file_type", left_sep = {"left", " "}, right_sep = " "}, {
+    }, {provider = "lsp_client_names", left_sep = " ", right_sep = " "}, {
+        provider = "file_type2",
+        enabled = function() return vim.bo.filetype ~= "" end,
+        left_sep = {"left", " "},
+        right_sep = " "
+    }, {
         provider = "position",
         hl = function()
             return {
