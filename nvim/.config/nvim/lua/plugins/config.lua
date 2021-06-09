@@ -18,23 +18,69 @@ function! ToggleNeogitStatus()
 endfunction
 ]])
 
+-- AndrewRadev/splitjoin.vim
+vim.g.splitjoin_split_mapping = ""
+vim.g.splitjoin_join_mapping = ""
+
+-- antoinemadec/FixCursorHold.nvim
+vim.g.cursorhold_updatetime = 100
+
+-- chaoren/vim-wordmotion 
+vim.g.wordmotion_prefix = "\\"
+
+-- chumakd/scratch.vim
+vim.g.scratch_persistence_file = "/tmp/scratch.txt"
+
+-- editorconfig/editorconfig-vim
+vim.g.EditorConfig_exclude_patterns = {"fugitive://.*"}
+
+-- hrsh7th/vim-vsnip
+vim.g.vsnip_filetypes = {
+    javascriptreact = {"javascript"},
+    typescript = {"javascript"},
+    typescriptreact = {"javascript"}
+}
+
+-- kristijanhusak/vim-dadbod-ui
+vim.g.db_ui_show_database_icon = 1
+vim.g.db_ui_use_nerd_fonts = 1
+
+-- kyazdani42/nvim-tree.lua
+vim.g.nvim_tree_follow = 1
+vim.g.nvim_tree_indent_markers = 0
+vim.g.nvim_tree_git_hl = 1
+
+-- lukas-reineke/indent-blankline.nvim
+vim.g.indent_blankline_use_treesitter = true
+vim.g.indent_blankline_show_first_indent_level = false
+vim.g.indent_blankline_char = "│"
+vim.g.indent_blankline_filetype_exclude = {
+    "NvimTree", "lspinfo", "Mundo", "MundoDiff", "packer", "fugitive",
+    "fugitiveblame", "javascriptreact", "typescriptreact", "NeogitStatus",
+    "DiffViewFiles"
+}
+-- mg979/vim-visual-multi
+vim.g.VM_leader = "\\"
+
+-- RishabhRD/nvim-cheat.sh
+vim.g.cheat_default_window_layout = "vertical_split"
+
+-- sheerun/vim-polyglot
+vim.g.polyglot_disabled = {
+    "autoindent", "sensible", "css", "dockerfile", "fish.plugin", "go",
+    "graphql", "html5", "javascript", "javascriptreact", "json", "jsonc", "jsx",
+    "python", "scss", "toml", "typescript", "typescriptreact", "yaml"
+}
+
+-- vimwiki/vimwiki
+vim.g.vimwiki_list = {
+    {path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md"}
+}
+vim.g.vimwiki_global_ext = 0
+
 local config = {
-    ["AndrewRadev/splitjoin.vim"] = function()
-        vim.g.splitjoin_split_mapping = ""
-        vim.g.splitjoin_join_mapping = ""
-    end,
-    ["antoinemadec/FixCursorHold.nvim"] = function()
-        vim.g.cursorhold_updatetime = 100
-    end,
     ["andymass/vim-matchup"] = function()
         require("nvim-treesitter.configs").setup({matchup = {enable = true}})
-    end,
-    ["chaoren/vim-wordmotion"] = function() vim.g.wordmotion_prefix = "\\" end,
-    ["chumakd/scratch.vim"] = function()
-        vim.g.scratch_persistence_file = "/tmp/scratch.txt"
-    end,
-    ["editorconfig/editorconfig-vim"] = function()
-        vim.g.EditorConfig_exclude_patterns = {"fugitive://.*"}
     end,
     ["JoosepAlviste/nvim-ts-context-commentstring"] = function()
         require("nvim-treesitter.configs").setup({
@@ -42,11 +88,6 @@ local config = {
         })
     end,
     ["kkoomen/vim-doge"] = function() vim.g.doge_mapping = "<Leader>ad" end,
-    ["kyazdani42/nvim-tree.lua"] = function()
-        vim.g.nvim_tree_follow = 1
-        vim.g.nvim_tree_indent_markers = 0
-        vim.g.nvim_tree_git_hl = 1
-    end,
     ["folke/todo-comments.nvim"] = function()
         require("todo-comments").setup()
     end,
@@ -154,13 +195,6 @@ local config = {
         set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", options)
         set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options)
     end,
-    ["hrsh7th/vim-vsnip"] = function()
-        vim.g.vsnip_filetypes = {
-            javascriptreact = {"javascript"},
-            typescript = {"javascript"},
-            typescriptreact = {"javascript"}
-        }
-    end,
     ["lewis6991/gitsigns.nvim"] = function()
         require("gitsigns").setup {
             signs = {
@@ -197,17 +231,6 @@ local config = {
             }
         }
     end,
-    ["lukas-reineke/indent-blankline.nvim"] = function()
-        vim.g.indent_blankline_use_treesitter = true
-        vim.g.indent_blankline_show_first_indent_level = false
-        vim.g.indent_blankline_char = "│"
-        vim.g.indent_blankline_filetype_exclude = {
-            "NvimTree", "lspinfo", "Mundo", "MundoDiff", "packer", "fugitive",
-            "fugitiveblame", "javascriptreact", "typescriptreact",
-            "NeogitStatus", "DiffViewFiles"
-        }
-    end,
-    ["mg979/vim-visual-multi"] = function() vim.g.VM_leader = "\\" end,
     ["norcalli/nvim-colorizer.lua"] = function() require("colorizer").setup() end,
     ["nvim-telescope/telescope.nvim"] = function()
         local actions = require("telescope.actions")
@@ -292,9 +315,6 @@ local config = {
         })
     end,
     ["pwntester/octo.nvim"] = function() require("octo").setup() end,
-    ["RishabhRD/nvim-cheat.sh"] = function()
-        vim.g.cheat_default_window_layout = "vertical_split"
-    end,
     ["TimUntersberger/neogit"] = function()
         require("neogit").setup({integrations = {diffview = true}})
     end,

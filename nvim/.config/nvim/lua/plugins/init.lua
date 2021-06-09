@@ -36,11 +36,7 @@ require("packer").startup(function(use)
         opt = true
     }
     use {"andersevenrud/compe-tmux", after = "nvim-compe"}
-    use {
-        "hrsh7th/vim-vsnip",
-        config = config["hrsh7th/vim-vsnip"],
-        after = "nvim-compe"
-    }
+    use {"hrsh7th/vim-vsnip", after = "nvim-compe"}
     use {"hrsh7th/vim-vsnip-integ", after = "nvim-compe"}
     use {
         "kristijanhusak/vim-dadbod-completion",
@@ -67,12 +63,7 @@ require("packer").startup(function(use)
         config = config["folke/todo-comments.nvim"],
         opt = true
     }
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        branch = "lua",
-        config = config["lukas-reineke/indent-blankline.nvim"],
-        opt = true
-    }
+    use {"lukas-reineke/indent-blankline.nvim", branch = "lua", opt = true}
     use {
         "norcalli/nvim-colorizer.lua",
         config = config["norcalli/nvim-colorizer.lua"],
@@ -136,12 +127,8 @@ require("packer").startup(function(use)
     }
 
     -- text helpers
-    use {
-        "AndrewRadev/splitjoin.vim",
-        start = config["AndrewRadev/splitjoin.vim"],
-        cmd = {"SplitjoinJoin", "SplitjoinSplit"}
-    }
-    use {"chaoren/vim-wordmotion", config = config["chaoren/vim-wordmotion"]}
+    use {"AndrewRadev/splitjoin.vim", cmd = {"SplitjoinJoin", "SplitjoinSplit"}}
+    use "chaoren/vim-wordmotion"
     use "b3nj5m1n/kommentary"
     use {"junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)"}
     use "machakann/vim-sandwich"
@@ -151,11 +138,7 @@ require("packer").startup(function(use)
     use "wellle/targets.vim"
 
     -- tools
-    use {
-        "chumakd/scratch.vim",
-        start = config["chumakd/scratch.vim"],
-        cmd = "ScratchPreview"
-    }
+    use {"chumakd/scratch.vim", cmd = "ScratchPreview"}
     use "folke/which-key.nvim"
     use {
         "folke/trouble.nvim",
@@ -166,7 +149,7 @@ require("packer").startup(function(use)
     use {
         "kristijanhusak/vim-dadbod-ui",
         requires = "tpope/vim-dadbod",
-        cmd = {"DBUI", "DBUIAddConnection"}
+        cmd = {"DBUI", "DBUIToggle", "DBUIAddConnection"}
     }
     use {
         "folke/zen-mode.nvim",
@@ -176,13 +159,12 @@ require("packer").startup(function(use)
     use {
         "kyazdani42/nvim-tree.lua",
         requires = "kyazdani42/nvim-web-devicons",
-        config = config["kyazdani42/nvim-tree.lua"],
         cmd = {
             "NvimTreeOpen", "NvimTreeClose", "NvimTreeToggle",
             "NvimTreeRefresh", "NvimTreeFindFile", "NvimTreeClipboard"
         }
     }
-    use {"mg979/vim-visual-multi", config = config["mg979/vim-visual-multi"]}
+    use "mg979/vim-visual-multi"
     use {"npxbr/glow.nvim", cmd = "Glow"}
     use {
         "nvim-telescope/telescope.nvim",
@@ -205,7 +187,6 @@ require("packer").startup(function(use)
     use {
         "RishabhRD/nvim-cheat.sh",
         requires = "RishabhRD/popfix",
-        config = config["RishabhRD/nvim-cheat.sh"],
         cmd = {
             "Cheat", "CheatWithoutComments", "CheatList",
             "CheatListWithoutComments"
@@ -234,15 +215,10 @@ require("packer").startup(function(use)
     use {"unblevable/quick-scope", opt = true}
 
     -- misc
-    use {
-        "antoinemadec/FixCursorHold.nvim",
-        start = config["antoinemadec/FixCursorHold.nvim"]
-    }
+    use "antoinemadec/FixCursorHold.nvim"
     use {"dstein64/vim-startuptime", cmd = "StartupTime"}
-    use {
-        "editorconfig/editorconfig-vim",
-        start = config["editorconfig/editorconfig-vim"]
-    }
+    use "editorconfig/editorconfig-vim"
+
     use {"famiu/bufdelete.nvim", cmd = "Bwipeout"}
     use {
         "kkoomen/vim-doge",

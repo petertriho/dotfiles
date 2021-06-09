@@ -142,14 +142,3 @@ set_augroups({
         }
     }
 })
-
-vim.g.polyglot_disabled = {
-    "autoindent", "sensible", "css", "dockerfile", "fish.plugin", "go",
-    "graphql", "html5", "javascript", "javascriptreact", "json", "jsonc", "jsx",
-    "python", "scss", "toml", "typescript", "typescriptreact", "yaml"
-}
-
-vim.g.vimwiki_list = {
-    {path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md"}
-}
-vim.g.vimwiki_global_ext = 0
