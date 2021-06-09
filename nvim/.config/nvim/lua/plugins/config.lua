@@ -61,6 +61,10 @@ vim.g.indent_blankline_filetype_exclude = {
 }
 -- mg979/vim-visual-multi
 vim.g.VM_leader = "\\"
+vim.g.VM_maps = {
+    ["Find Under"] = "<M-n>",
+    ["Find Subword Under"] = "<M-n>"
+}
 
 -- RishabhRD/nvim-cheat.sh
 vim.g.cheat_default_window_layout = "vertical_split"
