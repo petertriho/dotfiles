@@ -98,7 +98,9 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.document_formatting then
-        keymaps["f"] = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "format"}
+        keymaps["f"] = {
+            "<cmd>lua vim.lsp.buf.formatting_seq_sync()<CR>", "format"
+        }
     end
 
     if client.resolved_capabilities.document_range_formatting then
