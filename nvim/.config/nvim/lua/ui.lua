@@ -70,6 +70,8 @@ require("feline.providers").add_provider("file_name", function(component)
         modified_str = ""
     end
 
+    if filename == "" then filename = "unnamed" end
+
     return filename .. " " .. modified_str
 end)
 
