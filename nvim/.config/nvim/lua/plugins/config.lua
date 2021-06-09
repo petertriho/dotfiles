@@ -95,6 +95,7 @@ local config = {
                     show_prediction_strength = true
                 },
                 tmux = {all_panes = true},
+                vim_dadbod_completion = true,
                 vsnip = true
             }
         }

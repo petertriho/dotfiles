@@ -43,6 +43,11 @@ require("packer").startup(function(use)
     }
     use {"hrsh7th/vim-vsnip-integ", after = "nvim-compe"}
     use {
+        "kristijanhusak/vim-dadbod-completion",
+        requires = "tpope/vim-dadbod",
+        after = "nvim-compe"
+    }
+    use {
         "onsails/lspkind-nvim",
         config = config["onsails/lspkind-nvim"],
         after = "nvim-compe"
@@ -157,6 +162,11 @@ require("packer").startup(function(use)
         requires = "kyazdani42/nvim-web-devicons",
         config = config["folke/trouble.nvim"],
         cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"}
+    }
+    use {
+        "kristijanhusak/vim-dadbod-ui",
+        requires = "tpope/vim-dadbod",
+        cmd = {"DBUI", "DBUIAddConnection"}
     }
     use {
         "folke/zen-mode.nvim",

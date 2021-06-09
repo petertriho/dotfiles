@@ -44,12 +44,13 @@ set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", options)
 -- Which Key
 local keymaps = {
     [" "] = {":w<CR>", "write"},
+    ["'"] = {"<CMD>DBUI<CR>", "db"},
     [","] = {"<CMD>ScratchPreview<CR>", "scratch-preview"},
     ["-"] = {"<C-w>s", "split-below"},
     ["."] = {"<CMD>BufOnly<CR>", "only-buffer"},
     ["/"] = {"<Plug>kommentary_line_default", "commentary"},
-    [";"] = {"<CMD>Telescope find_files hidden=true<CR>", "find-files"},
     [":"] = {"<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files"},
+    [";"] = {"<CMD>Telescope find_files hidden=true<CR>", "find-files"},
     ["\\"] = {"<C-w>v", "split-right"},
     b = {"<CMD>Telescope buffers<CR>", "buffers"},
     c = {"<CMD>Cheat<CR>", "cheat"},
