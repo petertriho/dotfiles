@@ -19,6 +19,9 @@ switch (uname)
     case Darwin
         test -e /usr/local/opt/asdf/asdf.fish; and source /usr/local/opt/asdf/asdf.fish
 
+        set -gx LDFLAGS -L/usr/local/opt/openssl/lib
+        set -gx CPPFLAGS -I/usr/local/opt/openssl/include
+
         test -e $HOME/.iterm2_shell_integration.fish; and source $HOME/.iterm2_shell_integration.fish
 end
 
@@ -26,9 +29,6 @@ set -gx EDITOR nvim
 set -gx PROJECT_PATHS $HOME/Documents/GitHub $HOME/Documents/Projects
 
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
-
-#set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
-#set -gx CPPFLAGS "-I/usr/local/opt/openssl/include"
 
 if status is-interactive
     starship init fish | source
