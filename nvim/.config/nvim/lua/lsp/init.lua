@@ -217,8 +217,10 @@ local on_attach_ts = function(client, bufnr)
 
     on_attach(client, bufnr)
 
+    require("null-ls").setup()
+
     local ts_utils = require("nvim-lsp-ts-utils")
-    ts_utils.setup {eslint_bin = "eslint_d"}
+    ts_utils.setup({eslint_bin = "eslint_d"})
     ts_utils.setup_client(client)
 
     local opts = {noremap = true, silent = true}

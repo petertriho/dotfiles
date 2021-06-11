@@ -26,6 +26,7 @@ require("packer").startup(function(use)
     use "neovim/nvim-lspconfig"
     use {"folke/lua-dev.nvim", filetype = "lua"}
     use {"glepnir/lspsaga.nvim", config = config["glepnir/lspsaga.nvim"]}
+    use {"jose-elias-alvarez/null-ls.nvim", module = "null-ls"}
     use {"jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils"}
     use "kabouzeid/nvim-lspinstall"
 
@@ -106,6 +107,12 @@ require("packer").startup(function(use)
         "p00f/nvim-ts-rainbow",
         requires = "nvim-treesitter/nvim-treesitter",
         config = config["p00f/nvim-ts-rainbow"],
+        after = "nvim-treesitter"
+    }
+    use {
+        "RRethy/nvim-treesitter-textsubjects",
+        requires = "nvim-treesitter/nvim-treesitter",
+        config = config["RRethy/nvim-treesitter-textsubjects"],
         after = "nvim-treesitter"
     }
     use {
