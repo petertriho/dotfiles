@@ -1,5 +1,6 @@
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
@@ -9,7 +10,8 @@
             "bellStyle": "none",
             "colorScheme": "TokyoNight",
             "fontFace": "JetBrainsMono NF",
-            "fontSize": 13
+            "fontSize": 13,
+            "padding": 0
         },
         "list": [
             {
