@@ -56,17 +56,10 @@ if status is-interactive
 
     set -g fzf_fd_opts --hidden --exclude .git
 
-    bind \e\cf __fzf_search_current_dir
-    bind \e\cr __fzf_search_history
-    bind \e\cv $fzf_search_vars_cmd
-    bind \e\cl __fzf_search_git_log
-    bind \e\cs __fzf_search_git_status
-
-    if test $fish_key_bindings = fish_vi_key_bindings -o $fish_key_bindings = fish_hybrid_key_bindings
-        bind --mode insert \e\cf __fzf_search_current_dir
-        bind --mode insert \e\cr __fzf_search_history
-        bind --mode insert \e\cv $fzf_search_vars_cmd
-        bind --mode insert \e\cl __fzf_search_git_log
-        bind --mode insert \e\cs __fzf_search_git_status
-    end
+    fzf_configure_bindings \
+        --directory=\e\cf \
+        --git_log \
+        --git_status \e\cs \
+        --history=\cr \
+        --variable=\e\ce
 end
