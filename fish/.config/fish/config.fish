@@ -59,7 +59,7 @@ if status is-interactive
     fzf_configure_bindings \
         --directory=\e\cf \
         --git_log \
-        --git_status \e\cs \
+        --git_status=\e\cs \
         --history=\cr \
         --variable=\e\ce
 end
