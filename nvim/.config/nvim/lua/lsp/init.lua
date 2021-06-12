@@ -266,7 +266,7 @@ local function setup()
 
         if server == "lua" then
             config = require("lua-dev").setup({
-                library = {vimruntime = false, plugins = false},
+                library = {vimruntime = false, types = false, plugins = false},
                 lspconfig = config
             })
         elseif server == "typescript" then
