@@ -90,6 +90,9 @@ function tool:tmux {
 }
 
 function tool:misc {
+    echo "Installing language servers ..."
+    install_language_servers
+
     echo "Installing missing formatters and linters ..."
     install_formatters_linters
 }

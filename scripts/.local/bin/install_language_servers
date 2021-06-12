@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function main {
+    if ! command -v prisma-language-server &> /dev/null; then
+        yarn global add @prisma/language-server
+    fi
+
+    asdf reshim
+}
+
+main

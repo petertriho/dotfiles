@@ -255,6 +255,8 @@ local function merge_config(first, second)
 end
 
 local function setup()
+    local lspconfig = require("lspconfig")
+
     lspinstall.setup()
 
     local servers = lspinstall.installed_servers()
@@ -262,25 +264,28 @@ local function setup()
     for _, server in pairs(servers) do
         local config = make_base_config()
 
-        if server == "efm" then
-            merge_config(config, lsp_config.efm)
-        elseif server == "json" then
-            merge_config(config, lsp_config.json)
-        elseif server == "html" then
-            merge_config(config, lsp_config.html)
-        elseif server == "lua" then
-            -- merge_config(config, lsp_config.lua)
-            config = require("lua-dev").setup()
-        elseif server == "tailwindcss" then
-            merge_config(config, lsp_config.tailwindcss)
+        if server == "lua" then
+            config = require("lua-dev").setup({
+                library = {vimruntime = false, plugins = false},
+                lspconfig = config
+            })
         elseif server == "typescript" then
             merge_config(config, lsp_config.typescript)
             config.on_attach = on_attach_ts
-        elseif server == "yaml" then
-            merge_config(config, lsp_config.yaml)
+        else
+            merge_config(config, lsp_config[server])
         end
 
-        require("lspconfig")[server].setup(config)
+        lspconfig[server].setup(config)
+    end
+
+    local additional_servers = require("lsp/servers")
+    for server, _ in pairs(additional_servers) do
+        local config = make_base_config()
+
+        merge_config(config, additional_servers[server])
+
+        lspconfig[server].setup(config)
     end
 end
 
