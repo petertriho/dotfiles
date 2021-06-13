@@ -131,11 +131,11 @@ local config = {
                 nvim_lsp = true,
                 nvim_lua = true,
                 path = true,
-                tabnine = {
+                --[[ tabnine = {
                     priority = 0,
                     max_num_results = 4,
                     show_prediction_strength = true
-                },
+                }, ]]
                 tmux = {all_panes = true},
                 vim_dadbod_completion = true,
                 vsnip = true
