@@ -31,7 +31,7 @@ function tool:brew {
 function tool:dotfiles {
     if [ -d "$HOME/.dotfiles" ]; then
         echo "Updating dotfiles ..."
-        (   
+        (
             cd "$HOME/.dotfiles" \
                 && git pull \
                 && stow --no-folding -t ~ */
@@ -46,6 +46,7 @@ function tool:fish {
         fish -c "fisher update"
         fish -c "set_abbr"
         fish -c "set_theme"
+        fish -c  "z --clean"
     fi
 }
 
