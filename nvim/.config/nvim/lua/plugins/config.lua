@@ -25,7 +25,7 @@ vim.g.splitjoin_join_mapping = ""
 -- antoinemadec/FixCursorHold.nvim
 vim.g.cursorhold_updatetime = 100
 
--- chaoren/vim-wordmotion 
+-- chaoren/vim-wordmotion
 vim.g.wordmotion_prefix = "\\"
 
 -- chumakd/scratch.vim
@@ -127,9 +127,9 @@ local config = {
 
             source = {
                 buffer = true,
-                calc = true,
+                calc = false,
                 nvim_lsp = true,
-                nvim_lua = true,
+                nvim_lua = false,
                 path = true,
                 --[[ tabnine = {
                     priority = 0,

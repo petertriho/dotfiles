@@ -6,6 +6,13 @@ function LazyLoad()
         "nvim-colorizer.lua", "quick-scope", "vimwiki"
     }
     for _, plugin in pairs(plugins) do loader(plugin) end
+
+    vim.cmd([[
+    augroup _compe
+        autocmd!
+        autocmd FileType * call vsnip#get_complete_items(bufnr())
+    augroup END
+    ]])
 end
 
 vim.cmd([[autocmd User LoadLazyPlugins lua LazyLoad()]])
