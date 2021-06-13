@@ -5,7 +5,7 @@ let did_load_custom_filetypes = 1
 
 augroup custom_filetype_detect
     autocmd!
-    autocmd BufRead,BufNewFile *.dockerfile set filetype=dockerfile
-    autocmd BufRead,BufNewFile .env,*.env.* set filetype=conf
-    autocmd BufRead,BufNewFile *.prisma set filetype=prisma
+    autocmd BufRead,BufNewFile *.dockerfile setlocal filetype=dockerfile
+    autocmd BufRead,BufNewFile .env,*.env.* setlocal filetype=conf
+    autocmd BufRead,BufNewFile *.prisma setlocal filetype=prisma
 augroup END
