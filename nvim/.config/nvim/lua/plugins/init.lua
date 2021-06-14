@@ -227,7 +227,7 @@ require("packer").startup(function(use)
     use {"dstein64/vim-startuptime", cmd = "StartupTime"}
     use "editorconfig/editorconfig-vim"
 
-    use {"famiu/bufdelete.nvim", cmd = "Bwipeout"}
+    use {"famiu/bufdelete.nvim", cmd = {"Bwipeout", "Bdelete"}}
     use {
         "kkoomen/vim-doge",
         config = config["kkoomen/vim-doge"],

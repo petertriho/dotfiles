@@ -9,8 +9,11 @@ require("bufferline").setup {
     options = {
         numbers = "ordinal",
         number_style = "",
+        close_command = "Bdelete! %d",
+        right_mouse_command = "Bdelete! %d",
         diagnostics = "nvim_lsp",
         modified_icon = "",
+        separator_style = "slant",
         offsets = {
             {
                 filetype = "NvimTree",
