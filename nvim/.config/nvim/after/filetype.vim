@@ -1,11 +1,11 @@
-if exists("did_load_custom_filetypes")
+if exists("did_load_filetypes_userafter")
     finish
 endif
-let did_load_custom_filetypes = 1
+let did_load_filetypes_userafter = 1
 
-augroup custom_filetype_detect
+augroup filetype_detect
     autocmd!
-    autocmd BufRead,BufNewFile *.dockerfile setlocal filetype=dockerfile
-    autocmd BufRead,BufNewFile .env,*.env.* setlocal filetype=conf
-    autocmd BufRead,BufNewFile *.prisma setlocal filetype=prisma
+    autocmd BufNewFile,BufRead *.dockerfile setlocal filetype=dockerfile
+    autocmd BufNewFile,BufRead .env,*.env.* setlocal filetype=conf
+    autocmd BufNewFile,BufRead *.prisma setlocal filetype=prisma
 augroup END
