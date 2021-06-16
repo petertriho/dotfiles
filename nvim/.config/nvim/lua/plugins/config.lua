@@ -46,6 +46,7 @@ vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_use_nerd_fonts = 1
 
 -- kyazdani42/nvim-tree.lua
+vim.g.nvim_tree_ignore = {".git"}
 vim.g.nvim_tree_follow = 1
 vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_git_hl = 1
