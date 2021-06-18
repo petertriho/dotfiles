@@ -39,6 +39,7 @@
 -   [cli/cli](https://github.com/cli/cli)
 -   [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 -   `scripts/.local/bin/install_formatters_linters`
+-   `scripts/.local/bin/install_language_servers`
 
 ### Tmux
 
