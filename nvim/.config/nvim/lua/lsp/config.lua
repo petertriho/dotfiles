@@ -58,7 +58,7 @@ local luaformat = {
 
 local markdownlint = {
     lintCommand = "markdownlint-cli2 ${INPUT}",
-    lintFormats = {"%f:%l %m", "%f:%l:%c %m", "%f: %l: %m"}
+    lintFormats = {"%f:%l:%c %m", "%f:%l %m", "%f: %l: %m"}
 }
 
 local prettier = {formatCommand = "prettierd ${INPUT}", formatStdin = true}
