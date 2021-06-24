@@ -108,7 +108,10 @@ function tool:all {
 
     if [ "$(uname)" == "Linux" ]; then
         tool:apt
-        tool:scoop
+
+        if [ -e "/proc/version" ] && [ -n $(grep "microsoft" "/proc/version") ]; then
+            tool:scoop
+        fi
     fi
 
     tool:brew
