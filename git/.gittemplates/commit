@@ -8,7 +8,7 @@
 #
 # ** Type
 # * 👷 build:    build process or auxiliary tool changes
-# * 🤖 chore:    build process or auxiliary tool changes
+# * 🤖 chore:    changes that don't modify src or test files
 # * 💚 ci:       ci/cd related changes
 # * 📝 docs:     documentation only changes
 # * ✨ feat:     a new feature
