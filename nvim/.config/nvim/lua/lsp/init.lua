@@ -250,10 +250,6 @@ local function make_base_config()
     return {capabilities = capabilities, on_attach = on_attach}
 end
 
-local function merge_config(first, second)
-    for k, v in pairs(second) do first[k] = v end
-end
-
 local function setup()
     local lspconfig = require("lspconfig")
 
@@ -270,10 +266,11 @@ local function setup()
                 lspconfig = config
             })
         elseif server == "typescript" then
-            merge_config(config, lsp_config.typescript)
+            config =
+                vim.tbl_extend("force", config, lsp_config.typescript or {})
             config.on_attach = on_attach_ts
         else
-            merge_config(config, lsp_config[server])
+            config = vim.tbl_extend("force", config, lsp_config[server] or {})
         end
 
         lspconfig[server].setup(config)
@@ -283,7 +280,8 @@ local function setup()
     for server, _ in pairs(additional_servers) do
         local config = make_base_config()
 
-        merge_config(config, additional_servers[server])
+        config = vim.tbl_extend("force", config,
+                                additional_servers[server] or {})
 
         lspconfig[server].setup(config)
     end
