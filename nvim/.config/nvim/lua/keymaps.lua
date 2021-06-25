@@ -41,6 +41,12 @@ set_keymap("v", "<C-x>", "<Plug>(dial-decrement)", options)
 set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", options)
 set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", options)
 
+-- Text Objects
+set_keymap("v", "al", ":<C-u>norm!0v$h<CR>", options)
+set_keymap("v", "il", ":<C-u>norm!^vg_<CR>", options)
+set_keymap("o", "al", ":norm val<CR>", options)
+set_keymap("o", "il", ":norm vil<CR>", options)
+
 -- Which Key
 local keymaps = {
     [" "] = {":w<CR>", "write"},
