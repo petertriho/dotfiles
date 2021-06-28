@@ -7,6 +7,7 @@ function LazyLoad()
     }
     for _, plugin in pairs(plugins) do loader(plugin) end
 
+    -- NOTE: Need to disable this on initial install
     vim.cmd([[
     augroup _compe
         autocmd!
