@@ -11,7 +11,7 @@ switch (uname)
         fish_add_path $HOMEBREW_PREFIX/sbin
         fish_add_path $HOMEBREW_PREFIX/bin
 
-        test -e /opt/asdf-vm/asdf.fish; and source /opt/asdf-vm/asdf.fish
+        test -e ~/.asdf/asdf.fish; and source ~/.asdf/asdf.fish
 
         if test -e /proc/version && test -n (string match -r "microsoft" (cat "/proc/version"))
             set -gx FORGIT_COPY_CMD "win32yank.exe -i"
