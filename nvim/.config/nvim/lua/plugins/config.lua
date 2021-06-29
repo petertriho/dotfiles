@@ -197,6 +197,14 @@ local config = {
         set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", options)
         set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options)
     end,
+    ["hrsh7th/vim-vsnip"] = function()
+        vim.cmd([[
+        augroup _compe
+            autocmd!
+            autocmd FileType * call vsnip#get_complete_items(bufnr())
+        augroup END
+        ]])
+    end,
     ["lewis6991/gitsigns.nvim"] = function()
         require("gitsigns").setup {
             signs = {
