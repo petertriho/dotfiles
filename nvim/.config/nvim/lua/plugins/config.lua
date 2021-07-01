@@ -261,9 +261,11 @@ local config = {
                     }
                 },
                 file_ignore_patterns = {".git"},
-                prompt_position = "top",
                 sorting_strategy = "ascending",
-                layout_defaults = {horizontal = {preview_width = 0.6}}
+                layout_config = {
+                    prompt_position = "top",
+                    horizontal = {preview_width = 0.6}
+                }
             },
             extensions = {
                 fzy_native = {
