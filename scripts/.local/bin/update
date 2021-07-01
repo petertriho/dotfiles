@@ -98,6 +98,11 @@ function tool:misc {
     install_formatters_linters
 }
 
+function tool:win32yank {
+    echo "Updating win32yank ..."
+    install_win32yank
+}
+
 function tool:yarn {
     echo "Updating yarn global packages ..."
     yarn global upgrade --latest
@@ -111,6 +116,7 @@ function tool:all {
 
         if [ -e "/proc/version" ] && [ -n "$(grep 'microsoft' '/proc/version')" ]; then
             tool:scoop
+            tool:win32yank
         fi
     fi
 
