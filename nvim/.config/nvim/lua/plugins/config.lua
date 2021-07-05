@@ -286,12 +286,11 @@ local config = {
     end,
     ["nvim-treesitter/nvim-treesitter"] = function()
         require("nvim-treesitter.configs").setup {
-            -- NOTE:  Enable this on initial install
-            --[[ ensure_installed = {
+            ensure_installed = {
                 "bash", "css", "dockerfile", "fish", "go", "graphql", "html",
                 "javascript", "json", "jsonc", "lua", "python", "regex", "rust",
                 "scss", "toml", "tsx", "typescript", "yaml"
-            }, ]]
+            },
             highlight = {enable = true},
             incremental_selection = {
                 enable = true,
