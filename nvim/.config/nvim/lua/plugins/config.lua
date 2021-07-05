@@ -81,6 +81,14 @@ vim.g.vimwiki_list = {
 vim.g.vimwiki_global_ext = 0
 
 local config = {
+    ["AckslD/nvim-anywise-reg.lua"] = function()
+        require("anywise_reg").setup({
+            operators = {"c", "d", "y"},
+            textobjects = {{"i", "a"}, {",", "a", "c", "f", "p", "w", "W"}},
+            paste_key = "\\p",
+            register_print_cmd = false
+        })
+    end,
     ["andymass/vim-matchup"] = function()
         require("nvim-treesitter.configs").setup({matchup = {enable = true}})
     end,

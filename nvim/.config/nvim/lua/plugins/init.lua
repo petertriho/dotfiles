@@ -138,6 +138,10 @@ require("packer").startup(function(use)
     }
 
     -- text helpers
+    use {
+        "AckslD/nvim-anywise-reg.lua",
+        config = config["AckslD/nvim-anywise-reg.lua"]
+    }
     use {"AndrewRadev/splitjoin.vim", cmd = {"SplitjoinJoin", "SplitjoinSplit"}}
     use "chaoren/vim-wordmotion"
     use "b3nj5m1n/kommentary"
