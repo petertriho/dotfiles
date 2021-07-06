@@ -154,7 +154,7 @@ require("packer").startup(function(use)
 
     -- tools
     use {"chumakd/scratch.vim", cmd = "ScratchPreview"}
-    use {"folke/which-key.nvim", config = config["folke/which-key.nvim"]}
+    use "folke/which-key.nvim"
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",

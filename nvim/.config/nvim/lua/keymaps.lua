@@ -174,8 +174,9 @@ keymaps["W"] = {
     "find-wiki"
 }
 
-local register = require("which-key").register
+require("which-key").setup()
 
+local register = require("which-key").register
 register(keymaps,
          {prefix = "<Leader>", mode = "n", silent = true, noremap = true})
 

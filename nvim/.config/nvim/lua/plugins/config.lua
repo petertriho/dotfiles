@@ -102,7 +102,6 @@ local config = {
         require("todo-comments").setup()
     end,
     ["folke/trouble.nvim"] = function() require("trouble").setup() end,
-    ["folke/which-key.nvim"] = function() require("which-key").load() end,
     ["folke/zenmode.nvim"] = function() require("zen-mode").setup() end,
     ["glepnir/lspsaga.nvim"] = function()
         require("lspsaga").init_lsp_saga({
