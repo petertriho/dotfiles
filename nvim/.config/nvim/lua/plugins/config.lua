@@ -85,7 +85,7 @@ local config = {
         require("anywise_reg").setup({
             operators = {"c", "d", "y"},
             textobjects = {{"i", "a"}, {",", "a", "c", "f", "p", "w", "W"}},
-            paste_key = "\\p",
+            paste_keys = {["\\p"] = "p"},
             register_print_cmd = false
         })
     end,
@@ -102,6 +102,7 @@ local config = {
         require("todo-comments").setup()
     end,
     ["folke/trouble.nvim"] = function() require("trouble").setup() end,
+    ["folke/which-key.nvim"] = function() require("which-key").load() end,
     ["folke/zenmode.nvim"] = function() require("zen-mode").setup() end,
     ["glepnir/lspsaga.nvim"] = function()
         require("lspsaga").init_lsp_saga({
