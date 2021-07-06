@@ -60,8 +60,7 @@ function tool:nvim {
 
     echo "Updating neovim plugins ..."
     nvim \
-        +TSUpdateSync \
-        +qall
+        +"TSUpdateSync | qall"
 
     nvim \
         +"autocmd User PackerComplete sleep 100m | qall" \
