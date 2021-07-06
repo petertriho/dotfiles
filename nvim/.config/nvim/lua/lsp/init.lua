@@ -261,7 +261,10 @@ local function setup()
         local config = make_base_config()
 
         if server == "lua" then
-            config = require("lua-dev").setup({lspconfig = config})
+            config = require("lua-dev").setup({
+                lspconfig = config,
+                library = {vimruntime = false, types = false, plugins = false}
+            })
         elseif server == "typescript" then
             config =
                 vim.tbl_extend("force", config, lsp_config.typescript or {})
