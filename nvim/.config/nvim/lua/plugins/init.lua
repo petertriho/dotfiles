@@ -102,6 +102,12 @@ require("packer").startup(function(use)
         cmd = "ISwap"
     }
     use {
+        "nvim-treesitter/nvim-treesitter-refactor",
+        requires = "nvim-treesitter/nvim-treesitter",
+        config = config["nvim-treesitter/nvim-treesitter-refactor"],
+        after = "nvim-treesitter"
+    }
+    use {
         "nvim-treesitter/nvim-treesitter-textobjects",
         requires = "nvim-treesitter/nvim-treesitter",
         config = config["nvim-treesitter/nvim-treesitter-textobjects"],

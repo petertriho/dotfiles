@@ -304,6 +304,28 @@ local config = {
             indentation = {enable = true}
         }
     end,
+    ["nvim-treesitter/nvim-treesitter-refactor"] = function()
+        require("nvim-treesitter.configs").setup({
+            refactor = {
+                highlight_current_scope = {enable = false},
+                highlight_definitions = {enable = true},
+                navigation = {
+                    enable = true,
+                    keymaps = {
+                        goto_definition = "gd",
+                        list_definitions = "gl",
+                        list_definitions_toc = "gL",
+                        goto_next_usage = "gj",
+                        goto_previous_usage = "gk"
+                    }
+                },
+                smart_rename = {
+                    enable = true,
+                    keymaps = {smart_rename = "<Leader>ar"}
+                }
+            }
+        })
+    end,
     ["nvim-treesitter/nvim-treesitter-textobjects"] = function()
         require("nvim-treesitter.configs").setup({
             textobjects = {
