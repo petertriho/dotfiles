@@ -4,6 +4,7 @@ local cspell = {
     lintCommand = "cspell --config=$HOME/.config/format-lint/cSpell.json stdin",
     lintStdin = true,
     lintFormats = {"%f:%l:%c %t %m"},
+    lintIgnoreExitCode = true,
     lintCategoryMap = {["-"] = "I"},
     lintSource = "cSpell"
 }
@@ -11,13 +12,14 @@ local cspell = {
 local dotenv_linter = {
     lintCommand = "dotenv-linter ${INPUT}",
     lintFormats = {"%f:%l %m"},
+    lintIgnoreExitCode = true,
     lintSource = "dotenv-linter"
 }
 
 local eslint = {
     lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
-    lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %trror %m"},
     lintStdin = true,
+    lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %trror %m"},
     lintIgnoreExitCode = true,
     lintSource = "eslint",
     formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename ${INPUT}",
@@ -27,6 +29,7 @@ local eslint = {
 local fish = {
     lintCommand = "fish -n ${INPUT}",
     lintFormats = {"%f (line %l): %m"},
+    lintIgnoreExitCode = true,
     lintSource = "fish"
 }
 
@@ -37,6 +40,7 @@ local fixjson = {formatCommand = "fixjson --indent 4", formatStdin = true}
 local hadolint = {
     lintCommand = "hadolint --no-color ${INPUT}",
     lintFormats = {"%f:%l %m %tarning: %m", "%f:%l %m %tnfo: %m", "%f:%l:%c %m"},
+    lintIgnoreExitCode = true,
     lintSource = "hadolint"
 }
 
@@ -48,6 +52,7 @@ local isort = {
 local jq = {
     lintCommand = "jq .",
     lintFormats = {"parse %trror: %m at line %l, column %c"},
+    lintIgnoreExitCode = true,
     lintSource = "jq"
 }
 
@@ -58,7 +63,8 @@ local luaformat = {
 
 local markdownlint = {
     lintCommand = "markdownlint-cli2 ${INPUT}",
-    lintFormats = {"%f:%l:%c %m", "%f:%l %m", "%f: %l: %m"}
+    lintFormats = {"%f:%l:%c %m", "%f:%l %m", "%f: %l: %m"},
+    lintIgnoreExitCode = true
 }
 
 local prettier = {
@@ -83,12 +89,14 @@ local shellcheck = {
     lintFormats = {
         "%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m"
     },
+    lintIgnoreExitCode = true,
     lintSource = "shellcheck"
 }
 
 local write_good = {
     lintCommand = "write-good ${INPUT}",
     lintFormats = {"%m on line %l at column %c"},
+    lintIgnoreExitCode = true,
     lintSource = "write-good"
 }
 
