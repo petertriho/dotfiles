@@ -105,7 +105,7 @@ return {
             "yaml.docker-compose"
         },
         settings = {
-            lintDebounce = 1000000000,
+            lintDebounce = 500000000,
             rootMarkers = {
                 ".git", ".venv", "node_modules", "tsconfig.json",
                 "jsconfig.json", "setup.py"
