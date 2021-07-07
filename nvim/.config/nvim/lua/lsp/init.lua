@@ -68,6 +68,8 @@ local on_attach = function(client, bufnr)
                    "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>",
                    options)
 
+    print(vim.inspect(client.resolved_capabilities))
+
     if client.resolved_capabilities.code_action then
         keymaps["k"] = {
             "<CMD>lua require('lspsaga.codeaction').code_action()<CR>",
@@ -111,21 +113,25 @@ local on_attach = function(client, bufnr)
 
     if client.resolved_capabilities.document_symbol or
         client.resolved_capabilities.workspace_symbol then
-        keymaps["l"]["s"] = {
-            name = "+symbols",
-            d = {
+        keymaps["l"]["s"] = {name = "+symbols"}
+
+        if client.resolved_capabilities.document_symbol then
+            keymaps["l"]["s"]["d"] = {
                 "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>",
                 "document"
-            },
-            w = {
+            }
+        end
+
+        if client.resolved_capabilities.workspace_symbol then
+            keymaps["l"]["s"]["w"] = {
                 "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>",
                 "workspace"
-            },
-            W = {
+            }
+            keymaps["l"]["s"]["W"] = {
                 "<CMD>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
                 "dynamic-workspace"
             }
-        }
+        end
     end
 
     if client.resolved_capabilities.document_highlight then
