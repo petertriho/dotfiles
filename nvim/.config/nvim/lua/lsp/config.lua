@@ -52,7 +52,7 @@ local jq = {
 }
 
 local luaformat = {
-    formatCommand = "lua-format --single-quote-to-double-quote  -i",
+    formatCommand = "lua-format --single-quote-to-double-quote -i",
     formatStdin = true
 }
 
@@ -105,6 +105,7 @@ return {
             "yaml.docker-compose"
         },
         settings = {
+            lintDebounce = 1000000000,
             rootMarkers = {
                 ".git", ".venv", "node_modules", "tsconfig.json",
                 "jsconfig.json", "setup.py"
