@@ -86,6 +86,10 @@ require("feline.providers").add_provider("file_type2", function(component)
     return icon .. " " .. vim.bo.filetype:upper()
 end)
 
+require("feline.providers").add_provider("winnr", function(component)
+    return tostring(vim.fn.winnr())
+end)
+
 local properties = {
     force_inactive = {
         filetypes = {
@@ -161,7 +165,8 @@ components.left.inactive = {
         hl = {fg = "bg_statusline", bg = "fg_sidebar"},
         left_sep = "block",
         right_sep = "right_filled"
-    }
+    }, {provider = "winnr", left_sep = " ", right_sep = " "}
+
 }
 
 components.right.active = {

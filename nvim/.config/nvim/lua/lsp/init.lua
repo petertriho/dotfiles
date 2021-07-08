@@ -68,8 +68,6 @@ local on_attach = function(client, bufnr)
                    "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>",
                    options)
 
-    print(vim.inspect(client.resolved_capabilities))
-
     if client.resolved_capabilities.code_action then
         keymaps["k"] = {
             "<CMD>lua require('lspsaga.codeaction').code_action()<CR>",
