@@ -26,6 +26,7 @@ o.completeopt = "menuone,noselect"
 o.clipboard = "unnamedplus"
 o.errorbells = false
 o.expandtab = true
+o.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
 o.hidden = true
 o.hlsearch = true
 o.inccommand = "nosplit"
@@ -34,6 +35,7 @@ o.ignorecase = true
 o.lazyredraw = true
 o.mouse = "a"
 -- o.shell = "bash"
+o.shortmess = o.shortmess .. "c"
 o.shiftwidth = 4
 o.showmode = false
 o.smartcase = true
@@ -52,15 +54,12 @@ o.ttimeout = true
 o.ttimeoutlen = 10
 o.updatetime = 100
 o.visualbell = false
-vim.cmd([[
-set shortmess+=c
-set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾
-]])
 
 -- window
 local wo = vim.wo
 wo.colorcolumn = "80"
 wo.cursorline = true
+wo.foldenable = false
 wo.number = true
 wo.relativenumber = true
 wo.signcolumn = "yes"
