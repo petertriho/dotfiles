@@ -8,8 +8,8 @@ set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", options)
 set_keymap("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>", options)
 
 -- Tabs
-set_keymap("n", "<C-p>", ":tabprevious<CR>", options)
-set_keymap("n", "<C-n>", ":tabnext<CR>", options)
+set_keymap("n", "<M-p>", ":tabprevious<CR>", options)
+set_keymap("n", "<M-n>", ":tabnext<CR>", options)
 
 -- Windows: Navigation
 set_keymap("", "<C-j>", "<C-w>j", {})
