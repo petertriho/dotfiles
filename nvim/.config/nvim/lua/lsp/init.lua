@@ -68,12 +68,9 @@ local on_attach = function(client, bufnr)
                    "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>",
                    options)
 
-    vim.cmd([[
-    augroup lsp_diagnostic_loclist
-    autocmd! * <buffer>
-    autocmd BufEnter,BufWrite,InsertLeave <buffer> lua vim.lsp.diagnostic.set_loclist({open_loclist=false})
-    augroup END
-    ]])
+    keymaps["l"]["l"] = {
+        "<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>", "loclist-diagnostic"
+    }
 
     if client.resolved_capabilities.code_action then
         keymaps["q"] = {"<CMD>lua vim.lsp.buf.code_action()<CR>", "quickfix"}
@@ -144,9 +141,9 @@ local on_attach = function(client, bufnr)
     if client.resolved_capabilities.document_highlight then
         vim.cmd([[
         augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            autocmd! * <buffer>
+            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
         augroup END
         ]])
     end
