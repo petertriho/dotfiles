@@ -62,7 +62,12 @@ vim.g.indent_blankline_filetype_exclude = {
 }
 -- mg979/vim-visual-multi
 vim.g.VM_leader = "\\"
-vim.g.VM_maps = {["Find Under"] = "<M-m>", ["Find Subword Under"] = "<M-m>"}
+vim.g.VM_maps = {["Find Under"] = "gb", ["Find Subword Under"] = "gb"}
+vim.g.VM_mouse_mappings = 1
+vim.g.VM_Mono_hl = "DiffText"
+vim.g.VM_Extend_hl = "DiffAdd"
+vim.g.VM_Cursor_hl = "Visual"
+vim.g.VM_Insert_hl = "DiffChange"
 
 -- RishabhRD/nvim-cheat.sh
 vim.g.cheat_default_window_layout = "vertical_split"
