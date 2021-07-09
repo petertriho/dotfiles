@@ -213,6 +213,7 @@ require("packer").startup(function(use)
             "CheatListWithoutComments"
         }
     }
+    use {"stevearc/qf_helper.nvim", config = config["stevearc/qf_helper.nvim"]}
     use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}
     use {

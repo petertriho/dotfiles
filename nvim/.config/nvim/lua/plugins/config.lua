@@ -365,6 +365,14 @@ local config = {
             }
         })
     end,
+    ["stevearc/qf_helper.nvim"] = function()
+        require("qf_helper").setup()
+
+        local set_keymap = vim.api.nvim_set_keymap
+        local options = {noremap = true, silent = true}
+        set_keymap("n", "<C-n>", "<CMD>QNext<CR>", options)
+        set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", options)
+    end,
     ["TimUntersberger/neogit"] = function()
         require("neogit").setup({integrations = {diffview = true}})
     end,

@@ -68,6 +68,13 @@ local on_attach = function(client, bufnr)
                    "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>",
                    options)
 
+    vim.cmd([[
+    augroup lsp_diagnostic_loclist
+    autocmd! * <buffer>
+    autocmd BufEnter,BufWrite,InsertLeave <buffer> lua vim.lsp.diagnostic.set_loclist({open_loclist=false})
+    augroup END
+    ]])
+
     if client.resolved_capabilities.code_action then
         keymaps["q"] = {"<CMD>lua vim.lsp.buf.code_action()<CR>", "quickfix"}
 
@@ -82,11 +89,11 @@ local on_attach = function(client, bufnr)
 
         keymaps["K"] = {
             "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>",
-            "code-actions-ts"
+            "code-actions-tele"
         }
         visual_keymaps["K"] = {
             "<CMD>lua require('telescope.builtin').lsp_range_code_actions()",
-            "code-actions-ts"
+            "code-actions-tele"
         }
 
         keymaps["l"]["c"] = {
@@ -101,13 +108,13 @@ local on_attach = function(client, bufnr)
 
     if client.resolved_capabilities.document_formatting then
         keymaps["f"] = {
-            "<cmd>lua vim.lsp.buf.formatting_seq_sync()<CR>", "format"
+            "<CMD>lua vim.lsp.buf.formatting_seq_sync()<CR>", "format"
         }
     end
 
     if client.resolved_capabilities.document_range_formatting then
         visual_keymaps["f"] = {
-            "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "format"
+            "<CMD>lua vim.lsp.buf.range_formatting()<CR>", "format"
         }
     end
 
@@ -135,13 +142,13 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.document_highlight then
-        vim.api.nvim_exec([[
+        vim.cmd([[
         augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
         augroup END
-        ]], false)
+        ]])
     end
 
     if client.resolved_capabilities.find_references then

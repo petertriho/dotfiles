@@ -119,7 +119,7 @@ return {
                 "jsconfig.json", "setup.py"
             },
             languages = {
-                ["="] = {cspell},
+                -- ["="] = {cspell},
                 conf = {dotenv_linter},
                 css = {rustywind, prettier},
                 dockerfile = {hadolint},

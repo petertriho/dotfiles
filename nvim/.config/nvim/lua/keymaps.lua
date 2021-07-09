@@ -58,6 +58,8 @@ local keymaps = {
     [":"] = {"<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files"},
     [";"] = {"<CMD>Telescope find_files hidden=true<CR>", "find-files"},
     ["\\"] = {"<C-w>v", "split-right"},
+    ["["] = {"<CMD>LLToggle<CR>", "local-list-toggle"},
+    ["]"] = {"<CMD>QFToggle<CR>", "qf-list-toggle"},
     b = {"<CMD>Telescope buffers<CR>", "buffers"},
     c = {"<CMD>Cheat<CR>", "cheat"},
     C = {"<CMD>CheatList<CR>", "cheat-list"},
