@@ -19,18 +19,13 @@ vim.g.loaded_netrwFileHandlers = 1
 
 -- global
 local o = vim.o
-o.autoindent = true
-o.autoread = true
-o.backspace = "indent,eol,start"
 o.completeopt = "menuone,noselect"
 o.clipboard = "unnamedplus"
 o.errorbells = false
 o.expandtab = true
 o.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
 o.hidden = true
-o.hlsearch = true
 o.inccommand = "nosplit"
-o.incsearch = true
 o.ignorecase = true
 o.lazyredraw = true
 o.mouse = "a"
@@ -40,7 +35,6 @@ o.shiftwidth = 4
 o.showmode = false
 o.smartcase = true
 o.smartindent = true
-o.smarttab = true
 o.softtabstop = 4
 o.splitbelow = true
 o.splitright = true
