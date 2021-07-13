@@ -28,10 +28,6 @@ local keymaps = {a = {name = "+action"}, l = {name = "+lsp"}}
 local visual_keymaps = {a = {name = "+action"}, l = {name = "+lsp"}}
 
 local on_attach = function(client, bufnr)
-    if client.config.flags then
-        client.config.flags.allow_incremental_sync = true
-    end
-
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
@@ -257,7 +253,11 @@ local function make_base_config()
     capabilities.textDocument.completion.completionItem.resolveSupport = {
         properties = {"documentation", "detail", "additionalTextEdits"}
     }
-    return {capabilities = capabilities, on_attach = on_attach}
+    return {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        flags = {allow_incremental_sync = true, debounce_text_changes = 500}
+    }
 end
 
 local function setup()
