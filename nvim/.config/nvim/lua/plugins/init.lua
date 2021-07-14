@@ -168,14 +168,20 @@ require("packer").startup(function(use)
         cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"}
     }
     use {
-        "kristijanhusak/vim-dadbod-ui",
-        requires = "tpope/vim-dadbod",
-        cmd = {"DBUI", "DBUIToggle", "DBUIAddConnection"}
+        "folke/twilight.nvim",
+        config = config["folke/twilight.nvim"],
+        cmd = {"Twilight", "TwilghtEnable", "TwilightDisable"},
+        module = "zen-mode"
     }
     use {
         "folke/zen-mode.nvim",
         config = config["folke/zen-mode-nvim"],
         cmd = "ZenMode"
+    }
+    use {
+        "kristijanhusak/vim-dadbod-ui",
+        requires = "tpope/vim-dadbod",
+        cmd = {"DBUI", "DBUIToggle", "DBUIAddConnection"}
     }
     use {
         "kyazdani42/nvim-tree.lua",
@@ -213,7 +219,11 @@ require("packer").startup(function(use)
             "CheatListWithoutComments"
         }
     }
-    use {"stevearc/qf_helper.nvim", config = config["stevearc/qf_helper.nvim"]}
+    use {
+        "stevearc/qf_helper.nvim",
+        config = config["stevearc/qf_helper.nvim"],
+        cmd = {"QNext", "QPrev", "LLToggle", "QFToggle"}
+    }
     use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}
     use {

@@ -107,6 +107,7 @@ local config = {
         require("todo-comments").setup()
     end,
     ["folke/trouble.nvim"] = function() require("trouble").setup() end,
+    ["folke/twilight.nvim"] = function() require("twilight").setup() end,
     ["folke/zenmode.nvim"] = function() require("zen-mode").setup() end,
     ["glepnir/lspsaga.nvim"] = function()
         require("lspsaga").init_lsp_saga({
@@ -373,14 +374,7 @@ local config = {
             }
         })
     end,
-    ["stevearc/qf_helper.nvim"] = function()
-        require("qf_helper").setup()
-
-        local set_keymap = vim.api.nvim_set_keymap
-        local options = {noremap = true, silent = true}
-        set_keymap("n", "<C-n>", "<CMD>QNext<CR>", options)
-        set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", options)
-    end,
+    ["stevearc/qf_helper.nvim"] = function() require("qf_helper").setup() end,
     ["TimUntersberger/neogit"] = function()
         require("neogit").setup({integrations = {diffview = true}})
     end,

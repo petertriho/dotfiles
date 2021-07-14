@@ -47,6 +47,10 @@ set_keymap("v", "il", ":<C-u>norm!^vg_<CR>", options)
 set_keymap("o", "al", ":norm val<CR>", options)
 set_keymap("o", "il", ":norm vil<CR>", options)
 
+-- Quickfix/Location List
+set_keymap("n", "<C-n>", "<CMD>QNext<CR>", options)
+set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", options)
+
 -- Which Key
 local keymaps = {
     [" "] = {":w<CR>", "write"},
@@ -55,10 +59,12 @@ local keymaps = {
     ["-"] = {"<C-w>s", "split-below"},
     ["."] = {"<CMD>BufOnly<CR>", "only-buffer"},
     ["/"] = {"<Plug>kommentary_line_default", "commentary"},
-    [":"] = {"<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files"},
+    [":"] = {
+        "<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files-all"
+    },
     [";"] = {"<CMD>Telescope find_files hidden=true<CR>", "find-files"},
     ["\\"] = {"<C-w>v", "split-right"},
-    ["["] = {"<CMD>LLToggle<CR>", "local-list-toggle"},
+    ["["] = {"<CMD>LLToggle<CR>", "loc-list-toggle"},
     ["]"] = {"<CMD>QFToggle<CR>", "qf-list-toggle"},
     b = {"<CMD>Telescope buffers<CR>", "buffers"},
     c = {"<CMD>Cheat<CR>", "cheat"},
