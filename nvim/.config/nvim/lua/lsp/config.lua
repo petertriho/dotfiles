@@ -62,7 +62,7 @@ local luaformat = {
 }
 
 local markdownlint = {
-    lintCommand = "markdownlint-cli2 ${INPUT}",
+    lintCommand = "markdownlint --config=$HOME/.config/format-lint/.markdownlint.jsonc ${INPUT}",
     lintFormats = {"%f:%l:%c %m", "%f:%l %m", "%f: %l: %m"},
     lintIgnoreExitCode = true
 }
@@ -108,8 +108,8 @@ return {
         init_options = {documentFormatting = true},
         filetypes = {
             "conf", "css", "dockerfile", "fish", "html", "javascript",
-            "javascriptreact", "json", "lua", "markdown", "python", "scss",
-            "sh", "typescript", "typescriptreact", "vimwiki", "yaml",
+            "javascriptreact", "json", "jsonc", "lua", "markdown", "python",
+            "scss", "sh", "typescript", "typescriptreact", "vimwiki", "yaml",
             "yaml.docker-compose"
         },
         settings = {
@@ -127,6 +127,7 @@ return {
                 javascript = {prettier, eslint},
                 javascriptreact = {rustywind, prettier, eslint},
                 json = {jq, fixjson},
+                jsonc = {jq, fixjson},
                 fish = {fish_indent, fish},
                 lua = {luaformat},
                 markdown = {prettier, markdownlint, write_good},

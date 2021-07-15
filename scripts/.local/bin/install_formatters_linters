@@ -46,8 +46,12 @@ function main {
         yarn global add fixjson
     fi
 
-    if ! command -v markdownlint-cli2 &> /dev/null; then
-        yarn global add markdownlint-cli2
+    # if ! command -v markdownlint-cli2 &> /dev/null; then
+    #     yarn global add markdownlint-cli2
+    # fi
+
+    if ! command -v markdownlint-cli &> /dev/null; then
+        yarn global add markdownlint-cli
     fi
 
     if ! command -v prettierd &> /dev/null; then
