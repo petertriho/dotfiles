@@ -90,7 +90,7 @@ local config = {
         require("anywise_reg").setup({
             operators = {"c", "d", "y"},
             textobjects = {{"i", "a"}, {",", "a", "c", "f", "p", "w", "W"}},
-            paste_keys = {["\\p"] = "p"},
+            paste_keys = {["\\p"] = "p", ["\\P"] = "P"},
             register_print_cmd = false
         })
     end,
