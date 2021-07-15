@@ -192,7 +192,7 @@ require("packer").startup(function(use)
         }
     }
     use "mg979/vim-visual-multi"
-    use {"npxbr/glow.nvim", cmd = "Glow"}
+    use {"npxbr/glow.nvim", run = "GlowInstall", cmd = "Glow"}
     use {
         "nvim-telescope/telescope.nvim",
         requires = {
