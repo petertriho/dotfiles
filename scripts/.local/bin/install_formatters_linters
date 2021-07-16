@@ -23,11 +23,11 @@ function main {
     fi
 
     if ! command -v black &> /dev/null; then
-        pip install black
+        pipx install black
     fi
 
     if ! command -v isort &> /dev/null; then
-        pip install isort
+        pipx install isort
     fi
 
     if ! command -v cspell &> /dev/null; then
