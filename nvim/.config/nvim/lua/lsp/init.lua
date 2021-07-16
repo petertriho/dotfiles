@@ -52,16 +52,11 @@ local on_attach = function(client, bufnr)
     }
 
     buf_set_keymap("n", "ge",
-                   "<CMD>lua require('lspsaga.diagnostic').show_cursor_diagnostics()<CR>",
+                   "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
                    options)
-    buf_set_keymap("n", "gl",
-                   "<CMD>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>",
+    buf_set_keymap("n", "[e", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
                    options)
-    buf_set_keymap("n", "[e",
-                   "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()<CR>",
-                   options)
-    buf_set_keymap("n", "]e",
-                   "<CMD>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>",
+    buf_set_keymap("n", "]e", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
                    options)
 
     keymaps["l"]["l"] = {
@@ -72,21 +67,12 @@ local on_attach = function(client, bufnr)
         keymaps["q"] = {"<CMD>lua vim.lsp.buf.code_action()<CR>", "quickfix"}
 
         keymaps["k"] = {
-            "<CMD>lua require('lspsaga.codeaction').code_action()<CR>",
+            "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>",
             "code-actions"
         }
         visual_keymaps["k"] = {
-            ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>",
-            "code-actions"
-        }
-
-        keymaps["K"] = {
-            "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>",
-            "code-actions-tele"
-        }
-        visual_keymaps["K"] = {
             "<CMD>lua require('telescope.builtin').lsp_range_code_actions()",
-            "code-actions-tele"
+            "code-actions"
         }
 
         keymaps["l"]["c"] = {
@@ -145,8 +131,7 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.find_references then
-        buf_set_keymap("n", "gr",
-                       "<CMD>lua require('lspsaga.provider').lsp_finder()<CR>",
+        buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>",
                        options)
         keymaps["l"]["r"] = {
             "<CMD>lua require('telescope.builtin').lsp_references()<CR>",
@@ -155,8 +140,7 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.goto_definition then
-        buf_set_keymap("n", "gd",
-                       "<CMD>lua require('lspsaga.provider').lsp_finder()<CR>",
+        buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>",
                        options)
         keymaps["l"]["d"] = {
             "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>",
@@ -174,30 +158,21 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.hover then
-        buf_set_keymap("n", "K",
-                       "<CMD>lua require('lspsaga.hover').render_hover_doc()<CR>",
-                       options)
-        buf_set_keymap("n", "gh",
-                       "<CMD>lua require('lspsaga.provider').preview_definition()<CR>",
-                       options)
-
-        buf_set_keymap("n", "<C-f>",
-                       "<CMD>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
-                       options)
-        buf_set_keymap("n", "<C-b>",
-                       "<CMD>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
-                       options)
+        buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", options)
+        buf_set_keymap("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", options)
     end
 
     if client.resolved_capabilities.rename then
-        keymaps["a"]["r"] = {
-            "<CMD>lua require('lspsaga.rename').rename()<CR>", "rename"
-        }
+        keymaps["a"]["r"] = {"<CMD>lua vim.lsp.buf.rename()<CR>", "rename"}
     end
 
     if client.resolved_capabilities.signature_help then
-        buf_set_keymap("n", "gs",
-                       "<CMD>lua require('lspsaga.signaturehelp').signature_help()<CR>",
+        buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>",
+                       options)
+    end
+
+    if client.resolved_capabilities.type_definition then
+        buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>",
                        options)
     end
 
@@ -244,7 +219,13 @@ local on_attach_ts = function(client, bufnr)
         q = "quickfix",
         a = {r = "rename"},
         i = "import-all"
-    }, {prefix = "<Leader>", mode = "n", silent = true, noremap = true})
+    }, {
+        prefix = "<Leader>",
+        mode = "n",
+        buffer = bufnr,
+        silent = true,
+        noremap = true
+    })
 end
 
 local function make_base_config()

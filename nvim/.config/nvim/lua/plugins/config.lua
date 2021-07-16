@@ -109,22 +109,6 @@ local config = {
     ["folke/trouble.nvim"] = function() require("trouble").setup() end,
     ["folke/twilight.nvim"] = function() require("twilight").setup() end,
     ["folke/zenmode.nvim"] = function() require("zen-mode").setup() end,
-    ["glepnir/lspsaga.nvim"] = function()
-        require("lspsaga").init_lsp_saga({
-            rename_prompt_prefix = "",
-            use_saga_diagnostic_sign = true,
-            error_sign = "",
-            warn_sign = "",
-            hint_sign = "",
-            infor_sign = ""
-        })
-
-        local set_keymap = vim.api.nvim_set_keymap
-        local options = {noremap = true, silent = true}
-        set_keymap("n", "<M-t>", ":Lspsaga open_floaterm<CR>", options)
-        set_keymap("t", "<M-t>", "<C-\\><C-n>:Lspsaga close_floaterm<CR>",
-                   options)
-    end,
     ["hrsh7th/nvim-compe"] = function()
         require("compe").setup {
             enabled = true,
