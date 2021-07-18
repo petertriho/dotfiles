@@ -1,3 +1,15 @@
+local signs = {
+    Error = " ",
+    Warning = " ",
+    Hint = " ",
+    Information = " "
+}
+
+for type, icon in pairs(signs) do
+    local hl = "LspDiagnosticsSign" .. type
+    vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ""})
+end
+
 -- folke/tokyonight.nvim
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_sidebars = {"Mundo", "MundoDiff", "DiffViewFiles", "dbui"}
