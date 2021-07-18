@@ -218,11 +218,6 @@ require("packer").startup(function(use)
             "CheatListWithoutComments"
         }
     }
-    use {
-        "stevearc/qf_helper.nvim",
-        config = config["stevearc/qf_helper.nvim"],
-        cmd = {"QNext", "QPrev", "LLToggle", "QFToggle"}
-    }
     use {"simnalamburt/vim-mundo", cmd = "MundoToggle"}
     use {"skywind3000/asyncrun.vim", cmd = "AsyncRun"}
     use {
@@ -258,6 +253,11 @@ require("packer").startup(function(use)
     }
     use "ryvnf/readline.vim"
     use {"schickling/vim-bufonly", cmd = "BufOnly"}
+    use {
+        "stevearc/qf_helper.nvim",
+        config = config["stevearc/qf_helper.nvim"],
+        cmd = {"QNext", "QPrev", "LLToggle", "QFToggle"}
+    }
     use "tpope/vim-repeat"
     use {"tpope/vim-unimpaired", opt = true}
     use {
