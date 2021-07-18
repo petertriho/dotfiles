@@ -66,7 +66,7 @@ require("packer").startup(function(use)
         config = config["folke/todo-comments.nvim"],
         opt = true
     }
-    use {"pantharshit00/vim-prisma", filetype = "prisma"}
+    use "pantharshit00/vim-prisma"
     use {"lukas-reineke/indent-blankline.nvim", opt = true}
     use {
         "norcalli/nvim-colorizer.lua",
