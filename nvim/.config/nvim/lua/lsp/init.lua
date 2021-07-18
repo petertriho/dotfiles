@@ -1,5 +1,5 @@
 local lspinstall = require("lspinstall")
-local lsp_config = require("lsp/config")
+local lsp_config = require("lsp.config")
 
 -- Install
 function _G.lsp_install_missing()

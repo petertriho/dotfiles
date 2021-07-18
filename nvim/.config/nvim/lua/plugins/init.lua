@@ -1,6 +1,6 @@
 -- TODO:
 -- coc-git: gh issues autocomplete
-local config = require("plugins/config")
+local config = require("plugins.config")
 
 require("packer").init({max_jobs = 50})
 require("packer").startup(function(use)
@@ -267,4 +267,4 @@ require("packer").startup(function(use)
     }
 end)
 
-require("plugins/lazyload")
+require("plugins.lazyload")
