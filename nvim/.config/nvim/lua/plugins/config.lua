@@ -291,7 +291,7 @@ local config = {
                     node_decremental = "grm"
                 }
             },
-            indentation = {enable = true}
+            indent = {enable = true}
         }
     end,
     ["nvim-treesitter/nvim-treesitter-refactor"] = function()
@@ -321,6 +321,7 @@ local config = {
             textobjects = {
                 select = {
                     enable = true,
+                    lookahead = true,
                     keymaps = {
                         ["af"] = "@function.outer",
                         ["if"] = "@function.inner",
