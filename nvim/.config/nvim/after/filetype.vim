@@ -1,7 +1,7 @@
-if exists("did_load_filetypes_userafter")
+if exists("did_load_after_filetypes")
     finish
 endif
-let did_load_filetypes_userafter = 1
+let did_load_after_filetypes = 1
 
 augroup filetype_detect
     autocmd!
