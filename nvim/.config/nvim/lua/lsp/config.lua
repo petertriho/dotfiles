@@ -68,6 +68,11 @@ local markdownlint = {
 }
 
 local prettier = {
+    formatCommand = "prettier --config=~/.config/format-lint/.prettierrc.json ${INPUT}",
+    formatStdin = true
+}
+
+local prettierd = {
     formatCommand = "prettierd ${INPUT}",
     formatStdin = true,
     env = {
@@ -121,24 +126,24 @@ return {
             languages = {
                 -- ["="] = {cspell},
                 conf = {dotenv_linter},
-                css = {rustywind, prettier},
+                css = {rustywind, prettierd},
                 dockerfile = {hadolint},
-                html = {rustywind, prettier},
-                javascript = {prettier, eslint},
-                javascriptreact = {rustywind, prettier, eslint},
+                html = {rustywind, prettierd},
+                javascript = {prettierd, eslint},
+                javascriptreact = {rustywind, prettierd, eslint},
                 json = {jq, fixjson},
                 jsonc = {jq, fixjson},
                 fish = {fish_indent, fish},
                 lua = {luaformat},
                 markdown = {prettier, markdownlint, write_good},
                 python = {isort, black},
-                scss = {rustywind, prettier},
+                scss = {rustywind, prettierd},
                 sh = {shfmt, shellcheck},
-                typescript = {prettier, eslint},
-                typescriptreact = {rustywind, prettier, eslint},
+                typescript = {prettierd, eslint},
+                typescriptreact = {rustywind, prettierd, eslint},
                 vimwiki = {prettier, markdownlint, write_good},
-                yaml = {prettier},
-                ["yaml.docker-compose"] = {prettier}
+                yaml = {prettierd},
+                ["yaml.docker-compose"] = {prettierd}
             }
         }
     },
