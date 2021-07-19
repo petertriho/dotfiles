@@ -68,7 +68,7 @@ local markdownlint = {
 }
 
 local prettier = {
-    formatCommand = "prettier --config=~/.config/format-lint/.prettierrc.json ${INPUT}",
+    formatCommand = "prettier --config ~/.config/format-lint/.prettierrc.json ${INPUT}",
     formatStdin = true
 }
 
