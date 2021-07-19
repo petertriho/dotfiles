@@ -83,6 +83,7 @@ vim.g.polyglot_disabled = {
 vim.g.vimwiki_list = {
     {path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md"}
 }
+vim.g.vimwiki_conceallevel = 0
 vim.g.vimwiki_global_ext = 0
 vim.g.vimwiki_key_mappings = {table_mappings = 0}
 
