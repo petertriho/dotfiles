@@ -261,13 +261,12 @@ local config = {
                     }
                 },
                 file_ignore_patterns = {".git"},
+                sorting_strategy = "ascending",
                 layout_strategy = "flex",
                 layout_config = {
                     horizontal = {preview_width = 0.6, prompt_position = "top"},
                     vertical = {mirror = true}
-                },
-                sorting_strategy = "ascending",
-                winblend = 5
+                }
             },
             extensions = {
                 fzy_native = {
