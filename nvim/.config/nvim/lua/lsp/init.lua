@@ -198,8 +198,6 @@ local on_attach_ts = function(client, bufnr)
 
     on_attach(client, bufnr)
 
-    require("null-ls").setup()
-
     local ts_utils = require("nvim-lsp-ts-utils")
     ts_utils.setup({eslint_bin = "eslint_d"})
     ts_utils.setup_client(client)
@@ -243,6 +241,8 @@ end
 
 local function setup()
     local lspconfig = require("lspconfig")
+
+    require("null-ls").setup()
 
     lspinstall.setup()
 

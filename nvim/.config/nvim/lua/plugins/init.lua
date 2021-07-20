@@ -25,7 +25,7 @@ require("packer").startup(function(use)
     -- lsp
     use "neovim/nvim-lspconfig"
     use {"folke/lua-dev.nvim", filetype = "lua"}
-    use {"jose-elias-alvarez/null-ls.nvim", module = "null-ls"}
+    use {"jose-elias-alvarez/null-ls.nvim"}
     use {"jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils"}
     use "kabouzeid/nvim-lspinstall"
 
