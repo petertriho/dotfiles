@@ -142,8 +142,8 @@ return {
                 typescript = {prettierd, eslint},
                 typescriptreact = {rustywind, prettierd, eslint},
                 vimwiki = {prettier, markdownlint, write_good},
-                yaml = {prettierd},
-                ["yaml.docker-compose"] = {prettierd}
+                yaml = {prettier},
+                ["yaml.docker-compose"] = {prettier}
             }
         }
     },
