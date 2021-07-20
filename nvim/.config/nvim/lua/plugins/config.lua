@@ -263,11 +263,7 @@ local config = {
                 file_ignore_patterns = {".git"},
                 layout_strategy = "flex",
                 layout_config = {
-                    horizontal = {
-                        preview_width = 0.6,
-                        preview_cutoff = 40,
-                        prompt_position = "top"
-                    },
+                    horizontal = {preview_width = 0.6, prompt_position = "top"},
                     vertical = {mirror = true}
                 },
                 sorting_strategy = "ascending",
