@@ -53,7 +53,6 @@ o.visualbell = false
 local wo = vim.wo
 wo.colorcolumn = "80"
 wo.cursorline = true
-wo.foldenable = false
 wo.number = true
 wo.relativenumber = true
 wo.signcolumn = "yes"
