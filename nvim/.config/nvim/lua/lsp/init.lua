@@ -242,7 +242,8 @@ end
 local function setup()
     local lspconfig = require("lspconfig")
 
-    require("null-ls").setup()
+    require("null-ls").config {}
+    lspconfig["null-ls"].setup {}
 
     lspinstall.setup()
 
@@ -267,7 +268,7 @@ local function setup()
         lspconfig[server].setup(config)
     end
 
-    local additional_servers = require("lsp/servers")
+    local additional_servers = require("lsp.servers")
     for server, _ in pairs(additional_servers) do
         local config = make_base_config()
 
