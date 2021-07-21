@@ -51,12 +51,12 @@ local on_attach = function(client, bufnr)
         }
     }
 
-    buf_set_keymap("n", "ge",
+    buf_set_keymap("n", "gl",
                    "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
                    options)
-    buf_set_keymap("n", "[e", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
+    buf_set_keymap("n", "[l", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
                    options)
-    buf_set_keymap("n", "]e", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
+    buf_set_keymap("n", "]l", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
                    options)
 
     keymaps["l"]["l"] = {
