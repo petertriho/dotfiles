@@ -17,50 +17,44 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrwSettings = 1
 vim.g.loaded_netrwFileHandlers = 1
 
--- global
-local o = vim.o
-o.completeopt = "menuone,noselect"
-o.clipboard = "unnamedplus"
-o.errorbells = false
-o.expandtab = true
-o.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
-o.hidden = true
-o.inccommand = "nosplit"
-o.ignorecase = true
-o.lazyredraw = true
-o.mouse = "a"
-o.shell = "bash"
-o.shortmess = o.shortmess .. "c"
-o.shiftwidth = 4
-o.showmode = false
-o.smartcase = true
-o.smartindent = true
-o.softtabstop = 4
-o.splitbelow = true
-o.splitright = true
-o.swapfile = false
-o.tabstop = 4
-o.termguicolors = true
-o.timeoutlen = 500
-o.title = true
-o.titlestring = "nvim %t %M (%F)"
-o.ttimeout = true
-o.ttimeoutlen = 10
-o.updatetime = 100
-o.visualbell = false
-
--- window
-local wo = vim.wo
-wo.colorcolumn = "80"
-wo.cursorline = true
-wo.number = true
-wo.relativenumber = true
-wo.signcolumn = "yes"
-wo.wrap = false
-
--- buffer
-local bo = vim.bo
-bo.swapfile = false
+-- options
+local opt = vim.opt
+opt.clipboard = "unnamedplus"
+opt.colorcolumn = "80"
+opt.completeopt = "menuone,noselect"
+opt.cursorline = true
+opt.errorbells = false
+opt.expandtab = true
+opt.fillchars = {fold = " ", vert = "│", eob = " ", msgsep = "‾"}
+opt.hidden = true
+opt.ignorecase = true
+opt.inccommand = "nosplit"
+opt.lazyredraw = true
+opt.mouse = "a"
+opt.number = true
+opt.relativenumber = true
+opt.shell = "bash"
+opt.shiftwidth = 4
+opt.shortmess = opt.shortmess + "c"
+opt.showmode = false
+opt.signcolumn = "yes"
+opt.smartcase = true
+opt.smartindent = true
+opt.softtabstop = 4
+opt.splitbelow = true
+opt.splitright = true
+opt.swapfile = false
+opt.swapfile = false
+opt.tabstop = 4
+opt.termguicolors = true
+opt.timeoutlen = 300
+opt.title = true
+opt.titlestring = "nvim %t %M (%F)"
+opt.ttimeout = true
+opt.ttimeoutlen = 10
+opt.updatetime = 100
+opt.visualbell = false
+opt.wrap = false
 
 local proc_version = io.open("/proc/version", "r")
 if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
