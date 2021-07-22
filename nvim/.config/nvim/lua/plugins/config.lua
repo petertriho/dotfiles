@@ -302,16 +302,7 @@ local config = {
             refactor = {
                 highlight_current_scope = {enable = false},
                 highlight_definitions = {enable = true},
-                navigation = {
-                    enable = true,
-                    keymaps = {
-                        goto_definition = "gd",
-                        list_definitions = "gl",
-                        list_definitions_toc = "gL",
-                        goto_next_usage = "gj",
-                        goto_previous_usage = "gk"
-                    }
-                },
+                navigation = {enable = false},
                 smart_rename = {
                     enable = true,
                     keymaps = {smart_rename = "<Leader>ar"}
