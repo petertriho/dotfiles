@@ -20,6 +20,7 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- gs   'git status'
     abbr -a -U -- gst  'git stash'
     abbr -a -U -- gsw  'git switch'
+    abbr -a -U -- k    kubectl
     abbr -a -U -- ll   'ls -la'
     abbr -a -U -- rmf  'rm -rf'
     abbr -a -U -- t    tmux
