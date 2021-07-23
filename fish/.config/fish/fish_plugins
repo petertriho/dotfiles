@@ -8,3 +8,4 @@ oh-my-fish/plugin-pj
 PatrickF1/fzf.fish
 petertriho/plugin-bang-bang
 wfxr/forgit
+evanlucas/fish-kubectl-completions
