@@ -12,4 +12,4 @@ vim.cmd([[autocmd User LoadDeferred lua LoadDeferredPlugins()]])
 
 vim.defer_fn(function() vim.cmd([[doautocmd User DeferLoadPlugins]]) end, 80)
 
-vim.defer_fn(function() vim.cmd([[doautocmd ColorScheme]]) end, 100)
+-- vim.defer_fn(function() vim.cmd([[doautocmd ColorScheme]]) end, 100)
