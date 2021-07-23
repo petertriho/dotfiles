@@ -36,11 +36,7 @@ require("packer").startup(function(use)
         event = "InsertEnter"
     }
     use {"andersevenrud/compe-tmux", after = "nvim-compe"}
-    use {
-        "hrsh7th/vim-vsnip",
-        config = config["hrsh7th/vim-vsnip"],
-        after = "nvim-compe"
-    }
+    use {"hrsh7th/vim-vsnip", after = "nvim-compe"}
     use {
         "kristijanhusak/vim-dadbod-completion",
         requires = "tpope/vim-dadbod",
