@@ -33,7 +33,7 @@ require("packer").startup(function(use)
     use {
         "hrsh7th/nvim-compe",
         config = config["hrsh7th/nvim-compe"],
-        opt = true
+        event = "InsertEnter"
     }
     use {"andersevenrud/compe-tmux", after = "nvim-compe"}
     use {
@@ -267,4 +267,4 @@ require("packer").startup(function(use)
     }
 end)
 
-require("plugins.lazyload")
+require("plugins.deferred")
