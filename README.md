@@ -6,9 +6,9 @@
 
 #### GNU Stow
 
--   MacOS (homebrew): `brew install stow`
--   Arch (pacman): `sudo pacman -S stow`
--   Ubuntu (apt): `sudo apt install stow`
+- MacOS (homebrew): `brew install stow`
+- Arch (pacman): `sudo pacman -S stow`
+- Ubuntu (apt): `sudo apt install stow`
 
 ### Instructions
 
@@ -17,32 +17,32 @@
 
 ## Software
 
--   [Fish Shell](https://fishshell.com/)
--   [Neovim](https://neovim.io/)
--   [Tmux](https://github.com/tmux/tmux)
+- [Fish Shell](https://fishshell.com/)
+- [Neovim](https://neovim.io/)
+- [Tmux](https://github.com/tmux/tmux)
 
 ### Fish Shell
 
 #### Dependencies
 
--   [starship](https://starship.rs/)
--   [jorgeburcaran/fisher](https://github.com/jorgebucaran/fisher)
--   [wfxr/forgit](https://github.com/wfxr/forgit)
--   [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
--   [sharkdp/vivid](https://github.com/sharkdp/vivid)
+- [starship](https://starship.rs/)
+- [jorgeburcaran/fisher](https://github.com/jorgebucaran/fisher)
+- [wfxr/forgit](https://github.com/wfxr/forgit)
+- [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
+- [sharkdp/vivid](https://github.com/sharkdp/vivid)
 
 ### Neovim
 
 #### Dependencies
 
--   [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
--   [cli/cli](https://github.com/cli/cli)
--   [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
--   `scripts/.local/bin/install_formatters_linters`
--   `scripts/.local/bin/install_language_servers`
+- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [cli/cli](https://github.com/cli/cli)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- `scripts/.local/bin/install_formatters_linters`
+- `scripts/.local/bin/install_language_servers`
 
 ### Tmux
 
 #### Dependencies
 
--   [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
+- [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
