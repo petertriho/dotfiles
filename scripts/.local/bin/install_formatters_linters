@@ -25,7 +25,7 @@ function main {
         pipx install black
     fi
 
-    if !command -v isort &> /dev/null; then
+    if ! command -v isort &> /dev/null; then
         pipx install isort
     fi
 
