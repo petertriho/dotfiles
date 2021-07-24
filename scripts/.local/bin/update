@@ -15,7 +15,7 @@ function tool:apt {
 function tool:asdf {
     if command -v asdf &> /dev/null; then
         echo "Updating asdf & plugins ..."
-        asdf update
+        asdf update || true
         asdf plugin update --all
     fi
 }
