@@ -62,4 +62,6 @@ if status is-interactive
         --git_status=\e\cs \
         --history=\cr \
         --variable=\e\ce
+
+    delta_side_by_side
 end

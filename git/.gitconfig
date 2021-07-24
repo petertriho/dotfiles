@@ -12,16 +12,17 @@
 	rebase = true
 
 [core]
-	# Remove when fixed
+	# Remove delta_side_by_side function when fixed
 	# https://github.com/dandavison/delta/issues/359
 	# https://github.com/wfxr/forgit/issues/121
-	pager = bash -c 'delta --side-by-side -w $(get_delta_width)'
+    pager = delta --width $FZF_PREVIEW_COLUMNS
 
 #[remote "origin"]
 	# fetch = +refs/heads/*:refs/remotes/origin/*
 
 [delta]
-	syntax-theme = base16-256
+	syntax-theme = base16
+    true-color = yes
 
 [interactive]
 	diffFilter = delta --color-only

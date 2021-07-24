@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# set -euo pipefail
+set -euo pipefail
 
 function tool:apt {
     if command -v apt &> /dev/null; then
@@ -30,7 +30,7 @@ function tool:brew {
 
 function tool:cargo {
     if command -v cargo &> /dev/null; then
-        if [ -z $(cargo install --list | grep cargo-update) ]; then
+        if ! cargo install --list | grep - q cargo-update; then
             cargo install cargo-update
         fi
 
@@ -47,6 +47,7 @@ function tool:dotfiles {
                 && stow --no-folding -t ~ */
         )
         find -L "$HOME/.config" -type l -exec rm -i {} \;
+        find -L "$HOME/.local/bin" -type l -exec rm -i {} \;
     fi
 }
 
@@ -134,7 +135,7 @@ function tool:all {
     if [ "$(uname)" == "Linux" ]; then
         tool:apt
 
-        if [ -e "/proc/version" ] && [ -n "$(grep 'microsoft' '/proc/version')" ]; then
+        if [ -e "/proc/version" ] && grep -q "microsoft" "/proc/version"; then
             tool:scoop
             tool:win32yank
         fi
