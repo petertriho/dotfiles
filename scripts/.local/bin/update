@@ -28,6 +28,16 @@ function tool:brew {
     fi
 }
 
+function tool:cargo {
+    if command -v cargo &> /dev/null; then
+        if [ -z $(cargo install --list | grep cargo-update) ]; then
+            cargo install cargo-update
+        fi
+
+        cargo install-update -a
+    fi
+}
+
 function tool:dotfiles {
     if [ -d "$HOME/.dotfiles" ]; then
         echo "Updating dotfiles ..."
@@ -66,6 +76,12 @@ function tool:nvim {
     nvim \
         +"autocmd User PackerComplete sleep 100m | qall" \
         +PackerSync
+}
+
+function tool:pipx {
+    if command -v pipx &> /dev/null; then
+        pipx upgrade-all
+    fi
 }
 
 function tool:scoop {
@@ -130,6 +146,8 @@ function tool:all {
     tool:nvim
     tool:tmux
     tool:misc
+    tool:cargo
+    tool:pipx
     tool:yarn
 
     exec "$SHELL"

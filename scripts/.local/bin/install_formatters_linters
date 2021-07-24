@@ -17,16 +17,15 @@ function main {
         brew install shfmt
     fi
 
-    if ! command -v lua-format &> /dev/null; then
-        brew install cmake luarocks
-        luarocks install --server=https://luarocks.org/dev luaformatter
+    if ! command -v stylua &> /dev/null; then
+        cargo install stylua
     fi
 
     if ! command -v black &> /dev/null; then
         pipx install black
     fi
 
-    if ! command -v isort &> /dev/null; then
+    if !command -v isort &> /dev/null; then
         pipx install isort
     fi
 
@@ -45,10 +44,6 @@ function main {
     if ! command -v fixjson &> /dev/null; then
         yarn global add fixjson
     fi
-
-    # if ! command -v markdownlint-cli2 &> /dev/null; then
-    #     yarn global add markdownlint-cli2
-    # fi
 
     if ! command -v markdownlint-cli &> /dev/null; then
         yarn global add markdownlint-cli
