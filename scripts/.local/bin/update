@@ -34,7 +34,7 @@ function tool:cargo {
             cargo install cargo-update
         fi
 
-        cargo install-update -a
+        cargo install-update --all
     fi
 }
 
