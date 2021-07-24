@@ -425,6 +425,15 @@ local config = {
 	["windwp/nvim-spectre"] = function()
 		require("spectre").setup()
 	end,
+	["winston0410/commented.nvim"] = function()
+		require("commented").setup({
+			comment_padding = " ",
+			keybindings = { n = "gc", v = "<leader>/", nl = "<leader>/" },
+			set_keybindings = true,
+			ex_mode_cmd = "Comment",
+			prefer_block_comment = true,
+		})
+	end,
 	["winston0410/range-highlight.nvim"] = function()
 		require("range-highlight").setup()
 	end,

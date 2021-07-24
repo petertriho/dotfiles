@@ -58,7 +58,7 @@ local keymaps = {
 	[","] = { "<CMD>ScratchPreview<CR>", "scratch-preview" },
 	["-"] = { "<C-w>s", "split-below" },
 	["."] = { "<CMD>BufOnly<CR>", "only-buffer" },
-	["/"] = { "<Plug>kommentary_line_default", "commentary" },
+	["/"] = { "comment" },
 	[":"] = {
 		"<CMD>Telescope find_files find_command=fd,-HIL<CR>",
 		"find-files-all",
@@ -85,7 +85,7 @@ local keymaps = {
 }
 
 local visual_keymaps = {
-	["/"] = { "<Plug>kommentary_visual_default", "commentary" },
+	["/"] = { "comment" },
 	x = { "<Plug>(vsnip-select-text)", "snippet-select" },
 	X = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
 }
