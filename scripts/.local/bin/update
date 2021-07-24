@@ -30,7 +30,7 @@ function tool:brew {
 
 function tool:cargo {
     if command -v cargo &> /dev/null; then
-        if ! cargo install --list | grep - q cargo-update; then
+        if ! cargo install --list | grep -q cargo-update; then
             cargo install cargo-update
         fi
 
