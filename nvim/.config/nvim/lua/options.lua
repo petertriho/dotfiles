@@ -27,7 +27,7 @@ opt.completeopt = "menuone,noselect"
 opt.cursorline = true
 opt.errorbells = false
 opt.expandtab = true
-opt.fillchars = {fold = " ", vert = "│", eob = " ", msgsep = "‾"}
+opt.fillchars = { fold = " ", vert = "│", eob = " ", msgsep = "‾" }
 opt.hidden = true
 opt.ignorecase = true
 opt.inccommand = "nosplit"
@@ -60,24 +60,24 @@ opt.wrap = false
 
 local proc_version = io.open("/proc/version", "r")
 if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
-    local proc_version_text = proc_version:read()
+	local proc_version_text = proc_version:read()
 
-    if proc_version_text:match("microsoft") then
-        vim.g.clipboard = {
-            name = "win32yank",
-            copy = {
-                ["+"] = "win32yank.exe -i --crlf",
-                ["*"] = "win32yank.exe -i --crlf"
-            },
-            paste = {
-                ["+"] = "win32yank.exe -o --lf",
-                ["*"] = "win32yank.exe -o --lf"
-            },
-            ["cache_enabled"] = 0
-        }
-    end
+	if proc_version_text:match("microsoft") then
+		vim.g.clipboard = {
+			name = "win32yank",
+			copy = {
+				["+"] = "win32yank.exe -i --crlf",
+				["*"] = "win32yank.exe -i --crlf",
+			},
+			paste = {
+				["+"] = "win32yank.exe -o --lf",
+				["*"] = "win32yank.exe -o --lf",
+			},
+			["cache_enabled"] = 0,
+		}
+	end
 
-    proc_version:close()
+	proc_version:close()
 end
 
 vim.cmd([[
@@ -102,31 +102,35 @@ endif
 ]])
 
 local function set_augroups(definitions)
-    for group_name, definition in pairs(definitions) do
-        vim.cmd("augroup " .. group_name)
-        vim.cmd("autocmd!")
-        for _, def in pairs(definition) do
-            local command = table.concat(vim.tbl_flatten {"autocmd", def}, " ")
-            vim.cmd(command)
-        end
-        vim.cmd("augroup END")
-    end
+	for group_name, definition in pairs(definitions) do
+		vim.cmd("augroup " .. group_name)
+		vim.cmd("autocmd!")
+		for _, def in pairs(definition) do
+			local command = table.concat(vim.tbl_flatten({ "autocmd", def }), " ")
+			vim.cmd(command)
+		end
+		vim.cmd("augroup END")
+	end
 end
 
 set_augroups({
-    _general = {
-        {
-            "TextYankPost", "*",
-            "lua require('vim.highlight').on_yank({ higroup = 'Search', timeout = 200 })"
-        }
-    },
-    _color = {
-        {
-            "ColorScheme", "*",
-            "highlight QuickScopePrimary guifg=#7aa2f7 gui=underline ctermfg=blue cterm=underline"
-        }, {
-            "ColorScheme", "*",
-            "highlight QuickScopeSecondary guifg=#f7768e gui=underline ctermfg=red cterm=underline"
-        }
-    }
+	_general = {
+		{
+			"TextYankPost",
+			"*",
+			"lua require('vim.highlight').on_yank({ higroup = 'Search', timeout = 200 })",
+		},
+	},
+	_color = {
+		{
+			"ColorScheme",
+			"*",
+			"highlight QuickScopePrimary guifg=#7aa2f7 gui=underline ctermfg=blue cterm=underline",
+		},
+		{
+			"ColorScheme",
+			"*",
+			"highlight QuickScopeSecondary guifg=#f7768e gui=underline ctermfg=red cterm=underline",
+		},
+	},
 })
