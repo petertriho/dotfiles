@@ -112,6 +112,9 @@ vim.g.vimwiki_global_ext = 0
 vim.g.vimwiki_key_mappings = { table_mappings = 0, lists = 0, mouse = 0 }
 
 local config = {
+    ["abecodes/tabout.nvim"] = function()
+        require("tabout").setup()
+    end,
 	["AckslD/nvim-anywise-reg.lua"] = function()
 		require("anywise_reg").setup({
 			operators = { "c", "d", "y" },

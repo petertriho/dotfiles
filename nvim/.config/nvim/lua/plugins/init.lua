@@ -33,7 +33,7 @@ require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-compe",
 		config = config["hrsh7th/nvim-compe"],
-		event = "InsertEnter",
+		opt = true,
 	})
 	use({ "andersevenrud/compe-tmux", after = "nvim-compe" })
 	use({ "hrsh7th/vim-vsnip", after = "nvim-compe" })
@@ -77,6 +77,12 @@ require("packer").startup(function(use)
 		config = config["nvim-treesitter/nvim-treesitter"],
 		opt = true,
 		run = ":TSUpdate",
+	})
+	use({
+		"abecodes/tabout.nvim",
+		config = config["abecodes/tabout.nvim"],
+		requires = "nvim-treesitter",
+		after = { "nvim-treesitter", "nvim-compe" },
 	})
 	use({
 		"andymass/vim-matchup",

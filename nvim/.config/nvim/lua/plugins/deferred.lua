@@ -1,6 +1,7 @@
 function LoadDeferredPlugins()
 	local loader = require("packer").loader
 	local plugins = {
+		"nvim-compe",
 		"nvim-treesitter",
 		"vim-matchup",
 		"vim-unimpaired",
