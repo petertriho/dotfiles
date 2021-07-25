@@ -80,9 +80,9 @@ require("packer").startup(function(use)
 	})
 	use({
 		"abecodes/tabout.nvim",
-		config = config["abecodes/tabout.nvim"],
 		requires = "nvim-treesitter",
-		after = { "nvim-treesitter", "nvim-compe" },
+		config = config["abecodes/tabout.nvim"],
+		after = { "nvim-compe", "nvim-treesitter" },
 	})
 	use({
 		"andymass/vim-matchup",
