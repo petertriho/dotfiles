@@ -46,7 +46,6 @@ opt.softtabstop = 4
 opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
-opt.swapfile = false
 opt.tabstop = 4
 opt.termguicolors = true
 opt.timeoutlen = 300
