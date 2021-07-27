@@ -73,10 +73,9 @@ local vi_mode_colors = {
 	NONE = "orange",
 }
 
+local feline_providers = require("feline.providers")
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
-
-local feline_providers = require("feline.providers")
 
 feline_providers.add_provider("file_name", function(component)
 	local filename = vim.fn.expand("%:t")
@@ -106,11 +105,7 @@ feline_providers.add_provider("winnr", function()
 end)
 
 feline_providers.add_provider("lsp_progress", function()
-	if next(vim.lsp.buf_get_clients()) ~= nil then
-		return require("lsp-status").status_progress()
-	else
-		return ""
-	end
+	return require("lsp-status").status_progress()
 end)
 
 local properties = {
