@@ -28,7 +28,6 @@ local keymaps = { a = { name = "+action" }, l = { name = "+lsp" } }
 local visual_keymaps = { a = { name = "+action" }, l = { name = "+lsp" } }
 
 local lsp_status = require("lsp-status")
-lsp_status.register_progress()
 
 local on_attach = function(client, bufnr)
 	lsp_status.on_attach(client)
@@ -57,8 +56,8 @@ local on_attach = function(client, bufnr)
 	}
 
 	buf_set_keymap("n", "gl", "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", options)
-	buf_set_keymap("n", "[l", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", options)
-	buf_set_keymap("n", "]l", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", options)
+	buf_set_keymap("n", "[d", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", options)
+	buf_set_keymap("n", "]d", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", options)
 
 	keymaps["l"]["l"] = {
 		"<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>",
@@ -220,12 +219,11 @@ local on_attach_ts = function(client, bufnr)
 end
 
 local function make_base_config()
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	local capabilities = lsp_status.capabilities
 	capabilities.textDocument.completion.completionItem.snippetSupport = true
 	capabilities.textDocument.completion.completionItem.resolveSupport = {
 		properties = { "documentation", "detail", "additionalTextEdits" },
 	}
-	capabilities = vim.tbl_extend("keep", capabilities or {}, lsp_status.capabilities)
 	return {
 		capabilities = capabilities,
 		on_attach = on_attach,
@@ -234,6 +232,8 @@ local function make_base_config()
 end
 
 local function setup()
+	lsp_status.register_progress()
+
 	local lspconfig = require("lspconfig")
 
 	require("null-ls").config({})
