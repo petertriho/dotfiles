@@ -27,7 +27,12 @@ local register = require("which-key").register
 local keymaps = { a = { name = "+action" }, l = { name = "+lsp" } }
 local visual_keymaps = { a = { name = "+action" }, l = { name = "+lsp" } }
 
+local lsp_status = require("lsp-status")
+lsp_status.register_progress()
+
 local on_attach = function(client, bufnr)
+	lsp_status.on_attach(client)
+
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -220,6 +225,7 @@ local function make_base_config()
 	capabilities.textDocument.completion.completionItem.resolveSupport = {
 		properties = { "documentation", "detail", "additionalTextEdits" },
 	}
+	capabilities = vim.tbl_extend("keep", capabilities or {}, lsp_status.capabilities)
 	return {
 		capabilities = capabilities,
 		on_attach = on_attach,

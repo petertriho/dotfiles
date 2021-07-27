@@ -76,13 +76,15 @@ local vi_mode_colors = {
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
-require("feline.providers").add_provider("file_name", function(component)
+local feline_providers = require("feline.providers")
+
+feline_providers.add_provider("file_name", function(component)
 	local filename = vim.fn.expand("%:t")
+	local modified_str = ""
+
 	if vim.bo.modified then
 		local modified_icon = component.file_modified_icon or "●"
 		modified_str = modified_icon .. " "
-	else
-		modified_str = ""
 	end
 
 	if filename == "" then
@@ -92,15 +94,23 @@ require("feline.providers").add_provider("file_name", function(component)
 	return filename .. " " .. modified_str
 end)
 
-require("feline.providers").add_provider("file_type2", function(component)
+feline_providers.add_provider("file_type2", function(component)
 	local extension = vim.fn.expand("%:e")
 
 	local icon = component.icon or require("nvim-web-devicons").get_icon("", extension, { default = true })
 	return icon .. " " .. vim.bo.filetype:upper()
 end)
 
-require("feline.providers").add_provider("winnr", function(component)
+feline_providers.add_provider("winnr", function()
 	return tostring(vim.fn.winnr())
+end)
+
+feline_providers.add_provider("lsp_progress", function()
+	if next(vim.lsp.buf_get_clients()) ~= nil then
+		return require("lsp-status").status_progress()
+	else
+		return ""
+	end
 end)
 
 local properties = {
@@ -197,6 +207,7 @@ components.left.inactive = {
 }
 
 components.right.active = {
+	{ provider = "lsp_progress", left_sep = " ", right_sep = " " },
 	{
 		provider = "diagnostic_info",
 		enabled = function()
