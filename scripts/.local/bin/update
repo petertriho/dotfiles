@@ -63,20 +63,20 @@ function tool:fish {
 
 function tool:nvim {
     if command -v nvim &> /dev/null; then
-        if command -v brew &> /dev/null && brew list | grep -q neovim; then
+        if command -v brew &> /dev/null && [ -n "$(brew list | grep neovim)" ]; then
             echo "Updating neovim ..."
             brew upgrade neovim --fetch-head
         fi
+
+        # echo "Updating neovim plugins ..."
+        # nvim \
+            # +TSUpdateSync \
+            # +qall
+
+        # nvim \
+            # +"autocmd User PackerComplete sleep 100m | qall" \
+            # +PackerSync
     fi
-
-    echo "Updating neovim plugins ..."
-    nvim \
-        +TSUpdateSync \
-        +qall
-
-    nvim \
-        +"autocmd User PackerComplete sleep 100m | qall" \
-        +PackerSync
 }
 
 function tool:pipx {
