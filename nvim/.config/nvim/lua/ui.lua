@@ -207,6 +207,7 @@ components.left.inactive = {
 }
 
 components.right.active = {
+	{ provider = "lsp_progress", left_sep = " ", right_sep = " " },
 	{
 		provider = "diagnostic_info",
 		enabled = function()
@@ -239,7 +240,6 @@ components.right.active = {
 		icon = "  ",
 		hl = { fg = "error" },
 	},
-	{ provider = "lsp_progress", left_sep = " ", right_sep = " " },
 	{ provider = "lsp_client_names", left_sep = " ", right_sep = " " },
 	{
 		provider = "file_type2",
