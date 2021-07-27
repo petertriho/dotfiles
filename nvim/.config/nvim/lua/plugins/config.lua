@@ -356,7 +356,7 @@ local config = {
 				navigation = { enable = false },
 				smart_rename = {
 					enable = true,
-					keymaps = { smart_rename = "<Leader>ar" },
+					keymaps = { smart_rename = "<Leader>aR" },
 				},
 			},
 		})
