@@ -198,7 +198,6 @@ components.left.inactive = {
 		left_sep = "block",
 		right_sep = "right_filled",
 	},
-	{ provider = "winnr", left_sep = " ", right_sep = " " },
 }
 
 components.right.active = {
@@ -283,6 +282,10 @@ components.right.active = {
 			}
 		end,
 	},
+}
+
+components.right.inactive = {
+	{ provider = "winnr", left_sep = " ", right_sep = " " },
 }
 
 require("feline").setup({
