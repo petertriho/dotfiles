@@ -112,9 +112,9 @@ vim.g.vimwiki_global_ext = 0
 vim.g.vimwiki_key_mappings = { table_mappings = 0, lists = 0, mouse = 0 }
 
 local config = {
-    ["abecodes/tabout.nvim"] = function()
-        require("tabout").setup()
-    end,
+	["abecodes/tabout.nvim"] = function()
+		require("tabout").setup()
+	end,
 	["AckslD/nvim-anywise-reg.lua"] = function()
 		require("anywise_reg").setup({
 			operators = { "c", "d", "y" },
@@ -128,7 +128,7 @@ local config = {
 	end,
 	["JoosepAlviste/nvim-ts-context-commentstring"] = function()
 		require("nvim-treesitter.configs").setup({
-			context_commentstring = { enable = true },
+			context_commentstring = { enable = true, enable_autocmd = false },
 		})
 	end,
 	["kkoomen/vim-doge"] = function()
@@ -435,6 +435,9 @@ local config = {
 			set_keybindings = true,
 			ex_mode_cmd = "Comment",
 			prefer_block_comment = true,
+			hooks = {
+				before_comment = require("ts_context_commentstring.internal").update_commentstring,
+			},
 		})
 	end,
 	["winston0410/range-highlight.nvim"] = function()

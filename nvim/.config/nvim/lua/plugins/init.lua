@@ -158,7 +158,11 @@ require("packer").startup(function(use)
 	use("monaqa/dial.nvim")
 	use({ "tpope/vim-abolish", cmd = "Subvert", keys = "cr" })
 	use("wellle/targets.vim")
-	use({ "winston0410/commented.nvim", config = config["winston0410/commented.nvim"] })
+	use({
+		"winston0410/commented.nvim",
+		config = config["winston0410/commented.nvim"],
+		after = "nvim-ts-context-commentstring",
+	})
 
 	-- tools
 	use({ "chumakd/scratch.vim", cmd = "ScratchPreview" })
