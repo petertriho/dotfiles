@@ -131,6 +131,9 @@ local config = {
 			context_commentstring = { enable = true, enable_autocmd = false },
 		})
 	end,
+	["kazhala/close-buffers.nvim"] = function()
+		require("close_buffers").setup()
+	end,
 	["kkoomen/vim-doge"] = function()
 		vim.g.doge_mapping = "<Leader>ad"
 	end,

@@ -259,15 +259,17 @@ require("packer").startup(function(use)
 	use("antoinemadec/FixCursorHold.nvim")
 	use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 	use("editorconfig/editorconfig-vim")
-
-	use({ "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } })
+	use({
+		"kazhala/close-buffers.nvim",
+		config = config["kazhala/close-buffers.nvim"],
+		cmd = { "BDelete", "BWipeout" },
+	})
 	use({
 		"kkoomen/vim-doge",
 		config = config["kkoomen/vim-doge"],
 		run = ":call doge#install({ 'headless': 1 })",
 	})
 	use("ryvnf/readline.vim")
-	use({ "schickling/vim-bufonly", cmd = "BufOnly" })
 	use({
 		"stevearc/qf_helper.nvim",
 		config = config["stevearc/qf_helper.nvim"],
