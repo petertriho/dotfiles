@@ -5,8 +5,8 @@ switch (uname)
         set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
         set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
         set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
-        set -gx MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
-        set -gx INFOPATH $HOMEBREW_PREFIX/share/info $INFOPATH
+        set -gx MANPATH "$HOMEBREW_PREFIX/share/man:$MANPATH"
+        set -gx INFOPATH "$HOMEBREW_PREFIX/share/info:$INFOPATH"
 
         fish_add_path $HOMEBREW_PREFIX/sbin
         fish_add_path $HOMEBREW_PREFIX/bin
