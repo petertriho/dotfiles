@@ -14,5 +14,5 @@ switch_case_indent = true
 space_redirects = true
 keep_padding = true
 
-[{*.yaml,*.yml,*.md}]
+[{*.yaml,*.yml,*.md,*.tf,*.tfvars}]
 indent_size = 2
