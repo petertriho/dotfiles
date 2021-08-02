@@ -348,7 +348,7 @@ local config = {
 					node_decremental = "grm",
 				},
 			},
-			indent = { enable = true },
+			indent = { enable = false },
 		})
 	end,
 	["nvim-treesitter/nvim-treesitter-refactor"] = function()
