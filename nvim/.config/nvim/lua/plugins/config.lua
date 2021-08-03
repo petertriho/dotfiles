@@ -50,6 +50,7 @@ vim.g.nvim_tree_ignore = { ".git" }
 vim.g.nvim_tree_follow = 1
 vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_hijack_cursor = 0
 
 -- lukas-reineke/indent-blankline.nvim
 vim.g.indent_blankline_use_treesitter = true
