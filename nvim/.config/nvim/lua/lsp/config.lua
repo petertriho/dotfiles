@@ -144,7 +144,7 @@ return {
 				"setup.py",
 			},
 			languages = {
-				["="] = {cspell},
+				["="] = { cspell },
 				conf = { dotenv_linter },
 				css = { rustywind, prettierd },
 				dockerfile = { hadolint },
@@ -216,7 +216,20 @@ return {
             }
         } ]]
 	},
-	python = {},
+	python = {
+		flags = {
+			debounce_text_changes = 150,
+		},
+		settings = {
+			python = {
+				analysis = {
+					autoSearchPaths = false,
+					useLibraryCodeForTypes = false,
+					diagnosticMode = "openFilesOnly",
+				},
+			},
+		},
+	},
 	rust = {},
 	tailwindcss = {
 		filetypes = {
