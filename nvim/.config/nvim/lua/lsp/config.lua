@@ -225,7 +225,7 @@ return {
 				analysis = {
 					autoSearchPaths = false,
 					useLibraryCodeForTypes = false,
-					diagnosticMode = "openFilesOnly",
+					diagnosticMode = "workspace",
 				},
 			},
 		},
