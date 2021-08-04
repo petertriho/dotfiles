@@ -255,6 +255,7 @@ require("packer").startup(function(use)
 	use("antoinemadec/FixCursorHold.nvim")
 	use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 	use("editorconfig/editorconfig-vim")
+	use({ "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } })
 	use({
 		"kazhala/close-buffers.nvim",
 		config = config["kazhala/close-buffers.nvim"],
