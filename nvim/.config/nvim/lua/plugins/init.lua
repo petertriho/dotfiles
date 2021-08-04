@@ -151,6 +151,7 @@ require("packer").startup(function(use)
 		config = config["AckslD/nvim-anywise-reg.lua"],
 	})
 	use({ "AndrewRadev/splitjoin.vim", cmd = { "SplitjoinJoin", "SplitjoinSplit" } })
+	use("b3nj5m1n/kommentary")
 	use("chaoren/vim-wordmotion")
 	use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
 	use("machakann/vim-sandwich")
@@ -158,11 +159,6 @@ require("packer").startup(function(use)
 	use("monaqa/dial.nvim")
 	use({ "tpope/vim-abolish", cmd = "Subvert", keys = "cr" })
 	use("wellle/targets.vim")
-	use({
-		"winston0410/commented.nvim",
-		config = config["winston0410/commented.nvim"],
-		after = "nvim-ts-context-commentstring",
-	})
 
 	-- tools
 	use({ "chumakd/scratch.vim", cmd = "ScratchPreview" })
