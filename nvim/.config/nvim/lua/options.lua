@@ -35,6 +35,7 @@ opt.lazyredraw = true
 opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true
+opt.scrolloff = 5
 opt.shell = "bash"
 opt.shiftwidth = 4
 opt.shortmess = opt.shortmess + "c"
