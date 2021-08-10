@@ -81,16 +81,16 @@ if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
 end
 
 vim.cmd([[
-if exists("VIRTUAL_ENV")
-	let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
 else
-	let g:python3_host_prog=substitute(system("which python3"), "\n", "", "g")
+    let g:python3_host_prog=substitute(system("which python3"), "\n", "", "g")
 endif
 ]])
 
 vim.cmd([[
 if has("persistent_undo")
-   let target_path = expand('~/.undodir')
+   let target_path = expand("~/.undodir")
 
     if !isdirectory(target_path)
         call mkdir(target_path, "p", 0700)
