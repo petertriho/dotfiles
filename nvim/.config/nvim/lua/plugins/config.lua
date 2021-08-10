@@ -57,6 +57,7 @@ vim.g.indent_blankline_use_treesitter = true
 vim.g.indent_blankline_show_first_indent_level = false
 vim.g.indent_blankline_char = "│"
 vim.g.indent_blankline_filetype_exclude = {
+	"",
 	"NvimTree",
 	"lspinfo",
 	"Mundo",
@@ -64,7 +65,9 @@ vim.g.indent_blankline_filetype_exclude = {
 	"packer",
 	"fugitive",
 	"fugitiveblame",
+	"javascript",
 	"javascriptreact",
+	"typescript",
 	"typescriptreact",
 	"NeogitStatus",
 	"DiffViewFiles",
