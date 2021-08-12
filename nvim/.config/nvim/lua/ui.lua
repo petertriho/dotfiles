@@ -24,7 +24,6 @@ require("bufferline").setup({
 		close_command = "Bdelete! %d",
 		right_mouse_command = "Bdelete! %d",
 		diagnostics = "nvim_lsp",
-		modified_icon = "",
 		offsets = {
 			{
 				filetype = "NvimTree",
@@ -153,7 +152,6 @@ components.left.active = {
 	},
 	{
 		provider = "file_name",
-		file_modified_icon = "",
 		hl = function()
 			return {
 				fg = vi_mode_utils.get_mode_color(),
