@@ -118,7 +118,7 @@ set_augroups({
 		{
 			"TextYankPost",
 			"*",
-			"lua require('vim.highlight').on_yank({ higroup = 'Search', timeout = 200 })",
+			"lua vim.highlight.on_yank({ higroup = 'Search', timeout = 200 })",
 		},
 	},
 	_color = {
