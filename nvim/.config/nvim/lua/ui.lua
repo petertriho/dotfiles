@@ -21,8 +21,8 @@ require("bufferline").setup({
 	options = {
 		numbers = "ordinal",
 		number_style = "",
-		close_command = "Bdelete! %d",
-		right_mouse_command = "Bdelete! %d",
+		close_command = "Bwipeout! %d",
+		right_mouse_command = "Bwipeout! %d",
 		diagnostics = "nvim_lsp",
 		offsets = {
 			{
