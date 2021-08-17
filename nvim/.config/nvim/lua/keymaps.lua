@@ -34,12 +34,12 @@ set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", options)
 set_keymap("", "ss", "<CMD>HopChar1<CR>", options)
 set_keymap("", "sl", "<CMD>HopLine<CR>", options)
 
-set_keymap("n", "<C-a>", "<Plug>(dial-increment)", options)
-set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", options)
-set_keymap("v", "<C-a>", "<Plug>(dial-increment)", options)
-set_keymap("v", "<C-x>", "<Plug>(dial-decrement)", options)
-set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", options)
-set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", options)
+set_keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
+set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", {})
+set_keymap("v", "<C-a>", "<Plug>(dial-increment)", {})
+set_keymap("v", "<C-x>", "<Plug>(dial-decrement)", {})
+set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
+set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
 
 -- Text Objects
 set_keymap("v", "al", ":<C-u>norm!0v$h<CR>", options)
