@@ -126,6 +126,9 @@ local config = {
 			register_print_cmd = false,
 		})
 	end,
+	["AckslD/nvim-neoclip.lua"] = function()
+		require("neoclip").setup()
+	end,
 	["andymass/vim-matchup"] = function()
 		require("nvim-treesitter.configs").setup({ matchup = { enable = true } })
 	end,

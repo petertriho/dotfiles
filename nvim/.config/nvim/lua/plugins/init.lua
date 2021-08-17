@@ -211,6 +211,10 @@ require("packer").startup(function(use)
 		module = "telescope",
 	})
 	use({
+		"AckslD/nvim-neoclip.lua",
+		config = config["AckslD/nvim-neoclip.lua"],
+	})
+	use({
 		"pwntester/octo.nvim",
 		requires = {
 			"kyazdani42/nvim-web-devicons",
