@@ -179,7 +179,8 @@ local config = {
 				tabnine = {
 					priority = 0,
 					max_num_results = 4,
-					show_prediction_strength = true,
+					show_prediction_strength = false,
+					sort = false
 				},
 				tmux = { all_panes = true },
 				vim_dadbod_completion = true,
