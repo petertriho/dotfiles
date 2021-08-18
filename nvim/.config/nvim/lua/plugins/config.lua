@@ -420,6 +420,12 @@ local config = {
 	["pwntester/octo.nvim"] = function()
 		require("octo").setup()
 	end,
+	["romgrk/nvim-treesitter-context"] = function()
+		require("treesitter-context").setup({
+			enable = true,
+			throttle = true,
+		})
+	end,
 	["RRethy/nvim-treesitter-textsubjects"] = function()
 		require("nvim-treesitter.configs").setup({
 			textsubjects = {
