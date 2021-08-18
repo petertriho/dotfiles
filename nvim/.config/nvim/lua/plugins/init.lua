@@ -151,7 +151,7 @@ require("packer").startup(function(use)
 		config = config["AckslD/nvim-anywise-reg.lua"],
 	})
 	use({ "AndrewRadev/splitjoin.vim", cmd = { "SplitjoinJoin", "SplitjoinSplit" } })
-	use("b3nj5m1n/kommentary")
+	use({"b3nj5m1n/kommentary", config=config["b3nj5m1n/kommentary"]})
 	use("chaoren/vim-wordmotion")
 	use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
 	use("machakann/vim-sandwich")

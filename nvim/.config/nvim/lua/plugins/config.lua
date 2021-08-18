@@ -132,6 +132,15 @@ local config = {
 	["andymass/vim-matchup"] = function()
 		require("nvim-treesitter.configs").setup({ matchup = { enable = true } })
 	end,
+	["b3nj5m1n/kommentary"] = function()
+		require("kommentary.config").configure_language("typescriptreact", {
+			single_line_comment_string = "auto",
+			multi_line_comment_strings = "auto",
+			hook_function = function()
+				require("ts_context_commentstring.internal").update_commentstring()
+			end,
+		})
+	end,
 	["JoosepAlviste/nvim-ts-context-commentstring"] = function()
 		require("nvim-treesitter.configs").setup({
 			context_commentstring = { enable = true, enable_autocmd = false },
@@ -180,7 +189,7 @@ local config = {
 					priority = 0,
 					max_num_results = 4,
 					show_prediction_strength = false,
-					sort = false
+					sort = false,
 				},
 				tmux = { all_panes = true },
 				vim_dadbod_completion = true,
