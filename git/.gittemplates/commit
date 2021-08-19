@@ -21,7 +21,7 @@
 # * ✅ test:     adding missing or correcting existing tests
 #
 # ** Subject
-# * use the imperative, present tense: "change" not "changed" nor "changes"
+# * use imperative, present tense: "change" not "changed" nor "changes"
 # * no dot (.) at the end.
 #
 # ** Scope
@@ -29,7 +29,7 @@
 # * contained within parenthesis
 #
 # ** Body
-# * use the imperative, present tense: "change" not "changed" nor "changes"
+# * use imperative, present tense: "change" not "changed" nor "changes"
 # * should include the motivation for the change and contrast this with
 #   previous behavior
 #
