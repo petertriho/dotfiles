@@ -131,6 +131,10 @@ local config = {
 	end,
 	["andymass/vim-matchup"] = function()
 		require("nvim-treesitter.configs").setup({ matchup = { enable = true } })
+		vim.g.matchup_matchparen_offscreen = {
+			scrolloff = 1,
+		}
+		vim.g.matchup_matchparen_deferred = 1
 	end,
 	["b3nj5m1n/kommentary"] = function()
 		require("kommentary.config").configure_language("typescriptreact", {
