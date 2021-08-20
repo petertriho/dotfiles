@@ -77,7 +77,7 @@ require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		config = config["nvim-treesitter/nvim-treesitter"],
 		opt = true,
-		run = ":TSUpdate",
+		run = ":TSUpdateSync",
 	})
 	use({
 		"abecodes/tabout.nvim",
