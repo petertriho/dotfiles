@@ -45,7 +45,7 @@ function main {
         yarn global add fixjson
     fi
 
-    if ! command -v markdownlint-cli &> /dev/null; then
+    if ! command -v markdownlint &> /dev/null; then
         yarn global add markdownlint-cli
     fi
 
