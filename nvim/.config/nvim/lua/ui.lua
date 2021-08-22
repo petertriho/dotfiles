@@ -99,14 +99,6 @@ feline_providers.add_provider("file_type2", function(component)
 	return icon .. " " .. vim.bo.filetype:upper()
 end)
 
-feline_providers.add_provider("winnr", function()
-	return tostring(vim.fn.winnr())
-end)
-
-feline_providers.add_provider("lsp_progress", function()
-	return require("lsp-status").status_progress()
-end)
-
 local properties = {
 	force_inactive = {
 		filetypes = {
@@ -199,7 +191,13 @@ components.left.inactive = {
 }
 
 components.right.active = {
-	{ provider = "lsp_progress", left_sep = " ", right_sep = " " },
+	{
+		provider = function()
+			return require("lsp-status").status_progress()
+		end,
+		left_sep = " ",
+		right_sep = " ",
+	},
 	{
 		provider = "diagnostic_info",
 		enabled = function()
@@ -283,7 +281,13 @@ components.right.active = {
 }
 
 components.right.inactive = {
-	{ provider = "winnr", left_sep = " ", right_sep = " " },
+	{
+		provider = function()
+			return tostring(vim.fn.winnr())
+		end,
+		left_sep = " ",
+		right_sep = " ",
+	},
 }
 
 require("feline").setup({

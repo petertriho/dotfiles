@@ -11,4 +11,6 @@ vim.defer_fn(function()
 	vim.cmd([[doautocmd User LoadDeferredPlugins]])
 end, 80)
 
-vim.defer_fn(function() vim.cmd([[doautocmd ColorScheme]]) end, 100)
+vim.defer_fn(function()
+	vim.cmd([[doautocmd ColorScheme]])
+end, 100)
