@@ -49,12 +49,12 @@ require("packer").startup(function(use)
 		after = "nvim-compe",
 	})
 	use({ "rafamadriz/friendly-snippets", after = "nvim-compe" })
-	--[[ use({
+	use({
 		"tzachar/compe-tabnine",
 		requires = "hrsh7th/nvim-compe",
 		run = "chmod +x ./install.sh; ./install.sh",
 		after = "nvim-compe",
-	}) ]]
+	})
 
 	-- syntax highlighting
 	use({
