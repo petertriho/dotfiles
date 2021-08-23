@@ -199,6 +199,14 @@ components.right.active = {
 		right_sep = " ",
 	},
 	{
+		provider = function()
+			return require("nvim-gps").get_location()
+		end,
+		enabled = function()
+			return package.loaded["nvim-treesitter"] ~= nil and require("nvim-gps").is_available()
+		end,
+	},
+	{
 		provider = "diagnostic_info",
 		enabled = function()
 			return lsp.diagnostics_exist("Information")
