@@ -168,92 +168,92 @@ local config = {
 	["folke/zenmode.nvim"] = function()
 		require("zen-mode").setup()
 	end,
-	["hrsh7th/nvim-compe"] = function()
-		require("compe").setup({
-			enabled = true,
-			autocomplete = true,
-			debug = false,
-			min_length = 1,
-			preselect = "disable",
-			throttle_time = 80,
-			source_timeout = 200,
-			incomplete_delay = 400,
-			max_abbr_width = 100,
-			max_kind_width = 100,
-			max_menu_width = 100,
-			documentation = true,
-
-			source = {
-				buffer = true,
-				calc = false,
-				nvim_lsp = true,
-				nvim_lua = false,
-				path = true,
-				tabnine = {
-					priority = 0,
-					max_num_results = 4,
-					show_prediction_strength = false,
-					sort = false,
-				},
-				tmux = { all_panes = true },
-				vim_dadbod_completion = true,
-				vsnip = true,
-			},
-		})
-
+	["hrsh7th/nvim-cmp"] = function()
 		local t = function(str)
 			return vim.api.nvim_replace_termcodes(str, true, true, true)
 		end
 
 		local check_back_space = function()
 			local col = vim.fn.col(".") - 1
-			if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-				return true
-			else
-				return false
-			end
+			return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 		end
 
-		_G.complete_next = function(key)
-			if vim.fn.pumvisible() == 1 then
-				return t("<C-n>")
-			elseif vim.fn["vsnip#available"](1) == 1 then
-				return t("<Plug>(vsnip-expand-or-jump)")
-			elseif check_back_space() then
-				return t(key)
-			else
-				return vim.fn["compe#complete"]()
-			end
+		local cmp = require("cmp")
+
+		local select_prev_item = function(key)
+			return cmp.mapping(function(fallback)
+				if vim.fn.pumvisible() == 1 then
+					vim.fn.feedkeys(t("<C-p>"), "n")
+				elseif check_back_space() then
+					vim.fn.feedkeys(t(key), "n")
+				elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+					vim.fn.feedkeys(t("<Plug>(vsnip-jump-prev)"), "")
+				else
+					fallback()
+				end
+			end)
 		end
 
-		_G.complete_prev = function(key)
-			if vim.fn.pumvisible() == 1 then
-				return t("<C-p>")
-			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-				return t("<Plug>(vsnip-jump-prev)")
-			else
-				return t(key)
-			end
+		local select_next_item = function(key)
+			return cmp.mapping(function(fallback)
+				if vim.fn.pumvisible() == 1 then
+					vim.fn.feedkeys(t("<C-n>"), "n")
+				elseif check_back_space() then
+					vim.fn.feedkeys(t(key), "n")
+				elseif vim.fn["vsnip#available"](1) == 1 then
+					vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
+				else
+					fallback()
+				end
+			end)
 		end
 
-		local set_keymap = vim.api.nvim_set_keymap
-		local options = { expr = true }
-		set_keymap("i", "<C-j>", "v:lua.complete_next('<C-j>')", options)
-		set_keymap("s", "<C-j>", "v:lua.complete_next('<C-j>')", options)
-		set_keymap("i", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
-		set_keymap("s", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
-
-		set_keymap("i", "<Tab>", "v:lua.complete_next('<Tab>')", options)
-		set_keymap("s", "<Tab>", "v:lua.complete_next('<Tab>')", options)
-		set_keymap("i", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
-		set_keymap("s", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
-
-		options = { silent = true, expr = true, noremap = true }
-		set_keymap("i", "<C-Space>", "compe#complete()", options)
-		set_keymap("i", "<CR>", "compe#confirm('<CR>')", options)
-		set_keymap("i", "<C-c>", "compe#close()", options)
-		set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", options)
-		set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options)
+		cmp.setup({
+			formatting = {
+				format = function(entry, vim_item)
+					vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+					vim_item.menu = ({
+						nvim_lsp = "[LSP]",
+						cmp_tabnine = "[TAB]",
+						buffer = "[BUF]",
+						path = "[PTH]",
+						tmux = "[TMX]",
+						vsnip = "[VSP]",
+						["vim-dadbod-completion"] = "[SQL]",
+					})[entry.source.name]
+					return vim_item
+				end,
+			},
+			mapping = {
+				["<C-p>"] = cmp.mapping.select_prev_item(),
+				["<C-n>"] = cmp.mapping.select_next_item(),
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<C-Space>"] = cmp.mapping.complete(),
+				["<C-c>"] = cmp.mapping.close(),
+				["<CR>"] = cmp.mapping.confirm({
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = true,
+				}),
+				["<C-k>"] = select_prev_item("<C-k>"),
+				["<C-j>"] = select_next_item("<C-j>"),
+				["<S-Tab>"] = select_prev_item("<S-Tab>"),
+				["<Tab>"] = select_next_item("<Tab>"),
+			},
+			snippet = {
+				expand = function(args)
+					vim.fn["vsnip#anonymous"](args.body)
+				end,
+			},
+			sources = {
+				{ name = "nvim_lsp" },
+				{ name = "cmp_tabnine" },
+				{ name = "buffer" },
+				{ name = "path" },
+				{ name = "tmux" },
+				{ name = "vsnip" },
+			},
+		})
 	end,
 	["lewis6991/gitsigns.nvim"] = function()
 		require("gitsigns").setup({
@@ -451,6 +451,13 @@ local config = {
 	end,
 	["TimUntersberger/neogit"] = function()
 		require("neogit").setup({ integrations = { diffview = true } })
+	end,
+	["tzachar/cmp-tabnine"] = function()
+		require("cmp_tabnine.config").setup({
+			max_lines = 1000,
+			max_num_results = 6,
+			sort = false,
+		})
 	end,
 	["windwp/nvim-autopairs"] = function()
 		require("nvim-treesitter.configs").setup({ autopairs = { enable = true } })

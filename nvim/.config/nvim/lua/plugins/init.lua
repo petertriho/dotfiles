@@ -32,29 +32,36 @@ require("packer").startup(function(use)
 
 	-- completion
 	use({
-		"hrsh7th/nvim-compe",
-		config = config["hrsh7th/nvim-compe"],
+		"hrsh7th/nvim-cmp",
+		config = config["hrsh7th/nvim-cmp"],
 		opt = true,
 	})
-	use({ "andersevenrud/compe-tmux", after = "nvim-compe" })
-	use({ "hrsh7th/vim-vsnip", after = "nvim-compe" })
+	use("hrsh7th/cmp-nvim-lsp")
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-vsnip", after = "nvim-cmp" })
+	use({ "hrsh7th/vim-vsnip", after = "nvim-cmp" })
+	use({
+		"andersevenrud/compe-tmux",
+		branch = "cmp",
+		after = "nvim-cmp",
+	})
 	use({
 		"kristijanhusak/vim-dadbod-completion",
 		requires = "tpope/vim-dadbod",
-		after = "nvim-compe",
+		after = "nvim-cmp",
 	})
+
 	use({
 		"onsails/lspkind-nvim",
 		config = config["onsails/lspkind-nvim"],
-		after = "nvim-compe",
 	})
-	use({ "rafamadriz/friendly-snippets", after = "nvim-compe" })
 	use({
-		"tzachar/compe-tabnine",
-		requires = "hrsh7th/nvim-compe",
-		run = "chmod +x ./install.sh; ./install.sh",
-		after = "nvim-compe",
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		after = "nvim-cmp",
 	})
+	use({ "rafamadriz/friendly-snippets", after = "nvim-cmp" })
 
 	-- syntax highlighting
 	use({
@@ -83,7 +90,7 @@ require("packer").startup(function(use)
 		"abecodes/tabout.nvim",
 		requires = "nvim-treesitter",
 		config = config["abecodes/tabout.nvim"],
-		after = { "nvim-compe", "nvim-treesitter" },
+		after = { "nvim-cmp", "nvim-treesitter" },
 	})
 	use({
 		"andymass/vim-matchup",

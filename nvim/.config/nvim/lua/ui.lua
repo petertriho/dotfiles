@@ -19,8 +19,9 @@ vim.cmd("colorscheme tokyonight")
 -- akinsho/nvim-bufferline.lua
 require("bufferline").setup({
 	options = {
-		numbers = "ordinal",
-		number_style = "",
+		numbers = function(opts)
+			return string.format("%s.", opts.ordinal)
+		end,
 		close_command = "Bwipeout! %d",
 		right_mouse_command = "Bwipeout! %d",
 		diagnostics = "nvim_lsp",
