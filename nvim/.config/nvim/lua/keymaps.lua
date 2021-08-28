@@ -87,8 +87,8 @@ local keymaps = {
 
 local visual_keymaps = {
 	["/"] = { "<Plug>kommentary_visual_default", "comment" },
-	x = { "<Plug>(vsnip-select-text)", "snippet-select" },
-	X = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
+	s = { "<Plug>(vsnip-select-text)", "snippet-select" },
+	S = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
 }
 
 keymaps["1"] = "which_key_ignore"
