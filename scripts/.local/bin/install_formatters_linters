@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 function main {
     if ! command -v hadolint &> /dev/null; then
         brew install hadolint

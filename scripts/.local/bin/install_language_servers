@@ -1,8 +1,45 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 function main {
+
+    if ! command -v bash-language-server &> /dev/null; then
+        yarn global add bash-language-server
+    fi
+
+    if ! command -v docker-langserver &> /dev/null; then
+        yarn global add dockerfile-language-server-nodejs
+    fi
+
+    if ! command -v graphql-lsp &> /dev/null; then
+        yarn global add graphql-language-service-cli
+    fi
+
     if ! command -v prisma-language-server &> /dev/null; then
         yarn global add @prisma/language-server
+    fi
+
+    if ! command -v pyright-langserver &> /dev/null; then
+        yarn global add pyright
+    fi
+
+    if ! command -v tailwindcss-language-server &> /dev/null; then
+        yarn global add @tailwindcss/language-server
+    fi
+
+    if ! command -v typescript-language-server &> /dev/null; then
+        yarn global add typescript typescript-language-server
+    fi
+
+    if ! command -v vscode-css-language-server &> /dev/null \
+        || ! command -v vscode-html-language-server &> /dev/null \
+        || ! command -v vscode-json-language-server &> /dev/null; then
+        yarn global add vscode-langservers-extracted
+    fi
+
+    if ! command -v yaml-language-server &> /dev/null; then
+        yarn global add yaml-language-server
     fi
 
     asdf reshim

@@ -107,9 +107,6 @@ local write_good = {
 }
 
 return {
-	bash = {},
-	css = {},
-	dockerfile = {},
 	efm = {
 		init_options = { documentFormatting = true },
 		filetypes = {
@@ -168,37 +165,6 @@ return {
 		},
 	},
 	go = {},
-	graphql = {},
-	html = {
-		filetypes = {
-			"aspnetcorerazor",
-			"blade",
-			"django-html",
-			"edge",
-			"ejs",
-			"eruby",
-			"gohtml",
-			"haml",
-			"handlebars",
-			"hbs",
-			"html",
-			"html-eex",
-			"jade",
-			"leaf",
-			"liquid",
-			"mdx",
-			"mustache",
-			"njk",
-			"nunjucks",
-			"php",
-			"razor",
-			"slim",
-			"twig",
-			"vue",
-			"svelte",
-		},
-	},
-	json = { init_options = { provideFormatter = false } },
 	lua = {
 		--[[ settings = {
             Lua = {
@@ -216,62 +182,6 @@ return {
             }
         } ]]
 	},
-	python = {},
 	rust = {},
-	tailwindcss = {
-		filetypes = {
-			"aspnetcorerazor",
-			"blade",
-			"django-html",
-			"edge",
-			"eelixir",
-			"ejs",
-			"erb",
-			"eruby",
-			"gohtml",
-			"haml",
-			"handlebars",
-			"hbs",
-			"html",
-			"html-eex",
-			"jade",
-			"leaf",
-			"liquid",
-			"mdx",
-			"mustache",
-			"njk",
-			"nunjucks",
-			"php",
-			"razor",
-			"slim",
-			"twig",
-			"css",
-			"less",
-			"postcss",
-			"sass",
-			"scss",
-			"stylus",
-			"sugarss",
-			"javascript",
-			"javascriptreact",
-			"reason",
-			"rescript",
-			"typescript",
-			"typescriptreact",
-			"vue",
-			"svelte",
-		},
-		settings = {
-			tailwindCSS = {
-				experimental = {
-					classRegex = {
-						"[\\w]*[cC]lass[\\w]*\\s*[:=]\\s*[{\"'`]+(.*)[\"'`}]+",
-					},
-				},
-			},
-		},
-	},
 	terraform = {},
-	typescript = {},
-	yaml = { filetypes = { "yaml", "yaml.docker-compose" } },
 }

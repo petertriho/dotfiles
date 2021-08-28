@@ -248,9 +248,6 @@ local function setup()
 				library = { vimruntime = true, types = true, plugins = true },
 				lspconfig = config,
 			})
-		elseif server == "typescript" then
-			config = vim.tbl_extend("force", config, lsp_config.typescript or {})
-			config.on_attach = on_attach_ts
 		else
 			config = vim.tbl_extend("force", config, lsp_config[server] or {})
 		end
@@ -262,7 +259,12 @@ local function setup()
 	for server, _ in pairs(additional_servers) do
 		local config = make_base_config()
 
-		config = vim.tbl_extend("force", config, additional_servers[server] or {})
+		if server == "tsserver" then
+			config = vim.tbl_extend("force", config, additional_servers.tsserver or {})
+			config.on_attach = on_attach_ts
+		else
+			config = vim.tbl_extend("force", config, additional_servers[server] or {})
+		end
 
 		lspconfig[server].setup(config)
 	end
