@@ -51,7 +51,6 @@ require("packer").startup(function(use)
 		requires = "tpope/vim-dadbod",
 		after = "nvim-cmp",
 	})
-
 	use({
 		"onsails/lspkind-nvim",
 		config = config["onsails/lspkind-nvim"],
