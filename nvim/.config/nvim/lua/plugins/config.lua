@@ -191,7 +191,10 @@ local config = {
 				else
 					fallback()
 				end
-			end)
+			end, {
+				"i",
+				"s",
+			})
 		end
 
 		local select_next_item = function(key)
@@ -205,7 +208,10 @@ local config = {
 				else
 					fallback()
 				end
-			end)
+			end, {
+				"i",
+				"s",
+			})
 		end
 
 		cmp.setup({
@@ -213,12 +219,12 @@ local config = {
 				format = function(entry, vim_item)
 					vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
 					vim_item.menu = ({
+						buffer = "[BUFR]",
+						cmp_tabnine = "[TABN]",
 						nvim_lsp = "[LSP]",
-						cmp_tabnine = "[TAB]",
-						buffer = "[BUF]",
-						path = "[PTH]",
-						tmux = "[TMX]",
-						vsnip = "[VSP]",
+						path = "[PATH]",
+						tmux = "[TMUX]",
+						vsnip = "[VSNP]",
 						["vim-dadbod-completion"] = "[SQL]",
 					})[entry.source.name]
 					return vim_item
@@ -248,9 +254,9 @@ local config = {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "cmp_tabnine" },
-				{ name = "buffer" },
 				{ name = "path" },
-				{ name = "tmux" },
+				{ name = "buffer" },
+				{ name = "tmux", opts = { all_panes = true } },
 				{ name = "vsnip" },
 			},
 		})
@@ -455,7 +461,7 @@ local config = {
 	["tzachar/cmp-tabnine"] = function()
 		require("cmp_tabnine.config").setup({
 			max_lines = 1000,
-			max_num_results = 6,
+			max_num_results = 10,
 			sort = false,
 		})
 	end,
