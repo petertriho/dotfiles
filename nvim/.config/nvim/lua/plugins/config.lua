@@ -301,9 +301,6 @@ local config = {
 			},
 		})
 	end,
-	["lewis6991/impatient.nvim"] = function()
-		require("impatient")
-	end,
 	["norcalli/nvim-colorizer.lua"] = function()
 		require("colorizer").setup()
 	end,
