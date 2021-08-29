@@ -301,8 +301,10 @@ local config = {
 		require("colorizer").setup()
 	end,
 	["nvim-telescope/telescope.nvim"] = function()
+		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		require("telescope").setup({
+
+		telescope.setup({
 			defaults = {
 				vimgrep_arguments = {
 					"rg",
@@ -341,7 +343,7 @@ local config = {
 				},
 			},
 		})
-		require("telescope").load_extension("fzf")
+		telescope.load_extension("fzf")
 	end,
 	["nvim-treesitter/nvim-treesitter"] = function()
 		require("nvim-treesitter.configs").setup({

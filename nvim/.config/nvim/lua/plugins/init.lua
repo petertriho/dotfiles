@@ -182,8 +182,35 @@ require("packer").startup(function(use)
 	use({ "tpope/vim-abolish", cmd = "Subvert", keys = "cr" })
 	use("wellle/targets.vim")
 
+	-- telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-lua/popup.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+		},
+		config = config["nvim-telescope/telescope.nvim"],
+		cmd = "Telescope",
+		module = "telescope",
+	})
+	use({
+		"AckslD/nvim-neoclip.lua",
+		config = config["AckslD/nvim-neoclip.lua"],
+	})
+	use({
+		"pwntester/octo.nvim",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+			"nvim-telescope/telescope.nvim",
+		},
+		config = config["pwntester/octo.nvim"],
+		cmd = "Octo",
+	})
+
 	-- tools
 	use({ "chumakd/scratch.vim", cmd = "ScratchPreview" })
+	use({ "ellisonleao/glow.nvim", run = "GlowInstall", cmd = "Glow" })
 	use("folke/which-key.nvim")
 	use({
 		"folke/trouble.nvim",
@@ -220,31 +247,6 @@ require("packer").startup(function(use)
 		},
 	})
 	use("mg979/vim-visual-multi")
-	use({ "ellisonleao/glow.nvim", run = "GlowInstall", cmd = "Glow" })
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-lua/popup.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-		},
-		config = config["nvim-telescope/telescope.nvim"],
-		cmd = "Telescope",
-		module = "telescope",
-	})
-	use({
-		"AckslD/nvim-neoclip.lua",
-		config = config["AckslD/nvim-neoclip.lua"],
-	})
-	use({
-		"pwntester/octo.nvim",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
-			"nvim-telescope/telescope.nvim",
-		},
-		config = config["pwntester/octo.nvim"],
-		cmd = "Octo",
-	})
 	use({
 		"RishabhRD/nvim-cheat.sh",
 		requires = "RishabhRD/popfix",
