@@ -184,8 +184,8 @@ local config = {
 			return cmp.mapping(function(fallback)
 				if vim.fn.pumvisible() == 1 then
 					vim.fn.feedkeys(t("<C-p>"), "n")
-				elseif check_back_space() then
-					vim.fn.feedkeys(t(key), "n")
+				--[[ elseif check_back_space() then
+					vim.fn.feedkeys(t(key), "n") ]]
 				elseif vim.fn["vsnip#jumpable"](-1) == 1 then
 					vim.fn.feedkeys(t("<Plug>(vsnip-jump-prev)"), "")
 				else
@@ -201,8 +201,8 @@ local config = {
 			return cmp.mapping(function(fallback)
 				if vim.fn.pumvisible() == 1 then
 					vim.fn.feedkeys(t("<C-n>"), "n")
-				elseif check_back_space() then
-					vim.fn.feedkeys(t(key), "n")
+				--[[ elseif check_back_space() then
+					vim.fn.feedkeys(t(key), "n") ]]
 				elseif vim.fn["vsnip#available"](1) == 1 then
 					vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
 				else
