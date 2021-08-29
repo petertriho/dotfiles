@@ -29,6 +29,11 @@ require("packer").startup(function(use)
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" })
 	use("kabouzeid/nvim-lspinstall")
 	use("nvim-lua/lsp-status.nvim")
+	use({
+		"RishabhRD/nvim-lsputils",
+		requires = "RishabhRD/popfix",
+		config = config["RishabhRD/nvim-lsputils"],
+	})
 
 	-- completion
 	use({
@@ -164,7 +169,10 @@ require("packer").startup(function(use)
 		"AckslD/nvim-anywise-reg.lua",
 		config = config["AckslD/nvim-anywise-reg.lua"],
 	})
-	use({ "AndrewRadev/splitjoin.vim", cmd = { "SplitjoinJoin", "SplitjoinSplit" } })
+	use({
+		"AndrewRadev/splitjoin.vim",
+		cmd = { "SplitjoinJoin", "SplitjoinSplit" },
+	})
 	use({ "b3nj5m1n/kommentary", config = config["b3nj5m1n/kommentary"] })
 	use("chaoren/vim-wordmotion")
 	use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
