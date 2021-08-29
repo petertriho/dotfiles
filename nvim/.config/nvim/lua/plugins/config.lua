@@ -86,6 +86,7 @@ vim.g.cheat_default_window_layout = "vertical_split"
 
 -- sheerun/vim-polyglot
 vim.g.polyglot_disabled = {
+	"autoindent",
 	"sensible",
 	"css.plugin",
 	"dockerfile.plugin",
