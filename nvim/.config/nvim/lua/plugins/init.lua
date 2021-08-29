@@ -155,7 +155,7 @@ require("packer").startup(function(use)
 		"windwp/nvim-autopairs",
 		requires = "nvim-treesitter/nvim-treesitter",
 		config = config["windwp/nvim-autopairs"],
-		after = "nvim-treesitter",
+		after = { "nvim-treesitter", "nvim-cmp" },
 	})
 	use({
 		"windwp/nvim-ts-autotag",

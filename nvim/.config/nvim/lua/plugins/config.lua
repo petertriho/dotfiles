@@ -184,7 +184,7 @@ local config = {
 			return cmp.mapping(function(fallback)
 				if vim.fn.pumvisible() == 1 then
 					vim.fn.feedkeys(t("<C-p>"), "n")
-				--[[ elseif check_back_space() then
+					--[[ elseif check_back_space() then
 					vim.fn.feedkeys(t(key), "n") ]]
 				elseif vim.fn["vsnip#jumpable"](-1) == 1 then
 					vim.fn.feedkeys(t("<Plug>(vsnip-jump-prev)"), "")
@@ -201,7 +201,7 @@ local config = {
 			return cmp.mapping(function(fallback)
 				if vim.fn.pumvisible() == 1 then
 					vim.fn.feedkeys(t("<C-n>"), "n")
-				--[[ elseif check_back_space() then
+					--[[ elseif check_back_space() then
 					vim.fn.feedkeys(t(key), "n") ]]
 				elseif vim.fn["vsnip#available"](1) == 1 then
 					vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
@@ -237,10 +237,10 @@ local config = {
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-c>"] = cmp.mapping.close(),
-				["<CR>"] = cmp.mapping.confirm({
+				--[[ ["<CR>"] = cmp.mapping.confirm({
 					behavior = cmp.ConfirmBehavior.Replace,
 					select = true,
-				}),
+				}), ]]
 				["<C-k>"] = select_prev_item("<C-k>"),
 				["<C-j>"] = select_next_item("<C-j>"),
 				["<S-Tab>"] = select_prev_item("<S-Tab>"),
@@ -480,6 +480,11 @@ local config = {
 	["windwp/nvim-autopairs"] = function()
 		require("nvim-treesitter.configs").setup({ autopairs = { enable = true } })
 		require("nvim-autopairs").setup({ check_ts = true })
+		require("nvim-autopairs.completion.cmp").setup({
+			map_cr = true,
+			map_complete = true,
+			auto_select = false,
+		})
 	end,
 	["windwp/nvim-ts-autotag"] = function()
 		require("nvim-treesitter.configs").setup({ autotag = { enable = true } })
