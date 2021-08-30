@@ -148,13 +148,13 @@ require("packer").startup(function(use)
 		config = config["romgrk/nvim-treesitter-context"],
 		after = "nvim-treesitter",
 	})
-	--[[ use({
+	use({
 		"SmiteshP/nvim-gps",
 		requires = "nvim-treesitter/nvim-treesitter",
 		config = config["SmiteshP/nvim-gps"],
 		after = "nvim-treesitter",
 		module = "nvim-gps",
-	}) ]]
+	})
 	use({
 		"windwp/nvim-autopairs",
 		requires = "nvim-treesitter/nvim-treesitter",
