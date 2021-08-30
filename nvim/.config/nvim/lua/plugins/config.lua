@@ -439,11 +439,7 @@ local config = {
 		require("octo").setup()
 	end,
 	["SmiteshP/nvim-gps"] = function()
-		require("nvim-gps").setup({
-			languages = {
-				tsx = false,
-			},
-		})
+		require("nvim-gps").setup()
 	end,
 	["RishabhRD/nvim-lsputils"] = function()
 		vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
