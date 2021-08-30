@@ -155,12 +155,14 @@ keymaps["g"] = {
 
 keymaps["h"] = {
 	name = "+hunks",
-	s = "stage",
-	u = "undo-stage",
-	r = "reset-hunk",
-	R = "reset-buffer",
-	p = "preview",
 	b = "blame",
+	p = "preview",
+	R = "reset-buffer",
+	r = "reset-hunk",
+	S = "stage-buffer",
+	s = "stage",
+	U = "undo-stage-buffer",
+	u = "undo-stage",
 }
 
 keymaps["w"] = { name = "+wiki" }
