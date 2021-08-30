@@ -81,7 +81,7 @@ local keymaps = {
 	s = { "<CMD>Telescope live_grep<CR>", "search-text" },
 	t = { "<CMD>TroubleToggle<CR>", "trouble" },
 	u = { "<CMD>MundoToggle<CR>", "undotree" },
-	y = { "<CMD>lua require('telescope').extensions.neoclip.default()<CR>", "yank-history"},
+	y = { "<CMD>lua require('telescope').extensions.neoclip.default()<CR>", "yank-history" },
 	z = { "<CMD>ZenMode<CR>", "zenmode" },
 }
 
@@ -177,6 +177,16 @@ keymaps["W"] = {
 require("which-key").setup()
 
 local register = require("which-key").register
-register(keymaps, { prefix = "<Leader>", mode = "n", silent = true, noremap = true })
+register(keymaps, {
+	prefix = "<Leader>",
+	mode = "n",
+	silent = true,
+	noremap = true,
+})
 
-register(visual_keymaps, { prefix = "<Leader>", mode = "x", silent = true, noremap = true })
+register(visual_keymaps, {
+	prefix = "<Leader>",
+	mode = "x",
+	silent = true,
+	noremap = true,
+})

@@ -72,7 +72,7 @@ register({
 	q = "quickfix",
 }, {
 	prefix = "<Leader>",
-	mode = "n",
+	mode = "v",
 	silent = true,
 	noremap = true,
 })
