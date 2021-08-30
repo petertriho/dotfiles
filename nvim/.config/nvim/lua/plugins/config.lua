@@ -177,10 +177,10 @@ local config = {
 			return vim.api.nvim_replace_termcodes(str, true, true, true)
 		end
 
-		local check_back_space = function()
+		--[[ local check_back_space = function()
 			local col = vim.fn.col(".") - 1
-			return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-		end
+			return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
+		end ]]
 
 		local cmp = require("cmp")
 
@@ -188,10 +188,10 @@ local config = {
 			return cmp.mapping(function(fallback)
 				if vim.fn.pumvisible() == 1 then
 					vim.fn.feedkeys(t("<C-p>"), "n")
-					--[[ elseif check_back_space() then
-					vim.fn.feedkeys(t(key), "n") ]]
 				elseif vim.fn["vsnip#jumpable"](-1) == 1 then
 					vim.fn.feedkeys(t("<Plug>(vsnip-jump-prev)"), "")
+					--[[ elseif check_back_space() then
+					vim.fn.feedkeys(t(key), "n") ]]
 				else
 					fallback()
 				end
@@ -205,10 +205,10 @@ local config = {
 			return cmp.mapping(function(fallback)
 				if vim.fn.pumvisible() == 1 then
 					vim.fn.feedkeys(t("<C-n>"), "n")
-					--[[ elseif check_back_space() then
-					vim.fn.feedkeys(t(key), "n") ]]
 				elseif vim.fn["vsnip#available"](1) == 1 then
 					vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
+					--[[ elseif check_back_space() then
+					vim.fn.feedkeys(t(key), "n") ]]
 				else
 					fallback()
 				end
@@ -223,13 +223,13 @@ local config = {
 				format = function(entry, vim_item)
 					vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
 					vim_item.menu = ({
-						buffer = "[BUFR]",
-						cmp_tabnine = "[TABN]",
+						buffer = "[BUFFER]",
+						cmp_tabnine = "[TABNINE]",
 						nvim_lsp = "[LSP]",
 						path = "[PATH]",
 						tmux = "[TMUX]",
-						vsnip = "[VSNP]",
-						["vim-dadbod-completion"] = "[SQL]",
+						vsnip = "[SNIPPET]",
+						["vim-dadbod-completion"] = "[DB]",
 					})[entry.source.name]
 					return vim_item
 				end,
