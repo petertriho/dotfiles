@@ -72,6 +72,7 @@ vim.g.indent_blankline_filetype_exclude = {
 	"NeogitStatus",
 	"DiffViewFiles",
 }
+
 -- mg979/vim-visual-multi
 vim.g.VM_leader = "\\"
 vim.g.VM_maps = { ["Find Under"] = "gb", ["Find Subword Under"] = "gb" }
