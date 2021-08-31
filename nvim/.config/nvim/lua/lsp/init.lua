@@ -216,7 +216,7 @@ local function setup()
 	local lspconfig = require("lspconfig")
 
 	require("null-ls").config({})
-	lspconfig["null-ls"].setup({})
+    require("grammar-guard").init()
 
 	lspinstall.setup()
 

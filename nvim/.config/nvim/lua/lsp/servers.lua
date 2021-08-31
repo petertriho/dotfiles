@@ -2,6 +2,22 @@ return {
 	bashls = {},
 	cssls = {},
 	dockerls = {},
+	grammar_guard = {
+		settings = {
+			ltex = {
+				enabled = { "latex", "tex", "bib", "markdown" },
+				language = "en",
+				diagnosticSeverity = "information",
+				additionalRules = {
+					enablePickyRules = true,
+					motherTongue = "en",
+				},
+				dictionary = {},
+				disabledRules = {},
+				hiddenFalsePositives = {},
+			},
+		},
+	},
 	graphql = {},
 	html = {},
 	jsonls = {
@@ -9,6 +25,7 @@ return {
 			provideFormatter = false,
 		},
 	},
+	["null-ls"] = {},
 	-- prismals = {}
 	pyright = {},
 	tailwindcss = {

@@ -28,6 +28,7 @@ require("packer").startup(function(use)
 
 	-- lsp
 	use("neovim/nvim-lspconfig")
+	use({ "brymer-meneses/grammar-guard.nvim", run = ":GrammarInstall" })
 	use({ "folke/lua-dev.nvim", filetype = "lua" })
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" })
