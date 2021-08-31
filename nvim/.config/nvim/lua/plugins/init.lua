@@ -79,7 +79,11 @@ require("packer").startup(function(use)
 		opt = true,
 	})
 	use("pantharshit00/vim-prisma")
-	use({ "lukas-reineke/indent-blankline.nvim", opt = true })
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		setup = config["lukas-reineke/indent-blankline.nvim"],
+		opt = true,
+	})
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = config["norcalli/nvim-colorizer.lua"],

@@ -52,27 +52,6 @@ vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_hijack_cursor = 0
 
--- lukas-reineke/indent-blankline.nvim
-vim.g.indent_blankline_use_treesitter = true
-vim.g.indent_blankline_show_first_indent_level = false
-vim.g.indent_blankline_char = "│"
-vim.g.indent_blankline_filetype_exclude = {
-	"",
-	"NvimTree",
-	"lspinfo",
-	"Mundo",
-	"MundoDiff",
-	"packer",
-	"fugitive",
-	"fugitiveblame",
-	"javascript",
-	"javascriptreact",
-	"typescript",
-	"typescriptreact",
-	"NeogitStatus",
-	"DiffViewFiles",
-}
-
 -- mg979/vim-visual-multi
 vim.g.VM_leader = "\\"
 vim.g.VM_maps = { ["Find Under"] = "gb", ["Find Subword Under"] = "gb" }
@@ -301,6 +280,27 @@ local config = {
 				},
 			},
 		})
+	end,
+	["lukas-reineke/indent-blankline.nvim"] = function()
+		vim.g.indent_blankline_use_treesitter = true
+		vim.g.indent_blankline_show_first_indent_level = false
+		vim.g.indent_blankline_char = "│"
+		vim.g.indent_blankline_filetype_exclude = {
+			"",
+			"NvimTree",
+			"lspinfo",
+			"Mundo",
+			"MundoDiff",
+			"packer",
+			"fugitive",
+			"fugitiveblame",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"NeogitStatus",
+			"DiffViewFiles",
+		}
 	end,
 	["norcalli/nvim-colorizer.lua"] = function()
 		require("colorizer").setup()
