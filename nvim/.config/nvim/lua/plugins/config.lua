@@ -18,87 +18,7 @@ function! ToggleNeogitStatus() abort
 endfunction
 ]])
 
--- AndrewRadev/splitjoin.vim
-vim.g.splitjoin_split_mapping = ""
-vim.g.splitjoin_join_mapping = ""
-
--- antoinemadec/FixCursorHold.nvim
-vim.g.cursorhold_updatetime = 100
-
--- chaoren/vim-wordmotion
-vim.g.wordmotion_prefix = "\\"
-
--- chumakd/scratch.vim
-vim.g.scratch_persistence_file = "/tmp/scratch.txt"
-
--- editorconfig/editorconfig-vim
-vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
-
--- hrsh7th/vim-vsnip
-vim.g.vsnip_filetypes = {
-	javascriptreact = { "javascript" },
-	typescript = { "javascript" },
-	typescriptreact = { "javascript" },
-}
-
--- kristijanhusak/vim-dadbod-ui
-vim.g.db_ui_show_database_icon = 1
-vim.g.db_ui_use_nerd_fonts = 1
-
--- kyazdani42/nvim-tree.lua
-vim.g.nvim_tree_ignore = { ".git" }
-vim.g.nvim_tree_follow = 1
-vim.g.nvim_tree_indent_markers = 0
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_hijack_cursor = 0
-
--- mg979/vim-visual-multi
-vim.g.VM_leader = "\\"
-vim.g.VM_maps = { ["Find Under"] = "gb", ["Find Subword Under"] = "gb" }
-vim.g.VM_mouse_mappings = 1
-vim.g.VM_Mono_hl = "DiffText"
-vim.g.VM_Extend_hl = "DiffAdd"
-vim.g.VM_Cursor_hl = "Visual"
-vim.g.VM_Insert_hl = "DiffChange"
-
--- RishabhRD/nvim-cheat.sh
-vim.g.cheat_default_window_layout = "vertical_split"
-
--- sheerun/vim-polyglot
-vim.g.polyglot_disabled = {
-	"autoindent",
-	"sensible",
-	"css.plugin",
-	"dockerfile.plugin",
-	"fish.plugin",
-	"go.plugin",
-	"graphql.plugin",
-	"html5.plugin",
-	"javascript.plugin",
-	"javascriptreact.plugin",
-	"json.plugin",
-	"jsonc.plugin",
-	"jsx.plugin",
-	"lua.plugin",
-	"python.plugin",
-	"rust.plugin",
-	"scss.plugin",
-	"sh.plugin",
-	"toml.plugin",
-	"typescript.plugin",
-	"typescriptreact.plugin",
-	"yaml.plugin",
-}
-
--- vimwiki/vimwiki
-vim.g.vimwiki_list = {
-	{ path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md" },
-}
-vim.g.vimwiki_conceallevel = 0
-vim.g.vimwiki_global_ext = 0
-vim.g.vimwiki_key_mappings = { table_mappings = 0, lists = 0, mouse = 0 }
-
-local config = {
+return {
 	["abecodes/tabout.nvim"] = function()
 		require("tabout").setup()
 	end,
@@ -113,12 +33,19 @@ local config = {
 	["AckslD/nvim-neoclip.lua"] = function()
 		require("neoclip").setup()
 	end,
+	["AndrewRadev/splitjoin.vim"] = function()
+		vim.g.splitjoin_split_mapping = ""
+		vim.g.splitjoin_join_mapping = ""
+	end,
 	["andymass/vim-matchup"] = function()
 		require("nvim-treesitter.configs").setup({ matchup = { enable = true } })
 		vim.g.matchup_matchparen_offscreen = {
 			scrolloff = 1,
 		}
 		vim.g.matchup_matchparen_deferred = 1
+	end,
+	["antoinemadec/FixCursorHold.nvim"] = function()
+		vim.g.cursorhold_updatetime = 100
 	end,
 	["b3nj5m1n/kommentary"] = function()
 		require("kommentary.config").configure_language("typescriptreact", {
@@ -128,6 +55,16 @@ local config = {
 				require("ts_context_commentstring.internal").update_commentstring()
 			end,
 		})
+	end,
+	["chaoren/vim-wordmotion"] = function()
+		vim.g.wordmotion_prefix = "\\"
+	end,
+	["chumakd/scratch.vim"] = function()
+		vim.g.scratch_persistence_file = "/tmp/scratch.txt"
+	end,
+
+	["editorconfig/editorconfig-vim"] = function()
+		vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 	end,
 	["JoosepAlviste/nvim-ts-context-commentstring"] = function()
 		require("nvim-treesitter.configs").setup({
@@ -139,6 +76,17 @@ local config = {
 	end,
 	["kkoomen/vim-doge"] = function()
 		vim.g.doge_mapping = "<Leader>ad"
+	end,
+	["kristijanhusak/vim-dadbod-ui"] = function()
+		vim.g.db_ui_show_database_icon = 1
+		vim.g.db_ui_use_nerd_fonts = 1
+	end,
+	["kyazdani42/nvim-tree.lua"] = function()
+		vim.g.nvim_tree_ignore = { ".git" }
+		vim.g.nvim_tree_follow = 1
+		vim.g.nvim_tree_indent_markers = 0
+		vim.g.nvim_tree_git_hl = 1
+		vim.g.nvim_tree_hijack_cursor = 0
 	end,
 	["folke/todo-comments.nvim"] = function()
 		require("todo-comments").setup()
@@ -245,6 +193,13 @@ local config = {
 			},
 		})
 	end,
+	["hrsh7th/vim-vsnip"] = function()
+		vim.g.vsnip_filetypes = {
+			javascriptreact = { "javascript" },
+			typescript = { "javascript" },
+			typescriptreact = { "javascript" },
+		}
+	end,
 	["lewis6991/gitsigns.nvim"] = function()
 		require("gitsigns").setup({
 			signs = {
@@ -301,6 +256,15 @@ local config = {
 			"NeogitStatus",
 			"DiffViewFiles",
 		}
+	end,
+	["mg979/vim-visual-multi"] = function()
+		vim.g.VM_leader = "\\"
+		vim.g.VM_maps = { ["Find Under"] = "gb", ["Find Subword Under"] = "gb" }
+		vim.g.VM_mouse_mappings = 1
+		vim.g.VM_Mono_hl = "DiffText"
+		vim.g.VM_Extend_hl = "DiffAdd"
+		vim.g.VM_Cursor_hl = "Visual"
+		vim.g.VM_Insert_hl = "DiffChange"
 	end,
 	["norcalli/nvim-colorizer.lua"] = function()
 		require("colorizer").setup()
@@ -439,8 +403,8 @@ local config = {
 	["pwntester/octo.nvim"] = function()
 		require("octo").setup()
 	end,
-	["SmiteshP/nvim-gps"] = function()
-		require("nvim-gps").setup()
+	["RishabhRD/nvim-cheat.sh"] = function()
+		vim.g.cheat_default_window_layout = "vertical_split"
 	end,
 	["RishabhRD/nvim-lsputils"] = function()
 		vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
@@ -469,6 +433,35 @@ local config = {
 			},
 		})
 	end,
+	["sheerun/vim-polyglot"] = function()
+		vim.g.polyglot_disabled = {
+			"autoindent",
+			"sensible",
+			"css.plugin",
+			"dockerfile.plugin",
+			"fish.plugin",
+			"go.plugin",
+			"graphql.plugin",
+			"html5.plugin",
+			"javascript.plugin",
+			"javascriptreact.plugin",
+			"json.plugin",
+			"jsonc.plugin",
+			"jsx.plugin",
+			"lua.plugin",
+			"python.plugin",
+			"rust.plugin",
+			"scss.plugin",
+			"sh.plugin",
+			"toml.plugin",
+			"typescript.plugin",
+			"typescriptreact.plugin",
+			"yaml.plugin",
+		}
+	end,
+	["SmiteshP/nvim-gps"] = function()
+		require("nvim-gps").setup()
+	end,
 	["stevearc/qf_helper.nvim"] = function()
 		require("qf_helper").setup()
 	end,
@@ -481,6 +474,14 @@ local config = {
 			max_num_results = 10,
 			sort = false,
 		})
+	end,
+	["vimwiki/vimwiki"] = function()
+		vim.g.vimwiki_list = {
+			{ path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md" },
+		}
+		vim.g.vimwiki_conceallevel = 0
+		vim.g.vimwiki_global_ext = 0
+		vim.g.vimwiki_key_mappings = { table_mappings = 0, lists = 0, mouse = 0 }
 	end,
 	["windwp/nvim-autopairs"] = function()
 		require("nvim-treesitter.configs").setup({ autopairs = { enable = true } })
@@ -501,5 +502,3 @@ local config = {
 		require("range-highlight").setup()
 	end,
 }
-
-return config

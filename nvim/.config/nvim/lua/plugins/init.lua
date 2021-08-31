@@ -49,7 +49,11 @@ require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-vsnip", after = "nvim-cmp" })
-	use({ "hrsh7th/vim-vsnip", after = "nvim-cmp" })
+	use({
+		"hrsh7th/vim-vsnip",
+		setup = config["hrsh7th/vim-vsnip"],
+		after = "nvim-cmp",
+	})
 	use({
 		"andersevenrud/compe-tmux",
 		branch = "cmp",
@@ -89,7 +93,7 @@ require("packer").startup(function(use)
 		config = config["norcalli/nvim-colorizer.lua"],
 		opt = true,
 	})
-	use("sheerun/vim-polyglot")
+	use({ "sheerun/vim-polyglot", setup = config["sheerun/vim-polyglot"] })
 
 	-- treesitter
 	use({
@@ -179,10 +183,11 @@ require("packer").startup(function(use)
 	})
 	use({
 		"AndrewRadev/splitjoin.vim",
+		setup = config["AndrewRadev/splitjoin.vim"],
 		cmd = { "SplitjoinJoin", "SplitjoinSplit" },
 	})
 	use({ "b3nj5m1n/kommentary", config = config["b3nj5m1n/kommentary"] })
-	use("chaoren/vim-wordmotion")
+	use({ "chaoren/vim-wordmotion", setup = config["chaoren/vim-wordmotion"] })
 	use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
 	use("machakann/vim-sandwich")
 	use("mattn/emmet-vim")
@@ -217,7 +222,11 @@ require("packer").startup(function(use)
 	})
 
 	-- tools
-	use({ "chumakd/scratch.vim", cmd = "ScratchPreview" })
+	use({
+		"chumakd/scratch.vim",
+		setup = config["chumakd/scratch.vim"],
+		cmd = "ScratchPreview",
+	})
 	use({ "ellisonleao/glow.nvim", run = "GlowInstall", cmd = "Glow" })
 	use("folke/which-key.nvim")
 	use({
@@ -240,11 +249,13 @@ require("packer").startup(function(use)
 	use({
 		"kristijanhusak/vim-dadbod-ui",
 		requires = "tpope/vim-dadbod",
+		setup = config["kristijanhusak/vim-dadbod-ui"],
 		cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection" },
 	})
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = "kyazdani42/nvim-web-devicons",
+		setup = config["kyazdani42/nvim-tree.lua"],
 		cmd = {
 			"NvimTreeOpen",
 			"NvimTreeClose",
@@ -254,10 +265,11 @@ require("packer").startup(function(use)
 			"NvimTreeClipboard",
 		},
 	})
-	use("mg979/vim-visual-multi")
+	use({ "mg979/vim-visual-multi", setup = config["mg979/vim-visual-multi"] })
 	use({
 		"RishabhRD/nvim-cheat.sh",
 		requires = "RishabhRD/popfix",
+		setup = config["RishabhRD/nvim-cheat.sh"],
 		cmd = {
 			"Cheat",
 			"CheatWithoutComments",
@@ -275,7 +287,7 @@ require("packer").startup(function(use)
 		module = "neogit",
 	})
 	use({ "tpope/vim-fugitive", cmd = { "G", "Git" } })
-	use({ "vimwiki/vimwiki", opt = true })
+	use({ "vimwiki/vimwiki", setup = config["vimwiki/vimwiki"], opt = true })
 	use({
 		"windwp/nvim-spectre",
 		requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
@@ -288,9 +300,15 @@ require("packer").startup(function(use)
 	use({ "unblevable/quick-scope", opt = true })
 
 	-- misc
-	use("antoinemadec/FixCursorHold.nvim")
+	use({
+		"antoinemadec/FixCursorHold.nvim",
+		setup = config["antoinemadec/FixCursorHold.nvim"],
+	})
 	use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
-	use("editorconfig/editorconfig-vim")
+	use({
+		"editorconfig/editorconfig-vim",
+		setup = config["editorconfig/editorconfig-vim"],
+	})
 	use({ "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } })
 	use({
 		"kazhala/close-buffers.nvim",
