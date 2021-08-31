@@ -68,6 +68,7 @@ register({
 	k = "code-actions",
 	l = {
 		name = "+lsp",
+		c = "code-actions",
 	},
 	q = "quickfix",
 }, {
