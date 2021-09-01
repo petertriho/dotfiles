@@ -1,6 +1,5 @@
 local set_keymap = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true }
-set_keymap("n", "<Space>", "<Nop>", options)
 vim.g.mapleader = " "
 
 -- Buffers
