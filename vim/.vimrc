@@ -1,43 +1,34 @@
-set hlsearch                      " highlight all search results
-set incsearch                     " show incremental search incrementally
-set ignorecase                    " case insensitive
-set smartcase                     " case sensitive if upper
-
-set number                        " display line number
-set relativenumber                " relative line number
-
-set autoread                      " autoread if file changes elsewhere
-set backspace=indent,eol,start    " better backspace
-set hidden                        " allow changing buffers without saving
-set noswapfile                    " disable swap file
-
-set tabstop=4                     " space characters inserted when tab is pressed
-set softtabstop=4                 " backspace removes X spaces
-set shiftwidth=4                  " spaces inserted for indentation
-set expandtab                     " insert space instead of tab characters
-set smarttab                      " shiftwidth instead of tabstop at start of lines
-set autoindent                    " apply indent to next line according to current
-set smartindent                   " indent according to syntax/style
-
-set clipboard+=unnamedplus        " yank to clipboard
-set mouse=a                       " enable mouse
-set nowrap                        " disable line wrapping
-
-set noerrorbells                  " disable error bells
-set novisualbell                  " disable visual bells
-
-set title                         " set terminal's title
-set titlestring=vim\ %t\ %M\ (%F) " terminal title format
-
-set splitright                    " default vertical split right
-set splitbelow                    " default horizontal split below
-
-filetype plugin indent on         " turn on filetype detection, plugin, indent on
-syntax on                         " syntax highlighting
-
-set timeoutlen=500                " speed up mapping
-set ttimeout                      " speed up key code
-set ttimeoutlen=10                " speed up key code
-set lazyredraw                    " speed up macros
-
+" set hls ic is nu noswf
 colorscheme peachpuff
+filetype plugin indent on
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set clipboard+=unnamedplus
+set expandtab
+set hidden
+set hlsearch
+set ignorecase
+set incsearch
+set lazyredraw
+set mouse=a
+set noerrorbells
+set noswapfile
+set novisualbell
+set nowrap
+set number
+set relativenumber
+set shiftwidth=4
+set smartcase
+set smartindent
+set smarttab
+set softtabstop=4
+set splitbelow
+set splitright
+set tabstop=4
+set timeoutlen=500
+set title
+set titlestring=vim\ %t\ %M\ (%F)
+set ttimeout
+set ttimeoutlen=10
+syntax on
