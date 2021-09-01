@@ -21,6 +21,7 @@ return {
 	graphql = {},
 	html = {},
 	jsonls = {
+		filetypes = { "json", "jsonc" },
 		init_options = {
 			provideFormatter = false,
 		},
