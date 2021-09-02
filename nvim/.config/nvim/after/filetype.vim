@@ -7,4 +7,5 @@ augroup filetype_detect
     autocmd!
     autocmd BufNewFile,BufRead *.dockerfile setlocal filetype=dockerfile
     autocmd BufNewFile,BufRead .env,*.env.* setlocal filetype=conf
+    autocmd BufNewFile,BufRead *.prisma setlocal filetype=prisma
 augroup END
