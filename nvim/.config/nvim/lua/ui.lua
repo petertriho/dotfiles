@@ -62,6 +62,7 @@ local vi_mode_colors = {
 	INSERT = "green",
 	VISUAL = "magenta",
 	BLOCK = "magenta",
+	LINES = "magenta",
 	REPLACE = "red",
 	["V-REPLACE"] = "red",
 	ENTER = "blue",
