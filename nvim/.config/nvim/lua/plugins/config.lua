@@ -40,7 +40,7 @@ return {
 	["andymass/vim-matchup"] = function()
 		require("nvim-treesitter.configs").setup({ matchup = { enable = true } })
 		vim.g.matchup_matchparen_offscreen = {
-			scrolloff = 1,
+			method = "popup"
 		}
 		vim.g.matchup_matchparen_deferred = 1
 	end,
