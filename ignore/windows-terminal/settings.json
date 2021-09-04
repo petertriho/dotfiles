@@ -67,5 +67,6 @@
         }
     ],
     "tabWidthMode": "titleLength",
-    "theme": "dark"
+    "theme": "dark",
+    "useAcrylicInTabRow": true
 }
