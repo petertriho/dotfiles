@@ -40,7 +40,7 @@ return {
 	["andymass/vim-matchup"] = function()
 		require("nvim-treesitter.configs").setup({ matchup = { enable = true } })
 		vim.g.matchup_matchparen_offscreen = {
-			method = "popup"
+			method = "popup",
 		}
 		vim.g.matchup_matchparen_deferred = 1
 	end,
@@ -405,16 +405,6 @@ return {
 	end,
 	["RishabhRD/nvim-cheat.sh"] = function()
 		vim.g.cheat_default_window_layout = "vertical_split"
-	end,
-	["RishabhRD/nvim-lsputils"] = function()
-		vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
-		vim.lsp.handlers["textDocument/references"] = require("lsputil.locations").references_handler
-		vim.lsp.handlers["textDocument/definition"] = require("lsputil.locations").definition_handler
-		vim.lsp.handlers["textDocument/declaration"] = require("lsputil.locations").declaration_handler
-		vim.lsp.handlers["textDocument/typeDefinition"] = require("lsputil.locations").typeDefinition_handler
-		vim.lsp.handlers["textDocument/implementation"] = require("lsputil.locations").implementation_handler
-		vim.lsp.handlers["textDocument/documentSymbol"] = require("lsputil.symbols").document_handler
-		vim.lsp.handlers["workspace/symbol"] = require("lsputil.symbols").workspace_handler
 	end,
 	["romgrk/nvim-treesitter-context"] = function()
 		require("treesitter-context").setup({
