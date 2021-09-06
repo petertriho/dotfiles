@@ -24,7 +24,6 @@ require("bufferline").setup({
 		end,
 		close_command = "Bwipeout! %d",
 		right_mouse_command = "Bwipeout! %d",
-		diagnostics = "nvim_lsp",
 		offsets = {
 			{
 				filetype = "NvimTree",
