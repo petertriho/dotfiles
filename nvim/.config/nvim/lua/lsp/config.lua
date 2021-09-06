@@ -141,7 +141,7 @@ return {
 				"setup.py",
 			},
 			languages = {
-				["="] = { cspell },
+				["="] = {},
 				conf = { dotenv_linter },
 				css = { rustywind, prettierd },
 				dockerfile = { hadolint },
