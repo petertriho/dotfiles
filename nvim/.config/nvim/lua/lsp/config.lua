@@ -1,5 +1,3 @@
-local black = { formatCommand = "black --fast --quiet -", formatStdin = true }
-
 local cspell = {
 	lintCommand = "cspell --config=$HOME/.config/format-lint/cSpell.json stdin",
 	lintStdin = true,
@@ -42,11 +40,6 @@ local hadolint = {
 	lintFormats = { "%f:%l %m %tarning: %m", "%f:%l %m %tnfo: %m", "%f:%l:%c %m" },
 	lintIgnoreExitCode = true,
 	lintSource = "hadolint",
-}
-
-local isort = {
-	formatCommand = "isort --quiet --stdout --profile black -",
-	formatStdin = true,
 }
 
 local jq = {
@@ -121,7 +114,6 @@ return {
 			"jsonc",
 			"lua",
 			"markdown",
-			"python",
 			"scss",
 			"sh",
 			"typescript",
@@ -153,7 +145,6 @@ return {
 				fish = { fish_indent, fish },
 				lua = { stylua },
 				markdown = { prettier, markdownlint, write_good },
-				python = { isort, black },
 				scss = { rustywind, prettierd },
 				sh = { shfmt, shellcheck },
 				typescript = { prettierd, eslint },

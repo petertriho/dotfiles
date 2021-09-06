@@ -215,8 +215,15 @@ local function setup()
 
 	local lspconfig = require("lspconfig")
 
-	require("null-ls").config({})
-    require("grammar-guard").init()
+	local null_ls = require("null-ls")
+	require("null-ls").config({
+		sources = {
+			null_ls.builtins.flake8,
+			null_ls.builtins.formatting.isort,
+			null_ls.builtins.formatting.black,
+		},
+	})
+	require("grammar-guard").init()
 
 	lspinstall.setup()
 
