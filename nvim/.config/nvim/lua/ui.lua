@@ -119,12 +119,11 @@ local properties = {
 }
 
 local components = {
-	left = { active = {}, inactive = {} },
-	mid = { active = {}, inactive = {} },
-	right = { active = {}, inactive = {} },
+	active = { {}, {} },
+	inactive = { {}, {} },
 }
 
-components.left.active = {
+components.active[1] = {
 	{
 		provider = vi_mode_utils.get_vim_mode,
 		hl = function()
@@ -182,7 +181,7 @@ components.left.active = {
 	},
 }
 
-components.left.inactive = {
+components.inactive[1] = {
 	{
 		provider = "file_name",
 		hl = { fg = "bg_statusline", bg = "fg_sidebar" },
@@ -191,7 +190,7 @@ components.left.inactive = {
 	},
 }
 
-components.right.active = {
+components.active[2] = {
 	{
 		provider = function()
 			return require("lsp-status").status_progress()
@@ -289,7 +288,7 @@ components.right.active = {
 	},
 }
 
-components.right.inactive = {
+components.inactive[2] = {
 	{
 		provider = function()
 			return tostring(vim.fn.winnr())
