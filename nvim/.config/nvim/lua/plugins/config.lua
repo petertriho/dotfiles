@@ -347,7 +347,7 @@ return {
 					node_decremental = "grm",
 				},
 			},
-			indent = { enable = false },
+			indent = { enable = true },
 		})
 	end,
 	["nvim-treesitter/nvim-treesitter-refactor"] = function()
