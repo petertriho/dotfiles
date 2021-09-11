@@ -53,6 +53,10 @@ require("bufferline").setup({
 })
 
 local colors = require("tokyonight.colors").setup()
+colors = vim.tbl_extend("force", colors, {
+	fg = colors.fg_sidebar,
+	bg = colors.bg_statusline,
+})
 
 -- famiu/feline.nvim
 local vi_mode_colors = {
@@ -299,8 +303,6 @@ components.inactive[2] = {
 }
 
 require("feline").setup({
-	default_fg = colors.fg_sidebar,
-	default_bg = colors.bg_statusline,
 	colors = colors,
 	vi_mode_colors = vi_mode_colors,
 	components = components,
