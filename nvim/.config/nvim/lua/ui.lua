@@ -104,24 +104,6 @@ feline_providers.add_provider("file_type2", function(component)
 	return icon .. " " .. vim.bo.filetype:upper()
 end)
 
-local properties = {
-	force_inactive = {
-		filetypes = {
-			"NvimTree",
-			"Mundo",
-			"MundoDiff",
-			"packer",
-			"fugitive",
-			"fugitiveblame",
-			"NeogitStatus",
-			"DiffviewFiles",
-			"dbui",
-		},
-		buftypes = { "terminal" },
-		bufnames = {},
-	},
-}
-
 local components = {
 	active = { {}, {} },
 	inactive = { {}, {} },
@@ -323,5 +305,19 @@ require("feline").setup({
 	colors = colors,
 	vi_mode_colors = vi_mode_colors,
 	components = components,
-	properties = properties,
+	force_inactive = {
+		filetypes = {
+			"NvimTree",
+			"Mundo",
+			"MundoDiff",
+			"packer",
+			"fugitive",
+			"fugitiveblame",
+			"NeogitStatus",
+			"DiffviewFiles",
+			"dbui",
+		},
+		buftypes = { "terminal" },
+		bufnames = {},
+	},
 })
