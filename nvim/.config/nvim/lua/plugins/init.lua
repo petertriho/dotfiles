@@ -316,6 +316,10 @@ require("packer").startup(function(use)
 		config = config["kkoomen/vim-doge"],
 		run = ":call doge#install({ 'headless': 1 })",
 	})
+	use({
+		"kwkarlwang/bufjump.nvim",
+		config = config["kwkarlwang/bufjump.nvim"],
+	})
 	use("ryvnf/readline.vim")
 	use({
 		"stevearc/qf_helper.nvim",

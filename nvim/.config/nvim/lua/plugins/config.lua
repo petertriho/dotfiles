@@ -66,6 +66,18 @@ return {
 	["editorconfig/editorconfig-vim"] = function()
 		vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 	end,
+	["folke/todo-comments.nvim"] = function()
+		require("todo-comments").setup()
+	end,
+	["folke/trouble.nvim"] = function()
+		require("trouble").setup()
+	end,
+	["folke/twilight.nvim"] = function()
+		require("twilight").setup()
+	end,
+	["folke/zenmode.nvim"] = function()
+		require("zen-mode").setup()
+	end,
 	["JoosepAlviste/nvim-ts-context-commentstring"] = function()
 		require("nvim-treesitter.configs").setup({
 			context_commentstring = { enable = true, enable_autocmd = false },
@@ -88,18 +100,12 @@ return {
 		vim.g.nvim_tree_git_hl = 1
 		vim.g.nvim_tree_hijack_cursor = 0
 	end,
-	["folke/todo-comments.nvim"] = function()
-		require("todo-comments").setup()
-	end,
-	["folke/trouble.nvim"] = function()
-		require("trouble").setup()
-	end,
-	["folke/twilight.nvim"] = function()
-		require("twilight").setup()
-	end,
-	["folke/zenmode.nvim"] = function()
-		require("zen-mode").setup()
-	end,
+	["kwkarlwang/bufjump.nvim"] = function()
+ require("bufjump").setup({
+            forward = "<M-o>",
+            backward = "<M-i>",
+        })
+    end,
 	["hrsh7th/nvim-cmp"] = function()
 		local t = function(str)
 			return vim.api.nvim_replace_termcodes(str, true, true, true)
