@@ -3,6 +3,8 @@ require("grammar-guard").init()
 local null_ls = require("null-ls")
 null_ls.config({
 	sources = {
+		-- dockerfile
+		null_ls.builtins.diagnostics.hadolint,
 		-- lua
 		null_ls.builtins.formatting.stylua,
 		-- python

@@ -35,13 +35,6 @@ local fish_indent = { formatCommand = "fish_indent", formatStdin = true }
 
 local fixjson = { formatCommand = "fixjson --indent 4", formatStdin = true }
 
-local hadolint = {
-	lintCommand = "hadolint --no-color ${INPUT}",
-	lintFormats = { "%f:%l %m %tarning: %m", "%f:%l %m %tnfo: %m", "%f:%l:%c %m" },
-	lintIgnoreExitCode = true,
-	lintSource = "hadolint",
-}
-
 local jq = {
 	lintCommand = "jq .",
 	lintFormats = { "parse %trror: %m at line %l, column %c" },
@@ -83,7 +76,6 @@ return {
 		filetypes = {
 			"conf",
 			"css",
-			"dockerfile",
 			"fish",
 			"html",
 			"javascript",
@@ -112,7 +104,6 @@ return {
 				["="] = {},
 				conf = { dotenv_linter },
 				css = { rustywind, prettierd },
-				dockerfile = { hadolint },
 				html = { rustywind, prettierd },
 				javascript = { prettierd, eslint },
 				javascriptreact = { rustywind, prettierd, eslint },
