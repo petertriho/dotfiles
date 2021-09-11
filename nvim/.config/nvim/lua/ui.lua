@@ -244,11 +244,28 @@ components.active[2] = {
 	},
 	{ provider = "lsp_client_names", left_sep = " ", right_sep = " " },
 	{
+		provider = function()
+			return vim.bo.fileformat:upper()
+		end,
+		left_sep = { "left", " " },
+	},
+	{
+		provider = "file_encoding",
+		left_sep = " ",
+	},
+
+	{
+		provider = function()
+			return "TAB:" .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+		end,
+		left_sep = " ",
+		right_sep = " ",
+	},
+	{
 		provider = "file_type2",
 		enabled = function()
 			return vim.bo.filetype ~= ""
 		end,
-		left_sep = { "left", " " },
 		right_sep = " ",
 	},
 	{
