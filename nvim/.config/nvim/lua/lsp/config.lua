@@ -87,11 +87,6 @@ local shellcheck = {
 	lintSource = "shellcheck",
 }
 
-local stylua = {
-	formatCommand = "stylua --stdin-filepath ${INPUT} -",
-	formatStdin = true,
-}
-
 local write_good = {
 	lintCommand = "write-good ${INPUT}",
 	lintFormats = { "%m on line %l at column %c" },
@@ -112,7 +107,6 @@ return {
 			"javascriptreact",
 			"json",
 			"jsonc",
-			"lua",
 			"markdown",
 			"scss",
 			"sh",
@@ -143,7 +137,6 @@ return {
 				json = { jq, fixjson },
 				jsonc = { jq, fixjson },
 				fish = { fish_indent, fish },
-				lua = { stylua },
 				markdown = { prettier, markdownlint, write_good },
 				scss = { rustywind, prettierd },
 				sh = { shfmt, shellcheck },
