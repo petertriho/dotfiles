@@ -19,6 +19,10 @@ function main {
         brew install shfmt
     fi
 
+    if ! command -v shellharden &> /dev/null; then
+        cargo install shellharden
+    fi
+
     if ! command -v stylua &> /dev/null; then
         cargo install stylua
     fi

@@ -70,23 +70,6 @@ local prettierd = {
 
 local rustywind = { formatCommand = "rustywind --stdin", formatStdin = true }
 
-local shfmt = {
-	formatCommand = "shfmt -s -i 4 -bn -ci -sr -kp",
-	formatStdin = true,
-}
-
-local shellcheck = {
-	lintCommand = "shellcheck -f gcc -x -",
-	lintStdin = true,
-	lintFormats = {
-		"%f:%l:%c: %trror: %m",
-		"%f:%l:%c: %tarning: %m",
-		"%f:%l:%c: %tote: %m",
-	},
-	lintIgnoreExitCode = true,
-	lintSource = "shellcheck",
-}
-
 local write_good = {
 	lintCommand = "write-good ${INPUT}",
 	lintFormats = { "%m on line %l at column %c" },
@@ -109,7 +92,6 @@ return {
 			"jsonc",
 			"markdown",
 			"scss",
-			"sh",
 			"typescript",
 			"typescriptreact",
 			"vimwiki",
@@ -139,7 +121,6 @@ return {
 				fish = { fish_indent, fish },
 				markdown = { prettier, markdownlint, write_good },
 				scss = { rustywind, prettierd },
-				sh = { shfmt, shellcheck },
 				typescript = { prettierd, eslint },
 				typescriptreact = { rustywind, prettierd, eslint },
 				vimwiki = { prettier, markdownlint, write_good },
