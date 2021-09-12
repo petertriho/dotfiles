@@ -34,6 +34,7 @@ require("packer").startup(function(use)
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" })
 	use("kabouzeid/nvim-lspinstall")
 	use("nvim-lua/lsp-status.nvim")
+	use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
 
 	-- completion
 	use({
