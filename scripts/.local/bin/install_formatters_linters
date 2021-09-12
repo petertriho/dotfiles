@@ -31,6 +31,10 @@ function main {
         pipx install black
     fi
 
+    if ! command -v flake8 &> /dev/null; then
+        pipx install flake8
+    fi
+
     if ! command -v isort &> /dev/null; then
         pipx install isort
     fi
