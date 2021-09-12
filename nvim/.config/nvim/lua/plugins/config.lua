@@ -242,6 +242,9 @@ return {
 			},
 		})
 	end,
+	["machakann/vim-sandwich"] = function()
+		vim.cmd("runtime macros/sandwich/keymap/surround.vim")
+	end,
 	["lukas-reineke/indent-blankline.nvim"] = function()
 		vim.g.indent_blankline_use_treesitter = true
 		vim.g.indent_blankline_show_first_indent_level = false

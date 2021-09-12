@@ -186,7 +186,10 @@ require("packer").startup(function(use)
 	use({ "b3nj5m1n/kommentary", config = config["b3nj5m1n/kommentary"] })
 	use({ "chaoren/vim-wordmotion", setup = config["chaoren/vim-wordmotion"] })
 	use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
-	use("machakann/vim-sandwich")
+	use({
+		"machakann/vim-sandwich",
+		config = config["machakann/vim-sandwich"],
+	})
 	use("mattn/emmet-vim")
 	use("monaqa/dial.nvim")
 	use({ "tpope/vim-abolish", cmd = "Subvert", keys = "cr" })
