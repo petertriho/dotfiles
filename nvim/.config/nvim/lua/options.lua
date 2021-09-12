@@ -27,7 +27,13 @@ opt.completeopt = "menuone,noselect"
 opt.cursorline = true
 opt.errorbells = false
 opt.expandtab = true
-opt.fillchars = { fold = " ", vert = "│", eob = " ", msgsep = "‾" }
+opt.fillchars = {
+	fold = " ",
+	vert = "│",
+	eob = " ",
+	msgsep = "‾",
+	diff = "╱",
+}
 opt.hidden = true
 opt.ignorecase = true
 opt.inccommand = "nosplit"
