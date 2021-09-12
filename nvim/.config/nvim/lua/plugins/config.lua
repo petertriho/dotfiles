@@ -101,11 +101,11 @@ return {
 		vim.g.nvim_tree_hijack_cursor = 0
 	end,
 	["kwkarlwang/bufjump.nvim"] = function()
- require("bufjump").setup({
-            forward = "<M-o>",
-            backward = "<M-i>",
-        })
-    end,
+		require("bufjump").setup({
+			forward = "<M-o>",
+			backward = "<M-i>",
+		})
+	end,
 	["hrsh7th/nvim-cmp"] = function()
 		local t = function(str)
 			return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -459,7 +459,14 @@ return {
 		require("nvim-gps").setup()
 	end,
 	["stevearc/qf_helper.nvim"] = function()
-		require("qf_helper").setup()
+		require("qf_helper").setup({
+			quickfix = {
+				min_height = 10,
+			},
+			loclist = {
+				min_height = 10,
+			},
+		})
 	end,
 	["TimUntersberger/neogit"] = function()
 		require("neogit").setup({ integrations = { diffview = true } })
