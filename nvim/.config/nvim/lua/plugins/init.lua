@@ -296,7 +296,7 @@ require("packer").startup(function(use)
 	})
 
 	-- motions
-	use({ "phaazon/hop.nvim", cmd = { "HopChar1", "HopLine" } })
+	use("ggandor/lightspeed.nvim")
 	use({ "unblevable/quick-scope", opt = true })
 
 	-- misc

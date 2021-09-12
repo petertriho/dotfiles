@@ -30,8 +30,6 @@ set_keymap("n", "<M-d>", ":m .+1<CR>==", options)
 set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", options)
 set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", options)
 
-set_keymap("", "s", "<CMD>HopChar1<CR>", options)
-
 set_keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
 set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", {})
 set_keymap("v", "<C-a>", "<Plug>(dial-increment)", {})
