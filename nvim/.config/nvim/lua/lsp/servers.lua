@@ -13,7 +13,7 @@ null_ls.config({
 		null_ls.builtins.formatting.black,
 		-- shell
 		null_ls.builtins.diagnostics.shellcheck,
-		null_ls.builtins.formatting.shellharden,
+		-- null_ls.builtins.formatting.shellharden,
 		null_ls.builtins.formatting.shfmt.with({
 			extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr", "-kp" },
 		}),
