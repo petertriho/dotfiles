@@ -163,6 +163,17 @@ keymaps["h"] = {
 	u = "undo-stage",
 }
 
+keymaps["p"] = {
+	name = "+package-info",
+	c = { "<CMD>lua require('package-info').change_version()<CR>", "change-version" },
+	d = { "<CMD>lua require('package-info').delete()<CR>", "delete" },
+	h = { "<CMD>lua require('package-info').hide()<CR>", "hide" },
+	i = { "<CMD>lua require('package-info').install()<CR>", "install" },
+	r = { "<CMD>lua require('package-info').reinstall()<CR>", "reinstall" },
+	s = { "<CMD>lua require('package-info').show()<CR>", "show" },
+	u = { "<CMD>lua require('package-info').update()<CR>", "update" },
+}
+
 keymaps["w"] = { name = "+wiki" }
 
 keymaps["S"] = {

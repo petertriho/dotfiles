@@ -181,6 +181,14 @@ components.inactive[1] = {
 components.active[2] = {
 	{
 		provider = function()
+			return require("package-info").get_status()
+		end,
+		enabled = function()
+			return package.loaded["package-info"] ~= nil
+		end,
+	},
+	{
+		provider = function()
 			return require("lsp-status").status_progress()
 		end,
 		left_sep = " ",

@@ -510,6 +510,9 @@ return {
 		vim.g.vimwiki_global_ext = 0
 		vim.g.vimwiki_key_mappings = { table_mappings = 0, lists = 0, mouse = 0 }
 	end,
+	["vuki656/package-info.nvim"] = function()
+		require("package-info").setup()
+	end,
 	["windwp/nvim-autopairs"] = function()
 		require("nvim-treesitter.configs").setup({ autopairs = { enable = true } })
 		require("nvim-autopairs").setup({ check_ts = true })

@@ -293,6 +293,12 @@ require("packer").startup(function(use)
 	use({ "tpope/vim-fugitive", cmd = { "G", "Git" } })
 	use({ "vimwiki/vimwiki", setup = config["vimwiki/vimwiki"], opt = true })
 	use({
+		"vuki656/package-info.nvim",
+		requires = "MunifTanjim/nui.nvim",
+		config = config["vuki656/package-info.nvim"],
+		module = "package-info",
+	})
+	use({
 		"windwp/nvim-spectre",
 		requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
 		config = config["windwp/nvim-spectre"],
