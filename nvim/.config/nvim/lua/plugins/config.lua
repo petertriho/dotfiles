@@ -427,6 +427,12 @@ return {
 	["pwntester/octo.nvim"] = function()
 		require("octo").setup()
 	end,
+	["ray-x/lsp_signature.nvim"] = function()
+		require("lsp_signature").setup({
+			floating_window = false,
+			hint_prefix = "",
+		})
+	end,
 	["RishabhRD/nvim-cheat.sh"] = function()
 		vim.g.cheat_default_window_layout = "vertical_split"
 	end,
