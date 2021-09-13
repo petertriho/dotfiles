@@ -81,8 +81,10 @@ local feline_providers = require("feline.providers")
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
-feline_providers.add_provider("file_name", function(component)
-	local filename = vim.fn.expand("%:t")
+feline_providers.add_provider("file_name", function(component, winid)
+	local filename = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(winid))
+	filename = vim.fn.fnamemodify(filename, ":t")
+
 	local modified_str = ""
 
 	if vim.bo.modified then
@@ -97,11 +99,11 @@ feline_providers.add_provider("file_name", function(component)
 	return filename .. " " .. modified_str
 end)
 
-feline_providers.add_provider("file_type2", function(component)
+feline_providers.add_provider("file_type2", function(component, winid)
 	local extension = vim.fn.expand("%:e")
 
 	local icon = component.icon or require("nvim-web-devicons").get_icon("", extension, { default = true })
-	return icon .. " " .. vim.bo.filetype:upper()
+	return icon .. " " .. vim.bo[vim.api.nvim_win_get_buf(winid)].filetype:upper()
 end)
 
 local components = {
@@ -293,8 +295,8 @@ components.active[2] = {
 
 components.inactive[2] = {
 	{
-		provider = function()
-			return tostring(vim.fn.winnr())
+		provider = function(_, winid)
+			return tostring(vim.fn.win_id2win(winid))
 		end,
 		left_sep = " ",
 		right_sep = " ",
