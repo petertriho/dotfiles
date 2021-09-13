@@ -124,6 +124,7 @@ keymaps["a"] = {
 	name = "+action",
 	a = { "<Plug>(EasyAlign)", "align" },
 	d = "doc-gen",
+	e = { ":!chmod +x %<CR>", "executable" },
 	j = { "<CMD>SplitjoinJoin<CR>", "join-lines" },
 	p = { 'ggVG"+p', "paste-file" },
 	s = { "<CMD>ISwap<CR>", "swap" },
