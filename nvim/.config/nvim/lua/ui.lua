@@ -99,11 +99,22 @@ feline_providers.add_provider("file_name", function(component, winid)
 	return filename .. " " .. modified_str
 end)
 
-feline_providers.add_provider("file_type2", function(component, winid)
+feline_providers.add_provider("file_type_2", function(component, winid)
 	local extension = vim.fn.expand("%:e")
 
 	local icon = component.icon or require("nvim-web-devicons").get_icon("", extension, { default = true })
 	return icon .. " " .. vim.bo[vim.api.nvim_win_get_buf(winid)].filetype:upper()
+end)
+
+feline_providers.add_provider("lsp_client_names_2", function(component, winid)
+	local clients = {}
+	local icon = component.icon or " "
+
+	for _, client in pairs(vim.lsp.buf_get_clients(vim.api.nvim_win_get_buf(winid))) do
+		clients[#clients + 1] = string.sub(client.name, 1, 3):upper()
+	end
+
+	return table.concat(clients, " "), icon
 end)
 
 local components = {
@@ -234,7 +245,7 @@ components.active[2] = {
 		icon = "  ",
 		hl = { fg = "error" },
 	},
-	{ provider = "lsp_client_names", left_sep = " ", right_sep = " " },
+	{ provider = "lsp_client_names_2", left_sep = " ", right_sep = " " },
 	{
 		provider = function()
 			return vim.bo.fileformat:upper()
@@ -254,7 +265,7 @@ components.active[2] = {
 		right_sep = " ",
 	},
 	{
-		provider = "file_type2",
+		provider = "file_type_2",
 		enabled = function()
 			return vim.bo.filetype ~= ""
 		end,
