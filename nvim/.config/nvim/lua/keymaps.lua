@@ -54,6 +54,7 @@ local keymaps = {
 	[","] = { "<CMD>ScratchPreview<CR>", "scratch-preview" },
 	["-"] = { "<C-w>s", "split-below" },
 	["."] = { "<CMD>BWipeout other<CR>", "only-buffer" },
+	[">"] = { "<CMD>BWipeout hidden<CR>", "hidden-buffers" },
 	["/"] = { "<Plug>kommentary_line_default", "comment" },
 	[":"] = {
 		"<CMD>Telescope find_files find_command=fd,-HIL<CR>",
