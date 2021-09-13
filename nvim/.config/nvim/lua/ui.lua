@@ -180,15 +180,6 @@ components.active[1] = {
 	},
 }
 
-components.inactive[1] = {
-	{
-		provider = "file_name",
-		hl = { fg = "bg_statusline", bg = "fg_sidebar" },
-		left_sep = "block",
-		right_sep = "right_filled",
-	},
-}
-
 components.active[2] = {
 	{
 		provider = function()
@@ -309,6 +300,15 @@ components.active[2] = {
 				style = "bold",
 			}
 		end,
+	},
+}
+
+components.inactive[1] = {
+	{
+		provider = "file_name",
+		hl = { fg = "bg_statusline", bg = "fg_sidebar" },
+		left_sep = "block",
+		right_sep = "right_filled",
 	},
 }
 
