@@ -44,7 +44,7 @@ require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		config = config["hrsh7th/nvim-cmp"],
-        event = "InsertEnter"
+		event = "InsertEnter",
 	})
 	use("hrsh7th/cmp-nvim-lsp")
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
