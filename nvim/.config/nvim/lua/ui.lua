@@ -95,6 +95,17 @@ feline_providers.add_provider("position_2", function(_, winid)
 	return string.format(" %d:%d", unpack(vim.api.nvim_win_get_cursor(winid)))
 end)
 
+feline_providers.add_provider("file_stats", function(_, winid)
+	local bufnr = vim.api.nvim_win_get_buf(winid)
+
+	local lines = vim.api.nvim_buf_line_count(bufnr)
+	local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
+	local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
+	local file_format = vim.bo[bufnr].fileformat
+
+	return string.format("%s | %s |  %s |  %s", file_enc:upper(), file_format:upper(), tab, lines)
+end)
+
 local components = {
 	active = { {}, {} },
 	inactive = { {}, {} },
@@ -184,6 +195,10 @@ components.active[2] = {
 		end,
 	},
 	{
+		provider = "position_2",
+		left_sep = " ",
+	},
+	{
 		provider = "diagnostic_info",
 		enabled = function()
 			return lsp.diagnostics_exist("Information")
@@ -212,7 +227,7 @@ components.active[2] = {
 		enabled = function()
 			return lsp.diagnostics_exist("Error")
 		end,
-		-- icon = "  ",
+		icon = "  ",
 		hl = { fg = "error" },
 	},
 	{ provider = "lsp_client_names", left_sep = " ", right_sep = " " },
@@ -225,7 +240,7 @@ components.active[2] = {
 		right_sep = " ",
 	},
 	{
-		provider = "position_2",
+		provider = "file_stats",
 		hl = function()
 			return {
 				fg = vi_mode_utils.get_mode_color(),
