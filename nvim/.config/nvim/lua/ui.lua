@@ -81,40 +81,18 @@ local feline_providers = require("feline.providers")
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
-feline_providers.add_provider("file_name", function(component, winid)
-	local filename = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(winid))
-	filename = vim.fn.fnamemodify(filename, ":t")
-
-	local modified_str = ""
-
-	if vim.bo.modified then
-		local modified_icon = component.file_modified_icon or "●"
-		modified_str = modified_icon .. " "
-	end
-
-	if filename == "" then
-		filename = "unnamed"
-	end
-
-	return filename .. " " .. modified_str
-end)
-
 feline_providers.add_provider("file_type_2", function(component, winid)
-	local extension = vim.fn.expand("%:e")
+	local bufnr = vim.api.nvim_win_get_buf(winid)
+	local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+	local extension = vim.fn.fnamemodify(filename, ":e")
+	local filetype = vim.bo[bufnr].filetype:upper()
 
-	local icon = component.icon or require("nvim-web-devicons").get_icon("", extension, { default = true })
-	return icon .. " " .. vim.bo[vim.api.nvim_win_get_buf(winid)].filetype:upper()
+	local icon = component.icon or require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+	return icon .. " " .. filetype
 end)
 
-feline_providers.add_provider("lsp_client_names_2", function(component, winid)
-	local clients = {}
-	local icon = component.icon or " "
-
-	for _, client in pairs(vim.lsp.buf_get_clients(vim.api.nvim_win_get_buf(winid))) do
-		clients[#clients + 1] = string.sub(client.name, 1, 3):upper()
-	end
-
-	return table.concat(clients, " "), icon
+feline_providers.add_provider("position_2", function(_, winid)
+	return string.format(" %d:%d", unpack(vim.api.nvim_win_get_cursor(winid)))
 end)
 
 local components = {
@@ -142,7 +120,9 @@ components.active[1] = {
 		end,
 	},
 	{
-		provider = "file_name",
+		provider = "file_info",
+		icon = "",
+		file_readonly_icon = " ",
 		hl = function()
 			return {
 				fg = vi_mode_utils.get_mode_color(),
@@ -150,7 +130,6 @@ components.active[1] = {
 				style = "bold",
 			}
 		end,
-		left_sep = "block",
 		right_sep = "right_filled",
 	},
 	{
@@ -233,13 +212,13 @@ components.active[2] = {
 		enabled = function()
 			return lsp.diagnostics_exist("Error")
 		end,
-		icon = "  ",
+		-- icon = "  ",
 		hl = { fg = "error" },
 	},
-	{ provider = "lsp_client_names_2", left_sep = " ", right_sep = " " },
+	{ provider = "lsp_client_names", left_sep = " ", right_sep = " " },
 	{
 		provider = function()
-			return vim.bo.fileformat:upper()
+			return "TAB:" .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 		end,
 		left_sep = { "left", " " },
 	},
@@ -247,10 +226,9 @@ components.active[2] = {
 		provider = "file_encoding",
 		left_sep = " ",
 	},
-
 	{
 		provider = function()
-			return "TAB:" .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+			return vim.bo.fileformat:upper()
 		end,
 		left_sep = " ",
 		right_sep = " ",
@@ -263,7 +241,7 @@ components.active[2] = {
 		right_sep = " ",
 	},
 	{
-		provider = "position",
+		provider = "position_2",
 		hl = function()
 			return {
 				fg = vi_mode_utils.get_mode_color(),
@@ -271,7 +249,8 @@ components.active[2] = {
 				style = "bold",
 			}
 		end,
-		left_sep = "left_filled",
+		left_sep = { "left_filled", "block" },
+		right_sep = "block",
 	},
 	{
 		provider = "",
@@ -305,9 +284,10 @@ components.active[2] = {
 
 components.inactive[1] = {
 	{
-		provider = "file_name",
+		provider = "file_info",
+		icon = "",
+		file_readonly_icon = " ",
 		hl = { fg = "bg_statusline", bg = "fg_sidebar" },
-		left_sep = "block",
 		right_sep = "right_filled",
 	},
 }
