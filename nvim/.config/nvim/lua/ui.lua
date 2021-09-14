@@ -92,7 +92,7 @@ feline_providers.add_provider("file_type_2", function(component, winid)
 end)
 
 feline_providers.add_provider("position_2", function(_, winid)
-	return string.format(" %3d:%-2d", unpack(vim.api.nvim_win_get_cursor(winid)))
+	return string.format(" %d:%d", unpack(vim.api.nvim_win_get_cursor(winid)))
 end)
 
 local components = {
@@ -224,20 +224,20 @@ components.active[2] = {
 	},
 	{
 		provider = "file_encoding",
-		left_sep = " ",
+		left_sep = " | ",
 	},
 	{
 		provider = function()
 			return vim.bo.fileformat:upper()
 		end,
-		left_sep = " ",
-		right_sep = " ",
+		left_sep = " | ",
 	},
 	{
 		provider = "file_type_2",
 		enabled = function()
 			return vim.bo.filetype ~= ""
 		end,
+		left_sep = " | ",
 		right_sep = " ",
 	},
 	{
