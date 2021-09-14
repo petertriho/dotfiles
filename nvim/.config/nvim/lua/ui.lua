@@ -103,7 +103,7 @@ feline_providers.add_provider("file_stats", function(_, winid)
 	local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
 	local file_format = vim.bo[bufnr].fileformat
 
-	return string.format("%s | %s |  %s |  %s", file_enc:upper(), file_format:upper(), tab, lines)
+	return string.format("%s  %s   %s   %s", file_enc:upper(), file_format:upper(), tab, lines)
 end)
 
 local components = {
