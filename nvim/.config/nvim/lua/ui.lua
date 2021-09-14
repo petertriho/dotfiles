@@ -92,7 +92,7 @@ feline_providers.add_provider("file_type_2", function(component, winid)
 end)
 
 feline_providers.add_provider("position_2", function(_, winid)
-	return string.format(" %d:%d", unpack(vim.api.nvim_win_get_cursor(winid)))
+	return string.format(" %3d:%-2d", unpack(vim.api.nvim_win_get_cursor(winid)))
 end)
 
 local components = {
@@ -218,7 +218,7 @@ components.active[2] = {
 	{ provider = "lsp_client_names", left_sep = " ", right_sep = " " },
 	{
 		provider = function()
-			return "TAB:" .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+			return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 		end,
 		left_sep = { "left", " " },
 	},
