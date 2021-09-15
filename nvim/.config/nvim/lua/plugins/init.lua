@@ -336,6 +336,11 @@ require("packer").startup(function(use)
 	})
 	use("ryvnf/readline.vim")
 	use({
+		"sindrets/winshift.nvim",
+		config = config["sindrets/winshift.nvim"],
+		cmd = "WinShift",
+	})
+	use({
 		"stevearc/qf_helper.nvim",
 		config = config["stevearc/qf_helper.nvim"],
 		cmd = { "QNext", "QPrev", "LLToggle", "QFToggle" },

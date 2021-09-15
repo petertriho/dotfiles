@@ -24,6 +24,14 @@ set_keymap("n", "<M-h>", ":vertical resize -2<CR>", options)
 set_keymap("n", "<M-l>", ":vertical resize +2<CR>", options)
 set_keymap("", "<M-=>", "<C-w>=", {})
 
+-- Window: Move
+set_keymap("n", "<C-W><C-M>", "<CMD>WinShift<CR>", options)
+set_keymap("n", "<C-W>m", "<CMD>WinShift<CR>", options)
+set_keymap("n", "<C-M-h>", "<CMD>WinShift left<CR>", options)
+set_keymap("n", "<C-M-j>", "<CMD>WinShift down<CR>", options)
+set_keymap("n", "<C-M-k>", "<CMD>WinShift up<CR>", options)
+set_keymap("n", "<C-M-l>", "<CMD>WinShift right<CR>", options)
+
 -- Move lines
 set_keymap("n", "<M-u>", ":m .-2<CR>==", options)
 set_keymap("n", "<M-d>", ":m .+1<CR>==", options)

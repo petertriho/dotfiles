@@ -479,6 +479,9 @@ return {
 			"yaml.plugin",
 		}
 	end,
+	["sindrets/winshift.nvim"] = function()
+		require("winshift").setup()
+	end,
 	["SmiteshP/nvim-gps"] = function()
 		require("nvim-gps").setup()
 	end,
