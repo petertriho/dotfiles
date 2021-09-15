@@ -114,7 +114,7 @@ feline_providers.add_provider("lsp_client_count", function(component, winid)
 		count = count + 1
 	end
 
-	return icon .. "LSP: " .. count
+	return icon .. "LSP:" .. count
 end)
 
 local components = {
@@ -195,7 +195,6 @@ components.active[2] = {
 			return require("lsp-status").status_progress()
 		end,
 		left_sep = " ",
-		right_sep = " ",
 	},
 	{
 		provider = function()
@@ -204,6 +203,7 @@ components.active[2] = {
 		enabled = function()
 			return package.loaded["nvim-treesitter"] ~= nil and require("nvim-gps").is_available()
 		end,
+		left_sep = " ",
 	},
 	{
 		provider = "position_2",
