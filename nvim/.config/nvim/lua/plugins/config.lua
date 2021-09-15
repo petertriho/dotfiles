@@ -460,6 +460,13 @@ return {
 	["RishabhRD/nvim-cheat.sh"] = function()
 		vim.g.cheat_default_window_layout = "vertical_split"
 	end,
+	["rmagatti/goto-preview"] = function()
+		require("goto-preview").setup({
+			width = 120,
+			height = 30,
+			default_mappings = true,
+		})
+	end,
 	["romgrk/nvim-treesitter-context"] = function()
 		require("treesitter-context").setup({
 			enable = true,
