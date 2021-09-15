@@ -416,14 +416,6 @@ return {
 						["[]"] = "@class.outer",
 					},
 				},
-				lsp_interop = {
-					enable = true,
-					border = "none",
-					peek_definition_code = {
-						["<leader>lpf"] = "@function.outer",
-						["<leader>lpc"] = "@class.outer",
-					},
-				},
 			},
 		})
 	end,
