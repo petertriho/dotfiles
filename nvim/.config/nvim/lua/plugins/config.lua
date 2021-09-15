@@ -273,10 +273,6 @@ return {
 			"packer",
 			"fugitive",
 			"fugitiveblame",
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
 			"NeogitStatus",
 			"DiffViewFiles",
 		}
