@@ -106,6 +106,17 @@ feline_providers.add_provider("file_stats", function(_, winid)
 	return string.format("%s  %s   %d   %d", file_enc:upper(), file_format:upper(), tab, lines)
 end)
 
+feline_providers.add_provider("lsp_client_count", function(component, winid)
+	local count = 0
+	local icon = component.icon or " "
+
+	for _ in pairs(vim.lsp.buf_get_clients(vim.api.nvim_win_get_buf(winid))) do
+		count = count + 1
+	end
+
+	return icon .. "LSP: " .. count
+end)
+
 local components = {
 	active = { {}, {} },
 	inactive = { {}, {} },
@@ -230,7 +241,7 @@ components.active[2] = {
 		icon = "  ",
 		hl = { fg = "error" },
 	},
-	{ provider = "lsp_client_names", left_sep = " ", right_sep = " " },
+	{ provider = "lsp_client_count", left_sep = " ", right_sep = " " },
 	{
 		provider = "file_type_2",
 		enabled = function()
