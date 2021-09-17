@@ -87,8 +87,18 @@ feline_providers.add_provider("file_type_2", function(component, winid)
 	local extension = vim.fn.fnamemodify(filename, ":e")
 	local filetype = vim.bo[bufnr].filetype:upper()
 
-	local icon = component.icon or require("nvim-web-devicons").get_icon(filename, extension, { default = true })
-	return icon .. " " .. filetype
+	local icon_str, icon_hlname = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+
+	local icon = { str = icon_str }
+
+	if component.colored_icon == nil or component.colored_icon then
+		local fg = vim.api.nvim_get_hl_by_name(icon_hlname, true).foreground
+
+		if fg then
+			icon.hl = { fg = string.format("#%06x", fg) }
+		end
+	end
+	return " " .. filetype, icon
 end)
 
 feline_providers.add_provider("position_2", function(_, winid)
@@ -114,7 +124,7 @@ feline_providers.add_provider("lsp_client_count", function(component, winid)
 		count = count + 1
 	end
 
-	return icon .. "LSP:" .. count
+	return icon .. "lsp:" .. count
 end)
 
 local components = {
