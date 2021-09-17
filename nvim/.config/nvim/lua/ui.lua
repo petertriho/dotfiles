@@ -328,6 +328,11 @@ require("feline").setup({
 			"DiffviewFiles",
 			"dbui",
 		},
+		buftypes = {},
+		bufnames = {},
+	},
+	disable = {
+		filetypes = {},
 		buftypes = { "terminal" },
 		bufnames = {},
 	},
