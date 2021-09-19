@@ -45,7 +45,8 @@ register({
 			w = "workspace",
 		},
 		i = "implementations",
-		l = "loclist-diagnostic",
+		l = "loclist-diagnostics",
+		q = "qflist-diagnostics",
 		r = "references",
 		s = {
 			name = "+symbols",
@@ -95,11 +96,12 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<Leader>led", "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", options)
 	buf_set_keymap("n", "<Leader>lew", "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", options)
 
-	buf_set_keymap("n", "gl", "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", options)
-	buf_set_keymap("n", "[d", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", options)
-	buf_set_keymap("n", "]d", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", options)
+	buf_set_keymap("n", "gl", "<CMD>lua vim.diagnostic.show_line_diagnostics()<CR>", options)
+	buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", options)
+	buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", options)
 
-	buf_set_keymap("n", "<Leader>ll", "<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>", options)
+	buf_set_keymap("n", "<Leader>ll", "<CMD>lua vim.diagnostic.set_loclist()<CR>", options)
+	buf_set_keymap("n", "<Leader>lq", "<CMD>lua vim.diagnostic.set_qflist()<CR>", options)
 
 	if client.resolved_capabilities.code_action then
 		buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
