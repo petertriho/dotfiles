@@ -54,7 +54,7 @@ require("bufferline").setup({
 
 local colors = require("tokyonight.colors").setup()
 colors = vim.tbl_extend("force", colors, {
-	fg = colors.none,
+	fg = colors.fg_sidebar,
 	bg = colors.bg_statusline,
 })
 
@@ -172,7 +172,7 @@ components.active[1] = {
 		end,
 		left_sep = " ",
 		right_sep = { " ", { str = "right", hl = {
-			fg = "NONE",
+			fg = "fg",
 			bg = "bg",
 		} } },
 	},
@@ -261,7 +261,7 @@ components.active[2] = {
 			return vim.bo.filetype ~= ""
 		end,
 		left_sep = { { str = "left", hl = {
-			fg = "NONE",
+			fg = "fg",
 			bg = "bg",
 		} }, " " },
 		right_sep = " ",
