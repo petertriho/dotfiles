@@ -197,6 +197,9 @@ return {
 				{ name = "tmux", opts = { all_panes = true } },
 				{ name = "vsnip" },
 			},
+			experimental = {
+				ghost_text = true,
+			},
 		})
 	end,
 	["hrsh7th/vim-vsnip"] = function()
