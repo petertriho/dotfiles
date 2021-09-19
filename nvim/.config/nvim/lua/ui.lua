@@ -54,7 +54,7 @@ require("bufferline").setup({
 
 local colors = require("tokyonight.colors").setup()
 colors = vim.tbl_extend("force", colors, {
-	fg = colors.fg_sidebar,
+	fg = colors.none,
 	bg = colors.bg_statusline,
 })
 
@@ -171,7 +171,10 @@ components.active[1] = {
 			return vim.b.gitsigns_status_dict
 		end,
 		left_sep = " ",
-		right_sep = { " ", "right" },
+		right_sep = { " ", { str = "right", hl = {
+			fg = "NONE",
+			bg = "bg",
+		} } },
 	},
 	{
 		provider = "git_diff_added",
@@ -257,7 +260,10 @@ components.active[2] = {
 		enabled = function()
 			return vim.bo.filetype ~= ""
 		end,
-		left_sep = { "left", " " },
+		left_sep = { { str = "left", hl = {
+			fg = "NONE",
+			bg = "bg",
+		} }, " " },
 		right_sep = " ",
 	},
 	{

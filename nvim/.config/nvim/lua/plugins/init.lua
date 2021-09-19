@@ -18,7 +18,10 @@ require("packer").startup(function(use)
 		"akinsho/nvim-bufferline.lua",
 		requires = "kyazdani42/nvim-web-devicons",
 	})
-	use({ "Famiu/feline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	use({
+		"Famiu/feline.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 	use({
 		"lewis6991/gitsigns.nvim",
 		requires = "nvim-lua/plenary.nvim",
