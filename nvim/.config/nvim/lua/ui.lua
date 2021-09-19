@@ -1,3 +1,20 @@
+-- folke/tokyonight.nvim
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_sidebars = { "Mundo", "MundoDiff", "DiffViewFiles", "dbui" }
+vim.g.tokyonight_colors = { bg_sidebar = "#16161e", bg_float = "#16161e" }
+vim.cmd("colorscheme tokyonight")
+
+local colors = require("tokyonight.colors").setup()
+colors = vim.tbl_extend("force", colors, {
+	fg = colors.fg_sidebar,
+	bg = colors.bg_statusline,
+})
+
+vim.cmd("highlight DiagnosticError guifg=" .. colors.error)
+vim.cmd("highlight DiagnosticWarn guifg=" .. colors.warning)
+vim.cmd("highlight DiagnosticInfo guifg=" .. colors.info)
+vim.cmd("highlight DiagnosticHint guifg=" .. colors.hint)
+
 local signs = {
 	Error = " ",
 	Warn = " ",
@@ -9,12 +26,6 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
-
--- folke/tokyonight.nvim
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_sidebars = { "Mundo", "MundoDiff", "DiffViewFiles", "dbui" }
-vim.g.tokyonight_colors = { bg_sidebar = "#16161e", bg_float = "#16161e" }
-vim.cmd("colorscheme tokyonight")
 
 -- akinsho/nvim-bufferline.lua
 require("bufferline").setup({
@@ -50,12 +61,6 @@ require("bufferline").setup({
 			end
 		end,
 	},
-})
-
-local colors = require("tokyonight.colors").setup()
-colors = vim.tbl_extend("force", colors, {
-	fg = colors.fg_sidebar,
-	bg = colors.bg_statusline,
 })
 
 -- famiu/feline.nvim
