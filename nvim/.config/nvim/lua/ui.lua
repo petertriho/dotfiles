@@ -124,7 +124,7 @@ feline_providers.add_provider("lsp_client_count", function(component, winid)
 		count = count + 1
 	end
 
-	return icon .. "lsp:" .. count
+	return icon .. "LSP:" .. count
 end)
 
 local components = {
