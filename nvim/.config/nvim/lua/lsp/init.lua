@@ -227,9 +227,10 @@ local function setup()
 	lspinstall.setup()
 
 	local servers = lspinstall.installed_servers()
+	local base_config = make_base_config()
 
 	for _, server in pairs(servers) do
-		local config = make_base_config()
+		local config = base_config
 
 		if server == "lua" then
 			config = require("lua-dev").setup({
@@ -245,7 +246,7 @@ local function setup()
 
 	local additional_servers = require("lsp.servers")
 	for server, _ in pairs(additional_servers) do
-		local config = make_base_config()
+		local config = base_config
 
 		if server == "tsserver" then
 			config = vim.tbl_extend("force", config, additional_servers.tsserver or {})
