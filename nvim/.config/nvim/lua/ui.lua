@@ -114,11 +114,16 @@ feline_providers.add_provider("file_stats", function(_, winid)
 	local bufnr = vim.api.nvim_win_get_buf(winid)
 
 	local lines = vim.api.nvim_buf_line_count(bufnr)
-	local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
-	local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
-	local file_format = vim.bo[bufnr].fileformat
 
-	return string.format("%s  %s   %d   %d", file_enc:upper(), file_format:upper(), tab, lines)
+	if vim.api.nvim_win_get_width(winid) > 120 then
+		local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
+		local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
+		local file_format = vim.bo[bufnr].fileformat
+
+		return string.format("%s  %s   %d   %d", file_enc:upper(), file_format:upper(), tab, lines)
+	else
+		return string.format(" %d", lines)
+	end
 end)
 
 feline_providers.add_provider("lsp_client_count", function(component, winid)
@@ -204,13 +209,16 @@ components.active[2] = {
 		provider = function()
 			return require("package-info").get_status()
 		end,
-		enabled = function()
-			return package.loaded["package-info"] ~= nil
+		enabled = function(winid)
+			return package.loaded["package-info"] ~= nil and vim.api.nvim_win_get_width(winid) > 120
 		end,
 	},
 	{
 		provider = function()
 			return require("lsp-status").status_progress()
+		end,
+		enabled = function(winid)
+			return vim.api.nvim_win_get_width(winid) > 120
 		end,
 		left_sep = " ",
 	},
@@ -218,8 +226,10 @@ components.active[2] = {
 		provider = function()
 			return require("nvim-gps").get_location()
 		end,
-		enabled = function()
-			return package.loaded["nvim-treesitter"] ~= nil and require("nvim-gps").is_available()
+		enabled = function(winid)
+			return package.loaded["nvim-treesitter"] ~= nil
+				and require("nvim-gps").is_available()
+				and vim.api.nvim_win_get_width(winid) > 120
 		end,
 		left_sep = " ",
 	},
