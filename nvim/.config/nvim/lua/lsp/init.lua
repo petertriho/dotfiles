@@ -100,8 +100,8 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", options)
 	buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", options)
 
-	buf_set_keymap("n", "<Leader>ll", "<CMD>lua vim.diagnostic.set_loclist()<CR>", options)
-	buf_set_keymap("n", "<Leader>lq", "<CMD>lua vim.diagnostic.set_qflist()<CR>", options)
+	buf_set_keymap("n", "<Leader>ll", "<CMD>lua vim.diagnostic.setloclist()<CR>", options)
+	buf_set_keymap("n", "<Leader>lq", "<CMD>lua vim.diagnostic.setqflist()<CR>", options)
 
 	if client.resolved_capabilities.code_action then
 		buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
