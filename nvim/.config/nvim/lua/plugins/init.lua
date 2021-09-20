@@ -313,7 +313,7 @@ require("packer").startup(function(use)
 	})
 
 	-- motions
-	use({ "ggandor/lightspeed.nvim", keys = { "s", "S" } })
+	use({ "ggandor/lightspeed.nvim", keys = { "f", "F", "t", "T", "s", "S" } })
 	use({ "unblevable/quick-scope", opt = true })
 
 	-- misc
