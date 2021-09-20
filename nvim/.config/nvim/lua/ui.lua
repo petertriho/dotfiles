@@ -239,43 +239,49 @@ components.active[2] = {
 	},
 	{
 		provider = "diagnostic_info",
-		enabled = function()
-			return lsp.diagnostics_exist("Information")
+		enabled = function(winid)
+			return lsp.diagnostics_exist("Information") and vim.api.nvim_win_get_width(winid) > 80
 		end,
 		icon = "  ",
 		hl = { fg = "info" },
 	},
 	{
 		provider = "diagnostic_hints",
-		enabled = function()
-			return lsp.diagnostics_exist("Hint")
+		enabled = function(winid)
+			return lsp.diagnostics_exist("Hint") and vim.api.nvim_win_get_width(winid) > 80
 		end,
 		icon = "  ",
 		hl = { fg = "hint" },
 	},
 	{
 		provider = "diagnostic_warnings",
-		enabled = function()
-			return lsp.diagnostics_exist("Warning")
+		enabled = function(winid)
+			return lsp.diagnostics_exist("Warning" and vim.api.nvim_win_get_width(winid) > 80)
 		end,
 		icon = "  ",
 		hl = { fg = "warning" },
 	},
 	{
 		provider = "diagnostic_errors",
-		enabled = function()
-			return lsp.diagnostics_exist("Error")
+		enabled = function(winid)
+			return lsp.diagnostics_exist("Error") and vim.api.nvim_win_get_width(winid) > 80
 		end,
 		icon = "  ",
 		hl = { fg = "error" },
 	},
-	{ provider = "lsp_client_count", left_sep = " ", right_sep = " " },
+	{
+		provider = "lsp_client_count",
+		enabled = function(winid)
+			return vim.api.nvim_win_get_width(winid) > 80
+		end,
+		left_sep = " ",
+	},
 	{
 		provider = "file_type_2",
 		enabled = function()
 			return vim.bo.filetype ~= ""
 		end,
-		left_sep = { { str = "left", hl = {
+		left_sep = { " ", { str = "left", hl = {
 			fg = "fg",
 			bg = "bg",
 		} }, " " },
