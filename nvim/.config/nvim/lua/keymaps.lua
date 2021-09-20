@@ -1,14 +1,14 @@
 local set_keymap = vim.api.nvim_set_keymap
-local options = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 
 -- Buffers
-set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", options)
-set_keymap("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>", options)
+set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
+set_keymap("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
 
 -- Tabs
-set_keymap("n", "<M-p>", ":tabprevious<CR>", options)
-set_keymap("n", "<M-n>", ":tabnext<CR>", options)
+set_keymap("n", "<M-p>", ":tabprevious<CR>", opts)
+set_keymap("n", "<M-n>", ":tabnext<CR>", opts)
 
 -- Windows: Navigation
 set_keymap("", "<C-j>", "<C-w>j", {})
@@ -18,25 +18,25 @@ set_keymap("", "<C-l>", "<C-w>l", {})
 set_keymap("", "<C-\\>", "<C-w>p", {})
 
 -- Windows: Resize
-set_keymap("n", "<M-k>", ":resize -2<CR>", options)
-set_keymap("n", "<M-j>", ":resize +2<CR>", options)
-set_keymap("n", "<M-h>", ":vertical resize -2<CR>", options)
-set_keymap("n", "<M-l>", ":vertical resize +2<CR>", options)
+set_keymap("n", "<M-k>", ":resize -2<CR>", opts)
+set_keymap("n", "<M-j>", ":resize +2<CR>", opts)
+set_keymap("n", "<M-h>", ":vertical resize -2<CR>", opts)
+set_keymap("n", "<M-l>", ":vertical resize +2<CR>", opts)
 set_keymap("", "<M-=>", "<C-w>=", {})
 
 -- Window: Move
-set_keymap("n", "<C-W><C-M>", "<CMD>WinShift<CR>", options)
-set_keymap("n", "<C-W>m", "<CMD>WinShift<CR>", options)
-set_keymap("n", "<C-M-h>", "<CMD>WinShift left<CR>", options)
-set_keymap("n", "<C-M-j>", "<CMD>WinShift down<CR>", options)
-set_keymap("n", "<C-M-k>", "<CMD>WinShift up<CR>", options)
-set_keymap("n", "<C-M-l>", "<CMD>WinShift right<CR>", options)
+set_keymap("n", "<C-W><C-M>", "<CMD>WinShift<CR>", opts)
+set_keymap("n", "<C-W>m", "<CMD>WinShift<CR>", opts)
+set_keymap("n", "<C-M-h>", "<CMD>WinShift left<CR>", opts)
+set_keymap("n", "<C-M-j>", "<CMD>WinShift down<CR>", opts)
+set_keymap("n", "<C-M-k>", "<CMD>WinShift up<CR>", opts)
+set_keymap("n", "<C-M-l>", "<CMD>WinShift right<CR>", opts)
 
 -- Move lines
-set_keymap("n", "<M-u>", ":m .-2<CR>==", options)
-set_keymap("n", "<M-d>", ":m .+1<CR>==", options)
-set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", options)
-set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", options)
+set_keymap("n", "<M-u>", ":m .-2<CR>==", opts)
+set_keymap("n", "<M-d>", ":m .+1<CR>==", opts)
+set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", opts)
+set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", opts)
 
 set_keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
 set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", {})
@@ -46,14 +46,14 @@ set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
 set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
 
 -- Text Objects
-set_keymap("v", "al", ":<C-u>norm!0v$h<CR>", options)
-set_keymap("v", "il", ":<C-u>norm!^vg_<CR>", options)
-set_keymap("o", "al", ":norm val<CR>", options)
-set_keymap("o", "il", ":norm vil<CR>", options)
+set_keymap("v", "al", ":<C-u>norm!0v$h<CR>", opts)
+set_keymap("v", "il", ":<C-u>norm!^vg_<CR>", opts)
+set_keymap("o", "al", ":norm val<CR>", opts)
+set_keymap("o", "il", ":norm vil<CR>", opts)
 
 -- Quickfix/Location List
-set_keymap("n", "<C-n>", "<CMD>QNext<CR>", options)
-set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", options)
+set_keymap("n", "<C-n>", "<CMD>QNext<CR>", opts)
+set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", opts)
 
 -- Which Key
 local keymaps = {

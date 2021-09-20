@@ -91,48 +91,48 @@ local on_attach = function(client, bufnr)
 
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	local options = { noremap = true, silent = true }
+	local opts = { noremap = true, silent = true }
 
-	buf_set_keymap("n", "<Leader>led", "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", options)
-	buf_set_keymap("n", "<Leader>lew", "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", options)
+	buf_set_keymap("n", "<Leader>led", "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", opts)
+	buf_set_keymap("n", "<Leader>lew", "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", opts)
 
-	buf_set_keymap("n", "gl", "<CMD>lua vim.diagnostic.show_line_diagnostics()<CR>", options)
-	buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", options)
-	buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", options)
+	buf_set_keymap("n", "gl", "<CMD>lua vim.diagnostic.show_line_diagnostics()<CR>", opts)
+	buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
+	buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
 
-	buf_set_keymap("n", "<Leader>ll", "<CMD>lua vim.diagnostic.setloclist()<CR>", options)
-	buf_set_keymap("n", "<Leader>lq", "<CMD>lua vim.diagnostic.setqflist()<CR>", options)
+	buf_set_keymap("n", "<Leader>ll", "<CMD>lua vim.diagnostic.setloclist()<CR>", opts)
+	buf_set_keymap("n", "<Leader>lq", "<CMD>lua vim.diagnostic.setqflist()<CR>", opts)
 
 	if client.resolved_capabilities.code_action then
-		buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
-		buf_set_keymap("v", "<Leader>q", "<CMD>lua vim.lsp.buf.range_code_action()<CR>", options)
+		buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+		buf_set_keymap("v", "<Leader>q", "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
 
-		buf_set_keymap("n", "<Leader>k", "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", options)
-		buf_set_keymap("v", "<Leader>k", "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", options)
+		buf_set_keymap("n", "<Leader>k", "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
+		buf_set_keymap("v", "<Leader>k", "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", opts)
 
-		buf_set_keymap("n", "<Leader>lc", "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", options)
-		buf_set_keymap("v", "<Leader>lc", "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", options)
+		buf_set_keymap("n", "<Leader>lc", "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
+		buf_set_keymap("v", "<Leader>lc", "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", opts)
 	end
 
 	if client.resolved_capabilities.document_formatting then
-		buf_set_keymap("n", "<Leader>f", "<CMD>lua vim.lsp.buf.formatting_seq_sync()<CR>", options)
+		buf_set_keymap("n", "<Leader>f", "<CMD>lua vim.lsp.buf.formatting_seq_sync()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.document_range_formatting then
-		buf_set_keymap("v", "<Leader>f", "<CMD>lua vim.lsp.buf.range_formatting()<CR>", options)
+		buf_set_keymap("v", "<Leader>f", "<CMD>lua vim.lsp.buf.range_formatting()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.document_symbol then
-		buf_set_keymap("n", "<Leader>lsd", "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", options)
+		buf_set_keymap("n", "<Leader>lsd", "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.workspace_symbol then
-		buf_set_keymap("n", "<Leader>lsw", "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", options)
+		buf_set_keymap("n", "<Leader>lsw", "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", opts)
 		buf_set_keymap(
 			"n",
 			"<Leader>lsW",
 			"<CMD>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
-			options
+			opts
 		)
 	end
 
@@ -147,34 +147,34 @@ local on_attach = function(client, bufnr)
 	end
 
 	if client.resolved_capabilities.find_references then
-		buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", options)
-		buf_set_keymap("n", "<Leader>lr", "<CMD>lua require('telescope.builtin').lsp_references()<CR>", options)
+		buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", opts)
+		buf_set_keymap("n", "<Leader>lr", "<CMD>lua require('telescope.builtin').lsp_references()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.goto_definition then
-		buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", options)
-		buf_set_keymap("n", "<Leader>ld", "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", options)
+		buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
+		buf_set_keymap("n", "<Leader>ld", "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
-		buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", options)
-		buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", options)
-		buf_set_keymap("n", "<Leader>li", "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", options)
+		buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
+		buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
+		buf_set_keymap("n", "<Leader>li", "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.hover then
-		buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", options)
-		buf_set_keymap("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", options)
+		buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+		buf_set_keymap("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.rename then
-		buf_set_keymap("n", "<Leader>ar", "<CMD>lua vim.lsp.buf.rename()<CR>", options)
+		buf_set_keymap("n", "<Leader>ar", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.signature_help then
-		buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", options)
+		buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.type_definition then
-		buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", options)
+		buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", opts)
 	end
 end
 
