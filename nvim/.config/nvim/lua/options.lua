@@ -23,7 +23,6 @@ g.loaded_netrwFileHandlers = 1
 local opt = vim.opt
 opt.clipboard = "unnamedplus"
 opt.colorcolumn = "80"
-opt.completeopt = "menuone,noselect"
 opt.cursorline = true
 opt.errorbells = false
 opt.expandtab = true
