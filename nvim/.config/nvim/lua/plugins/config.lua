@@ -158,10 +158,10 @@ return {
 					vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
 					vim_item.menu = ({
 						buffer = "[BUFFER]",
-						cmp_tabnine = "[TABNINE]",
+						-- cmp_tabnine = "[TABNINE]",
 						nvim_lsp = "[LSP]",
 						path = "[PATH]",
-						tmux = "[TMUX]",
+						-- tmux = "[TMUX]",
 						vsnip = "[SNIPPET]",
 						["vim-dadbod-completion"] = "[DB]",
 					})[entry.source.name]
@@ -191,10 +191,10 @@ return {
 			},
 			sources = {
 				{ name = "nvim_lsp" },
-				{ name = "cmp_tabnine" },
+				-- { name = "cmp_tabnine" },
 				{ name = "path" },
 				{ name = "buffer" },
-				{ name = "tmux", opts = { all_panes = true } },
+				-- { name = "tmux", opts = { all_panes = true } },
 				{ name = "vsnip" },
 			},
 			experimental = {
