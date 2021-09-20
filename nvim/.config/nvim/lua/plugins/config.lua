@@ -547,8 +547,9 @@ return {
 		require("nvim-autopairs").setup({ check_ts = true })
 		require("nvim-autopairs.completion.cmp").setup({
 			map_cr = true,
-			map_complete = true,
+			map_complete = false,
 			auto_select = false,
+            insert = false
 		})
 	end,
 	["windwp/nvim-ts-autotag"] = function()
