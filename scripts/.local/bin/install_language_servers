@@ -3,6 +3,9 @@
 set -euo pipefail
 
 function main {
+    if ! command -v taplo-lsp &> /dev/null; then
+        cargo install taplo-lsp
+    fi
 
     if ! command -v bash-language-server &> /dev/null; then
         yarn global add bash-language-server
