@@ -28,7 +28,11 @@ function tool:brew {
     fi
 }
 
-function tool:cargo {
+function tool:rust {
+    if command -v rustup &> /dev/null; then
+        rustup update
+    fi
+
     if command -v cargo &> /dev/null; then
         if ! cargo install --list | grep -q cargo-update; then
             cargo install cargo-update
@@ -147,7 +151,7 @@ function tool:all {
     tool:nvim
     tool:tmux
     tool:misc
-    tool:cargo
+    tool:rust
     tool:pipx
     tool:yarn
 
