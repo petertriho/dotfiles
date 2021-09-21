@@ -76,11 +76,11 @@ require("packer").startup(function(use)
 		"onsails/lspkind-nvim",
 		config = config["onsails/lspkind-nvim"],
 	})
-	--[[ use({
+	use({
 		"tzachar/cmp-tabnine",
 		run = "./install.sh",
 		after = "nvim-cmp",
-	}) ]]
+	})
 	use({ "rafamadriz/friendly-snippets", after = "nvim-cmp" })
 
 	-- syntax highlighting
