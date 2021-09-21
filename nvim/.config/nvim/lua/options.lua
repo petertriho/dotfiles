@@ -138,4 +138,11 @@ set_augroups({
 			"highlight QuickScopeSecondary guifg=#f7768e gui=underline ctermfg=red cterm=underline",
 		},
 	},
+	_targets = {
+		{
+			"User",
+			"targets#mappings#user",
+			"call targets#mappings#extend({'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]}})",
+		},
+	},
 })
