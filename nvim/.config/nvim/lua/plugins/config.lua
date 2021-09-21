@@ -160,7 +160,7 @@ return {
 						-- cmp_tabnine = "[TABNINE]",
 						nvim_lsp = "[LSP]",
 						path = "[PATH]",
-						-- tmux = "[TMUX]",
+						tmux = "[TMUX]",
 						vsnip = "[SNIPPET]",
 						["vim-dadbod-completion"] = "[DB]",
 					})[entry.source.name]
@@ -193,7 +193,7 @@ return {
 				-- { name = "cmp_tabnine" },
 				{ name = "path" },
 				{ name = "buffer" },
-				-- { name = "tmux", opts = { all_panes = true } },
+				{ name = "tmux", opts = { all_panes = true } },
 				{ name = "vsnip" },
 			},
 			experimental = {
