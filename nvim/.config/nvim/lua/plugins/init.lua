@@ -203,6 +203,7 @@ require("packer").startup(function(use)
 	})
 	use("mattn/emmet-vim")
 	use("monaqa/dial.nvim")
+	use({ "tommcdo/vim-exchange", keys = { "cx", "X" } })
 	use({ "tpope/vim-abolish", cmd = "Subvert", keys = "cr" })
 	use("wellle/targets.vim")
 
