@@ -60,7 +60,7 @@ if status is-interactive
         --directory=\e\cf \
         --git_log \
         --git_status=\e\cs \
-        --history=\cr \
+        --history=\e\cr \
         --variable=\e\ce
 
     delta_side_by_side
