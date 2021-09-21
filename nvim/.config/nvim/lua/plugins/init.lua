@@ -120,7 +120,7 @@ require("packer").startup(function(use)
 		"andymass/vim-matchup",
 		require = "nvim-treesitter/nvim-treesitter",
 		config = config["andymass/vim-matchup"],
-		opt = true,
+		after = "nvim-treesitter",
 	})
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring",
