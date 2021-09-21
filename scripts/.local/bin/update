@@ -152,10 +152,10 @@ function tool:all {
     tool:fish
     tool:nvim
     tool:tmux
-    tool:misc
     tool:rust
     tool:pipx
     tool:yarn
+    tool:misc
 
     exec "$SHELL"
 }
