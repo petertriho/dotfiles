@@ -378,12 +378,12 @@ return {
 			fold = {
 				attach = function()
 					vim.cmd([[
-					setlocal foldexpr=nvim_treesitter#foldexpr()
-					setlocal foldlevel=3
 					setlocal foldmethod=expr
+					setlocal foldexpr=nvim_treesitter#foldexpr()
 					setlocal foldminlines=1
 					setlocal foldnestmax=3
 					setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
+					setlocal foldlevel=3
                     ]])
 				end,
 				detach = function() end,
