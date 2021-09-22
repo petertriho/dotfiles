@@ -335,6 +335,19 @@ return {
 					case_mode = "smart_case",
 				},
 			},
+			pickers = {
+				find_files = {
+					hidden = true,
+					attach_mappings = function()
+						require("telescope.actions.set").select:enhance({
+							post = function()
+								vim.cmd(":normal! zx")
+							end,
+						})
+						return true
+					end,
+				},
+			},
 		})
 		telescope.load_extension("fzf")
 	end,
