@@ -372,11 +372,26 @@ return {
 				},
 			},
 			indent = { enable = true },
+			fold = { enable = true },
 		})
-		vim.opt.foldmethod = "expr"
-		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-		vim.opt.foldtext =
-			[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
+		require("nvim-treesitter").define_modules({
+			fold = {
+				attach = function()
+					vim.cmd([[
+					setlocal foldexpr=nvim_treesitter#foldexpr()
+					setlocal foldlevel=3
+					setlocal foldmethod=expr
+					setlocal foldminlines=1
+					setlocal foldnestmax=3
+					setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
+                    ]])
+				end,
+				detach = function() end,
+				is_supported = function()
+					return true
+				end,
+			},
+		})
 	end,
 	["nvim-treesitter/nvim-treesitter-refactor"] = function()
 		require("nvim-treesitter.configs").setup({

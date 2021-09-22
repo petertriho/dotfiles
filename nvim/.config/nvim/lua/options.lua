@@ -33,8 +33,6 @@ opt.fillchars = {
 	msgsep = "‾",
 	diff = "╱",
 }
-opt.foldlevel = 3
-opt.foldnestmax = 3
 opt.hidden = true
 opt.ignorecase = true
 opt.inccommand = "nosplit"
