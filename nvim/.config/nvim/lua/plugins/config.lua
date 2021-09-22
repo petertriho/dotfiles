@@ -377,13 +377,14 @@ return {
 		require("nvim-treesitter").define_modules({
 			fold = {
 				attach = function()
-					vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
-					vim.wo.foldlevel = 3
-					vim.wo.foldmethod = "expr"
-					vim.wo.foldminlines = 1
-					vim.wo.foldnestmax = 3
-					vim.wo.foldtext =
-						[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
+					vim.cmd([[
+					setlocal foldexpr=nvim_treesitter#foldexpr()
+					setlocal foldlevel=3
+					setlocal foldmethod=expr
+					setlocal foldminlines=1
+					setlocal foldnestmax=3
+					setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
+                    ]])
 				end,
 				detach = function() end,
 				is_supported = function()
