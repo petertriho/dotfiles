@@ -382,7 +382,7 @@ return {
 					setlocal foldexpr=nvim_treesitter#foldexpr()
 					setlocal foldminlines=1
 					setlocal foldnestmax=3
-					setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
+					setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)).'\ ('.(v:foldend-v:foldstart+1).'\ lines)'
 					setlocal foldlevel=3
                     ]])
 				end,
