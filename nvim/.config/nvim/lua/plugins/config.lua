@@ -62,7 +62,6 @@ return {
 	["chumakd/scratch.vim"] = function()
 		vim.g.scratch_persistence_file = "/tmp/scratch.txt"
 	end,
-
 	["editorconfig/editorconfig-vim"] = function()
 		vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 	end,
@@ -374,6 +373,10 @@ return {
 			},
 			indent = { enable = true },
 		})
+		vim.opt.foldmethod = "expr"
+		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+		vim.opt.foldtext =
+			[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
 	end,
 	["nvim-treesitter/nvim-treesitter-refactor"] = function()
 		require("nvim-treesitter.configs").setup({
