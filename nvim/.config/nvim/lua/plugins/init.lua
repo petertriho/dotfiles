@@ -28,10 +28,6 @@ require("packer").startup(function(use)
 		config = config["lewis6991/gitsigns.nvim"],
 		opt = true,
 	})
-	use({
-		"luochen1990/rainbow",
-		config = config["luochen1990/rainbow"],
-	})
 
 	-- lsp
 	use("neovim/nvim-lspconfig")
@@ -99,6 +95,10 @@ require("packer").startup(function(use)
 		"lukas-reineke/indent-blankline.nvim",
 		setup = config["lukas-reineke/indent-blankline.nvim"],
 		opt = true,
+	})
+	use({
+		"luochen1990/rainbow",
+		config = config["luochen1990/rainbow"],
 	})
 	use({
 		"norcalli/nvim-colorizer.lua",
