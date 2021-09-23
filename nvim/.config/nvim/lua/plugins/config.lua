@@ -300,8 +300,6 @@ return {
 		vim.cmd("runtime macros/sandwich/keymap/surround.vim")
 		local set_keymap = vim.api.nvim_set_keymap
 
-		set_keymap("x", "S", "<Plug>(operator-sandwich-add)", {})
-
 		set_keymap("x", "iS", "<Plug>(textobj-sandwich-query-i)", {})
 		set_keymap("x", "aS", "<Plug>(textobj-sandwich-query-a)", {})
 		set_keymap("o", "iS", "<Plug>(textobj-sandwich-query-i)", {})
