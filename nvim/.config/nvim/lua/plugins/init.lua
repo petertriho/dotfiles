@@ -190,10 +190,6 @@ require("packer").startup(function(use)
 
 	-- text helpers
 	use({
-		"AckslD/nvim-anywise-reg.lua",
-		config = config["AckslD/nvim-anywise-reg.lua"],
-	})
-	use({
 		"AndrewRadev/splitjoin.vim",
 		setup = config["AndrewRadev/splitjoin.vim"],
 		cmd = { "SplitjoinJoin", "SplitjoinSplit" },
