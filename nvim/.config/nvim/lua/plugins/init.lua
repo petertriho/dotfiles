@@ -372,7 +372,6 @@ require("packer").startup(function(use)
 		cmd = { "QNext", "QPrev", "LLToggle", "QFToggle" },
 	})
 	use("tpope/vim-repeat")
-	use({ "tpope/vim-unimpaired", opt = true })
 	use({
 		"winston0410/range-highlight.nvim",
 		requires = "winston0410/cmd-parser.nvim",
