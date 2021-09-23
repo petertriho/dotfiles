@@ -35,6 +35,7 @@ return {
 			method = "popup",
 		}
 		vim.g.matchup_matchparen_deferred = 1
+		vim.api.nvim_del_keymap("", "z%")
 	end,
 	["antoinemadec/FixCursorHold.nvim"] = function()
 		vim.g.cursorhold_updatetime = 100
@@ -294,6 +295,27 @@ return {
 			"NeogitStatus",
 			"DiffViewFiles",
 		}
+	end,
+	["machakann/vim-sandwich"] = function()
+		vim.cmd("runtime macros/sandwich/keymap/surround.vim")
+		local set_keymap = vim.api.nvim_set_keymap
+
+		set_keymap("x", "S", "<Plug>(operator-sandwich-add)", {})
+
+		set_keymap("x", "iS", "<Plug>(textobj-sandwich-query-i)", {})
+		set_keymap("x", "aS", "<Plug>(textobj-sandwich-query-a)", {})
+		set_keymap("o", "iS", "<Plug>(textobj-sandwich-query-i)", {})
+		set_keymap("o", "aS", "<Plug>(textobj-sandwich-query-a)", {})
+
+		set_keymap("x", "iSS", "<Plug>(textobj-sandwich-auto-i)", {})
+		set_keymap("x", "aSS", "<Plug>(textobj-sandwich-auto-a)", {})
+		set_keymap("o", "iSS", "<Plug>(textobj-sandwich-auto-i)", {})
+		set_keymap("o", "aSS", "<Plug>(textobj-sandwich-auto-a)", {})
+
+		set_keymap("x", "im", "<Plug>(textobj-sandwich-literal-query-i)", {})
+		set_keymap("x", "am", "<Plug>(textobj-sandwich-literal-query-a)", {})
+		set_keymap("o", "im", "<Plug>(textobj-sandwich-literal-query-i)", {})
+		set_keymap("o", "am", "<Plug>(textobj-sandwich-literal-query-a)", {})
 	end,
 	["mg979/vim-visual-multi"] = function()
 		vim.g.VM_leader = "\\"
