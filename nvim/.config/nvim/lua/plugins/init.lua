@@ -240,7 +240,11 @@ require("packer").startup(function(use)
 		setup = config["chumakd/scratch.vim"],
 		cmd = "ScratchPreview",
 	})
-	use({ "ellisonleao/glow.nvim", run = "GlowInstall", cmd = "Glow" })
+	use({
+		"ellisonleao/glow.nvim",
+		run = "GlowInstall",
+		cmd = { "Glow", "GlowInstall" },
+	})
 	use("folke/which-key.nvim")
 	use({
 		"folke/trouble.nvim",
