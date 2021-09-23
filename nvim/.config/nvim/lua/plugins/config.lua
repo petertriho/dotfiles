@@ -77,6 +77,14 @@ return {
 	["folke/zenmode.nvim"] = function()
 		require("zen-mode").setup()
 	end,
+	["ggandor/lightspeed.nvim"] = function()
+		require("lightspeed").setup({
+			substitute_chars = {
+				[" "] = "␣",
+				["\t"] = "↹",
+			},
+		})
+	end,
 	["JoosepAlviste/nvim-ts-context-commentstring"] = function()
 		require("nvim-treesitter.configs").setup({
 			context_commentstring = { enable = true, enable_autocmd = false },
