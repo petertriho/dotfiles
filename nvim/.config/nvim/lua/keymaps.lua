@@ -55,6 +55,22 @@ set_keymap("o", "il", ":norm vil<CR>", opts)
 set_keymap("n", "<C-n>", "<CMD>QNext<CR>", opts)
 set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", opts)
 
+-- Lightspeed
+set_keymap("n", "sf", "<Plug>Lightspeed_s", {})
+set_keymap("n", "sb", "<Plug>Lightspeed_S", {})
+set_keymap("n", ";", "<Plug>Lightspeed_s<CR>", {})
+set_keymap("n", ",", "<Plug>Lightspeed_S<CR>", {})
+
+set_keymap("x", "sf", "<Plug>Lightspeed_x", {})
+set_keymap("x", "sb", "<Plug>Lightspeed_X", {})
+set_keymap("x", ";", "<Plug>Lightspeed_x<CR>", {})
+set_keymap("x", ",", "<Plug>Lightspeed_X<CR>", {})
+
+set_keymap("", "f", "<Plug>Lightspeed_f", {})
+set_keymap("", "F", "<Plug>Lightspeed_F", {})
+set_keymap("", "t", "<Plug>Lightspeed_t", {})
+set_keymap("", "T", "<Plug>Lightspeed_T", {})
+
 -- Which Key
 local keymaps = {
 	[" "] = { ":w<CR>", "write" },

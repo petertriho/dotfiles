@@ -201,10 +201,7 @@ require("packer").startup(function(use)
 	use({ "b3nj5m1n/kommentary", config = config["b3nj5m1n/kommentary"] })
 	use({ "chaoren/vim-wordmotion", setup = config["chaoren/vim-wordmotion"] })
 	use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
-	use({
-		"machakann/vim-sandwich",
-		config = config["machakann/vim-sandwich"],
-	})
+	use("machakann/vim-sandwich")
 	use("mattn/emmet-vim")
 	use("monaqa/dial.nvim")
 	use({ "tommcdo/vim-exchange", keys = { "cx", "X" } })
@@ -321,7 +318,16 @@ require("packer").startup(function(use)
 	use({
 		"ggandor/lightspeed.nvim",
 		config = config["ggandor/lightspeed.nvim"],
-		keys = { "f", "F", "t", "T", "s", "S" },
+		keys = {
+			"<Plug>Lightspeed_s",
+			"<Plug>Lightspeed_S",
+			"<Plug>Lightspeed_x",
+			"<Plug>Lightspeed_X",
+			"<Plug>Lightspeed_f",
+			"<Plug>Lightspeed_F",
+			"<Plug>Lightspeed_t",
+			"<Plug>Lightspeed_T",
+		},
 	})
 	use({ "unblevable/quick-scope", opt = true })
 

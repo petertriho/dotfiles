@@ -286,27 +286,6 @@ return {
 			},
 		}
 	end,
-	["machakann/vim-sandwich"] = function()
-		vim.cmd("runtime macros/sandwich/keymap/surround.vim")
-		local set_keymap = vim.api.nvim_set_keymap
-
-		set_keymap("x", "Z", "<Plug>(operator-sandwich-add)", {})
-
-		set_keymap("x", "iS", "<Plug>(textobj-sandwich-query-i)", {})
-		set_keymap("x", "aS", "<Plug>(textobj-sandwich-query-a)", {})
-		set_keymap("o", "iS", "<Plug>(textobj-sandwich-query-i)", {})
-		set_keymap("o", "aS", "<Plug>(textobj-sandwich-query-a)", {})
-
-		set_keymap("x", "iSS", "<Plug>(textobj-sandwich-auto-i)", {})
-		set_keymap("x", "aSS", "<Plug>(textobj-sandwich-auto-a)", {})
-		set_keymap("o", "iSS", "<Plug>(textobj-sandwich-auto-i)", {})
-		set_keymap("o", "aSS", "<Plug>(textobj-sandwich-auto-a)", {})
-
-		set_keymap("x", "im", "<Plug>(textobj-sandwich-literal-query-i)", {})
-		set_keymap("x", "am", "<Plug>(textobj-sandwich-literal-query-a)", {})
-		set_keymap("o", "im", "<Plug>(textobj-sandwich-literal-query-i)", {})
-		set_keymap("o", "am", "<Plug>(textobj-sandwich-literal-query-a)", {})
-	end,
 	["lukas-reineke/indent-blankline.nvim"] = function()
 		vim.g.indent_blankline_use_treesitter = true
 		vim.g.indent_blankline_show_first_indent_level = false
