@@ -86,7 +86,7 @@ local feline_providers = require("feline.providers")
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
-feline_providers.add_provider("file_type_2", function(component, winid)
+feline_providers.add_provider("file_type_2", function(winid)
 	local bufnr = vim.api.nvim_win_get_buf(winid)
 	local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
 	local extension = vim.fn.fnamemodify(filename, ":e")
@@ -96,21 +96,19 @@ feline_providers.add_provider("file_type_2", function(component, winid)
 
 	local icon = { str = icon_str }
 
-	if component.colored_icon == nil or component.colored_icon then
-		local fg = vim.api.nvim_get_hl_by_name(icon_hlname, true).foreground
+	local fg = vim.api.nvim_get_hl_by_name(icon_hlname, true).foreground
 
-		if fg then
-			icon.hl = { fg = string.format("#%06x", fg) }
-		end
+	if fg then
+		icon.hl = { fg = string.format("#%06x", fg) }
 	end
 	return " " .. filetype, icon
 end)
 
-feline_providers.add_provider("position_2", function(_, winid)
+feline_providers.add_provider("position_2", function(winid)
 	return string.format(" %d:%d", unpack(vim.api.nvim_win_get_cursor(winid)))
 end)
 
-feline_providers.add_provider("file_stats", function(_, winid)
+feline_providers.add_provider("file_stats", function(winid)
 	local bufnr = vim.api.nvim_win_get_buf(winid)
 
 	local lines = vim.api.nvim_buf_line_count(bufnr)
@@ -126,15 +124,14 @@ feline_providers.add_provider("file_stats", function(_, winid)
 	end
 end)
 
-feline_providers.add_provider("lsp_client_count", function(component, winid)
+feline_providers.add_provider("lsp_client_count", function(winid)
 	local count = 0
-	local icon = component.icon or " "
 
 	for _ in pairs(vim.lsp.buf_get_clients(vim.api.nvim_win_get_buf(winid))) do
 		count = count + 1
 	end
 
-	return icon .. "LSP:" .. count
+	return " " .. "LSP:" .. count
 end)
 
 local components = {
@@ -162,9 +159,8 @@ components.active[1] = {
 		end,
 	},
 	{
-		provider = "file_info",
+		provider = { name = "file_info", opts = { file_readonly_icon = " " } },
 		icon = "",
-		file_readonly_icon = " ",
 		hl = function()
 			return {
 				fg = vi_mode_utils.get_mode_color(),
@@ -285,7 +281,6 @@ components.active[2] = {
 			fg = "fg",
 			bg = "bg",
 		} }, " " },
-		right_sep = " ",
 	},
 	{
 		provider = "file_stats",
@@ -296,7 +291,7 @@ components.active[2] = {
 				style = "bold",
 			}
 		end,
-		left_sep = { "left_filled", "block" },
+		left_sep = { " ", "left_filled", "block" },
 		right_sep = "block",
 	},
 	{
@@ -331,9 +326,8 @@ components.active[2] = {
 
 components.inactive[1] = {
 	{
-		provider = "file_info",
+		provider = { name = "file_info", opts = { file_readonly_icon = " " } },
 		icon = "",
-		file_readonly_icon = " ",
 		hl = { fg = "bg_statusline", bg = "fg_sidebar" },
 		right_sep = "right_filled",
 	},
@@ -341,7 +335,7 @@ components.inactive[1] = {
 
 components.inactive[2] = {
 	{
-		provider = function(_, winid)
+		provider = function(winid)
 			return tostring(vim.fn.win_id2win(winid))
 		end,
 		left_sep = " ",
