@@ -600,7 +600,7 @@ return {
 		require("cmp_tabnine.config").setup({
 			max_lines = 1000,
 			max_num_results = 10,
-			sort = false,
+			sort = true,
 		})
 	end,
 	["vimwiki/vimwiki"] = function()
