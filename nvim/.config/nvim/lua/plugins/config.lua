@@ -95,10 +95,14 @@ return {
 	end,
 	["kyazdani42/nvim-tree.lua"] = function()
 		vim.g.nvim_tree_ignore = { ".git" }
-		vim.g.nvim_tree_follow = 1
 		vim.g.nvim_tree_indent_markers = 0
 		vim.g.nvim_tree_git_hl = 1
-		vim.g.nvim_tree_hijack_cursor = 0
+
+		require("nvim-tree").setup({
+			update_focused_file = {
+				enable = true,
+			},
+		})
 	end,
 	["kwkarlwang/bufjump.nvim"] = function()
 		require("bufjump").setup({
