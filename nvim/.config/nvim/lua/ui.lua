@@ -10,6 +10,8 @@ colors = vim.tbl_extend("force", colors, {
 	bg = colors.bg_statusline,
 })
 
+vim.cmd("highlight Folded guifg=" .. colors.comment .. " guibg=" .. colors.none)
+
 vim.cmd("highlight DiagnosticError guifg=" .. colors.error)
 vim.cmd("highlight DiagnosticWarn guifg=" .. colors.warning)
 vim.cmd("highlight DiagnosticInfo guifg=" .. colors.info)
