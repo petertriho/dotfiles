@@ -62,6 +62,7 @@ require("bufferline").setup({
 				return true
 			end
 		end,
+		diagnostics = "nvim_lsp",
 	},
 })
 
