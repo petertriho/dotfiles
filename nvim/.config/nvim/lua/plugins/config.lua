@@ -197,7 +197,10 @@ return {
 				{ name = "cmp_tabnine" },
 				{ name = "path" },
 				{ name = "buffer" },
-				{ name = "tmux", opts = { all_panes = true } },
+				{ name = "tmux", opts = {
+					all_panes = true,
+					trigger_characters = {},
+				} },
 				{ name = "vsnip" },
 			},
 		})
