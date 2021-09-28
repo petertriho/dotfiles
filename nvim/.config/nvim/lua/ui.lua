@@ -11,6 +11,7 @@ colors = vim.tbl_extend("force", colors, {
 })
 
 vim.cmd("highlight Folded guifg=" .. colors.comment .. " guibg=" .. colors.none)
+vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticWarn" })
 
 vim.cmd("highlight DiagnosticError guifg=" .. colors.error)
 vim.cmd("highlight DiagnosticWarn guifg=" .. colors.warning)

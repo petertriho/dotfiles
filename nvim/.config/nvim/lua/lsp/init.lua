@@ -104,6 +104,13 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<Leader>lq", "<CMD>lua vim.diagnostic.setqflist()<CR>", opts)
 
 	if client.resolved_capabilities.code_action then
+		vim.cmd([[
+        augroup lsp_code_action
+            autocmd! * <buffer>
+            autocmd CursorHold,CursorHoldI <buffer> lua require'nvim-lightbulb'.update_lightbulb()
+        augroup END
+        ]])
+
 		buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
 		buf_set_keymap("v", "<Leader>q", "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
 
