@@ -47,6 +47,10 @@ require("packer").startup(function(use)
 		"rmagatti/goto-preview",
 		config = config["rmagatti/goto-preview"],
 	})
+	use({
+		"weilbith/nvim-code-action-menu",
+		cmd = "CodeActionMenu",
+	})
 
 	-- completion
 	use({

@@ -114,8 +114,7 @@ local on_attach = function(client, bufnr)
 		buf_set_keymap("n", "<Leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
 		buf_set_keymap("v", "<Leader>q", "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
 
-		buf_set_keymap("n", "<Leader>k", "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
-		buf_set_keymap("v", "<Leader>k", "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", opts)
+		buf_set_keymap("", "<Leader>k", "<CMD>CodeActionMenu<CR>", opts)
 
 		buf_set_keymap("n", "<Leader>lc", "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
 		buf_set_keymap("v", "<Leader>lc", "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", opts)
