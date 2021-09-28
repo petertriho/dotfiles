@@ -41,7 +41,6 @@ require("packer").startup(function(use)
 		"ray-x/lsp_signature.nvim",
 		config = config["ray-x/lsp_signature.nvim"],
 	})
-	use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
 	use({
 		"rmagatti/goto-preview",
 		config = config["rmagatti/goto-preview"],
