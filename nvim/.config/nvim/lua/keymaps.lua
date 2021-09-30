@@ -100,8 +100,16 @@ local keymaps = {
 	n = { ":nohl<CR>", "no-highlight" },
 	r = { "<CMD>lua require('spectre').open()<CR>", "find-replace" },
 	s = { "<CMD>Telescope live_grep<CR>", "search-text" },
+	S = {
+		"<CMD>lua require('telescope.builtin').live_grep({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
+		"search-wiki",
+	},
 	t = { "<CMD>TroubleToggle<CR>", "trouble" },
 	u = { "<CMD>MundoToggle<CR>", "undotree" },
+	W = {
+		"<CMD>lua require('telescope.builtin').find_files({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
+		"find-wiki",
+	},
 	y = { "<CMD>lua require('telescope').extensions.neoclip.default()<CR>", "yank-history" },
 	z = { "<CMD>ZenMode<CR>", "zenmode" },
 }
@@ -199,15 +207,6 @@ keymaps["p"] = {
 }
 
 keymaps["w"] = { name = "+wiki" }
-
-keymaps["S"] = {
-	"<CMD>lua require('telescope.builtin').live_grep({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
-	"search-wiki",
-}
-keymaps["W"] = {
-	"<CMD>lua require('telescope.builtin').find_files({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
-	"find-wiki",
-}
 
 require("which-key").setup()
 
