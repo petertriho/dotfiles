@@ -24,6 +24,7 @@ local config = {
 		{ mods = "LEADER", key = "7", action = wezterm.action({ ActivateTab = 6 }) },
 		{ mods = "LEADER", key = "8", action = wezterm.action({ ActivateTab = 7 }) },
 		{ mods = "LEADER", key = "9", action = wezterm.action({ ActivateTab = 8 }) },
+		{ mods = "LEADER", key = "Tab", action = "QuickSelect" },
 		{ mods = "LEADER", key = "a", action = "ShowTabNavigator" },
 		{ mods = "LEADER", key = "c", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 		{ mods = "LEADER", key = "h", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
