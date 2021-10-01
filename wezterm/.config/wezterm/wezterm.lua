@@ -1,7 +1,6 @@
 local wezterm = require("wezterm")
 
 local config = {
-	font_size = 13,
 	color_scheme = "tokyonight",
 	bold_brightens_ansi_colors = true,
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
@@ -76,19 +75,20 @@ wezterm.on("format-tab-title", function(tab)
 		return {
 			{ Text = "▎" .. tab.active_pane.title },
 		}
-	else
-		return {
-			{ Text = " " .. tab.active_pane.title },
-		}
 	end
-	return tab.active_pane.title
+
+	return {
+		{ Text = " " .. tab.active_pane.title },
+	}
 end)
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "wsl.exe", "-d", "Ubuntu", "--cd", "\\\\wsl$\\Ubuntu\\home\\peter" }
 	config.font = wezterm.font("JetBrainsMono NF")
+	config.font_size = 12
 else
 	config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
+	config.font_size = 16
 end
 
 return config
