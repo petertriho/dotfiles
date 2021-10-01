@@ -6,7 +6,6 @@ local config = {
 	bold_brightens_ansi_colors = true,
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	window_close_confirmation = "NeverPrompt",
-	hide_tab_bar_if_only_one_tab = true,
 	leader = { key = "s", mods = "CTRL" },
 	keys = {
 		{
@@ -15,6 +14,7 @@ local config = {
 			action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
 		},
 		{ mods = "LEADER", key = "-", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
+		{ mods = "LEADER", key = "[", action = "ActivateCopyMode" },
 		{ mods = "LEADER", key = "1", action = wezterm.action({ ActivateTab = 0 }) },
 		{ mods = "LEADER", key = "2", action = wezterm.action({ ActivateTab = 1 }) },
 		{ mods = "LEADER", key = "3", action = wezterm.action({ ActivateTab = 2 }) },
@@ -31,6 +31,8 @@ local config = {
 		{ mods = "LEADER", key = "j", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
 		{ mods = "LEADER", key = "k", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
 		{ mods = "LEADER", key = "l", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+		{ mods = "LEADER", key = "n", action = wezterm.action({ ActivateTabRelative = 1 }) },
+		{ mods = "LEADER", key = "p", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		{ mods = "LEADER", key = "s", action = "ActivateLastTab" },
 		{ mods = "LEADER", key = "x", action = wezterm.action({ CloseCurrentPane = { confirm = false } }) },
 		{ mods = "LEADER", key = "z", action = "TogglePaneZoomState" },
@@ -41,7 +43,45 @@ local config = {
 		{ mods = "LEADER|SHIFT", key = "K", action = wezterm.action({ AdjustPaneSize = { "Up", 5 } }) },
 		{ mods = "LEADER|SHIFT", key = "L", action = wezterm.action({ AdjustPaneSize = { "Right", 5 } }) },
 	},
+	colors = {
+		tab_bar = {
+			background = "#0E0E14",
+			active_tab = {
+				bg_color = "#1A1B26",
+				fg_color = "#C0CAF5",
+			},
+			inactive_tab = {
+				bg_color = "#13141C",
+				fg_color = "#565F89",
+			},
+			inactive_tab_hover = {
+				bg_color = "#1A1B26",
+				fg_color = "#C0CAF5",
+			},
+			new_tab = {
+				bg_color = "#13141C",
+				fg_color = "#565F89",
+			},
+			new_tab_hover = {
+				bg_color = "#1A1B26",
+				fg_color = "#C0CAF5",
+			},
+		},
+	},
 }
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	if tab.is_active then
+		return {
+			{ Text = "▎" .. tab.active_pane.title },
+		}
+	else
+		return {
+			{ Text = " " .. tab.active_pane.title },
+		}
+	end
+	return tab.active_pane.title
+end)
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "wsl.exe", "-d", "Ubuntu", "--cd", "\\\\wsl$\\Ubuntu\\home\\peter" }
