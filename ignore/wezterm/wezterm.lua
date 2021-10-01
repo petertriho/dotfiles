@@ -6,6 +6,7 @@ local config = {
 	bold_brightens_ansi_colors = true,
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	window_close_confirmation = "NeverPrompt",
+	hide_tab_bar_if_only_one_tab = true,
 	leader = { key = "s", mods = "CTRL" },
 	keys = {
 		{
