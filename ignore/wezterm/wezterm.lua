@@ -70,7 +70,7 @@ local config = {
 	},
 }
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+wezterm.on("format-tab-title", function(tab)
 	if tab.is_active then
 		return {
 			{ Text = "▎" .. tab.active_pane.title },
