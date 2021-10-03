@@ -68,6 +68,6 @@ if status is-interactive
     delta_side_by_side
 
     if command -v zoxide &>/dev/null
-        zoxide init fish | source
+        zoxide init --cmd j fish | source
     end
 end
