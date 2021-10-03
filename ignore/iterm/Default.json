@@ -1,5 +1,4 @@
 {
-  "Thin Strokes" : 4,
   "Working Directory" : "\/Users\/trihonometry",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -17,7 +16,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.68627452850341797
   },
-  "Use Italic Font" : true,
+  "Use Italic Font" : false,
   "Foreground Color" : {
     "Red Component" : 0.75294119119644165,
     "Color Space" : "sRGB",
@@ -26,7 +25,6 @@
     "Green Component" : 0.7921568751335144
   },
   "Right Option Key Sends" : 2,
-  "Show Status Bar" : false,
   "Character Encoding" : 4,
   "Selection Color" : {
     "Red Component" : 0.20000000298023224,
@@ -37,7 +35,6 @@
   },
   "Show Mark Indicators" : false,
   "Mouse Reporting" : true,
-  "Cursor Boost" : 0,
   "Ansi 4 Color" : {
     "Red Component" : 0.47843137383460999,
     "Color Space" : "sRGB",
@@ -58,17 +55,6 @@
   ],
   "Scrollback Lines" : 1000,
   "Draw Powerline Glyphs" : true,
-  "Status Bar Layout" : {
-    "components" : [
-
-    ],
-    "advanced configuration" : {
-      "remove empty components" : false,
-      "font" : ".AppleSystemUIFont 12",
-      "algorithm" : 0,
-      "auto-rainbow style" : 0
-    }
-  },
   "Brighten Bold Text" : true,
   "Flashing Bell" : false,
   "Cursor Guide Color" : {
@@ -81,13 +67,6 @@
   "BM Growl" : true,
   "AWDS Window Directory" : "",
   "Icon" : 1,
-  "Link Color" : {
-    "Red Component" : 0.45098039507865906,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.7921568751335144,
-    "Alpha Component" : 1,
-    "Green Component" : 0.85490196943283081
-  },
   "Ansi 3 Color" : {
     "Red Component" : 0.87843137979507446,
     "Color Space" : "sRGB",
@@ -95,8 +74,15 @@
     "Alpha Component" : 1,
     "Green Component" : 0.68627452850341797
   },
-  "Shortcut" : "",
   "Use Non-ASCII Font" : false,
+  "Shortcut" : "",
+  "Link Color" : {
+    "Red Component" : 0.45098039507865906,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.7921568751335144,
+    "Alpha Component" : 1,
+    "Green Component" : 0.85490196943283081
+  },
   "Background Image Location" : "",
   "Bold Color" : {
     "Red Component" : 0.93333333730697632,
@@ -105,7 +91,6 @@
     "Alpha Component" : 1,
     "Green Component" : 0.93333333730697632
   },
-  "Use Cursor Guide" : false,
   "Unlimited Scrollback" : false,
   "Custom Command" : "No",
   "AWDS Tab Option" : "Recycle",
@@ -391,7 +376,7 @@
     "Green Component" : 0.63529413938522339
   },
   "Window Type" : 0,
-  "Use Bright Bold" : true,
+  "Use Bright Bold" : false,
   "Cursor Text Color" : {
     "Red Component" : 0.08235294371843338,
     "Color Space" : "sRGB",
@@ -452,7 +437,7 @@
   "AWDS Pane Directory" : "",
   "Blur" : false,
   "Vertical Spacing" : 1,
-  "Normal Font" : "JetBrainsMonoNerdFontComplete-Medium 16",
+  "Normal Font" : "JetBrainsMonoNerdFontCompleteM-Medium 16",
   "Ansi 7 Color" : {
     "Red Component" : 0.66274511814117432,
     "Color Space" : "sRGB",
@@ -468,7 +453,6 @@
   "Horizontal Spacing" : 1,
   "Option Key Sends" : 2,
   "Only The Default BG Color Uses Transparency" : false,
-  "Minimum Contrast" : 0,
   "Ansi 15 Color" : {
     "Red Component" : 0.75294119119644165,
     "Color Space" : "sRGB",
@@ -506,8 +490,8 @@
   },
   "Columns" : 80,
   "Visual Bell" : true,
-  "ASCII Ligatures" : false,
   "Custom Directory" : "Advanced",
+  "ASCII Ligatures" : false,
   "Ansi 5 Color" : {
     "Red Component" : 0.73333334922790527,
     "Color Space" : "sRGB",
