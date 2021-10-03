@@ -617,6 +617,9 @@ return {
 	["vuki656/package-info.nvim"] = function()
 		require("package-info").setup()
 	end,
+	["wesQ3/vim-windowswap"] = function()
+		vim.g.windowswap_map_keys = 0
+	end,
 	["windwp/nvim-autopairs"] = function()
 		require("nvim-treesitter.configs").setup({ autopairs = { enable = true } })
 		require("nvim-autopairs").setup({ check_ts = true })
