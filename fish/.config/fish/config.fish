@@ -31,7 +31,9 @@ set -gx PROJECT_PATHS $HOME/Documents/GitHub $HOME/Documents/Projects
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
 
 if status is-interactive
-    starship init fish | source
+    if command -v starship &>/dev/null
+        starship init fish | source
+    end
 
     set -gx FZF_DEFAULT_OPTS \
         --ansi \
@@ -64,4 +66,8 @@ if status is-interactive
         --variable=\e\ce
 
     delta_side_by_side
+
+    if command -v zoxide &>/dev/null
+        zoxide init fish | source
+    end
 end

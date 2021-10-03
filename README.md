@@ -30,6 +30,7 @@
 - [wfxr/forgit](https://github.com/wfxr/forgit)
 - [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
 - [sharkdp/vivid](https://github.com/sharkdp/vivid)
+- [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide)
 
 ### Neovim
 
