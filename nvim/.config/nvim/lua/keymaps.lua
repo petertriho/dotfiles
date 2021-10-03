@@ -96,6 +96,7 @@ local keymaps = {
 	d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
 	D = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
 	e = { "<CMD>NvimTreeToggle<CR>", "explorer" },
+    E = { "<CMD>Telescope file_browser hidden=true<CR>", "telescope-explorer"},
 	j = { ":call ToggleGitStatus()<CR>", "git-status" },
 	J = { ":call ToggleNeogitStatus()<CR>", "git-status" },
 	m = { "<CMD>Glow<CR>", "markdown-preview" },
