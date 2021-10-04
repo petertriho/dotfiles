@@ -253,6 +253,7 @@ components.active[2] = {
 	},
 	{
 		provider = "file_stats",
+		short_provider = { name = "file_stats", opts = { short = true } },
 		hl = function()
 			return {
 				fg = vi_mode_utils.get_mode_color(),
@@ -262,6 +263,7 @@ components.active[2] = {
 		end,
 		left_sep = { " ", "left_filled", "block" },
 		right_sep = "block",
+		priority = 0,
 	},
 	{
 		provider = "",
@@ -360,12 +362,13 @@ require("feline").setup({
 		position_2 = function()
 			return string.format(" %d:%d", unpack(vim.api.nvim_win_get_cursor(vim.api.nvim_get_current_win())))
 		end,
-		file_stats = function()
+		file_stats = function(_, opts)
 			local bufnr = vim.api.nvim_get_current_buf()
-
 			local lines = vim.api.nvim_buf_line_count(bufnr)
 
-			if vim.api.nvim_win_get_width(vim.api.nvim_get_current_win()) > 120 then
+			if opts.short == true then
+				return string.format(" %d", lines)
+			else
 				local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
 				local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
 				local file_format = vim.bo[bufnr].fileformat
@@ -377,8 +380,6 @@ require("feline").setup({
 					tab,
 					lines
 				)
-			else
-				return string.format(" %d", lines)
 			end
 		end,
 		lsp_client_count = function()
