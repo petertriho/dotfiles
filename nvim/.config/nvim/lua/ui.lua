@@ -59,7 +59,11 @@ require("bufferline").setup({
 			},
 		},
 		custom_filter = function(buf_number)
-			if vim.bo[buf_number].filetype ~= "fugitive" and vim.bo[buf_number].filetype ~= "NeogitStatus" then
+			if
+				vim.bo[buf_number].filetype ~= "fugitive"
+				and vim.bo[buf_number].filetype ~= "NeogitStatus"
+				and vim.bo[buf_number].buftype ~= "terminal"
+			then
 				return true
 			end
 		end,
