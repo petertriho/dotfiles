@@ -114,6 +114,7 @@ local keymaps = {
 	},
 	t = { "<CMD>TroubleToggle<CR>", "trouble" },
 	u = { "<CMD>MundoToggle<CR>", "undotree" },
+	v = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
 	W = {
 		"<CMD>lua require('telescope.builtin').find_files({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
 		"find-wiki",

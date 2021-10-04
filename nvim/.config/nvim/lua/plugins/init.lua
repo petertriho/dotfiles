@@ -48,6 +48,10 @@ require("packer").startup(function(use)
 		config = config["rmagatti/goto-preview"],
 	})
 	use({
+		"simrat39/symbols-outline.nvim",
+		cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
+	})
+	use({
 		"weilbith/nvim-code-action-menu",
 		cmd = "CodeActionMenu",
 	})
