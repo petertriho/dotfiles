@@ -118,7 +118,7 @@ components.active[1] = {
 		end,
 	},
 	{
-		provider = { name = "file_info", opts = { type = "full-path", file_readonly_icon = " " } },
+		provider = { name = "file_info", opts = { type = "relative", file_readonly_icon = " " } },
 		short_provider = { name = "file_info", opts = { type = "short-path", file_readonly_icon = " " } },
 		icon = "",
 		hl = function()
