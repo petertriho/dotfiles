@@ -114,7 +114,8 @@ components.active[1] = {
 		end,
 	},
 	{
-		provider = { name = "file_info", opts = { file_readonly_icon = " " } },
+		provider = { name = "file_info", opts = { type = "full-path", file_readonly_icon = " " } },
+		short_provider = { name = "file_info", opts = { type = "short-path", file_readonly_icon = " " } },
 		icon = "",
 		hl = function()
 			return {
@@ -124,6 +125,7 @@ components.active[1] = {
 			}
 		end,
 		right_sep = "right_filled",
+		priority = 0,
 	},
 	{
 		provider = "git_branch",
@@ -142,14 +144,14 @@ components.active[1] = {
 		icon = " +",
 		hl = { fg = "teal", style = "bold" },
 		truncate_hide = true,
-		priority = 2,
+		priority = 3,
 	},
 	{
 		provider = "git_diff_changed",
 		icon = " ~",
 		hl = { fg = "blue", style = "bold" },
 		truncate_hide = true,
-		priority = 2,
+		priority = 3,
 	},
 	{
 		provider = "git_diff_removed",
@@ -157,7 +159,7 @@ components.active[1] = {
 		hl = { fg = "red", style = "bold" },
 		right_sep = "block",
 		truncate_hide = true,
-		priority = 2,
+		priority = 3,
 	},
 }
 
@@ -170,7 +172,7 @@ components.active[2] = {
 			return package.loaded["package-info"] ~= nil
 		end,
 		truncate_hide = true,
-		priority = 0,
+		priority = 1,
 	},
 	{
 		provider = function()
@@ -178,7 +180,7 @@ components.active[2] = {
 		end,
 		left_sep = " ",
 		truncate_hide = true,
-		priority = 0,
+		priority = 1,
 	},
 	{
 		provider = function()
@@ -189,7 +191,7 @@ components.active[2] = {
 		end,
 		left_sep = " ",
 		truncate_hide = true,
-		priority = 0,
+		priority = 1,
 	},
 	{
 		provider = "position_2",
@@ -203,7 +205,7 @@ components.active[2] = {
 		icon = "  ",
 		hl = { fg = "info" },
 		truncate_hide = true,
-		priority = 1,
+		priority = 2,
 	},
 	{
 		provider = "diagnostic_hints",
@@ -213,7 +215,7 @@ components.active[2] = {
 		icon = "  ",
 		hl = { fg = "hint" },
 		truncate_hide = true,
-		priority = 1,
+		priority = 2,
 	},
 	{
 		provider = "diagnostic_warnings",
@@ -223,7 +225,7 @@ components.active[2] = {
 		icon = "  ",
 		hl = { fg = "warning" },
 		truncate_hide = true,
-		priority = 1,
+		priority = 2,
 	},
 	{
 		provider = "diagnostic_errors",
@@ -233,13 +235,13 @@ components.active[2] = {
 		icon = "  ",
 		hl = { fg = "error" },
 		truncate_hide = true,
-		priority = 1,
+		priority = 2,
 	},
 	{
 		provider = "lsp_client_count",
 		left_sep = " ",
 		truncate_hide = true,
-		priority = 1,
+		priority = 2,
 	},
 	{
 		provider = "file_type_2",
@@ -263,7 +265,7 @@ components.active[2] = {
 		end,
 		left_sep = { " ", "left_filled", "block" },
 		right_sep = "block",
-		priority = 0,
+		priority = 1,
 	},
 	{
 		provider = "",
