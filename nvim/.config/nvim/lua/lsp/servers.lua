@@ -49,7 +49,7 @@ return {
 		},
 	},
 	["null-ls"] = {},
-	-- prismals = {}
+	prismals = {},
 	pyright = {},
 	tailwindcss = {
 		settings = {
