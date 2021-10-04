@@ -96,11 +96,16 @@ local keymaps = {
 	d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
 	D = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
 	e = { "<CMD>NvimTreeToggle<CR>", "explorer" },
-    E = { "<CMD>Telescope file_browser hidden=true<CR>", "telescope-explorer"},
+	E = { "<CMD>Telescope file_browser hidden=true<CR>", "telescope-explorer" },
+	f = "format",
+	i = "import-all",
 	j = { ":call ToggleGitStatus()<CR>", "git-status" },
 	J = { ":call ToggleNeogitStatus()<CR>", "git-status" },
+	k = "code-actions",
 	m = { "<CMD>Glow<CR>", "markdown-preview" },
 	n = { ":nohl<CR>", "no-highlight" },
+	o = "organize-imports",
+	q = "quickfix",
 	r = { "<CMD>lua require('spectre').open()<CR>", "find-replace" },
 	s = { "<CMD>Telescope live_grep<CR>", "search-text" },
 	S = {
@@ -119,6 +124,9 @@ local keymaps = {
 
 local visual_keymaps = {
 	["/"] = { "<Plug>kommentary_visual_default", "comment" },
+	f = "format",
+	k = "code-actions",
+	q = "quickfix",
 	s = { "<Plug>(vsnip-select-text)", "snippet-select" },
 	S = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
 }
@@ -161,7 +169,9 @@ keymaps["a"] = {
 	a = { "<Plug>(EasyAlign)", "align" },
 	d = "doc-gen",
 	e = { ":!chmod +x %<CR>", "executable" },
+	f = "file-rename",
 	j = { "<CMD>SplitjoinJoin<CR>", "join-lines" },
+	r = "rename",
 	p = { 'ggVG"+p', "paste-file" },
 	s = { "<CMD>ISwap<CR>", "swap" },
 	x = { "<CMD>SplitjoinSplit<CR>", "split-lines" },
@@ -196,6 +206,32 @@ keymaps["h"] = {
 	s = "stage",
 	U = "undo-stage-buffer",
 	u = "undo-stage",
+}
+
+keymaps["l"] = {
+	name = "+lsp",
+	c = "code-actions",
+	d = "definitions",
+	e = {
+		name = "+errors",
+		d = "document",
+		w = "workspace",
+	},
+	i = "implementations",
+	l = "loclist-diagnostics",
+	q = "qflist-diagnostics",
+	r = "references",
+	s = {
+		name = "+symbols",
+		d = "documents",
+		w = "workspace",
+		W = "dynamic-workspace",
+	},
+}
+
+visual_keymaps["l"] = {
+	name = "+lsp",
+	c = "code-actions",
 }
 
 keymaps["p"] = {

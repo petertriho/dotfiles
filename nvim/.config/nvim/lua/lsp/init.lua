@@ -23,61 +23,7 @@ vim.cmd([[command! LspInstallMissing call v:lua.lsp_install_missing()]])
 vim.cmd([[command! LspUpdateAll call v:lua.lsp_update_all()]])
 
 -- Setup
-local register = require("which-key").register
 local lsp_status = require("lsp-status")
-
-register({
-	a = {
-		name = "+action",
-		f = "file-rename",
-		r = "rename",
-	},
-	f = "format",
-	i = "import-all",
-	k = "code-actions",
-	l = {
-		name = "+lsp",
-		c = "code-actions",
-		d = "definitions",
-		e = {
-			name = "+errors",
-			d = "document",
-			w = "workspace",
-		},
-		i = "implementations",
-		l = "loclist-diagnostics",
-		q = "qflist-diagnostics",
-		r = "references",
-		s = {
-			name = "+symbols",
-			d = "documents",
-			w = "workspace",
-			W = "dynamic-workspace",
-		},
-	},
-	o = "organize-imports",
-	q = "quickfix",
-}, {
-	prefix = "<Leader>",
-	mode = "n",
-	silent = true,
-	noremap = true,
-})
-
-register({
-	f = "format",
-	k = "code-actions",
-	l = {
-		name = "+lsp",
-		c = "code-actions",
-	},
-	q = "quickfix",
-}, {
-	prefix = "<Leader>",
-	mode = "v",
-	silent = true,
-	noremap = true,
-})
 
 local on_attach = function(client, bufnr)
 	lsp_status.on_attach(client)
