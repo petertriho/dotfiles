@@ -86,57 +86,8 @@ local vi_mode_colors = {
 	NONE = "orange",
 }
 
-local feline_providers = require("feline.providers")
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
-
-feline_providers.add_provider("file_type_2", function(winid)
-	local bufnr = vim.api.nvim_win_get_buf(winid)
-	local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
-	local extension = vim.fn.fnamemodify(filename, ":e")
-	local filetype = vim.bo[bufnr].filetype:upper()
-
-	local icon_str, icon_hlname = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
-
-	local icon = { str = icon_str }
-
-	local fg = vim.api.nvim_get_hl_by_name(icon_hlname, true).foreground
-
-	if fg then
-		icon.hl = { fg = string.format("#%06x", fg) }
-	end
-	return " " .. filetype, icon
-end)
-
-feline_providers.add_provider("position_2", function(winid)
-	return string.format(" %d:%d", unpack(vim.api.nvim_win_get_cursor(winid)))
-end)
-
-feline_providers.add_provider("file_stats", function(winid)
-	local bufnr = vim.api.nvim_win_get_buf(winid)
-
-	local lines = vim.api.nvim_buf_line_count(bufnr)
-
-	if vim.api.nvim_win_get_width(winid) > 120 then
-		local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
-		local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
-		local file_format = vim.bo[bufnr].fileformat
-
-		return string.format("%s  %s   %d   %d", file_enc:upper(), file_format:upper(), tab, lines)
-	else
-		return string.format(" %d", lines)
-	end
-end)
-
-feline_providers.add_provider("lsp_client_count", function(winid)
-	local count = 0
-
-	for _ in pairs(vim.lsp.buf_get_clients(vim.api.nvim_win_get_buf(winid))) do
-		count = count + 1
-	end
-
-	return " " .. "LSP:" .. count
-end)
 
 local components = {
 	active = { {}, {} },
@@ -190,17 +141,23 @@ components.active[1] = {
 		provider = "git_diff_added",
 		icon = " +",
 		hl = { fg = "teal", style = "bold" },
+		truncate_hide = true,
+		priority = 2,
 	},
 	{
 		provider = "git_diff_changed",
 		icon = " ~",
 		hl = { fg = "blue", style = "bold" },
+		truncate_hide = true,
+		priority = 2,
 	},
 	{
 		provider = "git_diff_removed",
 		icon = " -",
 		hl = { fg = "red", style = "bold" },
 		right_sep = "block",
+		truncate_hide = true,
+		priority = 2,
 	},
 }
 
@@ -209,29 +166,30 @@ components.active[2] = {
 		provider = function()
 			return require("package-info").get_status()
 		end,
-		enabled = function(winid)
-			return package.loaded["package-info"] ~= nil and vim.api.nvim_win_get_width(winid) > 120
+		enabled = function()
+			return package.loaded["package-info"] ~= nil
 		end,
+		truncate_hide = true,
+		priority = 0,
 	},
 	{
 		provider = function()
 			return require("lsp-status").status_progress()
 		end,
-		enabled = function(winid)
-			return vim.api.nvim_win_get_width(winid) > 120
-		end,
 		left_sep = " ",
+		truncate_hide = true,
+		priority = 0,
 	},
 	{
 		provider = function()
 			return require("nvim-gps").get_location()
 		end,
-		enabled = function(winid)
-			return package.loaded["nvim-treesitter"] ~= nil
-				and require("nvim-gps").is_available()
-				and vim.api.nvim_win_get_width(winid) > 120
+		enabled = function()
+			return package.loaded["nvim-treesitter"] ~= nil and require("nvim-gps").is_available()
 		end,
 		left_sep = " ",
+		truncate_hide = true,
+		priority = 0,
 	},
 	{
 		provider = "position_2",
@@ -239,42 +197,49 @@ components.active[2] = {
 	},
 	{
 		provider = "diagnostic_info",
-		enabled = function(winid)
-			return lsp.diagnostics_exist("Information") and vim.api.nvim_win_get_width(winid) > 80
+		enabled = function()
+			return lsp.diagnostics_exist("Information")
 		end,
 		icon = "  ",
 		hl = { fg = "info" },
+		truncate_hide = true,
+		priority = 1,
 	},
 	{
 		provider = "diagnostic_hints",
-		enabled = function(winid)
-			return lsp.diagnostics_exist("Hint") and vim.api.nvim_win_get_width(winid) > 80
+		enabled = function()
+			return lsp.diagnostics_exist("Hint")
 		end,
 		icon = "  ",
 		hl = { fg = "hint" },
+		truncate_hide = true,
+		priority = 1,
 	},
 	{
 		provider = "diagnostic_warnings",
-		enabled = function(winid)
-			return lsp.diagnostics_exist("Warning" and vim.api.nvim_win_get_width(winid) > 80)
+		enabled = function()
+			return lsp.diagnostics_exist("Warning")
 		end,
 		icon = "  ",
 		hl = { fg = "warning" },
+		truncate_hide = true,
+		priority = 1,
 	},
 	{
 		provider = "diagnostic_errors",
-		enabled = function(winid)
-			return lsp.diagnostics_exist("Error") and vim.api.nvim_win_get_width(winid) > 80
+		enabled = function()
+			return lsp.diagnostics_exist("Error")
 		end,
 		icon = "  ",
 		hl = { fg = "error" },
+		truncate_hide = true,
+		priority = 1,
 	},
 	{
 		provider = "lsp_client_count",
-		enabled = function(winid)
-			return vim.api.nvim_win_get_width(winid) > 80
-		end,
 		left_sep = " ",
+		truncate_hide = true,
+		priority = 1,
 	},
 	{
 		provider = "file_type_2",
@@ -339,8 +304,8 @@ components.inactive[1] = {
 
 components.inactive[2] = {
 	{
-		provider = function(winid)
-			return tostring(vim.fn.win_id2win(winid))
+		provider = function()
+			return tostring(vim.fn.win_id2win(vim.api.nvim_get_current_win()))
 		end,
 		left_sep = " ",
 		right_sep = " ",
@@ -353,22 +318,77 @@ require("feline").setup({
 	components = components,
 	force_inactive = {
 		filetypes = {
-			"NvimTree",
-			"Mundo",
-			"MundoDiff",
-			"packer",
-			"fugitive",
-			"fugitiveblame",
-			"NeogitStatus",
-			"DiffviewFiles",
-			"dbui",
+			"^NvimTree$",
+			"^packer$",
+			"^fugitive$",
+			"^fugitiveblame$",
+			"^qf$",
+			"^help$",
+			"^Mundo$",
+			"^MundoDiff$",
+			"^packer$",
+			"^NeogitStatus$",
+			"^DiffviewFiles$",
+			"^dbui$",
 		},
 		buftypes = {},
 		bufnames = {},
 	},
 	disable = {
 		filetypes = {},
-		buftypes = { "terminal" },
+		buftypes = { "^terminal$" },
 		bufnames = {},
+	},
+	custom_providers = {
+		file_type_2 = function()
+			local bufnr = vim.api.nvim_get_current_buf()
+			local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+			local extension = vim.fn.fnamemodify(filename, ":e")
+			local filetype = vim.bo[bufnr].filetype:upper()
+
+			local icon_str, icon_hlname = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+
+			local icon = { str = icon_str }
+
+			local fg = vim.api.nvim_get_hl_by_name(icon_hlname, true).foreground
+
+			if fg then
+				icon.hl = { fg = string.format("#%06x", fg) }
+			end
+			return " " .. filetype, icon
+		end,
+		position_2 = function()
+			return string.format(" %d:%d", unpack(vim.api.nvim_win_get_cursor(vim.api.nvim_get_current_win())))
+		end,
+		file_stats = function()
+			local bufnr = vim.api.nvim_get_current_buf()
+
+			local lines = vim.api.nvim_buf_line_count(bufnr)
+
+			if vim.api.nvim_win_get_width(vim.api.nvim_get_current_win()) > 120 then
+				local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
+				local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
+				local file_format = vim.bo[bufnr].fileformat
+
+				return string.format(
+					"%s  %s   %d   %d",
+					file_enc:upper(),
+					file_format:upper(),
+					tab,
+					lines
+				)
+			else
+				return string.format(" %d", lines)
+			end
+		end,
+		lsp_client_count = function()
+			local count = 0
+
+			for _ in pairs(vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())) do
+				count = count + 1
+			end
+
+			return " " .. "LSP:" .. count
+		end,
 	},
 })
