@@ -144,27 +144,16 @@ leader_keymaps["8"] = "which_key_ignore"
 leader_keymaps["9"] = "which_key_ignore"
 leader_keymaps["0"] = "which_key_ignore"
 
-leader_visual_keymaps["1"] = "which_key_ignore"
-leader_visual_keymaps["2"] = "which_key_ignore"
-leader_visual_keymaps["3"] = "which_key_ignore"
-leader_visual_keymaps["4"] = "which_key_ignore"
-leader_visual_keymaps["5"] = "which_key_ignore"
-leader_visual_keymaps["6"] = "which_key_ignore"
-leader_visual_keymaps["7"] = "which_key_ignore"
-leader_visual_keymaps["8"] = "which_key_ignore"
-leader_visual_keymaps["9"] = "which_key_ignore"
-leader_visual_keymaps["0"] = "which_key_ignore"
-
-set_keymap("", "<Leader>1", "<CMD>lua require'bufferline'.go_to_buffer(1)<CR>", {})
-set_keymap("", "<Leader>2", "<CMD>lua require'bufferline'.go_to_buffer(2)<CR>", {})
-set_keymap("", "<Leader>3", "<CMD>lua require'bufferline'.go_to_buffer(3)<CR>", {})
-set_keymap("", "<Leader>4", "<CMD>lua require'bufferline'.go_to_buffer(4)<CR>", {})
-set_keymap("", "<Leader>5", "<CMD>lua require'bufferline'.go_to_buffer(5)<CR>", {})
-set_keymap("", "<Leader>6", "<CMD>lua require'bufferline'.go_to_buffer(6)<CR>", {})
-set_keymap("", "<Leader>7", "<CMD>lua require'bufferline'.go_to_buffer(7)<CR>", {})
-set_keymap("", "<Leader>8", "<CMD>lua require'bufferline'.go_to_buffer(8)<CR>", {})
-set_keymap("", "<Leader>9", "<CMD>lua require'bufferline'.go_to_buffer(9)<CR>", {})
-set_keymap("", "<Leader>0", "<CMD>lua require'bufferline'.go_to_buffer(10)<CR>", {})
+set_keymap("n", "<Leader>1", "<CMD>lua require'bufferline'.go_to_buffer(1)<CR>", {})
+set_keymap("n", "<Leader>2", "<CMD>lua require'bufferline'.go_to_buffer(2)<CR>", {})
+set_keymap("n", "<Leader>3", "<CMD>lua require'bufferline'.go_to_buffer(3)<CR>", {})
+set_keymap("n", "<Leader>4", "<CMD>lua require'bufferline'.go_to_buffer(4)<CR>", {})
+set_keymap("n", "<Leader>5", "<CMD>lua require'bufferline'.go_to_buffer(5)<CR>", {})
+set_keymap("n", "<Leader>6", "<CMD>lua require'bufferline'.go_to_buffer(6)<CR>", {})
+set_keymap("n", "<Leader>7", "<CMD>lua require'bufferline'.go_to_buffer(7)<CR>", {})
+set_keymap("n", "<Leader>8", "<CMD>lua require'bufferline'.go_to_buffer(8)<CR>", {})
+set_keymap("n", "<Leader>9", "<CMD>lua require'bufferline'.go_to_buffer(9)<CR>", {})
+set_keymap("n", "<Leader>0", "<CMD>lua require'bufferline'.go_to_buffer(10)<CR>", {})
 
 leader_keymaps["a"] = {
 	name = "+action",
