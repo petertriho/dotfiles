@@ -74,7 +74,7 @@ return {
 		require("lightspeed").setup({
 			substitute_chars = {
 				[" "] = "␣",
-				["\t"] = "↹",
+				["\t"] = ""
 			},
 		})
 	end,
