@@ -287,21 +287,26 @@ return {
 		}
 	end,
 	["lukas-reineke/indent-blankline.nvim"] = function()
-		vim.g.indent_blankline_use_treesitter = true
-		vim.g.indent_blankline_show_first_indent_level = false
-		vim.g.indent_blankline_char = "│"
-		vim.g.indent_blankline_filetype_exclude = {
-			"",
-			"NvimTree",
-			"lspinfo",
-			"Mundo",
-			"MundoDiff",
-			"packer",
-			"fugitive",
-			"fugitiveblame",
-			"NeogitStatus",
-			"DiffViewFiles",
-		}
+		require("indent_blankline").setup({
+			use_treesitter = true,
+			show_first_indent_level = false,
+			char = "│",
+			show_end_of_line = true,
+			space_char_blankline = " ",
+			show_current_context = true,
+			filetype_exclude = {
+				"",
+				"NvimTree",
+				"lspinfo",
+				"Mundo",
+				"MundoDiff",
+				"packer",
+				"fugitive",
+				"fugitiveblame",
+				"NeogitStatus",
+				"DiffViewFiles",
+			},
+		})
 	end,
 	["machakann/vim-sandwich"] = function()
 		vim.cmd("runtime macros/sandwich/keymap/surround.vim")
