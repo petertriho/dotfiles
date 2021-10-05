@@ -343,6 +343,7 @@ return {
 
 		telescope.setup({
 			defaults = {
+				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 				vimgrep_arguments = {
 					"rg",
 					"--color=never",
