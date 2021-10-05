@@ -185,6 +185,10 @@ require("packer").startup(function(use)
 		module = "nvim-gps",
 	})
 	use({
+		"spywhere/detect-language.nvim",
+		config = config["spywhere/detect-language.nvim"],
+	})
+	use({
 		"windwp/nvim-autopairs",
 		requires = "nvim-treesitter/nvim-treesitter",
 		config = config["windwp/nvim-autopairs"],
