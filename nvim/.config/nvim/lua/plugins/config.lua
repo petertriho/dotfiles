@@ -74,7 +74,7 @@ return {
 		require("lightspeed").setup({
 			substitute_chars = {
 				[" "] = "␣",
-				["\t"] = "",
+				["\t"] = "🠒",
 			},
 		})
 	end,
@@ -291,8 +291,6 @@ return {
 			use_treesitter = true,
 			show_first_indent_level = false,
 			char = "│",
-			show_end_of_line = true,
-			space_char_blankline = " ",
 			show_current_context = true,
 			filetype_exclude = {
 				"",

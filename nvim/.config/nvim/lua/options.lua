@@ -37,16 +37,6 @@ opt.hidden = true
 opt.ignorecase = true
 opt.inccommand = "nosplit"
 opt.lazyredraw = true
-opt.list = true
-vim.opt.listchars = {
-	space = "⋅",
-	eol = "↴",
-	tab = " ",
-	trail = "•",
-	extends = "❯",
-	precedes = "❮",
-	nbsp = "_",
-}
 opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true
