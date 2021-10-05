@@ -94,7 +94,7 @@ return {
 		vim.g.db_ui_use_nerd_fonts = 1
 	end,
 	["kyazdani42/nvim-tree.lua"] = function()
-		vim.g.nvim_tree_ignore = { ".git" }
+		vim.g.nvim_tree_ignore = { ".git", "node_modules", ".venv" }
 		vim.g.nvim_tree_indent_markers = 0
 		vim.g.nvim_tree_git_hl = 1
 
