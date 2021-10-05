@@ -1,6 +1,5 @@
 local set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-vim.g.mapleader = " "
 
 -- Buffers
 set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
@@ -73,8 +72,10 @@ set_keymap("", "F", "<Plug>Lightspeed_F", {})
 set_keymap("", "t", "<Plug>Lightspeed_t", {})
 set_keymap("", "T", "<Plug>Lightspeed_T", {})
 
--- Which Key
-local keymaps = {
+-- <space> keymaps
+vim.g.mapleader = " "
+
+local leader_keymaps = {
 	[" "] = { ":w<CR>", "write" },
 	["'"] = { "<CMD>DBUIToggle<CR>", "db" },
 	[","] = { "<CMD>ScratchPreview<CR>", "scratch-preview" },
@@ -123,7 +124,7 @@ local keymaps = {
 	z = { "<CMD>ZenMode<CR>", "zenmode" },
 }
 
-local visual_keymaps = {
+local leader_visual_keymaps = {
 	["/"] = { "<Plug>kommentary_visual_default", "comment" },
 	f = "format",
 	k = "code-actions",
@@ -132,27 +133,27 @@ local visual_keymaps = {
 	S = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
 }
 
-keymaps["1"] = "which_key_ignore"
-keymaps["2"] = "which_key_ignore"
-keymaps["3"] = "which_key_ignore"
-keymaps["4"] = "which_key_ignore"
-keymaps["5"] = "which_key_ignore"
-keymaps["6"] = "which_key_ignore"
-keymaps["7"] = "which_key_ignore"
-keymaps["8"] = "which_key_ignore"
-keymaps["9"] = "which_key_ignore"
-keymaps["0"] = "which_key_ignore"
+leader_keymaps["1"] = "which_key_ignore"
+leader_keymaps["2"] = "which_key_ignore"
+leader_keymaps["3"] = "which_key_ignore"
+leader_keymaps["4"] = "which_key_ignore"
+leader_keymaps["5"] = "which_key_ignore"
+leader_keymaps["6"] = "which_key_ignore"
+leader_keymaps["7"] = "which_key_ignore"
+leader_keymaps["8"] = "which_key_ignore"
+leader_keymaps["9"] = "which_key_ignore"
+leader_keymaps["0"] = "which_key_ignore"
 
-visual_keymaps["1"] = "which_key_ignore"
-visual_keymaps["2"] = "which_key_ignore"
-visual_keymaps["3"] = "which_key_ignore"
-visual_keymaps["4"] = "which_key_ignore"
-visual_keymaps["5"] = "which_key_ignore"
-visual_keymaps["6"] = "which_key_ignore"
-visual_keymaps["7"] = "which_key_ignore"
-visual_keymaps["8"] = "which_key_ignore"
-visual_keymaps["9"] = "which_key_ignore"
-visual_keymaps["0"] = "which_key_ignore"
+leader_visual_keymaps["1"] = "which_key_ignore"
+leader_visual_keymaps["2"] = "which_key_ignore"
+leader_visual_keymaps["3"] = "which_key_ignore"
+leader_visual_keymaps["4"] = "which_key_ignore"
+leader_visual_keymaps["5"] = "which_key_ignore"
+leader_visual_keymaps["6"] = "which_key_ignore"
+leader_visual_keymaps["7"] = "which_key_ignore"
+leader_visual_keymaps["8"] = "which_key_ignore"
+leader_visual_keymaps["9"] = "which_key_ignore"
+leader_visual_keymaps["0"] = "which_key_ignore"
 
 set_keymap("", "<Leader>1", "<CMD>lua require'bufferline'.go_to_buffer(1)<CR>", {})
 set_keymap("", "<Leader>2", "<CMD>lua require'bufferline'.go_to_buffer(2)<CR>", {})
@@ -165,7 +166,7 @@ set_keymap("", "<Leader>8", "<CMD>lua require'bufferline'.go_to_buffer(8)<CR>", 
 set_keymap("", "<Leader>9", "<CMD>lua require'bufferline'.go_to_buffer(9)<CR>", {})
 set_keymap("", "<Leader>0", "<CMD>lua require'bufferline'.go_to_buffer(10)<CR>", {})
 
-keymaps["a"] = {
+leader_keymaps["a"] = {
 	name = "+action",
 	a = { "<Plug>(EasyAlign)", "align" },
 	d = "doc-gen",
@@ -179,13 +180,13 @@ keymaps["a"] = {
 	y = { "<CMD>%y+<CR>", "yank-file" },
 }
 
-visual_keymaps["a"] = {
+leader_visual_keymaps["a"] = {
 	name = "+action",
 	a = { "<Plug>(EasyAlign)", "align" },
 	s = { ":sort i<CR>", "sort" },
 }
 
-keymaps["g"] = {
+leader_keymaps["g"] = {
 	name = "+git",
 	b = { "<CMD>lua require('telescope.builtin').git_branches()<CR>", "branches" },
 	g = { ":diffget //2<CR>", "diff-left" },
@@ -197,7 +198,7 @@ keymaps["g"] = {
 	t = { "<CMD>Gitsigns toggle_current_line_blame<CR>", "toggle-blame" },
 }
 
-keymaps["h"] = {
+leader_keymaps["h"] = {
 	name = "+hunks",
 	b = "blame",
 	p = "preview",
@@ -209,7 +210,7 @@ keymaps["h"] = {
 	u = "undo-stage",
 }
 
-keymaps["l"] = {
+leader_keymaps["l"] = {
 	name = "+lsp",
 	c = "code-actions",
 	d = "definitions",
@@ -230,12 +231,12 @@ keymaps["l"] = {
 	},
 }
 
-visual_keymaps["l"] = {
+leader_visual_keymaps["l"] = {
 	name = "+lsp",
 	c = "code-actions",
 }
 
-keymaps["p"] = {
+leader_keymaps["p"] = {
 	name = "+package-info",
 	c = { "<CMD>lua require('package-info').change_version()<CR>", "change-version" },
 	d = { "<CMD>lua require('package-info').delete()<CR>", "delete" },
@@ -246,19 +247,19 @@ keymaps["p"] = {
 	u = { "<CMD>lua require('package-info').update()<CR>", "update" },
 }
 
-keymaps["w"] = { name = "+wiki" }
+leader_keymaps["w"] = { name = "+wiki" }
 
 require("which-key").setup()
 
 local register = require("which-key").register
-register(keymaps, {
+register(leader_keymaps, {
 	prefix = "<Leader>",
 	mode = "n",
 	silent = true,
 	noremap = true,
 })
 
-register(visual_keymaps, {
+register(leader_visual_keymaps, {
 	prefix = "<Leader>",
 	mode = "x",
 	silent = true,
