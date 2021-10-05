@@ -122,6 +122,18 @@ local function make_base_config()
 end
 
 local function setup()
+	local border = {
+		{ "┌", "FloatBorder" },
+		{ "─", "FloatBorder" },
+		{ "┐", "FloatBorder" },
+		{ "│", "FloatBorder" },
+		{ "┘", "FloatBorder" },
+		{ "─", "FloatBorder" },
+		{ "└", "FloatBorder" },
+		{ "│", "FloatBorder" },
+	}
+	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
 	vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
 	vim.lsp.handlers["textDocument/references"] = require("lsputil.locations").references_handler
 	vim.lsp.handlers["textDocument/definition"] = require("lsputil.locations").definition_handler
