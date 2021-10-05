@@ -39,15 +39,9 @@ local on_attach = function(client, bufnr)
 
 	local opts = { noremap = true, silent = true }
 
-	buf_set_keymap("n", "<Leader>led", "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", opts)
-	buf_set_keymap("n", "<Leader>lew", "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", opts)
-
 	buf_set_keymap("n", "gl", "<CMD>lua vim.diagnostic.show_line_diagnostics()<CR>", opts)
 	buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
-
-	buf_set_keymap("n", "<Leader>ll", "<CMD>lua vim.diagnostic.setloclist()<CR>", opts)
-	buf_set_keymap("n", "<Leader>lq", "<CMD>lua vim.diagnostic.setqflist()<CR>", opts)
 
 	if client.resolved_capabilities.code_action then
 		vim.cmd([[
@@ -56,36 +50,6 @@ local on_attach = function(client, bufnr)
             autocmd CursorHold,CursorHoldI <buffer> lua require'nvim-lightbulb'.update_lightbulb()
         augroup END
         ]])
-
-		buf_set_keymap("n", "<Leader>k", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
-		buf_set_keymap("v", "<Leader>k", "<CMD>lua vim.lsp.buf.range_code_action()<CR>", opts)
-
-		buf_set_keymap("", "<Leader>q", "<CMD>CodeActionMenu<CR>", opts)
-
-		buf_set_keymap("n", "<Leader>lc", "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
-		buf_set_keymap("v", "<Leader>lc", "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", opts)
-	end
-
-	if client.resolved_capabilities.document_formatting then
-		buf_set_keymap("n", "<Leader>f", "<CMD>lua vim.lsp.buf.formatting_seq_sync()<CR>", opts)
-	end
-
-	if client.resolved_capabilities.document_range_formatting then
-		buf_set_keymap("v", "<Leader>f", "<CMD>lua vim.lsp.buf.range_formatting()<CR>", opts)
-	end
-
-	if client.resolved_capabilities.document_symbol then
-		buf_set_keymap("n", "<Leader>lsd", "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", opts)
-	end
-
-	if client.resolved_capabilities.workspace_symbol then
-		buf_set_keymap("n", "<Leader>lsw", "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", opts)
-		buf_set_keymap(
-			"n",
-			"<Leader>lsW",
-			"<CMD>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
-			opts
-		)
 	end
 
 	if client.resolved_capabilities.document_highlight then
@@ -100,25 +64,18 @@ local on_attach = function(client, bufnr)
 
 	if client.resolved_capabilities.find_references then
 		buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", opts)
-		buf_set_keymap("n", "<Leader>lr", "<CMD>lua require('telescope.builtin').lsp_references()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.goto_definition then
 		buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
-		buf_set_keymap("n", "<Leader>ld", "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
 		buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
 		buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
-		buf_set_keymap("n", "<Leader>li", "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.hover then
 		buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
 		buf_set_keymap("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
-	end
-
-	if client.resolved_capabilities.rename then
-		buf_set_keymap("n", "<Leader>ar", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.signature_help then

@@ -98,15 +98,15 @@ local leader_keymaps = {
 	D = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
 	e = { "<CMD>NvimTreeToggle<CR>", "explorer" },
 	E = { "<CMD>Telescope file_browser hidden=true<CR>", "telescope-explorer" },
-	f = "format",
+	f = { "format", "<CMD>lua vim.lsp.buf.formatting_seq_sync()<CR>" },
 	i = "import-all",
 	j = { ":call ToggleGitStatus()<CR>", "git-status" },
 	J = { ":call ToggleNeogitStatus()<CR>", "git-status" },
-	k = "code-actions",
+	k = { "code-actions", "<CMD>lua vim.lsp.buf.code_action()<CR>" },
 	m = { "<CMD>Glow<CR>", "markdown-preview" },
 	n = { ":nohl<CR>", "no-highlight" },
 	o = "organize-imports",
-	q = "quickfix",
+	q = { "quickfix", "<CMD>CodeActionMenu<CR>" },
 	r = { "<CMD>lua require('spectre').open()<CR>", "find-replace" },
 	s = { "<CMD>Telescope live_grep<CR>", "search-text" },
 	S = {
@@ -126,9 +126,9 @@ local leader_keymaps = {
 
 local leader_visual_keymaps = {
 	["/"] = { "<Plug>kommentary_visual_default", "comment" },
-	f = "format",
-	k = "code-actions",
-	q = "quickfix",
+	f = { "format", "<CMD>lua vim.lsp.buf.range_formatting()<CR>" },
+	k = { "code-actions", "<CMD>lua vim.lsp.buf.range_code_action()<CR>" },
+	q = { "quickfix", "<CMD>CodeActionMenu<CR>" },
 	s = { "<Plug>(vsnip-select-text)", "snippet-select" },
 	S = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
 }
@@ -173,7 +173,8 @@ leader_keymaps["a"] = {
 	e = { ":!chmod +x %<CR>", "executable" },
 	f = "file-rename",
 	j = { "<CMD>SplitjoinJoin<CR>", "join-lines" },
-	r = "rename",
+	r = { "rename", "<CMD>lua vim.lsp.buf.rename()<CR>" },
+	R = "rename-treesitter",
 	p = { 'ggVG"+p', "paste-file" },
 	s = { "<CMD>ISwap<CR>", "swap" },
 	x = { "<CMD>SplitjoinSplit<CR>", "split-lines" },
@@ -212,28 +213,28 @@ leader_keymaps["h"] = {
 
 leader_keymaps["l"] = {
 	name = "+lsp",
-	c = "code-actions",
-	d = "definitions",
+	c = { "code-actions", "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>" },
+	d = { "definitions", "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>" },
 	e = {
 		name = "+errors",
-		d = "document",
-		w = "workspace",
+		d = { "document", "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>" },
+		w = { "workspace", "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>" },
 	},
-	i = "implementations",
-	l = "loclist-diagnostics",
-	q = "qflist-diagnostics",
-	r = "references",
+	i = { "implementations", "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>" },
+	l = { "loclist-diagnostics", "<CMD>lua vim.diagnostic.setloclist()<CR>" },
+	q = { "qflist-diagnostics", "<CMD>lua vim.diagnostic.setqflist()<CR>" },
+	r = { "references", "<CMD>lua require('telescope.builtin').lsp_references()<CR>" },
 	s = {
 		name = "+symbols",
-		d = "documents",
-		w = "workspace",
-		W = "dynamic-workspace",
+		d = { "documents", "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>" },
+		w = { "workspace", "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>" },
+		W = { "dynamic-workspace", "<CMD>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>" },
 	},
 }
 
 leader_visual_keymaps["l"] = {
 	name = "+lsp",
-	c = "code-actions",
+	c = { "code-actions", "<CMD>lua require('telescope.builtin').lsp_range_code_actions()" },
 }
 
 leader_keymaps["p"] = {
