@@ -208,7 +208,7 @@ local semicolon_keymaps = {
 	d = { "<CMD>DBUIToggle<CR>", "db" },
 	e = { "<CMD>Telescope file_browser hidden=true<CR>", "telescope-explorer" },
 	f = { "<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files-all" },
-	j = { ":call ToggleNeogitStatus()<CR>", "git-status" },
+	g = { ":call ToggleNeogitStatus()<CR>", "git-status" },
 	l = { "<CMD>LLToggle<CR>", "loc-list-toggle" },
 	m = { "<CMD>Glow<CR>", "markdown-preview" },
 	o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
