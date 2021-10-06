@@ -99,16 +99,16 @@ local on_attach_ts = function(client, bufnr)
 
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>af", ":TSLspRenameFile<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>i", ":TSLspImportAll<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":TSLspOrganize<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>q", ":TSLspFixCurrent<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ai", ":TSLspImportAll<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ao", ":TSLspOrganize<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>aq", ":TSLspFixCurrent<CR>", opts)
 end
 
 local on_attach_py = function(client, bufnr)
 	on_attach(client, bufnr)
 
 	local opts = { noremap = true, silent = true }
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":PyrightOrganizeImports<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ao", ":PyrightOrganizeImports<CR>", opts)
 end
 
 local function make_base_config()
