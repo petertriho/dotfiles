@@ -101,7 +101,6 @@ local on_attach_ts = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>af", ":TSLspRenameFile<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ai", ":TSLspImportAll<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ao", ":TSLspOrganize<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>aq", ":TSLspFixCurrent<CR>", opts)
 end
 
 local on_attach_py = function(client, bufnr)
