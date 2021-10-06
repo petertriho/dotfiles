@@ -184,7 +184,11 @@ leader_keymaps["p"] = {
 
 leader_keymaps["w"] = { name = "+wiki" }
 
-require("which-key").setup()
+require("which-key").setup({
+	layout = {
+		align = "center",
+	},
+})
 
 local register = require("which-key").register
 register(leader_keymaps, {
