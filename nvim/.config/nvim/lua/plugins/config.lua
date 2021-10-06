@@ -74,7 +74,7 @@ return {
 		require("lightspeed").setup({
 			substitute_chars = {
 				[" "] = "␣",
-				["\t"] = "🠒",
+				["\t"] = "»",
 			},
 		})
 	end,
@@ -292,6 +292,8 @@ return {
 			show_first_indent_level = false,
 			char = "│",
 			show_current_context = true,
+			show_end_of_line = true,
+			space_char_blankline = " ",
 			filetype_exclude = {
 				"",
 				"NvimTree",
