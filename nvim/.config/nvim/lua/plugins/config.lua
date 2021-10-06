@@ -284,8 +284,6 @@ return {
 			show_first_indent_level = false,
 			char = "│",
 			show_current_context = true,
-			show_end_of_line = true,
-			space_char_blankline = " ",
 			filetype_exclude = {
 				"",
 				"dbui",
@@ -438,7 +436,6 @@ return {
 					setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)).'\ ('.(v:foldend-v:foldstart+1).'\ lines)'
 					setlocal foldlevel=3
                     ]])
-					vim.opt.list = true
 				end,
 				detach = function() end,
 				is_supported = function()
