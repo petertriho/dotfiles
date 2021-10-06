@@ -30,8 +30,6 @@ set -gx PROJECT_PATHS $HOME/Documents/GitHub $HOME/Documents/Projects
 
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
 
-set -gx MANPATH "$HOME/.local/share/man:$MANPATH"
-
 if status is-interactive
     if command -v starship &>/dev/null
         starship init fish | source
@@ -72,20 +70,4 @@ if status is-interactive
     if command -v zoxide &>/dev/null
         zoxide init --cmd j fish | source
     end
-
-    set -gx NNN_OPTS c
-
-    set BLK 04
-    set CHR 04
-    set DIR 04
-    set EXE 00
-    set REG 00
-    set HARDLINK 00
-    set SYMLINK 06
-    set MISSING 00
-    set ORPHAN 01
-    set FIFO 0F
-    set SOCK 0F
-    set OTHER 02
-    set -gx NNN_FCOLORS "$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 end
