@@ -445,6 +445,7 @@ return {
 					setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)).'\ ('.(v:foldend-v:foldstart+1).'\ lines)'
 					setlocal foldlevel=3
                     ]])
+					vim.opt.list = true
 				end,
 				detach = function() end,
 				is_supported = function()
