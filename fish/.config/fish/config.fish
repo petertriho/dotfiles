@@ -71,7 +71,7 @@ if status is-interactive
         zoxide init --cmd j fish | source
     end
 
-    set -gx NNN_OPTS cG
+    set -gx NNN_OPTS cGH
 
     set BLK 04
     set CHR 04
