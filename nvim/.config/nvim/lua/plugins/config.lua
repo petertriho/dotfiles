@@ -55,6 +55,12 @@ return {
 	["chumakd/scratch.vim"] = function()
 		vim.g.scratch_persistence_file = "/tmp/scratch.txt"
 	end,
+	["danymat/neogen"] = function()
+		require("neogen").setup({
+			enabled = true,
+			jump_map = "<Tab>",
+		})
+	end,
 	["editorconfig/editorconfig-vim"] = function()
 		vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 	end,
