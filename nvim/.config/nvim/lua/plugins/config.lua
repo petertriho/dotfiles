@@ -216,34 +216,19 @@ return {
 		require("gitsigns").setup({
 			signs = {
 				add = {
-					hl = "GitSignsAdd",
 					text = "│",
-					numhl = "GitSignsAddNr",
-					linehl = "GitSignsAddLn",
 				},
 				change = {
-					hl = "GitSignsChange",
 					text = "│",
-					numhl = "GitSignsChangeNr",
-					linehl = "GitSignsChangeLn",
 				},
 				delete = {
-					hl = "GitSignsDelete",
 					text = "│",
-					numhl = "GitSignsDeleteNr",
-					linehl = "GitSignsDeleteLn",
 				},
 				topdelete = {
-					hl = "GitSignsDelete",
 					text = "│",
-					numhl = "GitSignsDeleteNr",
-					linehl = "GitSignsDeleteLn",
 				},
 				changedelete = {
-					hl = "GitSignsChange",
 					text = "│",
-					numhl = "GitSignsChangeNr",
-					linehl = "GitSignsChangeLn",
 				},
 			},
 		})
@@ -283,6 +268,16 @@ return {
 				typescript = 0,
 				typescriptreact = 0,
 				yaml = 0,
+				dbui = 0,
+				NvimTree = 0,
+				lspinfo = 0,
+				Mundo = 0,
+				MundoDiff = 0,
+				packer = 0,
+				fugitive = 0,
+				fugitiveblame = 0,
+				NeogitStatus = 0,
+				DiffViewFiles = 0,
 			},
 		}
 	end,
@@ -296,6 +291,7 @@ return {
 			space_char_blankline = " ",
 			filetype_exclude = {
 				"",
+				"dbui",
 				"NvimTree",
 				"lspinfo",
 				"Mundo",
