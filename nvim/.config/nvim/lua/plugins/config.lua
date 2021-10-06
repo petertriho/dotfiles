@@ -590,9 +590,6 @@ return {
 	["SmiteshP/nvim-gps"] = function()
 		require("nvim-gps").setup()
 	end,
-	["spywhere/detect-language.nvim"] = function()
-		require("detect-language").setup({})
-	end,
 	["stevearc/qf_helper.nvim"] = function()
 		require("qf_helper").setup({
 			quickfix = {
