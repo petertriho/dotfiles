@@ -144,6 +144,8 @@ return {
 				feedkey("<Plug>(vsnip-expand-or-jump)", "")
 				--[[ elseif has_words_before() then
 				cmp.complete() ]]
+			elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable() then
+				feedkey("<CMD>lua require('neogen').jump_next()<CR>", "")
 			else
 				fallback()
 			end
@@ -155,7 +157,8 @@ return {
 		cmp.setup({
 			formatting = {
 				format = function(entry, vim_item)
-					vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+					vim_item = require("lspkind").cmp_format({ with_text = false })(entry, vim_item)
+
 					vim_item.menu = ({
 						buffer = "[BUFFER]",
 						cmp_tabnine = "[TABNINE]",
@@ -165,6 +168,7 @@ return {
 						vsnip = "[SNIPPET]",
 						["vim-dadbod-completion"] = "[DB]",
 					})[entry.source.name]
+
 					return vim_item
 				end,
 			},
@@ -492,9 +496,6 @@ return {
 				},
 			},
 		})
-	end,
-	["onsails/lspkind-nvim"] = function()
-		require("lspkind").init()
 	end,
 	["p00f/nvim-ts-rainbow"] = function()
 		local colors = require("tokyonight.colors").setup()

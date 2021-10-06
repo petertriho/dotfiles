@@ -83,7 +83,7 @@ require("packer").startup(function(use)
 	})
 	use({
 		"onsails/lspkind-nvim",
-		config = config["onsails/lspkind-nvim"],
+		module = "lspkind",
 	})
 	use({
 		"tzachar/cmp-tabnine",
@@ -134,6 +134,16 @@ require("packer").startup(function(use)
 		require = "nvim-treesitter/nvim-treesitter",
 		config = config["andymass/vim-matchup"],
 		after = "nvim-treesitter",
+	})
+	use({
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({
+				enabled = true,
+			})
+		end,
+		requires = "nvim-treesitter/nvim-treesitter",
+		module = "neogen",
 	})
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring",
