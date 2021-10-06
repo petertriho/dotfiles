@@ -127,7 +127,6 @@ set_keymap("n", "<Leader>0", "<CMD>lua require'bufferline'.go_to_buffer(10)<CR>"
 leader_keymaps["a"] = {
 	name = "+action",
 	a = { "<Plug>(EasyAlign)", "align" },
-	d = "doc-gen",
 	e = { ":!chmod +x %<CR>", "executable" },
 	f = "file-rename",
 	i = "import-all",

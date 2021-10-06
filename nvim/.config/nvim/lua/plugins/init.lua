@@ -364,11 +364,6 @@ require("packer").startup(function(use)
 		cmd = { "BDelete", "BWipeout" },
 	})
 	use({
-		"kkoomen/vim-doge",
-		config = config["kkoomen/vim-doge"],
-		run = ":call doge#install({ 'headless': 1 })",
-	})
-	use({
 		"kwkarlwang/bufjump.nvim",
 		config = config["kwkarlwang/bufjump.nvim"],
 	})

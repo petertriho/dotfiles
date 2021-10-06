@@ -86,9 +86,6 @@ return {
 	["kazhala/close-buffers.nvim"] = function()
 		require("close_buffers").setup()
 	end,
-	["kkoomen/vim-doge"] = function()
-		vim.g.doge_mapping = "<Leader>ad"
-	end,
 	["kristijanhusak/vim-dadbod-ui"] = function()
 		vim.g.db_ui_show_database_icon = 1
 		vim.g.db_ui_use_nerd_fonts = 1
