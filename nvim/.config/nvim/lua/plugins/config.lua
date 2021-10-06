@@ -161,6 +161,9 @@ return {
 		})
 
 		cmp.setup({
+			experimental = {
+				ghost_text = true,
+			},
 			formatting = {
 				format = function(entry, vim_item)
 					vim_item = require("lspkind").cmp_format({ with_text = false })(entry, vim_item)
