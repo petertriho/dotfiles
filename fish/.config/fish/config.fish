@@ -50,7 +50,7 @@ if status is-interactive
         "--color=dark" \
         "--color=fg:-1,bg:-1,hl:#bb9af7,fg+:#c0caf5,bg+:#292e42,hl+:#414868" \
         "--color=info:#9ece6a,prompt:#7aa2f7,pointer:#f7768e,marker:#e0af68,spinner:#7dcfff,header:#7dcfff"
-    set -gx FORGIT_FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
+    set -gx FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
 
     set -gx FORGIT_GI_REPO_REMOTE https://github.com/dvcs/gitignore
     set -gx FORGIT_GI_REPO_LOCAL $HOME/.cache/forgit/gi/repos/dvcs/gitignore
@@ -70,4 +70,20 @@ if status is-interactive
     if command -v zoxide &>/dev/null
         zoxide init --cmd j fish | source
     end
+
+    set -gx NNN_OPTS c
+
+    set BLK 04
+    set CHR 04
+    set DIR 04
+    set EXE 00
+    set REG 00
+    set HARDLINK 00
+    set SYMLINK 06
+    set MISSING 00
+    set ORPHAN 01
+    set FIFO 0F
+    set SOCK 0F
+    set OTHER 02
+    set -gx NNN_FCOLORS "$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 end
