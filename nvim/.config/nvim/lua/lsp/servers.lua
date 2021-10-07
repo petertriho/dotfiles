@@ -26,7 +26,7 @@ local diagnostics = {
 				return {
 					row = tonumber(row),
 					col = 0,
-					end_col = 1,
+					end_col = #line - 1,
 					source = "dotenv-linter",
 					message = message,
 					severity = 1,
