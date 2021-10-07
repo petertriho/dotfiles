@@ -17,15 +17,6 @@ local eslint = {
 	formatStdin = true,
 }
 
-local fish = {
-	lintCommand = "fish -n ${INPUT}",
-	lintFormats = { "%f (line %l): %m" },
-	lintIgnoreExitCode = true,
-	lintSource = "fish",
-}
-
-local fish_indent = { formatCommand = "fish_indent", formatStdin = true }
-
 local fixjson = { formatCommand = "fixjson --indent 4", formatStdin = true }
 
 local jq = {
@@ -67,9 +58,7 @@ return {
 	efm = {
 		init_options = { documentFormatting = true },
 		filetypes = {
-			"conf",
 			"css",
-			"fish",
 			"html",
 			"javascript",
 			"javascriptreact",
@@ -87,11 +76,9 @@ return {
 			lintDebounce = 500000000,
 			rootMarkers = {
 				".git",
-				".venv",
 				"node_modules",
 				"tsconfig.json",
 				"jsconfig.json",
-				"setup.py",
 			},
 			languages = {
 				["="] = {},
@@ -101,7 +88,6 @@ return {
 				javascriptreact = { rustywind, prettierd, eslint },
 				json = { jq, fixjson },
 				jsonc = { jq, fixjson },
-				fish = { fish_indent, fish },
 				markdown = { prettier, markdownlint, write_good },
 				scss = { rustywind, prettierd },
 				typescript = { prettierd, eslint },

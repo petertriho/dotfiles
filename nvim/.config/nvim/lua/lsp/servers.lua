@@ -7,7 +7,7 @@ local methods = require("null-ls.methods")
 
 local DIAGNOSTICS = methods.internal.DIAGNOSTICS
 
-local diagnostics = {
+local diagnostic_sources = {
 	dotenv = h.make_builtin({
 		method = DIAGNOSTICS,
 		filetypes = { "conf" },
@@ -35,14 +35,46 @@ local diagnostics = {
 		},
 		factory = h.generator_factory,
 	}),
+	fish = h.make_builtin({
+		method = DIAGNOSTICS,
+		filetypes = { "fish" },
+		generator_opts = {
+			command = "fish",
+			args = {
+				"-n",
+			},
+			format = "line",
+			on_output = function(line)
+				local pattern = "\\(line (%d+)\\): (.+)"
+				local row, message = line:match(pattern)
+
+				if row == nil then
+					return nil
+				end
+
+				return {
+					row = tonumber(row),
+					col = 0,
+					end_col = #line - 1,
+					source = "fish",
+					message = message,
+					severity = 1,
+				}
+			end,
+		},
+		factory = h.generator_factory,
+	}),
 }
 
 null_ls.config({
 	sources = {
 		-- conf
-		diagnostics.dotenv,
+		diagnostic_sources.dotenv,
 		-- dockerfile
 		null_ls.builtins.diagnostics.hadolint,
+		-- fish
+		diagnostic_sources.fish,
+		null_ls.builtins.formatting.fish_indent,
 		-- lua
 		null_ls.builtins.formatting.stylua,
 		-- python
