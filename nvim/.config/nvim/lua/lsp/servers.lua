@@ -9,6 +9,69 @@ local DIAGNOSTICS = methods.internal.DIAGNOSTICS
 local FORMATTING = methods.internal.FORMATTING
 
 local sources_diagnostics = {
+	dotenv = h.make_builtin({
+		method = DIAGNOSTICS,
+		filetypes = { "conf" },
+		generator_opts = {
+			command = "dotenv-linter",
+			args = {
+				"$FILENAME",
+			},
+			to_temp_file = true,
+			from_stderr = true,
+			format = "line",
+			on_output = function(line)
+				local pattern = ":(%d+) (.+)"
+				local row, message = line:match(pattern)
+
+				if row == nil then
+					return nil
+				end
+
+				return {
+					row = tonumber(row),
+					col = 0,
+					end_col = #line - 1,
+					source = "dotenv-linter",
+					message = message,
+					severity = 1,
+				}
+			end,
+		},
+		factory = h.generator_factory,
+	}),
+	fish = h.make_builtin({
+		method = DIAGNOSTICS,
+		filetypes = { "fish" },
+		generator_opts = {
+			command = "fish",
+			args = {
+				"-n",
+				"$FILENAME",
+			},
+			to_temp_file = true,
+			from_stderr = true,
+			format = "line",
+			on_output = function(line)
+				local pattern = "%(line (%d+)%): (.+)"
+				local row, message = line:match(pattern)
+
+				if row == nil then
+					return nil
+				end
+
+				return {
+					row = tonumber(row),
+					col = 0,
+					end_col = #line - 1,
+					source = "fish",
+					message = message,
+					severity = 1,
+				}
+			end,
+		},
+		factory = h.generator_factory,
+	}),
 	jq = h.make_builtin({
 		method = DIAGNOSTICS,
 		filetypes = { "json", "jsonc" },
@@ -41,8 +104,13 @@ local b = require("null-ls.builtins")
 
 null_ls.config({
 	sources = {
+		-- conf
+		sources_diagnostics.dotenv,
 		-- dockerfile
 		b.diagnostics.hadolint,
+		-- fish
+		sources_diagnostics.fish,
+		b.formatting.fish_indent,
 		-- json
 		sources_diagnostics.jq,
 		b.formatting.fixjson.with({
