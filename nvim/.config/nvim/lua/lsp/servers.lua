@@ -13,6 +13,9 @@ local diagnostic_sources = {
 		filetypes = { "conf" },
 		generator_opts = {
 			command = "dotenv-linter",
+			args = {
+				"$FILENAME",
+			},
 			from_stderr = true,
 			format = "line",
 			on_output = function(line)
@@ -42,10 +45,12 @@ local diagnostic_sources = {
 			command = "fish",
 			args = {
 				"-n",
+				"$FILENAME",
 			},
+			from_stderr = true,
 			format = "line",
 			on_output = function(line)
-				local pattern = "\\(line (%d+)\\): (.+)"
+				local pattern = "%(line (%d+)%): (.+)"
 				local row, message = line:match(pattern)
 
 				if row == nil then
