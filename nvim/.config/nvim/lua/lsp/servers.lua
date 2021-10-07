@@ -1,95 +1,22 @@
 require("grammar-guard").init()
 
 local null_ls = require("null-ls")
-
-local h = require("null-ls.helpers")
-local methods = require("null-ls.methods")
-
-local DIAGNOSTICS = methods.internal.DIAGNOSTICS
-
-local diagnostic_sources = {
-	dotenv = h.make_builtin({
-		method = DIAGNOSTICS,
-		filetypes = { "conf" },
-		generator_opts = {
-			command = "dotenv-linter",
-			args = {
-				"$FILENAME",
-			},
-			from_stderr = true,
-			format = "line",
-			on_output = function(line)
-				local pattern = ":(%d+) (.+)"
-				local row, message = line:match(pattern)
-
-				if row == nil then
-					return nil
-				end
-
-				return {
-					row = tonumber(row),
-					col = 0,
-					end_col = #line - 1,
-					source = "dotenv-linter",
-					message = message,
-					severity = 1,
-				}
-			end,
-		},
-		factory = h.generator_factory,
-	}),
-	fish = h.make_builtin({
-		method = DIAGNOSTICS,
-		filetypes = { "fish" },
-		generator_opts = {
-			command = "fish",
-			args = {
-				"-n",
-				"$FILENAME",
-			},
-			from_stderr = true,
-			format = "line",
-			on_output = function(line)
-				local pattern = "%(line (%d+)%): (.+)"
-				local row, message = line:match(pattern)
-
-				if row == nil then
-					return nil
-				end
-
-				return {
-					row = tonumber(row),
-					col = 0,
-					end_col = #line - 1,
-					source = "fish",
-					message = message,
-					severity = 1,
-				}
-			end,
-		},
-		factory = h.generator_factory,
-	}),
-}
+local b = require("null-ls.builtins")
 
 null_ls.config({
 	sources = {
-		-- conf
-		diagnostic_sources.dotenv,
 		-- dockerfile
-		null_ls.builtins.diagnostics.hadolint,
-		-- fish
-		diagnostic_sources.fish,
-		null_ls.builtins.formatting.fish_indent,
+		b.diagnostics.hadolint,
 		-- lua
-		null_ls.builtins.formatting.stylua,
+		b.formatting.stylua,
 		-- python
-		null_ls.builtins.diagnostics.flake8,
-		null_ls.builtins.formatting.isort,
-		null_ls.builtins.formatting.black,
+		b.diagnostics.flake8,
+		b.formatting.isort,
+		b.formatting.black,
 		-- shell
-		null_ls.builtins.diagnostics.shellcheck,
+		b.diagnostics.shellcheck,
 		-- null_ls.builtins.formatting.shellharden,
-		null_ls.builtins.formatting.shfmt.with({
+		b.formatting.shfmt.with({
 			extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr", "-kp" },
 		}),
 	},
