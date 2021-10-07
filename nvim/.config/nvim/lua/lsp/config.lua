@@ -7,13 +7,6 @@ local cspell = {
 	lintSource = "cSpell",
 }
 
-local dotenv_linter = {
-	lintCommand = "dotenv-linter ${INPUT}",
-	lintFormats = { "%f:%l %m" },
-	lintIgnoreExitCode = true,
-	lintSource = "dotenv-linter",
-}
-
 local eslint = {
 	lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
 	lintStdin = true,
@@ -102,7 +95,6 @@ return {
 			},
 			languages = {
 				["="] = {},
-				conf = { dotenv_linter },
 				css = { rustywind, prettierd },
 				html = { rustywind, prettierd },
 				javascript = { prettierd, eslint },

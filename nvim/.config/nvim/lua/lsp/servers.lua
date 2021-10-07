@@ -1,8 +1,46 @@
 require("grammar-guard").init()
 
 local null_ls = require("null-ls")
+
+local h = require("null-ls.helpers")
+local methods = require("null-ls.methods")
+
+local DIAGNOSTICS = methods.internal.DIAGNOSTICS
+
+local diagnostics = {
+	dotenv = h.make_builtin({
+		method = DIAGNOSTICS,
+		filetypes = { "conf" },
+		generator_opts = {
+			command = "dotenv-linter",
+			from_stderr = true,
+			format = "line",
+			on_output = function(line)
+				local pattern = ":(%d+) (.+)"
+				local row, message = line:match(pattern)
+
+				if row == nil then
+					return nil
+				end
+
+				return {
+					row = tonumber(row),
+					col = 0,
+					end_col = 1,
+					source = "dotenv-linter",
+					message = message,
+					severity = 1,
+				}
+			end,
+		},
+		factory = h.generator_factory,
+	}),
+}
+
 null_ls.config({
 	sources = {
+		-- conf
+		diagnostics.dotenv,
 		-- dockerfile
 		null_ls.builtins.diagnostics.hadolint,
 		-- lua
