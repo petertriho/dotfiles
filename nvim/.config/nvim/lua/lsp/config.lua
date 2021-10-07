@@ -33,16 +33,6 @@ local fish = {
 
 local fish_indent = { formatCommand = "fish_indent", formatStdin = true }
 
-local fixjson = { formatCommand = "fixjson --indent 4", formatStdin = true }
-
-local jq = {
-	lintCommand = "jq .",
-	lintStdin = true,
-	lintFormats = { "parse %trror: %m at line %l, column %c" },
-	lintIgnoreExitCode = true,
-	lintSource = "jq",
-}
-
 local markdownlint = {
 	lintCommand = "markdownlint --config=$HOME/.config/format-lint/.markdownlint.jsonc ${INPUT}",
 	lintFormats = { "%f:%l:%c %m", "%f:%l %m", "%f: %l: %m" },
@@ -82,8 +72,6 @@ return {
 			"html",
 			"javascript",
 			"javascriptreact",
-			"json",
-			"jsonc",
 			"markdown",
 			"scss",
 			"typescript",
@@ -111,8 +99,6 @@ return {
 				html = { rustywind, prettierd },
 				javascript = { prettierd, eslint },
 				javascriptreact = { rustywind, prettierd, eslint },
-				json = { jq, fixjson },
-				jsonc = { jq, fixjson },
 				fish = { fish_indent, fish },
 				markdown = { prettier, markdownlint, write_good },
 				scss = { rustywind, prettierd },

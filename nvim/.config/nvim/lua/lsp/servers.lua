@@ -1,12 +1,54 @@
 require("grammar-guard").init()
 
 local null_ls = require("null-ls")
+
+local h = require("null-ls.helpers")
+local methods = require("null-ls.methods")
+
+local DIAGNOSTICS = methods.internal.DIAGNOSTICS
+local FORMATTING = methods.internal.FORMATTING
+
+local sources_diagnostics = {
+	jq = h.make_builtin({
+		method = DIAGNOSTICS,
+		filetypes = { "json", "jsonc" },
+		generator_opts = {
+			command = "jq",
+			args = {
+				".",
+			},
+			to_stdin = true,
+			from_stderr = true,
+			format = "line",
+			on_output = h.diagnostics.from_pattern(
+				[[parse (%w+):(%w+) at line (%d+), column (%d+)]],
+				{ "severity", "message", "row", "col" },
+				{
+					adapters = {
+						h.diagnostics.adapters.end_col.from_length,
+					},
+					severities = {
+						error = h.diagnostics.severities["error"],
+					},
+				}
+			),
+		},
+		factory = h.generator_factory,
+	}),
+}
+
 local b = require("null-ls.builtins")
 
 null_ls.config({
 	sources = {
 		-- dockerfile
 		b.diagnostics.hadolint,
+		-- json
+		sources_diagnostics.jq,
+		b.formatting.fixjson.with({
+			filetypes = { "json", "jsonc" },
+			extra_args = { "--indent", "4" },
+		}),
 		-- lua
 		b.formatting.stylua,
 		-- python
