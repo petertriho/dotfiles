@@ -92,11 +92,15 @@ return {
 			"yaml",
 			"yaml.docker-compose",
 		},
+		root_dir = function(fname)
+			return require("lspconfig/util").root_pattern(".git")(fname) or vim.fn.getcwd()
+		end,
 		settings = {
 			lintDebounce = 500000000,
 			rootMarkers = {
 				".git",
-				"node_modules",
+				".git/",
+				"node_modules/",
 				"tsconfig.json",
 				"jsconfig.json",
 			},
