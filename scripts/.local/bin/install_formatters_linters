@@ -19,6 +19,10 @@ function main {
         brew install shfmt
     fi
 
+    if ! command -v dotenv-linter &> /dev/null; then
+        cargo install dotenv-linter
+    fi
+
     # if ! command -v shellharden &> /dev/null; then
     #     cargo install shellharden
     # fi
@@ -41,10 +45,6 @@ function main {
 
     if ! command -v cspell &> /dev/null; then
         yarn global add cspell
-    fi
-
-    if ! command -v dotenv-linter &> /dev/null; then
-        yarn global add dotenv-linter
     fi
 
     if ! command -v eslint_d &> /dev/null; then
