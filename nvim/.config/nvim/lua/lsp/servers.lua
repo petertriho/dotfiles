@@ -100,6 +100,21 @@ local sources_diagnostics = {
 	}),
 }
 
+local sources_formatting = {
+	rustywind = h.make_builtin({
+		method = FORMATTING,
+		filetypes = { "css", "html", "javascriptreact", "typescriptreact", "scss" },
+		generator_opts = {
+			command = "rustywind",
+			args = {
+				"--stdin",
+			},
+			to_stdin = true,
+		},
+		factory = h.formatter_factory,
+	}),
+}
+
 local b = require("null-ls.builtins")
 
 null_ls.config({
@@ -128,6 +143,26 @@ null_ls.config({
 		-- null_ls.builtins.formatting.shellharden,
 		b.formatting.shfmt.with({
 			extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr", "-kp" },
+		}),
+		-- web
+		sources_formatting.rustywind,
+		b.formatting.prettier.with({
+			filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
+		}),
+		b.formatting.prettierd,
+		b.formatting.eslint_d,
+
+		-- markdown/vimwiki
+		b.diagnostics.markdownlint.with({
+			filetypes = { "markdown", "vimwiki" },
+			extra_args = {
+				"--config",
+				vim.fn.expand("$HOME/.config/format-lint/.markdownlint.jsonc"),
+				"--stdin",
+			},
+		}),
+		b.diagnostics.write_good.with({
+			filetypes = { "markdown", "vimwiki" },
 		}),
 	},
 })
