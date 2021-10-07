@@ -119,7 +119,6 @@ local b = require("null-ls.builtins")
 
 null_ls.config({
 	sources = {
-		b.code_action.gitsigns,
 		-- conf
 		sources_diagnostics.dotenv,
 		-- dockerfile
