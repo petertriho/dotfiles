@@ -37,6 +37,7 @@ local fixjson = { formatCommand = "fixjson --indent 4", formatStdin = true }
 
 local jq = {
 	lintCommand = "jq .",
+	lintStdin = true,
 	lintFormats = { "parse %trror: %m at line %l, column %c" },
 	lintIgnoreExitCode = true,
 	lintSource = "jq",
@@ -46,6 +47,7 @@ local markdownlint = {
 	lintCommand = "markdownlint --config=$HOME/.config/format-lint/.markdownlint.jsonc ${INPUT}",
 	lintFormats = { "%f:%l:%c %m", "%f:%l %m", "%f: %l: %m" },
 	lintIgnoreExitCode = true,
+	lintSource = "markdownlint",
 }
 
 local prettier = {
