@@ -117,7 +117,21 @@ end
 
 local function make_base_config()
 	local capabilities = lsp_status.capabilities
-	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+	local completionItem = capabilities.textDocument.completion.completionItem
+	completionItem.snippetSupport = true
+	completionItem.preselectSupport = true
+	completionItem.insertReplaceSupport = true
+	completionItem.labelDetailsSupport = true
+	completionItem.deprecatedSupport = true
+	completionItem.commitCharactersSupport = true
+	completionItem.tagSupport = true
+	completionItem.resolveSupport = {
+		properties = {
+			"documentation",
+			"detail",
+			"additionalTextEdits",
+		},
+	}
 	return {
 		capabilities = capabilities,
 		on_attach = on_attach,

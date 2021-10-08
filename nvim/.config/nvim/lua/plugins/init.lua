@@ -36,7 +36,7 @@ require("packer").startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" })
 	use("kabouzeid/nvim-lspinstall")
-	use("kosayoda/nvim-lightbulb")
+	use({ "kosayoda/nvim-lightbulb", opt = true })
 	use("nvim-lua/lsp-status.nvim")
 	use({
 		"ray-x/lsp_signature.nvim",
@@ -46,6 +46,7 @@ require("packer").startup(function(use)
 	use({
 		"rmagatti/goto-preview",
 		config = config["rmagatti/goto-preview"],
+		keys = { "gp", "gP" },
 	})
 	use({
 		"simrat39/symbols-outline.nvim",
@@ -62,7 +63,7 @@ require("packer").startup(function(use)
 		config = config["hrsh7th/nvim-cmp"],
 		event = "InsertEnter",
 	})
-	use("hrsh7th/cmp-nvim-lsp")
+	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-vsnip", after = "nvim-cmp" })
@@ -99,7 +100,7 @@ require("packer").startup(function(use)
 		config = config["folke/todo-comments.nvim"],
 		opt = true,
 	})
-	use("pantharshit00/vim-prisma")
+	use({ "pantharshit00/vim-prisma", ft = "prisma" })
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = config["lukas-reineke/indent-blankline.nvim"],
@@ -107,7 +108,8 @@ require("packer").startup(function(use)
 	})
 	use({
 		"luochen1990/rainbow",
-		config = config["luochen1990/rainbow"],
+		setup = config["luochen1990/rainbow"],
+		opt = true,
 	})
 	use({
 		"plasticboy/vim-markdown",
