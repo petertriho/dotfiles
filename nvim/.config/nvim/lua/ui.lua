@@ -30,6 +30,10 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
+vim.cmd("highlight! default link CmpItemAbbr Normal")
+vim.cmd("highlight! default link CmpItemAbbrMatch Special")
+vim.cmd("highlight! default link CmpItemMenu Normal")
+
 -- akinsho/nvim-bufferline.lua
 require("bufferline").setup({
 	options = {
