@@ -333,7 +333,7 @@ return {
 	end,
 	["mg979/vim-visual-multi"] = function()
 		vim.g.VM_leader = "\\"
-		vim.g.VM_maps = { ["Find Under"] = "gb", ["Find Subword Under"] = "gb" }
+		vim.g.VM_maps = { ["Find Under"] = "\\f", ["Find Subword Under"] = "\\f" }
 		vim.g.VM_mouse_mappings = 1
 		vim.g.VM_Mono_hl = "DiffText"
 		vim.g.VM_Extend_hl = "DiffAdd"
