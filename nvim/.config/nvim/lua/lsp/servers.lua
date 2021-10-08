@@ -100,25 +100,11 @@ local sources_diagnostics = {
 	}),
 }
 
-local sources_formatting = {
-	rustywind = h.make_builtin({
-		method = FORMATTING,
-		filetypes = { "css", "html", "javascriptreact", "typescriptreact", "scss" },
-		generator_opts = {
-			command = "rustywind",
-			args = {
-				"--stdin",
-			},
-			to_stdin = true,
-		},
-		factory = h.formatter_factory,
-	}),
-}
-
 local b = require("null-ls.builtins")
 
 null_ls.config({
 	sources = {
+		b.code_actions.gitsigns,
 		-- conf
 		sources_diagnostics.dotenv,
 		-- dockerfile
@@ -146,7 +132,7 @@ null_ls.config({
 		}),
 		-- web
 		b.diagnostics.eslint_d,
-		sources_formatting.rustywind,
+		b.formatting.rustywind,
 		b.formatting.prettier.with({
 			filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
 		}),
