@@ -43,10 +43,6 @@ function main {
         pipx install isort
     fi
 
-    if ! command -v cspell &> /dev/null; then
-        yarn global add cspell
-    fi
-
     if ! command -v eslint_d &> /dev/null; then
         yarn global add eslint_d
     fi
