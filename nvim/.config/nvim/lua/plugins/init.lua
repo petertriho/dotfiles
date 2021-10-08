@@ -110,6 +110,13 @@ require("packer").startup(function(use)
 		config = config["luochen1990/rainbow"],
 	})
 	use({
+		"plasticboy/vim-markdown",
+		requires = "godlygeek/tabular",
+		setup = config["plasticboy/vim-markdown"],
+		opt = true,
+		ft = { "markdown", "vimwiki" },
+	})
+	use({
 		"norcalli/nvim-colorizer.lua",
 		config = config["norcalli/nvim-colorizer.lua"],
 		opt = true,
