@@ -30,8 +30,8 @@ local sources_diagnostics = {
 
 				return {
 					row = tonumber(row),
-					col = 0,
-					end_col = #line - 1,
+					col = 1,
+					end_col = #line,
 					source = "dotenv-linter",
 					message = message,
 					severity = 1,
@@ -62,8 +62,8 @@ local sources_diagnostics = {
 
 				return {
 					row = tonumber(row),
-					col = 0,
-					end_col = #line - 1,
+					col = 1,
+					end_col = #line,
 					source = "fish",
 					message = message,
 					severity = 1,
