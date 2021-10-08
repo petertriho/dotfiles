@@ -529,7 +529,6 @@ return {
 			"typescript",
 			"viml=vim",
 		}
-		vim.g.markdown_fenced_languages = fences
 		vim.g.vim_markdown_folding_level = 10
 		vim.g.vim_markdown_fenced_languages = fences
 		vim.g.vim_markdown_folding_style_pythonic = 1
