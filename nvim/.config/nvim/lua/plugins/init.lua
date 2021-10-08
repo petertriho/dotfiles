@@ -216,7 +216,6 @@ require("packer").startup(function(use)
 		setup = config["AndrewRadev/splitjoin.vim"],
 		cmd = { "SplitjoinJoin", "SplitjoinSplit" },
 	})
-	use({ "b3nj5m1n/kommentary", config = config["b3nj5m1n/kommentary"] })
 	use({ "chaoren/vim-wordmotion", setup = config["chaoren/vim-wordmotion"] })
 	use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
 	use({
@@ -225,6 +224,10 @@ require("packer").startup(function(use)
 	})
 	use("mattn/emmet-vim")
 	use("monaqa/dial.nvim")
+	use({
+		"numToStr/Comment.nvim",
+		config = config["numToStr/Comment.nvim"],
+	})
 	use({ "tommcdo/vim-exchange", keys = { "cx", "X" } })
 	use({ "tpope/vim-abolish", cmd = "Subvert", keys = "cr" })
 	use("wellle/targets.vim")
