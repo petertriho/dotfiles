@@ -124,7 +124,7 @@ local function make_base_config()
 	completionItem.labelDetailsSupport = true
 	completionItem.deprecatedSupport = true
 	completionItem.commitCharactersSupport = true
-	completionItem.tagSupport = true
+	completionItem.tagSupport = { valueSet = { 1 } }
 	completionItem.resolveSupport = {
 		properties = {
 			"documentation",
