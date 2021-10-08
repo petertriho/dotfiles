@@ -149,7 +149,21 @@ null_ls.config({
 		b.formatting.prettier.with({
 			filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
 		}),
-		b.formatting.prettierd,
+		b.formatting.prettierd.with({
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"vue",
+				"svelte",
+				"css",
+				"scss",
+				"html",
+				"json",
+				"jsonc",
+			},
+		}),
 		b.formatting.eslint_d,
 
 		-- markdown/vimwiki
