@@ -145,6 +145,7 @@ null_ls.config({
 			extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr", "-kp" },
 		}),
 		-- web
+		b.diagnostics.eslint_d,
 		sources_formatting.rustywind,
 		b.formatting.prettier.with({
 			filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
