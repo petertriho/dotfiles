@@ -40,20 +40,6 @@ return {
 	["antoinemadec/FixCursorHold.nvim"] = function()
 		vim.g.cursorhold_updatetime = 100
 	end,
-	["b3nj5m1n/kommentary"] = function()
-		require("kommentary.config").configure_language("default", {
-			prefer_single_line_comments = true,
-		})
-
-		require("kommentary.config").configure_language("typescriptreact", {
-			single_line_comment_string = "auto",
-			multi_line_comment_strings = "auto",
-			prefer_single_line_comments = true,
-			hook_function = function()
-				require("ts_context_commentstring.internal").update_commentstring()
-			end,
-		})
-	end,
 	["chaoren/vim-wordmotion"] = function()
 		vim.g.wordmotion_prefix = "\\"
 	end,
@@ -67,7 +53,18 @@ return {
 		})
 	end,
 	["editorconfig/editorconfig-vim"] = function()
-		vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
+		vim.g.EditorConfig_exclude_patterns = {
+			"dbui",
+			"NvimTree",
+			"lspinfo",
+			"Mundo",
+			"MundoDiff",
+			"packer",
+			"fugitive",
+			"fugitiveblame",
+			"NeogitStatus",
+			"DiffViewFiles",
+		}
 	end,
 	["folke/todo-comments.nvim"] = function()
 		require("todo-comments").setup()
