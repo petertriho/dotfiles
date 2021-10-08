@@ -127,9 +127,6 @@ end
 
 local function setup()
 	vim.diagnostic.config({
-		virtual_text = {
-			source = "always",
-		},
 		severity_sort = true,
 	})
 
