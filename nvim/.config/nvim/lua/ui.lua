@@ -33,6 +33,7 @@ end
 vim.cmd("highlight! default link CmpItemAbbr Normal")
 vim.cmd("highlight! default link CmpItemAbbrMatch Special")
 vim.cmd("highlight! default link CmpItemMenu Normal")
+vim.cmd("highlight! default link NvimTreeNormalNC NormalSB")
 
 -- akinsho/nvim-bufferline.lua
 require("bufferline").setup({
