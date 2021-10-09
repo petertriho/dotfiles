@@ -100,6 +100,23 @@ local sources_diagnostics = {
 	}),
 }
 
+local sources_formatting = {
+	autoflake = h.make_builtin({
+		method = FORMATTING,
+		filetypes = { "python" },
+		generator_opts = {
+			command = "autoflake",
+			args = {
+				"--in-place",
+				"--remove-all-unused-imports",
+				"$FILENAME",
+			},
+			to_temp_file = true,
+		},
+		factory = h.formatter_factory,
+	}),
+}
+
 local b = require("null-ls.builtins")
 
 null_ls.config({
@@ -126,6 +143,7 @@ null_ls.config({
 		b.formatting.nginx_beautifier,
 		-- python
 		b.diagnostics.flake8,
+		sources_formatting.autoflake,
 		b.formatting.isort,
 		b.formatting.black,
 		-- shell
