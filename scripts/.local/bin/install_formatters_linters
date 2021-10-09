@@ -19,6 +19,10 @@ function main {
         brew install shfmt
     fi
 
+    if ! command -v vale &> /dev/null; then
+        brew install vale
+    fi
+
     if ! command -v dotenv-linter &> /dev/null; then
         cargo install dotenv-linter
     fi

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+TAG_NAME=$(curl https://api.github.com/repos/errata-ai/Microsoft/releases/latest | grep "tag_name" | sed -e 's/[[:space:]]*\"tag\_name\"\: \"\(.*\)\",/\1/')
+DOWNLOAD_URL="https://github.com/errata-ai/Microsoft/releases/download/${TAG_NAME}/Microsoft.zip"
+DOWNLOAD_DIR="/tmp/vale-microsoft"
+DOWNLOAD_ZIP="${DOWNLOAD_DIR}/Microsoft.zip"
+INSTALL_DIR="${HOME}/.config/vale/styles/Microsoft"
+
+mkdir -p "$DOWNLOAD_DIR"
+mkdir -p "$INSTALL_DIR"
+curl -L "$DOWNLOAD_URL" -o "$DOWNLOAD_ZIP"
+unzip -o "$DOWNLOAD_ZIP" -d "$DOWNLOAD_DIR"
+rm -rf "$DOWNLOAD_ZIP"
+cp -RT "$DOWNLOAD_DIR/Microsoft" "$INSTALL_DIR"
+rm -rf "$DOWNLOAD_DIR"
