@@ -83,10 +83,6 @@ function main {
         yarn global add stylelint
     fi
 
-    if ! command -v write-good &> /dev/null; then
-        yarn global add write-good
-    fi
-
     asdf reshim
 }
 
