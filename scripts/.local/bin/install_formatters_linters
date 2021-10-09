@@ -55,6 +55,10 @@ function main {
         yarn global add markdownlint-cli
     fi
 
+    if ! command -v nginxbeautifier &> /dev/null; then
+        yarn global add nginxbeautifier
+    fi
+
     if ! command -v prettier &> /dev/null; then
         yarn global add prettier
     fi
