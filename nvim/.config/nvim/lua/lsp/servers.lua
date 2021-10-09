@@ -107,6 +107,13 @@ null_ls.config({
 		-- *
 		b.code_actions.gitsigns,
 		b.diagnostics.codespell,
+		b.diagnostics.vale.with({
+			filetypes = { "markdown", "tex", "vimwiki" },
+			extra_args = {
+				"--config",
+				vim.fn.expand("$HOME/.config/vale/.vale.ini"),
+			},
+		}),
 		-- conf
 		sources_diagnostics.dotenv,
 		-- dockerfile
@@ -171,9 +178,6 @@ null_ls.config({
 				vim.fn.expand("$HOME/.config/format-lint/.markdownlint.jsonc"),
 				"--stdin",
 			},
-		}),
-		b.diagnostics.write_good.with({
-			filetypes = { "markdown", "vimwiki" },
 		}),
 	},
 })
