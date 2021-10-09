@@ -30,6 +30,8 @@ set -gx PROJECT_PATHS $HOME/Documents/GitHub $HOME/Documents/Projects
 
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
 
+set -gx PRETTIERD_DEFAULT_CONFIG $HOME/.config/format-lint/.prettierrc.json
+
 if status is-interactive
     if command -v starship &>/dev/null
         starship init fish | source
