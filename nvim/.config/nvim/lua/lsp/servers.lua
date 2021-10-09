@@ -135,6 +135,7 @@ null_ls.config({
 		-- web
 		b.diagnostics.eslint_d,
 		b.formatting.rustywind,
+		b.formatting.stylelint,
 		b.formatting.prettier.with({
 			filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
 			extra_args = {
