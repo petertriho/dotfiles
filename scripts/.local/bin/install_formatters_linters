@@ -43,6 +43,10 @@ function main {
         pipx install isort
     fi
 
+    if ! command -v codespell &> /dev/null; then
+        pipx install codespell
+    fi
+
     if ! command -v eslint_d &> /dev/null; then
         yarn global add eslint_d
     fi
