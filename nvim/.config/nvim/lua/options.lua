@@ -126,7 +126,7 @@ set_augroups({
 			"lua vim.highlight.on_yank({ higroup = 'Search', timeout = 200 })",
 		},
 	},
-	_color = {
+	_colors = {
 		{
 			"ColorScheme",
 			"*",
