@@ -120,8 +120,8 @@ null_ls.config({
 		}),
 		-- lua
 		b.formatting.stylua,
-        -- nginx
-        b.formatting.nginx_beautifier,
+		-- nginx
+		b.formatting.nginx_beautifier,
 		-- python
 		b.diagnostics.flake8,
 		b.formatting.isort,
@@ -137,6 +137,10 @@ null_ls.config({
 		b.formatting.rustywind,
 		b.formatting.prettier.with({
 			filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
+			extra_args = {
+				"--config",
+				vim.fn.expand("$HOME/.config/format-lint/.prettierrc.json"),
+			},
 		}),
 		b.formatting.prettierd.with({
 			filetypes = {
