@@ -186,14 +186,12 @@ local function setup()
 	for server, _ in pairs(additional_servers) do
 		local config = base_config
 
+		config = vim.tbl_extend("force", config, additional_servers[server] or {})
+
 		if server == "tsserver" then
-			config = vim.tbl_extend("force", config, additional_servers.tsserver or {})
 			config.on_attach = on_attach_ts
 		elseif server == "pyright" then
-			config = vim.tbl_extend("force", config, additional_servers.pyright or {})
 			config.on_attach = on_attach_py
-		else
-			config = vim.tbl_extend("force", config, additional_servers[server] or {})
 		end
 
 		lspconfig[server].setup(config)
