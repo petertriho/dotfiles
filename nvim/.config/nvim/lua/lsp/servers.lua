@@ -136,6 +136,7 @@ null_ls.config({
 		}),
 		-- web
 		b.diagnostics.eslint_d,
+		b.diagnostics.stylelint,
 		b.formatting.rustywind,
 		b.formatting.stylelint,
 		b.formatting.prettier.with({
