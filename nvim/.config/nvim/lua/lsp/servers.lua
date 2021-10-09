@@ -120,6 +120,8 @@ null_ls.config({
 		}),
 		-- lua
 		b.formatting.stylua,
+        -- nginx
+        b.formatting.nginx_beautifier,
 		-- python
 		b.diagnostics.flake8,
 		b.formatting.isort,
