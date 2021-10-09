@@ -47,7 +47,7 @@ require("packer").startup({
 		use({
 			"rmagatti/goto-preview",
 			config = config["rmagatti/goto-preview"],
-			keys = { "gp", "gP" },
+			keys = { "gpd", "gpi", "gpr", "gP" },
 		})
 		use({
 			"simrat39/symbols-outline.nvim",
