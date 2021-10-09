@@ -35,8 +35,16 @@ function main {
         cargo install stylua
     fi
 
+    if ! command -v autoflake &> /dev/null; then
+        pipx install autoflake
+    fi
+
     if ! command -v black &> /dev/null; then
         pipx install black
+    fi
+
+    if ! command -v codespell &> /dev/null; then
+        pipx install codespell
     fi
 
     if ! command -v flake8 &> /dev/null; then
@@ -45,10 +53,6 @@ function main {
 
     if ! command -v isort &> /dev/null; then
         pipx install isort
-    fi
-
-    if ! command -v codespell &> /dev/null; then
-        pipx install codespell
     fi
 
     if ! command -v eslint_d &> /dev/null; then
