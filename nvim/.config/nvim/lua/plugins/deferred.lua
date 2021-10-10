@@ -1,6 +1,6 @@
 function LoadDeferredPlugins()
     local plugins =
-        "nvim-treesitter gitsigns.nvim todo-comments.nvim indent-blankline.nvim nvim-colorizer.lua quick-scope nvim-lightbulb rainbow"
+        "nvim-treesitter gitsigns.nvim indent-blankline.nvim todo-comments.nvim nvim-colorizer.lua quick-scope rainbow"
     local loader = require("packer").loader
     loader(plugins)
 end

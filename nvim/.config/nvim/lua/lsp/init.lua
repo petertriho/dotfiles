@@ -52,7 +52,7 @@ local on_attach = function(client, bufnr)
         vim.cmd([[
         augroup lsp_code_action
             autocmd! * <buffer>
-            autocmd CursorHold,CursorHoldI <buffer> lua require'nvim-lightbulb'.update_lightbulb()
+            autocmd CursorHold,CursorHoldI <buffer> lua require('nvim-lightbulb').update_lightbulb()
         augroup END
         ]])
     end
