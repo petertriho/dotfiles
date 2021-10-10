@@ -126,18 +126,6 @@ set_augroups({
             "lua vim.highlight.on_yank({ higroup = 'Search', timeout = 200 })",
         },
     },
-    _colors = {
-        {
-            "ColorScheme",
-            "*",
-            "highlight QuickScopePrimary guifg=#7aa2f7 gui=underline ctermfg=blue cterm=underline",
-        },
-        {
-            "ColorScheme",
-            "*",
-            "highlight QuickScopeSecondary guifg=#f7768e gui=underline ctermfg=red cterm=underline",
-        },
-    },
     _targets = {
         {
             "User",
