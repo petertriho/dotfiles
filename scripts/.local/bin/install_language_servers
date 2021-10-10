@@ -7,6 +7,10 @@ function main {
         brew install hashicorp/tap/terraform-ls
     fi
 
+    if ! command -v tflint &> /dev/null; then
+        brew install tflint
+    fi
+
     if ! command -v taplo-lsp &> /dev/null; then
         cargo install taplo-lsp
     fi
