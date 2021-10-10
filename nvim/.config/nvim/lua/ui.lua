@@ -1,7 +1,7 @@
 -- folke/tokyonight.nvim
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_sidebars = { "Mundo", "MundoDiff", "DiffViewFiles", "dbui" }
-vim.g.tokyonight_colors = { bg_sidebar = "#16161e", bg_float = "#16161e" }
+vim.g.tokyonight_colors = { bg_sidebar = "#16161e", bg_float = "#16161e", border_highlight = "#c0caf5" }
 vim.cmd("colorscheme tokyonight")
 
 local colors = require("tokyonight.colors").setup()
