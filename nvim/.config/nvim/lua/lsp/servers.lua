@@ -122,7 +122,20 @@ local b = require("null-ls.builtins")
 null_ls.config({
     sources = {
         -- *
-        b.diagnostics.codespell,
+        b.diagnostics.codespell.with({
+            filetypes = {
+                "fish",
+                "go",
+                "javascript",
+                "javascriptreact",
+                "lua",
+                "python",
+                "rust",
+                "sh",
+                "typescript",
+                "typescriptreact",
+            },
+        }),
         -- conf
         sources_diagnostics.dotenv,
         -- dockerfile
