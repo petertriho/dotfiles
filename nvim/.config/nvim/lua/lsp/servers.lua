@@ -242,6 +242,7 @@ return {
 		},
 	},
 	taplo = {},
+	terraformls = {},
 	tsserver = {},
 	yamlls = {
 		filetypes = { "yaml", "yaml.docker-compose" },
