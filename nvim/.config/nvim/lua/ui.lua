@@ -32,7 +32,9 @@ end
 
 vim.cmd("highlight! default link CmpItemAbbr Normal")
 vim.cmd("highlight! default link CmpItemAbbrMatch Special")
+vim.cmd("highlight! default link CmpItemAbbrMatchFuzzy Special")
 vim.cmd("highlight! default link CmpItemMenu Normal")
+
 vim.cmd("highlight! default link NvimTreeNormalNC NormalSB")
 vim.cmd("highlight! default link NvimTreeSignColumn SignColumnSB")
 
