@@ -1,5 +1,5 @@
 return {
-	go = {},
-	lua = {},
-	rust = {},
+    go = {},
+    lua = {},
+    rust = {},
 }
