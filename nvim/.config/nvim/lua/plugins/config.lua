@@ -94,6 +94,14 @@ return {
     ["kazhala/close-buffers.nvim"] = function()
         require("close_buffers").setup()
     end,
+    ["kosayoda/nvim-lightbulb"] = function()
+        vim.cmd([[
+        augroup lsp_code_action
+            autocmd!
+            autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()
+        augroup END
+        ]])
+    end,
     ["kristijanhusak/vim-dadbod-ui"] = function()
         vim.g.db_ui_show_database_icon = 1
         vim.g.db_ui_use_nerd_fonts = 1

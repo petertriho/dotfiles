@@ -33,7 +33,11 @@ require("packer").startup(function(use)
     use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" })
     use("kabouzeid/nvim-lspinstall")
-    use({ "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" })
+    use({
+        "kosayoda/nvim-lightbulb",
+        config = config["kosayoda/nvim-lightbulb"],
+        opt = true,
+    })
     use("nvim-lua/lsp-status.nvim")
     use({
         "ray-x/lsp_signature.nvim",
