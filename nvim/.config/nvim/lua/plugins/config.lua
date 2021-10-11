@@ -664,7 +664,10 @@ return {
         })
     end,
     ["TimUntersberger/neogit"] = function()
-        require("neogit").setup({ integrations = { diffview = true } })
+        require("neogit").setup({
+            disable_commit_confirmation = false,
+            integrations = { diffview = true },
+        })
     end,
     ["tzachar/cmp-tabnine"] = function()
         require("cmp_tabnine.config").setup({
