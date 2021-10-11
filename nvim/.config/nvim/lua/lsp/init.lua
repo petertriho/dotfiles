@@ -48,6 +48,15 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
 
+    if client.resolved_capabilities.code_action then
+        vim.cmd([[
+        augroup lsp_code_action
+            autocmd! * <buffer>
+            autocmd CursorHold,CursorHoldI <buffer> lua require('nvim-lightbulb').update_lightbulb()
+        augroup END
+        ]])
+    end
+
     if client.resolved_capabilities.document_highlight then
         vim.cmd([[
         augroup lsp_document_highlight
