@@ -48,7 +48,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
 
-    if client.resolved_capabilities.code_action then
+    if client.resolved_capabilities.code_action and client.name ~= "null-ls" then
         vim.cmd([[
         augroup lsp_code_action
             autocmd! * <buffer>
