@@ -188,10 +188,10 @@ local function setup()
 
         config = vim.tbl_extend("force", config, additional_servers[server] or {})
 
-        if server == "tsserver" then
-            config.on_attach = on_attach_ts
-        elseif server == "pyright" then
+        if server == "pyright" then
             config.on_attach = on_attach_py
+        elseif server == "tsserver" then
+            config.on_attach = on_attach_ts
         end
 
         lspconfig[server].setup(config)
