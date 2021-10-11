@@ -84,7 +84,7 @@ function main {
     fi
 
     if ! command -v stylelint &> /dev/null; then
-        yarn global add stylelint
+        yarn global add stylelint stylelint-config-standard
     fi
 
     asdf reshim

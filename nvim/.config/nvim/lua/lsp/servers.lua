@@ -151,7 +151,7 @@ null_ls.config({
         }),
         -- lua
         b.formatting.stylua.with({
-            extra_args = { "--config-path", vim.fn.expand("$HOME/.config/format-lint/stylua.toml") },
+            extra_args = { "--config-path", vim.fn.expand("$HOME/.config/format-lint/.stylua.toml") },
         }),
         -- nginx
         b.formatting.nginx_beautifier,
@@ -168,9 +168,13 @@ null_ls.config({
         }),
         -- web
         b.diagnostics.eslint_d,
-        b.diagnostics.stylelint,
+        b.diagnostics.stylelint.with({
+            extra_args = { "--config", vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json") },
+        }),
         b.formatting.rustywind,
-        b.formatting.stylelint,
+        b.formatting.stylelint.with({
+            extra_args = { "--config", vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json") },
+        }),
         b.formatting.prettier.with({
             filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
             extra_args = {
