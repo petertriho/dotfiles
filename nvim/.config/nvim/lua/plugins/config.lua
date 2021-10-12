@@ -365,6 +365,49 @@ return {
         vim.g.VM_Extend_hl = "DiffAdd"
         vim.g.VM_Cursor_hl = "Visual"
         vim.g.VM_Insert_hl = "DiffChange"
+
+        local hlslens = require("hlslens")
+        local config
+        local lens_backup
+
+        local override_lens = function(render, plist, nearest, idx, r_idx)
+            local _ = r_idx
+            local lnum, col = unpack(plist[idx])
+
+            local text, chunks
+            if nearest then
+                text = ("[%d/%d]"):format(idx, #plist)
+                chunks = { { " ", "Ignore" }, { text, "VM_Extend" } }
+            else
+                text = ("[%d]"):format(idx)
+                chunks = { { " ", "Ignore" }, { text, "HlSearchLens" } }
+            end
+            render.set_virt(0, lnum - 1, col - 1, chunks, nearest)
+        end
+
+        function _G.vmlens_start()
+            if hlslens then
+                config = require("hlslens.config")
+                lens_backup = config.override_lens
+                config.override_lens = override_lens
+                hlslens.start()
+            end
+        end
+
+        function _G.vmlens_exit()
+            if hlslens then
+                config.override_lens = lens_backup
+                hlslens.start()
+            end
+        end
+
+        vim.cmd([[
+        augroup vmlens
+            autocmd!
+            autocmd User visual_multi_start call v:lua.vmlens_start()
+            autocmd User visual_multi_exit call v:lua.vmlens_exit()
+        augroup END
+        ]])
     end,
     ["norcalli/nvim-colorizer.lua"] = function()
         require("colorizer").setup()
