@@ -385,6 +385,10 @@ require("packer").startup(function(use)
         cmd = { "BDelete", "BWipeout" },
     })
     use({
+        "kevinhwang91/nvim-hlslens",
+        config = config["kevinhwang91/nvim-hlslens"],
+    })
+    use({
         "kwkarlwang/bufjump.nvim",
         config = config["kwkarlwang/bufjump.nvim"],
     })

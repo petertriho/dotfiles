@@ -94,6 +94,27 @@ return {
     ["kazhala/close-buffers.nvim"] = function()
         require("close_buffers").setup()
     end,
+    ["kevinhwang91/nvim-hlslens"] = function()
+        local set_keymap = vim.api.nvim_set_keymap
+        local opts = { noremap = true, silent = true }
+
+        set_keymap(
+            "n",
+            "n",
+            "<CMD>execute('normal! ' . v:count1 . 'n')<CR><CMD>lua require('hlslens').start()<CR>",
+            opts
+        )
+        set_keymap(
+            "n",
+            "N",
+            "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua require('hlslens').start()<CR>",
+            opts
+        )
+        set_keymap("n", "*", "*<CMD>lua require('hlslens').start()<CR>", opts)
+        set_keymap("n", "#", "#<CMD>lua require('hlslens').start()<CR>", opts)
+        set_keymap("n", "g*", "g*<CMD>lua require('hlslens').start()<CR>", opts)
+        set_keymap("n", "g#", "g#<CMD>lua require('hlslens').start()<CR>", opts)
+    end,
     ["kristijanhusak/vim-dadbod-ui"] = function()
         vim.g.db_ui_show_database_icon = 1
         vim.g.db_ui_use_nerd_fonts = 1
