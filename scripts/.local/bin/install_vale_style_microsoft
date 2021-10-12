@@ -5,11 +5,15 @@ DOWNLOAD_URL="https://github.com/errata-ai/Microsoft/releases/download/${TAG_NAM
 DOWNLOAD_DIR="/tmp/vale-microsoft"
 DOWNLOAD_ZIP="${DOWNLOAD_DIR}/Microsoft.zip"
 INSTALL_DIR="${HOME}/.config/vale/styles/Microsoft"
+VERSION_FILE="${INSTALL_DIR}/.version"
 
-mkdir -p "$DOWNLOAD_DIR"
-mkdir -p "$INSTALL_DIR"
-curl -L "$DOWNLOAD_URL" -o "$DOWNLOAD_ZIP"
-unzip -o "$DOWNLOAD_ZIP" -d "$DOWNLOAD_DIR"
-rm -rf "$DOWNLOAD_ZIP"
-cp -R "$DOWNLOAD_DIR/Microsoft/." "$INSTALL_DIR"
-rm -rf "$DOWNLOAD_DIR"
+if [ ! -e "$VERSION_FILE" ] && eval "$(grep -q "$TAG_NAME" < "$VERSION_FILE")"; then
+    mkdir -p "$DOWNLOAD_DIR"
+    mkdir -p "$INSTALL_DIR"
+    curl -L "$DOWNLOAD_URL" -o "$DOWNLOAD_ZIP"
+    unzip -o "$DOWNLOAD_ZIP" -d "$DOWNLOAD_DIR"
+    rm -rf "$DOWNLOAD_ZIP"
+    cp -R "$DOWNLOAD_DIR/Microsoft/." "$INSTALL_DIR"
+    echo "$TAG_NAME" > "$VERSION_FILE"
+    rm -rf "$DOWNLOAD_DIR"
+fi
