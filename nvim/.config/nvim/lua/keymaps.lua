@@ -219,6 +219,7 @@ local semicolon_keymaps = {
     l = { "<CMD>LLToggle<CR>", "loc-list-toggle" },
     m = { "<CMD>Glow<CR>", "markdown-preview" },
     o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
+    p = { "<CMD>lua require('telescope').extensions.project.project({})<CR>", "project" },
     q = { "<CMD>QFToggle<CR>", "qf-list-toggle" },
     r = { "<CMD>lua require('spectre').open()<CR>", "find-replace" },
     s = { "<CMD>Telescope live_grep<CR>", "search-text" },
@@ -232,6 +233,7 @@ local semicolon_keymaps = {
         "search-wiki",
     },
     y = { "<CMD>lua require('telescope').extensions.neoclip.default()<CR>", "yank-history" },
+    z = { "<CMD>lua require('telescope').extensions.zoxide.list({})<CR>", "zoxide" },
 }
 
 register(semicolon_keymaps, {

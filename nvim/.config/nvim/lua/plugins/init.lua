@@ -242,6 +242,8 @@ require("packer").startup(function(use)
             "nvim-lua/plenary.nvim",
             "nvim-lua/popup.nvim",
             { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+            "nvim-telescope/telescope-project.nvim",
+            "jvgrootveld/telescope-zoxide",
         },
         config = config["nvim-telescope/telescope.nvim"],
         cmd = "Telescope",
