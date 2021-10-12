@@ -168,7 +168,7 @@ return {
             },
             formatting = {
                 format = function(entry, vim_item)
-                    vim_item = require("lspkind").cmp_format({ with_text = false })(entry, vim_item)
+                    vim_item = require("lspkind").cmp_format({ with_text = true })(entry, vim_item)
 
                     vim_item.menu = ({
                         buffer = "[BUFFER]",
