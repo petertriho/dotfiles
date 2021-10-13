@@ -43,6 +43,9 @@ return {
     ["chaoren/vim-wordmotion"] = function()
         vim.g.wordmotion_prefix = "\\"
     end,
+    ["chentau/marks.nvim"] = function()
+        require("marks").setup({})
+    end,
     ["chumakd/scratch.vim"] = function()
         vim.g.scratch_persistence_file = "/tmp/scratch.txt"
     end,
