@@ -411,7 +411,6 @@ require("packer").startup(function(use)
     use({
         "wesQ3/vim-windowswap",
         setup = config["wesQ3/vim-windowswap"],
-        keys = { "<C-w>m", "<C-w><C-m>" },
     })
     use({
         "winston0410/range-highlight.nvim",
