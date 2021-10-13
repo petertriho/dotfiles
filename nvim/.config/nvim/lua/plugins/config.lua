@@ -414,8 +414,11 @@ return {
     end,
     ["numToStr/Comment.nvim"] = function()
         require("Comment").setup({
-            pre_hook = function()
-                return require("ts_context_commentstring.internal").calculate_commentstring()
+            pre_hook = function(ctx)
+                local u = require("Comment.utils")
+                if ctx.ctype == u.ctype.line and ctx.cmotion == u.cmotion.line then
+                    return require("ts_context_commentstring.internal").calculate_commentstring()
+                end
             end,
         })
     end,
