@@ -41,6 +41,7 @@ opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 5
+opt.shada = "!,'0,f0,<50,s10,h"
 opt.shell = "bash"
 opt.shiftwidth = 4
 opt.shortmess = opt.shortmess + "c"
