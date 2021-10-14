@@ -191,10 +191,9 @@ return {
                 ghost_text = true,
             },
             formatting = {
-                format = function(entry, vim_item)
-                    vim_item = require("lspkind").cmp_format({ with_text = true })(entry, vim_item)
-
-                    vim_item.menu = ({
+                format = require("lspkind").cmp_format({
+                    with_text = true,
+                    menu = {
                         buffer = "[BUFFER]",
                         cmp_tabnine = "[TABNINE]",
                         nvim_lsp = "[LSP]",
@@ -202,10 +201,8 @@ return {
                         tmux = "[TMUX]",
                         vsnip = "[SNIPPET]",
                         ["vim-dadbod-completion"] = "[DB]",
-                    })[entry.source.name]
-
-                    return vim_item
-                end,
+                    },
+                }),
             },
             mapping = {
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
