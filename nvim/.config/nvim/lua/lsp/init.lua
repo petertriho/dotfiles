@@ -39,6 +39,17 @@ local on_attach = function(client, bufnr)
 
     local opts = { noremap = true, silent = true }
 
+    if client.name == "null-ls" then
+        client.resolved_capabilities.code_action = false
+    elseif client.name == "pyright" then
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":PyrightOrganizeImports<CR>", opts)
+    elseif client.name == "tsserver" then
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":TSServerOrganizeImports<CR>", opts)
+    end
+
     buf_set_keymap(
         "n",
         "gl",
@@ -48,7 +59,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
 
-    if client.resolved_capabilities.code_action and client.name ~= "null-ls" then
+    if client.resolved_capabilities.code_action then
         vim.cmd([[
         augroup lsp_code_action
             autocmd! * <buffer>
@@ -90,23 +101,6 @@ local on_attach = function(client, bufnr)
     if client.resolved_capabilities.type_definition then
         buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", opts)
     end
-end
-
-local on_attach_ts = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-
-    on_attach(client, bufnr)
-
-    local opts = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":TSServerOrganizeImports<CR>", opts)
-end
-
-local on_attach_py = function(client, bufnr)
-    on_attach(client, bufnr)
-
-    local opts = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":PyrightOrganizeImports<CR>", opts)
 end
 
 local function make_base_config()
@@ -181,12 +175,6 @@ local function setup()
         local config = base_config
 
         config = vim.tbl_extend("force", config, additional_servers[server] or {})
-
-        if server == "pyright" then
-            config.on_attach = on_attach_py
-        elseif server == "tsserver" then
-            config.on_attach = on_attach_ts
-        end
 
         lspconfig[server].setup(config)
     end
