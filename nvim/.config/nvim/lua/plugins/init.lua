@@ -239,7 +239,6 @@ require("packer").startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = {
             "nvim-lua/plenary.nvim",
-            "nvim-lua/popup.nvim",
             { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
             "nvim-telescope/telescope-project.nvim",
             "jvgrootveld/telescope-zoxide",
@@ -345,7 +344,7 @@ require("packer").startup(function(use)
     })
     use({
         "windwp/nvim-spectre",
-        requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+        requires = "nvim-lua/plenary.nvim",
         config = config["windwp/nvim-spectre"],
         module = "spectre",
     })
