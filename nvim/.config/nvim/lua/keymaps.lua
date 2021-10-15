@@ -71,9 +71,6 @@ set_keymap("", "T", "<Plug>Lightspeed_T", {})
 -- <space> keymaps
 vim.g.mapleader = " "
 
-set_keymap("n", "<Leader>/", "gcc", {})
-set_keymap("v", "<Leader>/", "gc", {})
-
 local leader_keymaps = {
     [" "] = { ":w<CR>", "write" },
     ["-"] = { "<C-w>s", "split-below" },

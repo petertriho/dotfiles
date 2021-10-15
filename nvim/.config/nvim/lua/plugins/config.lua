@@ -418,6 +418,10 @@ return {
                 return require("ts_context_commentstring.internal").calculate_commentstring()
             end,
         })
+
+        local set_keymap = vim.api.nvim_set_keymap
+        set_keymap("n", "<Leader>/", "gcc", {})
+        set_keymap("v", "<Leader>/", "gc", {})
     end,
     ["nvim-telescope/telescope.nvim"] = function()
         local telescope = require("telescope")
