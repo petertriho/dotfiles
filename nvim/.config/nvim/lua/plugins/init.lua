@@ -330,7 +330,7 @@ require("packer").startup(function(use)
         cmd = "Neogit",
         module = "neogit",
     })
-    use({ "tpope/vim-fugitive", cmd = { "G", "Git" } })
+    use({ "tpope/vim-fugitive", cmd = { "G", "Git", "Gpush", "Gfetch" } })
     use({
         "vimwiki/vimwiki",
         setup = config["vimwiki/vimwiki"],
