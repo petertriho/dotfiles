@@ -167,7 +167,6 @@ null_ls.config({
             extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr", "-kp" },
         }),
         -- web
-        b.diagnostics.eslint_d,
         b.diagnostics.stylelint.with({
             extra_args = { "--config", vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json") },
         }),
@@ -197,7 +196,6 @@ null_ls.config({
                 "jsonc",
             },
         }),
-        b.formatting.eslint_d,
 
         -- markdown/vimwiki
         b.diagnostics.markdownlint.with({
@@ -222,6 +220,7 @@ return {
     bashls = {},
     cssls = {},
     dockerls = {},
+    eslint = {},
     grammar_guard = {
         settings = {
             ltex = {
