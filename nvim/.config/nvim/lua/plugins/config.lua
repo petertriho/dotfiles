@@ -501,15 +501,19 @@ return {
             mappings = {
                 default = {
                     action = find_files,
+                    after_action = function() end,
                 },
                 ["<C-b>"] = {
                     action = browse_files,
+                    after_action = function() end,
                 },
                 ["<C-f>"] = {
                     action = find_files,
+                    after_action = function() end,
                 },
                 ["<C-s>"] = {
                     action = search_files,
+                    after_action = function() end,
                 },
                 ["<C-w>"] = {
                     action = function(selection)
