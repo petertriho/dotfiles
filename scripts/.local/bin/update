@@ -156,7 +156,7 @@ function tool:all {
         if [ -e "/proc/version" ] && grep -q "microsoft" "/proc/version"; then
             tool:scoop
             tool:win32yank
-            tool:winget
+            # tool:winget
         fi
     fi
 
