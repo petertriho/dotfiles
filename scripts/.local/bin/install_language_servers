@@ -45,7 +45,8 @@ function main {
 
     if ! command -v vscode-css-language-server &> /dev/null \
         || ! command -v vscode-html-language-server &> /dev/null \
-        || ! command -v vscode-json-language-server &> /dev/null; then
+        || ! command -v vscode-json-language-server &> /dev/null \
+        || ! command -v vscode-eslint-language-server &> /dev/null; then
         yarn global add vscode-langservers-extracted
     fi
 
