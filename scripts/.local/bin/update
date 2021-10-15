@@ -134,6 +134,14 @@ function tool:win32yank {
     install_win32yank
 }
 
+function tool:winget {
+    if command -v winget.exe &> /dev/null; then
+        echo "Updating winget packages ..."
+        pwsh="powershell.exe -NoProfile -NoLogo -NonInteractive cd ~;"
+        $pwsh "winget upgrade --all"
+    fi
+}
+
 function tool:yarn {
     echo "Updating yarn global packages ..."
     yarn global upgrade --latest
@@ -148,6 +156,7 @@ function tool:all {
         if [ -e "/proc/version" ] && grep -q "microsoft" "/proc/version"; then
             tool:scoop
             tool:win32yank
+            tool:winget
         fi
     fi
 
