@@ -98,14 +98,8 @@ local on_attach_ts = function(client, bufnr)
 
     on_attach(client, bufnr)
 
-    local ts_utils = require("nvim-lsp-ts-utils")
-    ts_utils.setup({ eslint_bin = "eslint_d" })
-    ts_utils.setup_client(client)
-
     local opts = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>af", ":TSLspRenameFile<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>i", ":TSLspImportAll<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":TSLspOrganize<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":TSServerOrganizeImports<CR>", opts)
 end
 
 local on_attach_py = function(client, bufnr)

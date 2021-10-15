@@ -262,7 +262,20 @@ return {
     taplo = {},
     terraformls = {},
     tflint = {},
-    tsserver = {},
+    tsserver = {
+        commands = {
+            TSServerOrganizeImports = {
+                function()
+                    local params = {
+                        command = "_typescript.organizeImports",
+                        arguments = { vim.api.nvim_buf_get_name(0) },
+                    }
+                    vim.lsp.buf.execute_command(params)
+                end,
+                description = "Organize Imports",
+            },
+        },
+    },
     yamlls = {
         filetypes = { "yaml", "yaml.docker-compose" },
     },
