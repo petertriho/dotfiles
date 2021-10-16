@@ -125,20 +125,18 @@ local function setup()
     lsp_status.register_progress()
 
     local lspconfig = require("lspconfig")
+    local overrides = require("lsp.config")
 
     local base_config = make_base_config()
 
-    local servers = require("lsp.servers")
-    for server, server_config in pairs(servers) do
-        local config = base_config
+    for server, override in pairs(overrides) do
+        local config = vim.tbl_extend("force", base_config, override or {})
 
         if server == "sumneko_lua" then
             config = require("lua-dev").setup({
                 library = { vimruntime = true, types = true, plugins = true },
                 lspconfig = config,
             })
-        else
-            config = vim.tbl_extend("force", config, server_config or {})
         end
 
         lspconfig[server].setup(config)

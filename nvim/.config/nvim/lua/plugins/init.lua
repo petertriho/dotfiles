@@ -31,7 +31,6 @@ require("packer").startup(function(use)
     use({ "brymer-meneses/grammar-guard.nvim", run = ":GrammarInstall" })
     use({ "folke/lua-dev.nvim", filetype = "lua" })
     use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-    use("kabouzeid/nvim-lspinstall")
     use({ "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" })
     use("nvim-lua/lsp-status.nvim")
     use({
