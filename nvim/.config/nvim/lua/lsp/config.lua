@@ -1,5 +1,4 @@
 return {
     go = {},
     lua = {},
-    rust = {},
 }

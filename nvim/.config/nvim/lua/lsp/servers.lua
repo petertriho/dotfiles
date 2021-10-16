@@ -246,6 +246,7 @@ return {
         },
     },
     ["null-ls"] = {},
+    ["rust_analyzer"] = {},
     prismals = {},
     pyright = {},
     tailwindcss = {
