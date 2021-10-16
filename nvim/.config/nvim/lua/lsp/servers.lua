@@ -250,6 +250,9 @@ return {
     ["rust_analyzer"] = {},
     prismals = {},
     pyright = {},
+    sumneko_lua = {
+        cmd = { "sumneko-lua-language-server" },
+    },
     tailwindcss = {
         settings = {
             tailwindCSS = {

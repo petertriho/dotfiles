@@ -1,27 +1,3 @@
-local lspinstall = require("lspinstall")
-local lsp_config = require("lsp.config")
-
--- Install
-function _G.lsp_install_missing()
-    local installed_servers = lspinstall.installed_servers()
-    for server, _ in pairs(lsp_config) do
-        if not vim.tbl_contains(installed_servers, server) then
-            lspinstall.install_server(server)
-        end
-    end
-end
-
-function _G.lsp_update_all()
-    local installed_servers = lspinstall.installed_servers()
-    for _, server in pairs(installed_servers) do
-        lspinstall.install_server(server)
-    end
-    _G.lsp_install_missing()
-end
-
-vim.cmd([[command! LspInstallMissing call v:lua.lsp_install_missing()]])
-vim.cmd([[command! LspUpdateAll call v:lua.lsp_update_all()]])
-
 -- Setup
 local lsp_status = require("lsp-status")
 
@@ -150,31 +126,20 @@ local function setup()
 
     local lspconfig = require("lspconfig")
 
-    lspinstall.setup()
-
-    local servers = lspinstall.installed_servers()
     local base_config = make_base_config()
 
-    for _, server in pairs(servers) do
+    local servers = require("lsp.servers")
+    for server, server_config in pairs(servers) do
         local config = base_config
 
-        if server == "lua" then
+        if server == "sumneko_lua" then
             config = require("lua-dev").setup({
                 library = { vimruntime = true, types = true, plugins = true },
                 lspconfig = config,
             })
         else
-            config = vim.tbl_extend("force", config, lsp_config[server] or {})
+            config = vim.tbl_extend("force", config, server_config or {})
         end
-
-        lspconfig[server].setup(config)
-    end
-
-    local additional_servers = require("lsp.servers")
-    for server, _ in pairs(additional_servers) do
-        local config = base_config
-
-        config = vim.tbl_extend("force", config, additional_servers[server] or {})
 
         lspconfig[server].setup(config)
     end
