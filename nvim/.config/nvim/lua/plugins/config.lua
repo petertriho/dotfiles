@@ -452,6 +452,7 @@ return {
                         ["<C-k>"] = actions.move_selection_previous,
                     },
                 },
+                history = false,
                 file_ignore_patterns = { ".git" },
                 sorting_strategy = "ascending",
                 layout_strategy = "flex",
