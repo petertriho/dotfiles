@@ -19,8 +19,12 @@ function main {
         cargo install taplo-lsp
     fi
 
-    if ! command -v bash-language-server &> /dev/null; then
-        yarn global add bash-language-server
+    if ! command -v taplo-lsp &> /dev/null; then
+        cargo install taplo-lsp
+    fi
+
+    if ! command -v gopls &> /dev/null; then
+        GO111MODULE=on go get golang.org/x/tools/gopls@latest
     fi
 
     if ! command -v docker-langserver &> /dev/null; then
