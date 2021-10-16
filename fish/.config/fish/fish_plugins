@@ -1,5 +1,6 @@
 acomagu/fish-async-prompt
 evanlucas/fish-kubectl-completions
+jethrokuan/z
 jorgebucaran/autopair.fish
 jorgebucaran/fisher
 jorgebucaran/replay.fish
@@ -8,4 +9,3 @@ oh-my-fish/plugin-pj
 PatrickF1/fzf.fish
 petertriho/plugin-bang-bang
 wfxr/forgit
-jethrokuan/z
