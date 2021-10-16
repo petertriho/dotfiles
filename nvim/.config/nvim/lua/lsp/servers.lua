@@ -221,6 +221,7 @@ return {
     cssls = {},
     dockerls = {},
     eslint = {},
+    gopls = {},
     grammar_guard = {
         settings = {
             ltex = {
