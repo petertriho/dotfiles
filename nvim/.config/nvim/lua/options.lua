@@ -39,6 +39,7 @@ opt.inccommand = "nosplit"
 opt.lazyredraw = true
 opt.mouse = "a"
 opt.number = true
+opt.path = opt.path + "**"
 opt.relativenumber = true
 opt.scrolloff = 5
 opt.shada = "!,'0,f0,<50,s10,h"
@@ -84,6 +85,11 @@ if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
     end
 
     proc_version:close()
+end
+
+if vim.fn.executable("rg") then
+    opt.grepprg = "rg --vimgrep --color=never --no-heading --smart-case --hidden"
+    opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
 vim.cmd([[
