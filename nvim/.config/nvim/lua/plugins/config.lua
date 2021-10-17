@@ -773,9 +773,11 @@ return {
     ["stevearc/qf_helper.nvim"] = function()
         require("qf_helper").setup({
             quickfix = {
+                default_bindings = false,
                 min_height = 10,
             },
             loclist = {
+                default_bindings = false,
                 min_height = 10,
             },
         })

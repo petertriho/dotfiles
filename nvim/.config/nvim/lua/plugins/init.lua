@@ -398,6 +398,7 @@ require("packer").startup(function(use)
         "stevearc/qf_helper.nvim",
         config = config["stevearc/qf_helper.nvim"],
         cmd = { "QNext", "QPrev", "LLToggle", "QFToggle" },
+        module = "qf_helper",
     })
     use("tpope/vim-repeat")
     use({
