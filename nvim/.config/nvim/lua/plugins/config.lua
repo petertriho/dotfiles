@@ -803,7 +803,7 @@ return {
             U = "SNAKE_UPPERCASE",
         }, {
             prefix = "cr",
-            mode = "",
+            mode = "n",
         })
     end,
     ["tzachar/cmp-tabnine"] = function()
