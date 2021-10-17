@@ -2,23 +2,46 @@
 
 set -euo pipefail
 
-os=$(uname -s | tr "[:upper:]" "[:lower:]")
+INSTALL_DIR="${HOME}/.local/bin"
+INSTALL_SUB_DIR="${INSTALL_DIR}/sumneko-lua"
+VERSION_FILE="${INSTALL_DIR}/.sumneko_lua_version"
 
-case $os in
+RELEASE_INFO="/tmp/release-info"
+curl -s https://api.github.com/repos/sumneko/vscode-lua/releases/latest > "$RELEASE_INFO"
+
+TAG_NAME=$(grep "tag_name" "$RELEASE_INFO" | cut -d\" -f4)
+DOWNLOAD_URL=$(grep "browser_download_url" "$RELEASE_INFO" | cut -d\" -f4)
+DOWNLOAD_DIR="/tmp/sumneko-lua"
+DOWNLOAD_ZIP="${DOWNLOAD_DIR}/sumneko-lua.vsix"
+
+OS=$(uname -s | tr "[:upper:]" "[:lower:]")
+
+case "$OS" in
     linux)
-        platform="Linux"
+        PLATFORM="Linux"
         ;;
     darwin)
-        platform="macOS"
+        PLATFORM="macOS"
         ;;
 esac
 
-cd ~/.local/bin
-curl -L -o sumneko-lua.vsix $(curl -s https://api.github.com/repos/sumneko/vscode-lua/releases/latest | grep 'browser_' | cut -d\" -f4)
-rm -rf sumneko-lua
-unzip sumneko-lua.vsix -d sumneko-lua
-rm sumneko-lua.vsix
-chmod +x sumneko-lua/extension/server/bin/$platform/lua-language-server
-echo "#!/usr/bin/env bash" > sumneko-lua-language-server
-echo "\$(dirname \$0)/sumneko-lua/extension/server/bin/$platform/lua-language-server -E -e LANG=en \$(dirname \$0)/sumneko-lua/extension/server/main.lua \$*" >> sumneko-lua-language-server
-chmod +x sumneko-lua-language-server
+if [ ! -e "$VERSION_FILE" ] && eval "$(grep -q "$TAG_NAME" < "$VERSION_FILE")"; then
+    rm -rf "$DOWNLOAD_DIR"
+    mkdir -p "$DOWNLOAD_DIR"
+
+    rm -rf "$INSTALL_SUB_DIR"
+    mkdir -p "$INSTALL_SUB_DIR"
+
+    curl -L "$DOWNLOAD_URL" -o "$DOWNLOAD_ZIP"
+    unzip "$DOWNLOAD_ZIP" -d "$DOWNLOAD_DIR"
+    rm -rf "$DOWNLOAD_ZIP"
+
+    cp -R "$DOWNLOAD_DIR/." "$INSTALL_SUB_DIR"
+    chmod +x "$INSTALL_SUB_DIR/extension/server/bin/$PLATFORM/lua-language-server"
+    echo "#!/usr/bin/env bash" > "$INSTALL_DIR/sumneko-lua-language-server"
+    echo "\$(dirname \$0)/sumneko-lua/extension/server/bin/$PLATFORM/lua-language-server -E -e LANG=en \$(dirname \$0)/sumneko-lua/extension/server/main.lua \$*" >> "$INSTALL_DIR/sumneko-lua-language-server"
+    chmod +x "$INSTALL_DIR/sumneko-lua-language-server"
+    echo "$TAG_NAME" > "$VERSION_FILE"
+
+    rm -rf "$DOWNLOAD_DIR"
+fi

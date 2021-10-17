@@ -122,11 +122,12 @@ function tool:misc {
 
     echo "Installing missing formatters and linters ..."
     install_formatters_linters
-}
 
-function tool:vale-styles {
     echo "Updating vale styles ..."
     install_vale_style_microsoft
+
+    echo "Updating sumneko-lua ..."
+    install_sumneko_lua_language_server
 }
 
 function tool:win32yank {
@@ -169,7 +170,6 @@ function tool:all {
     tool:pipx
     tool:yarn
     tool:misc
-    tool:vale-styles
 
     exec "$SHELL"
 }

@@ -2,20 +2,28 @@
 
 set -euo pipefail
 
-TAG_NAME=$(curl https://api.github.com/repos/equalsraf/win32yank/releases/latest | grep "tag_name" | sed -e 's/[[:space:]]*\"tag\_name\"\: \"\(.*\)\",/\1/')
+INSTALL_DIR="${HOME}/.local/bin"
+VERSION_FILE="${INSTALL_DIR}/.win32yank_version"
+FILE="win32yank.exe"
+
+RELEASE_INFO="/tmp/release-info"
+curl -s https://api.github.com/repos/equalsraf/win32yank/releases/latest > "$RELEASE_INFO"
+
+TAG_NAME=$(grep "tag_name" "$RELEASE_INFO" | cut -d\" -f4)
 DOWNLOAD_URL="https://github.com/equalsraf/win32yank/releases/download/${TAG_NAME}/win32yank-x64.zip"
 DOWNLOAD_DIR="/tmp/win32yank"
 DOWNLOAD_ZIP="${DOWNLOAD_DIR}/win32yank.zip"
-INSTALL_DIR="${HOME}/.local/bin"
-FILE="win32yank.exe"
-VERSION_FILE="${INSTALL_DIR}/.win32yank_version"
 
 if [ ! -e "$VERSION_FILE" ] && eval "$(grep -q "$TAG_NAME" < "$VERSION_FILE")"; then
+    rm -rf "$DOWNLOAD_DIR"
     mkdir -p "$DOWNLOAD_DIR"
+
     curl -L "$DOWNLOAD_URL" -o "$DOWNLOAD_ZIP"
     unzip "$DOWNLOAD_ZIP" -d "$DOWNLOAD_DIR"
+
     cp "${DOWNLOAD_DIR}/${FILE}" "$INSTALL_DIR"
     echo "$TAG_NAME" > "$VERSION_FILE"
     chmod +x "${INSTALL_DIR}/${FILE}"
+
     rm -rf "$DOWNLOAD_DIR"
 fi
