@@ -92,26 +92,22 @@ if vim.fn.executable("rg") then
     opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
-vim.cmd([[
-if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
+if vim.fn.exists("$VIRTUAL_ENV") then
+    vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
 else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", "", "g")
-endif
-]])
+    vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which python3"), "\n", "", "g")
+end
 
-vim.cmd([[
-if has("persistent_undo")
-   let target_path = expand("~/.undodir")
+if vim.fn.has("persistent_undo") then
+   local target_path = vim.fn.expand("~/.undodir")
 
-    if !isdirectory(target_path)
-        call mkdir(target_path, "p", 0700)
-    endif
+    if not vim.fn.isdirectory(target_path) then
+        vim.fn.mkdir(target_path, "p", 0700)
+    end
 
-    let &undodir=target_path
-    set undofile
-endif
-]])
+    opt.undodir=target_path
+    opt.undofile = true
+end
 
 local function set_augroups(definitions)
     for group_name, definition in pairs(definitions) do
