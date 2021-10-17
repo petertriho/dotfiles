@@ -247,7 +247,7 @@ register(semicolon_keymaps, {
     noremap = true,
 })
 
--- semicolon keymaps
+-- comma keymaps
 local comma_keymaps = {
     c = { "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", "code-actions" },
     d = { "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", "definitions" },
