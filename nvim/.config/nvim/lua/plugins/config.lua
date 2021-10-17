@@ -788,6 +788,24 @@ return {
             integrations = { diffview = true },
         })
     end,
+    ["tpope/vim-abolish"] = function()
+        require("which-key").register({
+            [" "] = "space case",
+            ["-"] = "dash-case",
+            ["."] = "dot.case",
+            ["_"] = "snake_case",
+            c = "camelCase",
+            k = "kebab-case",
+            m = "MixedCase",
+            s = "snake_case",
+            t = "Title Case",
+            u = "SNAKE_UPPERCASE",
+            U = "SNAKE_UPPERCASE",
+        }, {
+            prefix = "cr",
+            mode = "",
+        })
+    end,
     ["tzachar/cmp-tabnine"] = function()
         require("cmp_tabnine.config").setup({
             max_lines = 1000,

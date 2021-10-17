@@ -230,7 +230,12 @@ require("packer").startup(function(use)
         config = config["numToStr/Comment.nvim"],
     })
     use({ "tommcdo/vim-exchange", keys = { "cx", "X" } })
-    use({ "tpope/vim-abolish", cmd = "Subvert", keys = "cr" })
+    use({
+        "tpope/vim-abolish",
+        setup = config["tpope/vim-abolish"],
+        cmd = "Subvert",
+        keys = "cr",
+    })
     use("wellle/targets.vim")
 
     -- telescope
