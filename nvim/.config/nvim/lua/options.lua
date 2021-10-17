@@ -63,6 +63,16 @@ opt.ttimeout = false
 opt.ttimeoutlen = 0
 opt.updatetime = 100
 opt.visualbell = false
+opt.wildignore = {
+    "*.o",
+    "*.pyc",
+    "*/.git/*",
+    "*/.venv/*",
+    "*/__pycache__/*",
+    "*/cache/*",
+    "*/node_modules/*",
+    "*/tmp/*",
+}
 opt.wrap = false
 
 local proc_version = io.open("/proc/version", "r")
@@ -99,13 +109,13 @@ else
 end
 
 if vim.fn.has("persistent_undo") then
-   local target_path = vim.fn.expand("~/.undodir")
+    local target_path = vim.fn.expand("~/.undodir")
 
     if not vim.fn.isdirectory(target_path) then
         vim.fn.mkdir(target_path, "p", 0700)
     end
 
-    opt.undodir=target_path
+    opt.undodir = target_path
     opt.undofile = true
 end
 
