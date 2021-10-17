@@ -289,6 +289,7 @@ require("packer").startup(function(use)
         config = config["folke/zen-mode-nvim"],
         cmd = "ZenMode",
     })
+    use({ "gabrielpoca/replacer.nvim", module = "replacer" })
     use({
         "kristijanhusak/vim-dadbod-ui",
         requires = "tpope/vim-dadbod",
@@ -340,12 +341,6 @@ require("packer").startup(function(use)
         requires = "MunifTanjim/nui.nvim",
         config = config["vuki656/package-info.nvim"],
         module = "package-info",
-    })
-    use({
-        "windwp/nvim-spectre",
-        requires = "nvim-lua/plenary.nvim",
-        config = config["windwp/nvim-spectre"],
-        module = "spectre",
     })
 
     -- motions
