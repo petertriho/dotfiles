@@ -233,7 +233,7 @@ require("packer").startup(function(use)
     use({
         "tpope/vim-abolish",
         setup = config["tpope/vim-abolish"],
-        cmd = "Subvert",
+        cmd = { "Subvert", "S" },
         keys = "cr",
     })
     use("wellle/targets.vim")
