@@ -317,7 +317,8 @@ components.active[2] = {
 
 components.inactive[1] = {
     {
-        provider = { name = "file_info", opts = { file_readonly_icon = " " } },
+        provider = { name = "file_info", opts = { type = "relative", file_readonly_icon = " " } },
+        short_provider = { name = "file_info", opts = { type = "base-only", file_readonly_icon = " " } },
         icon = "",
         hl = { fg = "bg_statusline", bg = "fg_sidebar" },
         right_sep = "right_filled",
