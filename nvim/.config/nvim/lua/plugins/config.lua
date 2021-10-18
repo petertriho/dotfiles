@@ -96,6 +96,50 @@ return {
             context_commentstring = { enable = true, enable_autocmd = false },
         })
     end,
+    ["jvgrootveld/telescope-zoxide"] = function()
+        local builtin = require("telescope.builtin")
+
+        local browse_files = function(selection)
+            builtin.file_browser({ cwd = selection.path })
+        end
+
+        local find_files = function(selection)
+            builtin.find_files({ cwd = selection.path, hidden = true })
+        end
+
+        local search_files = function(selection)
+            builtin.live_grep({ cwd = selection.path })
+        end
+
+        require("telescope._extensions.zoxide.config").setup({
+            mappings = {
+                default = {
+                    action = find_files,
+                    after_action = function() end,
+                },
+                ["<C-b>"] = {
+                    action = browse_files,
+                    after_action = function() end,
+                },
+                ["<C-f>"] = {
+                    action = find_files,
+                    after_action = function() end,
+                },
+                ["<C-s>"] = {
+                    action = search_files,
+                    after_action = function() end,
+                },
+                ["<C-w>"] = {
+                    action = function(selection)
+                        vim.cmd("cd " .. selection.path)
+                    end,
+                    after_action = function(selection)
+                        print("Directory changed to " .. selection.path)
+                    end,
+                },
+            },
+        })
+    end,
     ["kazhala/close-buffers.nvim"] = function()
         require("close_buffers").setup()
     end,
@@ -428,7 +472,6 @@ return {
     ["nvim-telescope/telescope.nvim"] = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
-        local builtin = require("telescope.builtin")
 
         telescope.setup({
             defaults = {
@@ -486,48 +529,10 @@ return {
                 },
             },
         })
+    end,
+    ["nvim-telescope/telescope-fzf-native.nvim"] = function()
+        local telescope = require("telescope")
         telescope.load_extension("fzf")
-
-        local browse_files = function(selection)
-            builtin.file_browser({ cwd = selection.path })
-        end
-
-        local find_files = function(selection)
-            builtin.find_files({ cwd = selection.path, hidden = true })
-        end
-
-        local search_files = function(selection)
-            builtin.live_grep({ cwd = selection.path })
-        end
-
-        require("telescope._extensions.zoxide.config").setup({
-            mappings = {
-                default = {
-                    action = find_files,
-                    after_action = function() end,
-                },
-                ["<C-b>"] = {
-                    action = browse_files,
-                    after_action = function() end,
-                },
-                ["<C-f>"] = {
-                    action = find_files,
-                    after_action = function() end,
-                },
-                ["<C-s>"] = {
-                    action = search_files,
-                    after_action = function() end,
-                },
-                ["<C-w>"] = {
-                    action = function(selection)
-                        vim.cmd("cd " .. selection.path)
-                    end,
-                    after_action = function(selection)
-                        print("Directory changed to " .. selection.path)
-                    end,
-                },
-            },
-        })
     end,
     ["nvim-treesitter/nvim-treesitter"] = function()
         require("nvim-treesitter.configs").setup({

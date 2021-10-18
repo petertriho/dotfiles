@@ -1,8 +1,13 @@
 function LoadDeferredPlugins()
-    local plugins =
-        "nvim-treesitter gitsigns.nvim indent-blankline.nvim todo-comments.nvim nvim-colorizer.lua quick-scope rainbow"
-    local loader = require("packer").loader
-    loader(plugins)
+    require("packer").loader(
+        "nvim-treesitter",
+        "gitsigns.nvim",
+        "indent-blankline.nvim",
+        "todo-comments.nvim",
+        "nvim-colorizer.lua",
+        "quick-scope",
+        "rainbow"
+    )
 end
 
 vim.cmd([[autocmd User LoadDeferredPlugins lua LoadDeferredPlugins()]])

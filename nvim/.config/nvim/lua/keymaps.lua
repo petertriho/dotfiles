@@ -39,10 +39,8 @@ set_keymap("n", "<M-d>", ":m .+1<CR>==", opts)
 set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", opts)
 set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", opts)
 
-set_keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
-set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", {})
-set_keymap("v", "<C-a>", "<Plug>(dial-increment)", {})
-set_keymap("v", "<C-x>", "<Plug>(dial-decrement)", {})
+set_keymap("", "<C-a>", "<Plug>(dial-increment)", {})
+set_keymap("", "<C-x>", "<Plug>(dial-decrement)", {})
 set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
 set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
 
