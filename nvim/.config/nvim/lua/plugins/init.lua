@@ -117,11 +117,7 @@ require("packer").startup({
             opt = true,
             ft = { "markdown", "vimwiki" },
         })
-        use({
-            "norcalli/nvim-colorizer.lua",
-            config = config["norcalli/nvim-colorizer.lua"],
-            opt = true,
-        })
+        use({ "rrethy/vim-hexokinase", run = "make hexokinase", opt = true })
         use({ "sheerun/vim-polyglot", setup = config["sheerun/vim-polyglot"] })
 
         -- treesitter

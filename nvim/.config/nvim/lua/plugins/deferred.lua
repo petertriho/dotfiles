@@ -4,7 +4,7 @@ function LoadDeferredPlugins()
         "gitsigns.nvim",
         "indent-blankline.nvim",
         "todo-comments.nvim",
-        "nvim-colorizer.lua",
+        "vim-hexokinase",
         "quick-scope",
         "rainbow"
     )

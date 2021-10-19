@@ -458,9 +458,6 @@ return {
         augroup END
         ]])
     end,
-    ["norcalli/nvim-colorizer.lua"] = function()
-        require("colorizer").setup()
-    end,
     ["numToStr/Comment.nvim"] = function()
         require("Comment").setup({
             pre_hook = function()
