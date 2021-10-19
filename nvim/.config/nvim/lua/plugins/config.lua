@@ -111,23 +111,25 @@ return {
             builtin.live_grep({ cwd = selection.path })
         end
 
+        local z_utils = require("telescope._extensions.zoxide.utils")
         require("telescope._extensions.zoxide.config").setup({
             mappings = {
                 default = {
+                    keepinsert = true,
                     action = find_files,
                     after_action = function() end,
                 },
                 ["<C-b>"] = {
+                    keepinsert = true,
                     action = browse_files,
-                    after_action = function() end,
                 },
                 ["<C-f>"] = {
+                    keepinsert = true,
                     action = find_files,
-                    after_action = function() end,
                 },
                 ["<C-s>"] = {
+                    keepinsert = true,
                     action = search_files,
-                    after_action = function() end,
                 },
                 ["<C-w>"] = {
                     action = function(selection)
@@ -137,6 +139,7 @@ return {
                         print("Directory changed to " .. selection.path)
                     end,
                 },
+                ["<C-x>"] = { action = z_utils.create_basic_command("split") },
             },
         })
     end,
