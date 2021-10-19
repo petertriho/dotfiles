@@ -104,19 +104,35 @@ local ATTACHED_BUFFERS = {}
 local function buf_set_highlights(bufnr, colors, options)
     vim.api.nvim_buf_clear_namespace(bufnr, NAMESPACE, 0, -1)
 
+    local line_colors = {}
+
     for _, color_info in pairs(colors) do
         local rgb_hex = lsp_color_to_hex(color_info.color)
-        local highlight_name = create_highlight(rgb_hex, options)
 
         local range = color_info.range
         local line = range.start.line
         local start_col = range.start.character
         local end_col = options.single_column and start_col + 1 or range["end"].character
 
-        vim.api.nvim_buf_add_highlight(bufnr, NAMESPACE, highlight_name, line, start_col, end_col)
+        if line_colors[line] == nil then
+            line_colors[line] = {}
+        end
 
-        -- local highlight_name_fg = create_highlight(rgb_hex, {mode = "foreground"})
-        -- vim.api.nvim_buf_set_virtual_text(bufnr, NAMESPACE, line, {{ "■", highlight_name_fg }}, {})
+        line_colors[line][start_col] = rgb_hex
+
+        -- local highlight_name = create_highlight(rgb_hex, options)
+        -- vim.api.nvim_buf_add_highlight(bufnr, NAMESPACE, highlight_name, line, start_col, end_col)
+    end
+
+    for line, rgb_hexes in pairs(line_colors) do
+        local chunks = {}
+
+        for _, rgb_hex in pairs(rgb_hexes) do
+            local highlight_name = create_highlight(rgb_hex, { mode = "foreground" })
+            table.insert(chunks, { "■", highlight_name })
+        end
+
+        vim.api.nvim_buf_set_virtual_text(bufnr, NAMESPACE, line, chunks, {})
     end
 end
 
