@@ -77,6 +77,10 @@ local on_attach = function(client, bufnr)
     if client.resolved_capabilities.type_definition then
         buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", opts)
     end
+
+    if client.server_capabilities.colorProvider then
+        require("lsp.colors").buf_attach(bufnr, { single_column = false })
+    end
 end
 
 local function make_base_config()
@@ -96,6 +100,7 @@ local function make_base_config()
             "additionalTextEdits",
         },
     }
+    capabilities.textDocument.colorProvider = { dynamicRegistration = false }
     return {
         capabilities = capabilities,
         on_attach = on_attach,
