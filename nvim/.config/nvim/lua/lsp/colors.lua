@@ -114,6 +114,9 @@ local function buf_set_highlights(bufnr, colors, options)
         local end_col = options.single_column and start_col + 1 or range["end"].character
 
         vim.api.nvim_buf_add_highlight(bufnr, NAMESPACE, highlight_name, line, start_col, end_col)
+
+        -- local highlight_name_fg = create_highlight(rgb_hex, {mode = "foreground"})
+        -- vim.api.nvim_buf_set_virtual_text(bufnr, NAMESPACE, line, {{ "■", highlight_name_fg }}, {})
     end
 end
 
