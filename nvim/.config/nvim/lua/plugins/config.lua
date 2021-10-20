@@ -236,6 +236,10 @@ return {
         })
 
         cmp.setup({
+            documentation = {
+                border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+                winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+            },
             experimental = {
                 ghost_text = true,
             },
