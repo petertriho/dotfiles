@@ -31,6 +31,10 @@ function main {
         yarn global add dockerfile-language-server-nodejs
     fi
 
+    if ! command -v emmet-ls &> /dev/null; then
+        yarn global add emmet-ls
+    fi
+
     if ! command -v graphql-lsp &> /dev/null; then
         yarn global add graphql-language-service-cli
     fi
