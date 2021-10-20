@@ -125,14 +125,15 @@ local function buf_set_highlights(bufnr, colors, options)
     end
 
     for line, rgb_hexes in pairs(line_colors) do
-        local chunks = {}
-
         for _, rgb_hex in pairs(rgb_hexes) do
             local highlight_name = create_highlight(rgb_hex, { mode = "foreground" })
-            table.insert(chunks, { "■", highlight_name })
+            vim.api.nvim_buf_set_extmark(bufnr, NAMESPACE, line, 0, {
+                virt_text = {
+                    { "■", highlight_name },
+                },
+                hl_mode = "combine",
+            })
         end
-
-        vim.api.nvim_buf_set_virtual_text(bufnr, NAMESPACE, line, chunks, {})
     end
 end
 
