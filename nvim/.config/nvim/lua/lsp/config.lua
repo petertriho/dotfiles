@@ -220,6 +220,19 @@ return {
     bashls = {},
     cssls = {},
     dockerls = {},
+    ["emmet_ls"] = {
+        filetypes = {
+            "css",
+            "html",
+            "javascript",
+            "javascriptreact",
+            "sass",
+            "scss",
+            "typescript",
+            "typescriptreact",
+            "xml",
+        },
+    },
     eslint = {},
     gopls = {},
     grammar_guard = {
