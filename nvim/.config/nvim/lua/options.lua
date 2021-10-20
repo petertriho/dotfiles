@@ -79,7 +79,7 @@ local proc_version = io.open("/proc/version", "r")
 if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
     local proc_version_text = proc_version:read()
 
-    if proc_version_text:match("microsoft") then
+    if proc_version_text:match("microsoft") and vim.fn.executable("win32yank.exe") then
         vim.g.clipboard = {
             name = "win32yank",
             copy = {
