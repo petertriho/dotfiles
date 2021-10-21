@@ -572,7 +572,7 @@ return {
                     node_decremental = "grm",
                 },
             },
-            indent = { enable = true },
+            -- indent = { enable = true },
             fold = { enable = true },
         })
         require("nvim-treesitter").define_modules({
