@@ -774,6 +774,9 @@ return {
             "yaml.plugin",
         }
     end,
+    ["sindrets/diffview.nvim"] = function()
+        require("diffview").setup()
+    end,
     ["sindrets/winshift.nvim"] = function()
         require("winshift").setup()
     end,

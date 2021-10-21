@@ -344,12 +344,24 @@ require("packer").startup({
             },
         })
         use({ "simnalamburt/vim-mundo", cmd = "MundoToggle" })
+        use({
+            "sindrets/diffview.nvim",
+            config = config["sindrets/diffview.nvim"],
+            cmd = {
+                "DiffviewOpen",
+                "DiffviewClose",
+                "DiffviewToggleFiles",
+                "DiffviewFocusFiles",
+                "DiffviewRefresh",
+                "DiffviewFileHistory",
+            },
+            module = "diffview",
+        })
         use({ "skywind3000/asyncrun.vim", cmd = "AsyncRun" })
         use({
             "TimUntersberger/neogit",
             requires = {
                 "nvim-lua/plenary.nvim",
-                { "sindrets/diffview.nvim", after = "neogit" },
             },
             config = config["TimUntersberger/neogit"],
             cmd = "Neogit",
