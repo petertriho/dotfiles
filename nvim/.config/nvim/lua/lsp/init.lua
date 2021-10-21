@@ -28,8 +28,8 @@ local on_attach = function(client, bufnr)
 
     buf_set_keymap(
         "n",
-        "gl",
-        "<CMD>lua vim.diagnostic.show_line_diagnostics({ source = 'always', border = 'rounded' })<CR>",
+        "gh",
+        "<CMD>lua vim.diagnostic.open_float(0, { scope = 'line', source = 'always', border = 'rounded' })<CR>",
         opts
     )
     buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
@@ -67,7 +67,6 @@ local on_attach = function(client, bufnr)
 
     if client.resolved_capabilities.hover then
         buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
-        buf_set_keymap("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
     end
 
     if client.resolved_capabilities.signature_help then
