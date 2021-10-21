@@ -279,18 +279,19 @@ return {
                 end,
             },
             sources = {
-                { name = "nvim_lsp" },
-                { name = "cmp_tabnine" },
-                { name = "path" },
-                { name = "buffer" },
+                { name = "nvim_lsp", 1000 },
+                { name = "cmp_tabnine", 100 },
+                { name = "path", 80 },
+                { name = "buffer", 60 },
                 {
                     name = "tmux",
                     opts = {
                         all_panes = true,
                         trigger_characters = {},
                     },
+                    priority = 40,
                 },
-                { name = "vsnip" },
+                { name = "vsnip", priority = 20 },
             },
         })
     end,
