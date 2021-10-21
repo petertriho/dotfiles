@@ -6,7 +6,7 @@ local config = {
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	window_close_confirmation = "NeverPrompt",
 	hide_tab_bar_if_only_one_tab = true,
-	leader = { key = "s", mods = "CTRL" },
+	leader = { key = "b", mods = "CTRL" },
 	keys = {
 		{
 			mods = "LEADER",
