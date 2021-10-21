@@ -78,7 +78,7 @@ local on_attach = function(client, bufnr)
     end
 
     if client.server_capabilities.colorProvider then
-        require("lsp.colors").buf_attach(bufnr, { single_column = false })
+        require("lsp.colors").buf_attach(bufnr, { virtual_text = true })
     end
 end
 

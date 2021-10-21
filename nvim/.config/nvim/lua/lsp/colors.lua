@@ -112,27 +112,33 @@ local function buf_set_highlights(bufnr, colors, options)
         local range = color_info.range
         local line = range.start.line
         local start_col = range.start.character
-        local end_col = options.single_column and start_col + 1 or range["end"].character
 
-        if line_colors[line] == nil then
-            line_colors[line] = {}
+        if options.virtual_text then
+            if line_colors[line] == nil then
+                line_colors[line] = {}
+            end
+
+            line_colors[line][start_col] = rgb_hex
         end
 
-        line_colors[line][start_col] = rgb_hex
-
-        -- local highlight_name = create_highlight(rgb_hex, options)
-        -- vim.api.nvim_buf_add_highlight(bufnr, NAMESPACE, highlight_name, line, start_col, end_col)
+        if options.background then
+            local end_col = options.single_column and start_col + 1 or range["end"].character
+            local highlight_name = create_highlight(rgb_hex, options)
+            vim.api.nvim_buf_add_highlight(bufnr, NAMESPACE, highlight_name, line, start_col, end_col)
+        end
     end
 
-    for line, rgb_hexes in pairs(line_colors) do
-        for _, rgb_hex in pairs(rgb_hexes) do
-            local highlight_name = create_highlight(rgb_hex, { mode = "foreground" })
-            vim.api.nvim_buf_set_extmark(bufnr, NAMESPACE, line, 0, {
-                virt_text = {
-                    { "■", highlight_name },
-                },
-                hl_mode = "combine",
-            })
+    if options.virtual_text then
+        for line, rgb_hexes in pairs(line_colors) do
+            for _, rgb_hex in pairs(rgb_hexes) do
+                local highlight_name = create_highlight(rgb_hex, { mode = "foreground" })
+                vim.api.nvim_buf_set_extmark(bufnr, NAMESPACE, line, 0, {
+                    virt_text = {
+                        { "■", highlight_name },
+                    },
+                    hl_mode = "combine",
+                })
+            end
         end
     end
 end
