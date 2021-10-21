@@ -38,7 +38,6 @@ if status is-interactive
     end
 
     set -gx FZF_DEFAULT_OPTS \
-        --ansi \
         --exact \
         --border \
         --cycle \
