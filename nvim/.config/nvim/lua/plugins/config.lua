@@ -543,6 +543,7 @@ return {
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "bash",
+                "comment",
                 "css",
                 "dockerfile",
                 "fish",
@@ -560,6 +561,7 @@ return {
                 "toml",
                 "tsx",
                 "typescript",
+                "vim",
                 "yaml",
             },
             highlight = { enable = true },
