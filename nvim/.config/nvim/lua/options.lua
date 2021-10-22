@@ -102,7 +102,7 @@ if vim.fn.executable("rg") then
     opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
-if vim.fn.exists("$VIRTUAL_ENV") then
+if vim.fn.exists("$VIRTUAL_ENV") ~= 0 then
     g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
 else
     g.python3_host_prog = vim.fn.substitute(vim.fn.system("which python3"), "\n", "", "g")
