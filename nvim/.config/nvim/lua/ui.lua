@@ -15,11 +15,6 @@ vim.cmd("highlight QuickScopeSecondary guifg=" .. colors.red .. " gui=underline 
 vim.cmd("highlight Folded guifg=" .. colors.comment .. " guibg=" .. colors.none)
 vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticWarn" })
 
-vim.cmd("highlight DiagnosticError guifg=" .. colors.error)
-vim.cmd("highlight DiagnosticWarn guifg=" .. colors.warning)
-vim.cmd("highlight DiagnosticInfo guifg=" .. colors.info)
-vim.cmd("highlight DiagnosticHint guifg=" .. colors.hint)
-
 local signs = {
     Error = " ",
     Warn = " ",
@@ -39,9 +34,6 @@ highlight! default link CmpItemAbbrMatch Special
 highlight! default link CmpItemAbbrMatchFuzzy Special
 highlight! default link CmpItemKind Special
 highlight! default link CmpItemMenu Normal
-
-highlight! default link NvimTreeNormalNC NormalSB
-highlight! default link NvimTreeSignColumn SignColumnSB
 ]])
 
 -- akinsho/nvim-bufferline.lua
