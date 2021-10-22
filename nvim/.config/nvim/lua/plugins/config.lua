@@ -49,7 +49,7 @@ return {
         require("marks").setup({})
     end,
     ["chumakd/scratch.vim"] = function()
-        vim.g.scratch_persistence_file = "/tmp/scratch.txt"
+        vim.g.scratch_persistence_file = "~/scratch.txt"
     end,
     ["danymat/neogen"] = function()
         require("neogen").setup({
