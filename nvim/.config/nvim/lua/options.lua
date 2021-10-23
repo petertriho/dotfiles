@@ -79,7 +79,7 @@ local proc_version = io.open("/proc/version", "r")
 if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
     local proc_version_text = proc_version:read()
 
-    if proc_version_text:match("microsoft") and vim.fn.executable("win32yank.exe") then
+    if proc_version_text:match("microsoft") and vim.fn.executable("win32yank.exe") == 1 then
         vim.g.clipboard = {
             name = "win32yank",
             copy = {
@@ -97,21 +97,21 @@ if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
     proc_version:close()
 end
 
-if vim.fn.executable("rg") then
+if vim.fn.executable("rg") == 1 then
     opt.grepprg = "rg --vimgrep --color=never --no-heading --smart-case --hidden"
     opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
-if vim.fn.exists("$VIRTUAL_ENV") ~= 0 then
-    g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
-else
+if vim.fn.exists("$VIRTUAL_ENV") == 1 then
     g.python3_host_prog = vim.fn.substitute(vim.fn.system("which python3"), "\n", "", "g")
+else
+    g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
 end
 
-if vim.fn.has("persistent_undo") then
+if vim.fn.has("persistent_undo") == 1 then
     local target_path = vim.fn.expand("~/.undodir")
 
-    if not vim.fn.isdirectory(target_path) then
+    if vim.fn.isdirectory(target_path) ~= 1 then
         vim.fn.mkdir(target_path, "p", 0700)
     end
 
