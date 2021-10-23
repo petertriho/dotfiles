@@ -501,7 +501,7 @@ return {
                     },
                 },
                 history = false,
-                file_ignore_patterns = { ".git" },
+                file_ignore_patterns = { "%.git/*" },
                 sorting_strategy = "ascending",
                 layout_strategy = "flex",
                 layout_config = {
