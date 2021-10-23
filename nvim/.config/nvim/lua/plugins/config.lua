@@ -279,10 +279,10 @@ return {
                 end,
             },
             sources = {
-                { name = "nvim_lsp", 1000 },
-                { name = "cmp_tabnine", 100 },
-                { name = "path", 80 },
-                { name = "buffer", 60 },
+                { name = "nvim_lsp", priority = 1000 },
+                { name = "cmp_tabnine", priority = 100 },
+                { name = "path", priority = 80 },
+                { name = "buffer", prioriy = 60 },
                 {
                     name = "tmux",
                     opts = {
