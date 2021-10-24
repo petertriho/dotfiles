@@ -150,7 +150,9 @@ null_ls.config({
             extra_args = { "--indent", "4" },
         }),
         -- lua
-        b.diagnostics.selene,
+        h.conditional(function(utils)
+            return utils.root_has_file("selene.toml") and b.diagnostics.selene
+        end),
         b.formatting.stylua.with({
             extra_args = { "--config-path", vim.fn.expand("$HOME/.config/format-lint/.stylua.toml") },
         }),
