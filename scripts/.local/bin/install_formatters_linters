@@ -31,6 +31,10 @@ function main {
     #     cargo install shellharden
     # fi
 
+    if ! command -v selene &> /dev/null; then
+        cargo install selene
+    fi
+
     if ! command -v stylua &> /dev/null; then
         cargo install stylua
     fi
