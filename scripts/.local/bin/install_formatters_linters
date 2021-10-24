@@ -87,6 +87,10 @@ function main {
         yarn global add stylelint stylelint-config-standard
     fi
 
+    if ! command -v luarocks &> /dev/null; then
+        luarocks install luacheck
+    fi
+
     asdf reshim
 }
 
