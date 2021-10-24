@@ -295,8 +295,6 @@ return {
                 { name = "vsnip", priority = 20 },
             },
         })
-
-        require("plugins.cmp_git").setup()
     end,
     ["hrsh7th/vim-vsnip"] = function()
         vim.g.vsnip_filetypes = {
@@ -647,6 +645,9 @@ return {
                 },
             },
         })
+    end,
+    ["petertriho/cmp-git"] = function()
+        require("cmp_git").setup()
     end,
     ["plasticboy/vim-markdown"] = function()
         local fences = {

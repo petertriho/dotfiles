@@ -86,6 +86,11 @@ require("packer").startup({
             module = "lspkind",
         })
         use({
+            "~/Documents/GitHub/cmp-git",
+            config = config["petertriho/cmp-git"],
+            after = "nvim-cmp",
+        })
+        use({
             "tzachar/cmp-tabnine",
             run = "./install.sh",
             after = "nvim-cmp",
@@ -328,6 +333,7 @@ require("packer").startup({
                 "NvimTreeToggle",
                 "NvimTreeRefresh",
                 "NvimTreeFindFile",
+                "NvimTreeFindFileToggle",
                 "NvimTreeClipboard",
             },
         })
