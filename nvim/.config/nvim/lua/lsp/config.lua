@@ -150,7 +150,6 @@ null_ls.config({
             extra_args = { "--indent", "4" },
         }),
         -- lua
-        b.diagnostics.luacheck,
         b.formatting.stylua.with({
             extra_args = { "--config-path", vim.fn.expand("$HOME/.config/format-lint/.stylua.toml") },
         }),
