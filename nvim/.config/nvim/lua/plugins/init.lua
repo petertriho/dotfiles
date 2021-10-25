@@ -86,7 +86,7 @@ require("packer").startup({
             module = "lspkind",
         })
         use({
-            "~/Documents/GitHub/cmp-git",
+            "petertriho/cmp-git",
             config = config["petertriho/cmp-git"],
             after = "nvim-cmp",
         })
