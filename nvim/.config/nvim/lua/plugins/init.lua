@@ -1,5 +1,3 @@
--- TODO:
--- coc-git: gh issues autocomplete
 local config = require("plugins.config")
 
 require("packer").startup({
