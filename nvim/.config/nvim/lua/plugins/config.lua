@@ -307,10 +307,10 @@ return {
                     i = cmp.mapping.abort(),
                     c = cmp.mapping.close(),
                 }),
-                --[[ ["<CR>"] = cmp.mapping.confirm({
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = true,
-				}), ]]
+                ["<CR>"] = cmp.mapping.confirm({
+                    behavior = cmp.ConfirmBehavior.Replace,
+                    select = true,
+                }),
                 ["<C-k>"] = select_prev_item,
                 ["<C-j>"] = select_next_item,
                 ["<S-Tab>"] = select_prev_item,
@@ -914,13 +914,6 @@ return {
             Rule("%(.*%)%s*%=$", "> {}", { "typescript", "typescriptreact", "javascript", "javascriptreact" })
                 :use_regex(true)
                 :set_end_pair_length(1),
-        })
-
-        require("nvim-autopairs.completion.cmp").setup({
-            map_cr = true,
-            map_complete = false,
-            auto_select = true,
-            insert = false,
         })
     end,
     ["windwp/nvim-ts-autotag"] = function()
