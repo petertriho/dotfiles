@@ -22,7 +22,7 @@
 
 [delta]
 	syntax-theme = base16
-    true-color = yes
+    true-color = always
 
 [interactive]
 	diffFilter = delta --color-only
