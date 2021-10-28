@@ -191,6 +191,16 @@ return {
             backward = "<M-i>",
         })
     end,
+    ["github/copilot.vim"] = function()
+        vim.g.copilot_no_maps = 1
+        vim.cmd("highlight CopilotSuggestion guifg=#565f89")
+        vim.api.nvim_set_keymap(
+            "i",
+            "<C-g>",
+            "copilot#Accept()",
+            { script = true, silent = true, nowait = true, expr = true }
+        )
+    end,
     ["hrsh7th/nvim-cmp"] = function()
         --[[ local has_words_before = function()
 			if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
@@ -273,8 +283,8 @@ return {
 				}), ]]
                 ["<C-k>"] = select_prev_item,
                 ["<C-j>"] = select_next_item,
-                -- ["<S-Tab>"] = select_prev_item,
-                -- ["<Tab>"] = select_next_item,
+                ["<S-Tab>"] = select_prev_item,
+                ["<Tab>"] = select_next_item,
             },
             snippet = {
                 expand = function(args)

@@ -105,9 +105,7 @@ require("packer").startup({
         })
         use({
             "github/copilot.vim",
-            config = function()
-                vim.cmd("highlight CopilotSuggestion guifg=#565f89")
-            end,
+            setup = config["github/copilot.vim"],
         })
         use({ "pantharshit00/vim-prisma", ft = "prisma" })
         use({
