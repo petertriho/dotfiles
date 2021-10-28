@@ -96,12 +96,18 @@ require("packer").startup({
         })
         use({ "rafamadriz/friendly-snippets", after = "nvim-cmp" })
 
-        -- syntax highlighting
+        -- language
         use({
             "folke/todo-comments.nvim",
             requires = "nvim-lua/plenary.nvim",
             config = config["folke/todo-comments.nvim"],
             opt = true,
+        })
+        use({
+            "github/copilot.vim",
+            config = function()
+                vim.cmd("highlight CopilotSuggestion guifg=#565f89")
+            end,
         })
         use({ "pantharshit00/vim-prisma", ft = "prisma" })
         use({

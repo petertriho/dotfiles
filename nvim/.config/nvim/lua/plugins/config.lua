@@ -22,7 +22,10 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
 return {
     ["abecodes/tabout.nvim"] = function()
-        require("tabout").setup()
+        require("tabout").setup({
+            tabkey = "<C-l>",
+            backwards_tabkey = "<C-h>",
+        })
     end,
     ["AckslD/nvim-neoclip.lua"] = function()
         require("neoclip").setup()
@@ -241,7 +244,7 @@ return {
                 winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
             },
             experimental = {
-                ghost_text = true,
+                ghost_text = false,
             },
             formatting = {
                 format = require("lspkind").cmp_format({
@@ -270,8 +273,8 @@ return {
 				}), ]]
                 ["<C-k>"] = select_prev_item,
                 ["<C-j>"] = select_next_item,
-                ["<S-Tab>"] = select_prev_item,
-                ["<Tab>"] = select_next_item,
+                -- ["<S-Tab>"] = select_prev_item,
+                -- ["<Tab>"] = select_next_item,
             },
             snippet = {
                 expand = function(args)
