@@ -59,42 +59,24 @@ require("packer").startup({
         use({
             "hrsh7th/nvim-cmp",
             config = config["hrsh7th/nvim-cmp"],
-            event = "InsertEnter",
-        })
-        use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
-        use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
-        use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
-        use({ "hrsh7th/cmp-vsnip", after = "nvim-cmp" })
-        use({
-            "hrsh7th/vim-vsnip",
-            setup = config["hrsh7th/vim-vsnip"],
-            after = "nvim-cmp",
-        })
-        use({
-            "andersevenrud/compe-tmux",
-            branch = "cmp",
-            after = "nvim-cmp",
-        })
-        use({
-            "kristijanhusak/vim-dadbod-completion",
-            requires = "tpope/vim-dadbod",
-            after = "nvim-cmp",
+            requires = {
+                { "hrsh7th/cmp-buffer" },
+                { "hrsh7th/cmp-cmdline" },
+                { "hrsh7th/cmp-nvim-lsp" },
+                { "hrsh7th/cmp-path" },
+                { "hrsh7th/cmp-vsnip" },
+                { "hrsh7th/vim-vsnip", setup = config["hrsh7th/vim-vsnip"] },
+                { "andersevenrud/compe-tmux", branch = "cmp" },
+                { "kristijanhusak/vim-dadbod-completion", requires = "tpope/vim-dadbod" },
+                { "petertriho/cmp-git", config = config["petertriho/cmp-git"] },
+                { "tzachar/cmp-tabnine", run = "./install.sh" },
+                { "rafamadriz/friendly-snippets" },
+            },
         })
         use({
             "onsails/lspkind-nvim",
             module = "lspkind",
         })
-        use({
-            "petertriho/cmp-git",
-            config = config["petertriho/cmp-git"],
-            after = "nvim-cmp",
-        })
-        use({
-            "tzachar/cmp-tabnine",
-            run = "./install.sh",
-            after = "nvim-cmp",
-        })
-        use({ "rafamadriz/friendly-snippets", after = "nvim-cmp" })
 
         -- language
         use({

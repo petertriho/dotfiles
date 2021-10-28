@@ -228,7 +228,7 @@ return {
             end
         end, {
             "i",
-            "s",
+            "c",
         })
 
         local select_next_item = cmp.mapping(function(fallback)
@@ -245,7 +245,7 @@ return {
             end
         end, {
             "i",
-            "s",
+            "c",
         })
 
         cmp.setup({
@@ -271,12 +271,15 @@ return {
                 }),
             },
             mapping = {
-                ["<C-p>"] = cmp.mapping.select_prev_item(),
-                ["<C-n>"] = cmp.mapping.select_next_item(),
-                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-c>"] = cmp.mapping.close(),
+                ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+                ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+                ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+                ["<C-c>"] = cmp.mapping({
+                    i = cmp.mapping.abort(),
+                    c = cmp.mapping.close(),
+                }),
                 --[[ ["<CR>"] = cmp.mapping.confirm({
 					behavior = cmp.ConfirmBehavior.Replace,
 					select = true,
@@ -307,6 +310,20 @@ return {
                 },
                 { name = "vsnip", priority = 20 },
             },
+        })
+
+        cmp.setup.cmdline("/", {
+            sources = {
+                { name = "buffer" },
+            },
+        })
+
+        cmp.setup.cmdline(":", {
+            sources = cmp.config.sources({
+                { name = "path" },
+            }, {
+                { name = "cmdline" },
+            }),
         })
     end,
     ["hrsh7th/vim-vsnip"] = function()
