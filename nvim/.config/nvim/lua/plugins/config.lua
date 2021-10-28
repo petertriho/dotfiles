@@ -287,6 +287,7 @@ return {
                     with_text = true,
                     menu = {
                         buffer = "[BUFFER]",
+                        cmp_git = "[GIT]",
                         cmp_tabnine = "[TABNINE]",
                         nvim_lsp = "[LSP]",
                         path = "[PATH]",
