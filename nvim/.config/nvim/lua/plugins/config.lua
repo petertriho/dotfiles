@@ -339,14 +339,12 @@ return {
         })
 
         cmp.setup.cmdline("/", {
-            completion = { autocomplete = false },
             sources = {
                 { name = "buffer" },
             },
         })
 
         cmp.setup.cmdline(":", {
-            completion = { autocomplete = false },
             sources = cmp.config.sources({
                 { name = "path" },
             }, {
