@@ -303,10 +303,7 @@ return {
                 ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
                 ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-                ["<C-c>"] = cmp.mapping({
-                    i = cmp.mapping.abort(),
-                    c = cmp.mapping.close(),
-                }),
+                ["<C-c>"] = cmp.mapping.close(),
                 ["<CR>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = true,
