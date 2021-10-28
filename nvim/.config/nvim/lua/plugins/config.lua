@@ -216,36 +216,62 @@ return {
 
         local cmp = require("cmp")
 
-        local select_prev_item = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
-                --[[ elseif has_words_before() then
+        local select_prev_item = cmp.mapping({
+            c = function()
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                else
+                    cmp.complete()
+                end
+            end,
+            i = function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                    feedkey("<Plug>(vsnip-jump-prev)", "")
+                    --[[ elseif has_words_before() then
 				cmp.complete() ]]
-            else
-                fallback()
-            end
-        end, {
-            "i",
-            "c",
+                else
+                    fallback()
+                end
+            end,
+            s = function(fallback)
+                if vim.fn["vsnip#jumpable"](-1) == 1 then
+                    feedkey("<Plug>(vsnip-jump-prev)", "")
+                else
+                    fallback()
+                end
+            end,
         })
 
-        local select_next_item = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
-                --[[ elseif has_words_before() then
+        local select_next_item = cmp.mapping({
+            c = function()
+                if cmp.visible() then
+                    cmp.select_next_item()
+                else
+                    cmp.complete()
+                end
+            end,
+            i = function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif vim.fn["vsnip#available"](1) == 1 then
+                    feedkey("<Plug>(vsnip-expand-or-jump)", "")
+                    --[[ elseif has_words_before() then
 				cmp.complete() ]]
-            elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable() then
-                feedkey("<CMD>lua require('neogen').jump_next()<CR>", "")
-            else
-                fallback()
-            end
-        end, {
-            "i",
-            "c",
+                elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable() then
+                    feedkey("<CMD>lua require('neogen').jump_next()<CR>", "")
+                else
+                    fallback()
+                end
+            end,
+            s = function(fallback)
+                if vim.fn["vsnip#available"](1) == 1 then
+                    feedkey("<Plug>(vsnip-expand-or-jump)", "")
+                else
+                    fallback()
+                end
+            end,
         })
 
         cmp.setup({
@@ -271,8 +297,8 @@ return {
                 }),
             },
             mapping = {
-                ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-                ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+                ["<C-p>"] = select_prev_item,
+                ["<C-n>"] = select_next_item,
                 ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
                 ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
