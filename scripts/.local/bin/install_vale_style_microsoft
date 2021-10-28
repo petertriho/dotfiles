@@ -11,7 +11,7 @@ DOWNLOAD_URL=$(grep "browser_download_url" "$RELEASE_INFO" | cut -d\" -f4)
 DOWNLOAD_DIR="/tmp/vale-microsoft"
 DOWNLOAD_ZIP="${DOWNLOAD_DIR}/Microsoft.zip"
 
-if [ ! -e "$VERSION_FILE" ] && eval "$(grep -q "$TAG_NAME" < "$VERSION_FILE")"; then
+if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
     rm -rf "$DOWNLOAD_DIR"
     mkdir -p "$DOWNLOAD_DIR"
 

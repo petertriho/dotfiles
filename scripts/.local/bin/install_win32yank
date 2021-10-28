@@ -14,7 +14,7 @@ DOWNLOAD_URL="https://github.com/equalsraf/win32yank/releases/download/${TAG_NAM
 DOWNLOAD_DIR="/tmp/win32yank"
 DOWNLOAD_ZIP="${DOWNLOAD_DIR}/win32yank.zip"
 
-if [ ! -e "$VERSION_FILE" ] && eval "$(grep -q "$TAG_NAME" < "$VERSION_FILE")"; then
+if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
     rm -rf "$DOWNLOAD_DIR"
     mkdir -p "$DOWNLOAD_DIR"
 
