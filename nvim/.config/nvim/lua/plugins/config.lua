@@ -196,7 +196,7 @@ return {
         vim.cmd("highlight CopilotSuggestion guifg=#565f89")
         vim.api.nvim_set_keymap(
             "i",
-            "<C-g>",
+            "<C-c>",
             "copilot#Accept()",
             { script = true, silent = true, nowait = true, expr = true }
         )
