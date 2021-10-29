@@ -451,15 +451,15 @@ return {
         vim.cmd("runtime macros/sandwich/keymap/surround.vim")
         local set_keymap = vim.api.nvim_set_keymap
 
-        set_keymap("x", "iS", "<Plug>(textobj-sandwich-query-i)", {})
-        set_keymap("x", "aS", "<Plug>(textobj-sandwich-query-a)", {})
-        set_keymap("o", "iS", "<Plug>(textobj-sandwich-query-i)", {})
-        set_keymap("o", "aS", "<Plug>(textobj-sandwich-query-a)", {})
+        set_keymap("x", "is", "<Plug>(textobj-sandwich-query-i)", {})
+        set_keymap("x", "as", "<Plug>(textobj-sandwich-query-a)", {})
+        set_keymap("o", "is", "<Plug>(textobj-sandwich-query-i)", {})
+        set_keymap("o", "as", "<Plug>(textobj-sandwich-query-a)", {})
 
-        set_keymap("x", "iSS", "<Plug>(textobj-sandwich-auto-i)", {})
-        set_keymap("x", "aSS", "<Plug>(textobj-sandwich-auto-a)", {})
-        set_keymap("o", "iSS", "<Plug>(textobj-sandwich-auto-i)", {})
-        set_keymap("o", "aSS", "<Plug>(textobj-sandwich-auto-a)", {})
+        set_keymap("x", "iss", "<Plug>(textobj-sandwich-auto-i)", {})
+        set_keymap("x", "ass", "<Plug>(textobj-sandwich-auto-a)", {})
+        set_keymap("o", "iss", "<Plug>(textobj-sandwich-auto-i)", {})
+        set_keymap("o", "ass", "<Plug>(textobj-sandwich-auto-a)", {})
 
         set_keymap("x", "im", "<Plug>(textobj-sandwich-literal-query-i)", {})
         set_keymap("x", "am", "<Plug>(textobj-sandwich-literal-query-a)", {})
@@ -636,12 +636,12 @@ return {
             fold = {
                 attach = function()
                     vim.cmd([[
-					setlocal foldmethod=expr
-					setlocal foldexpr=nvim_treesitter#foldexpr()
-					setlocal foldminlines=1
-					setlocal foldnestmax=3
-					setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)).'\ ('.(v:foldend-v:foldstart+1).'\ lines)'
-					setlocal foldlevel=3
+                    setlocal foldmethod=expr
+                    setlocal foldexpr=nvim_treesitter#foldexpr()
+                    setlocal foldminlines=1
+                    setlocal foldnestmax=3
+                    setlocal foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)).'\ ('.(v:foldend-v:foldstart+1).'\ lines)'
+                    setlocal foldlevel=3
                     ]])
                 end,
                 detach = function() end,
