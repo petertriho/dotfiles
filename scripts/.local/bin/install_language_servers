@@ -66,8 +66,8 @@ function main {
         yarn global add yaml-language-server
     fi
 
-    if ! command -v sumneko-lua-language-server &> /dev/null; then
-        install_sumneko_lua_language_server
+    if ! command -v lua-language-server &> /dev/null; then
+        install_lua_language_server
     fi
 
     asdf reshim
