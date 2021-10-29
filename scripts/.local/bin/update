@@ -126,8 +126,8 @@ function tool:misc {
     echo "Updating vale styles ..."
     install_vale_style_microsoft
 
-    echo "Updating sumneko-lua ..."
-    install_sumneko_lua_language_server
+    echo "Updating lua-language-server ..."
+    install_lua_language_server
 }
 
 function tool:win32yank {
