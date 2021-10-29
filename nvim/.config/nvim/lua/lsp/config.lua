@@ -272,7 +272,7 @@ return {
     prismals = {},
     pyright = {},
     sumneko_lua = {
-        cmd = { "sumneko-lua-language-server" },
+        cmd = { "lua-language-server" },
     },
     tailwindcss = {
         settings = {
