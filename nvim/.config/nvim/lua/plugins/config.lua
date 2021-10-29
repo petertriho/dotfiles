@@ -343,11 +343,11 @@ return {
         })
 
         cmp.setup.cmdline(":", {
-            sources = cmp.config.sources({
+            sources = {
                 { name = "path" },
-            }, {
                 { name = "cmdline" },
-            }),
+                { name = "buffer" },
+            },
         })
     end,
     ["hrsh7th/vim-vsnip"] = function()
