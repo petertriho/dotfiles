@@ -84,21 +84,7 @@ end
 
 local function make_base_config()
     local capabilities = lsp_status.capabilities
-    local completionItem = capabilities.textDocument.completion.completionItem
-    completionItem.snippetSupport = true
-    completionItem.preselectSupport = true
-    completionItem.insertReplaceSupport = true
-    completionItem.labelDetailsSupport = true
-    completionItem.deprecatedSupport = true
-    completionItem.commitCharactersSupport = true
-    completionItem.tagSupport = { valueSet = { 1 } }
-    completionItem.resolveSupport = {
-        properties = {
-            "documentation",
-            "detail",
-            "additionalTextEdits",
-        },
-    }
+    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
     capabilities.textDocument.colorProvider = { dynamicRegistration = false }
     return {
         capabilities = capabilities,
