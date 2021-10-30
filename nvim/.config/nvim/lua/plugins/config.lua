@@ -192,12 +192,12 @@ return {
         })
     end,
     ["github/copilot.vim"] = function()
-        vim.g.copilot_no_maps = 1
+        vim.g.copilot_no_tab_map = true
         vim.cmd("highlight CopilotSuggestion guifg=#565f89")
         vim.api.nvim_set_keymap(
             "i",
             "<C-c>",
-            "copilot#Accept()",
+            "copilot#Accept('<C-c>')",
             { script = true, silent = true, nowait = true, expr = true }
         )
     end,
