@@ -24,7 +24,6 @@ local opt = vim.opt
 opt.clipboard = "unnamedplus"
 opt.colorcolumn = "80"
 opt.cursorline = true
-opt.errorbells = false
 opt.expandtab = true
 opt.fillchars = {
     fold = " ",
@@ -62,7 +61,6 @@ opt.titlestring = "nvim %t %M (%F)"
 opt.ttimeout = false
 opt.ttimeoutlen = 0
 opt.updatetime = 100
-opt.visualbell = false
 opt.wildignore = {
     "*.o",
     "*.pyc",
