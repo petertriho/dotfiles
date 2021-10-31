@@ -143,6 +143,7 @@ return {
                     end,
                 },
                 ["<C-x>"] = { action = z_utils.create_basic_command("split") },
+                ["<C-v>"] = { action = z_utils.create_basic_command("vsplit") },
             },
         })
     end,
