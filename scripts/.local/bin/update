@@ -120,7 +120,7 @@ function tool:misc {
     echo "Installing language servers ..."
     install_language_servers
 
-    echo "Installing missing formatters and linters ..."
+    echo "Installing formatters and linters ..."
     install_formatters_linters
 
     echo "Updating vale styles ..."
