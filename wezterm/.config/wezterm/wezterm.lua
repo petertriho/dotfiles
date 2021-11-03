@@ -36,7 +36,7 @@ local config = {
         { mods = "LEADER", key = "s", action = "ActivateLastTab" },
         { mods = "LEADER", key = "x", action = wezterm.action({ CloseCurrentPane = { confirm = false } }) },
         { mods = "LEADER", key = "z", action = "TogglePaneZoomState" },
-        { mods = "LEADER|CTRL", key = "s", action = wezterm.action({ SendString = "\x13" }) },
+        { mods = "LEADER|CTRL", key = "b", action = wezterm.action({ SendString = "\x02" }) },
         { mods = "LEADER|SHIFT", key = "&", action = wezterm.action({ CloseCurrentTab = { confirm = false } }) },
         { mods = "LEADER|SHIFT", key = "H", action = wezterm.action({ AdjustPaneSize = { "Left", 5 } }) },
         { mods = "LEADER|SHIFT", key = "J", action = wezterm.action({ AdjustPaneSize = { "Down", 5 } }) },
