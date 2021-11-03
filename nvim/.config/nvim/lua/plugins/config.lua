@@ -291,7 +291,7 @@ return {
                         cmp_git = "[GIT]",
                         cmp_tabnine = "[TABNINE]",
                         fuzzy_path = "[FZ-PATH]",
-                        fzy_buffer = "[FZ-BUFFER]",
+                        fuzzy_buffer = "[FZ-BUFFER]",
                         nvim_lsp = "[LSP]",
                         path = "[PATH]",
                         tmux = "[TMUX]",
@@ -342,7 +342,7 @@ return {
         cmp.setup.cmdline("/", {
             sources = {
                 { name = "buffer" },
-                { name = "fzy_buffer" },
+                { name = "fuzzy_buffer" },
             },
         })
 
@@ -355,7 +355,7 @@ return {
                     opts = { fd_cmd = { "fd", "--max-depth", "20", "--hidden", "--exclude", ".git" } },
                 },
                 { name = "buffer" },
-                { name = "fzy_buffer" },
+                { name = "fuzzy_buffer" },
             },
         })
     end,

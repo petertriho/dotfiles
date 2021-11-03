@@ -75,8 +75,8 @@ require("packer").startup({
                 { "petertriho/cmp-git", config = config["petertriho/cmp-git"] },
                 { "tzachar/cmp-tabnine", run = "./install.sh" },
                 "tzachar/fuzzy.nvim",
+                "tzachar/cmp-fuzzy-buffer",
                 "tzachar/cmp-fuzzy-path",
-                "tzachar/cmp-fzy-buffer",
                 "rafamadriz/friendly-snippets",
             },
         })
