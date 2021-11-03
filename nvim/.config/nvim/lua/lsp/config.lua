@@ -268,7 +268,7 @@ return {
         },
     },
     ["null-ls"] = {},
-    ["rust_analyzer"] = {},
+    rust_analyzer = {},
     prismals = {},
     pyright = {},
     sumneko_lua = {
