@@ -303,7 +303,7 @@ return {
             mapping = {
                 ["<C-p>"] = select_prev_item,
                 ["<C-n>"] = select_next_item,
-                ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+                ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
                 ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<C-c>"] = cmp.mapping.close(),
