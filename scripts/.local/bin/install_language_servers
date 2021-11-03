@@ -24,7 +24,7 @@ function main {
     fi
 
     if ! command -v gopls &> /dev/null; then
-        GO111MODULE=on go get golang.org/x/tools/gopls@latest
+        GO111MODULE=on go install golang.org/x/tools/gopls@latest
     fi
 
     if ! command -v docker-langserver &> /dev/null; then
