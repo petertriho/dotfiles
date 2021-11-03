@@ -66,7 +66,7 @@ set_keymap("", "F", "<Plug>Lightspeed_F", {})
 set_keymap("", "t", "<Plug>Lightspeed_t", {})
 set_keymap("", "T", "<Plug>Lightspeed_T", {})
 
--- <space> keymaps
+-- Space keymaps
 vim.g.mapleader = " "
 
 local leader_keymaps = {
@@ -211,7 +211,7 @@ register(leader_visual_keymaps, {
     noremap = true,
 })
 
--- semicolon keymaps
+-- Semicolon keymaps
 local semicolon_keymaps = {
     [";"] = { "<CMD>Telescope find_files hidden=true<CR>", "find-files" },
     b = { "<CMD>Telescope buffers<CR>", "buffers" },
@@ -247,7 +247,7 @@ register(semicolon_keymaps, {
     noremap = true,
 })
 
--- comma keymaps
+-- Comma keymaps
 local comma_keymaps = {
     c = { "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", "code-actions" },
     d = { "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", "definitions" },
