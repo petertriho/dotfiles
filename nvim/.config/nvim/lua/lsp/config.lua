@@ -161,7 +161,9 @@ null_ls.config({
         -- python
         b.diagnostics.flake8,
         sources_formatting.autoflake,
-        b.formatting.isort,
+        b.formatting.isort.with({
+            extra_args = { "--profile", "black" },
+        }),
         b.formatting.black,
         -- shell
         b.diagnostics.shellcheck,
