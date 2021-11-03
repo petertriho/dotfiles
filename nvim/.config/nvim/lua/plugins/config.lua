@@ -290,6 +290,8 @@ return {
                         buffer = "[BUFFER]",
                         cmp_git = "[GIT]",
                         cmp_tabnine = "[TABNINE]",
+                        fuzzy_path = "[FZ-PATH]",
+                        fzy_buffer = "[FZ-BUFFER]",
                         nvim_lsp = "[LSP]",
                         path = "[PATH]",
                         tmux = "[TMUX]",
@@ -340,14 +342,20 @@ return {
         cmp.setup.cmdline("/", {
             sources = {
                 { name = "buffer" },
+                { name = "fzy_buffer" },
             },
         })
 
         cmp.setup.cmdline(":", {
             sources = {
-                { name = "path" },
                 { name = "cmdline" },
+                { name = "path" },
+                {
+                    name = "fuzzy_path",
+                    opts = { fd_cmd = { "fd", "--max-depth", "20", "--hidden", "--exclude", ".git" } },
+                },
                 { name = "buffer" },
+                { name = "fzy_buffer" },
             },
         })
     end,
@@ -590,9 +598,7 @@ return {
                 },
             },
         })
-    end,
-    ["nvim-telescope/telescope-fzf-native.nvim"] = function()
-        local telescope = require("telescope")
+
         telescope.load_extension("fzf")
     end,
     ["nvim-treesitter/nvim-treesitter"] = function()

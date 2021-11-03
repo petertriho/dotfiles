@@ -6,6 +6,10 @@ require("packer").startup({
 
         use("lewis6991/impatient.nvim")
         use("nvim-lua/plenary.nvim")
+        use({
+            "nvim-telescope/telescope-fzf-native.nvim",
+            run = "make",
+        })
 
         -- ui
         use("folke/tokyonight.nvim")
@@ -60,17 +64,20 @@ require("packer").startup({
             "hrsh7th/nvim-cmp",
             config = config["hrsh7th/nvim-cmp"],
             requires = {
-                { "hrsh7th/cmp-buffer" },
-                { "hrsh7th/cmp-cmdline" },
-                { "hrsh7th/cmp-nvim-lsp" },
-                { "hrsh7th/cmp-path" },
-                { "hrsh7th/cmp-vsnip" },
+                "hrsh7th/cmp-buffer",
+                "hrsh7th/cmp-cmdline",
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/cmp-path",
+                "hrsh7th/cmp-vsnip",
                 { "hrsh7th/vim-vsnip", setup = config["hrsh7th/vim-vsnip"] },
                 { "andersevenrud/compe-tmux", branch = "cmp" },
                 { "kristijanhusak/vim-dadbod-completion", requires = "tpope/vim-dadbod" },
                 { "petertriho/cmp-git", config = config["petertriho/cmp-git"] },
                 { "tzachar/cmp-tabnine", run = "./install.sh" },
-                { "rafamadriz/friendly-snippets" },
+                "tzachar/fuzzy.nvim",
+                "tzachar/cmp-fuzzy-path",
+                "tzachar/cmp-fzy-buffer",
+                "rafamadriz/friendly-snippets",
             },
         })
         use({
@@ -236,12 +243,6 @@ require("packer").startup({
             "nvim-telescope/telescope.nvim",
             requires = {
                 "nvim-lua/plenary.nvim",
-                {
-                    "nvim-telescope/telescope-fzf-native.nvim",
-                    config = config["nvim-telescope/telescope-fzf-native.nvim"],
-                    run = "make",
-                    after = "telescope.nvim",
-                },
             },
             config = config["nvim-telescope/telescope.nvim"],
             cmd = "Telescope",
