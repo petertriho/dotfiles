@@ -224,7 +224,7 @@ local semicolon_keymaps = {
     f = { "<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files-all" },
     g = { ":call ToggleNeogitStatus()<CR>", "git-status" },
     l = { "<CMD>LLToggle<CR>", "loc-list-toggle" },
-    m = { "<CMD>Glow<CR>", "markdown-preview" },
+    m = { "<Plug>MarkdownPreviewToggle", "markdown-preview" },
     o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
     p = { "<CMD>lua require('telescope').extensions.project.project({})<CR>", "project" },
     q = { "<CMD>QFToggle<CR>", "qf-list-toggle" },

@@ -289,11 +289,6 @@ require("packer").startup({
             setup = config["chumakd/scratch.vim"],
             cmd = "ScratchPreview",
         })
-        use({
-            "ellisonleao/glow.nvim",
-            run = "GlowInstall",
-            cmd = { "Glow", "GlowInstall" },
-        })
         use("folke/which-key.nvim")
         use({
             "folke/trouble.nvim",
@@ -313,6 +308,11 @@ require("packer").startup({
             cmd = "ZenMode",
         })
         use({ "gabrielpoca/replacer.nvim", module = "replacer" })
+        use({
+            "iamcco/markdown-preview.nvim",
+            run = ":call mkdp#util#install()",
+            ft = { "markdown", "packer", "vimwiki" },
+        })
         use({
             "kristijanhusak/vim-dadbod-ui",
             requires = "tpope/vim-dadbod",
