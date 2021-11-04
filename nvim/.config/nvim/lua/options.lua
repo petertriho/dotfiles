@@ -34,7 +34,6 @@ opt.fillchars = {
 }
 opt.hidden = true
 opt.ignorecase = true
-opt.inccommand = "nosplit"
 opt.lazyredraw = true
 opt.mouse = "a"
 opt.number = true
