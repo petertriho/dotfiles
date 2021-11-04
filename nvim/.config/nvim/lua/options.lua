@@ -110,7 +110,7 @@ if vim.fn.has("persistent_undo") == 1 then
     local target_path = vim.fn.expand("~/.undodir")
 
     if vim.fn.isdirectory(target_path) ~= 1 then
-        vim.fn.mkdir(target_path, "p", 0700)
+        vim.fn.mkdir(target_path, "p", "0700")
     end
 
     opt.undodir = target_path
