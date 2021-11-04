@@ -309,7 +309,7 @@ return {
                 ["<C-c>"] = cmp.mapping.close(),
                 ["<CR>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
-                    select = true,
+                    select = false,
                 }),
                 ["<C-k>"] = select_prev_item,
                 ["<C-j>"] = select_next_item,
