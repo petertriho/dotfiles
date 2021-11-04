@@ -18,12 +18,12 @@ local on_attach = function(client, bufnr)
     if client.name == "null-ls" then
         client.resolved_capabilities.code_action = false
     elseif client.name == "pyright" then
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":PyrightOrganizeImports<CR>", opts)
+        buf_set_keymap("n", "<Leader>o", ":PyrightOrganizeImports<CR>", opts)
     elseif client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
 
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>o", ":TSServerOrganizeImports<CR>", opts)
+        buf_set_keymap("n", "<Leader>o", ":TSServerOrganizeImports<CR>", opts)
     end
 
     buf_set_keymap(
@@ -89,7 +89,7 @@ local function make_base_config()
     return {
         capabilities = capabilities,
         on_attach = on_attach,
-        flags = { allow_incremental_sync = true, debounce_text_changes = 500 },
+        flags = { allow_incremental_sync = true, debounce_text_changes = 300 },
     }
 end
 
