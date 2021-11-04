@@ -280,9 +280,6 @@ return {
                 border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
                 winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
             },
-            experimental = {
-                ghost_text = false,
-            },
             formatting = {
                 format = require("lspkind").cmp_format({
                     with_text = true,
@@ -301,20 +298,20 @@ return {
                 }),
             },
             mapping = {
-                ["<C-p>"] = select_prev_item,
+                ["<C-j>"] = select_next_item,
+                ["<C-k>"] = select_prev_item,
                 ["<C-n>"] = select_next_item,
-                ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-                ["<C-c>"] = cmp.mapping.close(),
+                ["<C-p>"] = select_prev_item,
+                ["<Tab>"] = select_next_item,
+                ["<S-Tab>"] = select_prev_item,
+                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "c", "i" }),
+                ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "c", "i" }),
+                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "c", "i" }),
+                ["<C-c>"] = cmp.mapping(cmp.mapping.close(), { "c", "i" }),
                 ["<CR>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = false,
                 }),
-                ["<C-k>"] = select_prev_item,
-                ["<C-j>"] = select_next_item,
-                ["<S-Tab>"] = select_prev_item,
-                ["<Tab>"] = select_next_item,
             },
             snippet = {
                 expand = function(args)

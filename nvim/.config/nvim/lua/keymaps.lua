@@ -2,12 +2,12 @@ local set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Buffers
-set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
 set_keymap("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
+set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
 
 -- Tabs
-set_keymap("n", "<M-p>", ":tabprevious<CR>", opts)
 set_keymap("n", "<M-n>", ":tabnext<CR>", opts)
+set_keymap("n", "<M-p>", ":tabprevious<CR>", opts)
 
 -- Windows: Navigation
 set_keymap("", "<C-j>", "<C-w>j", {})
@@ -17,8 +17,8 @@ set_keymap("", "<C-l>", "<C-w>l", {})
 set_keymap("", "<C-\\>", "<C-w>p", {})
 
 -- Windows: Resize
-set_keymap("n", "<M-k>", ":resize -2<CR>", opts)
 set_keymap("n", "<M-j>", ":resize +2<CR>", opts)
+set_keymap("n", "<M-k>", ":resize -2<CR>", opts)
 set_keymap("n", "<M-h>", ":vertical resize -2<CR>", opts)
 set_keymap("n", "<M-l>", ":vertical resize +2<CR>", opts)
 set_keymap("", "<M-=>", "<C-w>=", {})
@@ -28,16 +28,16 @@ set_keymap("n", "<C-w><C-m>", ":call WindowSwap#EasyWindowSwap()<CR>", opts)
 set_keymap("n", "<C-w>m", ":call WindowSwap#EasyWindowSwap()<CR>", opts)
 set_keymap("n", "<C-w><C-e>", "<CMD>WinShift<CR>", opts)
 set_keymap("n", "<C-w>e", "<CMD>WinShift<CR>", opts)
-set_keymap("n", "<C-M-h>", "<CMD>WinShift left<CR>", opts)
 set_keymap("n", "<C-M-j>", "<CMD>WinShift down<CR>", opts)
 set_keymap("n", "<C-M-k>", "<CMD>WinShift up<CR>", opts)
+set_keymap("n", "<C-M-h>", "<CMD>WinShift left<CR>", opts)
 set_keymap("n", "<C-M-l>", "<CMD>WinShift right<CR>", opts)
 
 -- Move lines
-set_keymap("n", "<M-u>", ":m .-2<CR>==", opts)
 set_keymap("n", "<M-d>", ":m .+1<CR>==", opts)
-set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", opts)
+set_keymap("n", "<M-u>", ":m .-2<CR>==", opts)
 set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", opts)
+set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", opts)
 
 set_keymap("", "<C-a>", "<Plug>(dial-increment)", {})
 set_keymap("", "<C-x>", "<Plug>(dial-decrement)", {})
