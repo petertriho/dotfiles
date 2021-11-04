@@ -707,6 +707,9 @@ return {
             },
         })
     end,
+    ["pechorin/any-jump.vim"] = function()
+        vim.g.any_jump_disable_default_keybindings = 1
+    end,
     ["petertriho/cmp-git"] = function()
         require("cmp_git").setup()
     end,

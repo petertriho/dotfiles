@@ -252,6 +252,8 @@ register(semicolon_keymaps, {
 
 -- Comma keymaps
 local comma_keymaps = {
+    a = { "<CMD>AnyJumpLastResults", "jump-again" },
+    b = { "<CMD>AnyJumpBack<CR>", "jump-back" },
     c = { "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", "code-actions" },
     d = { "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", "definitions" },
     e = {
@@ -260,6 +262,7 @@ local comma_keymaps = {
         w = { "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", "workspace" },
     },
     i = { "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", "implementations" },
+    j = { "<CMD>AnyJump<CR>", "jump-any" },
     l = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "loclist-diagnostics" },
     q = { "<CMD>lua vim.diagnostic.setqflist()<CR>", "qflist-diagnostics" },
     r = { "<CMD>lua require('telescope.builtin').lsp_references()<CR>", "references" },
@@ -273,6 +276,7 @@ local comma_keymaps = {
 
 local comma_visual_keymaps = {
     c = { "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", "code-actions" },
+    j = { "<CMD>AnyJumpVisual<CR>", "jump-any" },
 }
 
 register(comma_keymaps, {
