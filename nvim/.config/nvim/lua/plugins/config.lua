@@ -531,11 +531,11 @@ return {
             overrides = {
                 extension = {
                     dockerfile = "dockerfile",
-                    prettierrc = "jsonc",
                     prisma = "prisma",
                 },
                 literal = {
                     [".env"] = "conf",
+                    [".prettierrc"] = "jsonc",
                 },
                 complex = {
                     [".*%.env.*"] = "conf",
