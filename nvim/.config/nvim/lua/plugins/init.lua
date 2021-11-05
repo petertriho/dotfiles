@@ -4,6 +4,7 @@ require("packer").startup({
     function(use)
         use("wbthomason/packer.nvim")
 
+        -- core
         use("lewis6991/impatient.nvim")
         use("nvim-lua/plenary.nvim")
         use({
@@ -404,7 +405,7 @@ require("packer").startup({
             "antoinemadec/FixCursorHold.nvim",
             setup = config["antoinemadec/FixCursorHold.nvim"],
         })
-        use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
+        use({ "tweekmonster/startuptime.vim", cmd = "StartupTime" })
         use({
             "chentau/marks.nvim",
             config = config["chentau/marks.nvim"],
