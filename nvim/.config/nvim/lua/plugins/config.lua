@@ -538,8 +538,7 @@ return {
                     [".env"] = "conf",
                 },
                 complex = {
-                    [".env.*"] = "conf",
-                    ["*.env.*"] = "conf",
+                    [".*%.env.*"] = "conf",
                 },
             },
         })
