@@ -4,14 +4,6 @@ require("packer").startup({
     function(use)
         use("wbthomason/packer.nvim")
 
-        -- core
-        use("lewis6991/impatient.nvim")
-        use("nvim-lua/plenary.nvim")
-        use({
-            "nvim-telescope/telescope-fzf-native.nvim",
-            run = "make",
-        })
-
         -- ui
         use("folke/tokyonight.nvim")
         use({
@@ -427,6 +419,12 @@ require("packer").startup({
         use({
             "kwkarlwang/bufjump.nvim",
             config = config["kwkarlwang/bufjump.nvim"],
+        })
+        use("lewis6991/impatient.nvim")
+        use("nvim-lua/plenary.nvim")
+        use({
+            "nvim-telescope/telescope-fzf-native.nvim",
+            run = "make",
         })
         use("ryvnf/readline.vim")
         use({
