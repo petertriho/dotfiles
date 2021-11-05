@@ -359,7 +359,7 @@ require("packer").startup({
             },
             module = "diffview",
         })
-        use({ "skywind3000/asyncrun.vim", cmd = "AsyncRun" })
+        use({ "skywind3000/asyncrun.vim", cmd = { "Make", "AsyncRun" } })
         use({
             "TimUntersberger/neogit",
             requires = {
