@@ -1,5 +1,7 @@
 -- disable plugins
 local g = vim.g
+g.did_load_filetypes = 1
+
 g.loaded_gzip = 1
 g.loaded_tar = 1
 g.loaded_tarPlugin = 1

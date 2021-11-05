@@ -118,6 +118,7 @@ require("packer").startup({
             setup = config["luochen1990/rainbow"],
             opt = true,
         })
+        use({ "nathom/filetype.nvim", config = config["nathom/filetype.nvim"] })
         use({
             "plasticboy/vim-markdown",
             requires = "godlygeek/tabular",
@@ -126,7 +127,6 @@ require("packer").startup({
             ft = { "markdown", "vimwiki" },
         })
         use({ "rrethy/vim-hexokinase", run = "make hexokinase", opt = true })
-        use({ "sheerun/vim-polyglot", setup = config["sheerun/vim-polyglot"] })
 
         -- treesitter
         use({

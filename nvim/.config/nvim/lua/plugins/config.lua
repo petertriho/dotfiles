@@ -524,6 +524,21 @@ return {
         augroup END
         ]])
     end,
+    ["nathom/filetype.nvim"] = function()
+        require("filetype").setup({
+            overrides = {
+                extension = {
+                    dockerfile = "dockerfile",
+                    env = "conf",
+                    prettierrc = "jsonc",
+                    prisma = "prisma",
+                },
+                complex = {
+                    ["*.env.*"] = "conf",
+                },
+            },
+        })
+    end,
     ["numToStr/Comment.nvim"] = function()
         require("Comment").setup({
             pre_hook = function()
@@ -814,32 +829,6 @@ return {
                 },
             },
         })
-    end,
-    ["sheerun/vim-polyglot"] = function()
-        vim.g.polyglot_disabled = {
-            "autoindent",
-            "sensible",
-            "css.plugin",
-            "dockerfile.plugin",
-            "fish.plugin",
-            "go.plugin",
-            "graphql.plugin",
-            "html5.plugin",
-            "javascript.plugin",
-            "javascriptreact.plugin",
-            "json.plugin",
-            "jsonc.plugin",
-            "jsx.plugin",
-            "lua.plugin",
-            "python.plugin",
-            "rust.plugin",
-            "scss.plugin",
-            "sh.plugin",
-            "toml.plugin",
-            "typescript.plugin",
-            "typescriptreact.plugin",
-            "yaml.plugin",
-        }
     end,
     ["sindrets/diffview.nvim"] = function()
         require("diffview").setup()
