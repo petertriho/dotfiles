@@ -66,27 +66,45 @@ require("packer").startup({
         use({
             "hrsh7th/nvim-cmp",
             config = config["hrsh7th/nvim-cmp"],
-            requires = {
-                "hrsh7th/cmp-buffer",
-                "hrsh7th/cmp-cmdline",
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-path",
-                "hrsh7th/cmp-vsnip",
-                { "hrsh7th/vim-vsnip", setup = config["hrsh7th/vim-vsnip"] },
-                { "andersevenrud/compe-tmux", branch = "cmp" },
-                { "kristijanhusak/vim-dadbod-completion", requires = "tpope/vim-dadbod" },
-                { "petertriho/cmp-git", config = config["petertriho/cmp-git"] },
-                { "tzachar/cmp-tabnine", run = "./install.sh" },
-                "tzachar/fuzzy.nvim",
-                "tzachar/cmp-fuzzy-buffer",
-                "tzachar/cmp-fuzzy-path",
-                "rafamadriz/friendly-snippets",
-            },
+            event = { "CmdlineEnter", "InsertEnter" },
+        })
+        use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+        use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+        use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+        use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+        use({ "hrsh7th/cmp-vsnip", after = "nvim-cmp" })
+        use({
+            "hrsh7th/vim-vsnip",
+            setup = config["hrsh7th/vim-vsnip"],
+            after = "nvim-cmp",
+        })
+        use({ "andersevenrud/compe-tmux", branch = "cmp", after = "nvim-cmp" })
+        use({
+            "kristijanhusak/vim-dadbod-completion",
+            requires = "tpope/vim-dadbod",
+            after = "nvim-cmp",
         })
         use({
             "onsails/lspkind-nvim",
             module = "lspkind",
         })
+        use({
+            "petertriho/cmp-git",
+            config = config["petertriho/cmp-git"],
+            after = "nvim-cmp",
+        })
+        use({ "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" })
+        use({
+            "tzachar/cmp-fuzzy-buffer",
+            requires = "tzachar/fuzzy.nvim",
+            after = "nvim-cmp",
+        })
+        use({
+            "tzachar/cmp-fuzzy-path",
+            requires = "tzachar/fuzzy.nvim",
+            after = { "nvim-cmp", "cmp-path" },
+        })
+        use({ "rafamadriz/friendly-snippets", after = "nvim-cmp" })
 
         -- language
         use({
@@ -397,11 +415,11 @@ require("packer").startup({
             "antoinemadec/FixCursorHold.nvim",
             setup = config["antoinemadec/FixCursorHold.nvim"],
         })
-        use({ "tweekmonster/startuptime.vim", cmd = "StartupTime" })
         use({
             "chentau/marks.nvim",
             config = config["chentau/marks.nvim"],
         })
+        use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
         use({
             "editorconfig/editorconfig-vim",
             setup = config["editorconfig/editorconfig-vim"],
