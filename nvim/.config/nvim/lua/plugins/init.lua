@@ -459,6 +459,7 @@ require("packer").startup({
             module = "qf_helper",
         })
         use("tpope/vim-repeat")
+        use({ "tpope/vim-unimpaired", keys = { "[", "]" } })
         use({
             "wesQ3/vim-windowswap",
             setup = config["wesQ3/vim-windowswap"],
