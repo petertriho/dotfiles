@@ -431,10 +431,7 @@ require("packer").startup({
             config = config["kazhala/close-buffers.nvim"],
             cmd = { "BDelete", "BWipeout" },
         })
-        use({
-            "kevinhwang91/nvim-hlslens",
-            config = config["kevinhwang91/nvim-hlslens"],
-        })
+        use({ "kevinhwang91/nvim-hlslens", module = "hlslens" })
         use({
             "kwkarlwang/bufjump.nvim",
             config = config["kwkarlwang/bufjump.nvim"],

@@ -150,27 +150,6 @@ return {
     ["kazhala/close-buffers.nvim"] = function()
         require("close_buffers").setup()
     end,
-    ["kevinhwang91/nvim-hlslens"] = function()
-        local set_keymap = vim.api.nvim_set_keymap
-        local opts = { noremap = true, silent = true }
-
-        set_keymap(
-            "n",
-            "n",
-            "<CMD>execute('normal! ' . v:count1 . 'n')<CR><CMD>lua require('hlslens').start()<CR>",
-            opts
-        )
-        set_keymap(
-            "n",
-            "N",
-            "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua require('hlslens').start()<CR>",
-            opts
-        )
-        set_keymap("n", "*", "*<CMD>lua require('hlslens').start()<CR>", opts)
-        set_keymap("n", "#", "#<CMD>lua require('hlslens').start()<CR>", opts)
-        set_keymap("n", "g*", "g*<CMD>lua require('hlslens').start()<CR>", opts)
-        set_keymap("n", "g#", "g#<CMD>lua require('hlslens').start()<CR>", opts)
-    end,
     ["kristijanhusak/vim-dadbod-ui"] = function()
         vim.g.db_ui_show_database_icon = 1
         vim.g.db_ui_use_nerd_fonts = 1
@@ -483,7 +462,6 @@ return {
         vim.g.VM_Cursor_hl = "Visual"
         vim.g.VM_Insert_hl = "DiffChange"
 
-        local hlslens = require("hlslens")
         local config
         local lens_backup
 
@@ -503,6 +481,7 @@ return {
         end
 
         function _G.vmlens_start()
+            local hlslens = require("hlslens")
             if hlslens then
                 config = require("hlslens.config")
                 lens_backup = config.override_lens
@@ -512,6 +491,7 @@ return {
         end
 
         function _G.vmlens_exit()
+            local hlslens = require("hlslens")
             if hlslens then
                 config.override_lens = lens_backup
                 hlslens.start()
@@ -550,9 +530,8 @@ return {
             end,
         })
 
-        local set_keymap = vim.api.nvim_set_keymap
-        set_keymap("n", "<Leader>/", "gcc", {})
-        set_keymap("v", "<Leader>/", "gc", {})
+        vim.api.nvim_set_keymap("n", "<Leader>/", "gcc", {})
+        vim.api.nvim_set_keymap("v", "<Leader>/", "gc", {})
     end,
     ["nvim-telescope/telescope.nvim"] = function()
         local telescope = require("telescope")

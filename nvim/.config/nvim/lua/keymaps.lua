@@ -54,6 +54,14 @@ set_keymap("o", "il", ":norm vil<CR>", opts)
 set_keymap("n", "<C-n>", "<CMD>QNext<CR>", opts)
 set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", opts)
 
+-- Hlslens
+set_keymap("n", "n", "<CMD>execute('normal! ' . v:count1 . 'n')<CR><CMD>lua require('hlslens').start()<CR>", opts)
+set_keymap("n", "N", "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua require('hlslens').start()<CR>", opts)
+set_keymap("n", "*", "*<CMD>lua require('hlslens').start()<CR>", opts)
+set_keymap("n", "#", "#<CMD>lua require('hlslens').start()<CR>", opts)
+set_keymap("n", "g*", "g*<CMD>lua require('hlslens').start()<CR>", opts)
+set_keymap("n", "g#", "g#<CMD>lua require('hlslens').start()<CR>", opts)
+
 -- Lightspeed
 set_keymap("n", "s", "<Plug>Lightspeed_s", {})
 set_keymap("n", "S", "<Plug>Lightspeed_S", {})
