@@ -53,8 +53,8 @@ if status is-interactive
         "--bind 'ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up'" \
         "--bind 'alt-a:select-all,alt-d:deselect-all'" \
         "--color=dark" \
-        "--color=fg:-1,bg:-1,hl:#bb9af7,fg+:#c0caf5,bg+:#292e42,hl+:#414868" \
-        "--color=info:#9ece6a,prompt:#7aa2f7,pointer:#f7768e,marker:#e0af68,spinner:#7dcfff,header:#7dcfff"
+        "--color=fg:-1,bg:-1,hl:5,fg+:7,bg+:8,hl+:5" \
+        "--color=info:4,prompt:2,pointer:2,marker:1,spinner:3,header:6"
     set -gx FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
 
     set -g fzf_fd_opts --hidden --exclude .git
