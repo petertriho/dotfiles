@@ -435,6 +435,10 @@ require("packer").startup({
         use({
             "kwkarlwang/bufjump.nvim",
             config = config["kwkarlwang/bufjump.nvim"],
+            keys = {
+                "<M-i>",
+                "<M-o>",
+            },
         })
         use("lewis6991/impatient.nvim")
         use("nvim-lua/plenary.nvim")

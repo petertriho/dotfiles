@@ -169,8 +169,8 @@ return {
     end,
     ["kwkarlwang/bufjump.nvim"] = function()
         require("bufjump").setup({
-            forward = "<M-o>",
-            backward = "<M-i>",
+            forward = "<M-i>",
+            backward = "<M-o>",
         })
     end,
     ["github/copilot.vim"] = function()
