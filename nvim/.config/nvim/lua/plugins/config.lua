@@ -834,6 +834,33 @@ return {
             },
         })
     end,
+    ["sheerun/vim-polyglot"] = function()
+        vim.g.polyglot_disabled = {
+            "autoindent",
+            "ftdetect",
+            "sensible",
+            "css",
+            "dockerfile",
+            "fish",
+            "go",
+            "graphql",
+            "html5",
+            "javascript",
+            "javascriptreact",
+            "json",
+            "jsonc",
+            "jsx",
+            "lua",
+            "python",
+            "rust",
+            "scss",
+            "sh",
+            "toml",
+            "typescript",
+            "typescriptreact",
+            "yaml",
+        }
+    end,
     ["sindrets/diffview.nvim"] = function()
         require("diffview").setup()
     end,

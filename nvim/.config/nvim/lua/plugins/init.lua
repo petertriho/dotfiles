@@ -137,6 +137,7 @@ require("packer").startup({
             ft = { "markdown", "vimwiki" },
         })
         use({ "rrethy/vim-hexokinase", run = "make hexokinase", opt = true })
+        use({ "sheerun/vim-polyglot", setup = config["sheerun/vim-polyglot"] })
 
         -- treesitter
         use({
