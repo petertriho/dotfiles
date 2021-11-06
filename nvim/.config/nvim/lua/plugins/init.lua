@@ -446,7 +446,7 @@ require("packer").startup({
             "nvim-telescope/telescope-fzf-native.nvim",
             run = "make",
         })
-        use("ryvnf/readline.vim")
+        use({ "ryvnf/readline.vim", event = { "CmdlineEnter" } })
         use({
             "sindrets/winshift.nvim",
             config = config["sindrets/winshift.nvim"],
@@ -467,6 +467,7 @@ require("packer").startup({
             "winston0410/range-highlight.nvim",
             requires = "winston0410/cmd-parser.nvim",
             config = config["winston0410/range-highlight.nvim"],
+            event = { "CmdlineEnter" },
         })
     end,
     config = {
