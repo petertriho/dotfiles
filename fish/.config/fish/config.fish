@@ -56,6 +56,7 @@ if status is-interactive
         "--color=border:7,fg:-1,bg:-1,hl:5,fg+:7,bg+:8,hl+:5" \
         "--color=info:6,prompt:2,pointer:2,marker:3,spinner:1,header:4"
     set -gx FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
+    set -gx FORGIT_LOG_GRAPH_ENABLE true
 
     set -g fzf_fd_opts --hidden --exclude .git
 
