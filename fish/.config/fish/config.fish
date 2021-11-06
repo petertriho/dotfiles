@@ -49,10 +49,8 @@ if status is-interactive
         --cycle \
         --reverse \
         "--height '80%'" \
-        "--bind '?:toggle-preview'" \
         "--bind 'ctrl-space:toggle-preview'" \
         "--bind 'ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up'" \
-        "--bind 'alt-j:preview-down,alt-k:preview-up'" \
         "--bind 'alt-a:select-all,alt-d:deselect-all'" \
         "--color=dark" \
         "--color=fg:-1,bg:-1,hl:#bb9af7,fg+:#c0caf5,bg+:#292e42,hl+:#414868" \
