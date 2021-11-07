@@ -344,24 +344,6 @@ return {
             typescriptreact = { "javascript" },
         }
     end,
-    ["ixru/vim-markdown"] = function()
-        local fences = {
-            "bash=sh",
-            "console=sh",
-            "javascript",
-            "js=javascript",
-            "json",
-            "lua",
-            "python",
-            "sh",
-            "shell=sh",
-            "ts=typescript",
-            "typescript",
-            "viml=vim",
-        }
-        vim.g.vim_markdown_fenced_languages = fences
-        vim.g.vim_markdown_frontmatter = 1
-    end,
     ["lewis6991/gitsigns.nvim"] = function()
         require("gitsigns").setup({
             signs = {

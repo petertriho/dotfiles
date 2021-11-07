@@ -108,13 +108,6 @@ require("packer").startup({
 
         -- language
         use({
-            "ixru/nvim-markdown",
-            requires = "godlygeek/tabular",
-            setup = config["ixru/vim-markdown"],
-            opt = true,
-            ft = { "markdown", "vimwiki" },
-        })
-        use({
             "folke/todo-comments.nvim",
             requires = "nvim-lua/plenary.nvim",
             config = config["folke/todo-comments.nvim"],
