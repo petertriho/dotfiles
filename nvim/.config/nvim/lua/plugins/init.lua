@@ -108,6 +108,13 @@ require("packer").startup({
 
         -- language
         use({
+            "ixru/nvim-markdown",
+            requires = "godlygeek/tabular",
+            setup = config["ixru/vim-markdown"],
+            opt = true,
+            ft = { "markdown", "vimwiki" },
+        })
+        use({
             "folke/todo-comments.nvim",
             requires = "nvim-lua/plenary.nvim",
             config = config["folke/todo-comments.nvim"],
@@ -129,13 +136,6 @@ require("packer").startup({
             opt = true,
         })
         use({ "nathom/filetype.nvim", config = config["nathom/filetype.nvim"] })
-        use({
-            "plasticboy/vim-markdown",
-            requires = "godlygeek/tabular",
-            setup = config["plasticboy/vim-markdown"],
-            opt = true,
-            ft = { "markdown", "vimwiki" },
-        })
         use({ "rrethy/vim-hexokinase", run = "make hexokinase", opt = true })
         use({ "sheerun/vim-polyglot", setup = config["sheerun/vim-polyglot"] })
 

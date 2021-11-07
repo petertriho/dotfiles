@@ -344,6 +344,24 @@ return {
             typescriptreact = { "javascript" },
         }
     end,
+    ["ixru/vim-markdown"] = function()
+        local fences = {
+            "bash=sh",
+            "console=sh",
+            "javascript",
+            "js=javascript",
+            "json",
+            "lua",
+            "python",
+            "sh",
+            "shell=sh",
+            "ts=typescript",
+            "typescript",
+            "viml=vim",
+        }
+        vim.g.vim_markdown_fenced_languages = fences
+        vim.g.vim_markdown_frontmatter = 1
+    end,
     ["lewis6991/gitsigns.nvim"] = function()
         require("gitsigns").setup({
             signs = {
@@ -707,27 +725,6 @@ return {
     end,
     ["petertriho/cmp-git"] = function()
         require("cmp_git").setup()
-    end,
-    ["plasticboy/vim-markdown"] = function()
-        local fences = {
-            "console=sh",
-            "javascript",
-            "js=javascript",
-            "json",
-            "lua",
-            "python",
-            "sh",
-            "shell=sh",
-            "ts=typescript",
-            "typescript",
-            "viml=vim",
-        }
-        vim.g.vim_markdown_folding_level = 10
-        vim.g.vim_markdown_fenced_languages = fences
-        vim.g.vim_markdown_folding_style_pythonic = 1
-        vim.g.vim_markdown_conceal_code_blocks = 1
-        vim.g.vim_markdown_frontmatter = 1
-        vim.g.vim_markdown_strikethrough = 1
     end,
     ["p00f/nvim-ts-rainbow"] = function()
         local colors = require("tokyonight.colors").setup()
