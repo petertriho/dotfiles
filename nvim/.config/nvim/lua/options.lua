@@ -34,7 +34,6 @@ opt.fillchars = {
     msgsep = "‾",
     diff = "╱",
 }
-opt.hidden = true
 opt.ignorecase = true
 opt.lazyredraw = true
 opt.mouse = "a"
