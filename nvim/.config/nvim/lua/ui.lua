@@ -1,7 +1,16 @@
 -- folke/tokyonight.nvim
 vim.g.tokyonight_style = "night"
-vim.g.tokyonight_sidebars = { "Mundo", "MundoDiff", "DiffViewFiles", "dbui" }
-vim.g.tokyonight_colors = { bg_sidebar = "#16161e", bg_float = "#16161e", border_highlight = "#565f89" }
+vim.g.tokyonight_sidebars = {
+    "dbui",
+    "DiffViewFiles",
+    "Mundo",
+    "MundoDiff",
+}
+vim.g.tokyonight_colors = {
+    bg_sidebar = "#16161e",
+    bg_float = "#16161e",
+    border_highlight = "#565f89",
+}
 vim.cmd("colorscheme tokyonight")
 
 local colors = require("tokyonight.colors").setup()
@@ -37,8 +46,14 @@ require("bufferline").setup({
         right_mouse_command = "Bwipeout! %d",
         offsets = {
             {
-                filetype = "NvimTree",
-                text = "EXPLORER",
+                filetype = "dbui",
+                text = "DATABASE",
+                highlight = "Directory",
+                text_align = "center",
+            },
+            {
+                filetype = "DiffViewFiles",
+                text = "DIFFVIEW",
                 highlight = "Directory",
                 text_align = "center",
             },
@@ -49,8 +64,8 @@ require("bufferline").setup({
                 text_align = "center",
             },
             {
-                filetype = "dbui",
-                text = "DATABASE",
+                filetype = "NvimTree",
+                text = "EXPLORER",
                 highlight = "Directory",
                 text_align = "center",
             },

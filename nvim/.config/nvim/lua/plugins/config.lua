@@ -823,7 +823,17 @@ return {
         require("diffview").setup()
     end,
     ["sindrets/winshift.nvim"] = function()
-        require("winshift").setup()
+        require("winshift").setup({
+            window_picker_ignore = {
+                filetype = {
+                    "dbui",
+                    "DiffViewFiles",
+                    "Mundo",
+                    "MundoDiff",
+                    "NvimTree",
+                },
+            },
+        })
     end,
     ["SmiteshP/nvim-gps"] = function()
         require("nvim-gps").setup()
@@ -881,9 +891,6 @@ return {
     end,
     ["vuki656/package-info.nvim"] = function()
         require("package-info").setup()
-    end,
-    ["wesQ3/vim-windowswap"] = function()
-        vim.g.windowswap_map_keys = 0
     end,
     ["windwp/nvim-autopairs"] = function()
         require("nvim-treesitter.configs").setup({ autopairs = { enable = true } })

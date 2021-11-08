@@ -24,8 +24,8 @@ set_keymap("n", "<M-l>", ":vertical resize +2<CR>", opts)
 set_keymap("", "<M-=>", "<C-w>=", {})
 
 -- Window: Move
-set_keymap("n", "<C-w><C-m>", ":call WindowSwap#EasyWindowSwap()<CR>", opts)
-set_keymap("n", "<C-w>m", ":call WindowSwap#EasyWindowSwap()<CR>", opts)
+set_keymap("n", "<C-w><C-m>", "<CMD>WinShift swap<CR>", opts)
+set_keymap("n", "<C-w>m", "<CMD>WinShift swap<CR>", opts)
 set_keymap("n", "<C-w><C-e>", "<CMD>WinShift<CR>", opts)
 set_keymap("n", "<C-w>e", "<CMD>WinShift<CR>", opts)
 set_keymap("n", "<C-M-j>", "<CMD>WinShift down<CR>", opts)

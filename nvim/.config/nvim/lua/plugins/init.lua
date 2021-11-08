@@ -454,10 +454,6 @@ require("packer").startup({
         use("tpope/vim-repeat")
         use("tpope/vim-unimpaired")
         use({
-            "wesQ3/vim-windowswap",
-            setup = config["wesQ3/vim-windowswap"],
-        })
-        use({
             "winston0410/range-highlight.nvim",
             requires = "winston0410/cmd-parser.nvim",
             config = config["winston0410/range-highlight.nvim"],
