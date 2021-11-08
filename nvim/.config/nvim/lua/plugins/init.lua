@@ -140,6 +140,11 @@ require("packer").startup({
             run = ":TSUpdateSync",
         })
         use({
+            "nvim-treesitter/playground",
+            config = config["nvim-treesitter/playground"],
+            cmd = "TSPlaygroundToggle",
+        })
+        use({
             "abecodes/tabout.nvim",
             requires = "nvim-treesitter",
             config = config["abecodes/tabout.nvim"],

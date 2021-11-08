@@ -35,7 +35,9 @@ return {
         vim.g.splitjoin_join_mapping = ""
     end,
     ["andymass/vim-matchup"] = function()
-        require("nvim-treesitter.configs").setup({ matchup = { enable = true } })
+        require("nvim-treesitter.configs").setup({
+            matchup = { enable = true },
+        })
         vim.g.matchup_matchparen_offscreen = {
             method = "popup",
         }
@@ -624,7 +626,10 @@ return {
                 "vim",
                 "yaml",
             },
-            highlight = { enable = true },
+            highlight = {
+                enable = true,
+                use_languagetree = true,
+            },
             incremental_selection = {
                 enable = true,
                 keymaps = {
@@ -676,10 +681,23 @@ return {
                     enable = true,
                     lookahead = true,
                     keymaps = {
+                        ["a/"] = "@comment.outer",
+                        ["aC"] = "@class.outer",
+                        ["iC"] = "@class.inner",
+                        ["ac"] = "@conditional.outer",
+                        ["ic"] = "@conditional.inner",
+                        ["ae"] = "@block.outer",
+                        ["ie"] = "@block.inner",
                         ["af"] = "@function.outer",
                         ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = "@class.inner",
+                        ["al"] = "@loop.outer",
+                        ["il"] = "@loop.inner",
+                        ["ar"] = "@call.outer",
+                        ["ir"] = "@call.inner",
+                        ["aP"] = "@parameter.outer",
+                        ["iP"] = "@parameter.inner",
+                        ["aS"] = "@statement.outer",
+                        ["iS"] = "@statement.inner",
                     },
                 },
                 move = {
@@ -702,6 +720,13 @@ return {
                         ["[]"] = "@class.outer",
                     },
                 },
+            },
+        })
+    end,
+    ["nvim-treesitter/playground"] = function()
+        require("nvim-treesitter.configs").setup({
+            playground = {
+                enable = true,
             },
         })
     end,

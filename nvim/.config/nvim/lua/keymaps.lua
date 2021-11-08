@@ -45,10 +45,10 @@ set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
 set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
 
 -- Text Objects
-set_keymap("v", "al", ":<C-u>norm!0v$h<CR>", opts)
-set_keymap("v", "il", ":<C-u>norm!^vg_<CR>", opts)
-set_keymap("o", "al", ":norm val<CR>", opts)
-set_keymap("o", "il", ":norm vil<CR>", opts)
+set_keymap("v", "aL", ":<C-u>norm!0v$h<CR>", opts)
+set_keymap("v", "iL", ":<C-u>norm!^vg_<CR>", opts)
+set_keymap("o", "aL", ":norm val<CR>", opts)
+set_keymap("o", "iL", ":norm vil<CR>", opts)
 
 -- Quickfix/Location List
 set_keymap("n", "<C-n>", "<CMD>QNext<CR>", opts)
