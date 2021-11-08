@@ -96,7 +96,10 @@ return {
     end,
     ["JoosepAlviste/nvim-ts-context-commentstring"] = function()
         require("nvim-treesitter.configs").setup({
-            context_commentstring = { enable = true, enable_autocmd = false },
+            context_commentstring = {
+                enable = true,
+                enable_autocmd = false,
+            },
         })
     end,
     ["jvgrootveld/telescope-zoxide"] = function()
@@ -631,7 +634,7 @@ return {
                     node_decremental = "grm",
                 },
             },
-            -- indent = { enable = true },
+            indent = { enable = true },
             fold = { enable = true },
         })
         require("nvim-treesitter").define_modules({
