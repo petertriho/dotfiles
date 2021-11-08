@@ -156,6 +156,7 @@ return {
     end,
     ["kyazdani42/nvim-tree.lua"] = function()
         vim.g.nvim_tree_git_hl = 1
+        require("nvim-tree.view").View.winopts.signcolumn = "no"
 
         require("nvim-tree").setup({
             update_focused_file = {
