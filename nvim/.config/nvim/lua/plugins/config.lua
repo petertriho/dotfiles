@@ -47,6 +47,28 @@ return {
     ["antoinemadec/FixCursorHold.nvim"] = function()
         vim.g.cursorhold_updatetime = 100
     end,
+    ["arthurxavierx/vim-caser"] = function()
+        vim.g.caser_prefix = "gw"
+
+        require("which-key").register({
+            [" "] = "space case",
+            ["-"] = "dash-case",
+            ["."] = "dot.case",
+            ["_"] = "snake_case",
+            c = "camelCase",
+            k = "kebab-case",
+            K = "Title-Kebab-Case",
+            m = "MixedCase",
+            p = "PascalCase",
+            s = "Sentence case",
+            t = "Title Case",
+            u = "SNAKE_UPPERCASE",
+            U = "SNAKE_UPPERCASE",
+        }, {
+            prefix = "gw",
+            mode = "",
+        })
+    end,
     ["chaoren/vim-wordmotion"] = function()
         vim.g.wordmotion_prefix = "\\"
     end,
@@ -682,10 +704,10 @@ return {
                     lookahead = true,
                     keymaps = {
                         ["a/"] = "@comment.outer",
-                        ["aC"] = "@class.outer",
-                        ["iC"] = "@class.inner",
                         ["ac"] = "@conditional.outer",
                         ["ic"] = "@conditional.inner",
+                        ["aC"] = "@class.outer",
+                        ["iC"] = "@class.inner",
                         ["ae"] = "@block.outer",
                         ["ie"] = "@block.inner",
                         ["af"] = "@function.outer",

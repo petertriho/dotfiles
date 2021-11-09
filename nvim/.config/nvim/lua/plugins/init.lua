@@ -229,6 +229,11 @@ require("packer").startup({
             setup = config["AndrewRadev/splitjoin.vim"],
             cmd = { "SplitjoinJoin", "SplitjoinSplit" },
         })
+        use({
+            "arthurxavierx/vim-caser",
+            setup = config["arthurxavierx/vim-caser"],
+            keys = "gw",
+        })
         use({ "chaoren/vim-wordmotion", setup = config["chaoren/vim-wordmotion"] })
         use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
         use({
