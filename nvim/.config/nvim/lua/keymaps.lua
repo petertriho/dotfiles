@@ -69,8 +69,8 @@ set_keymap("n", "S", "<Plug>Lightspeed_S", {})
 set_keymap("x", "z", "<Plug>Lightspeed_s", {})
 set_keymap("x", "Z", "<Plug>Lightspeed_S", {})
 
-set_keymap("o", "x", "<Plug>Lightspeed_x", {})
-set_keymap("o", "X", "<Plug>Lightspeed_X", {})
+set_keymap("o", "z", "<Plug>Lightspeed_x", {})
+set_keymap("o", "Z", "<Plug>Lightspeed_X", {})
 
 set_keymap("", "f", "<Plug>Lightspeed_f", {})
 set_keymap("", "F", "<Plug>Lightspeed_F", {})
