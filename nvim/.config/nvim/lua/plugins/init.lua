@@ -386,6 +386,10 @@ require("packer").startup({
         })
         use({ "tpope/vim-fugitive", cmd = { "G", "Git" } })
         use({
+            "https://gitlab.com/yorickpeterse/nvim-pqf",
+            config = config["yorickpeterse/nvim-pqf"],
+        })
+        use({
             "vimwiki/vimwiki",
             setup = config["vimwiki/vimwiki"],
             keys = { "<leader>w" },

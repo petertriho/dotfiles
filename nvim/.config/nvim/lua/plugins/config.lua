@@ -66,7 +66,7 @@ return {
             U = "SNAKE_UPPERCASE",
         }, {
             prefix = "gw",
-            mode = "",
+            mode = "n",
         })
     end,
     ["chaoren/vim-wordmotion"] = function()
@@ -960,5 +960,8 @@ return {
     end,
     ["winston0410/range-highlight.nvim"] = function()
         require("range-highlight").setup()
+    end,
+    ["yorickpeterse/nvim-pqf"] = function()
+        require("pqf").setup()
     end,
 }
