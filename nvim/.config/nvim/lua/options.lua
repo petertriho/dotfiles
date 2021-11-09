@@ -60,7 +60,7 @@ opt.title = true
 opt.titlestring = "nvim %t %M (%F)"
 opt.ttimeout = false
 opt.ttimeoutlen = 0
-opt.updatetime = 1000
+opt.updatetime = 100
 opt.wildignore = {
     "*.o",
     "*.pyc",
