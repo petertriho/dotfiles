@@ -262,14 +262,17 @@ register(semicolon_keymaps, {
 local comma_keymaps = {
     a = { "<CMD>AnyJumpLastResults", "jump-again" },
     b = { "<CMD>AnyJumpBack<CR>", "jump-back" },
-    c = { "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", "code-actions" },
-    d = { "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", "definitions" },
+    c = {
+        "<CMD>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<CR>",
+        "code-actions",
+    },
+    d = { "<CMD>lua require('telescope.builtin').lsp_definitions({ jump_type = 'never' })<CR>", "definitions" },
     e = {
         name = "+errors",
         d = { "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", "document" },
         w = { "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", "workspace" },
     },
-    i = { "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", "implementations" },
+    i = { "<CMD>lua require('telescope.builtin').lsp_implementations({ jump_type = 'never' })<CR>", "implementations" },
     j = { "<CMD>AnyJump<CR>", "jump-any" },
     l = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "loclist-diagnostics" },
     q = { "<CMD>lua vim.diagnostic.setqflist()<CR>", "qflist-diagnostics" },
@@ -283,7 +286,7 @@ local comma_keymaps = {
 }
 
 local comma_visual_keymaps = {
-    c = { "<CMD>lua require('telescope.builtin').lsp_range_code_actions()", "code-actions" },
+    c = { "<CMD>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())", "code-actions" },
     j = { "<CMD>AnyJumpVisual<CR>", "jump-any" },
 }
 
