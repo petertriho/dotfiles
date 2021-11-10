@@ -139,7 +139,7 @@ leader_keymaps["a"] = {
     d = { "<CMD>lua require('neogen').generate()<CR>", "doc-gen" },
     e = { ":!chmod +x %<CR>", "executable" },
     j = { "<CMD>SplitjoinJoin<CR>", "join-lines" },
-    r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "rename" },
+    r = { "<CMD>lua require('renamer').rename()<CR>", "rename" },
     R = "rename-treesitter",
     p = { 'ggVG"+p', "paste-file" },
     s = { "<CMD>ISwap<CR>", "swap" },
@@ -150,6 +150,7 @@ leader_keymaps["a"] = {
 leader_visual_keymaps["a"] = {
     name = "+action",
     a = { "<Plug>(EasyAlign)", "align" },
+    r = { "<CMD>lua require('renamer').rename()<CR>", "rename" },
     s = { ":sort i<CR>", "sort" },
 }
 
@@ -272,7 +273,10 @@ local comma_keymaps = {
         d = { "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", "document" },
         w = { "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", "workspace" },
     },
-    i = { "<CMD>lua require('telescope.builtin').lsp_implementations({ jump_type = 'never' })<CR>", "implementations" },
+    i = {
+        "<CMD>lua require('telescope.builtin').lsp_implementations({ jump_type = 'never' })<CR>",
+        "implementations",
+    },
     j = { "<CMD>AnyJump<CR>", "jump-any" },
     l = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "loclist-diagnostics" },
     q = { "<CMD>lua vim.diagnostic.setqflist()<CR>", "qflist-diagnostics" },
@@ -286,7 +290,10 @@ local comma_keymaps = {
 }
 
 local comma_visual_keymaps = {
-    c = { "<CMD>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())", "code-actions" },
+    c = {
+        "<CMD>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())",
+        "code-actions",
+    },
     j = { "<CMD>AnyJumpVisual<CR>", "jump-any" },
 }
 

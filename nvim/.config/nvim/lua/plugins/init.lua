@@ -35,6 +35,12 @@ require("packer").startup({
         })
         use("b0o/schemastore.nvim")
         use({ "brymer-meneses/grammar-guard.nvim", run = ":GrammarInstall" })
+        use({
+            "filipdutescu/renamer.nvim",
+            requires = { "nvim-lua/plenary.nvim" },
+            config = config["filipdutescu/renamer.nvim"],
+            module = "renamer",
+        })
         use("folke/lua-dev.nvim")
         use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
         use({ "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" })

@@ -98,6 +98,9 @@ return {
             "DiffViewFiles",
         }
     end,
+    ["filipdutescu/renamer.nvim"] = function()
+        require("renamer").setup()
+    end,
     ["folke/todo-comments.nvim"] = function()
         require("todo-comments").setup()
     end,
