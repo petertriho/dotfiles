@@ -167,7 +167,6 @@ null_ls.config({
         b.formatting.black,
         -- shell
         b.diagnostics.shellcheck,
-        -- null_ls.builtins.formatting.shellharden,
         b.formatting.shfmt.with({
             extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr", "-kp" },
         }),
