@@ -27,10 +27,6 @@ function main {
         cargo install dotenv-linter
     fi
 
-    # if ! command -v shellharden &> /dev/null; then
-    #     cargo install shellharden
-    # fi
-
     if ! command -v selene &> /dev/null; then
         cargo install selene
     fi
@@ -57,10 +53,6 @@ function main {
 
     if ! command -v isort &> /dev/null; then
         pipx install isort
-    fi
-
-    if ! command -v eslint_d &> /dev/null; then
-        yarn global add eslint_d
     fi
 
     if ! command -v fixjson &> /dev/null; then
