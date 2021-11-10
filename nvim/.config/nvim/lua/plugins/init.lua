@@ -260,12 +260,18 @@ require("packer").startup({
             "numToStr/Comment.nvim",
             config = config["numToStr/Comment.nvim"],
         })
-        use({ "tommcdo/vim-exchange", keys = { "cx", "X" } })
+        use({
+            "tommcdo/vim-exchange",
+            keys = {
+                { "n", "cx" },
+                { "v", "X" },
+            },
+        })
         use({
             "tpope/vim-abolish",
             setup = config["tpope/vim-abolish"],
             cmd = { "Subvert", "S" },
-            keys = "cr",
+            keys = { { "n", "cr" } },
         })
         use("wellle/targets.vim")
 
