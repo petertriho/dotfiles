@@ -77,6 +77,12 @@ set_keymap("", "F", "<Plug>Lightspeed_F", {})
 set_keymap("", "t", "<Plug>Lightspeed_t", {})
 set_keymap("", "T", "<Plug>Lightspeed_T", {})
 
+require("which-key").setup({
+    layout = {
+        align = "center",
+    },
+})
+
 -- Space keymaps
 vim.g.mapleader = " "
 
@@ -201,12 +207,6 @@ leader_keymaps["p"] = {
 }
 
 leader_keymaps["w"] = { name = "+wiki" }
-
-require("which-key").setup({
-    layout = {
-        align = "center",
-    },
-})
 
 local register = require("which-key").register
 register(leader_keymaps, {
