@@ -122,6 +122,7 @@ local b = require("null-ls.builtins")
 null_ls.config({
     sources = {
         -- *
+        b.code_actions.refactoring,
         b.diagnostics.codespell.with({
             filetypes = {
                 "fish",
@@ -136,7 +137,7 @@ null_ls.config({
                 "typescriptreact",
             },
         }),
-        b.code_actions.refactoring,
+        b.hover.dictionary,
         -- conf
         sources_diagnostics.dotenv,
         -- dockerfile
