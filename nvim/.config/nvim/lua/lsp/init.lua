@@ -15,9 +15,7 @@ local on_attach = function(client, bufnr)
 
     local opts = { noremap = true, silent = true }
 
-    if client.name == "null-ls" then
-        client.resolved_capabilities.code_action = false
-    elseif client.name == "pyright" then
+    if client.name == "pyright" then
         buf_set_keymap("n", "<Leader>o", ":PyrightOrganizeImports<CR>", opts)
     elseif client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false

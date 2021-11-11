@@ -217,6 +217,15 @@ require("packer").startup({
             module = "nvim-gps",
         })
         use({
+            "ThePrimeagen/refactoring.nvim",
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "nvim-treesitter/nvim-treesitter",
+            },
+            config = config["ThePrimeagen/refactoring.nvim"],
+            module = "refactoring",
+        })
+        use({
             "windwp/nvim-autopairs",
             requires = "nvim-treesitter/nvim-treesitter",
             config = config["windwp/nvim-autopairs"],

@@ -903,6 +903,9 @@ return {
             },
         })
     end,
+    ["ThePrimeagen/refactoring.nvim"] = function()
+        require("refactoring").setup()
+    end,
     ["TimUntersberger/neogit"] = function()
         require("neogit").setup({
             disable_commit_confirmation = true,

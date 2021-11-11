@@ -136,6 +136,7 @@ null_ls.config({
                 "typescriptreact",
             },
         }),
+        b.code_actions.refactoring,
         -- conf
         sources_diagnostics.dotenv,
         -- dockerfile
