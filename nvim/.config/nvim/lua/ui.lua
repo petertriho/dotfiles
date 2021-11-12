@@ -390,14 +390,17 @@ require("feline").setup({
             if opts.short == true then
                 return string.format(" %d", lines)
             else
-                local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
                 local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
                 local file_format = vim.bo[bufnr].fileformat
 
+                local tab_style = vim.api.nvim_buf_get_option(bufnr, "expandtab") and "●" or ""
+                local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
+
                 return string.format(
-                    "%s  %s   %d   %d",
+                    "%s  %s  %s %d   %d",
                     file_enc:upper(),
                     file_format:upper(),
+                    tab_style,
                     tab,
                     lines
                 )
