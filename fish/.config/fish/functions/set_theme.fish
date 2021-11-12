@@ -33,7 +33,7 @@ function set_theme --description "Set ansi theme"
     set -U fish_pager_color_completion  white
     set -U fish_pager_color_description white
     set -U fish_pager_color_prefix      brgreen
-    set -U fish_pager_color_progress    white
+    set -U fish_pager_color_progress    yellow
 
     set -Ux LS_COLORS                   (vivid generate tokyonight)
 end
