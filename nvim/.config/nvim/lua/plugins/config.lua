@@ -847,7 +847,6 @@ return {
     end,
     ["sheerun/vim-polyglot"] = function()
         vim.g.polyglot_disabled = {
-            "autoindent",
             "ftdetect",
             "sensible",
             "css",
