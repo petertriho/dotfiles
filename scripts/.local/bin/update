@@ -88,6 +88,7 @@ function tool:nvim {
 
 function tool:pipx {
     if command -v pipx &> /dev/null; then
+        echo "Updating pipx packages ..."
         pipx upgrade-all
     fi
 }
