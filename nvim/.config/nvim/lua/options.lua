@@ -107,13 +107,13 @@ else
 end
 
 if vim.fn.has("persistent_undo") == 1 then
-    local target_path = vim.fn.expand("~/.undodir")
+    local dir = vim.fn.expand("~/.undodir")
 
-    if vim.fn.isdirectory(target_path) ~= 1 then
-        vim.fn.mkdir(target_path, "p", "0700")
+    if vim.fn.isdirectory(dir) ~= 1 then
+        vim.fn.mkdir(dir, "p", "0700")
     end
 
-    opt.undodir = target_path
+    opt.undodir = dir
     opt.undofile = true
 end
 
@@ -129,12 +129,26 @@ local function set_augroups(definitions)
     end
 end
 
+-- mkdir if does not exists
+function _G.mkdir()
+    local dir = vim.fn.expand("%:p:h")
+
+    if vim.fn.isdirectory(dir) ~= 1 then
+        vim.fn.mkdir(dir, "p")
+    end
+end
+
 set_augroups({
     _general = {
         {
             "TextYankPost",
             "*",
             "lua vim.highlight.on_yank({ higroup = 'Search', timeout = 200 })",
+        },
+        {
+            "BufWritePre",
+            "*",
+            "call v:lua.mkdir()",
         },
     },
     _targets = {
