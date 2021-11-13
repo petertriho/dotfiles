@@ -43,7 +43,6 @@ require("packer").startup({
         })
         use("folke/lua-dev.nvim")
         use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-        use({ "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" })
         use("nvim-lua/lsp-status.nvim")
         use({
             "ray-x/lsp_signature.nvim",
@@ -178,12 +177,6 @@ require("packer").startup({
             "mizlan/iswap.nvim",
             requires = "nvim-treesitter/nvim-treesitter",
             cmd = "ISwap",
-        })
-        use({
-            "nvim-treesitter/nvim-treesitter-refactor",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["nvim-treesitter/nvim-treesitter-refactor"],
-            after = "nvim-treesitter",
         })
         use({
             "nvim-treesitter/nvim-treesitter-textobjects",

@@ -33,23 +33,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
 
-    if client.resolved_capabilities.code_action then
-        vim.cmd([[
-        augroup lsp_code_action
-            autocmd! * <buffer>
-            autocmd CursorHold,CursorHoldI <buffer> lua require('nvim-lightbulb').update_lightbulb()
-        augroup END
-        ]])
-    end
-
-    if client.resolved_capabilities.document_highlight then
-        vim.cmd([[
-        augroup lsp_document_highlight
-            autocmd! * <buffer>
-            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        augroup END
-        ]])
+    if client.resolved_capabilities.declaration then
+        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
     end
 
     if client.resolved_capabilities.find_references then
@@ -58,13 +43,14 @@ local on_attach = function(client, bufnr)
 
     if client.resolved_capabilities.goto_definition then
         buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
-
-        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
-        buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
     end
 
     if client.resolved_capabilities.hover then
         buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+    end
+
+    if client.resolved_capabilities.implementation then
+        buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
     end
 
     if client.resolved_capabilities.signature_help then

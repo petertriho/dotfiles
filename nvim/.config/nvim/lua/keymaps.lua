@@ -146,7 +146,6 @@ leader_keymaps["a"] = {
     e = { ":!chmod +x %<CR>", "executable" },
     j = { "<CMD>SplitjoinJoin<CR>", "join-lines" },
     r = { "<CMD>lua require('renamer').rename()<CR>", "rename" },
-    R = "rename-treesitter",
     p = { 'ggVG"+p', "paste-file" },
     s = { "<CMD>ISwap<CR>", "swap" },
     x = { "<CMD>SplitjoinSplit<CR>", "split-lines" },

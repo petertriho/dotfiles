@@ -652,8 +652,9 @@ return {
                 "vim",
                 "yaml",
             },
+            sync_install = true,
             highlight = {
-                enable = true,
+                enable = false,
                 use_languagetree = true,
             },
             incremental_selection = {
@@ -684,19 +685,6 @@ return {
                 is_supported = function()
                     return true
                 end,
-            },
-        })
-    end,
-    ["nvim-treesitter/nvim-treesitter-refactor"] = function()
-        require("nvim-treesitter.configs").setup({
-            refactor = {
-                highlight_current_scope = { enable = false },
-                highlight_definitions = { enable = true },
-                navigation = { enable = false },
-                smart_rename = {
-                    enable = true,
-                    keymaps = { smart_rename = "<Leader>aR" },
-                },
             },
         })
     end,
