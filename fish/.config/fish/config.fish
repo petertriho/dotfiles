@@ -32,7 +32,6 @@ set -gx PROJECT_PATHS \
     $HOME/Documents/GitHub \
     $HOME/Documents/GitLab
 
-
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
 
 set -gx PRETTIERD_DEFAULT_CONFIG $HOME/.config/format-lint/.prettierrc.json
