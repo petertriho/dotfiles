@@ -14,7 +14,7 @@
 # * ✨ feat:     a new feature
 # * 🐛 fix:      a bug fix
 # * ⚡️ perf:     a code change that improves performance
-# * ♻️  refactor: a code change that neither fixes a bug or adds a feature
+# * ♻️ refactor: a code change that neither fixes a bug or adds a feature
 # * 🚀 release:  create a release commit
 # * ⏪ revert:   revert previous changes
 # * 🎨 style:    changes that do not affect the meaning of the code (white­space, formatting, missing semi-colons, etc)
