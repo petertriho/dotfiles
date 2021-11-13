@@ -81,6 +81,7 @@ require("which-key").setup({
     layout = {
         align = "center",
     },
+    operators = { gc = "Comments", gb = "Block Comments" },
 })
 
 -- Space keymaps
