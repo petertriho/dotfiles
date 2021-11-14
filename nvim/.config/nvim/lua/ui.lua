@@ -206,6 +206,9 @@ components.active[2] = {
         provider = function()
             return require("lsp-status").status_progress()
         end,
+        enabled = function()
+            return #vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())
+        end,
         left_sep = " ",
         truncate_hide = true,
         priority = 1,
@@ -407,13 +410,7 @@ require("feline").setup({
             end
         end,
         lsp_client_count = function()
-            local count = 0
-
-            for _ in pairs(vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())) do
-                count = count + 1
-            end
-
-            return " " .. "LSP:" .. count
+            return " " .. "LSP:" .. #vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())
         end,
     },
 })
