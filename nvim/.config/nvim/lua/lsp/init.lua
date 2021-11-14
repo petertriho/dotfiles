@@ -16,12 +16,12 @@ local on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true }
 
     if client.name == "pyright" then
-        buf_set_keymap("n", "<Leader>o", ":PyrightOrganizeImports<CR>", opts)
+        buf_set_keymap("n", "<Leader>o", "<CMD>PyrightOrganizeImports<CR>", opts)
     elseif client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
 
-        buf_set_keymap("n", "<Leader>o", ":TSServerOrganizeImports<CR>", opts)
+        buf_set_keymap("n", "<Leader>o", "<CMD>TSServerOrganizeImports<CR>", opts)
     end
 
     buf_set_keymap(
