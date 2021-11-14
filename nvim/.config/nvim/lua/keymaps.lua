@@ -287,6 +287,10 @@ local comma_keymaps = {
         w = { "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", "workspace" },
         W = { "<CMD>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>", "dynamic-workspace" },
     },
+    t = {
+        "<CMD>lua require('telescope.builtin').lsp_type_definitions({ jump_type = 'never' })<CR>",
+        "type-definitions",
+    },
 }
 
 local comma_visual_keymaps = {
