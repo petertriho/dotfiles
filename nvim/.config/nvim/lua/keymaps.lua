@@ -96,6 +96,7 @@ local leader_keymaps = {
     ["\\"] = { "<C-w>v", "split-right" },
     c = { "<CMD>Cheat<CR>", "cheat" },
     d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
+    D = { "<CMD>DD<CR>", "devdocs" },
     e = { "<CMD>NvimTreeFindFileToggle<CR>", "explorer" },
     f = { "<CMD>lua vim.lsp.buf.formatting_seq_sync()<CR>", "format" },
     j = { "<CMD>call v:lua.toggle_git_status()<CR>", "git-status" },
