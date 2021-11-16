@@ -148,7 +148,6 @@ null_ls.config({
         sources_diagnostics.jq,
         b.formatting.fixjson.with({
             filetypes = { "json", "jsonc" },
-            extra_args = { "--indent", "4" },
         }),
         -- lua
         b.diagnostics.selene.with({
