@@ -122,7 +122,6 @@ local b = require("null-ls.builtins")
 null_ls.config({
     sources = {
         -- *
-        b.code_actions.refactoring,
         b.diagnostics.codespell.with({
             filetypes = {
                 "fish",

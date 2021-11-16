@@ -207,6 +207,14 @@ leader_keymaps["p"] = {
     u = { "<CMD>lua require('package-info').update()<CR>", "update" },
 }
 
+leader_visual_keymaps["r"] = {
+    name = "+refactoring",
+    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "inline-variable" },
+    e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "extract-function" },
+    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "extract-function-to-file" },
+    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "extract-variable" },
+}
+
 leader_keymaps["w"] = { name = "+wiki" }
 
 local register = require("which-key").register
