@@ -15,7 +15,9 @@ local on_attach = function(client, bufnr)
 
     local opts = { noremap = true, silent = true }
 
-    if client.name == "pyright" then
+    if client.name == "null-ls" then
+        client.resolved_capabilities.code_action = false
+    elseif client.name == "pyright" then
         buf_set_keymap("n", "<Leader>o", "<CMD>PyrightOrganizeImports<CR>", opts)
     elseif client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
@@ -32,6 +34,15 @@ local on_attach = function(client, bufnr)
     )
     buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
+
+    if client.resolved_capabilities.code_action then
+        vim.cmd([[
+        augroup lsp_code_action
+            autocmd! * <buffer>
+            autocmd CursorHold,CursorHoldI <buffer> lua require('nvim-lightbulb').update_lightbulb()
+        augroup END
+        ]])
+    end
 
     if client.resolved_capabilities.declaration then
         buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
