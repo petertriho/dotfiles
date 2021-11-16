@@ -157,7 +157,10 @@ null_ls.config({
             end,
         }),
         b.formatting.stylua.with({
-            extra_args = { "--config-path", vim.fn.expand("$HOME/.config/format-lint/.stylua.toml") },
+            extra_args = {
+                "--config-path",
+                vim.fn.expand("$HOME/.config/format-lint/.stylua.toml"),
+            },
         }),
         -- nginx
         b.formatting.nginx_beautifier,
@@ -171,15 +174,36 @@ null_ls.config({
         -- shell
         b.diagnostics.shellcheck,
         b.formatting.shfmt.with({
-            extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr", "-kp" },
+            extra_args = function(params)
+                local extra_args = {
+                    "-s",
+                    "-bn",
+                    "-ci",
+                    "-sr",
+                    "-kp",
+                }
+
+                if params.options.insertSpaces and params.options.tabSize then
+                    table.insert(extra_args, "-i")
+                    table.insert(extra_args, params.options.tabSize)
+                end
+
+                return extra_args
+            end,
         }),
         -- web
         b.diagnostics.stylelint.with({
-            extra_args = { "--config", vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json") },
+            extra_args = {
+                "--config",
+                vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json"),
+            },
         }),
         b.formatting.rustywind,
         b.formatting.stylelint.with({
-            extra_args = { "--config", vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json") },
+            extra_args = {
+                "--config",
+                vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json"),
+            },
         }),
         b.formatting.prettier.with({
             filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
