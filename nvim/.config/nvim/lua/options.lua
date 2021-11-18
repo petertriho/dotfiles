@@ -149,6 +149,16 @@ set_augroups({
             "*",
             "call v:lua.mkdir()",
         },
+        {
+            "InsertEnter",
+            "*",
+            "set norelativenumber"
+        },
+        {
+            "InsertLeave",
+            "*",
+            "set relativenumber"
+        }
     },
     _targets = {
         {
