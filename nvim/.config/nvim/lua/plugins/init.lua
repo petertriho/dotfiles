@@ -482,8 +482,16 @@ require("packer").startup({
         use({
             "stevearc/qf_helper.nvim",
             config = config["stevearc/qf_helper.nvim"],
-            cmd = { "QNext", "QPrev", "LLToggle", "QFToggle" },
+            cmd = {
+                "QNext",
+                "QPrev",
+                "LLToggle",
+                "QFToggle",
+                "Keep",
+                "Reject"
+            },
             module = "qf_helper",
+            ft = "qf",
         })
         use("tpope/vim-repeat")
         use("tpope/vim-unimpaired")
