@@ -81,7 +81,6 @@ return {
     ["danymat/neogen"] = function()
         require("neogen").setup({
             enabled = true,
-            jump_map = "<Tab>",
         })
     end,
     ["editorconfig/editorconfig-vim"] = function()
@@ -273,7 +272,7 @@ return {
                     --[[ elseif has_words_before() then
 				cmp.complete() ]]
                 elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable() then
-                    feedkey("<CMD>lua require('neogen').jump_next()<CR>", "")
+                    require("neogen").jump_next()
                 else
                     fallback()
                 end
