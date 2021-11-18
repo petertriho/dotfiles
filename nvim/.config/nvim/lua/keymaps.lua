@@ -249,7 +249,6 @@ local semicolon_keymaps = {
     o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
     p = { "<CMD>lua require('telescope').extensions.project.project({})<CR>", "project" },
     q = { "<CMD>QFToggle<CR>", "qf-list-toggle" },
-    r = { "<CMD>lua require('replacer').run()<CR>", "replace-qf" },
     s = { "<CMD>Telescope live_grep<CR>", "search-text" },
     t = { "<CMD>TroubleToggle<CR>", "trouble" },
     w = {
