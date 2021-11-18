@@ -335,7 +335,20 @@ return {
                 { name = "nvim_lsp", priority = 1000 },
                 { name = "cmp_tabnine", priority = 100 },
                 { name = "path", priority = 80 },
-                { name = "buffer", prioriy = 60 },
+                {
+                    name = "buffer",
+                    prioriy = 60,
+                    opts = {
+                        get_bufnrs = function()
+                            -- visible buffers
+                            local bufs = {}
+                            for _, win in ipairs(vim.api.nvim_list_wins()) do
+                                bufs[vim.api.nvim_win_get_buf(win)] = true
+                            end
+                            return vim.tbl_keys(bufs)
+                        end,
+                    },
+                },
                 {
                     name = "tmux",
                     opts = {
