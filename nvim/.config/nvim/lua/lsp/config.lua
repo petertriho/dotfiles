@@ -182,7 +182,7 @@ null_ls.config({
                     "-kp",
                 }
 
-                if params.options.insertSpaces and params.options.tabSize then
+                if params.options and params.options.insertSpaces and params.options.tabSize then
                     table.insert(extra_args, "-i")
                     table.insert(extra_args, params.options.tabSize)
                 end
