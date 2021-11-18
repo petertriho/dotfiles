@@ -115,6 +115,19 @@ local sources_formatting = {
         },
         factory = h.formatter_factory,
     }),
+    pyupgrade = h.make_builtin({
+        method = FORMATTING,
+        filetypes = { "python" },
+        generator_opts = {
+            command = "pyupgrade",
+            args = {
+                "--py3-plus",
+                "$FILENAME",
+            },
+            to_temp_file = true,
+        },
+        factory = h.formatter_factory,
+    }),
 }
 
 local b = require("null-ls.builtins")
@@ -169,6 +182,7 @@ null_ls.config({
         b.formatting.isort.with({
             extra_args = { "--profile", "black" },
         }),
+        sources_formatting.pyupgrade,
         b.formatting.black,
         -- shell
         b.diagnostics.shellcheck,
