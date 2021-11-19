@@ -623,6 +623,9 @@ return {
                 },
             },
             pickers = {
+                file_browser = {
+                    hidden = true,
+                },
                 find_files = {
                     hidden = true,
                     attach_mappings = function()
