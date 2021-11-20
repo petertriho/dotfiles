@@ -142,7 +142,7 @@ set_keymap("n", "<Leader>9", "<CMD>lua require('bufferline').go_to_buffer(9)<CR>
 set_keymap("n", "<Leader>0", "<CMD>lua require('bufferline').go_to_buffer(10)<CR>", {})
 
 leader_keymaps["a"] = {
-    name = "+action",
+    name = "+actions",
     a = { "<Plug>(EasyAlign)", "align" },
     d = { "<CMD>lua require('neogen').generate()<CR>", "doc-gen" },
     e = { ":!chmod +x %<CR>", "executable" },
@@ -155,7 +155,7 @@ leader_keymaps["a"] = {
 }
 
 leader_visual_keymaps["a"] = {
-    name = "+action",
+    name = "+actions",
     a = { "<Plug>(EasyAlign)", "align" },
     r = { "<CMD>lua require('renamer').rename()<CR>", "rename" },
     s = { ":sort i<CR>", "sort" },
