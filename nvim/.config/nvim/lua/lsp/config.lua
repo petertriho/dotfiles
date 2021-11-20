@@ -311,7 +311,14 @@ return {
     ["null-ls"] = {},
     rust_analyzer = {},
     prismals = {},
-    pyright = {},
+    pyright = {
+        python = {
+            analysis = {
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+            },
+        },
+    },
     sumneko_lua = {
         cmd = { "lua-language-server" },
     },
