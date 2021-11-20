@@ -23,7 +23,7 @@ set_keymap("n", "<M-h>", ":vertical resize -2<CR>", opts)
 set_keymap("n", "<M-l>", ":vertical resize +2<CR>", opts)
 set_keymap("", "<M-=>", "<C-w>=", {})
 
--- Window: Move
+-- Windows: Move
 set_keymap("n", "<C-w><C-m>", "<CMD>WinShift swap<CR>", opts)
 set_keymap("n", "<C-w>m", "<CMD>WinShift swap<CR>", opts)
 set_keymap("n", "<C-w><C-e>", "<CMD>WinShift<CR>", opts)
@@ -39,12 +39,13 @@ set_keymap("n", "<M-u>", ":m .-2<CR>==", opts)
 set_keymap("v", "<M-d>", ":m '>+1<CR>gv=gv", opts)
 set_keymap("v", "<M-u>", ":m '<-2<CR>gv=gv", opts)
 
+-- Increment/Decrement
 set_keymap("", "<C-a>", "<Plug>(dial-increment)", {})
 set_keymap("", "<C-x>", "<Plug>(dial-decrement)", {})
 set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
 set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
 
--- Text Objects
+-- Line Text Objects
 set_keymap("v", "al", ":<C-u>norm!0v$h<CR>", opts)
 set_keymap("v", "il", ":<C-u>norm!^vg_<CR>", opts)
 set_keymap("o", "al", ":norm val<CR>", opts)
@@ -54,7 +55,7 @@ set_keymap("o", "il", ":norm vil<CR>", opts)
 set_keymap("n", "<C-n>", "<CMD>QNext<CR>", opts)
 set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", opts)
 
--- Hlslens
+-- Search
 set_keymap("n", "n", "<CMD>execute('normal! ' . v:count1 . 'n')<CR><CMD>lua require('hlslens').start()<CR>", opts)
 set_keymap("n", "N", "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua require('hlslens').start()<CR>", opts)
 set_keymap("n", "*", "*<CMD>lua require('hlslens').start()<CR>", opts)
