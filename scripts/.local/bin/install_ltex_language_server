@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+INSTALL_DIR="${HOME}/.local/bin"
+INSTALL_SUB_DIR="${INSTALL_DIR}/ltex-language-server"
+VERSION_FILE="${INSTALL_DIR}/.ltex_language_server_version"
+
+RELEASE_INFO="/tmp/release-info"
+curl -s https://api.github.com/repos/valentjn/ltex-ls/releases/latest > "$RELEASE_INFO"
+
+TAG_NAME=$(grep "tag_name" "$RELEASE_INFO" | cut -d\" -f4)
+DOWNLOAD_DIR="/tmp/ltex-language-server"
+DOWNLOAD_ZIP="${DOWNLOAD_DIR}/ltex-language-server.tar.gz"
+
+OS=$(uname -s | tr "[:upper:]" "[:lower:]")
+
+case "$OS" in
+    linux)
+        PLATFORM="linux"
+        ;;
+    darwin)
+        PLATFORM="mac"
+        ;;
+    *)
+        PLATFORM="windows"
+        ;;
+esac
+
+DOWNLOAD_URL=$(grep "browser_download_url.*$PLATFORM" "$RELEASE_INFO" | cut -d\" -f4)
+
+if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
+    rm -rf "$DOWNLOAD_DIR"
+    mkdir -p "$DOWNLOAD_DIR"
+
+    rm -rf "$INSTALL_SUB_DIR"
+    mkdir -p "$INSTALL_SUB_DIR"
+
+    curl -L "$DOWNLOAD_URL" -o "$DOWNLOAD_ZIP"
+    tar xvf "$DOWNLOAD_ZIP" --strip-components 2 --directory "$DOWNLOAD_DIR"
+    rm -rf "$DOWNLOAD_ZIP"
+
+    cp -R "$DOWNLOAD_DIR/." "$INSTALL_SUB_DIR"
+    chmod +x "$INSTALL_SUB_DIR/bin/ltex-ls"
+    ln -s "$INSTALL_SUB_DIR/bin/ltex-ls" "$INSTALL_DIR/ltex-ls"
+    chmod +x "$INSTALL_DIR/ltex-ls"
+    echo "$TAG_NAME" > "$VERSION_FILE"
+
+    rm -rf "$DOWNLOAD_DIR"
+fi

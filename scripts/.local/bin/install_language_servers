@@ -66,6 +66,10 @@ function main {
         yarn global add yaml-language-server
     fi
 
+    if ! command -v ltex-ls &> /dev/null; then
+        install_ltex_language_server
+    fi
+
     if ! command -v lua-language-server &> /dev/null; then
         install_lua_language_server
     fi

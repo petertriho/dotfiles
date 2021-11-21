@@ -290,6 +290,7 @@ return {
             },
         },
     },
+    ltex = {},
     ["null-ls"] = {},
     rust_analyzer = {},
     prismals = {},
