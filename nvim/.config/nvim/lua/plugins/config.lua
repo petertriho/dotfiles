@@ -205,7 +205,7 @@ return {
     end,
     ["github/copilot.vim"] = function()
         vim.g.copilot_filetypes = {
-            TelescopePrompt = false
+            TelescopePrompt = false,
         }
         vim.g.copilot_no_tab_map = true
         vim.cmd("highlight CopilotSuggestion guifg=#565f89")
@@ -571,8 +571,20 @@ return {
     end,
     ["numToStr/Comment.nvim"] = function()
         require("Comment").setup({
-            pre_hook = function()
-                return require("ts_context_commentstring.internal").calculate_commentstring()
+            pre_hook = function(ctx)
+                local U = require("Comment.utils")
+
+                local location = nil
+                if ctx.ctype == U.ctype.block then
+                    location = require("ts_context_commentstring.utils").get_cursor_location()
+                elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+                    location = require("ts_context_commentstring.utils").get_visual_start_location()
+                end
+
+                return require("ts_context_commentstring.internal").calculate_commentstring({
+                    key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
+                    location = location,
+                })
             end,
         })
 
