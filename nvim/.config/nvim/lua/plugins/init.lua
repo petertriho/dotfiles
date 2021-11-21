@@ -36,7 +36,7 @@ require("packer").startup({
         use("b0o/schemastore.nvim")
         use({
             "filipdutescu/renamer.nvim",
-            requires = { "nvim-lua/plenary.nvim" },
+            requires = "nvim-lua/plenary.nvim",
             config = config["filipdutescu/renamer.nvim"],
             module = "renamer",
         })
@@ -280,9 +280,7 @@ require("packer").startup({
         -- telescope
         use({
             "nvim-telescope/telescope.nvim",
-            requires = {
-                "nvim-lua/plenary.nvim",
-            },
+            requires = "nvim-lua/plenary.nvim",
             config = config["nvim-telescope/telescope.nvim"],
             cmd = "Telescope",
             module = "telescope",
@@ -392,9 +390,7 @@ require("packer").startup({
         use({ "skywind3000/asyncrun.vim", cmd = { "Make", "AsyncRun" } })
         use({
             "TimUntersberger/neogit",
-            requires = {
-                "nvim-lua/plenary.nvim",
-            },
+            requires = "nvim-lua/plenary.nvim",
             config = config["TimUntersberger/neogit"],
             cmd = "Neogit",
             module = "neogit",
@@ -407,7 +403,7 @@ require("packer").startup({
         use({
             "vimwiki/vimwiki",
             setup = config["vimwiki/vimwiki"],
-            keys = { "<leader>w" },
+            keys = "<leader>w",
         })
         use({
             "vuki656/package-info.nvim",
@@ -456,7 +452,7 @@ require("packer").startup({
         use({
             "kevinhwang91/nvim-hlslens",
             module = "hlslens",
-            keys = { "/" },
+            keys = "/",
         })
         use({
             "kwkarlwang/bufjump.nvim",
@@ -472,7 +468,7 @@ require("packer").startup({
             "nvim-telescope/telescope-fzf-native.nvim",
             run = "make",
         })
-        use({ "ryvnf/readline.vim", event = { "CmdlineEnter" } })
+        use({ "ryvnf/readline.vim", event = "CmdlineEnter" })
         use({
             "sindrets/winshift.nvim",
             config = config["sindrets/winshift.nvim"],
@@ -487,7 +483,7 @@ require("packer").startup({
                 "LLToggle",
                 "QFToggle",
                 "Keep",
-                "Reject"
+                "Reject",
             },
             module = "qf_helper",
             ft = "qf",
@@ -498,7 +494,7 @@ require("packer").startup({
             "winston0410/range-highlight.nvim",
             requires = "winston0410/cmd-parser.nvim",
             config = config["winston0410/range-highlight.nvim"],
-            event = { "CmdlineEnter" },
+            event = "CmdlineEnter",
         })
     end,
     config = {
