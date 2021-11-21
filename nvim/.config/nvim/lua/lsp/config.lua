@@ -134,21 +134,12 @@ null_ls.config({
     sources = {
         -- *
         b.diagnostics.codespell.with({
-            filetypes = {
-                "fish",
-                "go",
-                "javascript",
-                "javascriptreact",
-                "lua",
-                "python",
-                "rust",
-                "sh",
-                "typescript",
-                "typescriptreact",
-            },
+            filetypes = {},
+            disabled_filetypes = { "gitcommit", "markdown", "vimwiki" },
         }),
         b.diagnostics.cspell.with({
             filetypes = {},
+            disabled_filetypes = { "gitcommit", "markdown", "vimwiki" },
             on_output = h.diagnostics.from_pattern(
                 [[.*:(%d+):(%d+)%s*(-)%s*(.*)]],
                 { "row", "col", "severity", "message" },
