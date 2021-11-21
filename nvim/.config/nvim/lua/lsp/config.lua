@@ -89,7 +89,7 @@ local sources_diagnostics = {
                         h.diagnostics.adapters.end_col.from_length,
                     },
                     severities = {
-                        error = h.diagnostics.severities["error"],
+                        error = h.diagnostics.severities.error,
                     },
                 }
             ),
@@ -145,6 +145,22 @@ null_ls.config({
                 "sh",
                 "typescript",
                 "typescriptreact",
+            },
+        }),
+        b.diagnostics.cspell.with({
+            filetypes = {},
+            on_output = h.diagnostics.from_pattern(
+                [[.*:(%d+):(%d+)%s*(-)%s*(.*)]],
+                { "row", "col", "severity", "message" },
+                {
+                    severities = {
+                        ["-"] = h.diagnostics.severities.information,
+                    },
+                }
+            ),
+            extra_args = {
+                "--config",
+                vim.fn.expand("$HOME/.config/format-lint/.cspell.json"),
             },
         }),
         b.hover.dictionary,

@@ -59,6 +59,10 @@ function main {
         pipx install pyupgrade
     fi
 
+    if ! command -v cspell &> /dev/null; then
+        yarn global add cspell
+    fi
+
     if ! command -v fixjson &> /dev/null; then
         yarn global add fixjson
     fi
