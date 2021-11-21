@@ -34,7 +34,6 @@ require("packer").startup({
             },
         })
         use("b0o/schemastore.nvim")
-        use({ "brymer-meneses/grammar-guard.nvim", run = ":GrammarInstall" })
         use({
             "filipdutescu/renamer.nvim",
             requires = { "nvim-lua/plenary.nvim" },

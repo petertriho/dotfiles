@@ -1,5 +1,3 @@
-require("grammar-guard").init()
-
 local null_ls = require("null-ls")
 
 local h = require("null-ls.helpers")
@@ -279,22 +277,6 @@ return {
     },
     eslint = {},
     gopls = {},
-    grammar_guard = {
-        settings = {
-            ltex = {
-                enabled = { "latex", "tex", "bib", "markdown" },
-                language = "en",
-                diagnosticSeverity = "information",
-                additionalRules = {
-                    enablePickyRules = true,
-                    motherTongue = "en",
-                },
-                dictionary = {},
-                disabledRules = {},
-                hiddenFalsePositives = {},
-            },
-        },
-    },
     graphql = {},
     html = {},
     jsonls = {
