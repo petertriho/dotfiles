@@ -27,6 +27,7 @@ local config = {
         { mods = "LEADER", key = "Tab", action = "QuickSelect" },
         { mods = "LEADER", key = "a", action = "ShowTabNavigator" },
         { mods = "LEADER", key = "c", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
+        { mods = "LEADER", key = "f", action = "ToggleFullScreen" },
         { mods = "LEADER", key = "h", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
         { mods = "LEADER", key = "j", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
         { mods = "LEADER", key = "k", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
@@ -67,6 +68,10 @@ local config = {
                 fg_color = "#C0CAF5",
             },
         },
+    },
+    inactive_pane_hsb = {
+        saturation = 1.0,
+        brightness = 1.0,
     },
 }
 
