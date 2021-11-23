@@ -126,7 +126,7 @@ function tool:misc {
     echo "Installing formatters and linters ..."
     install_formatters_linters
 
-    echo "Updating ltex language server"
+    echo "Updating ltex language server ..."
     install_ltex_language_server
 
     echo "Updating lua language server ..."
