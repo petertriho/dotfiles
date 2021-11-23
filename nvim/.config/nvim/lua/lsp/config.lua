@@ -135,11 +135,11 @@ null_ls.config({
         -- *
         b.diagnostics.codespell.with({
             filetypes = {},
-            disabled_filetypes = { "gitcommit", "markdown", "vimwiki" },
+            disabled_filetypes = { "gitcommit", "markdown", "NvimTree", "vimwiki" },
         }),
         b.diagnostics.cspell.with({
             filetypes = {},
-            disabled_filetypes = { "gitcommit", "markdown", "vimwiki" },
+            disabled_filetypes = { "gitcommit", "markdown", "NvimTree", "vimwiki" },
             on_output = h.diagnostics.from_pattern(
                 [[.*:(%d+):(%d+)%s*(-)%s*(.*)]],
                 { "row", "col", "severity", "message" },
@@ -264,6 +264,8 @@ null_ls.config({
         }),
     },
 })
+
+null_ls.disable("spell")
 
 return {
     bashls = {},
