@@ -39,6 +39,7 @@ opt.lazyredraw = true
 opt.mouse = "a"
 opt.number = true
 opt.path = opt.path + "**"
+opt.pumheight = 10
 opt.relativenumber = true
 opt.scrolloff = 5
 -- opt.shada = "!,'0,f0,<50,s10,h"
