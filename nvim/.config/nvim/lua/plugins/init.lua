@@ -475,6 +475,10 @@ require("packer").startup({
             cmd = "WinShift",
         })
         use({
+            "stevearc/stickybuf.nvim",
+            config = config["stevearc/stickybuf.nvim"],
+        })
+        use({
             "stevearc/qf_helper.nvim",
             config = config["stevearc/qf_helper.nvim"],
             cmd = {

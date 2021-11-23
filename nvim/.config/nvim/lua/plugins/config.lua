@@ -915,6 +915,16 @@ return {
             },
         })
     end,
+    ["stevearc/stickybuf.nvim"] = function()
+        require("stickybuf").setup({
+            filetype = {
+                dbui = "filetype",
+                fugitive = "filetype",
+                Outline = "filetype",
+                trouble = "filetype",
+            },
+        })
+    end,
     ["ThePrimeagen/refactoring.nvim"] = function()
         require("refactoring").setup()
     end,
