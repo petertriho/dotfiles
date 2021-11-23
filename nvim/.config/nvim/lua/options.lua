@@ -151,12 +151,12 @@ set_augroups({
         },
         {
             "InsertEnter",
-            "*",
+            "*(^prompt)@<!",
             "set norelativenumber"
         },
         {
             "InsertLeave",
-            "*",
+            "*(^prompt)@<!",
             "set relativenumber"
         }
     },
