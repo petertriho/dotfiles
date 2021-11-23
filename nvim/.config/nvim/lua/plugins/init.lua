@@ -336,6 +336,11 @@ require("packer").startup({
         })
         use({ "gabrielpoca/replacer.nvim", module = "replacer" })
         use({
+            "gennaro-tedesco/nvim-jqx",
+            cmd = { "JqxList", "JqxQuery" },
+            module = "nvim-jqx",
+        })
+        use({
             "iamcco/markdown-preview.nvim",
             run = ":call mkdp#util#install()",
             ft = { "markdown", "packer", "vimwiki" },
