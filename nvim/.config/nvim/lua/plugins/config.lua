@@ -343,7 +343,7 @@ return {
                 {
                     name = "buffer",
                     prioriy = 60,
-                    opts = {
+                    option = {
                         get_bufnrs = function()
                             -- visible buffers
                             local bufs = {}
@@ -356,7 +356,7 @@ return {
                 },
                 {
                     name = "tmux",
-                    opts = {
+                    option = {
                         all_panes = true,
                         trigger_characters = {},
                     },
@@ -379,7 +379,7 @@ return {
                 { name = "path" },
                 {
                     name = "fuzzy_path",
-                    opts = { fd_cmd = { "fd", "--max-depth", "20", "--hidden", "--exclude", ".git" } },
+                    options = { fd_cmd = { "fd", "--max-depth", "20", "--hidden", "--exclude", ".git" } },
                 },
                 { name = "buffer" },
                 { name = "fuzzy_buffer" },
