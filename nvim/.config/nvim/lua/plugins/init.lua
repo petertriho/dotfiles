@@ -450,6 +450,10 @@ require("packer").startup({
         })
         use({ "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } })
         use({
+            "ethanholz/nvim-lastplace",
+            config = config["ethanholz/nvim-lastplace"],
+        })
+        use({
             "kazhala/close-buffers.nvim",
             config = config["kazhala/close-buffers.nvim"],
             cmd = { "BDelete", "BWipeout" },

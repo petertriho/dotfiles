@@ -97,6 +97,9 @@ return {
             "DiffViewFiles",
         }
     end,
+    ["ethanholz/nvim-lastplace"] = function()
+        require("nvim-lastplace").setup({})
+    end,
     ["filipdutescu/renamer.nvim"] = function()
         require("renamer").setup()
     end,
