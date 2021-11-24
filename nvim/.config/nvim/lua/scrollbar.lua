@@ -4,33 +4,7 @@ local M = {}
 
 local NAMESPACE = vim.api.nvim_create_namespace("scrollbar")
 
-local scrollbar_handle_bg = colors.bg_highlight
-local error_fg = colors.error
-local warn_fg = colors.warning
-local info_fg = colors.info
-local hint_fg = colors.hint
-
-vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHandle", "NONE", scrollbar_handle_bg))
-
-vim.api.nvim_command(
-    string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHandleError", error_fg, scrollbar_handle_bg)
-)
-vim.api.nvim_command(
-    string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHandleWarn", warn_fg, scrollbar_handle_bg)
-)
-vim.api.nvim_command(
-    string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHandleInfo", info_fg, scrollbar_handle_bg)
-)
-vim.api.nvim_command(
-    string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHandleHint", hint_fg, scrollbar_handle_bg)
-)
-
-vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s", "ScrollbarError", error_fg, "NONE"))
-vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s", "ScrollbarWarn", warn_fg, "NONE"))
-vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s", "ScrollbarInfo", info_fg, "NONE"))
-vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHint", hint_fg, "NONE"))
-
-local get_highlight = function(mark_type, handle)
+local get_highlight_name = function(mark_type, handle)
     return string.format("Scrollbar%s%s", handle and "Handle" or "", mark_type)
 end
 
@@ -103,11 +77,11 @@ M.render = function()
 
         if handle_mark then
             handle_opts.virt_text = {
-                { handle_mark.text, get_highlight(handle_mark.type, true) },
+                { handle_mark.text, get_highlight_name(handle_mark.type, true) },
             }
         else
             handle_opts.virt_text = {
-                { " ", get_highlight("", true) },
+                { " ", get_highlight_name("", true) },
             }
         end
 
@@ -118,7 +92,7 @@ M.render = function()
         if mark ~= nil then
             local handle_opts = {
                 virt_text_pos = "right_align",
-                virt_text = { { mark.text, get_highlight(mark.type, false) } },
+                virt_text = { { mark.text, get_highlight_name(mark.type, false) } },
             }
             vim.api.nvim_buf_set_extmark(
                 0,
@@ -131,14 +105,23 @@ M.render = function()
     end
 end
 
-local DIAGNOSTIC_SEVERITY_TO_MARK_TYPE = {
-    [vim.diagnostic.severity.ERROR] = "Error",
-    [vim.diagnostic.severity.WARN] = "Warn",
-    [vim.diagnostic.severity.INFO] = "Info",
-    [vim.diagnostic.severity.HINT] = "Hint",
-}
-
 function M.setup()
+    local highlights = {
+        ScrollbarHandle = { "NONE", colors.bg_highlight },
+        ScrollbarHandleError = { colors.error, colors.bg_highlight },
+        ScrollbarHandleWarn = { colors.warning, colors.bg_highlight },
+        ScrollbarHandleInfo = { colors.info, colors.bg_highlight },
+        ScrollbarHandleHint = { colors.hint, colors.bg_highlight },
+        ScrollbarError = { colors.error, colors.bg_highlight },
+        ScrollbarWarn = { colors.warning, "NONE" },
+        ScrollbarInfo = { colors.info, "NONE" },
+        ScrollbarHint = { colors.hint, "NONE" },
+    }
+
+    for name, highlight in pairs(highlights) do
+        vim.cmd(string.format("highlight %s guifg=%s guibg=%s", name, highlight[1], highlight[2]))
+    end
+
     vim.cmd([[
     augroup scrollbar
         autocmd!
@@ -149,6 +132,14 @@ function M.setup()
         autocmd WinScrolled * lua require('scrollbar').render()
     augroup end
     ]])
+
+    local diagnostic_severity_to_mark_type = {
+        [vim.diagnostic.severity.ERROR] = "Error",
+        [vim.diagnostic.severity.WARN] = "Warn",
+        [vim.diagnostic.severity.INFO] = "Info",
+        [vim.diagnostic.severity.HINT] = "Hint",
+    }
+
     vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
         vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
 
@@ -158,7 +149,7 @@ function M.setup()
             table.insert(diagnostics_scrollbar_marks, {
                 line = diagnostic.range.start.line,
                 text = "-",
-                type = DIAGNOSTIC_SEVERITY_TO_MARK_TYPE[diagnostic.severity],
+                type = diagnostic_severity_to_mark_type[diagnostic.severity],
             })
         end
 
