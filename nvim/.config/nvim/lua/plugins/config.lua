@@ -574,6 +574,7 @@ return {
     end,
     ["numToStr/Comment.nvim"] = function()
         require("Comment").setup({
+            ignore = "^$",
             pre_hook = function(ctx)
                 local U = require("Comment.utils")
 
