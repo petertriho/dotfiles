@@ -10,9 +10,7 @@ local warn_fg = colors.warning
 local info_fg = colors.info
 local hint_fg = colors.hint
 
-vim.api.nvim_command(
-    string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHandleEmpty", "NONE", scrollbar_handle_bg)
-)
+vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHandle", "NONE", scrollbar_handle_bg))
 
 vim.api.nvim_command(
     string.format("highlight %s guifg=%s guibg=%s", "ScrollbarHandleError", error_fg, scrollbar_handle_bg)
@@ -36,16 +34,7 @@ local get_highlight = function(mark_type, handle)
     return string.format("Scrollbar%s%s", handle and "Handle" or "", mark_type)
 end
 
-M.refresh = function()
-    -- vim.b.scrollbar_marks = {
-    --     diagnostics = {
-    --         { line = 5, text = "-", type = "Error" },
-    --         { line = 15, text = "-", type = "Warn" },
-    --         { line = 25, text = "-", type = "Info" },
-    --         { line = 35, text = "-", type = "Hint" },
-    --     },
-    -- }
-
+M.render = function()
     vim.api.nvim_buf_clear_namespace(0, NAMESPACE, 0, -1)
 
     local total_lines = vim.fn.line("$")
@@ -54,7 +43,7 @@ M.refresh = function()
     local last_visible_line = vim.fn.line("w$")
 
     if visible_lines >= total_lines then
-        return
+        visible_lines = total_lines
     end
 
     if last_visible_line - first_visible_line + 1 < visible_lines then
@@ -63,7 +52,7 @@ M.refresh = function()
 
     local ratio = visible_lines / total_lines
 
-    local relative_first_line = math.floor(first_visible_line * ratio)
+    local relative_first_line = math.floor(first_visible_line * ratio) - math.floor(1 * ratio)
     local relative_last_line = math.floor(last_visible_line * ratio)
 
     local scrollbar_marks = vim.b.scrollbar_marks or {}
@@ -72,12 +61,26 @@ M.refresh = function()
     local other_marks = {}
 
     for _, namespace_marks in pairs(scrollbar_marks) do
+        table.sort(namespace_marks, function(a, b)
+            return a.line < b.line
+        end)
+
         for _, mark in pairs(namespace_marks) do
             local relative_mark_line = math.floor(mark.line * ratio)
-            if relative_mark_line >= relative_first_line and relative_mark_line <= relative_last_line then
-                table.insert(handle_marks, mark)
-            else
-                table.insert(other_marks, mark)
+
+            if
+                not (
+                    handle_marks[#handle_marks]
+                        and math.floor(handle_marks[#handle_marks].line * ratio) == relative_mark_line
+                    or other_marks[#other_marks]
+                        and math.floor(other_marks[#other_marks].line * ratio) == relative_mark_line
+                )
+            then
+                if relative_mark_line >= relative_first_line and relative_mark_line <= relative_last_line then
+                    table.insert(handle_marks, mark)
+                else
+                    table.insert(other_marks, mark)
+                end
             end
         end
     end
@@ -104,7 +107,7 @@ M.refresh = function()
             }
         else
             handle_opts.virt_text = {
-                { " ", get_highlight("Empty", true) },
+                { " ", get_highlight("", true) },
             }
         end
 
@@ -128,16 +131,41 @@ M.refresh = function()
     end
 end
 
+local DIAGNOSTIC_SEVERITY_TO_MARK_TYPE = {
+    [vim.diagnostic.severity.ERROR] = "Error",
+    [vim.diagnostic.severity.WARN] = "Warn",
+    [vim.diagnostic.severity.INFO] = "Info",
+    [vim.diagnostic.severity.HINT] = "Hint",
+}
+
 function M.setup()
     vim.cmd([[
     augroup scrollbar
         autocmd!
-        autocmd BufWinEnter,TabEnter,TermEnter,WinEnter * lua require('scrollbar').refresh()
-        autocmd TextChanged * lua require('scrollbar').refresh()
-        autocmd VimResized * lua require('scrollbar').refresh()
-        autocmd WinScrolled * lua require('scrollbar').refresh()
+        autocmd BufWinEnter,TabEnter,TermEnter,WinEnter * lua require('scrollbar').render()
+        autocmd CmdwinLeave * lua require('scrollbar').render()
+        autocmd TextChanged * lua require('scrollbar').render()
+        autocmd VimResized * lua require('scrollbar').render()
+        autocmd WinScrolled * lua require('scrollbar').render()
     augroup end
     ]])
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+        vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
+
+        local diagnostics_scrollbar_marks = {}
+
+        for _, diagnostic in pairs(result.diagnostics) do
+            table.insert(diagnostics_scrollbar_marks, {
+                line = diagnostic.range.start.line,
+                text = "-",
+                type = DIAGNOSTIC_SEVERITY_TO_MARK_TYPE[diagnostic.severity],
+            })
+        end
+
+        vim.b.scrollbar_marks = { diagnostics = diagnostics_scrollbar_marks }
+
+        M.render()
+    end
 end
 
 return M
