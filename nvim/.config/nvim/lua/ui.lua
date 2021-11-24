@@ -305,16 +305,16 @@ components.active[2] = {
         left_sep = "block",
         right_sep = "block",
     },
-    {
-        provider = "scroll_bar",
-        hl = function()
-            return {
-                fg = vi_mode_utils.get_mode_color(),
-                bg = "black",
-                style = "bold",
-            }
-        end,
-    },
+    -- {
+    --     provider = "scroll_bar",
+    --     hl = function()
+    --         return {
+    --             fg = vi_mode_utils.get_mode_color(),
+    --             bg = "black",
+    --             style = "bold",
+    --         }
+    --     end,
+    -- },
 }
 
 components.inactive[1] = {
