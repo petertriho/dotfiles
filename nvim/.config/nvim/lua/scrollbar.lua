@@ -122,16 +122,19 @@ function M.setup()
         vim.cmd(string.format("highlight %s guifg=%s guibg=%s", name, highlight[1], highlight[2]))
     end
 
-    vim.cmd([[
-    augroup scrollbar
-        autocmd!
-        autocmd BufWinEnter,TabEnter,TermEnter,WinEnter * lua require('scrollbar').render()
-        autocmd CmdwinLeave * lua require('scrollbar').render()
-        autocmd TextChanged * lua require('scrollbar').render()
-        autocmd VimResized * lua require('scrollbar').render()
-        autocmd WinScrolled * lua require('scrollbar').render()
-    augroup end
-    ]])
+    local autocmd_events = "BufWinEnter,TabEnter,TermEnter,WinEnter,CmdwinLeave,TextChanged,VimResized,WinScrolled"
+    local ignored_filetypes = ""
+
+    vim.cmd(string.format(
+        [[
+        augroup scrollbar
+            autocmd!
+            autocmd %s *%s lua require('scrollbar').render()
+        augroup end
+        ]],
+        autocmd_events,
+        ignored_filetypes
+    ))
 
     local diagnostic_severity_to_mark_type = {
         [vim.diagnostic.severity.ERROR] = "Error",

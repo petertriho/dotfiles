@@ -5,5 +5,4 @@ require("plugins")
 require("lsp")
 require("keymaps")
 require("ui")
-require("scrollbar").setup()
 vim.opt.shadafile = ""
