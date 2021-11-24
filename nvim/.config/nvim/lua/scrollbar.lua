@@ -112,7 +112,7 @@ function M.setup()
         ScrollbarHandleWarn = { colors.warning, colors.bg_highlight },
         ScrollbarHandleInfo = { colors.info, colors.bg_highlight },
         ScrollbarHandleHint = { colors.hint, colors.bg_highlight },
-        ScrollbarError = { colors.error, colors.bg_highlight },
+        ScrollbarError = { colors.error, "NONE" },
         ScrollbarWarn = { colors.warning, "NONE" },
         ScrollbarInfo = { colors.info, "NONE" },
         ScrollbarHint = { colors.hint, "NONE" },
