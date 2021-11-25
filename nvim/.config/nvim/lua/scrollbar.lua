@@ -7,6 +7,8 @@ local NAME_SUFFIX = "Handle"
 
 local NAMESPACE = vim.api.nvim_create_namespace(NAME_PREFIX)
 
+local MARKS = { "-", "=" }
+
 local MARK_TYPE_PRIORITY = {
     Error = 1,
     Warn = 2,
@@ -55,18 +57,23 @@ M.render = function()
         for _, mark in pairs(namespace_marks) do
             local relative_mark_line = math.floor(mark.line * ratio)
 
-            if
-                not (
+            if mark.line <= total_lines then
+                if
                     handle_marks[#handle_marks]
-                        and math.floor(handle_marks[#handle_marks].line * ratio) == relative_mark_line
-                    or other_marks[#other_marks]
-                        and math.floor(other_marks[#other_marks].line * ratio) == relative_mark_line
-                ) and mark.line <= total_lines
-            then
-                if relative_mark_line >= relative_first_line and relative_mark_line <= relative_last_line then
-                    table.insert(handle_marks, mark)
+                    and math.floor(handle_marks[#handle_marks].line * ratio) == relative_mark_line
+                then
+                    handle_marks[#handle_marks].text = MARKS[2]
+                elseif
+                    other_marks[#other_marks]
+                    and math.floor(other_marks[#other_marks].line * ratio) == relative_mark_line
+                then
+                    other_marks[#other_marks].text = MARKS[2]
                 else
-                    table.insert(other_marks, mark)
+                    if relative_mark_line >= relative_first_line and relative_mark_line <= relative_last_line then
+                        table.insert(handle_marks, mark)
+                    else
+                        table.insert(other_marks, mark)
+                    end
                 end
             end
         end
@@ -119,10 +126,10 @@ M.render = function()
 end
 
 local diagnostics_mark_properties = {
-    [vim.diagnostic.severity.ERROR] = { text = "-", type = "Error" },
-    [vim.diagnostic.severity.WARN] = { text = "-", type = "Warn" },
-    [vim.diagnostic.severity.INFO] = { text = "-", type = "Info" },
-    [vim.diagnostic.severity.HINT] = { text = "-", type = "Hint" },
+    [vim.diagnostic.severity.ERROR] = { text = MARKS[1], type = "Error" },
+    [vim.diagnostic.severity.WARN] = { text = MARKS[1], type = "Warn" },
+    [vim.diagnostic.severity.INFO] = { text = MARKS[1], type = "Info" },
+    [vim.diagnostic.severity.HINT] = { text = MARKS[2], type = "Hint" },
 }
 
 M.diagnostics_handler = function(err, result, ctx, config)
