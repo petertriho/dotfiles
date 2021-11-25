@@ -2,10 +2,13 @@ local colors = require("tokyonight.colors").setup()
 
 local M = {}
 
-local NAMESPACE = vim.api.nvim_create_namespace("scrollbar")
+local NAME_PREFIX = "Scrollbar"
+local NAME_SUFFIX = "Handle"
+
+local NAMESPACE = vim.api.nvim_create_namespace(NAME_PREFIX)
 
 local get_highlight_name = function(mark_type, handle)
-    return string.format("Scrollbar%s%s", mark_type, handle and "Handle" or "")
+    return string.format("%s%s%s", NAME_PREFIX, mark_type, handle and NAME_SUFFIX or "")
 end
 
 M.render = function()
@@ -134,15 +137,15 @@ end
 
 M.setup = function()
     local highlights = {
-        ScrollbarHandle = { "NONE", colors.bg_highlight },
-        ScrollbarErrorHandle = { colors.error, colors.bg_highlight },
-        ScrollbarWarnHandle = { colors.warning, colors.bg_highlight },
-        ScrollbarInfoHandle = { colors.info, colors.bg_highlight },
-        ScrollbarHintHandle = { colors.hint, colors.bg_highlight },
-        ScrollbarError = { colors.error, "NONE" },
-        ScrollbarWarn = { colors.warning, "NONE" },
-        ScrollbarInfo = { colors.info, "NONE" },
-        ScrollbarHint = { colors.hint, "NONE" },
+        [NAME_PREFIX .. NAME_SUFFIX] = { "NONE", colors.bg_highlight },
+        [NAME_PREFIX .. "Error" .. NAME_SUFFIX] = { colors.error, colors.bg_highlight },
+        [NAME_PREFIX .. "Warn" .. NAME_SUFFIX] = { colors.warning, colors.bg_highlight },
+        [NAME_PREFIX .. "Info" .. NAME_SUFFIX] = { colors.info, colors.bg_highlight },
+        [NAME_PREFIX .. "Hint" .. NAME_SUFFIX] = { colors.hint, colors.bg_highlight },
+        [NAME_PREFIX .. "Error"] = { colors.error, "NONE" },
+        [NAME_PREFIX .. "Warn"] = { colors.warning, "NONE" },
+        [NAME_PREFIX .. "Info"] = { colors.info, "NONE" },
+        [NAME_PREFIX .. "Hint"] = { colors.hint, "NONE" },
     }
 
     for name, highlight in pairs(highlights) do
