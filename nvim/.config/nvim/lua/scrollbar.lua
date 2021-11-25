@@ -110,7 +110,7 @@ M.render = function()
 
     for _, mark in pairs(other_marks) do
         if mark ~= nil then
-            local handle_opts = {
+            local mark_opts = {
                 virt_text_pos = "right_align",
                 virt_text = { { mark.text, get_highlight_name(mark.type, false) } },
             }
@@ -119,7 +119,7 @@ M.render = function()
                 NAMESPACE,
                 first_visible_line - 1 + math.floor(tonumber(mark.line) * ratio),
                 -1,
-                handle_opts
+                mark_opts
             )
         end
     end
