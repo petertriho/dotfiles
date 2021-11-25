@@ -32,10 +32,6 @@ M.render = function()
         visible_lines = total_lines
     end
 
-    if last_visible_line - first_visible_line + 1 < visible_lines then
-        return
-    end
-
     local ratio = visible_lines / total_lines
 
     local relative_first_line = math.floor(first_visible_line * ratio) - math.floor(1 * ratio)
@@ -79,48 +75,52 @@ M.render = function()
         end
     end
 
+    local scroll_offset = visible_lines - (last_visible_line - first_visible_line)
+
     for i = relative_first_line, relative_last_line, 1 do
-        local handle_opts = {
-            virt_text_pos = "right_align",
-        }
+        local mark_line = first_visible_line - 1 + i - scroll_offset
 
-        local handle_mark = nil
+        if mark_line >= 0 then
+            local handle_opts = {
+                virt_text_pos = "right_align",
+            }
 
-        for index, mark in ipairs(handle_marks) do
-            local relative_mark_line = math.floor(mark.line * ratio)
-            if relative_mark_line >= i - 1 and relative_mark_line <= i then
-                handle_mark = mark
-                table.remove(handle_marks, index)
-                break
+            local handle_mark = nil
+
+            for index, mark in ipairs(handle_marks) do
+                local relative_mark_line = math.floor(mark.line * ratio)
+                if relative_mark_line >= i - 1 and relative_mark_line <= i then
+                    handle_mark = mark
+                    table.remove(handle_marks, index)
+                    break
+                end
             end
-        end
 
-        if handle_mark then
-            handle_opts.virt_text = {
-                { handle_mark.text, get_highlight_name(handle_mark.type, true) },
-            }
-        else
-            handle_opts.virt_text = {
-                { " ", get_highlight_name("", true) },
-            }
-        end
+            if handle_mark then
+                handle_opts.virt_text = {
+                    { handle_mark.text, get_highlight_name(handle_mark.type, true) },
+                }
+            else
+                handle_opts.virt_text = {
+                    { " ", get_highlight_name("", true) },
+                }
+            end
 
-        vim.api.nvim_buf_set_extmark(0, NAMESPACE, first_visible_line - 1 + i, -1, handle_opts)
+            vim.api.nvim_buf_set_extmark(0, NAMESPACE, mark_line, -1, handle_opts)
+        end
     end
 
     for _, mark in pairs(other_marks) do
-        if mark ~= nil then
-            local mark_opts = {
-                virt_text_pos = "right_align",
-                virt_text = { { mark.text, get_highlight_name(mark.type, false) } },
-            }
-            vim.api.nvim_buf_set_extmark(
-                0,
-                NAMESPACE,
-                first_visible_line - 1 + math.floor(tonumber(mark.line) * ratio),
-                -1,
-                mark_opts
-            )
+        local mark_line = first_visible_line - 1 + math.floor(tonumber(mark.line) * ratio) - scroll_offset
+
+        if mark_line >= 0 then
+            if mark ~= nil then
+                local mark_opts = {
+                    virt_text_pos = "right_align",
+                    virt_text = { { mark.text, get_highlight_name(mark.type, false) } },
+                }
+                vim.api.nvim_buf_set_extmark(0, NAMESPACE, mark_line, -1, mark_opts)
+            end
         end
     end
 end
