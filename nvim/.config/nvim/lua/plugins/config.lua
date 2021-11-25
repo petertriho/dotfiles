@@ -936,7 +936,7 @@ return {
         })
     end,
     ["ThePrimeagen/refactoring.nvim"] = function()
-        require("refactoring").setup()
+        require("refactoring").setup({})
     end,
     ["TimUntersberger/neogit"] = function()
         require("neogit").setup({
