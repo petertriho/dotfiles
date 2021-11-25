@@ -400,7 +400,11 @@ require("packer").startup({
             cmd = "Neogit",
             module = "neogit",
         })
-        use({ "tpope/vim-fugitive", cmd = { "G", "Git" } })
+        use({
+            "tpope/vim-fugitive",
+            config = config["tpope/vim-fugitive"],
+            cmd = { "G", "Git" },
+        })
         use({
             "https://gitlab.com/yorickpeterse/nvim-pqf",
             config = config["yorickpeterse/nvim-pqf"],
