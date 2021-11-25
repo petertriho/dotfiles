@@ -129,7 +129,7 @@ local diagnostics_mark_properties = {
     [vim.diagnostic.severity.ERROR] = { text = MARKS[1], type = "Error" },
     [vim.diagnostic.severity.WARN] = { text = MARKS[1], type = "Warn" },
     [vim.diagnostic.severity.INFO] = { text = MARKS[1], type = "Info" },
-    [vim.diagnostic.severity.HINT] = { text = MARKS[2], type = "Hint" },
+    [vim.diagnostic.severity.HINT] = { text = MARKS[1], type = "Hint" },
 }
 
 M.diagnostics_handler = function(err, result, ctx, config)
