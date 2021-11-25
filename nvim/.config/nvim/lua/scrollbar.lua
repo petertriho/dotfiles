@@ -14,7 +14,7 @@ end
 M.render = function()
     vim.api.nvim_buf_clear_namespace(0, NAMESPACE, 0, -1)
 
-    local total_lines = vim.fn.line("$")
+    local total_lines = vim.api.nvim_buf_line_count(0)
     local visible_lines = vim.api.nvim_win_get_height(0)
     local first_visible_line = vim.fn.line("w0")
     local last_visible_line = vim.fn.line("w$")
