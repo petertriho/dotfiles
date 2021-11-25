@@ -7,6 +7,13 @@ local NAME_SUFFIX = "Handle"
 
 local NAMESPACE = vim.api.nvim_create_namespace(NAME_PREFIX)
 
+local MARK_TYPE_PRIORITY = {
+    Error = 1,
+    Warn = 2,
+    Info = 3,
+    Hint = 4,
+}
+
 local get_highlight_name = function(mark_type, handle)
     return string.format("%s%s%s", NAME_PREFIX, mark_type, handle and NAME_SUFFIX or "")
 end
@@ -39,6 +46,9 @@ M.render = function()
 
     for _, namespace_marks in pairs(scrollbar_marks) do
         table.sort(namespace_marks, function(a, b)
+            if a.line == b.line then
+                return MARK_TYPE_PRIORITY[a.type] < MARK_TYPE_PRIORITY[b.type]
+            end
             return a.line < b.line
         end)
 
@@ -162,7 +172,6 @@ M.setup = function()
         "VimResized",
         "WinScrolled",
     }
-    local excluded_filetypes = ""
 
     vim.cmd(string.format(
         [[
