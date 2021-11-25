@@ -5,7 +5,7 @@ local M = {}
 local NAMESPACE = vim.api.nvim_create_namespace("scrollbar")
 
 local get_highlight_name = function(mark_type, handle)
-    return string.format("Scrollbar%s%s", handle and "Handle" or "", mark_type)
+    return string.format("Scrollbar%s%s", mark_type, handle and "Handle" or "")
 end
 
 M.render = function()
@@ -105,23 +105,24 @@ M.render = function()
     end
 end
 
-local diagnostics_severity_to_mark_type = {
-    [vim.diagnostic.severity.ERROR] = "Error",
-    [vim.diagnostic.severity.WARN] = "Warn",
-    [vim.diagnostic.severity.INFO] = "Info",
-    [vim.diagnostic.severity.HINT] = "Hint",
+local diagnostics_mark_properties = {
+    [vim.diagnostic.severity.ERROR] = { text = "-", type = "Error" },
+    [vim.diagnostic.severity.WARN] = { text = "-", type = "Warn" },
+    [vim.diagnostic.severity.INFO] = { text = "-", type = "Info" },
+    [vim.diagnostic.severity.HINT] = { text = "-", type = "Hint" },
 }
 
 M.diagnostics_handler = function(err, result, ctx, config)
     local uri = vim.uri_from_bufnr(0)
+
     if uri == result.uri then
         local diagnostics_scrollbar_marks = {}
 
         for _, diagnostic in pairs(result.diagnostics) do
             table.insert(diagnostics_scrollbar_marks, {
                 line = diagnostic.range.start.line,
-                text = "-",
-                type = diagnostics_severity_to_mark_type[diagnostic.severity],
+                text = diagnostics_mark_properties[diagnostic.severity].text,
+                type = diagnostics_mark_properties[diagnostic.severity].type,
             })
         end
 
@@ -134,10 +135,10 @@ end
 M.setup = function()
     local highlights = {
         ScrollbarHandle = { "NONE", colors.bg_highlight },
-        ScrollbarHandleError = { colors.error, colors.bg_highlight },
-        ScrollbarHandleWarn = { colors.warning, colors.bg_highlight },
-        ScrollbarHandleInfo = { colors.info, colors.bg_highlight },
-        ScrollbarHandleHint = { colors.hint, colors.bg_highlight },
+        ScrollbarErrorHandle = { colors.error, colors.bg_highlight },
+        ScrollbarWarnHandle = { colors.warning, colors.bg_highlight },
+        ScrollbarInfoHandle = { colors.info, colors.bg_highlight },
+        ScrollbarHintHandle = { colors.hint, colors.bg_highlight },
         ScrollbarError = { colors.error, "NONE" },
         ScrollbarWarn = { colors.warning, "NONE" },
         ScrollbarInfo = { colors.info, "NONE" },
