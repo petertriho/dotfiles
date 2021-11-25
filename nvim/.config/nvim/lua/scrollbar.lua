@@ -113,21 +113,21 @@ local diagnostics_mark_properties = {
 }
 
 M.diagnostics_handler = function(err, result, ctx, config)
-    local uri = vim.uri_from_bufnr(0)
+    local bufnr = vim.uri_to_bufnr(result.uri)
 
-    if uri == result.uri then
-        local diagnostics_scrollbar_marks = {}
+    local diagnostics_scrollbar_marks = {}
 
-        for _, diagnostic in pairs(result.diagnostics) do
-            table.insert(diagnostics_scrollbar_marks, {
-                line = diagnostic.range.start.line,
-                text = diagnostics_mark_properties[diagnostic.severity].text,
-                type = diagnostics_mark_properties[diagnostic.severity].type,
-            })
-        end
+    for _, diagnostic in pairs(result.diagnostics) do
+        table.insert(diagnostics_scrollbar_marks, {
+            line = diagnostic.range.start.line,
+            text = diagnostics_mark_properties[diagnostic.severity].text,
+            type = diagnostics_mark_properties[diagnostic.severity].type,
+        })
+    end
 
-        vim.b.scrollbar_marks = { diagnostics = diagnostics_scrollbar_marks }
+    vim.api.nvim_buf_set_var(bufnr, "scrollbar_marks", { diagnostics = diagnostics_scrollbar_marks })
 
+    if vim.uri_from_bufnr(0) == result.uri then
         M.render()
     end
 end
