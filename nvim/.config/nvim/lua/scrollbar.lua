@@ -48,7 +48,7 @@ M.render = function()
                         and math.floor(handle_marks[#handle_marks].line * ratio) == relative_mark_line
                     or other_marks[#other_marks]
                         and math.floor(other_marks[#other_marks].line * ratio) == relative_mark_line
-                )
+                ) and mark.line <= total_lines
             then
                 if relative_mark_line >= relative_first_line and relative_mark_line <= relative_last_line then
                     table.insert(handle_marks, mark)
@@ -105,7 +105,33 @@ M.render = function()
     end
 end
 
-function M.setup()
+local diagnostics_severity_to_mark_type = {
+    [vim.diagnostic.severity.ERROR] = "Error",
+    [vim.diagnostic.severity.WARN] = "Warn",
+    [vim.diagnostic.severity.INFO] = "Info",
+    [vim.diagnostic.severity.HINT] = "Hint",
+}
+
+M.diagnostics_handler = function(err, result, ctx, config)
+    local uri = vim.uri_from_bufnr(0)
+    if uri == result.uri then
+        local diagnostics_scrollbar_marks = {}
+
+        for _, diagnostic in pairs(result.diagnostics) do
+            table.insert(diagnostics_scrollbar_marks, {
+                line = diagnostic.range.start.line,
+                text = "-",
+                type = diagnostics_severity_to_mark_type[diagnostic.severity],
+            })
+        end
+
+        vim.b.scrollbar_marks = { diagnostics = diagnostics_scrollbar_marks }
+
+        M.render()
+    end
+end
+
+M.setup = function()
     local highlights = {
         ScrollbarHandle = { "NONE", colors.bg_highlight },
         ScrollbarHandleError = { colors.error, colors.bg_highlight },
@@ -144,29 +170,9 @@ function M.setup()
         table.concat(autocmd_events, ",")
     ))
 
-    local diagnostic_severity_to_mark_type = {
-        [vim.diagnostic.severity.ERROR] = "Error",
-        [vim.diagnostic.severity.WARN] = "Warn",
-        [vim.diagnostic.severity.INFO] = "Info",
-        [vim.diagnostic.severity.HINT] = "Hint",
-    }
-
     vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
         vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
-
-        local diagnostics_scrollbar_marks = {}
-
-        for _, diagnostic in pairs(result.diagnostics) do
-            table.insert(diagnostics_scrollbar_marks, {
-                line = diagnostic.range.start.line,
-                text = "-",
-                type = diagnostic_severity_to_mark_type[diagnostic.severity],
-            })
-        end
-
-        vim.b.scrollbar_marks = { diagnostics = diagnostics_scrollbar_marks }
-
-        M.render()
+        M.diagnostics_handler(err, result, ctx, config)
     end
 end
 
