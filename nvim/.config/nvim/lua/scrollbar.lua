@@ -78,7 +78,7 @@ M.render = function()
     local scroll_offset = visible_lines - (last_visible_line - first_visible_line)
 
     for i = relative_first_line, relative_last_line, 1 do
-        local mark_line = first_visible_line - 1 + i - scroll_offset
+        local mark_line = first_visible_line + i - scroll_offset
 
         if mark_line >= 0 then
             local handle_opts = {
@@ -111,10 +111,10 @@ M.render = function()
     end
 
     for _, mark in pairs(other_marks) do
-        local mark_line = first_visible_line - 1 + math.floor(tonumber(mark.line) * ratio) - scroll_offset
+        if mark ~= nil then
+            local mark_line = first_visible_line + math.floor(tonumber(mark.line) * ratio) - scroll_offset
 
-        if mark_line >= 0 then
-            if mark ~= nil then
+            if mark_line >= 0 then
                 local mark_opts = {
                     virt_text_pos = "right_align",
                     virt_text = { { mark.text, get_highlight_name(mark.type, false) } },
@@ -132,7 +132,7 @@ local diagnostics_mark_properties = {
     [vim.diagnostic.severity.HINT] = { text = MARKS[1], type = "Hint" },
 }
 
-M.diagnostics_handler = function(err, result, ctx, config)
+M.diagnostics_handler = function(_, result, _, _)
     local bufnr = vim.uri_to_bufnr(result.uri)
 
     local diagnostics_scrollbar_marks = {}
