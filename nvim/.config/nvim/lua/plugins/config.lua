@@ -688,7 +688,7 @@ return {
             },
             sync_install = true,
             highlight = {
-                enable = false,
+                enable = true,
                 use_languagetree = true,
             },
             incremental_selection = {
