@@ -93,7 +93,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.font_size = 13
 else
     config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
-    config.font_size = 16
+    config.font_size = 14
 end
 
 return config
