@@ -1,3 +1,11 @@
+--[[
+-- TODO:
+-- - Defer + debounce
+-- - Show search + listen to nohl
+-- - Use mark levels for predefined mark text
+-- - Add misc type includes highlight + text
+]]
+
 local colors = require("tokyonight.colors").setup()
 
 local M = {}

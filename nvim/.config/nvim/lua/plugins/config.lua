@@ -75,9 +75,6 @@ return {
     ["chentau/marks.nvim"] = function()
         require("marks").setup({})
     end,
-    ["chumakd/scratch.vim"] = function()
-        vim.g.scratch_persistence_file = "~/.scratch"
-    end,
     ["danymat/neogen"] = function()
         require("neogen").setup({
             enabled = true,
@@ -554,6 +551,10 @@ return {
             autocmd User visual_multi_exit call v:lua.vmlens_exit()
         augroup END
         ]])
+    end,
+    ["mtth/scratch.vim"] = function()
+        vim.g.scratch_autohide = 0
+        vim.g.scratch_persistence_file = "~/.scratch"
     end,
     ["nathom/filetype.nvim"] = function()
         require("filetype").setup({

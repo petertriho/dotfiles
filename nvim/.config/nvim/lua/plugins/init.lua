@@ -311,11 +311,6 @@ require("packer").startup({
         })
 
         -- tools
-        use({
-            "chumakd/scratch.vim",
-            setup = config["chumakd/scratch.vim"],
-            cmd = "ScratchPreview",
-        })
         use("folke/which-key.nvim")
         use({
             "folke/trouble.nvim",
@@ -366,6 +361,11 @@ require("packer").startup({
             },
         })
         use({ "mg979/vim-visual-multi", setup = config["mg979/vim-visual-multi"] })
+        use({
+            "mtth/scratch.vim",
+            setup = config["mtth/scratch.vim"],
+            cmd = "ScratchPreview",
+        })
         use({
             "RishabhRD/nvim-cheat.sh",
             requires = "RishabhRD/popfix",
