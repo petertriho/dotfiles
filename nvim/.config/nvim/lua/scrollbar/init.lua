@@ -3,6 +3,7 @@
 -- - Defer + debounce
 -- - Show search + listen to nohl
 -- - Use mark levels for predefined mark text
+-- - Refactor multiple marks at same position to change to table of marks instead of increasing mark level
 ]]
 
 local config = require("scrollbar.config")
