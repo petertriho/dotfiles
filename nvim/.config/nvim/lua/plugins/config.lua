@@ -703,13 +703,7 @@ return {
                 use_languagetree = true,
             },
             incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "<CR>",
-                    scope_incremental = "<CR>",
-                    node_incremental = "<C-Space>",
-                    node_decremental = "<BS>",
-                },
+                enable = false,
             },
             indent = { enable = true },
             fold = { enable = true },
