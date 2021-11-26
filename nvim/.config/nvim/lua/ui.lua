@@ -19,7 +19,33 @@ colors = vim.tbl_extend("force", colors, {
     bg = colors.bg_statusline,
 })
 
-require("scrollbar").setup()
+require("scrollbar").setup({
+    handle = {
+        color = colors.bg_highlight,
+    },
+    marks = {
+        Error = { color = colors.error },
+        Warn = { color = colors.warning },
+        Info = { color = colors.info },
+        Hint = { color = colors.hint },
+        Misc = { color = colors.yellow },
+    },
+    excluded_filetypes = {
+        "",
+        "prompt",
+        "TelescopePrompt",
+        "dbui",
+        "NvimTree",
+        "lspinfo",
+        "Mundo",
+        "MundoDiff",
+        "packer",
+        "fugitive",
+        "fugitiveblame",
+        "NeogitStatus",
+        "DiffViewFiles",
+    },
+})
 
 vim.cmd("highlight QuickScopePrimary guifg=" .. colors.blue .. " gui=underline ctermfg=blue cterm=underline")
 vim.cmd("highlight QuickScopeSecondary guifg=" .. colors.red .. " gui=underline ctermfg=red cterm=underline")

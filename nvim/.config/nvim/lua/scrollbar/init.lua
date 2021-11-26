@@ -3,10 +3,9 @@
 -- - Defer + debounce
 -- - Show search + listen to nohl
 -- - Use mark levels for predefined mark text
--- - Add misc type includes highlight + text
 ]]
 
-local colors = require("tokyonight.colors").setup()
+local config = require("scrollbar.config")
 
 local M = {}
 
@@ -15,38 +14,14 @@ local NAME_SUFFIX = "Handle"
 
 local NAMESPACE = vim.api.nvim_create_namespace(NAME_PREFIX)
 
-local MARKS = { "-", "=" }
-
-local MARK_TYPE_PRIORITY = {
-    Error = 1,
-    Warn = 2,
-    Info = 3,
-    Hint = 4,
-}
-
-local EXCLUDED_FILETYPES = {
-    "",
-    "prompt",
-    "dbui",
-    "NvimTree",
-    "lspinfo",
-    "Mundo",
-    "MundoDiff",
-    "packer",
-    "fugitive",
-    "fugitiveblame",
-    "NeogitStatus",
-    "DiffViewFiles",
-}
-
 local get_highlight_name = function(mark_type, handle)
     return string.format("%s%s%s", NAME_PREFIX, mark_type, handle and NAME_SUFFIX or "")
 end
 
-M.render = function()
+M.refresh = function()
     vim.api.nvim_buf_clear_namespace(0, NAMESPACE, 0, -1)
 
-    if not vim.tbl_contains(EXCLUDED_FILETYPES, vim.bo.filetype) then
+    if not vim.tbl_contains(config.excluded_filetypes, vim.bo.filetype) then
         local total_lines = vim.api.nvim_buf_line_count(0)
         local visible_lines = vim.api.nvim_win_get_height(0)
         local first_visible_line = vim.fn.line("w0")
@@ -69,7 +44,7 @@ M.render = function()
         for _, namespace_marks in pairs(scrollbar_marks) do
             table.sort(namespace_marks, function(a, b)
                 if a.line == b.line then
-                    return MARK_TYPE_PRIORITY[a.type] < MARK_TYPE_PRIORITY[b.type]
+                    return config.marks[a.type].priority < config.marks[b.type].priority
                 end
                 return a.line < b.line
             end)
@@ -82,12 +57,12 @@ M.render = function()
                         handle_marks[#handle_marks]
                         and math.floor(handle_marks[#handle_marks].line * ratio) == relative_mark_line
                     then
-                        handle_marks[#handle_marks].text = MARKS[2]
+                        handle_marks[#handle_marks].text = config.marks[mark.type].text[2]
                     elseif
                         other_marks[#other_marks]
                         and math.floor(other_marks[#other_marks].line * ratio) == relative_mark_line
                     then
-                        other_marks[#other_marks].text = MARKS[2]
+                        other_marks[#other_marks].text = config.marks[mark.type].text[2]
                     else
                         if relative_mark_line >= relative_first_line and relative_mark_line <= relative_last_line then
                             table.insert(handle_marks, mark)
@@ -126,7 +101,7 @@ M.render = function()
                     }
                 else
                     handle_opts.virt_text = {
-                        { " ", get_highlight_name("", true) },
+                        { config.handle.text, get_highlight_name("", true) },
                     }
                 end
 
@@ -150,77 +125,77 @@ M.render = function()
     end
 end
 
-local diagnostics_mark_properties = {
-    [vim.diagnostic.severity.ERROR] = { text = MARKS[1], type = "Error" },
-    [vim.diagnostic.severity.WARN] = { text = MARKS[1], type = "Warn" },
-    [vim.diagnostic.severity.INFO] = { text = MARKS[1], type = "Info" },
-    [vim.diagnostic.severity.HINT] = { text = MARKS[1], type = "Hint" },
+local diagnostics_mark_type_map = {
+    [vim.diagnostic.severity.ERROR] = "Error",
+    [vim.diagnostic.severity.WARN] = "Warn",
+    [vim.diagnostic.severity.INFO] = "Info",
+    [vim.diagnostic.severity.HINT] = "Hint",
 }
 
 M.diagnostics_handler = function(_, result, _, _)
     local bufnr = vim.uri_to_bufnr(result.uri)
     local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
 
-    if not vim.tbl_contains(EXCLUDED_FILETYPES, filetype) then
+    if not vim.tbl_contains(config.excluded_filetypes, filetype) then
         local diagnostics_scrollbar_marks = {}
 
         for _, diagnostic in pairs(result.diagnostics) do
+            local mark_type = diagnostics_mark_type_map[diagnostic.severity]
             table.insert(diagnostics_scrollbar_marks, {
                 line = diagnostic.range.start.line,
-                text = diagnostics_mark_properties[diagnostic.severity].text,
-                type = diagnostics_mark_properties[diagnostic.severity].type,
+                text = config.marks[mark_type].text[1],
+                type = mark_type,
             })
         end
 
         vim.api.nvim_buf_set_var(bufnr, "scrollbar_marks", { diagnostics = diagnostics_scrollbar_marks })
 
         if vim.uri_from_bufnr(0) == result.uri then
-            M.render()
+            M.refresh()
         end
     end
 end
 
-M.setup = function()
-    local highlights = {
-        [NAME_PREFIX .. NAME_SUFFIX] = { "NONE", colors.bg_highlight },
-        [NAME_PREFIX .. "Error" .. NAME_SUFFIX] = { colors.error, colors.bg_highlight },
-        [NAME_PREFIX .. "Warn" .. NAME_SUFFIX] = { colors.warning, colors.bg_highlight },
-        [NAME_PREFIX .. "Info" .. NAME_SUFFIX] = { colors.info, colors.bg_highlight },
-        [NAME_PREFIX .. "Hint" .. NAME_SUFFIX] = { colors.hint, colors.bg_highlight },
-        [NAME_PREFIX .. "Error"] = { colors.error, "NONE" },
-        [NAME_PREFIX .. "Warn"] = { colors.warning, "NONE" },
-        [NAME_PREFIX .. "Info"] = { colors.info, "NONE" },
-        [NAME_PREFIX .. "Hint"] = { colors.hint, "NONE" },
-    }
+M.setup = function(overrides)
+    config = vim.tbl_deep_extend("force", config, overrides or {})
 
-    for name, highlight in pairs(highlights) do
-        vim.cmd(string.format("highlight %s guifg=%s guibg=%s", name, highlight[1], highlight[2]))
+    vim.cmd(string.format("highlight %s guifg=%s guibg=%s", get_highlight_name("", true), "none", config.handle.color))
+    for mark_type, properties in pairs(config.marks) do
+        vim.cmd(
+            string.format(
+                "highlight %s guifg=%s guibg=%s",
+                get_highlight_name(mark_type, false),
+                properties.color,
+                "NONE"
+            )
+        )
+        vim.cmd(
+            string.format(
+                "highlight %s guifg=%s guibg=%s",
+                get_highlight_name(mark_type, true),
+                properties.color,
+                config.handle.color
+            )
+        )
     end
 
-    local autocmd_events = {
-        "BufWinEnter",
-        "TabEnter",
-        "TermEnter",
-        "WinEnter",
-        "CmdwinLeave",
-        "TextChanged",
-        "VimResized",
-        "WinScrolled",
-    }
-
-    vim.cmd(string.format(
-        [[
+    if config.autocmd and config.autocmd.refresh and #config.autocmd.refresh > 0 then
+        vim.cmd(string.format(
+            [[
         augroup scrollbar
             autocmd!
-            autocmd %s * lua require('scrollbar').render()
+            autocmd %s * lua require('scrollbar').refresh()
         augroup END
         ]],
-        table.concat(autocmd_events, ",")
-    ))
+            table.concat(config.autocmd.refresh, ",")
+        ))
+    end
 
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
-        vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
-        M.diagnostics_handler(err, result, ctx, config)
+    if config.show.lsp_diagnostics then
+        vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, conf)
+            vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, conf)
+            M.diagnostics_handler(err, result, ctx, conf)
+        end
     end
 end
 
