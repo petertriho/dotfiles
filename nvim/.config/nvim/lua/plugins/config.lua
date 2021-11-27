@@ -300,7 +300,6 @@ return {
                     menu = {
                         buffer = "[BUFFER]",
                         cmp_git = "[GIT]",
-                        cmp_tabnine = "[TABNINE]",
                         fuzzy_path = "[FZ-PATH]",
                         fuzzy_buffer = "[FZ-BUFFER]",
                         nvim_lsp = "[LSP]",
@@ -333,13 +332,11 @@ return {
                 end,
             },
             sources = {
-                { name = "cmp_git", priority = 1000 },
-                { name = "nvim_lsp", priority = 1000 },
-                { name = "cmp_tabnine", priority = 100 },
-                { name = "path", priority = 80 },
+                { name = "nvim_lsp" },
+                { name = "cmp_git" },
+                { name = "path" },
                 {
                     name = "buffer",
-                    prioriy = 60,
                     option = {
                         get_bufnrs = function()
                             -- visible buffers
@@ -357,9 +354,8 @@ return {
                         all_panes = true,
                         trigger_characters = {},
                     },
-                    priority = 40,
                 },
-                { name = "vsnip", priority = 20 },
+                { name = "vsnip" },
             },
         })
 
@@ -970,13 +966,6 @@ return {
     ["tpope/vim-fugitive"] = function()
         vim.api.nvim_set_keymap("n", "g[", "<CMD>diffget //2<CR>", { silent = true, noremap = true })
         vim.api.nvim_set_keymap("n", "g]", "<CMD>diffget //3<CR>", { silent = true, noremap = true })
-    end,
-    ["tzachar/cmp-tabnine"] = function()
-        require("cmp_tabnine.config").setup({
-            max_lines = 1000,
-            max_num_results = 10,
-            sort = true,
-        })
     end,
     ["vimwiki/vimwiki"] = function()
         vim.g.vimwiki_list = {

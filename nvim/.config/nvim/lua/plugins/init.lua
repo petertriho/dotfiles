@@ -98,7 +98,6 @@ require("packer").startup({
             config = config["petertriho/cmp-git"],
             after = "nvim-cmp",
         })
-        use({ "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" })
         use({
             "tzachar/cmp-fuzzy-buffer",
             requires = "tzachar/fuzzy.nvim",
