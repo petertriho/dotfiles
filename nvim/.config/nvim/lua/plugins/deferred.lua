@@ -1,4 +1,4 @@
-function LoadDeferredPlugins()
+function _G.load_deferred_plugins()
     require("packer").loader(
         "nvim-treesitter",
         "gitsigns.nvim",
@@ -10,7 +10,11 @@ function LoadDeferredPlugins()
     )
 end
 
-vim.cmd([[autocmd User LoadDeferredPlugins lua LoadDeferredPlugins()]])
+vim.cmd([[
+    augroup deferred_plugins
+        autocmd User LoadDeferredPlugins call v:lua.load_deferred_plugins()
+    augroup END
+]])
 
 vim.defer_fn(function()
     vim.cmd([[doautocmd User LoadDeferredPlugins]])
