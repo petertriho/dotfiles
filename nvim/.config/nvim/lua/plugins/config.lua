@@ -697,6 +697,7 @@ return {
             highlight = {
                 enable = true,
                 use_languagetree = true,
+                disable = { "markdown" },
             },
             incremental_selection = {
                 enable = false,
