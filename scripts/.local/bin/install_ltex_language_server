@@ -40,6 +40,9 @@ if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
     tar xvf "$DOWNLOAD_ZIP" --strip-components 2 --directory "$DOWNLOAD_DIR"
     rm -rf "$DOWNLOAD_ZIP"
 
+    rm -rf "$INSTALL_SUB_DIR"
+    rm "$INSTALL_DIR/ltex-ls"
+
     cp -R "$DOWNLOAD_DIR/." "$INSTALL_SUB_DIR"
     chmod +x "$INSTALL_SUB_DIR/bin/ltex-ls"
     ln -s "$INSTALL_SUB_DIR/bin/ltex-ls" "$INSTALL_DIR/ltex-ls"
