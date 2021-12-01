@@ -7,8 +7,7 @@ vim.g.tokyonight_sidebars = {
     "MundoDiff",
 }
 vim.g.tokyonight_colors = {
-    bg_sidebar = "#16161e",
-    bg_float = "#16161e",
+    bg_statusline = "#1f2335",
     border_highlight = "#565f89",
 }
 vim.cmd("colorscheme tokyonight")
