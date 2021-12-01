@@ -83,7 +83,7 @@ require("packer").startup({
             setup = config["hrsh7th/vim-vsnip"],
             after = "nvim-cmp",
         })
-        use({ "andersevenrud/compe-tmux", branch = "cmp", after = "nvim-cmp" })
+        use({ "andersevenrud/cmp-tmux", after = "nvim-cmp" })
         use({
             "kristijanhusak/vim-dadbod-completion",
             requires = "tpope/vim-dadbod",
