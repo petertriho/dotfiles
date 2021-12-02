@@ -3,7 +3,7 @@
 none="NONE"
 black="#15161e"
 blue="#7aa2f7"
-bg_statusline="#1f2335"
+bg_statusline="#16161e"
 fg_gutter="#3b4261"
 fg_sidebar="#a9b1d6"
 
