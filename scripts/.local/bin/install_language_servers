@@ -47,6 +47,10 @@ function main {
         yarn global add pyright
     fi
 
+    if ! command -v quick-lint-js &> /dev/null; then
+        yarn global add quick-lint-js
+    fi
+
     if ! command -v tailwindcss-language-server &> /dev/null; then
         yarn global add @tailwindcss/language-server
     fi

@@ -301,6 +301,7 @@ return {
     },
     ltex = {},
     ["null-ls"] = {},
+    quick_lint_js = {},
     rust_analyzer = {},
     prismals = {},
     pyright = {
