@@ -73,6 +73,12 @@ local config = {
         saturation = 1.0,
         brightness = 1.0,
     },
+    window_padding = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0,
+    },
 }
 
 wezterm.on("format-tab-title", function(tab)
