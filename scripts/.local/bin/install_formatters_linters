@@ -39,6 +39,10 @@ function main {
         pipx install autoflake
     fi
 
+    if ! command -v bandit &> /dev/null; then
+        pipx install bandit
+    fi
+
     if ! command -v black &> /dev/null; then
         pipx install black
     fi

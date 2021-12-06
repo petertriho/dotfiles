@@ -7,6 +7,41 @@ local DIAGNOSTICS = methods.internal.DIAGNOSTICS
 local FORMATTING = methods.internal.FORMATTING
 
 local sources_diagnostics = {
+    bandit = h.make_builtin({
+        method = DIAGNOSTICS,
+        filetypes = { "python" },
+        generator_opts = {
+            command = "bandit",
+            args = {
+                "--quiet",
+                "--format",
+                "json",
+                "$FILENAME",
+            },
+            to_temp_file = true,
+            from_stderr = true,
+            format = "json",
+            on_output = function(params)
+                local parser = h.diagnostics.from_json({
+                    attributes = {
+                        row = "line_number",
+                        col = "col_offset",
+                        code = "test_id",
+                        message = "issue_text",
+                        severity = "issue_severity",
+                    },
+                    severities = {
+                        HIGH = h.diagnostics.severities["error"],
+                        MEDIUM = h.diagnostics.severities["warning"],
+                        LOW = h.diagnostics.severities["information"],
+                        UNDEFINED = h.diagnostics.severities["hint"],
+                    },
+                })
+                return parser({ output = params.output.results })
+            end,
+        },
+        factory = h.generator_factory,
+    }),
     dotenv = h.make_builtin({
         method = DIAGNOSTICS,
         filetypes = { "conf" },
@@ -182,6 +217,7 @@ null_ls.config({
         -- nginx
         b.formatting.nginx_beautifier,
         -- python
+        sources_diagnostics.bandit,
         b.diagnostics.flake8,
         b.diagnostics.pylint,
         sources_formatting.autoflake,
