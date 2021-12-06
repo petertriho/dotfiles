@@ -31,10 +31,10 @@ local sources_diagnostics = {
                         severity = "issue_severity",
                     },
                     severities = {
-                        HIGH = h.diagnostics.severities["error"],
-                        MEDIUM = h.diagnostics.severities["warning"],
-                        LOW = h.diagnostics.severities["information"],
-                        UNDEFINED = h.diagnostics.severities["hint"],
+                        HIGH = h.diagnostics.severities.error,
+                        MEDIUM = h.diagnostics.severities.warning,
+                        LOW = h.diagnostics.severities.information,
+                        UNDEFINED = h.diagnostics.severities.hint,
                     },
                 })
                 return parser({ output = params.output.results })
@@ -67,7 +67,7 @@ local sources_diagnostics = {
                     end_col = #line,
                     source = "dotenv-linter",
                     message = message,
-                    severity = 1,
+                    severity = h.diagnostics.severities.error,
                 }
             end,
         },
@@ -99,7 +99,7 @@ local sources_diagnostics = {
                     end_col = #line,
                     source = "fish",
                     message = message,
-                    severity = 1,
+                    severity = h.diagnostics.severities.error,
                 }
             end,
         },
