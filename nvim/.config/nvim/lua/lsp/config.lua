@@ -183,6 +183,7 @@ null_ls.config({
         b.formatting.nginx_beautifier,
         -- python
         b.diagnostics.flake8,
+        b.diagnostics.pylint,
         sources_formatting.autoflake,
         b.formatting.isort.with({
             extra_args = { "--profile", "black" },

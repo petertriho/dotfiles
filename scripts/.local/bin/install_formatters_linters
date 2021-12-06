@@ -55,6 +55,10 @@ function main {
         pipx install isort
     fi
 
+    if ! command -v pylint &> /dev/null; then
+        pipx install pylint
+    fi
+
     if ! command -v pyupgrade &> /dev/null; then
         pipx install pyupgrade
     fi
