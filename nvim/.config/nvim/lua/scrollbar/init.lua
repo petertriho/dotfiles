@@ -4,6 +4,7 @@
 -- - Show search + listen to nohl
 -- - Use mark levels for predefined mark text
 -- - Refactor multiple marks at same position to change to table of marks instead of increasing mark level
+-- - investigate how to use existing highlights from diagnostics
 ]]
 
 local config = require("scrollbar.config")
