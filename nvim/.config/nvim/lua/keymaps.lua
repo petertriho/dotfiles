@@ -209,6 +209,12 @@ leader_keymaps["p"] = {
     u = { "<CMD>lua require('package-info').update()<CR>", "update" },
 }
 
+leader_keymaps["r"] = {
+    name = "+refactoring",
+    f = { "<CMD>lua require('refactoring').debug.printf({ below = true })<CR>", "printf" },
+    v = { "<CMD>lua require('refactoring').debug.print_var({})<CR>", "print-var" },
+}
+
 leader_visual_keymaps["r"] = {
     name = "+refactoring",
     i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", "inline-variable" },
