@@ -50,16 +50,16 @@ vim.cmd("highlight QuickScopeSecondary guifg=" .. colors.red .. " gui=underline 
 vim.cmd("highlight Folded guifg=" .. colors.comment .. " guibg=" .. colors.none)
 vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticWarn" })
 
-local signs = {
-    Error = " ",
-    Warn = " ",
-    Info = " ",
-    Hint = " ",
+local diagnostic_signs = {
+    [vim.diagnostic.severity.ERROR] = { "Error", " " },
+    [vim.diagnostic.severity.WARN] = { "Warn", " " },
+    [vim.diagnostic.severity.INFO] = { "Info", " " },
+    [vim.diagnostic.severity.HINT] = { "Hint", " " },
 }
 
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+for _, properties in pairs(diagnostic_signs) do
+    local hl = "DiagnosticSign" .. properties[1]
+    vim.fn.sign_define(hl, { text = properties[2], texthl = hl, numhl = "" })
 end
 
 -- akinsho/nvim-bufferline.lua
@@ -106,7 +106,7 @@ require("bufferline").setup({
                 return true
             end
         end,
-        diagnostics = "nvim_lsp",
+        -- diagnostics = "nvim_lsp",
     },
 })
 
@@ -129,7 +129,7 @@ local vi_mode_colors = {
     NONE = "orange",
 }
 
-local lsp = require("feline.providers.lsp")
+-- local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
 local components = {
@@ -217,6 +217,22 @@ components.active[1] = {
     },
 }
 
+local get_diagnostic_count = function(severity)
+    return #vim.diagnostic.get(0, { severity = severity })
+end
+
+local function create_diagnostic_provider(severity)
+    return function()
+        local count = get_diagnostic_count(severity)
+
+        return count ~= 0 and tostring(count) or "", " " .. diagnostic_signs[severity][2]
+    end
+end
+
+local diagnostic_exists = function(severity)
+    return get_diagnostic_count(severity) > 0
+end
+
 components.active[2] = {
     {
         provider = function()
@@ -243,42 +259,79 @@ components.active[2] = {
         provider = "position_2",
         left_sep = " ",
     },
+    -- {
+    --     provider = "diagnostic_info",
+    --     enabled = function()
+    --         return lsp.diagnostics_exist("Information")
+    --     end,
+    --     icon = "  ",
+    --     hl = { fg = "info" },
+    --     truncate_hide = true,
+    --     priority = 2,
+    -- },
+    -- {
+    --     provider = "diagnostic_hints",
+    --     enabled = function()
+    --         return lsp.diagnostics_exist("Hint")
+    --     end,
+    --     icon = "  ",
+    --     hl = { fg = "hint" },
+    --     truncate_hide = true,
+    --     priority = 2,
+    -- },
+    -- {
+    --     provider = "diagnostic_warnings",
+    --     enabled = function()
+    --         return lsp.diagnostics_exist("Warning")
+    --     end,
+    --     icon = "  ",
+    --     hl = { fg = "warning" },
+    --     truncate_hide = true,
+    --     priority = 2,
+    -- },
+    -- {
+    --     provider = "diagnostic_errors",
+    --     enabled = function()
+    --         return lsp.diagnostics_exist("Error")
+    --     end,
+    --     icon = "  ",
+    --     hl = { fg = "error" },
+    --     truncate_hide = true,
+    --     priority = 2,
+    -- },
+    --
     {
-        provider = "diagnostic_info",
+        provider = "diagnostic_infos_2",
         enabled = function()
-            return lsp.diagnostics_exist("Information")
+            return diagnostic_exists(vim.diagnostic.severity.INFO)
         end,
-        icon = "  ",
         hl = { fg = "info" },
         truncate_hide = true,
         priority = 2,
     },
     {
-        provider = "diagnostic_hints",
+        provider = "diagnostic_hints_2",
         enabled = function()
-            return lsp.diagnostics_exist("Hint")
+            return diagnostic_exists(vim.diagnostic.severity.HINT)
         end,
-        icon = "  ",
         hl = { fg = "hint" },
         truncate_hide = true,
         priority = 2,
     },
     {
-        provider = "diagnostic_warnings",
+        provider = "diagnostic_warns_2",
         enabled = function()
-            return lsp.diagnostics_exist("Warning")
+            return diagnostic_exists(vim.diagnostic.severity.WARN)
         end,
-        icon = "  ",
         hl = { fg = "warning" },
         truncate_hide = true,
         priority = 2,
     },
     {
-        provider = "diagnostic_errors",
+        provider = "diagnostic_errors_2",
         enabled = function()
-            return lsp.diagnostics_exist("Error")
+            return diagnostic_exists(vim.diagnostic.severity.ERROR)
         end,
-        icon = "  ",
         hl = { fg = "error" },
         truncate_hide = true,
         priority = 2,
@@ -438,5 +491,9 @@ require("feline").setup({
         lsp_client_count = function()
             return " " .. "LSP:" .. #vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())
         end,
+        diagnostic_errors_2 = create_diagnostic_provider(vim.diagnostic.severity.ERROR),
+        diagnostic_warns_2 = create_diagnostic_provider(vim.diagnostic.severity.WARN),
+        diagnostic_infos_2 = create_diagnostic_provider(vim.diagnostic.severity.INFO),
+        diagnostic_hints_2 = create_diagnostic_provider(vim.diagnostic.severity.HINT),
     },
 })
