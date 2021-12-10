@@ -51,6 +51,7 @@ return {
         vim.g.caser_prefix = "gw"
 
         require("which-key").register({
+            name = "caser",
             [" "] = "space case",
             ["-"] = "dash-case",
             ["."] = "dot.case",
@@ -951,6 +952,7 @@ return {
     end,
     ["tpope/vim-abolish"] = function()
         require("which-key").register({
+            name = "coerce",
             [" "] = "space case",
             ["-"] = "dash-case",
             ["."] = "dot.case",
