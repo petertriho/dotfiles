@@ -262,6 +262,11 @@ require("packer").startup({
             config = config["numToStr/Comment.nvim"],
         })
         use({
+            "sQVe/sort.nvim",
+            config = config["sQVe/sort.nvim"],
+            cmd = "Sort",
+        })
+        use({
             "tommcdo/vim-exchange",
             keys = {
                 { "n", "cx" },

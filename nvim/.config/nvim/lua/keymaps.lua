@@ -160,7 +160,7 @@ leader_visual_keymaps["a"] = {
     name = "+actions",
     a = { "<Plug>(EasyAlign)", "align" },
     r = { "<CMD>lua require('renamer').rename()<CR>", "rename" },
-    s = { ":sort i<CR>", "sort" },
+    s = { ":Sort i<CR>", "sort" },
 }
 
 leader_keymaps["g"] = {

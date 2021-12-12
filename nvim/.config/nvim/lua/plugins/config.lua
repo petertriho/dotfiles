@@ -941,6 +941,9 @@ return {
             },
         })
     end,
+    ["sQVe/sort.nvim"] = function()
+        require("sort").setup({})
+    end,
     ["ThePrimeagen/refactoring.nvim"] = function()
         require("refactoring").setup({})
     end,
