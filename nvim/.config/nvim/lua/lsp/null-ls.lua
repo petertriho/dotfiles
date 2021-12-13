@@ -39,6 +39,11 @@ local sources_diagnostics = {
                         UNDEFINED = h.diagnostics.severities.hint,
                     },
                 })
+
+                if #params.output.results then
+                    return nil
+                end
+
                 return parser({ output = params.output.results })
             end,
         },
@@ -220,7 +225,7 @@ M.setup = function(overrides)
             -- nginx
             b.formatting.nginx_beautifier,
             -- python
-            sources_diagnostics.bandit,
+            -- sources_diagnostics.bandit,
             b.diagnostics.flake8,
             b.diagnostics.pylint,
             sources_formatting.autoflake,
