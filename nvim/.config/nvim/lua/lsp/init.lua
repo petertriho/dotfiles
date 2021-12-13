@@ -140,6 +140,8 @@ local function setup()
 
         lspconfig[server].setup(config)
     end
+
+    require("lsp.null-ls").setup(base_config)
 end
 
 setup()
