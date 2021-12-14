@@ -17,7 +17,9 @@ return {
     },
     eslint = {},
     gopls = {},
-    graphql = {},
+    graphql = {
+        filetypes = { "graphql" },
+    },
     html = {},
     jsonls = {
         filetypes = { "json", "jsonc" },
