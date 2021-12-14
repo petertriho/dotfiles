@@ -437,6 +437,7 @@ return {
                 jsonc = 0,
                 jsx = 0,
                 lua = 0,
+                markdown = 0,
                 python = 0,
                 rust = 0,
                 scss = 0,
@@ -665,15 +666,6 @@ return {
         telescope.load_extension("fzf")
     end,
     ["nvim-treesitter/nvim-treesitter"] = function()
-        local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-        parser_config.markdown = {
-            install_info = {
-                url = "https://github.com/MDeiml/tree-sitter-markdown",
-                files = { "src/parser.c", "src/scanner.cc" },
-                branch = "main",
-            },
-        }
-
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "bash",
@@ -703,7 +695,6 @@ return {
             highlight = {
                 enable = true,
                 use_languagetree = true,
-                disable = { "markdown" },
             },
             incremental_selection = {
                 enable = false,
@@ -895,6 +886,7 @@ return {
             "jsonc",
             "jsx",
             "lua",
+            "markdown",
             "python",
             "rust",
             "scss",
