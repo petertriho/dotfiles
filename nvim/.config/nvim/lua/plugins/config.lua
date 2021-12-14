@@ -708,7 +708,10 @@ return {
             incremental_selection = {
                 enable = false,
             },
-            indent = { enable = true },
+            indent = {
+                enable = true,
+                disable = { "python" },
+            },
             fold = { enable = true },
         })
         require("nvim-treesitter").define_modules({
