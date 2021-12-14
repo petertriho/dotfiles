@@ -31,7 +31,7 @@ return {
         },
     },
     ltex = {},
-    quick_lint_js = {},
+    -- quick_lint_js = {},
     rust_analyzer = {},
     prismals = {},
     pyright = {
