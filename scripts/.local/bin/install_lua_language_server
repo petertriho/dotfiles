@@ -10,7 +10,6 @@ RELEASE_INFO="/tmp/release-info"
 curl -s https://api.github.com/repos/sumneko/vscode-lua/releases/latest > "$RELEASE_INFO"
 
 TAG_NAME=$(grep "tag_name" "$RELEASE_INFO" | cut -d\" -f4)
-DOWNLOAD_URL=$(grep "browser_download_url" "$RELEASE_INFO" | cut -d\" -f4)
 DOWNLOAD_DIR="/tmp/sumneko-lua-language-server"
 DOWNLOAD_ZIP="${DOWNLOAD_DIR}/sumneko-lua-language-server.vsix"
 
@@ -18,12 +17,14 @@ OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 
 case "$OS" in
     linux)
-        PLATFORM="Linux"
+        PLATFORM="linux-x64"
         ;;
     darwin)
-        PLATFORM="macOS"
+        PLATFORM="darwin-x64"
         ;;
 esac
+
+DOWNLOAD_URL=$(grep "browser_download_url.*$PLATFORM" "$RELEASE_INFO" | cut -d\" -f4)
 
 if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
     rm -rf "$DOWNLOAD_DIR"
@@ -37,9 +38,9 @@ if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
     rm -rf "$DOWNLOAD_ZIP"
 
     cp -R "$DOWNLOAD_DIR/." "$INSTALL_SUB_DIR"
-    chmod +x "$INSTALL_SUB_DIR/extension/server/bin/$PLATFORM/lua-language-server"
+    chmod +x "$INSTALL_SUB_DIR/extension/server/bin/lua-language-server"
     echo "#!/usr/bin/env bash" > "$INSTALL_DIR/lua-language-server"
-    echo "\$(dirname \$0)/sumneko-lua-language-server/extension/server/bin/$PLATFORM/lua-language-server -E -e LANG=en \$(dirname \$0)/sumneko-lua-language-server/extension/server/main.lua \$*" >> "$INSTALL_DIR/lua-language-server"
+    echo "\$(dirname \$0)/sumneko-lua-language-server/extension/server/bin/lua-language-server -E -e LANG=en \$(dirname \$0)/sumneko-lua-language-server/extension/server/main.lua \$*" >> "$INSTALL_DIR/lua-language-server"
     chmod +x "$INSTALL_DIR/lua-language-server"
     echo "$TAG_NAME" > "$VERSION_FILE"
 
