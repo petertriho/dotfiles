@@ -11,8 +11,9 @@ require("packer").startup({
             requires = "kyazdani42/nvim-web-devicons",
         })
         use({
-            "Famiu/feline.nvim",
+            "feline-nvim/feline.nvim",
             requires = "kyazdani42/nvim-web-devicons",
+            branch = "develop",
         })
         use({
             "lewis6991/gitsigns.nvim",
