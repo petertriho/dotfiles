@@ -24,6 +24,10 @@ local sources_diagnostics = {
             from_stderr = true,
             format = "json",
             on_output = function(params)
+                if #params.output.results then
+                    return {}
+                end
+
                 local parser = h.diagnostics.from_json({
                     attributes = {
                         row = "line_number",
@@ -39,10 +43,6 @@ local sources_diagnostics = {
                         UNDEFINED = h.diagnostics.severities.hint,
                     },
                 })
-
-                if #params.output.results then
-                    return nil
-                end
 
                 return parser({ output = params.output.results })
             end,
@@ -225,9 +225,9 @@ M.setup = function(overrides)
             -- nginx
             b.formatting.nginx_beautifier,
             -- python
-            -- sources_diagnostics.bandit,
+            sources_diagnostics.bandit,
             b.diagnostics.flake8,
-            -- b.diagnostics.pylint,
+            b.diagnostics.pylint,
             sources_formatting.autoflake,
             b.formatting.isort.with({
                 extra_args = { "--profile", "black" },
