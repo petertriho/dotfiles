@@ -176,6 +176,7 @@ require("packer").startup({
         use({
             "mizlan/iswap.nvim",
             requires = "nvim-treesitter/nvim-treesitter",
+            config = config["mizlan/iswap.nvim"],
             cmd = "ISwap",
         })
         use({
