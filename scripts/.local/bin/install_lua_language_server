@@ -22,6 +22,9 @@ case "$OS" in
     darwin)
         PLATFORM="darwin-x64"
         ;;
+    *)
+        PLATFORM="win32-x64"
+        ;;
 esac
 
 DOWNLOAD_URL=$(grep "browser_download_url.*$PLATFORM" "$RELEASE_INFO" | cut -d\" -f4)
