@@ -143,7 +143,7 @@ set_augroups({
         {
             "TextYankPost",
             "*",
-            "lua vim.highlight.on_yank({ higroup = 'Search', timeout = 200 })",
+            "silent! lua vim.highlight.on_yank({ higroup = 'Search', timeout = 200 })",
         },
         {
             "BufWritePre",
