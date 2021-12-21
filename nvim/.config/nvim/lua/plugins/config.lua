@@ -101,9 +101,6 @@ return {
     ["folke/todo-comments.nvim"] = function()
         require("todo-comments").setup()
     end,
-    ["folke/trouble.nvim"] = function()
-        require("trouble").setup()
-    end,
     ["folke/twilight.nvim"] = function()
         require("twilight").setup()
     end,
@@ -933,7 +930,6 @@ return {
                 dbui = "filetype",
                 fugitive = "filetype",
                 Outline = "filetype",
-                trouble = "filetype",
             },
         })
     end,

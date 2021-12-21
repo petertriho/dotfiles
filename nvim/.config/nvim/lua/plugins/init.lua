@@ -305,12 +305,6 @@ require("packer").startup({
         -- tools
         use("folke/which-key.nvim")
         use({
-            "folke/trouble.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
-            config = config["folke/trouble.nvim"],
-            cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
-        })
-        use({
             "folke/twilight.nvim",
             config = config["folke/twilight.nvim"],
             cmd = { "Twilight", "TwilghtEnable", "TwilightDisable" },

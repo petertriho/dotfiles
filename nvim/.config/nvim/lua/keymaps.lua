@@ -258,7 +258,6 @@ local semicolon_keymaps = {
     p = { "<CMD>lua require('telescope').extensions.project.project({})<CR>", "project" },
     q = { "<CMD>QFToggle<CR>", "qf-list-toggle" },
     s = { "<CMD>Telescope live_grep<CR>", "search-text" },
-    t = { "<CMD>TroubleToggle<CR>", "trouble" },
     w = {
         "<CMD>lua require('telescope.builtin').find_files({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
         "find-wiki",
