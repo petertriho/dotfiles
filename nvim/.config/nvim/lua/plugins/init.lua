@@ -24,16 +24,6 @@ require("packer").startup({
 
         -- lsp
         use("neovim/nvim-lspconfig")
-        use({
-            "pechorin/any-jump.vim",
-            setup = config["pechorin/any-jump.vim"],
-            cmd = {
-                "AnyJump",
-                "AnyJumpVisual",
-                "AnyJumpBack",
-                "AnyJumpLastResults",
-            },
-        })
         use("b0o/schemastore.nvim")
         use({
             "filipdutescu/renamer.nvim",
