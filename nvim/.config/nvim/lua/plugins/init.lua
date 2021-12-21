@@ -358,7 +358,6 @@ require("packer").startup({
                 "CheatListWithoutComments",
             },
         })
-        use({ "romainl/vim-devdocs", cmd = "DD" })
         use({ "simnalamburt/vim-mundo", cmd = "MundoToggle" })
         use({
             "sindrets/diffview.nvim",
