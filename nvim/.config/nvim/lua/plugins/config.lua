@@ -27,9 +27,6 @@ return {
             backwards_tabkey = "<C-h>",
         })
     end,
-    ["AckslD/nvim-neoclip.lua"] = function()
-        require("neoclip").setup()
-    end,
     ["AndrewRadev/splitjoin.vim"] = function()
         vim.g.splitjoin_split_mapping = ""
         vim.g.splitjoin_join_mapping = ""

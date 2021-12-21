@@ -267,7 +267,6 @@ local semicolon_keymaps = {
         "<CMD>lua require('telescope.builtin').live_grep({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
         "search-wiki",
     },
-    y = { "<CMD>lua require('telescope').extensions.neoclip.default()<CR>", "yank-history" },
     z = { "<CMD>lua require('telescope').extensions.zoxide.list({})<CR>", "zoxide" },
 }
 

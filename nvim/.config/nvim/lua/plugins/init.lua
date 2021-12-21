@@ -303,10 +303,6 @@ require("packer").startup({
             module = "telescope.extensions.zoxide",
         })
         use({
-            "AckslD/nvim-neoclip.lua",
-            config = config["AckslD/nvim-neoclip.lua"],
-        })
-        use({
             "pwntester/octo.nvim",
             requires = {
                 "kyazdani42/nvim-web-devicons",
