@@ -104,7 +104,6 @@ local leader_keymaps = {
     n = { ":nohl<CR>", "no-highlight" },
     o = "organize-imports",
     q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
-    s = { "<CMD>ScratchPreview<CR>", "scratch-preview" },
     t = { "<CMD>lua require('null-ls').toggle('spell')<CR>", "toggle-cspell" },
     u = { "<CMD>MundoToggle<CR>", "undotree" },
     x = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },

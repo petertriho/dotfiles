@@ -551,10 +551,6 @@ return {
             hl_snipe = "ErrorMsg",
         })
     end,
-    ["mtth/scratch.vim"] = function()
-        vim.g.scratch_autohide = 0
-        vim.g.scratch_persistence_file = "~/.scratch"
-    end,
     ["nathom/filetype.nvim"] = function()
         require("filetype").setup({
             overrides = {

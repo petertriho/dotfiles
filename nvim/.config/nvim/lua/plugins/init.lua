@@ -343,11 +343,6 @@ require("packer").startup({
         })
         use({ "mg979/vim-visual-multi", setup = config["mg979/vim-visual-multi"] })
         use({
-            "mtth/scratch.vim",
-            setup = config["mtth/scratch.vim"],
-            cmd = "ScratchPreview",
-        })
-        use({
             "RishabhRD/nvim-cheat.sh",
             requires = "RishabhRD/popfix",
             setup = config["RishabhRD/nvim-cheat.sh"],
