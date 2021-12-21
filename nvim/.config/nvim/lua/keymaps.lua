@@ -5,10 +5,6 @@ local opts = { noremap = true, silent = true }
 set_keymap("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
 set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
 
--- Tabs
-set_keymap("n", "<M-n>", ":tabnext<CR>", opts)
-set_keymap("n", "<M-p>", ":tabprevious<CR>", opts)
-
 -- Windows: Navigation
 set_keymap("", "<C-j>", "<C-w>j", {})
 set_keymap("", "<C-k>", "<C-w>k", {})
@@ -104,6 +100,7 @@ local leader_keymaps = {
     n = { ":nohl<CR>", "no-highlight" },
     o = "organize-imports",
     q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
+    s = "substitute",
     t = { "<CMD>lua require('null-ls').toggle('spell')<CR>", "toggle-cspell" },
     u = { "<CMD>MundoToggle<CR>", "undotree" },
     x = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
@@ -115,8 +112,9 @@ local leader_visual_keymaps = {
     f = { "<CMD>lua vim.lsp.buf.range_formatting()<CR>", "format" },
     k = { "<CMD>lua vim.lsp.buf.range_code_action()<CR>", "code-actions" },
     q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
-    s = { "<Plug>(vsnip-select-text)", "snippet-select" },
-    S = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
+    s = "substitute",
+    x = { "<Plug>(vsnip-select-text)", "snippet-select" },
+    X = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
 }
 
 leader_keymaps["1"] = "which_key_ignore"

@@ -254,6 +254,10 @@ require("packer").startup({
             config = config["numToStr/Comment.nvim"],
         })
         use({
+            "gbprod/substitute.nvim",
+            config = config["gbprod/substitute.nvim"],
+        })
+        use({
             "sQVe/sort.nvim",
             config = config["sQVe/sort.nvim"],
             cmd = "Sort",
@@ -479,6 +483,10 @@ require("packer").startup({
             },
             module = "qf_helper",
             ft = "qf",
+        })
+        use({
+            "svermeulen/vim-yoink",
+            config = config["svermeulen/vim-yoink"],
         })
         use("tpope/vim-repeat")
         use("tpope/vim-unimpaired")

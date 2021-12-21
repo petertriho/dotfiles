@@ -200,6 +200,38 @@ return {
             backward = "<M-o>",
         })
     end,
+    ["gbprod/substitute.nvim"] = function()
+        require("substitute").setup({
+            on_substitute = function(_)
+                vim.cmd("call yoink#startUndoRepeatSwap()")
+            end,
+        })
+
+        local set_keymap = vim.api.nvim_set_keymap
+
+        set_keymap("n", "<Leader>s", "<CMD>lua require('substitute').operator()<cr>g@", { noremap = true })
+        set_keymap("n", "<Leader>ss", "<CMD>lua require('substitute').line()<cr>", { noremap = true })
+        set_keymap("n", "<Leader>S", "<CMD>lua require('substitute').eol()<cr>", { noremap = true })
+        set_keymap("x", "<Leader>s", "<CMD>lua require('substitute').operator()<cr>g@`>", { noremap = true })
+
+        set_keymap("n", "\\s", "<CMD>lua require('substitute.range').operator()<cr>g@", { noremap = true })
+        set_keymap("x", "\\s", "<CMD>lua require('substitute.range').operator()<cr>g@`>", { noremap = true })
+        set_keymap(
+            "n",
+            "\\S",
+            "<CMD>lua require('substitute.range').operator({ prefix = 'S' })<cr>g@",
+            { noremap = true }
+        )
+        set_keymap(
+            "x",
+            "\\S",
+            "<CMD>lua require('substitute.range').operator({ prefix = 'S' })<cr>g@`>",
+            { noremap = true }
+        )
+
+        set_keymap("x", "p", "<CMD>lua require('substitute').operator()<cr>g@`>", {})
+        set_keymap("x", "P", "<CMD>lua require('substitute').operator()<cr>g@`>", {})
+    end,
     ["github/copilot.vim"] = function()
         vim.g.copilot_filetypes = {
             TelescopePrompt = false,
@@ -931,6 +963,18 @@ return {
     end,
     ["sQVe/sort.nvim"] = function()
         require("sort").setup({})
+    end,
+    ["svermeulen/vim-yoink"] = function()
+        local set_keymap = vim.api.nvim_set_keymap
+
+        set_keymap("n", "<M-n>", "<Plug>(YoinkPostPasteSwapBack)", {})
+        set_keymap("n", "<M-p>", "<Plug>(YoinkPostPasteSwapForward)", {})
+
+        set_keymap("n", "<C-M-n>", "<Plug>(YoinkRotateBack)", {})
+        set_keymap("n", "<C-M-p>", "<Plug>(YoinkRotateForward)", {})
+
+        set_keymap("n", "p", "<Plug>(YoinkPaste_p)", {})
+        set_keymap("n", "P", "<Plug>(YoinkPaste_P)", {})
     end,
     ["ThePrimeagen/refactoring.nvim"] = function()
         require("refactoring").setup({})
