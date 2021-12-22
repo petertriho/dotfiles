@@ -101,6 +101,7 @@ local leader_keymaps = {
     o = "organize-imports",
     q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
     s = "substitute",
+    S = "substitute-eol",
     t = { "<CMD>lua require('null-ls').toggle('spell')<CR>", "toggle-cspell" },
     u = { "<CMD>MundoToggle<CR>", "undotree" },
     x = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
