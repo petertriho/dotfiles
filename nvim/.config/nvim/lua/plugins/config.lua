@@ -432,7 +432,7 @@ return {
         })
     end,
     ["luochen1990/rainbow"] = function()
-        local colors = require("tokyonight.colors").setup()
+        local colors = require("colors")
 
         vim.g.rainbow_active = 1
 
@@ -806,7 +806,7 @@ return {
         require("cmp_git").setup()
     end,
     ["p00f/nvim-ts-rainbow"] = function()
-        local colors = require("tokyonight.colors").setup()
+        local colors = require("colors")
 
         require("nvim-treesitter.configs").setup({
             rainbow = {
