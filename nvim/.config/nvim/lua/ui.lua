@@ -109,7 +109,7 @@ require("bufferline").setup({
     },
 })
 
--- famiu/feline.nvim
+-- feline-nvim/feline.nvim
 local vi_mode_colors = {
     NORMAL = "blue",
     OP = "blue",
