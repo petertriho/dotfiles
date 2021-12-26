@@ -96,7 +96,7 @@ require("packer").startup({
         use({
             "tzachar/cmp-fuzzy-path",
             requires = "tzachar/fuzzy.nvim",
-            after = { "nvim-cmp", "cmp-path" },
+            after = { "nvim-cmp" },
         })
         use({ "rafamadriz/friendly-snippets", after = "nvim-cmp" })
 
