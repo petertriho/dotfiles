@@ -27,5 +27,7 @@ return {
             "WinScrolled",
         },
     },
-    show = { lsp_diagnostics = true },
+    show = {
+        diagnostics = true,
+    },
 }
