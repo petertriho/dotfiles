@@ -208,18 +208,19 @@ leader_keymaps["p"] = {
 
 leader_keymaps["r"] = {
     name = "+refactoring",
-    f = { "<CMD>lua require('refactoring').debug.printf({ below = true })<CR>", "printf" },
-    v = { "<CMD>lua require('refactoring').debug.print_var({})<CR>", "print-var" },
+    c = { "<CMD>lua require('refactoring').debug.cleanup({})<CR>", "cleanup" },
+    p = { "<CMD>lua require('refactoring').debug.printf({ below = true })<CR>", "print" },
 }
 
 leader_visual_keymaps["r"] = {
     name = "+refactoring",
-    i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", "inline-variable" },
     e = { "<ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>", "extract-function" },
     f = {
         "<ESC><CMD>lua require('refactoring').refactor('Extract Function To File')<CR>",
         "extract-function-to-file",
     },
+    i = { "<ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>", "inline-variable" },
+    p = { "<CMD>lua require('refactoring').debug.print_var({})<CR>", "print-var" },
     v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", "extract-variable" },
 }
 
