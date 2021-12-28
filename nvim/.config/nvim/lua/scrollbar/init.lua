@@ -205,6 +205,24 @@ M.diagnostic_handler_show = function(_, bufnr, _, _)
     end
 end
 
+function M.clear_search()
+    if not vim.v.event.abort then
+        local cmdl = vim.trim(vim.fn.getcmdline())
+        if #cmdl > 2 then
+            for _, cl in ipairs(vim.split(cmdl, "|")) do
+                if ("nohlsearch"):match(vim.trim(cl)) then
+                    local bufnr = vim.api.nvim_get_current_buf()
+                    local scrollbar_marks = M.get_scrollbar_marks(bufnr)
+                    scrollbar_marks.search = nil
+                    M.set_scrollbar_marks(bufnr, scrollbar_marks)
+                    M.refresh()
+                    break
+                end
+            end
+        end
+    end
+end
+
 M.setup = function(overrides)
     config = vim.tbl_deep_extend("force", config, overrides or {})
 
@@ -248,6 +266,7 @@ M.setup = function(overrides)
                     local scrollbar_marks = M.get_scrollbar_marks(bufnr)
                     scrollbar_marks.diagnostics = nil
                     M.set_scrollbar_marks(bufnr, scrollbar_marks)
+                    M.refresh()
                 end,
             }
         else

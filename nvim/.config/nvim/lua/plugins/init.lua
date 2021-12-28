@@ -442,6 +442,7 @@ require("packer").startup({
         })
         use({
             "kevinhwang91/nvim-hlslens",
+            config = config["kevinhwang91/nvim-hlslens"],
             module = "hlslens",
             keys = "/",
         })

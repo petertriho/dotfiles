@@ -414,6 +414,40 @@ return {
             typescriptreact = { "javascript" },
         }
     end,
+    ["kevinhwang91/nvim-hlslens"] = function()
+        require("hlslens").setup({
+            override_lens = function(render, plist, nearest, idx, r_idx)
+                local config = require("scrollbar.config")
+
+                if config.show.search then
+                    local scrollbar = require("scrollbar")
+
+                    local search_scrollbar_marks = {}
+
+                    for _, result in pairs(plist) do
+                        table.insert(search_scrollbar_marks, {
+                            line = result[1] - 1,
+                            text = "-",
+                            type = "Misc",
+                        })
+                    end
+
+                    local bufnr = vim.api.nvim_get_current_buf()
+                    local scrollbar_marks = scrollbar.get_scrollbar_marks(bufnr)
+                    scrollbar_marks.search = search_scrollbar_marks
+                    scrollbar.set_scrollbar_marks(bufnr, scrollbar_marks)
+                    scrollbar.refresh()
+                end
+            end,
+        })
+
+        vim.cmd([[
+            augroup scrollbar_clear_search
+                autocmd!
+                autocmd CmdlineLeave : lua require('scrollbar').clear_search()
+            augroup END
+        ]])
+    end,
     ["lewis6991/gitsigns.nvim"] = function()
         require("gitsigns").setup({
             signs = {

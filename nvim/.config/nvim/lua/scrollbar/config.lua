@@ -29,5 +29,6 @@ return {
     },
     show = {
         diagnostics = true,
+        search = true,
     },
 }
