@@ -199,7 +199,7 @@ M.diagnostic_handler_show = function(_, bufnr, _, _)
         scrollbar_marks.diagnostics = diagnostics_scrollbar_marks
         M.set_scrollbar_marks(bufnr, scrollbar_marks)
 
-        if vim.uri_from_bufnr(0) == vim.uri_from_bufnr(bufnr) then
+        if bufnr == vim.api.nvim_get_current_buf() then
             M.refresh()
         end
     end
