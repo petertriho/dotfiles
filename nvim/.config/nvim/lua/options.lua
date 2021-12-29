@@ -130,13 +130,15 @@ local function set_augroups(definitions)
 end
 
 -- mkdir if does not exists
-function _G.mkdir()
+local function mkdir()
     local dir = vim.fn.expand("%:p:h")
 
     if vim.fn.isdirectory(dir) ~= 1 then
         vim.fn.mkdir(dir, "p")
     end
 end
+
+vim.api.nvim_add_user_command("Mkdir", mkdir, {})
 
 set_augroups({
     _general = {
@@ -148,7 +150,7 @@ set_augroups({
         {
             "BufWritePre",
             "*",
-            "call v:lua.mkdir()",
+            "Mkdir",
         },
         {
             "InsertEnter",

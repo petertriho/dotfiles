@@ -1,6 +1,6 @@
 vim.cmd("command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>")
 
-function _G.toggle_git_status()
+local function toggle_git_status()
     local buffer_name = vim.fn.bufname(".git/*index")
 
     if vim.fn.buflisted(buffer_name) == 1 then
@@ -10,7 +10,9 @@ function _G.toggle_git_status()
     end
 end
 
-function _G.toggle_neogit_status()
+vim.api.nvim_add_user_command("ToggleGitStatus", toggle_git_status, {})
+
+local function toggle_neogit_status()
     local buffer_name = vim.fn.bufname("NeogitStatus")
 
     if vim.fn.buflisted(buffer_name) == 1 then
@@ -19,6 +21,8 @@ function _G.toggle_neogit_status()
         vim.cmd("Neogit kind=split")
     end
 end
+
+vim.api.nvim_add_user_command("ToggleNeogitStatus", toggle_neogit_status, {})
 
 return {
     ["abecodes/tabout.nvim"] = function()
@@ -585,7 +589,7 @@ return {
             render.set_virt(0, lnum - 1, col - 1, chunks, nearest)
         end
 
-        function _G.vmlens_start()
+        local function vm_lens_start()
             local hlslens = require("hlslens")
             if hlslens then
                 config = require("hlslens.config")
@@ -595,7 +599,9 @@ return {
             end
         end
 
-        function _G.vmlens_exit()
+        vim.api.nvim_add_user_command("VMLensStart", vm_lens_start, {})
+
+        local function vm_lens_exit()
             local hlslens = require("hlslens")
             if hlslens then
                 config.override_lens = lens_backup
@@ -603,11 +609,13 @@ return {
             end
         end
 
+        vim.api.nvim_add_user_command("VMLensExit", vm_lens_exit, {})
+
         vim.cmd([[
         augroup vmlens
             autocmd!
-            autocmd User visual_multi_start call v:lua.vmlens_start()
-            autocmd User visual_multi_exit call v:lua.vmlens_exit()
+            autocmd User visual_multi_start VMLensStart
+            autocmd User visual_multi_exit VMLensExit
         augroup END
         ]])
     end,
@@ -802,10 +810,10 @@ return {
                         ["if"] = "@function.inner",
                         ["aL"] = "@loop.outer",
                         ["iL"] = "@loop.inner",
-                        ["ar"] = "@call.outer",
-                        ["ir"] = "@call.inner",
                         ["aP"] = "@parameter.outer",
                         ["iP"] = "@parameter.inner",
+                        ["ar"] = "@call.outer",
+                        ["ir"] = "@call.inner",
                         ["aS"] = "@statement.outer",
                         ["iS"] = "@statement.inner",
                     },

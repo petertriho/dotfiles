@@ -18,7 +18,7 @@ local NAMESPACE = vim.api.nvim_create_namespace(NAME_PREFIX)
 
 local BUF_VAR_KEY = "scrollbar_marks"
 
-local get_highlight_name = function(mark_type, handle)
+local function get_highlight_name(mark_type, handle)
     return string.format("%s%s%s", NAME_PREFIX, mark_type, handle and NAME_SUFFIX or "")
 end
 
@@ -205,7 +205,7 @@ M.diagnostic_handler_show = function(_, bufnr, _, _)
     end
 end
 
-function M.clear_search()
+M.clear_search = function()
     if not vim.v.event.abort then
         local cmdl = vim.trim(vim.fn.getcmdline())
         if #cmdl > 2 then

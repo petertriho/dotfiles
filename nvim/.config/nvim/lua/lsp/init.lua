@@ -1,7 +1,7 @@
 -- Setup
 local lsp_status = require("lsp-status")
 
-local on_attach = function(client, bufnr)
+local function on_attach(client, bufnr)
     lsp_status.on_attach(client)
 
     local function buf_set_keymap(...)
