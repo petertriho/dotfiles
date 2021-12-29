@@ -1,28 +1,19 @@
 vim.cmd("command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>")
 
-local function toggle_git_status()
-    local buffer_name = vim.fn.bufname(".git/*index")
+local function toggle_buffer(bufname, open_cmd)
+    return function()
+        local buffer_name = vim.fn.bufname(bufname)
 
-    if vim.fn.buflisted(buffer_name) == 1 then
-        vim.cmd("bd " .. buffer_name)
-    else
-        vim.cmd("Git")
+        if vim.fn.buflisted(buffer_name) == 1 then
+            vim.cmd("bd " .. buffer_name)
+        else
+            vim.cmd(open_cmd)
+        end
     end
 end
 
-vim.api.nvim_add_user_command("ToggleGitStatus", toggle_git_status, {})
-
-local function toggle_neogit_status()
-    local buffer_name = vim.fn.bufname("NeogitStatus")
-
-    if vim.fn.buflisted(buffer_name) == 1 then
-        vim.cmd("bd " .. buffer_name)
-    else
-        vim.cmd("Neogit kind=split")
-    end
-end
-
-vim.api.nvim_add_user_command("ToggleNeogitStatus", toggle_neogit_status, {})
+vim.api.nvim_add_user_command("ToggleGitStatus", toggle_buffer(".git/*index", "Git"), {})
+vim.api.nvim_add_user_command("ToggleNeogitStatus", toggle_buffer("NeogitStatus", "Neogit kind=split"), {})
 
 return {
     ["abecodes/tabout.nvim"] = function()
