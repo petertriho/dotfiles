@@ -255,6 +255,7 @@ local semicolon_keymaps = {
     o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
     p = { "<CMD>lua require('telescope').extensions.project.project({})<CR>", "project" },
     q = { "<CMD>QFToggle<CR>", "qf-list-toggle" },
+    r = { "<ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor" },
     s = { "<CMD>Telescope live_grep<CR>", "search-text" },
     w = {
         "<CMD>lua require('telescope.builtin').find_files({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
@@ -267,9 +268,20 @@ local semicolon_keymaps = {
     z = { "<CMD>lua require('telescope').extensions.zoxide.list({})<CR>", "zoxide" },
 }
 
+local semicolon_visual_keymaps = {
+    r = { "<ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor" },
+}
+
 register(semicolon_keymaps, {
     prefix = ";",
     mode = "n",
+    silent = true,
+    noremap = true,
+})
+
+register(semicolon_visual_keymaps, {
+    prefix = ";",
+    mode = "x",
     silent = true,
     noremap = true,
 })

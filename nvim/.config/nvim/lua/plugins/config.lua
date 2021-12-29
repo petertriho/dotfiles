@@ -922,7 +922,7 @@ return {
                 enable = true,
                 keymaps = {
                     ["."] = "textsubjects-smart",
-                    [";"] = "textsubjects-container-outer",
+                    ["<CR>"] = "textsubjects-container-outer",
                 },
             },
         })
@@ -1011,6 +1011,7 @@ return {
     end,
     ["ThePrimeagen/refactoring.nvim"] = function()
         require("refactoring").setup({})
+        require("telescope").load_extension("refactoring")
     end,
     ["TimUntersberger/neogit"] = function()
         require("neogit").setup({

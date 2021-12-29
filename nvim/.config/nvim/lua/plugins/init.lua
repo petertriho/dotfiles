@@ -205,6 +205,7 @@ require("packer").startup({
                 "nvim-lua/plenary.nvim",
                 "nvim-treesitter/nvim-treesitter",
             },
+            after = "telescope.nvim",
             config = config["ThePrimeagen/refactoring.nvim"],
             module = "refactoring",
         })
