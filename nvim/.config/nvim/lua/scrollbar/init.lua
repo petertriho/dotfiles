@@ -58,37 +58,43 @@ M.refresh = function()
 
         local scrollbar_marks = M.get_scrollbar_marks(0)
 
+        local sorted_scrollbar_marks = {}
+
+        for _, namespace_marks in pairs(scrollbar_marks) do
+            for _, mark in ipairs(namespace_marks) do
+                table.insert(sorted_scrollbar_marks, mark)
+            end
+        end
+
+        table.sort(sorted_scrollbar_marks, function(a, b)
+            if a.line == b.line then
+                return config.marks[a.type].priority < config.marks[b.type].priority
+            end
+            return a.line < b.line
+        end)
+
         local handle_marks = {}
         local other_marks = {}
 
-        for _, namespace_marks in pairs(scrollbar_marks) do
-            table.sort(namespace_marks, function(a, b)
-                if a.line == b.line then
-                    return config.marks[a.type].priority < config.marks[b.type].priority
-                end
-                return a.line < b.line
-            end)
+        for _, mark in pairs(sorted_scrollbar_marks) do
+            local relative_mark_line = math.floor(mark.line * ratio)
 
-            for _, mark in pairs(namespace_marks) do
-                local relative_mark_line = math.floor(mark.line * ratio)
-
-                if mark.line <= total_lines then
-                    if
-                        handle_marks[#handle_marks]
-                        and math.floor(handle_marks[#handle_marks].line * ratio) == relative_mark_line
-                    then
-                        handle_marks[#handle_marks].text = config.marks[mark.type].text[2]
-                    elseif
-                        other_marks[#other_marks]
-                        and math.floor(other_marks[#other_marks].line * ratio) == relative_mark_line
-                    then
-                        other_marks[#other_marks].text = config.marks[mark.type].text[2]
+            if mark.line <= total_lines then
+                if
+                    handle_marks[#handle_marks]
+                    and math.floor(handle_marks[#handle_marks].line * ratio) == relative_mark_line
+                then
+                    handle_marks[#handle_marks].text = config.marks[mark.type].text[2]
+                elseif
+                    other_marks[#other_marks]
+                    and math.floor(other_marks[#other_marks].line * ratio) == relative_mark_line
+                then
+                    other_marks[#other_marks].text = config.marks[mark.type].text[2]
+                else
+                    if relative_mark_line >= relative_first_line and relative_mark_line <= relative_last_line then
+                        table.insert(handle_marks, mark)
                     else
-                        if relative_mark_line >= relative_first_line and relative_mark_line <= relative_last_line then
-                            table.insert(handle_marks, mark)
-                        else
-                            table.insert(other_marks, mark)
-                        end
+                        table.insert(other_marks, mark)
                     end
                 end
             end
@@ -202,6 +208,28 @@ M.diagnostic_handler_show = function(_, bufnr, _, _)
         if bufnr == vim.api.nvim_get_current_buf() then
             M.refresh()
         end
+    end
+end
+
+M.render_search = function(plist)
+    if config.show.search then
+        local scrollbar = require("scrollbar")
+
+        local search_scrollbar_marks = {}
+
+        for _, result in pairs(plist) do
+            table.insert(search_scrollbar_marks, {
+                line = result[1] - 1,
+                text = "-",
+                type = "Search",
+            })
+        end
+
+        local bufnr = vim.api.nvim_get_current_buf()
+        local scrollbar_marks = scrollbar.get_scrollbar_marks(bufnr)
+        scrollbar_marks.search = search_scrollbar_marks
+        scrollbar.set_scrollbar_marks(bufnr, scrollbar_marks)
+        scrollbar.refresh()
     end
 end
 
