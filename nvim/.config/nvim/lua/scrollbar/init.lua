@@ -213,8 +213,6 @@ end
 
 M.render_search = function(plist)
     if config.show.search then
-        local scrollbar = require("scrollbar")
-
         local search_scrollbar_marks = {}
 
         for _, result in pairs(plist) do
@@ -226,10 +224,10 @@ M.render_search = function(plist)
         end
 
         local bufnr = vim.api.nvim_get_current_buf()
-        local scrollbar_marks = scrollbar.get_scrollbar_marks(bufnr)
+        local scrollbar_marks = M.get_scrollbar_marks(bufnr)
         scrollbar_marks.search = search_scrollbar_marks
-        scrollbar.set_scrollbar_marks(bufnr, scrollbar_marks)
-        scrollbar.refresh()
+        M.set_scrollbar_marks(bufnr, scrollbar_marks)
+        M.refresh()
     end
 end
 
