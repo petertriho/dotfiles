@@ -123,15 +123,15 @@ return {
     ["jvgrootveld/telescope-zoxide"] = function()
         local builtin = require("telescope.builtin")
 
-        local browse_files = function(selection)
+        local function browse_files(selection)
             builtin.file_browser({ cwd = selection.path })
         end
 
-        local find_files = function(selection)
+        local function find_files(selection)
             builtin.find_files({ cwd = selection.path, hidden = true })
         end
 
-        local search_files = function(selection)
+        local function search_files(selection)
             builtin.live_grep({ cwd = selection.path })
         end
 
@@ -625,7 +625,7 @@ return {
         local config
         local lens_backup
 
-        local override_lens = function(render, plist, nearest, idx, r_idx)
+        local function override_lens(render, plist, nearest, idx, r_idx)
             local _ = r_idx
             local lnum, col = unpack(plist[idx])
 
