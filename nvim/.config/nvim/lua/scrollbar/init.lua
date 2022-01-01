@@ -158,47 +158,16 @@ local diagnostics_mark_type_map = {
     [vim.diagnostic.severity.HINT] = "Hint",
 }
 
-M.lsp_diagnostics_handler = function(_, result, _, _)
-    local bufnr = vim.uri_to_bufnr(result.uri)
+M.diagnostics_handler = function(bufnr, get_diagnostics, diagnostic_mapper)
     local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
 
     if not vim.tbl_contains(config.excluded_filetypes, filetype) then
         local diagnostics_scrollbar_marks = {}
 
-        for _, diagnostic in pairs(result.diagnostics) do
-            local mark_type = diagnostics_mark_type_map[diagnostic.severity]
-            table.insert(diagnostics_scrollbar_marks, {
-                line = diagnostic.range.start.line,
-                text = config.marks[mark_type].text[1],
-                type = mark_type,
-            })
-        end
-
-        local scrollbar_marks = M.get_scrollbar_marks(bufnr)
-        scrollbar_marks.lsp_diagnostics = diagnostics_scrollbar_marks
-        M.set_scrollbar_marks(bufnr, scrollbar_marks)
-
-        if vim.uri_from_bufnr(0) == result.uri then
-            M.refresh()
-        end
-    end
-end
-
-M.diagnostic_handler_show = function(_, bufnr, _, _)
-    local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-
-    if not vim.tbl_contains(config.excluded_filetypes, filetype) then
-        local diagnostics_scrollbar_marks = {}
-
-        local diagnostics = vim.diagnostic.get(bufnr)
+        local diagnostics = get_diagnostics()
 
         for _, diagnostic in pairs(diagnostics) do
-            local mark_type = diagnostics_mark_type_map[diagnostic.severity]
-            table.insert(diagnostics_scrollbar_marks, {
-                line = diagnostic.lnum,
-                text = config.marks[mark_type].text[1],
-                type = mark_type,
-            })
+            table.insert(diagnostics_scrollbar_marks, diagnostic_mapper(diagnostic))
         end
 
         local scrollbar_marks = M.get_scrollbar_marks(bufnr)
@@ -209,6 +178,42 @@ M.diagnostic_handler_show = function(_, bufnr, _, _)
             M.refresh()
         end
     end
+end
+
+M.lsp_diagnostics_handler = function(_, result, _, _)
+    local bufnr = vim.uri_to_bufnr(result.uri)
+
+    local function get_diagnostics()
+        return result.diagnostics
+    end
+
+    local function diagnostic_mapper(diagnostic)
+        local mark_type = diagnostics_mark_type_map[diagnostic.severity]
+        return {
+            line = diagnostic.range.start.line,
+            text = config.marks[mark_type].text[1],
+            type = mark_type,
+        }
+    end
+
+    M.diagnostics_handler(bufnr, get_diagnostics, diagnostic_mapper)
+end
+
+M.diagnostic_show_handler = function(_, bufnr, _, _)
+    local function get_diagnostics()
+        return vim.diagnostic.get(bufnr)
+    end
+
+    local function diagnostic_mapper(diagnostic)
+        local mark_type = diagnostics_mark_type_map[diagnostic.severity]
+        return {
+            line = diagnostic.lnum,
+            text = config.marks[mark_type].text[1],
+            type = mark_type,
+        }
+    end
+
+    M.diagnostics_handler(bufnr, get_diagnostics, diagnostic_mapper)
 end
 
 M.render_search = function(plist)
@@ -287,7 +292,7 @@ M.setup = function(overrides)
     if config.show.diagnostics then
         if vim.diagnostic then
             vim.diagnostic.handlers["petertriho/scrollbar"] = {
-                show = M.diagnostic_handler_show,
+                show = M.diagnostic_show_handler,
                 hide = function(_, bufnr, _, _)
                     local scrollbar_marks = M.get_scrollbar_marks(bufnr)
                     scrollbar_marks.diagnostics = nil
