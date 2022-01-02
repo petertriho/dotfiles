@@ -39,11 +39,6 @@ require("packer").startup({
             config = config["ray-x/lsp_signature.nvim"],
         })
         use({
-            "RishabhRD/nvim-lsputils",
-            config = config["RishabhRD/nvim-lsputils"],
-            requires = "RishabhRD/popfix",
-        })
-        use({
             "rmagatti/goto-preview",
             config = config["rmagatti/goto-preview"],
             keys = { "gpd", "gpi", "gpr", "gP" },

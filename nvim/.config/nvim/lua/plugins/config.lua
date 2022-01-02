@@ -933,34 +933,6 @@ return {
     ["RishabhRD/nvim-cheat.sh"] = function()
         vim.g.cheat_default_window_layout = "vertical_split"
     end,
-    ["RishabhRD/nvim-lsputils"] = function()
-        local border_chars = {
-            TOP_LEFT = "╭",
-            TOP_RIGHT = "╮",
-            MID_HORIZONTAL = "─",
-            MID_VERTICAL = "│",
-            BOTTOM_LEFT = "╰",
-            BOTTOM_RIGHT = "╯",
-        }
-        vim.g.lsp_utils_location_opts = {
-            preview = {
-                border = true,
-                border_chars = border_chars,
-            },
-        }
-        vim.g.lsp_utils_symbols_opts = {
-            preview = {
-                border = true,
-                border_chars = border_chars,
-            },
-        }
-        vim.g.lsp_utils_codeaction_opts = {
-            preview = {
-                border = true,
-                border_chars = border_chars,
-            },
-        }
-    end,
     ["rmagatti/goto-preview"] = function()
         require("goto-preview").setup({
             width = 120,
