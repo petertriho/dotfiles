@@ -118,12 +118,11 @@ return {
         })
     end,
     ["jvgrootveld/telescope-zoxide"] = function()
-        local builtin = require("telescope.builtin")
-
         local function browse_files(selection)
-            builtin.file_browser({ cwd = selection.path })
+            require("telescope").extensions.file_browser.file_browser({ cwd = selection.path })
         end
 
+        local builtin = require("telescope.builtin")
         local function find_files(selection)
             builtin.find_files({ cwd = selection.path, hidden = true })
         end
@@ -780,6 +779,7 @@ return {
         })
 
         telescope.load_extension("fzf")
+        telescope.load_extension("file_browser")
     end,
     ["nvim-treesitter/nvim-treesitter"] = function()
         require("nvim-treesitter.configs").setup({

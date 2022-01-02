@@ -273,6 +273,7 @@ require("packer").startup({
             cmd = "Telescope",
             module = "telescope",
         })
+        use({ "nvim-telescope/telescope-file-browser.nvim", after = "telescope.nvim" })
         use({
             "nvim-telescope/telescope-project.nvim",
             after = "telescope.nvim",
