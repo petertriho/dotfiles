@@ -24,12 +24,6 @@ require("packer").startup({
         -- lsp
         use("neovim/nvim-lspconfig")
         use("b0o/schemastore.nvim")
-        use({
-            "filipdutescu/renamer.nvim",
-            requires = "nvim-lua/plenary.nvim",
-            config = config["filipdutescu/renamer.nvim"],
-            module = "renamer",
-        })
         use("folke/lua-dev.nvim")
         use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
         use({ "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" })
@@ -37,6 +31,15 @@ require("packer").startup({
         use({
             "ray-x/lsp_signature.nvim",
             config = config["ray-x/lsp_signature.nvim"],
+        })
+        use({
+            "RishabhRD/lspactions",
+            config = config["RishabhRD/lspactions"],
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "nvim-lua/popup.nvim",
+                "tjdevries/astronauta.nvim",
+            },
         })
         use({
             "rmagatti/goto-preview",

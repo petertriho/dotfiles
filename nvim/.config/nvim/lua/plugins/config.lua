@@ -90,9 +90,6 @@ return {
     ["ethanholz/nvim-lastplace"] = function()
         require("nvim-lastplace").setup({})
     end,
-    ["filipdutescu/renamer.nvim"] = function()
-        require("renamer").setup()
-    end,
     ["folke/todo-comments.nvim"] = function()
         require("todo-comments").setup()
     end,
@@ -929,6 +926,18 @@ return {
             floating_window = false,
             hint_prefix = "",
         })
+    end,
+    ["RishabhRD/lspactions"] = function()
+        vim.cmd([[runtime plugin/astronauta.vim]])
+
+        vim.ui.select = require("lspactions").select
+        vim.ui.input = require("lspactions").input
+
+        vim.lsp.handlers["textDocument/codeAction"] = require("lspactions").codeaction
+        vim.lsp.handlers["textDocument/references"] = require("lspactions").references
+        vim.lsp.handlers["textDocument/definition"] = require("lspactions").definition
+        vim.lsp.handlers["textDocument/declaration"] = require("lspactions").declaration
+        vim.lsp.handlers["textDocument/implementation"] = require("lspactions").implementation
     end,
     ["RishabhRD/nvim-cheat.sh"] = function()
         vim.g.cheat_default_window_layout = "vertical_split"

@@ -146,7 +146,7 @@ leader_keymaps["a"] = {
     d = { "<CMD>lua require('neogen').generate()<CR>", "doc-gen" },
     e = { ":!chmod +x %<CR>", "executable" },
     j = { "<CMD>SplitjoinJoin<CR>", "join-lines" },
-    r = { "<CMD>lua require('renamer').rename()<CR>", "rename" },
+    r = { "rename" },
     p = { 'ggVG"+p', "paste-file" },
     s = { "<CMD>ISwap<CR>", "swap" },
     x = { "<CMD>SplitjoinSplit<CR>", "split-lines" },
@@ -156,7 +156,6 @@ leader_keymaps["a"] = {
 leader_visual_keymaps["a"] = {
     name = "+actions",
     a = { "<Plug>(EasyAlign)", "align" },
-    r = { "<CMD>lua require('renamer').rename()<CR>", "rename" },
     s = { ":Sort i<CR>", "sort" },
 }
 

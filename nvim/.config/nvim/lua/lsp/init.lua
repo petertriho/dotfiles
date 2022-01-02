@@ -62,6 +62,10 @@ local function on_attach(client, bufnr)
         buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
     end
 
+    if client.resolved_capabilities.rename then
+        buf_set_keymap("n", "<Leader>ar", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
+    end
+
     if client.resolved_capabilities.signature_help then
         buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
     end
