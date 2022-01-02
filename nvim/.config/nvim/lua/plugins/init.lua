@@ -268,12 +268,14 @@ require("packer").startup({
         -- telescope
         use({
             "nvim-telescope/telescope.nvim",
-            requires = "nvim-lua/plenary.nvim",
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "nvim-telescope/telescope-file-browser.nvim",
+            },
             config = config["nvim-telescope/telescope.nvim"],
             cmd = "Telescope",
             module = "telescope",
         })
-        use({ "nvim-telescope/telescope-file-browser.nvim", after = "telescope.nvim" })
         use({
             "nvim-telescope/telescope-project.nvim",
             after = "telescope.nvim",

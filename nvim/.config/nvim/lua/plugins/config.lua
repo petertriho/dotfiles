@@ -123,6 +123,7 @@ return {
         end
 
         local builtin = require("telescope.builtin")
+
         local function find_files(selection)
             builtin.find_files({ cwd = selection.path, hidden = true })
         end
