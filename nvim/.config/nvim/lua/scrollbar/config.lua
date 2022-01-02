@@ -28,8 +28,8 @@ return {
             "WinScrolled",
         },
     },
-    show = {
-        diagnostics = true,
+    handlers = {
+        diagnostic = true,
         search = true,
     },
 }

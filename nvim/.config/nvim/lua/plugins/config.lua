@@ -492,14 +492,14 @@ return {
                 end
                 render.set_virt(0, lnum - 1, col - 1, chunks, nearest)
 
-                require("scrollbar").render_search(plist)
+                require("scrollbar").search_handler.show(plist)
             end,
         })
 
         vim.cmd([[
-            augroup scrollbar_clear_search
+            augroup scrollbar_search_hide
                 autocmd!
-                autocmd CmdlineLeave : lua require('scrollbar').clear_search()
+                autocmd CmdlineLeave : lua require('scrollbar').search_handler.hide()
             augroup END
         ]])
     end,
