@@ -1,11 +1,11 @@
 vim.cmd("command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>")
 
-local function toggle_buffer(bufname, open_cmd)
+local function toggle_buffer(buf, open_cmd)
     return function()
-        local buffer_name = vim.fn.bufname(bufname)
+        local bufname = vim.fn.bufname(buf)
 
-        if vim.fn.buflisted(buffer_name) == 1 then
-            vim.cmd("bd " .. buffer_name)
+        if vim.fn.buflisted(bufname) == 1 then
+            vim.cmd("bd " .. bufname)
         else
             vim.cmd(open_cmd)
         end
