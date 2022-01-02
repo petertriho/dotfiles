@@ -235,6 +235,7 @@ M.setup = function(overrides)
             sources_formatting.pyupgrade,
             b.formatting.black,
             -- shell
+            b.code_actions.shellcheck,
             b.diagnostics.shellcheck,
             b.formatting.shfmt.with({
                 extra_args = function(params)
