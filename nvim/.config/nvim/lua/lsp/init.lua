@@ -4,34 +4,34 @@ local lsp_status = require("lsp-status")
 local function on_attach(client, bufnr)
     lsp_status.on_attach(client)
 
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
+    local opts = { noremap = true, silent = true }
+
+    local function buf_set_keymap(mode, lhs, rhs)
+        vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
     end
+
     local function buf_set_option(...)
         vim.api.nvim_buf_set_option(bufnr, ...)
     end
 
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    local opts = { noremap = true, silent = true }
-
     if client.name == "pyright" then
-        buf_set_keymap("n", "<Leader>o", "<CMD>PyrightOrganizeImports<CR>", opts)
+        buf_set_keymap("n", "<Leader>o", "<CMD>PyrightOrganizeImports<CR>")
     elseif client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
 
-        buf_set_keymap("n", "<Leader>o", "<CMD>TSServerOrganizeImports<CR>", opts)
+        buf_set_keymap("n", "<Leader>o", "<CMD>TSServerOrganizeImports<CR>")
     end
 
     buf_set_keymap(
         "n",
         "gh",
-        "<CMD>lua vim.diagnostic.open_float(0, { scope = 'line', source = 'always', border = 'rounded' })<CR>",
-        opts
+        "<CMD>lua vim.diagnostic.open_float(0, { scope = 'line', source = 'always', border = 'rounded' })<CR>"
     )
-    buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
-    buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
+    buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>")
+    buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>")
 
     if client.resolved_capabilities.code_action then
         vim.cmd([[
@@ -43,35 +43,35 @@ local function on_attach(client, bufnr)
     end
 
     if client.resolved_capabilities.declaration then
-        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
+        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
     end
 
     if client.resolved_capabilities.find_references then
-        buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", opts)
+        buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
     end
 
     if client.resolved_capabilities.goto_definition then
-        buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
+        buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
     end
 
     if client.resolved_capabilities.hover then
-        buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+        buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>")
     end
 
     if client.resolved_capabilities.implementation then
-        buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
+        buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
     end
 
     if client.resolved_capabilities.rename then
-        buf_set_keymap("n", "<Leader>ar", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
+        buf_set_keymap("n", "<Leader>ar", "<CMD>lua vim.lsp.buf.rename()<CR>")
     end
 
     if client.resolved_capabilities.signature_help then
-        buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
+        buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>")
     end
 
     if client.resolved_capabilities.type_definition then
-        buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", opts)
+        buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>")
     end
 
     if client.server_capabilities.colorProvider then
