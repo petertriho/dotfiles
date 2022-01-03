@@ -1089,7 +1089,7 @@ return {
         }
         vim.g.vimwiki_conceallevel = 0
         vim.g.vimwiki_global_ext = 0
-        vim.g.vimwiki_key_mappings = { table_mappings = 0, lists = 0, mouse = 0 }
+        vim.g.vimwiki_key_mappings = { table_mappings = 0, links = 0, mouse = 0 }
     end,
     ["vuki656/package-info.nvim"] = function()
         require("package-info").setup()
