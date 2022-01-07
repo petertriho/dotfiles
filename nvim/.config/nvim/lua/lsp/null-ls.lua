@@ -215,10 +215,18 @@ M.setup = function(overrides)
             -- lua
             b.diagnostics.selene.with({
                 condition = function(utils)
-                    return utils.root_has_file("selene.toml")
+                    return utils.root_has_file({ "selene.toml", ".selene.toml" })
                 end,
             }),
             b.formatting.stylua.with({
+                condition = function(utils)
+                    return utils.root_has_file({ "stylua.toml", ".stylua.toml" })
+                end,
+            }),
+            b.formatting.stylua.with({
+                condition = function(utils)
+                    return not utils.root_has_file({ "stylua.toml", ".stylua.toml" })
+                end,
                 extra_args = {
                     "--config-path",
                     vim.fn.expand("$HOME/.config/format-lint/.stylua.toml"),
