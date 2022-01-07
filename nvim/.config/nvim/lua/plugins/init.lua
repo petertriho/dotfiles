@@ -20,6 +20,7 @@ require("packer").startup({
             config = config["lewis6991/gitsigns.nvim"],
             opt = true,
         })
+        use("petertriho/nvim-scrollbar")
 
         -- lsp
         use("neovim/nvim-lspconfig")
