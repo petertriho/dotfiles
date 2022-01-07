@@ -308,7 +308,7 @@ require("packer").startup({
         })
 
         -- tools
-        use("folke/which-key.nvim")
+        use("petertriho/which-key.nvim")
         use({
             "folke/twilight.nvim",
             config = config["folke/twilight.nvim"],
