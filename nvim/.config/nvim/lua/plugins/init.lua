@@ -34,7 +34,7 @@ require("packer").startup({
             config = config["ray-x/lsp_signature.nvim"],
         })
         use({
-            "petertriho/lspactions",
+            "RishabhRD/lspactions",
             config = config["RishabhRD/lspactions"],
             requires = {
                 "nvim-lua/plenary.nvim",
