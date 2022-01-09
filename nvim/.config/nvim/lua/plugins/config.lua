@@ -461,18 +461,7 @@ return {
         }
     end,
     ["kevinhwang91/nvim-hlslens"] = function()
-        require("hlslens").setup({
-            build_position_cb = function(plist, bufnr, changedtick, pattern)
-                require("scrollbar.handlers.search").handler.show(plist.start_pos)
-            end,
-        })
-
-        vim.cmd([[
-            augroup scrollbar_search_hide
-                autocmd!
-                autocmd CmdlineLeave : lua require('scrollbar.handlers.search').handler.hide()
-            augroup END
-        ]])
+        require("scrollbar.handlers.search").setup()
     end,
     ["lewis6991/gitsigns.nvim"] = function()
         require("gitsigns").setup({
