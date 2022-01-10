@@ -41,7 +41,6 @@ if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
     rm -rf "$DOWNLOAD_ZIP"
 
     rm -rf "$INSTALL_SUB_DIR"
-    rm "$INSTALL_DIR/ltex-ls"
 
     cp -R "$DOWNLOAD_DIR/." "$INSTALL_SUB_DIR"
     chmod +x "$INSTALL_SUB_DIR/bin/ltex-ls"
