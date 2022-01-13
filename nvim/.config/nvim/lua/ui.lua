@@ -44,7 +44,7 @@ require("scrollbar").setup({
 vim.cmd("highlight QuickScopePrimary guifg=" .. colors.blue .. " gui=underline ctermfg=blue cterm=underline")
 vim.cmd("highlight QuickScopeSecondary guifg=" .. colors.red .. " gui=underline ctermfg=red cterm=underline")
 vim.cmd("highlight Folded guifg=" .. colors.comment .. " guibg=" .. colors.none)
-vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticWarn" })
+vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticSignWarn" })
 
 local diagnostic_signs = {
     [vim.diagnostic.severity.ERROR] = { "Error", " " },
