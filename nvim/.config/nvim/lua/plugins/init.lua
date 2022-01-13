@@ -109,6 +109,11 @@ require("packer").startup({
             "github/copilot.vim",
             setup = config["github/copilot.vim"],
         })
+        use({
+            "ixru/nvim-markdown",
+            setup = config["ixru/nvim-markdown"],
+            ft = "markdown"
+        })
         use({ "pantharshit00/vim-prisma", ft = "prisma" })
         use({
             "lukas-reineke/indent-blankline.nvim",

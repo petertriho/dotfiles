@@ -460,6 +460,9 @@ return {
             typescriptreact = { "javascript" },
         }
     end,
+    ["ixru/nvim-markdown"] = function()
+        vim.g.vim_markdown_no_default_key_mappings = 1
+    end,
     ["kevinhwang91/nvim-hlslens"] = function()
         require("scrollbar.handlers.search").setup()
     end,
