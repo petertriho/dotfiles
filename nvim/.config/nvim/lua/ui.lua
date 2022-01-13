@@ -26,7 +26,6 @@ require("scrollbar").setup({
         Misc = { color = colors.purple },
     },
     excluded_filetypes = {
-        "",
         "prompt",
         "TelescopePrompt",
         "dbui",
