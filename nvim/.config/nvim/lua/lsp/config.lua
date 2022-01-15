@@ -32,7 +32,9 @@ return {
             },
         },
     },
-    ltex = {},
+    ltex = {
+        filetypes = { "bib", "markdown", "org", "plaintex", "rst", "rnoweb", "tex" },
+    },
     -- quick_lint_js = {},
     rust_analyzer = {},
     prismals = {},
