@@ -5,6 +5,7 @@ vim.g.tokyonight_sidebars = {
     "DiffViewFiles",
     "Mundo",
     "MundoDiff",
+    "Outline"
 }
 vim.g.tokyonight_colors = {
     border_highlight = "#565f89",
@@ -91,12 +92,17 @@ require("bufferline").setup({
                 highlight = "Directory",
                 text_align = "center",
             },
+            {
+                filetype = "Outline",
+                text = "OUTLINE",
+                highlight = "Directory",
+                text_align = "center",
+            },
         },
         custom_filter = function(buf_number)
             if
                 vim.bo[buf_number].filetype ~= "fugitive"
                 and vim.bo[buf_number].filetype ~= "NeogitStatus"
-                and vim.bo[buf_number].filetype ~= "any-jump"
                 and vim.bo[buf_number].buftype ~= "terminal"
             then
                 return true

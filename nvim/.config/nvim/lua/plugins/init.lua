@@ -48,6 +48,7 @@ require("packer").startup({
         })
         use({
             "simrat39/symbols-outline.nvim",
+            setup = config["simrat39/symbols-outline.nvim"],
             cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
         })
         use({
@@ -112,7 +113,7 @@ require("packer").startup({
         use({
             "ixru/nvim-markdown",
             setup = config["ixru/nvim-markdown"],
-            ft = "markdown"
+            ft = "markdown",
         })
         use({ "pantharshit00/vim-prisma", ft = "prisma" })
         use({

@@ -76,15 +76,16 @@ return {
     ["editorconfig/editorconfig-vim"] = function()
         vim.g.EditorConfig_exclude_patterns = {
             "dbui",
-            "NvimTree",
+            "DiffViewFiles",
+            "fugitive",
+            "fugitiveblame",
             "lspinfo",
             "Mundo",
             "MundoDiff",
-            "packer",
-            "fugitive",
-            "fugitiveblame",
             "NeogitStatus",
-            "DiffViewFiles",
+            "NvimTree",
+            "Outline",
+            "packer",
         }
     end,
     ["ethanholz/nvim-lastplace"] = function()
@@ -545,15 +546,16 @@ return {
             filetype_exclude = {
                 "",
                 "dbui",
-                "NvimTree",
+                "DiffViewFiles",
+                "fugitive",
+                "fugitiveblame",
                 "lspinfo",
                 "Mundo",
                 "MundoDiff",
-                "packer",
-                "fugitive",
-                "fugitiveblame",
                 "NeogitStatus",
-                "DiffViewFiles",
+                "NvimTree",
+                "Outline",
+                "packer",
             },
         })
     end,
@@ -959,6 +961,12 @@ return {
             "typescript",
             "typescriptreact",
             "yaml",
+        }
+    end,
+    ["simrat39/symbols-outline.nvim"] = function()
+        vim.g.symbols_outline = {
+            auto_preview = false,
+            position = "left",
         }
     end,
     ["sindrets/diffview.nvim"] = function()
