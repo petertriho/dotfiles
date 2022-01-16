@@ -353,6 +353,11 @@ require("packer").startup({
                 "NvimTreeClipboard",
             },
         })
+        use({
+            "mtth/scratch.vim",
+            setup = config["mtth/scratch.vim"],
+            cmd = "ScratchPreview",
+        })
         use({ "mg979/vim-visual-multi", setup = config["mg979/vim-visual-multi"] })
         use({
             "RishabhRD/nvim-cheat.sh",

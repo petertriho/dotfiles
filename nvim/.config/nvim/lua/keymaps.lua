@@ -102,7 +102,7 @@ local leader_keymaps = {
     q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
     s = "substitute",
     S = "substitute-eol",
-    t = { "<CMD>lua require('null-ls').toggle('spell')<CR>", "toggle-cspell" },
+    t = { "<CMD>ScratchPreview<CR>", "scratch-preview" },
     u = { "<CMD>MundoToggle<CR>", "undotree" },
     x = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
     z = { "<CMD>ZenMode<CR>", "zenmode" },
@@ -314,6 +314,7 @@ local comma_keymaps = {
         "<CMD>lua require('telescope.builtin').lsp_type_definitions({ jump_type = 'never' })<CR>",
         "type-definitions",
     },
+    T = { "<CMD>lua require('null-ls').toggle('spell')<CR>", "toggle-cspell" },
 }
 
 local comma_visual_keymaps = {
