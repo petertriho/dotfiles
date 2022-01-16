@@ -578,10 +578,6 @@ return {
         set_keymap("o", "im", "<Plug>(textobj-sandwich-literal-query-i)", {})
         set_keymap("o", "am", "<Plug>(textobj-sandwich-literal-query-a)", {})
     end,
-    ["mtth/scratch.vim"] = function()
-        vim.g.scratch_autohide = 0
-        vim.g.scratch_persistence_file = "~/.scratch"
-    end,
     ["mg979/vim-visual-multi"] = function()
         vim.g.VM_leader = "\\"
         vim.g.VM_maps = { ["Find Under"] = "\\f", ["Find Subword Under"] = "\\f" }
