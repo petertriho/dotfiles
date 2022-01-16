@@ -129,6 +129,7 @@ require("packer").startup({
         use({ "nathom/filetype.nvim", config = config["nathom/filetype.nvim"] })
         use({ "rrethy/vim-hexokinase", run = "make hexokinase", opt = true })
         use({ "sheerun/vim-polyglot", setup = config["sheerun/vim-polyglot"] })
+        use("Vimjas/vim-python-pep8-indent")
 
         -- treesitter
         use({
