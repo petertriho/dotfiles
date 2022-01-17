@@ -898,8 +898,6 @@ return {
         })
     end,
     ["RishabhRD/lspactions"] = function()
-        vim.cmd([[runtime plugin/astronauta.vim]])
-
         vim.ui.select = require("lspactions").select
         vim.ui.input = require("lspactions").input
 
