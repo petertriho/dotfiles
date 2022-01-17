@@ -19,10 +19,6 @@ function main {
         cargo install taplo-lsp
     fi
 
-    if ! command -v taplo-lsp &> /dev/null; then
-        cargo install taplo-lsp
-    fi
-
     if ! command -v gopls &> /dev/null; then
         GO111MODULE=on go install golang.org/x/tools/gopls@latest
     fi
