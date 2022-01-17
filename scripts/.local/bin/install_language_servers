@@ -23,6 +23,10 @@ function main {
         GO111MODULE=on go install golang.org/x/tools/gopls@latest
     fi
 
+    if ! command -v bash-language-server &> /dev/null; then
+        yarn global add bash-language-server
+    fi
+
     if ! command -v docker-langserver &> /dev/null; then
         yarn global add dockerfile-language-server-nodejs
     fi
