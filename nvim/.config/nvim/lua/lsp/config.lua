@@ -49,6 +49,7 @@ return {
     sumneko_lua = {
         cmd = { "lua-language-server" },
     },
+    svelte = {},
     tailwindcss = {
         settings = {
             tailwindCSS = {
