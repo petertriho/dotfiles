@@ -651,7 +651,7 @@ return {
                 literal = {
                     [".env"] = "conf",
                     [".prettierrc"] = "jsonc",
-                    ["yarn.lock"] = "txt"
+                    ["yarn.lock"] = "txt",
                 },
                 complex = {
                     [".*%.env.*"] = "conf",
