@@ -209,17 +209,17 @@ components.active[1] = {
         truncate_hide = true,
         priority = 3,
     },
-    -- {
-    --     provider = function()
-    --         return require("nvim-gps").get_location()
-    --     end,
-    --     enabled = function()
-    --         return package.loaded["nvim-treesitter"] ~= nil and require("nvim-gps").is_available()
-    --     end,
-    --     left_sep = " ",
-    --     truncate_hide = true,
-    --     priority = 4,
-    -- },
+    {
+        provider = function()
+            return require("nvim-gps").get_location()
+        end,
+        enabled = function()
+            return package.loaded["nvim-treesitter"] ~= nil and require("nvim-gps").is_available()
+        end,
+        left_sep = " ",
+        truncate_hide = true,
+        priority = 4,
+    },
 }
 
 components.active[2] = {
