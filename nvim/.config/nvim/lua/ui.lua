@@ -5,12 +5,15 @@ vim.g.tokyonight_sidebars = {
     "DiffViewFiles",
     "Mundo",
     "MundoDiff",
-    "Outline"
+    "Outline",
 }
 vim.g.tokyonight_colors = {
     border_highlight = "#565f89",
 }
 vim.cmd("colorscheme tokyonight")
+
+vim.cmd("highlight TelescopeNormal guibg=none")
+vim.cmd("highlight TelescopeBorder guibg=none")
 
 local colors = require("colors")
 
