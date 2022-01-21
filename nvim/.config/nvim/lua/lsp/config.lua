@@ -20,9 +20,12 @@ return {
     graphql = {
         filetypes = { "graphql" },
     },
-    html = {},
+    html = {
+        init_options = {
+            provideFormatter = false,
+        },
+    },
     jsonls = {
-        filetypes = { "json", "jsonc" },
         init_options = {
             provideFormatter = false,
         },
