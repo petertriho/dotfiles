@@ -15,13 +15,13 @@
                     "slnt": 0
                 },
                 "face": "JetBrainsMono NF",
-                "features": {
-                    "calt": 0,
-                    "clig": 0,
-                    "dlig": 0,
-                    "liga": 0,
-                    "rlig": 0
-                },
+                // "features": {
+                //     "calt": 0,
+                //     "clig": 0,
+                //     "dlig": 0,
+                //     "liga": 0,
+                //     "rlig": 0
+                // },
                 "size": 12
             },
             "padding": "0"
