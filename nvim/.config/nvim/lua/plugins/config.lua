@@ -182,11 +182,13 @@ return {
             filters = {
                 custom = { ".git", "node_modules", ".venv" },
             },
+            git = {
+                ignore = false
+            },
             view = {
                 signcolumn = "no",
             },
         })
-        require("nvim-tree.lib").toggle_ignored()
     end,
     ["kwkarlwang/bufjump.nvim"] = function()
         require("bufjump").setup({
