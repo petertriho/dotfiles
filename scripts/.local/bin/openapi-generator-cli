@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker run --rm \
+    --network="host" \
+    -v="$(pwd):/workdir" \
+    -w="/workdir" \
+    -u="$(id -u):$(id -g)" \
+    openapitools/openapi-generator-cli "$@"
