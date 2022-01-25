@@ -95,11 +95,10 @@ require("packer").startup({
         use({
             "tzachar/cmp-fuzzy-path",
             requires = "tzachar/fuzzy.nvim",
-            after = { "nvim-cmp" },
+            after = "nvim-cmp",
         })
         use({
             "tzachar/cmp-tabnine",
-            config = config["tzachar/cmp-tabnine"],
             run = "./install.sh",
             after = "nvim-cmp",
         })

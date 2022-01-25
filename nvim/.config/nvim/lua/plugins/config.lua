@@ -1064,13 +1064,6 @@ return {
         vim.api.nvim_set_keymap("n", "g[", "<CMD>diffget //2<CR>", { silent = true, noremap = true })
         vim.api.nvim_set_keymap("n", "g]", "<CMD>diffget //3<CR>", { silent = true, noremap = true })
     end,
-    ["tzachar/cmp-tabnine"] = function()
-        require("cmp_tabnine.config").setup({
-            max_lines = 1000,
-            max_num_results = 10,
-            sort = true,
-        })
-    end,
     ["vimwiki/vimwiki"] = function()
         vim.g.vimwiki_list = {
             { path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md" },
