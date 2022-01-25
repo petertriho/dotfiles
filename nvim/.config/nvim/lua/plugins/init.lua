@@ -97,6 +97,12 @@ require("packer").startup({
             requires = "tzachar/fuzzy.nvim",
             after = { "nvim-cmp" },
         })
+        use({
+            "tzachar/cmp-tabnine",
+            config = config["tzachar/cmp-tabnine"],
+            run = "./install.sh",
+            after = "nvim-cmp",
+        })
         use({ "rafamadriz/friendly-snippets", after = "nvim-cmp" })
 
         -- language
