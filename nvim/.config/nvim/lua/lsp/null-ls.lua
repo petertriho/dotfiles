@@ -205,8 +205,6 @@ M.setup = function(overrides)
             -- fish
             sources_diagnostics.fish,
             b.formatting.fish_indent,
-            -- gitcommit
-            b.diagnostics.gitlint,
             -- json
             sources_diagnostics.jq,
             b.formatting.fixjson.with({
