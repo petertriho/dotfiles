@@ -8,6 +8,6 @@ directory=$2
 mkdir -p "${directory}/.git"
 git clone --bare "$repository" "${directory}/.git"
 
-branch=$(cd "$directory" && git branch --list | ggrep -oP "^\* \K(.*)\$") # main
+branch=$(cd "$directory" && git branch --list | grep "^*.*" | sed "s/* \(.*\)/\1/")
 
 (cd "$directory" && git worktree add "$branch")
