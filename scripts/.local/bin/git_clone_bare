@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repository=$1
+directory=$2
+
+mkdir -p "${directory}/.git"
+git clone --bare "$repository" "${directory}/.git"
+
+branch=$(cd "$directory" && git branch --list | ggrep -oP "^\* \K(.*)\$") # main
+
+(cd "$directory" && git worktree add "$branch")
