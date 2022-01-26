@@ -1,530 +1,194 @@
-local config = require("plugins.config")
-
 require("packer").startup({
     function(use)
         use("wbthomason/packer.nvim")
 
-        -- ui
-        use({
-            "folke/tokyonight.nvim",
-            config = config["folke/tokyonight.nvim"],
-        })
-        use({
-            "akinsho/nvim-bufferline.lua",
-            requires = "kyazdani42/nvim-web-devicons",
-            config = config["akinsho/nvim-bufferline.lua"],
-        })
-        use({
-            "feline-nvim/feline.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
-        })
-        use({
-            "lewis6991/gitsigns.nvim",
-            requires = "nvim-lua/plenary.nvim",
-            config = config["lewis6991/gitsigns.nvim"],
-            opt = true,
-        })
-        use({
-            "petertriho/nvim-scrollbar",
-            config = config["petertriho/nvim-scrollbar"],
-        })
+        local plugins = {
+            -- ui
+            require("plugins.config.tokyonight"),
+            require("plugins.config.nvim-bufferline"),
+            require("plugins.config.feline"),
+            require("plugins.config.gitsigns"),
+            require("plugins.config.nvim-scrollbar"),
+            -- lsp
+            "neovim/nvim-lspconfig",
+            "b0o/schemastore.nvim",
+            "folke/lua-dev.nvim",
+            require("plugins.config.fidget"),
+            { "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" },
+            { "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" },
+            require("plugins.config.lsp_signature"),
+            require("plugins.config.lspactions"),
+            require("plugins.config.goto-preview"),
+            require("plugins.config.symbols-outline"),
+            { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
+            -- completion
+            require("plugins.config.nvim-cmp"),
+            { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+            { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+            { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+            { "hrsh7th/cmp-path", after = "nvim-cmp" },
+            { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
+            require("plugins.config.vim-vsnip"),
+            { "andersevenrud/cmp-tmux", after = "nvim-cmp" },
+            { "kristijanhusak/vim-dadbod-completion", requires = "tpope/vim-dadbod", after = "nvim-cmp" },
+            { "onsails/lspkind-nvim", module = "lspkind" },
+            require("plugins.config.cmp-git"),
+            { "tzachar/cmp-fuzzy-buffer", requires = "tzachar/fuzzy.nvim", after = "nvim-cmp" },
+            { "tzachar/cmp-fuzzy-path", requires = "tzachar/fuzzy.nvim", after = "nvim-cmp" },
+            { "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" },
+            { "rafamadriz/friendly-snippets", after = "nvim-cmp" },
+            -- language
+            require("plugins.config.todo-comments"),
+            require("plugins.config.copilot"),
+            require("plugins.config.nvim-markdown"),
+            { "pantharshit00/vim-prisma", ft = "prisma" },
+            require("plugins.config.indent-blankline"),
+            require("plugins.config.rainbow"),
+            require("plugins.config.filetype"),
+            { "rrethy/vim-hexokinase", run = "make hexokinase", opt = true },
+            require("plugins.config.vim-polyglot"),
+            "Vimjas/vim-python-pep8-indent",
+            -- treesitter
+            require("plugins.config.nvim-treesitter"),
+            require("plugins.config.playground"),
+            require("plugins.config.tabout"),
+            require("plugins.config.vim-matchup"),
+            require("plugins.config.neogen"),
+            require("plugins.config.nvim-ts-context-commentstring"),
+            require("plugins.config.iswap"),
+            require("plugins.config.nvim-treesitter-textobjects"),
+            require("plugins.config.nvim-ts-rainbow"),
+            require("plugins.config.nvim-treesitter-textsubjects"),
+            require("plugins.config.nvim-treesitter-context"),
+            require("plugins.config.nvim-gps"),
+            require("plugins.config.nvim-autopairs"),
+            require("plugins.config.nvim-ts-autotag"),
+            -- text helpers
+            require("plugins.config.splitjoin"),
+            require("plugins.config.vim-caser"),
+            require("plugins.config.vim-wordmotion"),
+            { "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" },
+            require("plugins.config.vim-sandwich"),
+            "mattn/emmet-vim",
+            {
+                "monaqa/dial.nvim",
+                keys = {
+                    "<Plug>(dial-increment)",
+                    "<Plug>(dial-decrement)",
+                    "<Plug>(dial-increment-additional)",
+                    "<Plug>(dial-decrement-additional)",
+                },
+            },
+            require("plugins.config.Comment"),
+            require("plugins.config.substitute"),
+            require("plugins.config.sort"),
+            { "tommcdo/vim-exchange", keys = { { "n", "cx" }, { "v", "X" } } },
+            require("plugins.config.vim-abolish"),
+            "wellle/targets.vim",
+            -- telescope
+            require("plugins.config.telescope"),
+            {
+                "nvim-telescope/telescope-project.nvim",
+                after = "telescope.nvim",
+                module = "telescope.extensions.project",
+            },
+            require("plugins.config.telescope-zoxide"),
+            require("plugins.config.octo"),
+            require("plugins.config.refactoring"),
+            -- tools
+            "folke/which-key.nvim",
+            require("plugins.config.twilight"),
+            require("plugins.config.zen-mode"),
+            { "gabrielpoca/replacer.nvim", module = "replacer" },
+            {
+                "iamcco/markdown-preview.nvim",
+                run = ":call mkdp#util#install()",
+                ft = { "markdown", "packer", "vimwiki" },
+            },
+            require("plugins.config.vim-dadbod-ui"),
+            require("plugins.config.nvim-tree"),
+            require("plugins.config.vim-visual-multi"),
+            require("plugins.config.nvim-cheat"),
+            { "simnalamburt/vim-mundo", cmd = "MundoToggle" },
+            require("plugins.config.diffview"),
+            { "skywind3000/asyncrun.vim", cmd = { "Make", "AsyncRun" } },
+            require("plugins.config.neogit"),
+            require("plugins.config.vim-fugitive"),
+            require("plugins.config.nvim-pqf"),
+            require("plugins.config.vimwiki"),
+            require("plugins.config.package-info"),
+            -- motions
+            require("plugins.config.lightspeed"),
+            { "unblevable/quick-scope", opt = true },
+            -- misc
+            require("plugins.config.FixCursorHold"),
+            require("plugins.config.marks"),
+            { "dstein64/vim-startuptime", cmd = "StartupTime" },
+            require("plugins.config.editorconfig-vim"),
+            { "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } },
+            require("plugins.config.nvim-lastplace"),
+            require("plugins.config.close-buffers"),
+            require("plugins.config.nvim-hlslens"),
+            require("plugins.config.bufjump"),
+            "lewis6991/impatient.nvim",
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+            { "ryvnf/readline.vim", event = "CmdlineEnter" },
+            require("plugins.config.winshift"),
+            require("plugins.config.stickybuf"),
+            require("plugins.config.qf_helper"),
+            require("plugins.config.vim-yoink"),
+            "tpope/vim-repeat",
+            "tpope/vim-unimpaired",
+            require("plugins.config.range-highlight")
+        }
 
-        -- lsp
-        use("neovim/nvim-lspconfig")
-        use("b0o/schemastore.nvim")
-        use("folke/lua-dev.nvim")
-        use({
-            "j-hui/fidget.nvim",
-            config = config["j-hui/fidget.nvim"],
-        })
-        use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-        use({ "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" })
-        use({
-            "ray-x/lsp_signature.nvim",
-            config = config["ray-x/lsp_signature.nvim"],
-        })
-        use({
-            "RishabhRD/lspactions",
-            config = config["RishabhRD/lspactions"],
-            requires = {
-                "nvim-lua/plenary.nvim",
-                "nvim-lua/popup.nvim",
-            },
-        })
-        use({
-            "rmagatti/goto-preview",
-            config = config["rmagatti/goto-preview"],
-            keys = { "gpd", "gpi", "gpr", "gP" },
-        })
-        use({
-            "simrat39/symbols-outline.nvim",
-            setup = config["simrat39/symbols-outline.nvim"],
-            cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
-        })
-        use({
-            "weilbith/nvim-code-action-menu",
-            cmd = "CodeActionMenu",
-        })
-
-        -- completion
-        use({
-            "hrsh7th/nvim-cmp",
-            config = config["hrsh7th/nvim-cmp"],
-            event = { "CmdlineEnter", "InsertEnter" },
-        })
-        use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
-        use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
-        use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
-        use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
-        use({ "hrsh7th/cmp-vsnip", after = "nvim-cmp" })
-        use({
-            "hrsh7th/vim-vsnip",
-            setup = config["hrsh7th/vim-vsnip"],
-            after = "nvim-cmp",
-        })
-        use({ "andersevenrud/cmp-tmux", after = "nvim-cmp" })
-        use({
-            "kristijanhusak/vim-dadbod-completion",
-            requires = "tpope/vim-dadbod",
-            after = "nvim-cmp",
-        })
-        use({
-            "onsails/lspkind-nvim",
-            module = "lspkind",
-        })
-        use({
-            "petertriho/cmp-git",
-            config = config["petertriho/cmp-git"],
-            after = "nvim-cmp",
-        })
-        use({
-            "tzachar/cmp-fuzzy-buffer",
-            requires = "tzachar/fuzzy.nvim",
-            after = "nvim-cmp",
-        })
-        use({
-            "tzachar/cmp-fuzzy-path",
-            requires = "tzachar/fuzzy.nvim",
-            after = "nvim-cmp",
-        })
-        use({
-            "tzachar/cmp-tabnine",
-            run = "./install.sh",
-            after = "nvim-cmp",
-        })
-        use({ "rafamadriz/friendly-snippets", after = "nvim-cmp" })
-
-        -- language
-        use({
-            "folke/todo-comments.nvim",
-            requires = "nvim-lua/plenary.nvim",
-            config = config["folke/todo-comments.nvim"],
-            opt = true,
-        })
-        use({
-            "github/copilot.vim",
-            setup = config["github/copilot.vim"],
-        })
-        use({
-            "ixru/nvim-markdown",
-            setup = config["ixru/nvim-markdown"],
-            ft = "markdown",
-        })
-        use({ "pantharshit00/vim-prisma", ft = "prisma" })
-        use({
-            "lukas-reineke/indent-blankline.nvim",
-            config = config["lukas-reineke/indent-blankline.nvim"],
-            opt = true,
-        })
-        use({
-            "luochen1990/rainbow",
-            setup = config["luochen1990/rainbow"],
-            opt = true,
-        })
-        use({ "nathom/filetype.nvim", config = config["nathom/filetype.nvim"] })
-        use({ "rrethy/vim-hexokinase", run = "make hexokinase", opt = true })
-        use({ "sheerun/vim-polyglot", setup = config["sheerun/vim-polyglot"] })
-        use("Vimjas/vim-python-pep8-indent")
-
-        -- treesitter
-        use({
-            "nvim-treesitter/nvim-treesitter",
-            config = config["nvim-treesitter/nvim-treesitter"],
-            opt = true,
-            run = ":TSUpdateSync",
-        })
-        use({
-            "nvim-treesitter/playground",
-            config = config["nvim-treesitter/playground"],
-            cmd = "TSPlaygroundToggle",
-        })
-        use({
-            "abecodes/tabout.nvim",
-            requires = "nvim-treesitter",
-            config = config["abecodes/tabout.nvim"],
-            after = { "nvim-cmp", "nvim-treesitter" },
-        })
-        use({
-            "andymass/vim-matchup",
-            require = "nvim-treesitter/nvim-treesitter",
-            config = config["andymass/vim-matchup"],
-            after = "nvim-treesitter",
-        })
-        use({
-            "danymat/neogen",
-            config = config["danymat/neogen"],
-            requires = "nvim-treesitter/nvim-treesitter",
-            module = "neogen",
-        })
-        use({
-            "JoosepAlviste/nvim-ts-context-commentstring",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["JoosepAlviste/nvim-ts-context-commentstring"],
-            after = "nvim-treesitter",
-        })
-        use({
-            "mizlan/iswap.nvim",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["mizlan/iswap.nvim"],
-            cmd = "ISwap",
-        })
-        use({
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["nvim-treesitter/nvim-treesitter-textobjects"],
-            after = "nvim-treesitter",
-        })
-        use({
-            "p00f/nvim-ts-rainbow",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["p00f/nvim-ts-rainbow"],
-            after = "nvim-treesitter",
-        })
-        use({
-            "RRethy/nvim-treesitter-textsubjects",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["RRethy/nvim-treesitter-textsubjects"],
-            after = "nvim-treesitter",
-        })
-        use({
-            "romgrk/nvim-treesitter-context",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["romgrk/nvim-treesitter-context"],
-            after = "nvim-treesitter",
-        })
-        use({
-            "SmiteshP/nvim-gps",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["SmiteshP/nvim-gps"],
-            after = "nvim-treesitter",
-            module = "nvim-gps",
-        })
-        use({
-            "windwp/nvim-autopairs",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["windwp/nvim-autopairs"],
-            after = { "nvim-treesitter", "nvim-cmp" },
-        })
-        use({
-            "windwp/nvim-ts-autotag",
-            requires = "nvim-treesitter/nvim-treesitter",
-            config = config["windwp/nvim-ts-autotag"],
-            after = "nvim-treesitter",
-        })
-
-        -- text helpers
-        use({
-            "AndrewRadev/splitjoin.vim",
-            setup = config["AndrewRadev/splitjoin.vim"],
-            cmd = { "SplitjoinJoin", "SplitjoinSplit" },
-        })
-        use({
-            "arthurxavierx/vim-caser",
-            setup = config["arthurxavierx/vim-caser"],
-            keys = "cm",
-        })
-        use({ "chaoren/vim-wordmotion", setup = config["chaoren/vim-wordmotion"] })
-        use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })
-        use({
-            "machakann/vim-sandwich",
-            config = config["machakann/vim-sandwich"],
-        })
-        use("mattn/emmet-vim")
-        use({
-            "monaqa/dial.nvim",
-            keys = {
-                "<Plug>(dial-increment)",
-                "<Plug>(dial-decrement)",
-                "<Plug>(dial-increment-additional)",
-                "<Plug>(dial-decrement-additional)",
-            },
-        })
-        use({
-            "numToStr/Comment.nvim",
-            config = config["numToStr/Comment.nvim"],
-        })
-        use({
-            "gbprod/substitute.nvim",
-            config = config["gbprod/substitute.nvim"],
-        })
-        use({
-            "sQVe/sort.nvim",
-            config = config["sQVe/sort.nvim"],
-            cmd = "Sort",
-        })
-        use({
-            "tommcdo/vim-exchange",
-            keys = {
-                { "n", "cx" },
-                { "v", "X" },
-            },
-        })
-        use({
-            "tpope/vim-abolish",
-            setup = config["tpope/vim-abolish"],
-            cmd = { "Subvert", "S" },
-            keys = { { "n", "cr" } },
-        })
-        use("wellle/targets.vim")
-
-        -- telescope
-        use({
-            "nvim-telescope/telescope.nvim",
-            requires = {
-                "nvim-lua/plenary.nvim",
-                "nvim-telescope/telescope-file-browser.nvim",
-            },
-            config = config["nvim-telescope/telescope.nvim"],
-            cmd = "Telescope",
-            module = "telescope",
-        })
-        use({
-            "nvim-telescope/telescope-project.nvim",
-            after = "telescope.nvim",
-            module = "telescope.extensions.project",
-        })
-        use({
-            "jvgrootveld/telescope-zoxide",
-            config = config["jvgrootveld/telescope-zoxide"],
-            after = "telescope.nvim",
-            module = "telescope.extensions.zoxide",
-        })
-        use({
-            "pwntester/octo.nvim",
-            requires = {
-                "kyazdani42/nvim-web-devicons",
-                "nvim-telescope/telescope.nvim",
-            },
-            config = config["pwntester/octo.nvim"],
-            cmd = "Octo",
-        })
-        use({
-            "ThePrimeagen/refactoring.nvim",
-            requires = {
-                "nvim-lua/plenary.nvim",
-                "nvim-treesitter/nvim-treesitter",
-                "nvim-telescope/telescope.nvim",
-            },
-            after = "telescope.nvim",
-            config = config["ThePrimeagen/refactoring.nvim"],
-            module = "refactoring",
-        })
-
-        -- tools
-        use("folke/which-key.nvim")
-        use({
-            "folke/twilight.nvim",
-            config = config["folke/twilight.nvim"],
-            cmd = { "Twilight", "TwilghtEnable", "TwilightDisable" },
-            module = "zen-mode",
-        })
-        use({
-            "folke/zen-mode.nvim",
-            config = config["folke/zen-mode-nvim"],
-            cmd = "ZenMode",
-        })
-        use({ "gabrielpoca/replacer.nvim", module = "replacer" })
-        use({
-            "iamcco/markdown-preview.nvim",
-            run = ":call mkdp#util#install()",
-            ft = { "markdown", "packer", "vimwiki" },
-        })
-        use({
-            "kristijanhusak/vim-dadbod-ui",
-            requires = "tpope/vim-dadbod",
-            setup = config["kristijanhusak/vim-dadbod-ui"],
-            cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection" },
-        })
-        use({
-            "kyazdani42/nvim-tree.lua",
-            requires = "kyazdani42/nvim-web-devicons",
-            config = config["kyazdani42/nvim-tree.lua"],
-            cmd = {
-                "NvimTreeOpen",
-                "NvimTreeClose",
-                "NvimTreeToggle",
-                "NvimTreeRefresh",
-                "NvimTreeFindFile",
-                "NvimTreeFindFileToggle",
-                "NvimTreeClipboard",
-            },
-        })
-        use({ "mg979/vim-visual-multi", setup = config["mg979/vim-visual-multi"] })
-        use({
-            "RishabhRD/nvim-cheat.sh",
-            requires = "RishabhRD/popfix",
-            setup = config["RishabhRD/nvim-cheat.sh"],
-            cmd = {
-                "Cheat",
-                "CheatWithoutComments",
-                "CheatList",
-                "CheatListWithoutComments",
-            },
-        })
-        use({ "simnalamburt/vim-mundo", cmd = "MundoToggle" })
-        use({
-            "sindrets/diffview.nvim",
-            config = config["sindrets/diffview.nvim"],
-            cmd = {
-                "DiffviewOpen",
-                "DiffviewClose",
-                "DiffviewToggleFiles",
-                "DiffviewFocusFiles",
-                "DiffviewRefresh",
-                "DiffviewFileHistory",
-            },
-            module = "diffview",
-        })
-        use({ "skywind3000/asyncrun.vim", cmd = { "Make", "AsyncRun" } })
-        use({
-            "TimUntersberger/neogit",
-            requires = "nvim-lua/plenary.nvim",
-            config = config["TimUntersberger/neogit"],
-            cmd = "Neogit",
-            module = "neogit",
-        })
-        use({
-            "tpope/vim-fugitive",
-            config = config["tpope/vim-fugitive"],
-            cmd = { "G", "Git" },
-        })
-        use({
-            "https://gitlab.com/yorickpeterse/nvim-pqf",
-            config = config["yorickpeterse/nvim-pqf"],
-        })
-        use({
-            "vimwiki/vimwiki",
-            setup = config["vimwiki/vimwiki"],
-            keys = "<leader>w",
-        })
-        use({
-            "vuki656/package-info.nvim",
-            requires = "MunifTanjim/nui.nvim",
-            config = config["vuki656/package-info.nvim"],
-            module = "package-info",
-        })
-
-        -- motions
-        use({
-            "ggandor/lightspeed.nvim",
-            config = config["ggandor/lightspeed.nvim"],
-            keys = {
-                "<Plug>Lightspeed_s",
-                "<Plug>Lightspeed_S",
-                "<Plug>Lightspeed_x",
-                "<Plug>Lightspeed_X",
-                "<Plug>Lightspeed_f",
-                "<Plug>Lightspeed_F",
-                "<Plug>Lightspeed_t",
-                "<Plug>Lightspeed_T",
-            },
-        })
-        use({ "unblevable/quick-scope", opt = true })
-
-        -- misc
-        use({
-            "antoinemadec/FixCursorHold.nvim",
-            setup = config["antoinemadec/FixCursorHold.nvim"],
-        })
-        use({
-            "chentau/marks.nvim",
-            config = config["chentau/marks.nvim"],
-        })
-        use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
-        use({
-            "editorconfig/editorconfig-vim",
-            setup = config["editorconfig/editorconfig-vim"],
-        })
-        use({ "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } })
-        use({
-            "ethanholz/nvim-lastplace",
-            config = config["ethanholz/nvim-lastplace"],
-        })
-        use({
-            "kazhala/close-buffers.nvim",
-            config = config["kazhala/close-buffers.nvim"],
-            cmd = { "BDelete", "BWipeout" },
-        })
-        use({
-            "kevinhwang91/nvim-hlslens",
-            config = config["kevinhwang91/nvim-hlslens"],
-            module = "hlslens",
-            keys = "/",
-        })
-        use({
-            "kwkarlwang/bufjump.nvim",
-            config = config["kwkarlwang/bufjump.nvim"],
-            keys = {
-                "<M-i>",
-                "<M-o>",
-            },
-        })
-        use("lewis6991/impatient.nvim")
-        use("nvim-lua/plenary.nvim")
-        use({
-            "nvim-telescope/telescope-fzf-native.nvim",
-            run = "make",
-        })
-        use({ "ryvnf/readline.vim", event = "CmdlineEnter" })
-        use({
-            "sindrets/winshift.nvim",
-            config = config["sindrets/winshift.nvim"],
-            cmd = "WinShift",
-        })
-        use({
-            "stevearc/stickybuf.nvim",
-            config = config["stevearc/stickybuf.nvim"],
-        })
-        use({
-            "stevearc/qf_helper.nvim",
-            config = config["stevearc/qf_helper.nvim"],
-            cmd = {
-                "QNext",
-                "QPrev",
-                "LLToggle",
-                "QFToggle",
-                "Keep",
-                "Reject",
-            },
-            module = "qf_helper",
-            ft = "qf",
-        })
-        use({
-            "svermeulen/vim-yoink",
-            config = config["svermeulen/vim-yoink"],
-        })
-        use("tpope/vim-repeat")
-        use("tpope/vim-unimpaired")
-        use({
-            "winston0410/range-highlight.nvim",
-            requires = "winston0410/cmd-parser.nvim",
-            config = config["winston0410/range-highlight.nvim"],
-            event = "CmdlineEnter",
-        })
+        for _,plugin in ipairs(plugins) do
+            use(plugin)
+        end
     end,
     config = {
         max_jobs = 50,
     },
 })
 
-require("plugins.deferred")
+local function load_deferred_plugins()
+    require("packer").loader(
+        "nvim-treesitter",
+        "gitsigns.nvim",
+        "indent-blankline.nvim",
+        "todo-comments.nvim",
+        "vim-hexokinase",
+        "quick-scope",
+        "rainbow"
+    )
+end
+
+vim.api.nvim_add_user_command("LoadDeferredPlugins", load_deferred_plugins, {})
+
+vim.cmd([[
+    augroup deferred_plugins
+        autocmd User LoadDeferredPlugins LoadDeferredPlugins
+    augroup END
+]])
+
+vim.defer_fn(function()
+    vim.cmd([[doautocmd User LoadDeferredPlugins]])
+end, 80)
+
+vim.cmd("command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>")
+
+local function toggle_buffer(buf, open_cmd)
+    return function()
+        local bufname = vim.fn.bufname(buf)
+
+        if vim.fn.buflisted(bufname) == 1 then
+            vim.cmd("bd " .. bufname)
+        else
+            vim.cmd(open_cmd)
+        end
+    end
+end
+
+vim.api.nvim_add_user_command("ToggleGitStatus", toggle_buffer(".git/*index", "Git"), {})
+vim.api.nvim_add_user_command("ToggleNeogitStatus", toggle_buffer("NeogitStatus", "Neogit kind=split"), {})

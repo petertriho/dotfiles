@@ -1,0 +1,31 @@
+return {
+    "sheerun/vim-polyglot",
+    setup = function()
+        vim.g.polyglot_disabled = {
+            "ftdetect",
+            "sensible",
+            "css",
+            "dockerfile",
+            "fish",
+            "go",
+            "graphql",
+            "html5",
+            "javascript",
+            "javascriptreact",
+            "json",
+            "jsonc",
+            "jsx",
+            "lua",
+            "markdown",
+            "python",
+            "rust",
+            "scss",
+            "sh",
+            "svelte",
+            "toml",
+            "typescript",
+            "typescriptreact",
+            "yaml",
+        }
+    end,
+}
