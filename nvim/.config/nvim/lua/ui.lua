@@ -237,17 +237,6 @@ components.active[2] = {
         priority = 1,
     },
     {
-        provider = function()
-            return require("lsp-status").status_progress()
-        end,
-        enabled = function()
-            return #vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())
-        end,
-        left_sep = " ",
-        truncate_hide = true,
-        priority = 1,
-    },
-    {
         provider = "position_2",
         left_sep = " ",
     },

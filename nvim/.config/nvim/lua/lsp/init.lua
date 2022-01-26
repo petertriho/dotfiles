@@ -1,9 +1,5 @@
 -- Setup
-local lsp_status = require("lsp-status")
-
 local function on_attach(client, bufnr)
-    lsp_status.on_attach(client)
-
     local opts = { noremap = true, silent = true }
 
     local function buf_set_keymap(mode, lhs, rhs)
@@ -80,7 +76,7 @@ local function on_attach(client, bufnr)
 end
 
 local function make_base_config()
-    local capabilities = lsp_status.capabilities
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
     local completionItem = capabilities.textDocument.completion.completionItem
     completionItem.snippetSupport = true
     completionItem.preselectSupport = true
@@ -114,8 +110,6 @@ local function setup()
         vim.lsp.handlers.signature_help,
         { border = "rounded" }
     )
-
-    lsp_status.register_progress()
 
     local lspconfig = require("lspconfig")
     local overrides = require("lsp.config")

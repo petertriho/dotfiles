@@ -26,9 +26,12 @@ require("packer").startup({
         use("neovim/nvim-lspconfig")
         use("b0o/schemastore.nvim")
         use("folke/lua-dev.nvim")
+        use({
+            "j-hui/fidget.nvim",
+            config = config["j-hui/fidget.nvim"],
+        })
         use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
         use({ "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" })
-        use("nvim-lua/lsp-status.nvim")
         use({
             "ray-x/lsp_signature.nvim",
             config = config["ray-x/lsp_signature.nvim"],
