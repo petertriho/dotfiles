@@ -22,6 +22,62 @@ return {
             backwards_tabkey = "<C-h>",
         })
     end,
+    ["akinsho/nvim-bufferline.lua"] = function()
+        require("bufferline").setup({
+            options = {
+                numbers = function(opts)
+                    return string.format("%s.", opts.ordinal)
+                end,
+                close_command = "Bwipeout! %d",
+                right_mouse_command = "Bwipeout! %d",
+                offsets = {
+                    {
+                        filetype = "dbui",
+                        text = "DATABASE",
+                        highlight = "Directory",
+                        text_align = "center",
+                    },
+                    {
+                        filetype = "DiffViewFiles",
+                        text = "DIFFVIEW",
+                        highlight = "Directory",
+                        text_align = "center",
+                    },
+                    {
+                        filetype = "Mundo",
+                        text = "UNDOTREE",
+                        highlight = "Directory",
+                        text_align = "center",
+                    },
+                    {
+                        filetype = "NvimTree",
+                        text = "EXPLORER",
+                        highlight = "Directory",
+                        text_align = "center",
+                    },
+                    {
+                        filetype = "Outline",
+                        text = "OUTLINE",
+                        highlight = "Directory",
+                        text_align = "center",
+                    },
+                },
+                custom_filter = function(buf_number)
+                    if
+                        vim.bo[buf_number].filetype ~= "fugitive"
+                        and vim.bo[buf_number].filetype ~= "NeogitStatus"
+                        and vim.bo[buf_number].buftype ~= "terminal"
+                    then
+                        return true
+                    end
+                end,
+                diagnostics = "nvim_lsp",
+                diagnostics_indicator = function(count, level, diagnostics_dict, context)
+                    return "(" .. count .. ")"
+                end,
+            },
+        })
+    end,
     ["AndrewRadev/splitjoin.vim"] = function()
         vim.g.splitjoin_split_mapping = ""
         vim.g.splitjoin_join_mapping = ""
@@ -93,6 +149,42 @@ return {
     end,
     ["folke/todo-comments.nvim"] = function()
         require("todo-comments").setup()
+    end,
+    ["folke/tokyonight.nvim"] = function()
+        vim.g.tokyonight_style = "night"
+        vim.g.tokyonight_sidebars = {
+            "dbui",
+            "DiffViewFiles",
+            "Mundo",
+            "MundoDiff",
+            "Outline",
+        }
+        vim.g.tokyonight_colors = {
+            border_highlight = "#565f89",
+        }
+        vim.cmd("colorscheme tokyonight")
+
+        vim.cmd("highlight TelescopeNormal guibg=none")
+        vim.cmd("highlight TelescopeBorder guibg=none")
+
+        local colors = require("colors")
+
+        vim.cmd("highlight QuickScopePrimary guifg=" .. colors.blue .. " gui=underline ctermfg=blue cterm=underline")
+        vim.cmd("highlight QuickScopeSecondary guifg=" .. colors.red .. " gui=underline ctermfg=red cterm=underline")
+        vim.cmd("highlight Folded guifg=" .. colors.comment .. " guibg=" .. colors.none)
+        vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticSignWarn" })
+
+        local diagnostic_signs = {
+            [vim.diagnostic.severity.ERROR] = { "Error", " " },
+            [vim.diagnostic.severity.WARN] = { "Warn", " " },
+            [vim.diagnostic.severity.INFO] = { "Info", " " },
+            [vim.diagnostic.severity.HINT] = { "Hint", " " },
+        }
+
+        for _, properties in pairs(diagnostic_signs) do
+            local hl = "DiagnosticSign" .. properties[1]
+            vim.fn.sign_define(hl, { text = properties[2], texthl = hl, numhl = "" })
+        end
     end,
     ["folke/twilight.nvim"] = function()
         require("twilight").setup()
@@ -882,6 +974,37 @@ return {
     end,
     ["petertriho/cmp-git"] = function()
         require("cmp_git").setup()
+    end,
+    ["petertriho/nvim-scrollbar"] = function()
+        local colors = require("colors")
+
+        require("scrollbar").setup({
+            handle = {
+                color = colors.bg_highlight,
+            },
+            marks = {
+                Search = { color = colors.orange },
+                Error = { color = colors.error },
+                Warn = { color = colors.warning },
+                Info = { color = colors.info },
+                Hint = { color = colors.hint },
+                Misc = { color = colors.purple },
+            },
+            excluded_filetypes = {
+                "prompt",
+                "TelescopePrompt",
+                "dbui",
+                "NvimTree",
+                "lspinfo",
+                "Mundo",
+                "MundoDiff",
+                "packer",
+                "fugitive",
+                "fugitiveblame",
+                "NeogitStatus",
+                "DiffViewFiles",
+            },
+        })
     end,
     ["p00f/nvim-ts-rainbow"] = function()
         local colors = require("colors")

@@ -5,10 +5,14 @@ require("packer").startup({
         use("wbthomason/packer.nvim")
 
         -- ui
-        use("folke/tokyonight.nvim")
+        use({
+            "folke/tokyonight.nvim",
+            config = config["folke/tokyonight.nvim"],
+        })
         use({
             "akinsho/nvim-bufferline.lua",
             requires = "kyazdani42/nvim-web-devicons",
+            config = config["akinsho/nvim-bufferline.lua"],
         })
         use({
             "feline-nvim/feline.nvim",
@@ -20,7 +24,10 @@ require("packer").startup({
             config = config["lewis6991/gitsigns.nvim"],
             opt = true,
         })
-        use("petertriho/nvim-scrollbar")
+        use({
+            "petertriho/nvim-scrollbar",
+            config = config["petertriho/nvim-scrollbar"],
+        })
 
         -- lsp
         use("neovim/nvim-lspconfig")

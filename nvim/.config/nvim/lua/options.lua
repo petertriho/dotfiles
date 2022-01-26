@@ -55,6 +55,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
 opt.tabstop = 4
+opt.termguicolors = true
 opt.timeoutlen = 300
 opt.title = true
 opt.titlestring = "nvim %t %M"
