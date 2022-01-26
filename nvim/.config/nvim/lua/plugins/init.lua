@@ -234,7 +234,7 @@ require("packer").startup({
         use({
             "arthurxavierx/vim-caser",
             setup = config["arthurxavierx/vim-caser"],
-            keys = "gw",
+            keys = "cm",
         })
         use({ "chaoren/vim-wordmotion", setup = config["chaoren/vim-wordmotion"] })
         use({ "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" })

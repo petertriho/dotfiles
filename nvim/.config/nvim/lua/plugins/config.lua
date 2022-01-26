@@ -40,7 +40,7 @@ return {
         vim.g.cursorhold_updatetime = 100
     end,
     ["arthurxavierx/vim-caser"] = function()
-        vim.g.caser_prefix = "gw"
+        vim.g.caser_prefix = "cm"
 
         require("which-key").register({
             name = "caser",
@@ -58,7 +58,7 @@ return {
             u = "SNAKE_UPPERCASE",
             U = "SNAKE_UPPERCASE",
         }, {
-            prefix = "gw",
+            prefix = "cm",
             mode = "n",
         })
     end,
