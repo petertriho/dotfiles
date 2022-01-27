@@ -3,12 +3,12 @@ require("packer").startup({
         use("wbthomason/packer.nvim")
 
         local plugins = {
-            -- ui
             require("plugins.config.tokyonight"),
-            require("plugins.config.feline"),
+            -- ui
             require("plugins.config.gitsigns"),
             require("plugins.config.nvim-bufferline"),
             require("plugins.config.nvim-scrollbar"),
+            { "feline-nvim/feline.nvim", requires = "kyazdani42/nvim-web-devicons" },
             -- lsp
             "b0o/schemastore.nvim",
             "folke/lua-dev.nvim",
@@ -151,6 +151,8 @@ require("packer").startup({
         max_jobs = 50,
     },
 })
+
+require("plugins.config.feline").config()
 
 local function load_deferred_plugins()
     require("packer").loader(
