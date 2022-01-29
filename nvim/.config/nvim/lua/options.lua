@@ -153,16 +153,6 @@ set_augroups({
             "*",
             "Mkdir",
         },
-        {
-            "InsertEnter",
-            "*",
-            "set norelativenumber",
-        },
-        {
-            "InsertLeave",
-            "*",
-            "set relativenumber",
-        },
     },
     _targets = {
         {
