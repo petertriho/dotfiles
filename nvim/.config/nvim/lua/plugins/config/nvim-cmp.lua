@@ -213,7 +213,18 @@ return {
                 { name = "path" },
                 {
                     name = "fuzzy_path",
-                    options = { fd_cmd = { "fd", "--max-depth", "20", "--hidden", "--exclude", ".git" } },
+                    options = {
+                        fd_cmd = {
+                            "fd",
+                            "--max-depth",
+                            "20",
+                            "--full-path",
+                            "--hidden",
+                            "--ignore-case",
+                            "--exclude",
+                            ".git",
+                        },
+                    },
                 },
                 { name = "buffer" },
                 { name = "fuzzy_buffer" },
