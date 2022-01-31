@@ -5,6 +5,7 @@ function set_abbr --description "Set abbr(eviations)"
 
     abbr -a -U -- d    docker
     abbr -a -U -- dc   'docker compose'
+    abbr -a -U -- dcd  'docker compose down --remove-orphans'
     abbr -a -U -- dcl  'docker compose logs -f -t --tail=100'
     abbr -a -U -- dcu  'docker compose up -d'
     abbr -a -U -- g    git
