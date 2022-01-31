@@ -29,6 +29,8 @@ return {
                     feedkeys("<Plug>(vsnip-jump-prev)")
                     --[[ elseif has_words_before() then
 				cmp.complete() ]]
+                elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable(-1) then
+                    require("neogen").jump_prev()
                 else
                     fallback()
                 end
@@ -85,6 +87,8 @@ return {
                     feedkeys("<Plug>(vsnip-jump-prev)")
                     --[[ elseif has_words_before() then
 				cmp.complete() ]]
+                elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable(-1) then
+                    require("neogen").jump_prev()
                 else
                     fallback()
                 end
