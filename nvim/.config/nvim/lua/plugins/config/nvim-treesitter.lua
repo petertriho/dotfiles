@@ -38,8 +38,7 @@ return {
                 enable = false,
             },
             indent = {
-                enable = true,
-                disable = { "python" },
+                enable = true
             },
             fold = { enable = true },
         })
