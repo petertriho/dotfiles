@@ -42,7 +42,6 @@ return {
     rust_analyzer = {},
     prismals = {},
     pyright = {
-        single_file_support = false,
         python = {
             analysis = {
                 diagnosticMode = "workspace",

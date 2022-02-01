@@ -174,7 +174,6 @@ local b = require("null-ls.builtins")
 
 M.setup = function(overrides)
     local config = vim.tbl_deep_extend("force", {
-        debounce = 500,
         sources = {
             -- *
             b.diagnostics.codespell.with({
