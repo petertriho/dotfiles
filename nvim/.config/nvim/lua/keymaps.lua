@@ -63,6 +63,9 @@ set_keymap("n", "g#", "g#<CMD>lua require('hlslens').start()<CR>", opts)
 set_keymap("n", "s", "<Plug>Lightspeed_s", {})
 set_keymap("n", "S", "<Plug>Lightspeed_S", {})
 
+set_keymap("n", "gz", "<Plug>Lightspeed_gs", {})
+set_keymap("n", "gZ", "<Plug>Lightspeed_gS", {})
+
 set_keymap("x", "z", "<Plug>Lightspeed_s", {})
 set_keymap("x", "Z", "<Plug>Lightspeed_S", {})
 

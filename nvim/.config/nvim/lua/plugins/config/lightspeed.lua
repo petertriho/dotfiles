@@ -9,6 +9,8 @@ return {
         "<Plug>Lightspeed_F",
         "<Plug>Lightspeed_t",
         "<Plug>Lightspeed_T",
+        "<Plug>Lightspeed_gs",
+        "<Plug>Lightspeed_gS",
     },
     config = function()
         require("lightspeed").setup({
