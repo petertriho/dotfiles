@@ -227,6 +227,7 @@ leader_visual_keymaps["r"] = {
 
 leader_keymaps["t"] = {
     name = "+tests",
+    a = { "<CMD>UltestAttach<CR>", "attach" },
     c = { "<CMD>UltestClear<CR>", "clear" },
     d = { "<CMD>UltestDebug<CR>", "debug" },
     l = { "<CMD>UltestLast<CR>", "last" },

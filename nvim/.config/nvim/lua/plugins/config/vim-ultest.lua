@@ -3,6 +3,7 @@ return {
     requires = { "vim-test/vim-test" },
     run = ":UpdateRemotePlugins",
     cmd = {
+        "UltestAttach",
         "UltestClear",
         "UltestDebug",
         "UltestLast",
