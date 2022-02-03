@@ -13,7 +13,7 @@ require("packer").startup({
             "b0o/schemastore.nvim",
             "folke/lua-dev.nvim",
             "neovim/nvim-lspconfig",
-            require("plugins.config.fidget"),
+            -- require("plugins.config.fidget"),
             require("plugins.config.goto-preview"),
             require("plugins.config.lsp_signature"),
             require("plugins.config.lspactions"),
