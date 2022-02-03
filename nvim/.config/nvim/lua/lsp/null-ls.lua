@@ -235,7 +235,7 @@ M.setup = function(overrides)
             -- python
             sources_diagnostics.bandit,
             b.diagnostics.flake8,
-            b.diagnostics.pylint,
+            -- b.diagnostics.pylint,
             sources_formatting.autoflake,
             b.formatting.isort.with({
                 extra_args = { "--profile", "black" },
