@@ -225,6 +225,18 @@ leader_visual_keymaps["r"] = {
     v = { "<ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>", "extract-variable" },
 }
 
+leader_keymaps["t"] = {
+    name = "+tests",
+    c = { "<CMD>UltestClear<CR>", "clear" },
+    d = { "<CMD>UltestDebug<CR>", "debug" },
+    l = { "<CMD>UltestLast<CR>", "last" },
+    n = { "<CMD>UltestNearest<CR>", "nearest" },
+    o = { "<CMD>UltestOutput<CR>", "output" },
+    r = { "<CMD>Ultest<CR>", "run" },
+    s = { "<CMD>UltestStop<CR>", "stop" },
+    t = { "<CMD>UltestSummary<CR>", "toggle" },
+}
+
 leader_keymaps["w"] = { name = "+wiki" }
 
 local register = require("which-key").register
