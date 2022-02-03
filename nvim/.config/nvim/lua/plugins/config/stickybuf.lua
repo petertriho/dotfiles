@@ -6,6 +6,7 @@ return {
                 dbui = "filetype",
                 fugitive = "filetype",
                 Outline = "filetype",
+                UltestSummary = "filetype",
             },
         })
     end,
