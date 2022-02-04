@@ -10,6 +10,7 @@ return {
                 keymaps = {
                     ["."] = "textsubjects-smart",
                     ["<CR>"] = "textsubjects-container-outer",
+                    ["i<CR>"] = "textsubjects-container-inner",
                 },
             },
         })
