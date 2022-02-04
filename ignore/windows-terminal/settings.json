@@ -1,6 +1,16 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [],
+    "actions": [
+        {
+            "command": "closePane",
+            "keys": "alt+f4"
+        },
+        {
+            "command": "closeWindow",
+            "keys": "ctrl+shift+w"
+        }
+    ],
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
@@ -9,29 +19,17 @@
             "antialiasingMode": "cleartype",
             "bellStyle": "none",
             "colorScheme": "TokyoNight",
+            "experimental.useAtlasEngine": true,
             "font": {
-                "axes": {
-                    "ital": 0,
-                    "slnt": 0
-                },
                 "face": "JetBrainsMono NF",
-                // "features": {
-                //     "calt": 0,
-                //     "clig": 0,
-                //     "dlig": 0,
-                //     "liga": 0,
-                //     "rlig": 0
-                // },
                 "size": 12
             },
             "padding": "0"
         },
         "list": [
             {
-                "commandline": "wsl.exe -d Ubuntu --cd ~",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
             },
