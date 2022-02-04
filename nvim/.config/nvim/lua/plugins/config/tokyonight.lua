@@ -8,21 +8,22 @@ return {
             "Mundo",
             "MundoDiff",
             "Outline",
-            "UltestSummary"
+            "UltestSummary",
         }
         vim.g.tokyonight_colors = {
             border_highlight = "#565f89",
         }
         vim.cmd("colorscheme tokyonight")
 
-        vim.cmd("highlight TelescopeNormal guibg=none")
-        vim.cmd("highlight TelescopeBorder guibg=none")
+        vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = nil })
+        vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = nil })
 
         local colors = require("colors")
 
-        vim.cmd("highlight QuickScopePrimary guifg=" .. colors.blue .. " gui=underline ctermfg=blue cterm=underline")
-        vim.cmd("highlight QuickScopeSecondary guifg=" .. colors.red .. " gui=underline ctermfg=red cterm=underline")
-        vim.cmd("highlight Folded guifg=" .. colors.comment .. " guibg=" .. colors.none)
+        vim.api.nvim_set_hl(0, "QuickScopePrimary", { fg = colors.blue, underline = true })
+        vim.api.nvim_set_hl(0, "QuickScopeSecondary", { fg = colors.red, underline = true })
+        vim.api.nvim_set_hl(0, "Folded", { fg = colors.comment, bg = nil })
+
         vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticSignWarn" })
 
         local diagnostic_signs = {

@@ -5,7 +5,7 @@ return {
             TelescopePrompt = false,
         }
         vim.g.copilot_no_tab_map = true
-        vim.cmd("highlight CopilotSuggestion guifg=#565f89")
+        vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#565f89" })
         vim.api.nvim_set_keymap(
             "i",
             "<C-c>",
