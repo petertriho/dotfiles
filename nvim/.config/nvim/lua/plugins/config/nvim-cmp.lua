@@ -139,7 +139,7 @@ return {
             },
             formatting = {
                 format = require("lspkind").cmp_format({
-                    with_text = true,
+                    mode = "symbol_text",
                     menu = {
                         buffer = "[BUFFER]",
                         cmp_git = "[GIT]",
