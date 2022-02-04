@@ -40,7 +40,7 @@ return {
             indent = {
                 enable = true
             },
-            fold = { enable = true },
+            fold = { enable = false },
         })
         require("nvim-treesitter").define_modules({
             fold = {
