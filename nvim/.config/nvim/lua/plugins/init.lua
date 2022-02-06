@@ -194,3 +194,9 @@ end
 
 vim.api.nvim_add_user_command("ToggleGitStatus", toggle_buffer(".git/*index", "Git"), {})
 vim.api.nvim_add_user_command("ToggleNeogitStatus", toggle_buffer("NeogitStatus", "Neogit kind=split"), {})
+
+vim.cmd([[
+    augroup update_remote_plugins
+        autocmd User PackerComplete exe "PackerLoad vim-test vim-ultest" | silent UpdateRemotePlugins
+    augroup END
+]])

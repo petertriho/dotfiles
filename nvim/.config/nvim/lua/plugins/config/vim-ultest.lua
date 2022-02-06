@@ -1,6 +1,22 @@
 return {
     "rcarriga/vim-ultest",
-    requires = { "vim-test/vim-test" },
+    requires = {
+        {
+            "vim-test/vim-test",
+            cmd = {
+                "UltestAttach",
+                "UltestClear",
+                "UltestDebug",
+                "UltestLast",
+                "UltestNearest",
+                "UltestOutput",
+                "Ultest",
+                "UltestStop",
+                "UltestSummary",
+            },
+        },
+    },
+    after = "vim-test",
     run = ":UpdateRemotePlugins",
     setup = function()
         vim.g.ultest_output_on_run = 0
