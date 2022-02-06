@@ -56,6 +56,7 @@ require("packer").startup({
             require("plugins.config.nvim-gps"),
             require("plugins.config.nvim-treesitter"),
             require("plugins.config.nvim-treesitter-context"),
+            require("plugins.config.nvim-treesitter-endwise"),
             require("plugins.config.nvim-treesitter-textobjects"),
             require("plugins.config.nvim-treesitter-textsubjects"),
             require("plugins.config.nvim-ts-autotag"),
