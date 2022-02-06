@@ -101,6 +101,7 @@ require("packer").startup({
             -- tools
             "folke/which-key.nvim",
             require("plugins.config.diffview"),
+            require("plugins.config.gitlinker"),
             require("plugins.config.neogit"),
             require("plugins.config.nvim-cheat"),
             require("plugins.config.nvim-pqf"),

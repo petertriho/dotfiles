@@ -161,15 +161,40 @@ leader_visual_keymaps["a"] = {
 leader_keymaps["g"] = {
     name = "+git",
     b = { "<CMD>lua require('telescope.builtin').git_branches()<CR>", "branches" },
+    c = { "<CMD>lua require('telescope.builtin').git_commits()<CR>", "commits" },
     d = { "<CMD>DiffviewOpen<CR>", "diffview" },
-    f = { "<CMD>DiffviewFileHistory %<CR>", "file-history" },
-    g = { "<CMD>diffget //2<CR>", "diff-left" },
-    h = { "<CMD>diffget //3<CR>", "diff-right" },
+    f = {
+        "<CMD>lua require('gitlinker').get_buf_range_url('n', { add_current_line_on_normal_mode = false })<CR>",
+        "file-link",
+    },
+    F = {
+        "<CMD>lua require('gitlinker').get_buf_range_url('n', { add_current_line_on_normal_mode = false, action_callback = require('gitlinker.actions').open_in_browser })<CR>",
+        "file-browser",
+    },
+    h = { "<CMD>DiffviewFileHistory %<CR>", "history-file" },
     i = { "<CMD>Octo issue list<CR>", "gh-issues" },
-    l = { "<CMD>lua require('telescope.builtin').git_commits()<CR>", "logs" },
+    l = { "<CMD>lua require('gitlinker').get_buf_range_url('n', {})<CR>", "line-link" },
+    L = {
+        "<CMD>lua require('gitlinker').get_buf_range_url('n', { action_callback = require('gitlinker.actions').open_in_browser })<CR>",
+        "line-browser",
+    },
     p = { "<CMD>Octo pr list<CR>", "gh-pr" },
     s = { "<CMD>lua require('telescope.builtin').git_stashes()<CR>", "stashes" },
     t = { "<CMD>Gitsigns toggle_current_line_blame<CR>", "toggle-blame" },
+    u = { "<CMD>lua require('gitlinker').get_repo_url()<CR>", "url-link" },
+    U = {
+        "<CMD>lua require('gitlinker').get_repo_url({ action_callback = require('gitlinker.actions').open_in_browser })<CR>",
+        "url-browser",
+    },
+}
+
+leader_visual_keymaps["g"] = {
+    name = "+git",
+    l = { "<CMD>lua require('gitlinker').get_buf_range_url('v', {})<CR>", "line-link" },
+    L = {
+        "<CMD>lua require('gitlinker').get_buf_range_url('v', { action_callback = require('gitlinker.actions').open_in_browser })<CR>",
+        "line-browser",
+    },
 }
 
 leader_keymaps["h"] = {
