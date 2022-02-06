@@ -103,8 +103,6 @@ local leader_keymaps = {
     n = { ":nohl<CR>", "no-highlight" },
     o = "organize-imports",
     q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
-    s = "substitute",
-    S = "substitute-eol",
     u = { "<CMD>MundoToggle<CR>", "undotree" },
     x = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
     z = { "<CMD>ZenMode<CR>", "zenmode" },
@@ -115,7 +113,6 @@ local leader_visual_keymaps = {
     f = { "<CMD>lua vim.lsp.buf.range_formatting()<CR>", "format" },
     k = { "<CMD>lua vim.lsp.buf.range_code_action()<CR>", "code-actions" },
     q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
-    s = "substitute",
     x = { "<Plug>(vsnip-select-text)", "snippet-select" },
     X = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
 }
