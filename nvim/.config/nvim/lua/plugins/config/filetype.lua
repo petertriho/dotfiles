@@ -8,7 +8,6 @@ return {
                     prisma = "prisma",
                 },
                 literal = {
-                    [".env"] = "conf",
                     [".prettierrc"] = "jsonc",
                     ["yarn.lock"] = "txt",
                 },
