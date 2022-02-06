@@ -1,5 +1,7 @@
 -- Setup
 local function on_attach(client, bufnr)
+    require("illuminate").on_attach(client)
+
     local opts = { noremap = true, silent = true }
 
     local function buf_set_keymap(mode, lhs, rhs)

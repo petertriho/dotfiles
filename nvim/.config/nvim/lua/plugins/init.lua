@@ -15,6 +15,7 @@ require("packer").startup({
             "neovim/nvim-lspconfig",
             require("plugins.config.fidget"),
             require("plugins.config.goto-preview"),
+            require("plugins.config.vim-illuminate"),
             require("plugins.config.lsp_signature"),
             require("plugins.config.lspactions"),
             require("plugins.config.symbols-outline"),
@@ -159,10 +160,11 @@ local function load_deferred_plugins()
         "nvim-treesitter",
         "gitsigns.nvim",
         "indent-blankline.nvim",
-        "todo-comments.nvim",
-        "vim-hexokinase",
         "quick-scope",
-        "rainbow"
+        "vim-illuminate",
+        "rainbow",
+        "vim-hexokinase",
+        "todo-comments.nvim"
     )
 end
 
