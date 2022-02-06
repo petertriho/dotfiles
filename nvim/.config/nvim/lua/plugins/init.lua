@@ -117,7 +117,7 @@ require("packer").startup({
                 run = ":call mkdp#util#install()",
                 ft = { "markdown", "packer", "vimwiki" },
             },
-            { "simnalamburt/vim-mundo", cmd = "MundoToggle" },
+            require("plugins.config.vim-mundo"),
             { "skywind3000/asyncrun.vim", cmd = { "Make", "AsyncRun" } },
             -- motions
             require("plugins.config.lightspeed"),

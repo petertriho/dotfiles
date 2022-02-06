@@ -10,4 +10,7 @@ return {
         vim.g.ultest_fail_text = "✖"
         vim.g.ultest_running_text = "●"
     end,
+    config = function()
+        vim.cmd("doautocmd User SetPython3HostProg")
+    end,
 }

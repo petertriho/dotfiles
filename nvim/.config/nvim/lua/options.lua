@@ -101,12 +101,6 @@ if vim.fn.executable("rg") == 1 then
     opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
-if vim.fn.exists("$VIRTUAL_ENV") == 1 then
-    g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
-else
-    g.python3_host_prog = vim.fn.substitute(vim.fn.system("which python3"), "\n", "", "g")
-end
-
 if vim.fn.has("persistent_undo") == 1 then
     local dir = vim.fn.expand("~/.undodir")
 
@@ -141,6 +135,16 @@ end
 
 vim.api.nvim_add_user_command("Mkdir", mkdir, {})
 
+local function set_python3_host_prog()
+    if vim.fn.exists("$VIRTUAL_ENV") == 1 then
+        g.python3_host_prog = string.gsub(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "")
+    else
+        g.python3_host_prog = string.gsub(vim.fn.system("which python3"), "\n", "")
+    end
+end
+
+vim.api.nvim_add_user_command("SetPython3HostProg", set_python3_host_prog, {})
+
 set_augroups({
     _general = {
         {
@@ -152,6 +156,11 @@ set_augroups({
             "BufWritePre",
             "*",
             "Mkdir",
+        },
+        {
+            "User",
+            "SetPython3HostProg",
+            "SetPython3HostProg",
         },
     },
     _targets = {
