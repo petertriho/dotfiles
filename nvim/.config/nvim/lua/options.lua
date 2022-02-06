@@ -159,7 +159,7 @@ set_augroups({
         },
         {
             "User",
-            "SetPython3HostProg",
+            "PythonHostProg",
             "SetPython3HostProg",
         },
     },

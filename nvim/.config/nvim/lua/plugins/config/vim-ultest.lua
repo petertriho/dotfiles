@@ -11,6 +11,6 @@ return {
         vim.g.ultest_running_text = "●"
     end,
     config = function()
-        vim.cmd("doautocmd User SetPython3HostProg")
+        vim.cmd("doautocmd User PythonHostProg")
     end,
 }

@@ -170,12 +170,12 @@ vim.api.nvim_add_user_command("LoadDeferredPlugins", load_deferred_plugins, {})
 
 vim.cmd([[
     augroup deferred_plugins
-        autocmd User LoadDeferredPlugins LoadDeferredPlugins
+        autocmd User DeferredPlugins LoadDeferredPlugins
     augroup END
 ]])
 
 vim.defer_fn(function()
-    vim.cmd([[doautocmd User LoadDeferredPlugins]])
+    vim.cmd([[doautocmd User DeferredPlugins]])
 end, 80)
 
 vim.cmd("command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>")
