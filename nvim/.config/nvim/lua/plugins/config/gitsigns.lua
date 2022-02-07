@@ -21,6 +21,9 @@ return {
                     text = "│",
                 },
             },
+            current_line_blame_opts = {
+                delay = 150,
+            },
         })
     end,
 }
