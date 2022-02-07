@@ -98,7 +98,7 @@ local function make_base_config()
     return {
         capabilities = capabilities,
         on_attach = on_attach,
-        flags = { allow_incremental_sync = true, debounce_text_changes = 300 },
+        flags = { allow_incremental_sync = true, debounce_text_changes = 150 },
     }
 end
 
