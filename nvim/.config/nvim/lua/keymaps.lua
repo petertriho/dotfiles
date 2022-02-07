@@ -199,14 +199,21 @@ leader_visual_keymaps["g"] = {
 
 leader_keymaps["h"] = {
     name = "+hunks",
-    b = "blame",
-    p = "preview",
+    b = "blame-line",
+    D = "diff-file",
+    d = "diff-this",
+    p = "preview-hunk",
     R = "reset-buffer",
     r = "reset-hunk",
     S = "stage-buffer",
-    s = "stage",
-    U = "undo-stage-buffer",
-    u = "undo-stage",
+    s = "stage-hunk",
+    u = "undo-stage-hunk",
+}
+
+leader_visual_keymaps["h"] = {
+    name = "+hunks",
+    r = "reset-hunk",
+    s = "stage-hunk",
 }
 
 leader_keymaps["m"] = {
