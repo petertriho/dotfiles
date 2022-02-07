@@ -23,6 +23,8 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- gplo 'git pull origin'
     abbr -a -U -- gps  'git push'
     abbr -a -U -- grb  'git rebase'
+    abbr -a -U -- grba 'git rebase --abort'
+    abbr -a -U -- grbc 'git rebase --continue'
     abbr -a -U -- grbi 'git rebase --interactive'
     abbr -a -U -- grs  'git reset'
     abbr -a -U -- grsh 'git reset --hard'
