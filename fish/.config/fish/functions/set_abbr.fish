@@ -38,7 +38,9 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- k    kubectl
     abbr -a -U -- ll   'ls -la'
     abbr -a -U -- mk   minikube
+    abbr -a -U -- pv   'python -m venv .venv'
     abbr -a -U -- rmf  'rm -rf'
+    abbr -a -U -- sv   'source .venv/bin/activate.fish'
     abbr -a -U -- t    tmux
     abbr -a -U -- ta   'tmux attach-session -t'
     abbr -a -U -- task ./Taskfile
