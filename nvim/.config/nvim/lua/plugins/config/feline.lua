@@ -277,6 +277,7 @@ return {
                     "^NeogitStatus$",
                     "^Outline$",
                     "^packer$",
+                    "^UltestSummary$",
                 },
                 buftypes = {},
                 bufnames = {},
