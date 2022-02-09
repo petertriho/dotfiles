@@ -3,8 +3,12 @@
 set -euo pipefail
 
 repository=$1
-repo_name=$(echo "$repository" | sed -r 's#^.*/([^.]*)(.git)?$#\1#')
-directory=${2:-$repo_name}
+
+if [[ $# -ge 2 ]] && [[ -n $2 ]]; then
+    directory=$2
+else
+    directory=$(git_repo_name "$repository")
+fi
 
 mkdir -p "${directory}/.git"
 git clone --bare "$repository" "${directory}/.git"
