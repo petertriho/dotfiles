@@ -155,6 +155,18 @@ local sources_formatting = {
         },
         factory = h.formatter_factory,
     }),
+    ssort = h.make_builtin({
+        method = FORMATTING,
+        filetypes = { "python" },
+        generator_opts = {
+            command = "ssort",
+            args = {
+                "$FILENAME",
+            },
+            to_temp_file = true,
+        },
+        factory = h.formatter_factory,
+    }),
     pyupgrade = h.make_builtin({
         method = FORMATTING,
         filetypes = { "python" },
@@ -237,6 +249,7 @@ M.setup = function(overrides)
             b.diagnostics.flake8,
             -- b.diagnostics.pylint,
             sources_formatting.autoflake,
+            sources_formatting.ssort,
             b.formatting.isort.with({
                 extra_args = { "--profile", "black" },
             }),

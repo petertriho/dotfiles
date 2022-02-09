@@ -67,6 +67,10 @@ function main {
         pipx install pyupgrade
     fi
 
+    if ! command -v ssort &> /dev/null; then
+        pipx install ssort
+    fi
+
     if ! command -v cspell &> /dev/null; then
         yarn global add cspell
     fi
