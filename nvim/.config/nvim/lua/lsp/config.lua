@@ -46,6 +46,7 @@ return {
             analysis = {
                 diagnosticMode = "workspace",
                 useLibraryCodeForTypes = true,
+                typeCheckingMode = "off"
             },
         },
     },
