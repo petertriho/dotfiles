@@ -26,3 +26,5 @@ set_keymap("v", "al", ":<C-u>norm!0v$h<CR>", opts)
 set_keymap("v", "il", ":<C-u>norm!^vg_<CR>", opts)
 set_keymap("o", "al", ":norm val<CR>", opts)
 set_keymap("o", "il", ":norm vil<CR>", opts)
+
+vim.g.mapleader = " "

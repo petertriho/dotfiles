@@ -9,8 +9,6 @@ return {
         })
 
         -- Space keymaps
-        vim.g.mapleader = " "
-
         local leader_keymaps = {
             [" "] = { ":w<CR>", "write" },
             ["-"] = { "<C-w>s", "split-below" },
