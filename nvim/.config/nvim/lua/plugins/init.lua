@@ -71,21 +71,13 @@ require("packer").startup({
             "wellle/targets.vim",
             require("plugins.config.Comment"),
             require("plugins.config.sort"),
+            require("plugins.config.dial"),
             require("plugins.config.splitjoin"),
             require("plugins.config.vim-abolish"),
             require("plugins.config.vim-caser"),
             require("plugins.config.vim-sandwich"),
             require("plugins.config.vim-wordmotion"),
             { "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" },
-            {
-                "monaqa/dial.nvim",
-                keys = {
-                    "<Plug>(dial-increment)",
-                    "<Plug>(dial-decrement)",
-                    "<Plug>(dial-increment-additional)",
-                    "<Plug>(dial-decrement-additional)",
-                },
-            },
             { "tommcdo/vim-exchange", keys = { { "n", "cx" }, { "v", "X" } } },
             -- telescope
             require("plugins.config.octo"),
@@ -99,7 +91,6 @@ require("packer").startup({
                 module = "telescope.extensions.project",
             },
             -- tools
-            "folke/which-key.nvim",
             require("plugins.config.diffview"),
             require("plugins.config.gitlinker"),
             require("plugins.config.neogit"),
@@ -112,6 +103,7 @@ require("packer").startup({
             require("plugins.config.vim-fugitive"),
             require("plugins.config.vim-visual-multi"),
             require("plugins.config.vimwiki"),
+            require("plugins.config.which-key"),
             require("plugins.config.zen-mode"),
             { "gabrielpoca/replacer.nvim", module = "replacer" },
             {

@@ -1,6 +1,24 @@
 return {
     "akinsho/nvim-bufferline.lua",
     requires = "kyazdani42/nvim-web-devicons",
+    setup = function()
+        local set_keymap = vim.api.nvim_set_keymap
+        local opts = { noremap = true, silent = true }
+
+        set_keymap("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
+        set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
+
+        set_keymap("n", "<Leader>1", "<CMD>lua require('bufferline').go_to_buffer(1)<CR>", {})
+        set_keymap("n", "<Leader>2", "<CMD>lua require('bufferline').go_to_buffer(2)<CR>", {})
+        set_keymap("n", "<Leader>3", "<CMD>lua require('bufferline').go_to_buffer(3)<CR>", {})
+        set_keymap("n", "<Leader>4", "<CMD>lua require('bufferline').go_to_buffer(4)<CR>", {})
+        set_keymap("n", "<Leader>5", "<CMD>lua require('bufferline').go_to_buffer(5)<CR>", {})
+        set_keymap("n", "<Leader>6", "<CMD>lua require('bufferline').go_to_buffer(6)<CR>", {})
+        set_keymap("n", "<Leader>7", "<CMD>lua require('bufferline').go_to_buffer(7)<CR>", {})
+        set_keymap("n", "<Leader>8", "<CMD>lua require('bufferline').go_to_buffer(8)<CR>", {})
+        set_keymap("n", "<Leader>9", "<CMD>lua require('bufferline').go_to_buffer(9)<CR>", {})
+        set_keymap("n", "<Leader>0", "<CMD>lua require('bufferline').go_to_buffer(10)<CR>", {})
+    end,
     config = function()
         require("bufferline").setup({
             options = {

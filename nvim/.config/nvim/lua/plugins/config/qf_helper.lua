@@ -10,6 +10,13 @@ return {
     },
     module = "qf_helper",
     ft = "qf",
+    setup = function()
+        local set_keymap = vim.api.nvim_set_keymap
+        local opts = { noremap = true, silent = true }
+
+        set_keymap("n", "<C-n>", "<CMD>QNext<CR>", opts)
+        set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", opts)
+    end,
     config = function()
         require("qf_helper").setup({
             quickfix = {
