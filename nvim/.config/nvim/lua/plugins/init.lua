@@ -120,7 +120,6 @@ require("packer").startup({
             "lewis6991/impatient.nvim",
             "nvim-lua/plenary.nvim",
             "tpope/vim-repeat",
-            "tpope/vim-unimpaired",
             require("plugins.config.bufjump"),
             require("plugins.config.close-buffers"),
             require("plugins.config.editorconfig-vim"),
