@@ -31,6 +31,7 @@ return {
         "yaml",
     },
     extras = {
+        "html5",
         "javascriptreact",
         "jsx",
         "sh",
