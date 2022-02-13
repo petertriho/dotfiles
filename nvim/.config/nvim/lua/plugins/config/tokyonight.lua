@@ -2,14 +2,7 @@ return {
     "folke/tokyonight.nvim",
     config = function()
         vim.g.tokyonight_style = "night"
-        vim.g.tokyonight_sidebars = {
-            "dbui",
-            "DiffViewFiles",
-            "Mundo",
-            "MundoDiff",
-            "Outline",
-            "UltestSummary",
-        }
+        vim.g.tokyonight_sidebars = require("languages").sidebars
         vim.g.tokyonight_colors = {
             border_highlight = "#565f89",
         }

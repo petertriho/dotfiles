@@ -7,27 +7,9 @@ return {
             ensure_installed = {
                 "bash",
                 "comment",
-                "css",
-                "dockerfile",
-                "fish",
-                "go",
-                "graphql",
-                "html",
-                "javascript",
-                "json",
-                "jsonc",
-                "lua",
-                "markdown",
-                "python",
                 "regex",
-                "rust",
-                "scss",
-                "svelte",
-                "toml",
                 "tsx",
-                "typescript",
-                "vim",
-                "yaml",
+                unpack(require("languages").common),
             },
             sync_install = true,
             highlight = {
@@ -38,7 +20,7 @@ return {
                 enable = false,
             },
             indent = {
-                enable = true
+                enable = true,
             },
             fold = { enable = false },
         })

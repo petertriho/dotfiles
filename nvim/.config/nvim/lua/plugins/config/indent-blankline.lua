@@ -7,20 +7,7 @@ return {
             show_first_indent_level = false,
             char = "│",
             show_current_context = true,
-            filetype_exclude = {
-                "",
-                "dbui",
-                "DiffViewFiles",
-                "fugitive",
-                "fugitiveblame",
-                "lspinfo",
-                "Mundo",
-                "MundoDiff",
-                "NeogitStatus",
-                "NvimTree",
-                "Outline",
-                "packer",
-            },
+            filetype_exclude = require("languages").excludes,
         })
     end,
 }
