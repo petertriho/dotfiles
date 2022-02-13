@@ -258,19 +258,12 @@ return {
             },
         }
 
-        local languages = require("languages")
-        local inactive_filetypes = {}
-
-        for _, v in ipairs(languages.excludes) do
-            table.insert(inactive_filetypes, "^" .. v .. "$")
-        end
-
         require("feline").setup({
             theme = colors,
             vi_mode_colors = vi_mode_colors,
             components = components,
             force_inactive = {
-                filetypes = inactive_filetypes,
+                filetypes = require("languages").excludes,
                 buftypes = {},
                 bufnames = {},
             },

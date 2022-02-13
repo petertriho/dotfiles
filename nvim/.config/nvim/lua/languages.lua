@@ -38,7 +38,6 @@ return {
         "typescriptreact",
     },
     excludes = {
-        "",
         "fugitive",
         "fugitiveblame",
         "help",
