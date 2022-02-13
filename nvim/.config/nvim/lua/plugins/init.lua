@@ -52,6 +52,7 @@ require("packer").startup({
             { "rrethy/vim-hexokinase", run = "make hexokinase", opt = true },
             -- treesitter
             require("plugins.config.iswap"),
+            require("plugins.config.hlargs"),
             require("plugins.config.neogen"),
             require("plugins.config.nvim-autopairs"),
             require("plugins.config.nvim-gps"),
