@@ -60,7 +60,8 @@ return {
                         style = "bold",
                     }
                 end,
-                right_sep = "right_filled",
+                left_sep = "block",
+                right_sep = { "block", "right_filled" },
                 priority = 0,
             },
             {
