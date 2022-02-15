@@ -245,7 +245,8 @@ return {
                 short_provider = { name = "file_info", opts = { type = "base-only", file_readonly_icon = " " } },
                 icon = "",
                 hl = { fg = "bg_statusline", bg = "fg_sidebar" },
-                right_sep = "right_filled",
+                left_sep = "block",
+                right_sep = { "block", "right_filled" },
             },
         }
 
