@@ -1,5 +1,6 @@
 return {
     "github/copilot.vim",
+    cmd = "Copilot",
     event = "InsertEnter",
     setup = function()
         vim.g.copilot_filetypes = {
