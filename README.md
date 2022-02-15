@@ -13,7 +13,7 @@
 ### Instructions
 
 1. `git clone https://github.com/petertriho/dotfiles.git ~/.dotfiles`
-2. `cd ~/.dotfiles; stow --no-folding -t ~ .`
+2. `cd ~/.dotfiles; stow --no-folding -t ~ */`
 
 ## Software
 

@@ -51,7 +51,7 @@ function tool:dotfiles {
             cd "$HOME/.dotfiles" \
                 && git stash \
                 && git pull \
-                && stow --no-folding -t ~ . \
+                && stow --no-folding -t ~ */ \
                 && git stash pop
         )
         find -L "$HOME/.config" -type l -exec rm -i {} \;
