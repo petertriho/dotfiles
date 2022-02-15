@@ -12,6 +12,12 @@ fi
 
 mkdir -p "${directory}/.git"
 git clone --bare "$repository" "${directory}/.git"
+(
+    cd "$directory" \
+        && git config remote.origin.url "$repository" \
+        && git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" \
+        && git fetch
+)
 
 branch=$(cd "$directory" && git branch --list | grep "^*.*" | sed "s/* \(.*\)/\1/")
 
