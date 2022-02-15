@@ -3,7 +3,7 @@ return {
     config = function()
         local sidebars = {}
 
-        for _, v in ipairs(require("languages").sidebars) do
+        for _, v in ipairs(require("filetypes").sidebars) do
             sidebars[v] = "filetype"
         end
 

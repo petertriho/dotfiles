@@ -265,7 +265,7 @@ return {
             vi_mode_colors = vi_mode_colors,
             components = components,
             force_inactive = {
-                filetypes = require("languages").excludes,
+                filetypes = require("filetypes").excludes,
                 buftypes = {},
                 bufnames = {},
             },

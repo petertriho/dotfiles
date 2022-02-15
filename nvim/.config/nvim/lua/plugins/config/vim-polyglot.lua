@@ -1,12 +1,12 @@
 return {
     "sheerun/vim-polyglot",
     setup = function()
-        local languages = require("languages")
+        local filetypes = require("filetypes")
         vim.g.polyglot_disabled = {
             "ftdetect",
             "sensible",
-            unpack(languages.common),
-            unpack(languages.extras),
+            unpack(filetypes.common),
+            unpack(filetypes.extras),
         }
     end,
 }

@@ -9,7 +9,7 @@ return {
                 "comment",
                 "regex",
                 "tsx",
-                unpack(require("languages").common),
+                unpack(require("filetypes").common),
             },
             sync_install = true,
             highlight = {

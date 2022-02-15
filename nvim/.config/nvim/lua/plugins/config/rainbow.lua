@@ -18,12 +18,12 @@ return {
             separately = {},
         }
 
-        local languages = require("languages")
+        local filetypes = require("filetypes")
 
-        for _, language_type in pairs(languages) do
-            if language_type ~= "sidebars" then
-                for _, language in ipairs(language_type) do
-                    rainbow_conf.separately[language] = 0
+        for _, filetype_type in pairs(filetypes) do
+            if filetype_type ~= "sidebars" then
+                for _, filetype in ipairs(filetype_type) do
+                    rainbow_conf.separately[filetype] = 0
                 end
             end
         end

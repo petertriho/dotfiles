@@ -7,7 +7,7 @@ return {
             show_first_indent_level = false,
             char = "│",
             show_current_context = true,
-            filetype_exclude = require("languages").excludes,
+            filetype_exclude = require("filetypes").excludes,
         })
     end,
 }
