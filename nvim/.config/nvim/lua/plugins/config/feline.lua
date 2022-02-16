@@ -109,7 +109,11 @@ return {
                     return require("nvim-gps").get_location()
                 end,
                 enabled = function()
-                    return package.loaded["nvim-treesitter"] ~= nil and require("nvim-gps").is_available()
+                    return packer_plugins["nvim-treesitter"]
+                        and packer_plugins["nvim-treesitter"].loaded
+                        and packer_plugins["nvim-gps"]
+                        and packer_plugins["nvim-gps"].loaded
+                        and require("nvim-gps").is_available()
                 end,
                 left_sep = " ",
                 truncate_hide = true,
@@ -123,7 +127,7 @@ return {
                     return require("package-info").get_status()
                 end,
                 enabled = function()
-                    return package.loaded["package-info"] ~= nil
+                    return packer_plugins["package-info"] and packer_plugins["package-info"].loaded
                 end,
                 truncate_hide = true,
                 priority = 1,

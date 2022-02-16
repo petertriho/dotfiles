@@ -29,7 +29,11 @@ return {
                     feedkeys("<Plug>(vsnip-jump-prev)")
                     --[[ elseif has_words_before() then
 				cmp.complete() ]]
-                elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable(-1) then
+                elseif
+                    packer_plugins["neogen"]
+                    and packer_plugins["neogen"].loaded
+                    and require("neogen").jumpable(-1)
+                then
                     require("neogen").jump_prev()
                 else
                     fallback()
@@ -57,7 +61,11 @@ return {
                     feedkeys("<Plug>(vsnip-expand-or-jump)")
                     --[[ elseif has_words_before() then
 				cmp.complete() ]]
-                elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable() then
+                elseif
+                    packer_plugins["neogen"]
+                    and packer_plugins["neogen"].loaded
+                    and require("neogen").jumpable()
+                then
                     require("neogen").jump_next()
                 else
                     fallback()
@@ -87,7 +95,11 @@ return {
                     feedkeys("<Plug>(vsnip-jump-prev)")
                     --[[ elseif has_words_before() then
 				cmp.complete() ]]
-                elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable(-1) then
+                elseif
+                    packer_plugins["neogen"]
+                    and packer_plugins["neogen"].loaded
+                    and require("neogen").jumpable(-1)
+                then
                     require("neogen").jump_prev()
                 else
                     fallback()
@@ -117,7 +129,11 @@ return {
                     feedkeys("<Plug>(vsnip-expand-or-jump)")
                     --[[ elseif has_words_before() then
 				cmp.complete() ]]
-                elseif package.loaded["neogen"] ~= nil and require("neogen").jumpable() then
+                elseif
+                    packer_plugins["neogen"]
+                    and packer_plugins["neogen"].loaded
+                    and require("neogen").jumpable()
+                then
                     require("neogen").jump_next()
                 else
                     fallback()
