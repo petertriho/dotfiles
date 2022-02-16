@@ -27,18 +27,22 @@
 
 - [starship](https://starship.rs/)
 - [jorgeburcaran/fisher](https://github.com/jorgebucaran/fisher)
-- [wfxr/forgit](https://github.com/wfxr/forgit)
-- [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
-- [sharkdp/vivid](https://github.com/sharkdp/vivid)
 - [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide)
+- [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
+- [dandavison/delta](https://github.com/dandavison/delta)
+- [junegunn/fzf](https://github.com/junegunn/fzf)
+- [sharkdp/bat](https://github.com/sharkdp/bat)
+- [sharkdp/fd](https://github.com/sharkdp/fd)
+- [sharkdp/vivid](https://github.com/sharkdp/vivid)
 
 ### Neovim
 
 #### Dependencies
 
 - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
 - [cli/cli](https://github.com/cli/cli)
-- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [sharkdp/fd](https://github.com/sharkdp/fd)
 - `scripts/.local/bin/install_formatters_linters`
 - `scripts/.local/bin/install_language_servers`
 
