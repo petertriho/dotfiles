@@ -21,8 +21,6 @@ switch (uname)
 
         set -gx LDFLAGS -L/usr/local/opt/openssl/lib
         set -gx CPPFLAGS -I/usr/local/opt/openssl/include
-
-        test -e $HOME/.iterm2_shell_integration.fish; and source $HOME/.iterm2_shell_integration.fish
 end
 
 fish_add_path -mP "$YARN_GLOBAL_BIN"
