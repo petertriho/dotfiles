@@ -3,9 +3,10 @@
     "overrides": [
         {
             "files": [
+                "*.graphql",
+                "*.md",
                 "*.yaml",
-                "*.yml",
-                "*.md"
+                "*.yml"
             ],
             "options": {
                 "tabWidth": 2

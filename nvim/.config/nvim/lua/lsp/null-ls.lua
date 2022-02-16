@@ -291,7 +291,7 @@ M.setup = function(overrides)
                 },
             }),
             b.formatting.prettier.with({
-                filetypes = { "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
+                filetypes = { "graphql", "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
                 extra_args = {
                     "--config",
                     vim.fn.expand("$HOME/.config/format-lint/.prettierrc.json"),
