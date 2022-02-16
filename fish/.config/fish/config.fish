@@ -25,7 +25,7 @@ switch (uname)
         test -e $HOME/.iterm2_shell_integration.fish; and source $HOME/.iterm2_shell_integration.fish
 end
 
-fish_add_path -m "$YARN_GLOBAL_BIN"
+fish_add_path -mP "$YARN_GLOBAL_BIN"
 
 set -gx EDITOR nvim
 
