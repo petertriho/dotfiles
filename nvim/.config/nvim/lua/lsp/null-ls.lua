@@ -290,28 +290,7 @@ M.setup = function(overrides)
                     vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json"),
                 },
             }),
-            b.formatting.prettier.with({
-                filetypes = { "graphql", "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
-                extra_args = {
-                    "--config",
-                    vim.fn.expand("$HOME/.config/format-lint/.prettierrc.json"),
-                },
-            }),
-            b.formatting.prettierd.with({
-                filetypes = {
-                    "javascript",
-                    "javascriptreact",
-                    "typescript",
-                    "typescriptreact",
-                    "vue",
-                    "svelte",
-                    "css",
-                    "scss",
-                    "html",
-                    "json",
-                    "jsonc",
-                },
-            }),
+            b.formatting.prettierd,
 
             -- markdown/vimwiki
             b.diagnostics.markdownlint.with({
