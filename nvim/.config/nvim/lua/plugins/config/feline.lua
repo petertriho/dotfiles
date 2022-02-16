@@ -129,6 +129,24 @@ return {
                 priority = 1,
             },
             {
+                provider = function()
+                    local status = vim.fn["ultest#status"]()
+
+                    return string.format(
+                        "T %s P %s F %s R %s",
+                        status.tests,
+                        status.passed,
+                        status.failed,
+                        status.running
+                    )
+                end,
+                enabled = function()
+                    return packer_plugins["vim-ultest"]
+                        and packer_plugins["vim-ultest"].loaded
+                        and vim.fn["ultest#is_test_file"]()
+                end,
+            },
+            {
                 provider = "position_2",
                 left_sep = " ",
             },
