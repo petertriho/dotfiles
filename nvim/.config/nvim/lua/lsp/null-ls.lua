@@ -247,6 +247,7 @@ M.setup = function(overrides)
             -- python
             sources_diagnostics.bandit,
             b.diagnostics.flake8,
+            b.diagnostics.pylama,
             -- b.diagnostics.pylint,
             sources_formatting.autoflake,
             sources_formatting.ssort,

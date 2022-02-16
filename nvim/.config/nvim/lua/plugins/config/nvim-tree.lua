@@ -20,6 +20,7 @@ return {
                 custom = { ".git", "node_modules", ".venv" },
             },
             git = {
+                enable = false,
                 ignore = false,
             },
             view = {
