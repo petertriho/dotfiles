@@ -26,6 +26,7 @@ local opt = vim.opt
 opt.clipboard = "unnamedplus"
 opt.colorcolumn = "80"
 opt.cursorline = true
+opt.diffopt:append("algorithm:histogram,hiddenoff")
 opt.expandtab = true
 opt.fillchars = {
     fold = " ",
@@ -38,14 +39,14 @@ opt.ignorecase = true
 opt.lazyredraw = true
 opt.mouse = "a"
 opt.number = true
-opt.path = opt.path + "**"
+opt.path:append("**")
 opt.pumheight = 10
 opt.relativenumber = true
 opt.scrolloff = 5
 -- opt.shada = "!,'0,f0,<50,s10,h"
 opt.shell = "bash"
 opt.shiftwidth = 4
-opt.shortmess = opt.shortmess + "c"
+opt.shortmess:append("c")
 opt.showmode = false
 opt.signcolumn = "yes"
 opt.smartcase = true
