@@ -291,7 +291,24 @@ M.setup = function(overrides)
                     vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json"),
                 },
             }),
-            b.formatting.prettierd,
+            b.formatting.prettier.with({
+                filetypes = { "graphql", "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
+            }),
+            b.formatting.prettierd.with({
+                filetypes = {
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact",
+                    "vue",
+                    "svelte",
+                    "css",
+                    "scss",
+                    "html",
+                    "json",
+                    "jsonc",
+                },
+            }),
 
             -- markdown/vimwiki
             b.diagnostics.markdownlint.with({
