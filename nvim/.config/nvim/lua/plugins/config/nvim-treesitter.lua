@@ -21,6 +21,7 @@ return {
             },
             indent = {
                 enable = true,
+                disable = { "python" }
             },
             fold = { enable = false },
         })
