@@ -59,6 +59,10 @@ function main {
         pipx install isort
     fi
 
+    if ! command -v pylama &> /dev/null; then
+        pipx install pylama
+    fi
+
     if ! command -v pylint &> /dev/null; then
         pipx install pylint
     fi
