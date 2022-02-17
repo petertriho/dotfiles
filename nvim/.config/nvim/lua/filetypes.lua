@@ -43,6 +43,7 @@ return {
         "help",
         "lspinfo",
         "NeogitStatus",
+        "notify",
         "packer",
         "prompt",
         "qf",
