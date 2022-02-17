@@ -38,7 +38,9 @@ return {
     ltex = {
         filetypes = { "bib", "markdown", "org", "plaintex", "rst", "rnoweb", "tex" },
     },
-    -- quick_lint_js = {},
+    quick_lint_js = {
+        filetypes = { "javascript", "javascriptreact", "jsx" },
+    },
     rust_analyzer = {},
     prismals = {},
     pyright = {
@@ -46,7 +48,7 @@ return {
             analysis = {
                 diagnosticMode = "workspace",
                 useLibraryCodeForTypes = true,
-                typeCheckingMode = "off"
+                typeCheckingMode = "off",
             },
         },
     },
