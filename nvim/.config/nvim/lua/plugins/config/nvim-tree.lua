@@ -19,6 +19,8 @@ return {
     end,
     config = function()
         require("nvim-tree").setup({
+            auto_reload_on_write = false,
+            hijack_unnamed_buffer_when_opening = false,
             update_focused_file = {
                 enable = true,
             },
