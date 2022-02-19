@@ -58,6 +58,12 @@ return {
                         highlight = "Directory",
                         text_align = "center",
                     },
+                    {
+                        filetype = "UltestSummary",
+                        text = "TESTS",
+                        highlight = "Directory",
+                        text_align = "center",
+                    },
                 },
                 custom_filter = function(buf_number)
                     if
