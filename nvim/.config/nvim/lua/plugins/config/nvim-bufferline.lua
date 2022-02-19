@@ -66,13 +66,9 @@ return {
                     },
                 },
                 custom_filter = function(buf_number)
-                    if
-                        vim.bo[buf_number].filetype ~= "fugitive"
+                    return vim.bo[buf_number].filetype ~= "fugitive"
                         and vim.bo[buf_number].filetype ~= "NeogitStatus"
                         and vim.bo[buf_number].buftype ~= "terminal"
-                    then
-                        return true
-                    end
                 end,
                 diagnostics = "nvim_lsp",
                 diagnostics_indicator = function(count, level, diagnostics_dict, context)
