@@ -224,7 +224,7 @@ return {
 
         cmp.setup.cmdline("/", {
             sources = {
-                -- { name = "fuzzy_buffer" },
+                { name = "fuzzy_buffer" },
                 { name = "buffer" },
             },
         })
@@ -248,7 +248,7 @@ return {
                     },
                 },
                 { name = "path" },
-                -- { name = "fuzzy_buffer" },
+                { name = "fuzzy_buffer" },
                 { name = "buffer" },
             },
         })
