@@ -139,7 +139,7 @@ return {
                 enabled = function()
                     return packer_plugins["vim-ultest"]
                         and packer_plugins["vim-ultest"].loaded
-                        and vim.fn["ultest#is_test_file"]()
+                        and vim.fn["ultest#is_test_file"]() == 1
                         and vim.fn["ultest#status"]().running == 1
                 end,
                 hl = { fg = "warning" },
@@ -154,7 +154,7 @@ return {
                 enabled = function()
                     return packer_plugins["vim-ultest"]
                         and packer_plugins["vim-ultest"].loaded
-                        and vim.fn["ultest#is_test_file"]()
+                        and vim.fn["ultest#is_test_file"]() == 1
                 end,
                 hl = { fg = "info" },
                 truncate_hide = true,
@@ -168,7 +168,7 @@ return {
                 enabled = function()
                     return packer_plugins["vim-ultest"]
                         and packer_plugins["vim-ultest"].loaded
-                        and vim.fn["ultest#is_test_file"]()
+                        and vim.fn["ultest#is_test_file"]() == 1
                 end,
                 hl = { fg = "hint" },
                 truncate_hide = true,
@@ -182,7 +182,7 @@ return {
                 enabled = function()
                     return packer_plugins["vim-ultest"]
                         and packer_plugins["vim-ultest"].loaded
-                        and vim.fn["ultest#is_test_file"]()
+                        and vim.fn["ultest#is_test_file"]() == 1
                 end,
                 hl = { fg = "error" },
                 truncate_hide = true,
