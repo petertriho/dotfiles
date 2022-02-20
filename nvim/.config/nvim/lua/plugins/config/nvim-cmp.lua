@@ -158,6 +158,7 @@ return {
                     mode = "symbol_text",
                     menu = {
                         buffer = "[BUFFER]",
+                        cmdline = "[CMD]",
                         cmp_git = "[GIT]",
                         cmp_tabnine = "[TABNINE]",
                         fuzzy_path = "[FZ-PATH]",
@@ -223,15 +224,14 @@ return {
 
         cmp.setup.cmdline("/", {
             sources = {
+                -- { name = "fuzzy_buffer" },
                 { name = "buffer" },
-                { name = "fuzzy_buffer" },
             },
         })
 
         cmp.setup.cmdline(":", {
             sources = {
                 { name = "cmdline" },
-                { name = "path" },
                 {
                     name = "fuzzy_path",
                     options = {
@@ -247,8 +247,9 @@ return {
                         },
                     },
                 },
+                { name = "path" },
+                -- { name = "fuzzy_buffer" },
                 { name = "buffer" },
-                { name = "fuzzy_buffer" },
             },
         })
     end,
