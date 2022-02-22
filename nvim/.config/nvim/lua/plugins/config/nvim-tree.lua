@@ -11,7 +11,13 @@ return {
         "NvimTreeClipboard",
     },
     setup = function()
-        vim.g.nvim_tree_git_hl = 1
+        vim.g.nvim_tree_git_hl = 0
+        vim.g.nvim_tree_show_icons = {
+            git = 0,
+            folders = 1,
+            files = 1,
+            folder_arrows = 1,
+        }
         vim.g.nvim_tree_window_picker_exclude = {
             filetype = require("filetypes").excludes,
             buftype = { "terminal" },
@@ -28,6 +34,7 @@ return {
                 custom = { ".git", "node_modules", ".venv" },
             },
             git = {
+                enable = false,
                 ignore = false,
             },
             view = {
