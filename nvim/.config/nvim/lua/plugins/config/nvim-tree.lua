@@ -31,7 +31,12 @@ return {
                 enable = true,
             },
             filters = {
-                custom = { ".git", "node_modules", ".venv" },
+                custom = {
+                    ".git",
+                    ".venv",
+                    "__pycache__",
+                    "node_modules",
+                },
             },
             git = {
                 enable = false,
