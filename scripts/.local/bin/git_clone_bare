@@ -20,5 +20,6 @@ git clone --bare "$repository" "${directory}/.git"
 )
 
 branch=$(cd "$directory" && git branch --list | grep "^*.*" | sed "s/* \(.*\)/\1/")
+(cd "$directory" && git branch --set-upstream-to="origin/${branch}" "$branch")
 
 (cd "$directory" && git worktree add "$branch")
