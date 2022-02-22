@@ -11,7 +11,9 @@ else
 fi
 
 mkdir -p "${directory}/.git"
+
 git clone --bare "$repository" "${directory}/.git"
+
 (
     cd "$directory" \
         && git config remote.origin.url "$repository" \
@@ -19,7 +21,10 @@ git clone --bare "$repository" "${directory}/.git"
         && git fetch
 )
 
-branch=$(cd "$directory" && git branch --list | grep "^*.*" | sed "s/* \(.*\)/\1/")
-(cd "$directory" && git branch --set-upstream-to="origin/${branch}" "$branch")
+branch=$(cd "$directory" && git branch --list | grep "^\*.*" | sed "s/*\s*\(.*\)/\1/")
 
-(cd "$directory" && git worktree add "$branch")
+(
+    cd "$directory" \
+        && git branch --set-upstream-to="origin/${branch}" "$branch" \
+        && git worktree add "$branch"
+)
