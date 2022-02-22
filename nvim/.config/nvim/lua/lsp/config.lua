@@ -47,7 +47,7 @@ return {
         python = {
             analysis = {
                 diagnosticMode = "workspace",
-                useLibraryCodeForTypes = true,
+                useLibraryCodeForTypes = false,
                 typeCheckingMode = "off",
             },
         },
