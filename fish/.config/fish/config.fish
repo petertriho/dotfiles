@@ -39,6 +39,8 @@ if status is-interactive
         starship init fish | source
     end
 
+    set -gx ENHANCD_FILTER fzf
+
     set -gx FZF_DEFAULT_OPTS \
         --ansi \
         --exact \
