@@ -39,6 +39,10 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- gstp 'git stash pop'
     abbr -a -U -- gsw  'git switch'
     abbr -a -U -- gw   'git worktree'
+    abbr -a -U -- gwa  'git worktree add'
+    abbr -a -U -- gwl  'git worktree list'
+    abbr -a -U -- gwm  'git worktree move'
+    abbr -a -U -- gwr  'git worktree remove'
     abbr -a -U -- k    kubectl
     abbr -a -U -- ll   'ls -la'
     abbr -a -U -- mk   minikube
