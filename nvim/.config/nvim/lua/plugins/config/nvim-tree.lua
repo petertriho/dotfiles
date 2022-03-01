@@ -18,10 +18,6 @@ return {
             files = 1,
             folder_arrows = 1,
         }
-        vim.g.nvim_tree_window_picker_exclude = {
-            filetype = require("filetypes").excludes,
-            buftype = { "terminal" },
-        }
     end,
     config = function()
         require("nvim-tree").setup({
@@ -44,6 +40,12 @@ return {
             },
             view = {
                 signcolumn = "no",
+            },
+            window_picker = {
+                exclude = {
+                    filetype = require("filetypes").excludes,
+                    buftype = { "nofile", "terminal", "help" },
+                },
             },
         })
     end,
