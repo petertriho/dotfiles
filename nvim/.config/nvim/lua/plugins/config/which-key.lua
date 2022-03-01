@@ -199,9 +199,11 @@ return {
         -- Semicolon keymaps
         local semicolon_keymaps = {
             [";"] = { "<CMD>Telescope find_files hidden=true<CR>", "find-files" },
+            a = { "<CMD>ToDoTxtCapture<CR>", "add-todo.txt" },
             b = { "<CMD>Telescope buffers<CR>", "buffers" },
             c = { "<CMD>CheatList<CR>", "cheat-list" },
             d = { "<CMD>DBUIToggle<CR>", "db" },
+            D = { "<CMD>e $DONE_FILE<CR>", "done.txt" },
             e = { "<CMD>Telescope file_browser hidden=true<CR>", "telescope-explorer" },
             f = { "<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files-all" },
             g = { "<CMD>ToggleNeogitStatus<CR>", "git-status" },
@@ -211,7 +213,10 @@ return {
             p = { "<CMD>lua require('telescope').extensions.project.project({})<CR>", "project" },
             q = { "<CMD>QFToggle<CR>", "qf-list-toggle" },
             r = { "<ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor" },
+            R = { "<CMD>e $REPORT_FILE<CR>", "report.txt" },
             s = { "<CMD>Telescope live_grep<CR>", "search-text" },
+            t = { "<CMD>ToDoTxtTasksToggle<CR>", "toggle-todo.txt" },
+            T = { "<CMD>e $TODO_FILE<CR>", "todo.txt" },
             w = {
                 "<CMD>lua require('telescope.builtin').find_files({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
                 "find-wiki",

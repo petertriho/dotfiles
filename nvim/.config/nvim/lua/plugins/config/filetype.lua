@@ -9,6 +9,7 @@ return {
                 },
                 literal = {
                     [".prettierrc"] = "jsonc",
+                    ["todo.txt"] = "todotxt",
                     ["yarn.lock"] = "txt",
                 },
                 complex = {

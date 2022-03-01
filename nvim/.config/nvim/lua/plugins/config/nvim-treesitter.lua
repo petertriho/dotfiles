@@ -8,6 +8,7 @@ return {
                 "bash",
                 "comment",
                 "regex",
+                "todotxt",
                 "tsx",
                 unpack(require("filetypes").common),
             },
@@ -21,7 +22,7 @@ return {
             },
             indent = {
                 enable = true,
-                disable = { "python" }
+                disable = { "python" },
             },
             fold = { enable = false },
         })

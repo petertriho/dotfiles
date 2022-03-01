@@ -100,6 +100,7 @@ require("packer").startup({
             require("plugins.config.nvim-pqf"),
             require("plugins.config.nvim-tree"),
             require("plugins.config.package-info"),
+            require("plugins.config.todotxt"),
             require("plugins.config.twilight"),
             require("plugins.config.vim-dadbod-ui"),
             require("plugins.config.vim-fugitive"),
