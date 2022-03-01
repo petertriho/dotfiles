@@ -10,6 +10,7 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- dcp  'docker compose -p (git_repo_name)'
     abbr -a -U -- dcpd 'docker compose -p (git_repo_name) down --remove-orphans'
     abbr -a -U -- dcpl 'docker compose -p (git_repo_name) logs -f -t --tail=100'
+    abbr -a -U -- dcpr 'docker compose -p (git_repo_name) restart'
     abbr -a -U -- dcpu 'docker compose -p (git_repo_name) up -d'
     abbr -a -U -- dcu  'docker compose up -d'
     abbr -a -U -- g    git
