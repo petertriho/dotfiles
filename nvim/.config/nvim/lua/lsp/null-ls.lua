@@ -246,7 +246,12 @@ M.setup = function(overrides)
             b.formatting.nginx_beautifier,
             -- python
             sources_diagnostics.bandit,
-            b.diagnostics.flake8,
+            b.diagnostics.flake8.with({
+                extra_args = {
+                    "--ignore",
+                    "E501", -- line too long
+                },
+            }),
             b.diagnostics.pylama,
             -- b.diagnostics.pylint,
             sources_formatting.autoflake,
