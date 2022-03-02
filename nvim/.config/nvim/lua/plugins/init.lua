@@ -48,7 +48,6 @@ require("packer").startup({
             require("plugins.config.todo-comments"),
             require("plugins.config.vim-polyglot"),
             require("plugins.config.vim-ultest"),
-            { "pantharshit00/vim-prisma", ft = "prisma" },
             { "rrethy/vim-hexokinase", run = "make hexokinase", opt = true },
             -- treesitter
             require("plugins.config.iswap"),
