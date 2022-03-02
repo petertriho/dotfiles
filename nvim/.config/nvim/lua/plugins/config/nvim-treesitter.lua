@@ -11,7 +11,7 @@ return {
                 "regex",
                 "todotxt",
                 "tsx",
-                unpack(require("filetypes").common),
+                unpack(require("filetypes").treesitter),
             },
             sync_install = true,
             highlight = {

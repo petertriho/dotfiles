@@ -5,7 +5,7 @@ return {
         vim.g.polyglot_disabled = {
             "ftdetect",
             "sensible",
-            unpack(filetypes.common),
+            unpack(filetypes.treesitter),
             unpack(filetypes.extras),
         }
     end,

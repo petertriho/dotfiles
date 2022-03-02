@@ -9,7 +9,7 @@ local sidebars = {
 }
 
 return {
-    common = {
+    treesitter = {
         "css",
         "dockerfile",
         "fish",
