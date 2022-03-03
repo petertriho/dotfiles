@@ -127,9 +127,9 @@ end
 
 -- mkdir if does not exists
 local function mkdir()
-    local dir = vim.fn.expand("%:p:h")
+    local dir = vim.fn.expand("<afile>:p:h")
 
-    if vim.fn.isdirectory(dir) ~= 1 then
+    if vim.fn.isdirectory(dir) == 1 then
         vim.fn.mkdir(dir, "p")
     end
 end
