@@ -40,6 +40,18 @@ return {
             },
             view = {
                 signcolumn = "no",
+                mappings = {
+                    list = {
+                        {
+                            key = "<c-f>",
+                            cb = "<CMD>lua require('plugins.nvim-tree-utils').launch_telescope('find_files')<CR>",
+                        },
+                        {
+                            key = "<c-s>",
+                            cb = "<CMD>lua require('plugins.nvim-tree-utils').launch_telescope('live_grep')<CR>",
+                        },
+                    },
+                },
             },
             window_picker = {
                 exclude = {
