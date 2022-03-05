@@ -48,6 +48,7 @@ return {
         "prompt",
         "qf",
         "TelescopePrompt",
+        "TelescopeResults",
         unpack(sidebars),
     },
     sidebars = sidebars,
