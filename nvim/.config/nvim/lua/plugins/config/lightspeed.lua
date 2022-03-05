@@ -29,6 +29,7 @@ return {
 
         set_keymap("", "f", "<Plug>Lightspeed_f", {})
         set_keymap("", "F", "<Plug>Lightspeed_F", {})
+
         set_keymap("", "t", "<Plug>Lightspeed_t", {})
         set_keymap("", "T", "<Plug>Lightspeed_T", {})
     end,
