@@ -52,9 +52,7 @@ return {
             },
         },
     },
-    sumneko_lua = {
-        cmd = { "lua-language-server" },
-    },
+    sumneko_lua = {},
     svelte = {},
     tailwindcss = {
         settings = {
