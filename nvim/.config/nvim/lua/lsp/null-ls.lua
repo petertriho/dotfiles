@@ -155,6 +155,18 @@ local sources_formatting = {
         },
         factory = h.formatter_factory,
     }),
+    pybetter = h.make_builtin({
+        method = FORMATTING,
+        filetypes = { "python" },
+        generator_opts = {
+            command = "pybetter",
+            args = {
+                "$FILENAME",
+            },
+            to_temp_file = true,
+        },
+        factory = h.formatter_factory,
+    }),
     docformatter = h.make_builtin({
         method = FORMATTING,
         filetypes = { "python" },
@@ -268,6 +280,7 @@ M.setup = function(overrides)
             -- b.diagnostics.pylint,
             sources_formatting.autoflake,
             sources_formatting.docformatter,
+            sources_formatting.pybetter,
             sources_formatting.ssort,
             b.formatting.isort.with({
                 extra_args = { "--profile", "black" },
