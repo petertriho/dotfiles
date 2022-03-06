@@ -161,6 +161,8 @@ local sources_formatting = {
         generator_opts = {
             command = "pybetter",
             args = {
+                "--exclude",
+                "B004", -- __all__ attribute
                 "$FILENAME",
             },
             to_temp_file = true,
