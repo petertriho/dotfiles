@@ -252,7 +252,6 @@ M.setup = function(overrides)
                     "E501", -- line too long
                 },
             }),
-            b.diagnostics.pylama,
             -- b.diagnostics.pylint,
             sources_formatting.autoflake,
             sources_formatting.ssort,
