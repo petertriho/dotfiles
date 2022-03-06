@@ -19,7 +19,7 @@ return {
             c = { "<CMD>Cheat<CR>", "cheat" },
             d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
             e = { "<CMD>NvimTreeFindFileToggle<CR>", "explorer" },
-            f = { "<CMD>lua vim.lsp.buf.formatting_seq_sync()<CR>", "format" },
+            f = { "<CMD>lua vim.lsp.buf.formatting()<CR>", "format" },
             j = { "<CMD>ToggleGitStatus<CR>", "git-status" },
             k = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "code-actions" },
             n = { ":nohl<CR>", "no-highlight" },
