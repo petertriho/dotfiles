@@ -51,6 +51,10 @@ function main {
         pipx install codespell
     fi
 
+    if ! command -v docformatter &> /dev/null; then
+        pipx install docformatter
+    fi
+
     if ! command -v flake8 &> /dev/null; then
         pipx install flake8
     fi
