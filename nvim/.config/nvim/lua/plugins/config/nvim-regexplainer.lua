@@ -6,6 +6,14 @@ return {
     },
     after = "nvim-treesitter",
     config = function()
-        require("regexplainer").setup()
+        require("regexplainer").setup({
+            display = "popup",
+            popup = {
+                border = {
+                    padding = { 0, 0 },
+                    style = "rounded",
+                },
+            },
+        })
     end,
 }
