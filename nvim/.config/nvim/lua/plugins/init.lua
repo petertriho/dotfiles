@@ -55,6 +55,7 @@ require("packer").startup({
             require("plugins.config.neogen"),
             require("plugins.config.nvim-autopairs"),
             require("plugins.config.nvim-gps"),
+            require("plugins.config.nvim-regexplainer"),
             require("plugins.config.nvim-treesitter"),
             require("plugins.config.nvim-treesitter-context"),
             require("plugins.config.nvim-treesitter-endwise"),
