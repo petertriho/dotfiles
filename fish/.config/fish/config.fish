@@ -15,12 +15,12 @@ switch (uname)
                 set -gx HOMEBREW_PREFIX /opt/homebrew
             case x86_64:
                 set -gx HOMEBREW_PREFIX /usr/local
-
-            test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
-
-            set -gx LDFLAGS -L$HOMEBREW_PREFIX/opt/openssl/lib
-            set -gx CPPFLAGS -I$HOMEBREW_PREFIX/opt/openssl/include
         end
+
+        test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
+
+        set -gx LDFLAGS -L$HOMEBREW_PREFIX/opt/openssl/lib
+        set -gx CPPFLAGS -I$HOMEBREW_PREFIX/opt/openssl/include
 
 end
 
