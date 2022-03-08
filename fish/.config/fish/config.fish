@@ -21,7 +21,6 @@ switch (uname)
 
         set -gx LDFLAGS -L$HOMEBREW_PREFIX/opt/openssl/lib
         set -gx CPPFLAGS -I$HOMEBREW_PREFIX/opt/openssl/include
-
 end
 
 eval ($HOMEBREW_PREFIX/bin/brew shellenv)
