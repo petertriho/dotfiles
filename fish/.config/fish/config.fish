@@ -3,25 +3,28 @@ fish_add_path $HOME/.local/bin
 switch (uname)
     case Linux
         set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
-        set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
-        set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
-        set -gx MANPATH "$HOMEBREW_PREFIX/share/man:$MANPATH"
-        set -gx INFOPATH "$HOMEBREW_PREFIX/share/info:$INFOPATH"
 
-        fish_add_path $HOMEBREW_PREFIX/sbin
-        fish_add_path $HOMEBREW_PREFIX/bin
-
-        test -e ~/.asdf/asdf.fish; and source ~/.asdf/asdf.fish
+        test -e $HOME/.asdf/asdf.fish; and source $HOME/.asdf/asdf.fish
 
         if test -e /proc/version && test -n (string match -r "microsoft" (cat "/proc/version"))
             set -gx FORGIT_COPY_CMD "win32yank.exe -i"
         end
     case Darwin
-        test -e /usr/local/opt/asdf/asdf.fish; and source /usr/local/opt/asdf/asdf.fish
+        switch (uname -m):
+            case arm64:
+                set -gx HOMEBREW_PREFIX /opt/homebrew
+            case x86_64:
+                set -gx HOMEBREW_PREFIX /usr/local
 
-        set -gx LDFLAGS -L/usr/local/opt/openssl/lib
-        set -gx CPPFLAGS -I/usr/local/opt/openssl/include
+            test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
+
+            set -gx LDFLAGS -L$HOMEBREW_PREFIX/opt/openssl/lib
+            set -gx CPPFLAGS -I$HOMEBREW_PREFIX/opt/openssl/include
+        end
+
 end
+
+eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
 fish_add_path -mP "$YARN_GLOBAL_BIN"
 
