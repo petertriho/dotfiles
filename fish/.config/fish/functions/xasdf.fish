@@ -1,3 +1,3 @@
 function xasdf --wraps asdf --description "ASDF (ARM)"
-    xfish -c "asdf $argv"
+    xfish --command "asdf $argv"
 end
