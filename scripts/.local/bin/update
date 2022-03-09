@@ -17,6 +17,11 @@ function tool:asdf {
         echo "Updating asdf & plugins ..."
         asdf update || true
         asdf plugin update --all
+
+        if [ "$(uname -m)" == "arm64" ]; then
+            fish -c "xasdf update || true"
+            fish -c "xasdf plugin update --all"
+        fi
     fi
 }
 
@@ -25,6 +30,11 @@ function tool:brew {
         echo "Updating homebrew packages ..."
         brew update
         brew upgrade
+
+        if [ "$(uname -m)" == "arm64" ]; then
+            fish -c "xbrew update"
+            fish -c "xbrew upgrade"
+        fi
     fi
 }
 
