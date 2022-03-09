@@ -1,3 +1,9 @@
+right_format = "${custom.arch}"
+
+[custom.arch]
+command = "uname -m"
+when = "true"
+
 [directory]
 truncate_to_repo = false
 fish_style_pwd_dir_length = 1
