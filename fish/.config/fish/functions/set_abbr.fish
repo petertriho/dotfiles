@@ -3,6 +3,9 @@ function set_abbr --description "Set abbr(eviations)"
         abbr -e $abbreviation
     end
 
+
+    abbr -a -U -- aa   "arch -arm64"
+    abbr -a -U -- ax   "arch -x86_64"
     abbr -a -U -- d    docker
     abbr -a -U -- dc   'docker compose'
     abbr -a -U -- dcd  'docker compose down --remove-orphans'
