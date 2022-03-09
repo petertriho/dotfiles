@@ -9,6 +9,7 @@ return {
             "javascript",
             "javascriptreact",
             "sass",
+            "svelte",
             "scss",
             "typescript",
             "typescriptreact",
