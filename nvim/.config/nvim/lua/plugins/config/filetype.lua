@@ -4,7 +4,6 @@ return {
         require("filetype").setup({
             overrides = {
                 extension = {
-                    dockerfile = "dockerfile",
                     prisma = "prisma",
                 },
                 literal = {
