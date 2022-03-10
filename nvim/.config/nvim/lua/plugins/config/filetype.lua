@@ -15,9 +15,6 @@ return {
                 complex = {
                     [".*%.env.*"] = "conf",
                 },
-                shebang = {
-                    bash = "sh",
-                },
             },
         })
     end,
