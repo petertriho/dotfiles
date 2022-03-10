@@ -1,8 +1,7 @@
-fish_add_path $HOME/.local/bin
-
 switch (uname)
     case Linux
         set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
+        eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
         test -e $HOME/.asdf/asdf.fish; and source $HOME/.asdf/asdf.fish
 
@@ -16,6 +15,7 @@ switch (uname)
             case x86_64:
                 set -gx HOMEBREW_PREFIX /usr/local
         end
+        eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
         test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 
@@ -23,8 +23,7 @@ switch (uname)
         set -gx CPPFLAGS -I$HOMEBREW_PREFIX/opt/openssl/include
 end
 
-eval ($HOMEBREW_PREFIX/bin/brew shellenv)
-
+fish_add_path $HOME/.local/bin
 fish_add_path -mP "$YARN_GLOBAL_BIN"
 
 set -gx EDITOR nvim
@@ -56,11 +55,11 @@ if status is-interactive
         "--color=dark" \
         "--color=border:7,fg:-1,bg:-1,hl:5,fg+:7,bg+:8,hl+:5" \
         "--color=info:6,prompt:2,pointer:2,marker:3,spinner:1,header:4"
+
     set -gx FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
     set -gx FORGIT_LOG_GRAPH_ENABLE true
 
     set -g fzf_fd_opts --hidden --exclude .git
-
     fzf_configure_bindings \
         --directory=\e\cf \
         --git_log=\e\cl \
