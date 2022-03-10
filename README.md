@@ -51,3 +51,4 @@
 #### Dependencies
 
 - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
+- [tmux-python/libtmux](https://github.com/tmux-python/libtmux)
