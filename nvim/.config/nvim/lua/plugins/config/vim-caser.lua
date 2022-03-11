@@ -1,8 +1,8 @@
 return {
     "arthurxavierx/vim-caser",
-    keys = "cm",
+    keys = { { "n", "cC" } },
     setup = function()
-        vim.g.caser_prefix = "cm"
+        vim.g.caser_prefix = "cC"
 
         require("which-key").register({
             name = "caser",
@@ -20,7 +20,7 @@ return {
             u = "SNAKE_UPPERCASE",
             U = "SNAKE_UPPERCASE",
         }, {
-            prefix = "cm",
+            prefix = "cC",
             mode = "n",
         })
     end,
