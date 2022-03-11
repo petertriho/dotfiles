@@ -138,6 +138,7 @@ require("packer").startup({
             { "dstein64/vim-startuptime", cmd = "StartupTime" },
             { "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } },
             { "ryvnf/readline.vim", event = "CmdlineEnter" },
+            { "tpope/vim-unimpaired" },
         }
 
         for _, plugin in ipairs(plugins) do
