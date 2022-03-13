@@ -93,6 +93,7 @@ require("packer").startup({
                 module = "telescope.extensions.project",
             },
             -- tools
+            require("plugins.config.dirbuf"),
             require("plugins.config.diffview"),
             require("plugins.config.gitlinker"),
             require("plugins.config.neogit"),
