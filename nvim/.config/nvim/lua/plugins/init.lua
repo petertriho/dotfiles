@@ -165,13 +165,13 @@ local function load_deferred_plugins()
     )
 end
 
-vim.api.nvim_add_user_command("LoadDeferredPlugins", load_deferred_plugins, {})
-
-vim.cmd([[
-    augroup deferred_plugins
-        autocmd User DeferredPlugins LoadDeferredPlugins
-    augroup END
-]])
+vim.api.nvim_create_augroup("deferred_plugins", {})
+vim.api.nvim_create_autocmd("User", {
+    group = "deferred_plugins",
+    pattern = "DeferredPlugins",
+    callback = load_deferred_plugins,
+    desc = "Load deferred plugins",
+})
 
 vim.defer_fn(function()
     vim.cmd([[doautocmd User DeferredPlugins]])
@@ -194,8 +194,10 @@ end
 vim.api.nvim_add_user_command("ToggleGitStatus", toggle_buffer(".git/*index", "Git"), {})
 vim.api.nvim_add_user_command("ToggleNeogitStatus", toggle_buffer("NeogitStatus", "Neogit kind=split"), {})
 
-vim.cmd([[
-    augroup update_remote_plugins
-        autocmd User PackerComplete exe "PackerLoad vim-test vim-ultest" | silent UpdateRemotePlugins
-    augroup END
-]])
+vim.api.nvim_create_augroup("update_remote_plugins", {})
+vim.api.nvim_create_autocmd("User", {
+    group = "update_remote_plugins",
+    pattern = "PackerComplete",
+    command = "execute 'PackerLoad vim-test vim-ultest' | silent UpdateRemotePlugins",
+    desc = "Update remote plugins",
+})

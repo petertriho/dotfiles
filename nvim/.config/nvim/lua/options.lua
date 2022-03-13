@@ -113,19 +113,6 @@ if vim.fn.has("persistent_undo") == 1 then
     opt.undofile = true
 end
 
-local function set_augroups(definitions)
-    for group_name, definition in pairs(definitions) do
-        vim.cmd("augroup " .. group_name)
-        vim.cmd("autocmd!")
-        for _, def in pairs(definition) do
-            local command = table.concat(vim.tbl_flatten({ "autocmd", def }), " ")
-            vim.cmd(command)
-        end
-        vim.cmd("augroup END")
-    end
-end
-
--- mkdir if does not exists
 local function mkdir()
     local dir = vim.fn.expand("<afile>:p:h")
 
@@ -133,8 +120,6 @@ local function mkdir()
         vim.fn.mkdir(dir, "p")
     end
 end
-
-vim.api.nvim_add_user_command("Mkdir", mkdir, {})
 
 local function set_python3_host_prog()
     if vim.fn.exists("$VIRTUAL_ENV") == 1 then
@@ -144,31 +129,49 @@ local function set_python3_host_prog()
     end
 end
 
-vim.api.nvim_add_user_command("SetPython3HostProg", set_python3_host_prog, {})
+local function set_augroups(groups)
+    for name, commands in pairs(groups) do
+        vim.api.nvim_create_augroup(name, {})
+        for _, command in pairs(commands) do
+            command[2].group = name
+            vim.api.nvim_create_autocmd(unpack(command))
+        end
+    end
+end
 
 set_augroups({
     _general = {
         {
             "TextYankPost",
-            "*",
-            "silent! lua vim.highlight.on_yank({ higroup = 'Search', timeout = 200 })",
+            {
+                pattern = "*",
+                callback = function()
+                    vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
+                end,
+                desc = "Highlight on yank",
+            },
         },
         {
             "BufWritePre",
-            "*",
-            "Mkdir",
+            { pattern = "*", callback = mkdir, desc = "Make directory for file if it does not exist" },
         },
         {
             "User",
-            "PythonHostProg",
-            "SetPython3HostProg",
+            {
+                pattern = "PythonHostProg",
+                callback = set_python3_host_prog,
+                desc = "Load python host prog when required",
+            },
         },
     },
     _targets = {
         {
             "User",
-            "targets#mappings#user",
-            "call targets#mappings#extend({'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]}})",
+            {
+                pattern = "targets#mappings#user",
+                command = "call targets#mappings#extend({'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]}})",
+                desc = "Additional ia/aa text objects",
+            },
         },
     },
 })

@@ -32,12 +32,15 @@ local function on_attach(client, bufnr)
     buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>")
 
     if client.resolved_capabilities.code_action then
-        vim.cmd([[
-        augroup lsp_code_action
-            autocmd! * <buffer>
-            autocmd CursorHold,CursorHoldI <buffer> lua require('nvim-lightbulb').update_lightbulb()
-        augroup END
-        ]])
+        vim.api.nvim_create_augroup("lsp_code_action", {})
+        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            group = "lsp_code_action",
+            callback = function()
+                require("nvim-lightbulb").update_lightbulb()
+            end,
+            buffer = bufnr,
+            desc = "LSP code action lightbulb",
+        })
     end
 
     if client.resolved_capabilities.declaration then

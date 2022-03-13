@@ -37,8 +37,6 @@ return {
             end
         end
 
-        vim.api.nvim_add_user_command("VMLensStart", vm_lens_start, {})
-
         local function vm_lens_exit()
             local hlslens = require("hlslens")
             if hlslens then
@@ -47,14 +45,19 @@ return {
             end
         end
 
-        vim.api.nvim_add_user_command("VMLensExit", vm_lens_exit, {})
+        vim.api.nvim_create_augroup("vmlens", {})
+        vim.api.nvim_create_autocmd("User", {
+            group = "vmlens",
+            pattern = "visual_multi_start",
+            callback = vm_lens_start,
+            desc = "Visual multi lens start callback",
+        })
 
-        vim.cmd([[
-        augroup vmlens
-            autocmd!
-            autocmd User visual_multi_start VMLensStart
-            autocmd User visual_multi_exit VMLensExit
-        augroup END
-        ]])
+        vim.api.nvim_create_autocmd("User", {
+            group = "vmlens",
+            pattern = "visual_multi_exit",
+            callback = vm_lens_exit,
+            desc = "Visual multi lens exit callback",
+        })
     end,
 }
