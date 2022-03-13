@@ -35,11 +35,11 @@ set -gx PROJECT_PATHS \
 
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
 
-if status is-interactive
-    if command -v starship &>/dev/null
-        starship init fish | source
-    end
+if command -v starship &>/dev/null
+    starship init fish | source
+end
 
+if status is-interactive
     set -gx ENHANCD_FILTER fzf
 
     set -gx FZF_DEFAULT_OPTS \
