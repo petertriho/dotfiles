@@ -75,6 +75,7 @@ function tool:fish {
         fish -c "fisher update"
         fish -c "set_abbr"
         fish -c "set_theme"
+        fish -c "set_nextcloud"
         fish -c "set_yarn_global_bin"
     fi
 }
