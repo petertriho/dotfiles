@@ -17,13 +17,7 @@ return {
     config = function()
         require("winshift").setup({
             window_picker_ignore = {
-                filetype = {
-                    "dbui",
-                    "DiffViewFiles",
-                    "Mundo",
-                    "MundoDiff",
-                    "NvimTree",
-                },
+                filetype = require("filetypes").excludes,
             },
         })
     end,
