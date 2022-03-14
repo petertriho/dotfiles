@@ -127,7 +127,7 @@ return {
                     return require("package-info").get_status()
                 end,
                 enabled = function()
-                    return packer_plugins["package-info"] and packer_plugins["package-info"].loaded
+                    return packer_plugins["package-info.nvim"] and packer_plugins["package-info.nvim"].loaded
                 end,
                 truncate_hide = true,
                 priority = 1,
@@ -190,6 +190,10 @@ return {
             },
             {
                 provider = "github_notifications",
+                enabled = function()
+                    return packer_plugins["github-notifications.nvim"]
+                        and packer_plugins["github-notifications.nvim"].loaded
+                end,
                 left_sep = " ",
             },
             {
@@ -391,7 +395,7 @@ return {
                 end,
                 github_notifications = function()
                     local data = require("github-notifications").statusline_notifications()
-                    return string.format("%s  %s", data.icon, data.count)
+                    return string.format("%s %s", data.icon, data.count)
                 end,
                 lsp_client_count = function()
                     return string.format(" %d", #vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf()))
