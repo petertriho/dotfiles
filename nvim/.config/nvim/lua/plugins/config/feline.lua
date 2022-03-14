@@ -189,6 +189,10 @@ return {
                 priority = 1,
             },
             {
+                provider = "github_notifications",
+                left_sep = " ",
+            },
+            {
                 provider = "position_2",
                 left_sep = " ",
             },
@@ -385,8 +389,12 @@ return {
                         )
                     end
                 end,
+                github_notifications = function()
+                    local data = require("github-notifications").statusline_notifications()
+                    return string.format("%s  %s", data.icon, data.count)
+                end,
                 lsp_client_count = function()
-                    return " " .. "LSP:" .. #vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())
+                    return string.format(" %d", #vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf()))
                 end,
             },
         })

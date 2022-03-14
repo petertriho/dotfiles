@@ -209,6 +209,7 @@ return {
             g = { "<CMD>ToggleNeogitStatus<CR>", "git-status" },
             l = { "<CMD>LLToggle<CR>", "loc-list-toggle" },
             m = { "<Plug>MarkdownPreviewToggle", "markdown-preview" },
+            n = { "<CMD>lua require('github-notifications.menu').notifications()<CR>", "notifications-github" },
             o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
             p = { "<CMD>lua require('telescope').extensions.project.project({})<CR>", "project" },
             q = { "<CMD>QFToggle<CR>", "qf-list-toggle" },

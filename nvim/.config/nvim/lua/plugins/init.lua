@@ -95,6 +95,7 @@ require("packer").startup({
             -- tools
             require("plugins.config.dirbuf"),
             require("plugins.config.diffview"),
+            require("plugins.config.github-notifications"),
             require("plugins.config.gitlinker"),
             require("plugins.config.neogit"),
             require("plugins.config.nvim-cheat"),
