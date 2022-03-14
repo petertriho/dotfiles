@@ -283,7 +283,11 @@ M.setup = function(overrides)
             sources_formatting.autoflake,
             sources_formatting.docformatter,
             sources_formatting.pybetter,
-            sources_formatting.ssort,
+            sources_formatting.ssort.with({
+                condition = function(utils)
+                    return not string.find(vim.fn.system("python --version"), "3.8")
+                end,
+            }),
             b.formatting.isort.with({
                 extra_args = function(params)
                     local extra_args = { "--profile", "black" }
