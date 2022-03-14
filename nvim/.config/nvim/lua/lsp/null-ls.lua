@@ -285,7 +285,15 @@ M.setup = function(overrides)
             sources_formatting.pybetter,
             sources_formatting.ssort,
             b.formatting.isort.with({
-                extra_args = { "--profile", "black" },
+                extra_args = function(params)
+                    local extra_args = { "--profile", "black" }
+
+                    if string.find(vim.fn.system("python --version"), "3.8") then
+                        table.insert(extra_args, "--sl")
+                    end
+
+                    return extra_args
+                end,
             }),
             sources_formatting.pyupgrade,
             b.formatting.black,
