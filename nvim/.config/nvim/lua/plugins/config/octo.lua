@@ -11,7 +11,7 @@ return {
             I = { "<CMD>Octo issue list<CR>", "issues" },
             G = { "<CMD>Octo gist list<CR>", "gist" },
             R = { "<CMD>Octo repo list<CR>", "repos" },
-            P = { "<CMD>Octo pr list", "prs" },
+            P = { "<CMD>Octo pr list<CR>", "prs" },
         }, {
             prefix = ",",
             mode = "n",
