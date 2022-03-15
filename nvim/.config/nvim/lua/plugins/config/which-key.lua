@@ -127,6 +127,52 @@ return {
             s = "stage-hunk",
         }
 
+        leader_keymaps["l"] = {
+            name = "+lsp",
+            c = {
+                "<CMD>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<CR>",
+                "code-actions",
+            },
+            d = {
+                "<CMD>lua require('telescope.builtin').lsp_definitions({ jump_type = 'never' })<CR>",
+                "definitions",
+            },
+            e = {
+                name = "+errors",
+                d = { "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", "document" },
+                w = { "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", "workspace" },
+            },
+            i = {
+                "<CMD>lua require('telescope.builtin').lsp_implementations({ jump_type = 'never' })<CR>",
+                "implementations",
+            },
+            l = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "loclist-diagnostics" },
+            q = { "<CMD>lua vim.diagnostic.setqflist()<CR>", "qflist-diagnostics" },
+            r = { "<CMD>lua require('telescope.builtin').lsp_references()<CR>", "references" },
+            s = {
+                name = "+symbols",
+                d = { "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", "documents" },
+                w = { "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", "workspace" },
+                W = {
+                    "<CMD>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
+                    "dynamic-workspace",
+                },
+            },
+            t = {
+                "<CMD>lua require('telescope.builtin').lsp_type_definitions({ jump_type = 'never' })<CR>",
+                "type-definitions",
+            },
+            T = { "<CMD>lua require('null-ls').toggle('spell')<CR>", "toggle-cspell" },
+        }
+
+        leader_visual_keymaps["l"] = {
+            name = "+lsp",
+            c = {
+                "<CMD>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())",
+                "code-actions",
+            },
+        }
+
         leader_keymaps["m"] = {
             name = "+marks",
             a = { "<CMD>MarksListAll<CR>", "all-list" },
@@ -242,65 +288,6 @@ return {
 
         register(semicolon_visual_keymaps, {
             prefix = ";",
-            mode = "x",
-            silent = true,
-            noremap = true,
-        })
-
-        -- Comma keymaps
-        local comma_keymaps = {
-            c = {
-                "<CMD>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<CR>",
-                "code-actions",
-            },
-            d = {
-                "<CMD>lua require('telescope.builtin').lsp_definitions({ jump_type = 'never' })<CR>",
-                "definitions",
-            },
-            e = {
-                name = "+errors",
-                d = { "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", "document" },
-                w = { "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", "workspace" },
-            },
-            i = {
-                "<CMD>lua require('telescope.builtin').lsp_implementations({ jump_type = 'never' })<CR>",
-                "implementations",
-            },
-            l = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "loclist-diagnostics" },
-            q = { "<CMD>lua vim.diagnostic.setqflist()<CR>", "qflist-diagnostics" },
-            r = { "<CMD>lua require('telescope.builtin').lsp_references()<CR>", "references" },
-            s = {
-                name = "+symbols",
-                d = { "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", "documents" },
-                w = { "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", "workspace" },
-                W = {
-                    "<CMD>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
-                    "dynamic-workspace",
-                },
-            },
-            t = {
-                "<CMD>lua require('telescope.builtin').lsp_type_definitions({ jump_type = 'never' })<CR>",
-                "type-definitions",
-            },
-            T = { "<CMD>lua require('null-ls').toggle('spell')<CR>", "toggle-cspell" },
-        }
-
-        local comma_visual_keymaps = {
-            c = {
-                "<CMD>lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())",
-                "code-actions",
-            },
-        }
-
-        register(comma_keymaps, {
-            prefix = ",",
-            mode = "n",
-            silent = true,
-            noremap = true,
-        })
-
-        register(comma_visual_keymaps, {
-            prefix = ",",
             mode = "x",
             silent = true,
             noremap = true,
