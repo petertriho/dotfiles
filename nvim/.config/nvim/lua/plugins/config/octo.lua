@@ -5,6 +5,20 @@ return {
         "nvim-telescope/telescope.nvim",
     },
     cmd = "Octo",
+    setup = function()
+        require("which-key").register({
+            A = { "<CMD>Octo actions<CR>", "actions" },
+            I = { "<CMD>Octo issue list<CR>", "issues" },
+            G = { "<CMD>Octo gist list<CR>", "gist" },
+            R = { "<CMD>Octo repo list<CR>", "repos" },
+            P = { "<CMD>Octo pr list", "prs" },
+        }, {
+            prefix = ",",
+            mode = "n",
+            silent = true,
+            noremap = true,
+        })
+    end,
     config = function()
         require("octo").setup({
             mappings = {
@@ -25,14 +39,14 @@ return {
                     delete_comment = ",cd", -- delete comment
                     next_comment = "]c", -- go to next comment
                     prev_comment = "[c", -- go to previous comment
-                    react_hooray = ",rp", -- add/remove 🎉 reaction
-                    react_heart = ",rh", -- add/remove ❤️ reaction
-                    react_eyes = ",re", -- add/remove 👀 reaction
-                    react_thumbs_up = ",r+", -- add/remove 👍 reaction
-                    react_thumbs_down = ",r-", -- add/remove 👎 reaction
-                    react_rocket = ",rr", -- add/remove 🚀 reaction
-                    react_laugh = ",rl", -- add/remove 😄 reaction
-                    react_confused = ",rc", -- add/remove 😕 reaction
+                    react_hooray = ",ep", -- add/remove 🎉 reaction
+                    react_heart = ",eh", -- add/remove ❤️ reaction
+                    react_eyes = ",ee", -- add/remove 👀 reaction
+                    react_thumbs_up = ",e+", -- add/remove 👍 reaction
+                    react_thumbs_down = ",e-", -- add/remove 👎 reaction
+                    react_rocket = ",er", -- add/remove 🚀 reaction
+                    react_laugh = ",el", -- add/remove 😄 reaction
+                    react_confused = ",ec", -- add/remove 😕 reaction
                 },
                 pull_request = {
                     checkout_pr = ",po", -- checkout PR
@@ -58,14 +72,14 @@ return {
                     delete_comment = ",cd", -- delete comment
                     next_comment = "]c", -- go to next comment
                     prev_comment = "[c", -- go to previous comment
-                    react_hooray = ",rp", -- add/remove 🎉 reaction
-                    react_heart = ",rh", -- add/remove ❤️ reaction
-                    react_eyes = ",re", -- add/remove 👀 reaction
-                    react_thumbs_up = ",r+", -- add/remove 👍 reaction
-                    react_thumbs_down = ",r-", -- add/remove 👎 reaction
-                    react_rocket = ",rr", -- add/remove 🚀 reaction
-                    react_laugh = ",rl", -- add/remove 😄 reaction
-                    react_confused = ",rc", -- add/remove 😕 reaction
+                    react_hooray = ",ep", -- add/remove 🎉 reaction
+                    react_heart = ",eh", -- add/remove ❤️ reaction
+                    react_eyes = ",ee", -- add/remove 👀 reaction
+                    react_thumbs_up = ",e+", -- add/remove 👍 reaction
+                    react_thumbs_down = "er-", -- add/remove 👎 reaction
+                    react_rocket = ",er", -- add/remove 🚀 reaction
+                    react_laugh = ",el", -- add/remove 😄 reaction
+                    react_confused = ",ec", -- add/remove 😕 reaction
                 },
                 review_thread = {
                     goto_issue = ",gi", -- navigate to a local repo issue
@@ -77,14 +91,14 @@ return {
                     select_next_entry = "]q", -- move to previous changed file
                     select_prev_entry = "[q", -- move to next changed file
                     close_review_tab = "<C-c>", -- close review tab
-                    react_hooray = ",rp", -- add/remove 🎉 reaction
-                    react_heart = ",rh", -- add/remove ❤️ reaction
-                    react_eyes = ",re", -- add/remove 👀 reaction
-                    react_thumbs_up = ",r+", -- add/remove 👍 reaction
-                    react_thumbs_down = ",r-", -- add/remove 👎 reaction
-                    react_rocket = ",rr", -- add/remove 🚀 reaction
-                    react_laugh = ",rl", -- add/remove 😄 reaction
-                    react_confused = ",rc", -- add/remove 😕 reaction
+                    react_hooray = ",ep", -- add/remove 🎉 reaction
+                    react_heart = ",eh", -- add/remove ❤️ reaction
+                    react_eyes = ",ee", -- add/remove 👀 reaction
+                    react_thumbs_up = ",e+", -- add/remove 👍 reaction
+                    react_thumbs_down = ",e-", -- add/remove 👎 reaction
+                    react_rocket = ",er", -- add/remove 🚀 reaction
+                    react_laugh = ",el", -- add/remove 😄 reaction
+                    react_confused = ",ec", -- add/remove 😕 reaction
                 },
                 submit_win = {
                     approve_review = "<C-a>", -- approve review
@@ -109,8 +123,8 @@ return {
                     prev_entry = "k", -- move to previous changed file
                     select_entry = "<cr>", -- show selected changed file diffs
                     refresh_files = "R", -- refresh changed files panel
-                    focus_files = ",e", -- move focus to changed file panel
-                    toggle_files = ",b", -- hide/show changed files panel
+                    focus_files = ",f", -- move focus to changed file panel
+                    toggle_files = ",t", -- hide/show changed files panel
                     select_next_entry = "]q", -- move to previous changed file
                     select_prev_entry = "[q", -- move to next changed file
                     close_review_tab = "<C-c>", -- close review tab
@@ -121,8 +135,8 @@ return {
 
         require("which-key").register({
             [","] = "toggle-viewed",
-            b = "toggle-files",
-            e = "focus-files",
+            f = "focus-files",
+            t = "toggle-files",
             a = {
                 name = "+assignee",
                 a = "add",
@@ -132,6 +146,17 @@ return {
                 name = "+comment",
                 a = "add",
                 d = "delete",
+            },
+            e = {
+                name = "+emoji",
+                ["+"] = "thumbs-up 👍",
+                ["-"] = "thumbs-down 👎",
+                c = "confused 😕",
+                e = "eyes 👀 ",
+                h = "heart ❤️",
+                l = "laugh 😄",
+                p = "party 🎉",
+                r = "rocket 🚀",
             },
             i = {
                 name = "+issue",
@@ -156,17 +181,16 @@ return {
                 f = "files-changed",
                 m = "merge",
                 o = "checkout",
+                r = { "<CMD>Octo pr ready<CR>", "ready" },
+                s = { "<CMD>Octo pr checks<CR>", "status" },
             },
             r = {
-                name = "+react",
-                ["+"] = "thumbs-up",
-                ["-"] = "thumbs-down",
-                c = "confused",
-                e = "eyes",
-                h = "heart",
-                l = "laugh",
-                p = "hooray",
-                r = "rocket",
+                name = "+review",
+                ["<CR>"] = { "<CMD>Octo review submit<CR>", "submit" },
+                c = { "<CMD>Octo review comments<CR>", "comments" },
+                d = { "<CMD>Octo review discard<CR>", "discard" },
+                r = { "<CMD>Octo review resume<CR>", "resume" },
+                s = { "<CMD>Octo review start<CR>", "start" },
             },
             s = {
                 name = "+suggestion",
