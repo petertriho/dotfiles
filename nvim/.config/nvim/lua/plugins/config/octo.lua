@@ -136,8 +136,8 @@ return {
             i = {
                 name = "+issue",
                 c = "close",
-                o = "open",
                 l = "list",
+                o = "open",
             },
             g = {
                 name = "+go",
@@ -145,16 +145,17 @@ return {
             },
             l = {
                 name = "+label",
-                c = "create",
                 a = "add",
+                c = "create",
                 d = "delete",
             },
             p = {
                 name = "+pr",
-                o = "checkout",
                 c = "commits-list",
-                f = "files-changed",
                 d = "diff",
+                f = "files-changed",
+                m = "merge",
+                o = "checkout",
             },
             r = {
                 name = "+react",
