@@ -251,7 +251,10 @@ return {
             e = { "<CMD>Telescope file_browser hidden=true<CR>", "telescope-explorer" },
             f = { "<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files-all" },
             g = { "<CMD>ToggleNeogitStatus<CR>", "git-status" },
+            j = { "<CMD>AnyJump<CR>", "any-jump" },
+            J = { "<CMD>AnyJumpBack<CR>", "any-jump-back" },
             l = { "<CMD>LLToggle<CR>", "loc-list-toggle" },
+            L = { "<CMD>AnyJumpLastResults<CR>", "any-jump-last" },
             m = { "<Plug>MarkdownPreviewToggle", "markdown-preview" },
             n = { "<CMD>lua require('github-notifications.menu').notifications()<CR>", "notifications-github" },
             o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
@@ -274,6 +277,7 @@ return {
         }
 
         local semicolon_visual_keymaps = {
+            j = { "<CMD>AnyuJumpVisual<CR>", "any-jump" },
             r = { "<ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor" },
         }
 

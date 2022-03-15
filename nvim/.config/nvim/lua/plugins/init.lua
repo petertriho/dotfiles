@@ -40,6 +40,7 @@ require("packer").startup({
             { "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" },
             -- language
             "Vimjas/vim-python-pep8-indent",
+            require("plugins.config.any-jump"),
             require("plugins.config.copilot"),
             require("plugins.config.filetype"),
             require("plugins.config.indent-blankline"),
