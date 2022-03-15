@@ -337,7 +337,14 @@ M.setup = function(overrides)
                 },
             }),
             b.formatting.prettier.with({
-                filetypes = { "graphql", "markdown", "vimwiki", "yaml", "yaml.docker-compose" },
+                filetypes = {
+                    "graphql",
+                    "markdown",
+                    "svelte",
+                    "vimwiki",
+                    "yaml",
+                    "yaml.docker-compose",
+                },
             }),
             b.formatting.prettierd.with({
                 filetypes = {
@@ -346,7 +353,6 @@ M.setup = function(overrides)
                     "typescript",
                     "typescriptreact",
                     "vue",
-                    "svelte",
                     "css",
                     "scss",
                     "html",
