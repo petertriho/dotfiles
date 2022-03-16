@@ -4,9 +4,12 @@ local null_ls = require("null-ls")
 
 local h = require("null-ls.helpers")
 local methods = require("null-ls.methods")
+local utils = require("null-ls.utils")
 
 local DIAGNOSTICS = methods.internal.DIAGNOSTICS
 local FORMATTING = methods.internal.FORMATTING
+
+local conditional = utils.make_conditional_utils()
 
 local sources_diagnostics = {
     bandit = h.make_builtin({
@@ -256,18 +259,18 @@ M.setup = function(overrides)
                 end,
             }),
             b.formatting.stylua.with({
-                condition = function(utils)
-                    return utils.root_has_file({ "stylua.toml", ".stylua.toml" })
+                extra_args = function(params)
+                    local extra_args = {}
+
+                    if not conditional.root_has_file({ "stylua.toml", ".stylua.toml" }) then
+                        extra_args = {
+                            "--config-path",
+                            vim.fn.expand("$HOME/.config/format-lint/.stylua.toml"),
+                        }
+                    end
+
+                    return extra_args
                 end,
-            }),
-            b.formatting.stylua.with({
-                condition = function(utils)
-                    return not utils.root_has_file({ "stylua.toml", ".stylua.toml" })
-                end,
-                extra_args = {
-                    "--config-path",
-                    vim.fn.expand("$HOME/.config/format-lint/.stylua.toml"),
-                },
             }),
             -- nginx
             b.formatting.nginx_beautifier,
