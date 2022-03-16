@@ -5,7 +5,6 @@ return {
     },
     config = function()
         require("github-notifications").setup({
-            cache = true,
             mappings = {
                 hide = "h",
                 mark_all_read = "a",
