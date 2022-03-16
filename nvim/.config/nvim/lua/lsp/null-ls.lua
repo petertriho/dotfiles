@@ -4,12 +4,9 @@ local null_ls = require("null-ls")
 
 local h = require("null-ls.helpers")
 local methods = require("null-ls.methods")
-local utils = require("null-ls.utils")
 
 local DIAGNOSTICS = methods.internal.DIAGNOSTICS
 local FORMATTING = methods.internal.FORMATTING
-
-local conditional = utils.make_conditional_utils()
 
 local sources_diagnostics = {
     bandit = h.make_builtin({
@@ -158,6 +155,20 @@ local sources_formatting = {
         },
         factory = h.formatter_factory,
     }),
+    -- for black versions that do not accept stdin
+    black = h.make_builtin({
+        method = FORMATTING,
+        filetypes = { "python" },
+        generator_opts = {
+            command = "black",
+            args = {
+                "--quiet",
+                "$FILENAME",
+            },
+            to_temp_file = true,
+        },
+        factory = h.formatter_factory,
+    }),
     pybetter = h.make_builtin({
         method = FORMATTING,
         filetypes = { "python" },
@@ -213,6 +224,14 @@ local sources_formatting = {
 }
 
 local b = require("null-ls.builtins")
+
+local utils = require("null-ls.utils")
+local conditional = utils.make_conditional_utils()
+
+local check_if_black_accepts_stdin = function()
+    local black_version = string.match(vim.fn.system("black --version"), "([%d%.]+%a*%d*)")
+    return black_version >= "21.4b0"
+end
 
 M.setup = function(overrides)
     local config = vim.tbl_deep_extend("force", {
@@ -272,6 +291,16 @@ M.setup = function(overrides)
                     return extra_args
                 end,
             }),
+            sources_formatting.black.with({
+                condition = function(utils)
+                    return not check_if_black_accepts_stdin()
+                end,
+            }),
+            b.formatting.black.with({
+                condition = function(utils)
+                    return check_if_black_accepts_stdin()
+                end,
+            }),
             -- nginx
             b.formatting.nginx_beautifier,
             -- python
@@ -303,7 +332,6 @@ M.setup = function(overrides)
                 end,
             }),
             sources_formatting.pyupgrade,
-            b.formatting.black,
             -- shell
             b.code_actions.shellcheck,
             b.diagnostics.shellcheck,
