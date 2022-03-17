@@ -1,6 +1,11 @@
 return {
     "rmagatti/goto-preview",
-    keys = { "gpd", "gpi", "gpr", "gP" },
+    keys = {
+        { "n", "gpd" },
+        { "n", "gpi" },
+        { "n", "gpr" },
+        { "n", "gP" },
+    },
     config = function()
         require("goto-preview").setup({
             width = 120,

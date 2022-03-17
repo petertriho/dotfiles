@@ -1,15 +1,6 @@
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-
-[user]
-	name = Peter Tri Ho
-	email = mail@petertriho.com
-
-[pull]
-	rebase = true
+[commit]
+	verbose = true
+	template = ~/.gittemplates/commit
 
 [core]
 	# Remove delta_side_by_side function when fixed
@@ -17,12 +8,12 @@
 	# https://github.com/wfxr/forgit/issues/121
     pager = delta --width $COLUMNS
 
-#[remote "origin"]
-	# fetch = +refs/heads/*:refs/remotes/origin/*
-
 [delta]
 	syntax-theme = base16
     true-color = always
+
+[init]
+	defaultBranch = main
 
 [interactive]
 	diffFilter = delta --color-only
@@ -30,9 +21,18 @@
 [fetch]
 	prune = true
 
-[init]
-	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
-[commit]
-	verbose = true
-	template = ~/.gittemplates/commit
+[merge]
+conflictStyle = diff3
+
+[pull]
+	rebase = true
+
+[user]
+	name = Peter Tri Ho
+	email = mail@petertriho.com

@@ -88,6 +88,7 @@ return {
                 "<CMD>lua require('gitlinker').get_buf_range_url('n', { action_callback = require('gitlinker.actions').open_in_browser })<CR>",
                 "line-browser",
             },
+            m = { "<CMD>MergetoolToggle<CR>", "merge-tool" },
             s = { "<CMD>lua require('telescope.builtin').git_stashes()<CR>", "stashes" },
             t = { "<CMD>Gitsigns toggle_current_line_blame<CR>", "toggle-blame" },
             u = { "<CMD>lua require('gitlinker').get_repo_url()<CR>", "url-link" },
