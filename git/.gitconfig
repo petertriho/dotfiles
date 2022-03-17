@@ -6,11 +6,11 @@
 	# Remove delta_side_by_side function when fixed
 	# https://github.com/dandavison/delta/issues/359
 	# https://github.com/wfxr/forgit/issues/121
-    pager = delta --width $COLUMNS
+	pager = delta --width $COLUMNS
 
 [delta]
 	syntax-theme = base16
-    true-color = always
+	true-color = always
 
 [init]
 	defaultBranch = main
@@ -28,7 +28,7 @@
 	required = true
 
 [merge]
-conflictStyle = diff3
+	conflictStyle = diff3
 
 [pull]
 	rebase = true
