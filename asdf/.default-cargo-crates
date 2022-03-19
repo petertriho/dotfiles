@@ -2,6 +2,7 @@ bat
 cargo-update
 fd-find
 gfold
+git-delta
 ripgrep
 starship
 vivid
