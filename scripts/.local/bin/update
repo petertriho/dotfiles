@@ -163,9 +163,9 @@ function tool:winget {
     fi
 }
 
-function tool:yarn {
-    echo "Updating yarn global packages ..."
-    yarn global upgrade --latest
+function tool:npm {
+    echo "Updating npm global packages ..."
+    npm update --global
 }
 
 function tool:all {
@@ -188,7 +188,7 @@ function tool:all {
     tool:rust
     tool:tmux
     tool:pipx
-    tool:yarn
+    tool:npm
     tool:misc
 
     exec "$SHELL"

@@ -24,54 +24,54 @@ function main {
     fi
 
     if ! command -v bash-language-server &> /dev/null; then
-        yarn global add bash-language-server
+        npm install --global bash-language-server
     fi
 
     if ! command -v docker-langserver &> /dev/null; then
-        yarn global add dockerfile-language-server-nodejs
+        npm install --global dockerfile-language-server-nodejs
     fi
 
     if ! command -v emmet-ls &> /dev/null; then
-        yarn global add emmet-ls
+        npm install --global emmet-ls
     fi
 
     if ! command -v graphql-lsp &> /dev/null; then
-        yarn global add graphql-language-service-cli
+        npm install --global graphql-language-service-cli
     fi
 
     if ! command -v svelteserver &> /dev/null; then
-        yarn global add svelte-language-server
+        npm install --global svelte-language-server
     fi
 
     if ! command -v prisma-language-server &> /dev/null; then
-        yarn global add @prisma/language-server
+        npm install --global @prisma/language-server
     fi
 
     if ! command -v pyright-langserver &> /dev/null; then
-        yarn global add pyright
+        npm install --global pyright
     fi
 
     if ! command -v quick-lint-js &> /dev/null; then
-        yarn global add quick-lint-js
+        npm install --global quick-lint-js
     fi
 
     if ! command -v tailwindcss-language-server &> /dev/null; then
-        yarn global add @tailwindcss/language-server
+        npm install --global @tailwindcss/language-server
     fi
 
     if ! command -v typescript-language-server &> /dev/null; then
-        yarn global add typescript typescript-language-server
+        npm install --global typescript typescript-language-server
     fi
 
     if ! command -v vscode-css-language-server &> /dev/null \
         || ! command -v vscode-html-language-server &> /dev/null \
         || ! command -v vscode-json-language-server &> /dev/null \
         || ! command -v vscode-eslint-language-server &> /dev/null; then
-        yarn global add vscode-langservers-extracted
+        npm install --global vscode-langservers-extracted
     fi
 
     if ! command -v yaml-language-server &> /dev/null; then
-        yarn global add yaml-language-server
+        npm install --global yaml-language-server
     fi
 
     if ! command -v ltex-ls &> /dev/null; then

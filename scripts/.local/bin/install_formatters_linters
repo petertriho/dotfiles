@@ -80,35 +80,35 @@ function main {
     fi
 
     # if ! command -v cspell &> /dev/null; then
-    #     yarn global add cspell
+    #     npm install --global add cspell
     # fi
 
     if ! command -v fixjson &> /dev/null; then
-        yarn global add fixjson
+        npm install --global fixjson
     fi
 
     if ! command -v markdownlint &> /dev/null; then
-        yarn global add markdownlint-cli
+        npm install --global markdownlint-cli
     fi
 
     if ! command -v nginxbeautifier &> /dev/null; then
-        yarn global add nginxbeautifier
+        npm install --global nginxbeautifier
     fi
 
     if ! command -v prettier &> /dev/null; then
-        yarn global add prettier
+        npm install --global add prettier
     fi
 
     if ! command -v prettierd &> /dev/null; then
-        yarn global add @fsouza/prettierd
+        npm install --global @fsouza/prettierd
     fi
 
     if ! command -v rustywind &> /dev/null; then
-        yarn global add rustywind
+        npm install --global rustywind
     fi
 
     if ! command -v stylelint &> /dev/null; then
-        yarn global add stylelint stylelint-config-standard
+        npm install --global stylelint stylelint-config-standard
     fi
 
     asdf reshim
