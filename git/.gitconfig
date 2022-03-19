@@ -29,10 +29,14 @@
 
 [merge]
 	conflictStyle = diff3
-	tool = nvim_mergetool
+	tool = mergetool
 
-[mergetool "nvim_mergetool"]
-	cmd = nvim -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+[mergetool "fugitive"]
+	cmd = nvim -f -c "Gvdiffsplit!" "$MERGED"
+	trustExitCode = false
+
+[mergetool "mergetool"]
+	cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 	trustExitCode = true
 
 [pull]
