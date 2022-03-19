@@ -129,7 +129,6 @@ require("packer").startup({
             "tpope/vim-repeat",
             require("plugins.config.bufjump"),
             require("plugins.config.close-buffers"),
-            require("plugins.config.editorconfig-vim"),
             require("plugins.config.FixCursorHold"),
             require("plugins.config.marks"),
             require("plugins.config.nvim-hlslens"),
