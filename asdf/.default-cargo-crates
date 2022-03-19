@@ -3,4 +3,5 @@ cargo-update
 fd-find
 gfold
 ripgrep
+starship
 zoxide
