@@ -4,6 +4,8 @@ function afish --wraps fish --description "Fish (ARM)"
             set -e ASDF_DATA_DIR;
             set -e ASDF_DEFAULT_TOOL_VERSIONS_FILENAME;
             set -e ASDF_NODEJS_VERSION;
+            set -e ASDF_NPM_DEFAULT_PACKAGES_FILE;
+            set -e ASDF_PYTHON_DEFAULT_PACKAGES_FILE
             set -e ASDF_PYTHON_VERSION;
             set -e DOCKER_DEFAULT_PLATFORM;" \
         $argv
