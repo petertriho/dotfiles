@@ -139,7 +139,6 @@ require("packer").startup({
             require("plugins.config.tidy"),
             require("plugins.config.vim-yoink"),
             require("plugins.config.winshift"),
-            -- require("plugins.config.YankAssassin"),
             { "dstein64/vim-startuptime", cmd = "StartupTime" },
             { "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } },
             { "ryvnf/readline.vim", event = "CmdlineEnter" },
