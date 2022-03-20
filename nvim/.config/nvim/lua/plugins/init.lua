@@ -137,6 +137,7 @@ require("packer").startup({
             require("plugins.config.range-highlight"),
             require("plugins.config.stickybuf"),
             require("plugins.config.tidy"),
+            require("plugins.config.vim-yoink"),
             require("plugins.config.winshift"),
             -- require("plugins.config.YankAssassin"),
             { "dstein64/vim-startuptime", cmd = "StartupTime" },
