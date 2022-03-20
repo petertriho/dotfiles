@@ -27,7 +27,6 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- gcob 'git checkout -b'
     abbr -a -U -- gf   'git fetch'
     abbr -a -U -- gl   'git ls-files'
-    abbr -a -U -- gle  'git ls-files -cdmo --exclude-standard | entr -d $argv'
     abbr -a -U -- gm   'git merge'
     abbr -a -U -- gma  'git merge --abort'
     abbr -a -U -- gmt  'git mergetool'

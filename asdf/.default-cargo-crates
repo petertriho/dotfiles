@@ -6,4 +6,5 @@ git-delta
 ripgrep
 starship
 vivid
+watchexec-cli
 zoxide
