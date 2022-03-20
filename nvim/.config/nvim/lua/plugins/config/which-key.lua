@@ -5,7 +5,14 @@ return {
             layout = {
                 align = "center",
             },
-            operators = { gc = "Comments", gb = "Block Comments" },
+            operators = {
+                cx = "Exchange",
+                gb = "Block Comments",
+                gc = "Comments",
+                s = "Substitute",
+                ["<Leader>s"] = "Substitute Range",
+                ["<Leader>S"] = "Subvert Range",
+            },
         })
 
         -- Space keymaps
@@ -25,6 +32,8 @@ return {
             n = { ":nohl<CR>", "no-highlight" },
             o = "organize-imports",
             q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
+            s = { "substitute-range" },
+            S = { "subvert-range" },
             u = { "<CMD>MundoToggle<CR>", "undotree" },
             x = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
             z = { "<CMD>ZenMode<CR>", "zenmode" },

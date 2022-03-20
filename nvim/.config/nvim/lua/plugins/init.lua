@@ -76,12 +76,12 @@ require("packer").startup({
             require("plugins.config.dial"),
             require("plugins.config.sort"),
             require("plugins.config.splitjoin"),
+            require("plugins.config.substitute"),
             require("plugins.config.vim-abolish"),
             require("plugins.config.vim-caser"),
             require("plugins.config.vim-sandwich"),
             require("plugins.config.vim-wordmotion"),
             { "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" },
-            { "tommcdo/vim-exchange", keys = { { "n", "cx" }, { "v", "X" } } },
             -- telescope
             require("plugins.config.octo"),
             require("plugins.config.refactoring"),
