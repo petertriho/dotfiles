@@ -274,16 +274,6 @@ M.setup = function(overrides)
                     return extra_args
                 end,
             }),
-            sources_formatting.black.with({
-                condition = function(utils)
-                    return not check_if_black_accepts_stdin()
-                end,
-            }),
-            b.formatting.black.with({
-                condition = function(utils)
-                    return check_if_black_accepts_stdin()
-                end,
-            }),
             -- nginx
             b.formatting.nginx_beautifier,
             -- python
@@ -298,6 +288,7 @@ M.setup = function(overrides)
             sources_formatting.autoflake,
             sources_formatting.docformatter,
             sources_formatting.pybetter,
+            sources_formatting.pyupgrade,
             sources_formatting.ssort.with({
                 condition = function(utils)
                     return not string.find(vim.fn.system("python --version"), "3.8")
@@ -314,7 +305,16 @@ M.setup = function(overrides)
                     return extra_args
                 end,
             }),
-            sources_formatting.pyupgrade,
+            sources_formatting.black.with({
+                condition = function(utils)
+                    return not check_if_black_accepts_stdin()
+                end,
+            }),
+            b.formatting.black.with({
+                condition = function(utils)
+                    return check_if_black_accepts_stdin()
+                end,
+            }),
             -- shell
             b.code_actions.shellcheck,
             b.diagnostics.shellcheck,
