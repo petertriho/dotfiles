@@ -79,10 +79,6 @@ function main {
         pipx install ssort
     fi
 
-    # if ! command -v cspell &> /dev/null; then
-    #     npm install --global add cspell
-    # fi
-
     if ! command -v fixjson &> /dev/null; then
         npm install --global fixjson
     fi

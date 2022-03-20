@@ -241,23 +241,6 @@ M.setup = function(overrides)
                 filetypes = {},
                 disabled_filetypes = { "gitcommit", "markdown", "NvimTree", "vimwiki" },
             }),
-            -- b.diagnostics.cspell.with({
-            --     filetypes = {},
-            --     disabled_filetypes = { "gitcommit", "markdown", "NvimTree", "vimwiki" },
-            --     on_output = h.diagnostics.from_pattern(
-            --         [[.*:(%d+):(%d+)%s*(-)%s*(.*)]],
-            --         { "row", "col", "severity", "message" },
-            --         {
-            --             severities = {
-            --                 ["-"] = h.diagnostics.severities.information,
-            --             },
-            --         }
-            --     ),
-            --     extra_args = {
-            --         "--config",
-            --         vim.fn.expand("$HOME/.config/format-lint/.cspell.json"),
-            --     },
-            -- }),
             b.hover.dictionary,
             -- conf
             sources_diagnostics.dotenv,
@@ -412,8 +395,6 @@ M.setup = function(overrides)
     }, overrides or {})
 
     null_ls.setup(config)
-
-    -- null_ls.disable("spell")
 end
 
 return M

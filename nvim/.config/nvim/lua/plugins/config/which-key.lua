@@ -170,7 +170,6 @@ return {
                 "<CMD>lua require('telescope.builtin').lsp_type_definitions({ jump_type = 'never' })<CR>",
                 "type-definitions",
             },
-            T = { "<CMD>lua require('null-ls').toggle('spell')<CR>", "toggle-cspell" },
         }
 
         leader_visual_keymaps["l"] = {
