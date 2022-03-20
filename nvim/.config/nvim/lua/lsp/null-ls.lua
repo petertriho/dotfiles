@@ -225,8 +225,8 @@ local sources_formatting = {
 
 local b = require("null-ls.builtins")
 
-local utils = require("null-ls.utils")
-local conditional = utils.make_conditional_utils()
+local u = require("null-ls.utils")
+local conditional = u.make_conditional_utils()
 
 local check_if_black_accepts_stdin = function()
     local black_version = string.match(vim.fn.system("black --version"), "([%d%.]+%a*%d*)")
