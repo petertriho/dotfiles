@@ -47,7 +47,7 @@ require("packer").startup({
             require("plugins.config.nvim-markdown"),
             require("plugins.config.rainbow"),
             require("plugins.config.todo-comments"),
-            -- require("plugins.config.vim-polyglot"),
+            require("plugins.config.vim-polyglot"),
             require("plugins.config.vim-ultest"),
             { "rrethy/vim-hexokinase", run = "make hexokinase", opt = true },
             -- treesitter
