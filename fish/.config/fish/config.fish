@@ -18,10 +18,9 @@ switch (uname)
         eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
         test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
-
-        set -gx LDFLAGS -L$HOMEBREW_PREFIX/opt/openssl/lib
-        set -gx CPPFLAGS -I$HOMEBREW_PREFIX/opt/openssl/include
 end
+
+set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
 
 fish_add_path $HOME/.local/bin
 
