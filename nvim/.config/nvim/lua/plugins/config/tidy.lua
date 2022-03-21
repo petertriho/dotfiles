@@ -5,7 +5,6 @@ return {
         require("tidy").setup({
             fmts = {
                 "eof",
-                "sof",
                 "ws",
             },
         })
