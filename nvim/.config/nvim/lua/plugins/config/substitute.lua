@@ -1,14 +1,7 @@
 return {
     "gbprod/substitute.nvim",
-    config = function()
-        require("substitute").setup({
-            on_substitute = function(_)
-                if packer_plugins["vim-yoink"] and packer_plugins["vim-yoink"].loaded then
-                    vim.fn["yoink#startUndoRepeatSwap"]()
-                end
-            end,
-        })
-
+    module = "substitute",
+    setup = function()
         local set_keymap = vim.api.nvim_set_keymap
 
         set_keymap("n", "s", "<CMD>lua require('substitute').operator()<CR>", { noremap = true })
@@ -36,5 +29,14 @@ return {
 
         set_keymap("x", "p", "<CMD>lua require('substitute').visual()<CR>", {})
         set_keymap("x", "P", "<CMD>lua require('substitute').visual()<CR>", {})
+    end,
+    config = function()
+        require("substitute").setup({
+            on_substitute = function(_)
+                if packer_plugins["vim-yoink"] and packer_plugins["vim-yoink"].loaded then
+                    vim.fn["yoink#startUndoRepeatSwap"]()
+                end
+            end,
+        })
     end,
 }
