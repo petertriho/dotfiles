@@ -24,8 +24,6 @@ switch (uname)
 end
 
 fish_add_path $HOME/.local/bin
-test -e $YARN_GLOBAL_BIN; and fish_add_path -mP $YARN_GLOBAL_BIN
-test -e "$HOME/.asdf/installs/rust/stable/bin"; and fish_add_path -mP "$HOME/.asdf/installs/rust/stable/bin"
 
 set -gx EDITOR nvim
 
