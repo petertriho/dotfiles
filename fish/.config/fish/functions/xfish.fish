@@ -1,4 +1,7 @@
 function xfish --wraps fish --description "Fish (x86)"
+    set CURR_NODEJS_VERSION (grep "nodejs" "$HOME/.tool-versions" | sed "s/nodejs *\(.*\)/\1/")
+    set CURR_RUST_VERSION (grep "rust" "$HOME/.tool-versions" | sed "s/rust *\(.*\)/\1/")
+
     # https://github.com/asdf-vm/asdf/issues/1082 issue with tool versions
     set NODEJS_VERSION (grep "nodejs" "$HOME/.tool-versions-x86" | sed "s/nodejs *\(.*\)/\1/")
     set PYTHON_VERSION (grep "python" "$HOME/.tool-versions-x86" | sed "s/python *\(.*\)/\1/")
@@ -12,6 +15,7 @@ function xfish --wraps fish --description "Fish (x86)"
             set -x ASDF_PYTHON_DEFAULT_PACKAGES_FILE $HOME/.default-python-packages-x86;
             set -x ASDF_PYTHON_VERSION $PYTHON_VERSION;
             set -x DOCKER_DEFAULT_PLATFORM linux/amd64;
-            fish_add_path -mP $HOME/.asdf/installs/rust/stable/bin;" \
+            fish_add_path -mP $HOME/.asdf/installs/nodejs/$CURR_NODEJS_VERSION/.npm/bin;
+            fish_add_path -mP $HOME/.asdf/installs/rust/$CURR_RUST_VERSION/bin;" \
         $argv
 end
