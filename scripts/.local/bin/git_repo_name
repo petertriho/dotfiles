@@ -8,6 +8,6 @@ else
     repository=$(git config --get remote.origin.url)
 fi
 
-repo_name=$(echo "$repository" | sed -e 's#\(.git\)$##' | sed -r 's#^.*/([^/]+)$#\1#')
+repo_name=$(echo "$repository" | sed 's/\(\.git\)$//' | sed -r 's#^.*/([^/]+)$#\1#')
 
 echo "$repo_name"

@@ -196,13 +196,13 @@ function tool:all {
 }
 
 function tool:list {
-    compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat
+    compgen -A function | sed -rn 's/tool:(.*)/\1/p' | cat
 }
 
 function tool:help {
     printf "Usage: %s [TOOL] [ARGS]\n\nTools:\n" "$0"
 
-    compgen -A function | sed -En 's/tool:(.*)/\1/p' | cat -n
+    compgen -A function | sed -rn 's/tool:(.*)/\1/p' | cat -n
 }
 
 "tool:${@:-all}"
