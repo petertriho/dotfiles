@@ -3,6 +3,8 @@ switch (uname)
         set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
         eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
+        set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
+
         test -e $HOME/.asdf/asdf.fish; and source $HOME/.asdf/asdf.fish
 
         if test -e /proc/version && test -n (string match -r "microsoft" (cat "/proc/version"))
@@ -19,8 +21,6 @@ switch (uname)
 
         test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 end
-
-set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
 
 fish_add_path $HOME/.local/bin
 
