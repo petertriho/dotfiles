@@ -6,6 +6,9 @@
 # - Winget
 # - Scoop
 # - dotfiles
+# - thisiswin11 app
+# - excludeWSL
+# - speedUp
 
 # WSL
 # https://docs.microsoft.com/en-gb/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
