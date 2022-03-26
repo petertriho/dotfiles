@@ -6,6 +6,8 @@ switch (uname)
         set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
 
         test -e $HOME/.asdf/asdf.fish; and source $HOME/.asdf/asdf.fish
+        test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
+end
 
         if test -e /proc/version && test -n (string match -r "microsoft" (cat "/proc/version"))
             set -gx FORGIT_COPY_CMD "win32yank.exe -i"
