@@ -3,7 +3,7 @@ switch (uname)
         set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
         eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
-        set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
+        set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
 
         test -e $HOME/.asdf/asdf.fish; and source $HOME/.asdf/asdf.fish
         test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
@@ -37,8 +37,6 @@ if command -v starship &>/dev/null
 end
 
 if status is-interactive
-    set -gx ENHANCD_FILTER fzf
-
     set -gx FZF_DEFAULT_OPTS \
         --ansi \
         --exact \
