@@ -1,3 +1,4 @@
 setuptools
 pipx
 pynvim
+libtmux
