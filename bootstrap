@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PYTHON_VERSION=3.10
+NODEJS_VERSION=16
+
+function main {
+    # Homebrew
+    sudo apt-get install build-essential procps curl file git
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+    brew install gcc bash git libffi gh asdf fish tmux fzf
+    brew install neovim --HEAD
+
+    # Asdf
+    source "$HOMEBREW_PREFIX/opt/asdf/asdf.sh"
+    export CC "$HOMEBREW_PREFIX/bin/gcc-11"
+
+    asdf plugin add golang
+    asdf install golang latest
+    asdf global golang latest
+
+    asdf plugin add nodejs
+    asdf install nodejs latest:$NODEJS_VERSION
+    asdf global nodejs latest:$NODEJS_VERSION
+
+    asdf plugin add python
+    asdf install python latest:$PYTHON_VERSION
+    asdf global python latest:$PYTHON_VERSION
+
+    asdf plugin add rust
+    asdf install rust stable
+    asdf global rust stable
+
+    # Plugin managers
+    fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+    FISH_PATH=$(which fish)
+    echo "$FISH_PATH" | sudo tee --append /etc/shell
+    chsh -s "$FISH_PATH"
+
+    gh auth login
+
+    (
+        cd ~/.dotfiles
+                     git config remote.origin.url git@github.com:petertriho/dotfiles.git
+    )
+}
+
+main
