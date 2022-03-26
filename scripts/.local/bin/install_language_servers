@@ -23,6 +23,10 @@ function main {
         GO111MODULE=on go install golang.org/x/tools/gopls@latest
     fi
 
+    if ! command -v pylsp &> /dev/null; then
+        pipx install "python-lsp-server[all]"
+    fi
+
     if ! command -v bash-language-server &> /dev/null; then
         npm install --global bash-language-server
     fi

@@ -44,13 +44,14 @@ return {
     },
     rust_analyzer = {},
     prismals = {},
-    pyright = {
-        python = {
-            analysis = {
-                diagnosticMode = "workspace",
-            },
-        },
-    },
+    -- pyright = {
+    --     python = {
+    --         analysis = {
+    --             diagnosticMode = "workspace",
+    --         },
+    --     },
+    -- },
+    pylsp = {},
     sumneko_lua = {},
     svelte = {},
     tailwindcss = {
