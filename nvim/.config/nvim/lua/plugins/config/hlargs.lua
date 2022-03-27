@@ -3,6 +3,8 @@ return {
     requires = "nvim-treesitter/nvim-treesitter",
     after = "nvim-treesitter",
     config = function()
-        require("hlargs").setup()
+        require("hlargs").setup({
+            color = require("colors").yellow,
+        })
     end,
 }
