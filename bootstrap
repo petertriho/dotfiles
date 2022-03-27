@@ -56,10 +56,7 @@ function setup_misc {
 
     gh auth login
 
-    (
-        cd ~/.dotfiles
-                     git config remote.origin.url git@github.com:petertriho/dotfiles.git
-    )
+    (cd "$HOME/.dotfiles" && git config remote.origin.url git@github.com:petertriho/dotfiles.git)
 }
 
 function main {
