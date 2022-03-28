@@ -14,7 +14,7 @@ function install_homebrew {
     brew install gcc bash git libffi gh fish tmux fzf todo-txt
     brew install neovim --HEAD
 
-    export CC "$HOMEBREW_PREFIX/bin/gcc-11"
+    export CC="$HOMEBREW_PREFIX/bin/gcc-11"
 }
 
 function install_asdf {
