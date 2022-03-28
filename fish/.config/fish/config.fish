@@ -66,7 +66,7 @@ if status is-interactive
 
     delta_side_by_side
 
-    set sponge_delay 10
+    set -g sponge_delay 10
 
     if command -v zoxide &>/dev/null
         zoxide init --cmd j fish | source
