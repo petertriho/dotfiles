@@ -12,7 +12,8 @@ switch (uname)
             set -gx FORGIT_COPY_CMD "win32yank.exe -i"
         end
     case Darwin
-        switch (uname -m):
+        set arch (uname -m)
+        switch $arch:
             case arm64:
                 set -gx HOMEBREW_PREFIX /opt/homebrew
             case x86_64:
@@ -20,7 +21,9 @@ switch (uname)
         end
         eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
-        set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
+        if [ $arch = "x86_64" ]
+            set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
+        end
 
         test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 end
