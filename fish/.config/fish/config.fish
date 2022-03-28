@@ -20,6 +20,8 @@ switch (uname)
         end
         eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
+        set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
+
         test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 end
 
