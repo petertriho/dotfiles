@@ -9,3 +9,4 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 New-Alias open ii
+New-Alias v nvim.exe
