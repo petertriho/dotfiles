@@ -53,7 +53,7 @@ function install_plugin_managers {
 
 function setup_misc {
     FISH_PATH=$(which fish)
-    echo "$FISH_PATH" | sudo tee --append /etc/shell
+    echo "$FISH_PATH" | sudo tee --append /etc/shells
     chsh -s "$FISH_PATH"
 
     gh auth login
