@@ -36,6 +36,8 @@ function install_asdf {
     asdf plugin add rust
     asdf install rust stable
     asdf global rust stable
+
+    asdf reshim
 }
 
 function install_plugin_managers {
