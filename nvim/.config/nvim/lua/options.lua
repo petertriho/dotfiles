@@ -29,14 +29,24 @@ opt.cursorline = true
 opt.diffopt:append("algorithm:histogram,hiddenoff")
 opt.expandtab = true
 opt.fillchars = {
-    fold = " ",
-    vert = "│",
-    eob = " ",
-    msgsep = "‾",
     diff = "╱",
+    eob = " ",
+    fold = " ",
+    msgsep = "‾",
+    vert = "│",
 }
 opt.ignorecase = true
 opt.lazyredraw = true
+opt.list = true
+opt.listchars = {
+    eol = "¬",
+    extends = "›",
+    nbsp = "¤",
+    precedes = "‹",
+    space = "·",
+    tab = "» ",
+    trail = "·",
+}
 opt.mouse = "a"
 opt.number = true
 opt.path:append("**")
