@@ -64,7 +64,9 @@ return {
             },
         },
     },
-    taplo = {},
+    taplo = {
+        cmd = { "taplo", "lsp", "stdio" },
+    },
     terraformls = {},
     tflint = {},
     tsserver = {

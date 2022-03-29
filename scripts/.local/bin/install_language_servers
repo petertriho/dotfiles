@@ -15,8 +15,8 @@ function main {
         brew install rust-analyzer
     fi
 
-    if ! command -v taplo-lsp &> /dev/null; then
-        cargo install --locked taplo-lsp
+    if ! command -v taplo &> /dev/null; then
+        cargo install taplo-cli
     fi
 
     if ! command -v gopls &> /dev/null; then
