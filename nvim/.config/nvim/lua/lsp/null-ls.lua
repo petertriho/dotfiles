@@ -286,7 +286,11 @@ M.setup = function(overrides)
             }),
             -- b.diagnostics.pylint,
             sources_formatting.autoflake,
-            sources_formatting.docformatter,
+            sources_formatting.docformatter.with({
+                condition = function(utils)
+                    return not string.find(vim.fn.system("python --version"), "3.8")
+                end,
+            }),
             sources_formatting.pybetter,
             sources_formatting.pyupgrade,
             sources_formatting.ssort.with({
