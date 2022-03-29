@@ -363,6 +363,21 @@ M.setup = function(overrides)
                     "yaml",
                     "yaml.docker-compose",
                 },
+                extra_args = function(params)
+                    local extra_args = {}
+
+                    if params.options and not params.options.insertSpaces then
+                        table.insert(extra_args, "--use-tabs")
+                        table.insert(extra_args, "true")
+                    end
+
+                    if params.options and params.options.tabSize then
+                        table.insert(extra_args, "--tab-width")
+                        table.insert(extra_args, params.options.tabSize)
+                    end
+
+                    return extra_args
+                end,
             }),
             b.formatting.prettierd.with({
                 filetypes = {
