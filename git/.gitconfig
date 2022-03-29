@@ -1,47 +1,51 @@
 [commit]
-	verbose = true
-	template = ~/.gittemplates/commit
+    verbose = true
+    template = ~/.gittemplates/commit
 
 [core]
-	# Remove delta_side_by_side function when fixed
-	# https://github.com/dandavison/delta/issues/359
-	# https://github.com/wfxr/forgit/issues/121
-	pager = delta --width $COLUMNS
+    # Remove delta_side_by_side function when fixed
+    # https://github.com/dandavison/delta/issues/359
+    # https://github.com/wfxr/forgit/issues/121
+    pager = delta --width $COLUMNS
 
 [delta]
-	syntax-theme = base16
-	true-color = always
+    navigate = true
+    syntax-theme = base16
+    true-color = always
+
+[diff]
+    colorMoved = zebra
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [interactive]
-	diffFilter = delta --color-only
+    diffFilter = delta --color-only
 
 [fetch]
-	prune = true
+    prune = true
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
 [merge]
-	conflictStyle = diff3
-	tool = mergetool
+    conflictStyle = diff3
+    tool = mergetool
 
 [mergetool "fugitive"]
-	cmd = nvim -f -c "Gvdiffsplit!" "$MERGED"
-	trustExitCode = false
+    cmd = nvim -f -c "Gvdiffsplit!" "$MERGED"
+    trustExitCode = false
 
 [mergetool "mergetool"]
-	cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
-	trustExitCode = true
+    cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+    trustExitCode = true
 
 [pull]
-	rebase = true
+    rebase = true
 
 [user]
-	name = Peter Tri Ho
-	email = mail@petertriho.com
+    name = Peter Tri Ho
+    email = mail@petertriho.com
