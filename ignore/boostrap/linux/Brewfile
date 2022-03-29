@@ -1,0 +1,13 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+brew "asdf"
+brew "bash"
+brew "fish"
+brew "fzf"
+brew "gcc"
+brew "gh"
+brew "git"
+brew "libffi"
+brew "neovim", args: ["HEAD"]
+brew "tmux"
+brew "todo-txt"
