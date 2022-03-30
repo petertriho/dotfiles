@@ -15,6 +15,14 @@
 
 [diff]
     colorMoved = zebra
+    external = difft
+    tool = difftastic
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
 
 [init]
     defaultBranch = main
@@ -42,6 +50,9 @@
 [mergetool "mergetool"]
     cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
     trustExitCode = true
+
+[pager]
+    difftool = true
 
 [pull]
     rebase = true
