@@ -8,6 +8,8 @@ return {
             char = "│",
             show_current_context = true,
             filetype_exclude = require("filetypes").excludes,
+            show_end_of_line = true,
+            space_char_blankline = " ",
         })
     end,
 }
