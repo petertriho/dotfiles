@@ -361,7 +361,6 @@ M.setup = function(overrides)
                     "svelte",
                     "vimwiki",
                     "yaml",
-                    "yaml.docker-compose",
                 },
                 extra_args = function(params)
                     local extra_args = {}
