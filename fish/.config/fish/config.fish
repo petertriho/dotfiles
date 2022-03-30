@@ -2,28 +2,22 @@ switch (uname)
     case Linux
         set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
         eval ($HOMEBREW_PREFIX/bin/brew shellenv)
-
         set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
 
-        test -e $HOME/.asdf/asdf.fish; and source $HOME/.asdf/asdf.fish
         test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 
         if test -e /proc/version && test -n (string match -r "microsoft" (cat "/proc/version"))
             set -gx FORGIT_COPY_CMD "win32yank.exe -i"
         end
     case Darwin
-        set arch (uname -m)
-        switch $arch:
+        switch (uname -m):
             case arm64:
                 set -gx HOMEBREW_PREFIX /opt/homebrew
             case x86_64:
                 set -gx HOMEBREW_PREFIX /usr/local
+                set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
         end
         eval ($HOMEBREW_PREFIX/bin/brew shellenv)
-
-        if [ $arch = "x86_64" ]
-            set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
-        end
 
         test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 end
@@ -31,11 +25,6 @@ end
 fish_add_path $HOME/.local/bin
 
 set -gx EDITOR nvim
-
-set -gx PROJECT_PATHS \
-    $HOME/Documents/Projects \
-    $HOME/Documents/GitHub \
-    $HOME/Documents/GitLab
 
 if command -v starship &>/dev/null
     starship init fish | source
@@ -59,13 +48,15 @@ if status is-interactive
     set -gx FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
     set -gx FORGIT_LOG_GRAPH_ENABLE true
 
-    set -g fzf_fd_opts --hidden --exclude .git
-    fzf_configure_bindings \
-        --directory=\e\cf \
-        --git_log=\e\cl \
-        --git_status=\e\cs \
-        --history=\e\cr \
-        --variable=\e\ce
+    if type --query fzf_configure_bindings
+        set -g fzf_fd_opts --hidden --exclude .git
+        fzf_configure_bindings \
+            --directory=\e\cf \
+            --git_log=\e\cl \
+            --git_status=\e\cs \
+            --history=\e\cr \
+            --variable=\e\ce
+    end
 
     delta_side_by_side
 
