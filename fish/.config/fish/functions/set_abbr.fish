@@ -25,7 +25,7 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- gcl  'git clone'
     abbr -a -U -- gco  'git checkout'
     abbr -a -U -- gcob 'git checkout -b'
-    abbr -a -U -- gd   'git diff'
+    abbr -a -U -- gdi  'git diff'
     abbr -a -U -- gdt  'git difftool'
     abbr -a -U -- gf   'git fetch'
     abbr -a -U -- gl   'git log -p --ext-diff'
