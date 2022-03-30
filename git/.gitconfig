@@ -15,7 +15,7 @@
 
 [diff]
     colorMoved = zebra
-    external = difft
+    # external = difft
     tool = difftastic
 
 [difftool]
