@@ -1,5 +1,5 @@
 return {
-    "akinsho/nvim-bufferline.lua",
+    "akinsho/bufferline.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     setup = function()
         local set_keymap = vim.api.nvim_set_keymap

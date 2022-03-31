@@ -5,8 +5,8 @@ require("packer").startup({
         local plugins = {
             require("plugins.config.tokyonight"),
             -- ui
+            require("plugins.config.bufferline"),
             require("plugins.config.gitsigns"),
-            require("plugins.config.nvim-bufferline"),
             require("plugins.config.nvim-scrollbar"),
             { "feline-nvim/feline.nvim", requires = "kyazdani42/nvim-web-devicons" },
             -- lsp
