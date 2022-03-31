@@ -94,6 +94,7 @@ require("packer").startup({
                 module = "telescope.extensions.project",
             },
             -- tools
+            require("plugins.config.conflict-marker"),
             require("plugins.config.dirbuf"),
             require("plugins.config.diffview"),
             require("plugins.config.github-notifications"),

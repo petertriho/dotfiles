@@ -13,8 +13,15 @@ return {
 
         local colors = require("colors")
 
+        vim.api.nvim_set_hl(0, "ConflictMarkerBegin", { bg = colors.diff.delete })
+        vim.api.nvim_set_hl(0, "ConflictMarkerOurs", { bg = colors.diff.delete })
+        vim.api.nvim_set_hl(0, "ConflictMarkerTheirs", { bg = colors.diff.add })
+        vim.api.nvim_set_hl(0, "ConflictMarkerEnd", { bg = colors.diff.add })
+        vim.api.nvim_set_hl(0, "ConflictMarkerCommonAncestorsHunk", { bg = colors.diff.change })
+
         vim.api.nvim_set_hl(0, "QuickScopePrimary", { fg = colors.blue, underline = true })
         vim.api.nvim_set_hl(0, "QuickScopeSecondary", { fg = colors.red, underline = true })
+
         vim.api.nvim_set_hl(0, "Folded", { fg = colors.comment, bg = nil })
 
         vim.cmd([[
