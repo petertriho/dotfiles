@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-branch=$(git branch --list | grep "^\*.*" | sed "s/* *\(.*\)/\1/")
+branch=$(git branch --show-current)
 
 git branch --set-upstream-to="origin/${branch}" "$branch"

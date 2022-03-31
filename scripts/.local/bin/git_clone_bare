@@ -21,7 +21,7 @@ git clone --bare "$repository" "${directory}/.git"
         && git fetch
 )
 
-branch=$(cd "$directory" && git branch --list | grep "^\*.*" | sed "s/* *\(.*\)/\1/")
+branch=$(cd "$directory" && git branch --show-current)
 
 (
     cd "$directory" \
