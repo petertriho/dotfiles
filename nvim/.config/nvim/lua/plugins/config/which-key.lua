@@ -105,6 +105,7 @@ return {
                 "<CMD>lua require('gitlinker').get_repo_url({ action_callback = require('gitlinker.actions').open_in_browser })<CR>",
                 "url-browser",
             },
+            x = { "<CMD>GitConflictListQf<CR>", "conflict-qf" },
         }
 
         leader_visual_keymaps["g"] = {

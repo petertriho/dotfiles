@@ -94,9 +94,9 @@ require("packer").startup({
                 module = "telescope.extensions.project",
             },
             -- tools
-            require("plugins.config.conflict-marker"),
             require("plugins.config.dirbuf"),
             require("plugins.config.diffview"),
+            require("plugins.config.git-conflict"),
             require("plugins.config.github-notifications"),
             require("plugins.config.gitlinker"),
             require("plugins.config.neogit"),
@@ -139,12 +139,12 @@ require("packer").startup({
             require("plugins.config.range-highlight"),
             require("plugins.config.stickybuf"),
             require("plugins.config.tidy"),
+            require("plugins.config.vim-unimpaired"),
             require("plugins.config.vim-yoink"),
             require("plugins.config.winshift"),
             { "dstein64/vim-startuptime", cmd = "StartupTime" },
             { "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } },
             { "ryvnf/readline.vim", event = "CmdlineEnter" },
-            { "tpope/vim-unimpaired" },
         }
 
         for _, plugin in ipairs(plugins) do
