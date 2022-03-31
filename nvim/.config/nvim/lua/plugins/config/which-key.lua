@@ -35,6 +35,7 @@ return {
             s = { "substitute-range" },
             S = { "subvert-range" },
             u = { "<CMD>MundoToggle<CR>", "undotree" },
+            v = "venn-draw",
             x = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
             z = { "<CMD>ZenMode<CR>", "zenmode" },
         }
