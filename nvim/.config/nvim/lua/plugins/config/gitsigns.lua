@@ -54,6 +54,11 @@ return {
                     return "<Ignore>"
                 end, { expr = true })
 
+                require("which-key").register({
+                    ["[c"] = "Previous change",
+                    ["]c"] = "Next change",
+                }, {})
+
                 -- Actions
                 map("n", "<leader>hb", function()
                     gs.blame_line({ full = true })
