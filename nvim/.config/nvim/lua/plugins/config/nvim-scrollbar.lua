@@ -7,7 +7,7 @@ return {
             marks = {
                 Search = { color = colors.orange },
             },
-            excluded_filetypes = require("filetypes").excludes
+            excluded_filetypes = require("filetypes").excludes,
         })
     end,
 }

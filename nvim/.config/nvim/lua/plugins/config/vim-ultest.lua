@@ -16,8 +16,8 @@ return {
             },
             keys = {
                 "<Plug>(ultest-next-fail)",
-                "<Plug>(ultest-prev-fail)"
-            }
+                "<Plug>(ultest-prev-fail)",
+            },
         },
     },
     after = "vim-test",
