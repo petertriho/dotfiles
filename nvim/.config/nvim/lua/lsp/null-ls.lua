@@ -80,38 +80,6 @@ local sources_diagnostics = {
         },
         factory = h.generator_factory,
     }),
-    fish = h.make_builtin({
-        method = DIAGNOSTICS,
-        filetypes = { "fish" },
-        generator_opts = {
-            command = "fish",
-            args = {
-                "-n",
-                "$FILENAME",
-            },
-            to_temp_file = true,
-            from_stderr = true,
-            format = "line",
-            on_output = function(line)
-                local pattern = "%(line (%d+)%): (.+)"
-                local row, message = line:match(pattern)
-
-                if row == nil then
-                    return nil
-                end
-
-                return {
-                    row = tonumber(row),
-                    col = 1,
-                    end_col = #line,
-                    source = "fish",
-                    message = message,
-                    severity = h.diagnostics.severities.error,
-                }
-            end,
-        },
-        factory = h.generator_factory,
-    }),
     jq = h.make_builtin({
         method = DIAGNOSTICS,
         filetypes = { "json", "jsonc" },
@@ -247,7 +215,7 @@ M.setup = function(overrides)
             -- dockerfile
             b.diagnostics.hadolint,
             -- fish
-            sources_diagnostics.fish,
+            b.diagnostics.fish,
             b.formatting.fish_indent,
             -- json
             sources_diagnostics.jq,
