@@ -13,9 +13,9 @@ switch (uname)
         switch (uname -m):
             case arm64:
                 set -gx HOMEBREW_PREFIX /opt/homebrew
+                set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
             case x86_64:
                 set -gx HOMEBREW_PREFIX /usr/local
-                set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
         end
         eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
