@@ -131,19 +131,19 @@ local function mkdir()
     end
 end
 
+local function python3_host_prog_job(cmd)
+    vim.fn.jobstart(cmd, {
+        on_stdout = function(_, data, _)
+            g.python3_host_prog = string.gsub(data[1], "\n", "")
+        end,
+    })
+end
+
 local function set_python3_host_prog()
     if vim.fn.exists("$VIRTUAL_ENV") == 1 then
-        vim.fn.jobstart("which -a python3 | head -n2 | tail -n1", {
-            on_stdout = function(_, data, _)
-                g.python3_host_prog = string.gsub(data[1], "\n", "")
-            end,
-        })
+        python3_host_prog_job("which -a python3 | head -n2 | tail -n1")
     else
-        vim.fn.jobstart("which python3", {
-            on_stdout = function(_, data, _)
-                g.python3_host_prog = string.gsub(data[1], "\n", "")
-            end,
-        })
+        python3_host_prog_job("which python3")
     end
 end
 
