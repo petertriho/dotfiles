@@ -133,9 +133,17 @@ end
 
 local function set_python3_host_prog()
     if vim.fn.exists("$VIRTUAL_ENV") == 1 then
-        g.python3_host_prog = string.gsub(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "")
+        vim.fn.jobstart("which -a python3 | head -n2 | tail -n1", {
+            on_stdout = function(_, data, _)
+                g.python3_host_prog = string.gsub(data[1], "\n", "")
+            end,
+        })
     else
-        g.python3_host_prog = string.gsub(vim.fn.system("which python3"), "\n", "")
+        vim.fn.jobstart("which python3", {
+            on_stdout = function(_, data, _)
+                g.python3_host_prog = string.gsub(data[1], "\n", "")
+            end,
+        })
     end
 end
 
