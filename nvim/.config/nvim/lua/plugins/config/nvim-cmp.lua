@@ -161,6 +161,7 @@ return {
                         cmdline = "[CMD]",
                         cmp_git = "[GIT]",
                         cmp_tabnine = "[TABNINE]",
+                        copilot = "[COPILOT]",
                         fuzzy_path = "[FZ-PATH]",
                         fuzzy_buffer = "[FZ-BUFFER]",
                         nvim_lsp = "[LSP]",
@@ -196,6 +197,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "cmp_git" },
+                { name = "copilot" },
                 { name = "cmp_tabnine" },
                 { name = "path" },
                 {
