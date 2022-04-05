@@ -15,8 +15,8 @@ return {
     setup = function()
         local set_keymap = vim.api.nvim_set_keymap
 
-        set_keymap("n", "\\s", "<Plug>Lightspeed_s", {})
-        set_keymap("n", "\\S", "<Plug>Lightspeed_S", {})
+        set_keymap("", "<Leader>s", "<Plug>Lightspeed_s", {})
+        set_keymap("", "<leader>S", "<Plug>Lightspeed_S", {})
 
         set_keymap("n", "gz", "<Plug>Lightspeed_gs", {})
         set_keymap("n", "gZ", "<Plug>Lightspeed_gS", {})
