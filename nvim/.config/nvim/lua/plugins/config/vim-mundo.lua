@@ -2,6 +2,6 @@ return {
     "simnalamburt/vim-mundo",
     cmd = "MundoToggle",
     config = function()
-        vim.cmd("doautocmd User PythonHostProg")
+        vim.api.nvim_exec_autocmds("User", { pattern = "PythonHostProg" })
     end,
 }

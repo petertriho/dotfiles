@@ -34,6 +34,6 @@ return {
         vim.api.nvim_set_keymap("n", "[t", "<Plug>(ultest-prev-fail)", {})
     end,
     config = function()
-        vim.cmd("doautocmd User PythonHostProg")
+        vim.api.nvim_exec_autocmds("User", { pattern = "PythonHostProg" })
     end,
 }

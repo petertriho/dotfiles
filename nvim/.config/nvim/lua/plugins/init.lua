@@ -181,7 +181,7 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 vim.defer_fn(function()
-    vim.cmd([[doautocmd User DeferredPlugins]])
+    vim.api.nvim_exec_autocmds("User", { pattern = "DeferredPlugins" })
 end, 80)
 
 vim.cmd("command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>")
