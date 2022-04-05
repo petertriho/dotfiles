@@ -182,7 +182,6 @@ local sources_formatting = {
         generator_opts = {
             command = "pyupgrade",
             args = {
-                "--py3-plus",
                 "$FILENAME",
             },
             to_temp_file = true,
@@ -260,17 +259,41 @@ M.setup = function(overrides)
                 end,
             }),
             sources_formatting.pybetter,
-            sources_formatting.pyupgrade,
+            sources_formatting.pyupgrade.with({
+                extra_args = function(params)
+                    local extra_args = {}
+
+                    local python_version = vim.fn.system("python --version")
+
+                    if python_version >= "3.11" then
+                        table.insert(extra_args, "--py311-plus")
+                    elseif python_version >= "3.10" then
+                        table.insert(extra_args, "--py310-plus")
+                    elseif python_version >= "3.9" then
+                        table.insert(extra_args, "--py39-plus")
+                    elseif python_version >= "3.8" then
+                        table.insert(extra_args, "--py38-plus")
+                    elseif python_version >= "3.7" then
+                        table.insert(extra_args, "--py37-plus")
+                    elseif python_version >= "3.6" then
+                        table.insert(extra_args, "--py36-plus")
+                    elseif python_version >= "3" then
+                        table.insert(extra_args, "--py3-plus")
+                    end
+
+                    return extra_args
+                end,
+            }),
             sources_formatting.ssort.with({
                 condition = function(utils)
-                    return not string.find(vim.fn.system("python --version"), "3.8")
+                    return vim.fn.system("python --version") >= "3.9"
                 end,
             }),
             b.formatting.isort.with({
                 extra_args = function(params)
                     local extra_args = { "--profile", "black" }
 
-                    if string.find(vim.fn.system("python --version"), "3.8") then
+                    if vim.fn.system("python --version") < "3.9" then
                         table.insert(extra_args, "--sl")
                     end
 
