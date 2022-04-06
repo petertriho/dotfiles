@@ -197,7 +197,6 @@ return {
                 { name = "nvim_lsp" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "cmp_git" },
-                { name = "copilot" },
                 { name = "cmp_tabnine" },
                 { name = "path" },
                 {
@@ -221,9 +220,6 @@ return {
                     },
                 },
                 { name = "vsnip" },
-            },
-            experimental = {
-                ghost_text = true,
             },
         })
 
