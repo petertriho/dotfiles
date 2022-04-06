@@ -222,6 +222,9 @@ return {
                 },
                 { name = "vsnip" },
             },
+            experimental = {
+                ghost_text = true,
+            },
         })
 
         cmp.setup.cmdline("/", {
