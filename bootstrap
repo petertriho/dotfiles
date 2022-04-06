@@ -21,6 +21,9 @@ function install_asdf {
     brew install asdf
     source "$HOMEBREW_PREFIX/opt/asdf/asdf.sh"
 
+    asdf plugin add direnv
+    asdf direnv setup --shell fish --version latest
+
     asdf plugin add golang
     asdf install golang latest
     asdf global golang latest

@@ -27,6 +27,8 @@ if command -v starship &>/dev/null
 end
 
 if status is-interactive
+    set -gx DIRENV_LOG_FORMAT ""
+
     set -gx FZF_DEFAULT_OPTS \
         --ansi \
         --exact \
