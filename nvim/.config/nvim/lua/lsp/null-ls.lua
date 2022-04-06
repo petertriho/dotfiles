@@ -200,6 +200,18 @@ local check_if_black_accepts_stdin = function()
     return black_version >= "21.4b0"
 end
 
+local PYTHON_VERSION = nil
+
+local get_python_version = function()
+    if PYTHON_VERSION == nil then
+        PYTHON_VERSION = { string.match(vim.fn.system("python --version"), "(%d+)%.(%d+)%.(%d+)") }
+        for i, v in ipairs(PYTHON_VERSION) do
+            PYTHON_VERSION[i] = tonumber(v)
+        end
+    end
+    return PYTHON_VERSION
+end
+
 M.setup = function(overrides)
     local config = vim.tbl_deep_extend("force", {
         sources = {
@@ -255,7 +267,7 @@ M.setup = function(overrides)
             sources_formatting.autoflake,
             sources_formatting.docformatter.with({
                 condition = function(utils)
-                    return not string.find(vim.fn.system("python --version"), "3.8")
+                    return get_python_version()[2] >= 9
                 end,
             }),
             sources_formatting.pybetter,
@@ -263,22 +275,23 @@ M.setup = function(overrides)
                 extra_args = function(params)
                     local extra_args = {}
 
-                    local python_version = vim.fn.system("python --version")
-
-                    if python_version >= "3.11" then
-                        table.insert(extra_args, "--py311-plus")
-                    elseif python_version >= "3.10" then
-                        table.insert(extra_args, "--py310-plus")
-                    elseif python_version >= "3.9" then
-                        table.insert(extra_args, "--py39-plus")
-                    elseif python_version >= "3.8" then
-                        table.insert(extra_args, "--py38-plus")
-                    elseif python_version >= "3.7" then
-                        table.insert(extra_args, "--py37-plus")
-                    elseif python_version >= "3.6" then
-                        table.insert(extra_args, "--py36-plus")
-                    elseif python_version >= "3" then
-                        table.insert(extra_args, "--py3-plus")
+                    get_python_version()
+                    if PYTHON_VERSION[1] >= 3 then
+                        if PYTHON_VERSION[2] >= 11 then
+                            table.insert(extra_args, "--py311-plus")
+                        elseif PYTHON_VERSION[2] >= 10 then
+                            table.insert(extra_args, "--py310-plus")
+                        elseif PYTHON_VERSION[2] >= 9 then
+                            table.insert(extra_args, "--py39-plus")
+                        elseif PYTHON_VERSION[2] >= 8 then
+                            table.insert(extra_args, "--py38-plus")
+                        elseif PYTHON_VERSION[2] >= 7 then
+                            table.insert(extra_args, "--py37-plus")
+                        elseif PYTHON_VERSION[2] >= 6 then
+                            table.insert(extra_args, "--py36-plus")
+                        else
+                            table.insert(extra_args, "--py3-plus")
+                        end
                     end
 
                     return extra_args
@@ -286,34 +299,39 @@ M.setup = function(overrides)
             }),
             sources_formatting.ssort.with({
                 condition = function(utils)
-                    return vim.fn.system("python --version") >= "3.9"
-                end,
-            }),
-            b.formatting.isort.with({
-                extra_args = function(params)
-                    local extra_args = { "--profile", "black" }
-
-                    if vim.fn.system("python --version") < "3.9" then
-                        table.insert(extra_args, "--sl")
-                    end
-
-                    return extra_args
+                    return get_python_version()[2] >= 9
                 end,
             }),
             b.formatting.reorder_python_imports.with({
                 extra_args = function(params)
                     local extra_args = {}
 
-                    local python_version = vim.fn.system("python --version")
+                    get_python_version()
+                    if PYTHON_VERSION[1] >= 3 then
+                        if PYTHON_VERSION[2] >= 10 then
+                            table.insert(extra_args, "--py310-plus")
+                        elseif PYTHON_VERSION[2] >= 9 then
+                            table.insert(extra_args, "--py39-plus")
+                        elseif PYTHON_VERSION[2] >= 8 then
+                            table.insert(extra_args, "--py38-plus")
+                        elseif PYTHON_VERSION[2] >= 7 then
+                            table.insert(extra_args, "--py37-plus")
+                        elseif PYTHON_VERSION[2] >= 6 then
+                            table.insert(extra_args, "--py36-plus")
+                        else
+                            table.insert(extra_args, "--py3-plus")
+                        end
+                    end
 
-                    if python_version >= "3.9" then
-                        table.insert(extra_args, "--py39-plus")
-                    elseif python_version >= "3.7" then
-                        table.insert(extra_args, "--py37-plus")
-                    elseif python_version >= "3.6" then
-                        table.insert(extra_args, "--py36-plus")
-                    elseif python_version >= "3" then
-                        table.insert(extra_args, "--py3-plus")
+                    return extra_args
+                end,
+            }),
+            b.formatting.isort.with({
+                extra_args = function(params)
+                    local extra_args = { "--profile", "black" }
+
+                    if PYTHON_VERSION[2] < 9 then
+                        table.insert(extra_args, "--sl")
                     end
 
                     return extra_args
