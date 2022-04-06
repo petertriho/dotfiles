@@ -1,7 +1,6 @@
 switch (uname)
     case Linux
         set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
-        eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 
         if test -e /proc/version && test -n (string match -r "microsoft" (cat "/proc/version"))
             set -gx FORGIT_COPY_CMD "win32yank.exe -i"
@@ -13,13 +12,21 @@ switch (uname)
             case x86_64:
                 set -gx HOMEBREW_PREFIX /usr/local
         end
-        eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 end
 
+eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
-test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
+fish_add_path -g $HOMEBREW_PREFIX/opt/asdf/bin
+fish_add_path -g (
+  if test -n "$ASDF_DATA_DIR"
+    printf "%s\n" "$ASDF_DATA_DIR/shims"
+  else
+    printf "%s\n" "$HOME/.asdf/shims"
+  end
+)
 
-fish_add_path $HOME/.local/bin
+fish_add_path -g $HOME/.local/bin
+
 set -gx EDITOR nvim
 
 if command -v starship &>/dev/null
