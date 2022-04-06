@@ -5,7 +5,7 @@ return {
         local set_keymap = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
 
-        set_keymap("n", "<C-w><C-m>", "<CMD>WinShift swap<CR>", opts)
+        set_keymap("n", "<C-w><CR>", "<CMD>WinShift swap<CR>", opts)
         set_keymap("n", "<C-w>m", "<CMD>WinShift swap<CR>", opts)
         set_keymap("n", "<C-w><C-e>", "<CMD>WinShift<CR>", opts)
         set_keymap("n", "<C-w>e", "<CMD>WinShift<CR>", opts)
