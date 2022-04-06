@@ -1,4 +1,3 @@
-acomagu/fish-async-prompt
 andreiborisov/sponge
 gazorby/fish-abbreviation-tips
 jethrokuan/z
@@ -8,5 +7,6 @@ jorgebucaran/replay.fish
 Markcial/upto
 PatrickF1/colored_man_pages.fish
 PatrickF1/fzf.fish
+petertriho/fish-async-prompt
 petertriho/plugin-bang-bang
 wfxr/forgit
