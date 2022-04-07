@@ -2,6 +2,8 @@ return {
     "tpope/vim-unimpaired",
     setup = function()
         vim.g.nremap = {
+            ["[p"] = "",
+            ["]p"] = "",
             ["[x"] = "",
             ["]x"] = "",
             ["[y"] = "",

@@ -141,7 +141,7 @@ require("packer").startup({
             require("plugins.config.stickybuf"),
             require("plugins.config.tidy"),
             require("plugins.config.vim-unimpaired"),
-            require("plugins.config.vim-yoink"),
+            require("plugins.config.yanky"),
             require("plugins.config.winshift"),
             { "dstein64/vim-startuptime", cmd = "StartupTime" },
             { "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } },

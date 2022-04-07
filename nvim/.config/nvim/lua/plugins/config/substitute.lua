@@ -26,16 +26,11 @@ return {
         set_keymap("n", "cxx", "<CMD>lua require('substitute.exchange').line()<CR>", { noremap = true })
         set_keymap("x", "X", "<CMD>lua require('substitute.exchange').visual()<CR>", { noremap = true })
         set_keymap("n", "cxc", "<CMD>lua require('substitute.exchange').cancel()<CR>", { noremap = true })
-
-        set_keymap("x", "p", "<CMD>lua require('substitute').visual()<CR>", {})
-        set_keymap("x", "P", "<CMD>lua require('substitute').visual()<CR>", {})
     end,
     config = function()
         require("substitute").setup({
-            on_substitute = function(_)
-                if packer_plugins["vim-yoink"] and packer_plugins["vim-yoink"].loaded then
-                    vim.fn["yoink#startUndoRepeatSwap"]()
-                end
+            on_substitute = function(event)
+                require("yanky").init_ring("p", event.register, event.count, event.vmode:match("[vV�]"))
             end,
         })
     end,
