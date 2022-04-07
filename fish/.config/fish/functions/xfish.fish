@@ -1,9 +1,9 @@
 function xfish --wraps fish --description "Fish (x86)"
     # https://github.com/asdf-vm/asdf/issues/1082 issue with tool versions
-    if ! test -z (asdf current nodejs | grep "$HOME/.tool-versions")
+    if ! test -z (asdf current nodejs 2>&1 | grep "$HOME/.tool-versions")
         set -x ASDF_NODEJS_VERSION (grep "nodejs" "$HOME/.tool-versions-x86" | sed "s/nodejs *\(.*\)/\1/")
     end
-    if ! test -z (asdf current python | grep "$HOME/.tool-versions")
+    if ! test -z (asdf current python 2>&1 | grep "$HOME/.tool-versions")
         set -x ASDF_PYTHON_VERSION (grep "python" "$HOME/.tool-versions-x86" | sed "s/python *\(.*\)/\1/")
     end
 
@@ -14,5 +14,15 @@ function xfish --wraps fish --description "Fish (x86)"
 
     set -x DOCKER_DEFAULT_PLATFORM linux/amd64
 
-    arch -x86_64 /usr/local/bin/fish $argv
+    set -x CURR_NODEJS_VERSION (grep "nodejs" "$HOME/.tool-versions" | sed "s/nodejs *\(.*\)/\1/")
+    set -x CURR_RUST_VERSION (grep "rust" "$HOME/.tool-versions" | sed "s/rust *\(.*\)/\1/")
+
+    arch -x86_64 /usr/local/bin/fish \
+        --init-command '
+            fish_add_path -mP $HOMEBREW_PREFIX/opt/asdf/bin;
+            fish_add_path -mP $ASDF_DATA_DIR/shims;
+            fish_add_path -mP $HOME/.asdf/installs/nodejs/$CURR_NODEJS_VERSION/.npm/bin;
+            fish_add_path -mP $HOME/.asdf/installs/rust/$CURR_RUST_VERSION/bin;
+        ' \
+        $argv
 end
