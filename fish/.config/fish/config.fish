@@ -18,13 +18,8 @@ eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
 # test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 fish_add_path -amP $HOMEBREW_PREFIX/opt/asdf/bin
-fish_add_path -amP (
-  if test -n "$ASDF_DATA_DIR"
-    printf "%s\n" "$ASDF_DATA_DIR/shims"
-  else
-    printf "%s\n" "$HOME/.asdf/shims"
-  end
-)
+fish_add_path -amP $HOME/.asdf/shims
+
 fish_add_path -g $HOME/.local/bin
 
 set -gx EDITOR nvim
