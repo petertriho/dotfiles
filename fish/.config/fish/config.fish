@@ -14,10 +14,12 @@ switch (uname)
         end
 end
 
-eval ($HOMEBREW_PREFIX/bin/brew shellenv)
+eval ($HOMEBREW_PREFIX/bin/brew shellenv | grep -v '$PATH')
+fish_add_path -g $HOMEBREW_PREFIX/bin
+fish_add_path -g $HOMEBREW_PREFIX/sbin
 set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
 # test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
-fish_add_path -amP $HOMEBREW_PREFIX/opt/asdf/bin
+fish_add_path -g $HOMEBREW_PREFIX/opt/asdf/bin
 fish_add_path -amP $HOME/.asdf/shims
 
 fish_add_path -g $HOME/.local/bin
