@@ -33,5 +33,7 @@ return {
 
         set_keymap("n", "<M-n>", "<Plug>(YankyCycleForward)", {})
         set_keymap("n", "<M-p>", "<Plug>(YankyCycleBackward)", {})
+
+        set_keymap("n", "Y", "y$", {})
     end,
 }
