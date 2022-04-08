@@ -1,12 +1,15 @@
 return {
     "gbprod/yanky.nvim",
-    keys = { "y", "Y", "<Plug>(YankyYank)" },
+    keys = {
+        "y",
+        "Y",
+        "<Plug>(YankyYank)",
+    },
     module = "yanky",
     setup = function()
         local set_keymap = vim.keymap.set
 
-        set_keymap("n", "y", "<Plug>(YankyYank)", {})
-        set_keymap("x", "y", "<Plug>(YankyYank)", {})
+        set_keymap({ "n", "x" }, "y", "<Plug>(YankyYank)", {})
     end,
     config = function()
         require("yanky").setup({
@@ -22,14 +25,10 @@ return {
 
         local set_keymap = vim.keymap.set
 
-        set_keymap("n", "p", "<Plug>(YankyPutAfter)", {})
-        set_keymap("n", "P", "<Plug>(YankyPutBefore)", {})
-        set_keymap("x", "p", "<Plug>(YankyPutAfter)", {})
-        set_keymap("x", "P", "<Plug>(YankyPutBefore)", {})
-        set_keymap("n", "]p", "<Plug>(YankyGPutAfter)", {})
-        set_keymap("n", "[p", "<Plug>(YankyGPutBefore)", {})
-        set_keymap("x", "]p", "<Plug>(YankyGPutAfter)", {})
-        set_keymap("x", "[p", "<Plug>(YankyGPutBefore)", {})
+        set_keymap({ "n", "x" }, "[p", "<Plug>(YankyGPutBefore)", {})
+        set_keymap({ "n", "x" }, "]p", "<Plug>(YankyGPutAfter)", {})
+        set_keymap({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", {})
+        set_keymap({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", {})
 
         set_keymap("n", "<M-n>", "<Plug>(YankyCycleForward)", {})
         set_keymap("n", "<M-p>", "<Plug>(YankyCycleBackward)", {})
