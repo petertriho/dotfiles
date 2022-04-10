@@ -73,9 +73,6 @@ function tool:misc {
     echo "Updating ltex language server ..."
     install_ltex_language_server
 
-    echo "Updating lua language server ..."
-    install_lua_language_server
-
     echo "Updating vale styles ..."
     install_vale_style_microsoft
 }
