@@ -16,6 +16,9 @@ local function on_attach(client, bufnr)
 
     if client.name == "pyright" then
         buf_set_keymap("n", "<Leader>o", "<CMD>PyrightOrganizeImports<CR>")
+    elseif client.name == "sumneko_lua" then
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
     elseif client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
