@@ -3,6 +3,10 @@
 set -euo pipefail
 
 function main {
+    if ! command -v lua-language-server &> /dev/null; then
+        brew install lua-language-server
+    fi
+
     if ! command -v terraform-ls &> /dev/null; then
         brew install hashicorp/tap/terraform-ls
     fi
@@ -76,10 +80,6 @@ function main {
 
     if ! command -v ltex-ls &> /dev/null; then
         install_ltex_language_server
-    fi
-
-    if ! command -v lua-language-server &> /dev/null; then
-        install_lua_language_server
     fi
 
     asdf reshim
