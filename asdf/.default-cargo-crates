@@ -1,11 +1,2 @@
-bat
 cargo-update
-difftastic
-fd-find
 gfold
-git-delta
-ripgrep
-starship
-vivid
-watchexec-cli
-zoxide

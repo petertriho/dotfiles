@@ -11,7 +11,25 @@ function install_homebrew {
 
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-    brew install gcc bash git libffi gh fish tmux fzf todo-txt
+    brew install \
+        bash \
+        bat \
+        difftastic \
+        fd \
+        fish \
+        fzf \
+        gcc \
+        gh \
+        git \
+        git-delta \
+        libffi \
+        ripgrep \
+        starship \
+        tmux \
+        todo-txt \
+        vivid \
+        watchexec \
+        zoxide
     brew install neovim --HEAD
 
     export CC="$HOMEBREW_PREFIX/bin/gcc-11"
