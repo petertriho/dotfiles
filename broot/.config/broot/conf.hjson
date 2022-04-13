@@ -278,7 +278,9 @@
     # If you only want to set the default color and a transparent
     # background, uncomment this simplified skin:
     skin: {
-        default: none none / gray(20) none
+        default: none none
+        selected_line: None ansi(0) / None ansi(0)
+        status_normal: ansi(15) ansi(0)
     }
     #
     # To experiment with a whole skin, uncomment this one:
