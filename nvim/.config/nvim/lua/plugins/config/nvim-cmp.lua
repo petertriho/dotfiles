@@ -149,9 +149,11 @@ return {
         })
 
         cmp.setup({
-            documentation = {
-                border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-                winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+            window = {
+                documentation = {
+                    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+                    winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+                },
             },
             formatting = {
                 format = require("lspkind").cmp_format({
