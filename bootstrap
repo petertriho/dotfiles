@@ -14,6 +14,7 @@ function install_homebrew {
     brew install \
         bash \
         bat \
+        broot \
         difftastic \
         fd \
         fish \
