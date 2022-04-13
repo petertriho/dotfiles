@@ -136,7 +136,16 @@
     # the selection.
     # You'll also find below verbs that you can customize or enable.
     verbs: [
-
+    {
+        key: enter
+        execution: "$EDITOR +{line} {file}"
+        leave_broot: false
+        apply_to: file
+    }
+    {
+        key: ctrl-o
+        execution: ":cd"
+    }
     # Example 1: launching `tail -n` on the selected file (leaving broot)
     # {
     #     name: tail_lines
