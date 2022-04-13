@@ -4,6 +4,7 @@ function set_abbr --description "Set abbr(eviations)"
     end
 
     abbr -a -U -- aa   "arch -arm64"
+    abbr -a -U -- af   afish
     abbr -a -U -- ax   "arch -x86_64"
     abbr -a -U -- d    docker
     abbr -a -U -- dc   'docker compose'
@@ -66,4 +67,5 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- tk   'tmux kill-session -t'
     abbr -a -U -- tl   'tmux list-sessions'
     abbr -a -U -- tn   'tmux new-session -s'
+    abbr -a -U -- xf   xfish
 end
