@@ -3,10 +3,10 @@ return {
     requires = "nvim-treesitter/nvim-treesitter",
     after = { "nvim-treesitter", "nvim-cmp" },
     config = function()
-        require("nvim-treesitter.configs").setup({ autopairs = { enable = true } })
-
         local autopairs = require("nvim-autopairs")
-        autopairs.setup()
+        autopairs.setup({
+            check_ts = true,
+        })
 
         local Rule = require("nvim-autopairs.rule")
         autopairs.add_rules({
