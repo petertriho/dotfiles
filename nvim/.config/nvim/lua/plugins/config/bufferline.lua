@@ -22,9 +22,7 @@ return {
     config = function()
         require("bufferline").setup({
             options = {
-                numbers = function(opts)
-                    return string.format("%s.", opts.ordinal)
-                end,
+                numbers = "ordinal",
                 close_command = "Bwipeout! %d",
                 right_mouse_command = "Bwipeout! %d",
                 offsets = {
