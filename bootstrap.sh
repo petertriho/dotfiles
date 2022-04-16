@@ -93,17 +93,15 @@ function setup_misc {
 
     (cd "$DOTFILES_DIR" && git config remote.origin.url git@github.com:petertriho/dotfiles.git)
 
-    rm "$HOME/.config/fish/fish_plugins"
-
     (cd "$DOTFILES_DIR" && stow --no-folding -t ~ */)
 }
 
 function main {
     install_homebrew
+    setup_misc
+
     install_asdf
     install_plugin_managers
-
-    setup_misc
 }
 
 main
