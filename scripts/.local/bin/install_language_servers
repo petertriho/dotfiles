@@ -20,7 +20,7 @@ function main {
     fi
 
     if ! command -v taplo &> /dev/null; then
-        cargo install taplo-cli
+        cargo install taplo-cli --locked
     fi
 
     if ! command -v gopls &> /dev/null; then
