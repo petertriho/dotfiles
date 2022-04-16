@@ -5,11 +5,10 @@ set -eo pipefail
 PYTHON_VERSION=3.10
 NODEJS_VERSION=16
 
-SCRIPT_PATH=$(
+DOTFILES_DIR=$(
               cd "$(dirname "$0")"
                                     pwd -P
 )
-DOTFILES_DIR=$(dirname "$SCRIPT_PATH")
 OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 ARCH=$(uname -m)
 
@@ -40,10 +39,10 @@ function install_homebrew {
 
     eval "$("$HOMEBREW_PREFIX/bin/brew" shellenv)"
 
-    brew bundle install --file "$DOTFILES_DIR/bootstrap/Brewfile"
+    brew bundle install --file "$DOTFILES_DIR/bootstrap/homebrew/Brewfile"
 
     if [[ $OS == "darwin"   ]]; then
-        brew bundle install --file "$DOTFILES_DIR/bootstrap/Brewfile-macos"
+        brew bundle install --file "$DOTFILES_DIR/bootstrap/homebrew/Brewfile-macos"
     fi
 
     export CC="$HOMEBREW_PREFIX/bin/gcc-11"
