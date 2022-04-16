@@ -5,7 +5,10 @@ set -eo pipefail
 PYTHON_VERSION=3.10
 NODEJS_VERSION=16
 
-SCRIPT_PATH=$(realpath "$0")
+SCRIPT_PATH=$(
+              cd "$(dirname "$0")"
+                                    pwd -P
+)
 DOTFILES_DIR=$(dirname "$SCRIPT_PATH")
 OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 ARCH=$(uname -m)
