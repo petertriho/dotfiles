@@ -92,6 +92,9 @@ function setup_misc {
     gh auth login
 
     (cd "$DOTFILES_DIR" && git config remote.origin.url git@github.com:petertriho/dotfiles.git)
+
+    rm "$HOME/.config/fish/fish_plugins"
+
     (cd "$DOTFILES_DIR" && stow --no-folding -t ~ */)
 }
 
