@@ -44,8 +44,6 @@ function install_homebrew {
     if [[ $OS == "darwin"   ]]; then
         brew bundle install --file "$DOTFILES_DIR/bootstrap/homebrew/Brewfile-macos"
     fi
-
-    export CC="$HOMEBREW_PREFIX/bin/gcc-11"
 }
 
 function install_asdf {
