@@ -25,6 +25,7 @@ end
 fish_add_path -amP "$HOME/.asdf/shims"
 
 fish_add_path -g "$HOME/.local/bin"
+test -e "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"; and fish_add_path -g "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
 
 set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
 set -gx EDITOR nvim
