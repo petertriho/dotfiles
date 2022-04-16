@@ -17,6 +17,7 @@ brew "libffi"
 brew "neovim", args: ["HEAD"]
 brew "ripgrep"
 brew "starship"
+brew "stow"
 brew "tmux"
 brew "todo-txt"
 brew "vivid"

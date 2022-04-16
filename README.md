@@ -2,20 +2,11 @@
 
 ## Installation
 
-### Dependencies
-
-#### GNU Stow
-
-- MacOS (homebrew): `brew install stow`
-- Arch (pacman): `sudo pacman -S stow`
-- Ubuntu (apt): `sudo apt install stow`
-
-### Instructions
-
 ```sh
 git clone https://github.com/petertriho/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles; stow --no-folding -t ~ */
 ~/.dotfiles/bootstrap
+reboot
+update
 ```
 
 ## Software

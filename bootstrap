@@ -5,34 +5,43 @@ set -eo pipefail
 PYTHON_VERSION=3.10
 NODEJS_VERSION=16
 
+SCRIPT_PATH=$(realpath "$0")
+DOTFILES_DIR=$(dirname "$SCRIPT_PATH")
+OS=$(uname -s | tr "[:upper:]" "[:lower:]")
+ARCH=$(uname -m)
+
 function install_homebrew {
-    sudo apt-get install build-essential procps curl file git
+    case "$OS" in
+        linux)
+            # assume debian/ubuntu
+            sudo apt-get install build-essential procps curl file git
+            HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+            ;;
+        darwin)
+            case "$ARCH" in
+                arm64)
+                    HOMEBREW_PREFIX=/opt/homebrew
+                    ;;
+                x86_64)
+                    HOMEBREW_PREFIX=/usr/local
+                    ;;
+            esac
+            ;;
+        *)
+            echo "Homebrew does not support $OS"
+            exit 1
+            ;;
+    esac
+
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    eval "$("$HOMEBREW_PREFIX/bin/brew" shellenv)"
 
-    brew install \
-        bash \
-        bat \
-        broot \
-        difftastic \
-        fd \
-        fish \
-        fzf \
-        gcc \
-        gh \
-        git \
-        git-delta \
-        glow \
-        libffi \
-        ripgrep \
-        starship \
-        tmux \
-        todo-txt \
-        vivid \
-        watchexec \
-        zoxide
-    brew install neovim --HEAD
+    brew bundle install --file "$DOTFILES_DIR/bootstrap/Brewfile"
+
+    if [[ $OS == "darwin"   ]]; then
+        brew bundle install --file "$DOTFILES_DIR/bootstrap/Brewfile-macos"
+    fi
 
     export CC="$HOMEBREW_PREFIX/bin/gcc-11"
 }
@@ -82,7 +91,8 @@ function setup_misc {
 
     gh auth login
 
-    (cd "$HOME/.dotfiles" && git config remote.origin.url git@github.com:petertriho/dotfiles.git)
+    (cd "$DOTFILES_DIR" && git config remote.origin.url git@github.com:petertriho/dotfiles.git)
+    (cd "$DOTFILES_DIR" && stow --no-folding -t ~ */)
 }
 
 function main {
