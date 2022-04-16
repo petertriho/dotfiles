@@ -1,3 +1,3 @@
-function xbrew --wraps brew --description "Brew (ARM)"
+function xbrew --wraps brew --description "Brew (x86)"
     xfish --command "brew $argv"
 end

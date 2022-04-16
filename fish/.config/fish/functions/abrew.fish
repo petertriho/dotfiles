@@ -1,3 +1,3 @@
-function abrew --wraps brew --description "Brew (x86)"
+function abrew --wraps brew --description "Brew (ARM)"
     afish --command "brew $argv"
 end

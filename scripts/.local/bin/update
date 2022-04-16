@@ -32,8 +32,8 @@ function tool:brew {
         brew upgrade
 
         if [ "$(uname -m)" == "arm64" ]; then
-            fish -c "xbrew update"
-            fish -c "xbrew upgrade"
+            arch -x86_64 /usr/local/bin/fish -c "brew update"
+            arch -x86_64 /usr/local/bin/fish -c "brew upgrade"
         fi
     fi
 }
