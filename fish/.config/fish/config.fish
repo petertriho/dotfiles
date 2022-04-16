@@ -15,15 +15,18 @@ switch (uname)
 end
 
 eval ($HOMEBREW_PREFIX/bin/brew shellenv | grep -v '$PATH')
-fish_add_path -g $HOMEBREW_PREFIX/bin
-fish_add_path -g $HOMEBREW_PREFIX/sbin
+fish_add_path -g "$HOMEBREW_PREFIX/bin"
+fish_add_path -g "$HOMEBREW_PREFIX/sbin"
 # test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
-fish_add_path -g $HOMEBREW_PREFIX/opt/asdf/bin
-fish_add_path -amP $HOME/.asdf/shims
+fish_add_path -g "$HOMEBREW_PREFIX/opt/asdf/bin"
+if test -n "$ASDF_DATA_DIR"
+    fish_add_path -amP "$ASDF_DATA_DIR/shims"
+end
+fish_add_path -amP "$HOME/.asdf/shims"
 
-fish_add_path -g $HOME/.local/bin
+fish_add_path -g "$HOME/.local/bin"
 
-set -gx CC $HOMEBREW_PREFIX/bin/gcc-11
+set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
 set -gx EDITOR nvim
 
 if command -v starship &>/dev/null
@@ -47,7 +50,7 @@ if status is-interactive
         "--color=border:7,fg:-1,bg:-1,hl:5,fg+:7,bg+:8,hl+:5" \
         "--color=info:6,prompt:2,pointer:2,marker:3,spinner:1,header:4"
 
-    set -gx FORGIT_FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS
+    set -gx FORGIT_FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS"
     set -gx FORGIT_LOG_GRAPH_ENABLE true
 
     if type --query fzf_configure_bindings
