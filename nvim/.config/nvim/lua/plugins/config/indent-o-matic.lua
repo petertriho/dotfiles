@@ -4,6 +4,9 @@ return {
         require("indent-o-matic").setup({
             max_lines = 128,
             standard_widths = { 2, 4 },
+            filetype_markdown = {
+                max_lines = 0,
+            },
         })
     end,
 }

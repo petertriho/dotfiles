@@ -1,3 +1,7 @@
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
 function! s:MapNotHasMapTo(lhs, rhs, modes)
     if !hasmapto('<Plug>' . a:rhs)
         for mode in split(a:modes, '\zs')
