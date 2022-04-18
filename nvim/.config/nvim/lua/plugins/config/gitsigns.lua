@@ -42,7 +42,7 @@ return {
                         gs.next_hunk()
                     end)
                     return "<Ignore>"
-                end, { expr = true })
+                end, { expr = true, desc = "Next change" })
 
                 map("n", "[c", function()
                     if vim.wo.diff then
@@ -52,7 +52,7 @@ return {
                         gs.prev_hunk()
                     end)
                     return "<Ignore>"
-                end, { expr = true })
+                end, { expr = true, desc = "Previous change" })
 
                 require("which-key").register({
                     ["[c"] = "Previous change",
@@ -66,16 +66,16 @@ return {
                 map("n", "<leader>hD", function()
                     gs.diffthis("~")
                 end)
-                map("n", "<leader>hd", gs.diffthis)
-                map("n", "<leader>hp", gs.preview_hunk)
-                map("n", "<leader>hR", gs.reset_buffer)
-                map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
-                map("n", "<leader>hS", gs.stage_buffer)
-                map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
-                map("n", "<leader>hu", gs.undo_stage_hunk)
+                map("n", "<leader>hd", gs.diffthis, { desc = "Diff this" })
+                map("n", "<leader>hp", gs.preview_hunk, { desc = "Preview hunk" })
+                map("n", "<leader>hR", gs.reset_buffer, { desc = "Reset buffer" })
+                map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+                map("n", "<leader>hS", gs.stage_buffer, { desc = "Stage buffer" })
+                map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
+                map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
 
                 -- Text object
-                map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+                map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Inner hunk" })
             end,
         })
     end,

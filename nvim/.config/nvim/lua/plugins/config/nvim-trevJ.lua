@@ -5,6 +5,6 @@ return {
     setup = function()
         vim.keymap.set("n", "<Leader>J", function()
             require("trevj").format_at_cursor()
-        end, {})
+        end, { desc = "Split lines" })
     end,
 }

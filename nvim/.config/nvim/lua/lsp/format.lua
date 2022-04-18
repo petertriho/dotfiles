@@ -11,7 +11,7 @@ M.on_attach = function(client, bufnr)
             vim.keymap.set("n", "<leader>f", function()
                 local formatting_params = vim.lsp.util.make_formatting_params({})
                 client.request("textDocument/formatting", formatting_params, nil, bufnr)
-            end, { buffer = bufnr })
+            end, { buffer = bufnr, desc = "LSP format" })
         end
 
         if client.server_capabilities.documentRangeFormattingProvider then
@@ -20,7 +20,7 @@ M.on_attach = function(client, bufnr)
                 local range_params = vim.lsp.util.make_range_params()
                 formatting_params.range = range_params.range
                 client.request("textDocument/rangeFormatting", formatting_params, nil, bufnr)
-            end, { buffer = bufnr })
+            end, { buffer = bufnr, desc = "LSP Range format" })
         end
     end
 end
