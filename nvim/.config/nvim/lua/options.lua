@@ -85,26 +85,19 @@ opt.wildignore = {
 }
 opt.wrap = false
 
-local proc_version = io.open("/proc/version", "r")
-if vim.loop.os_uname().sysname == "Linux" and proc_version ~= nil then
-    local proc_version_text = proc_version:read()
-
-    if proc_version_text:match("microsoft") and vim.fn.executable("win32yank.exe") == 1 then
-        vim.g.clipboard = {
-            name = "win32yank",
-            copy = {
-                ["+"] = "win32yank.exe -i --crlf",
-                ["*"] = "win32yank.exe -i --crlf",
-            },
-            paste = {
-                ["+"] = "win32yank.exe -o --lf",
-                ["*"] = "win32yank.exe -o --lf",
-            },
-            ["cache_enabled"] = 0,
-        }
-    end
-
-    proc_version:close()
+if vim.fn.executable("win32yank.exe") == 1 then
+    vim.g.clipboard = {
+        name = "win32yank",
+        copy = {
+            ["+"] = "win32yank.exe -i --crlf",
+            ["*"] = "win32yank.exe -i --crlf",
+        },
+        paste = {
+            ["+"] = "win32yank.exe -o --lf",
+            ["*"] = "win32yank.exe -o --lf",
+        },
+        ["cache_enabled"] = 0,
+    }
 end
 
 if vim.fn.executable("rg") == 1 then
