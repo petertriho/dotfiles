@@ -105,16 +105,14 @@ if vim.fn.executable("rg") == 1 then
     opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
-if vim.fn.has("persistent_undo") == 1 then
-    local dir = vim.fn.expand("~/.undodir")
+local dir = vim.fn.expand("~/.undodir")
 
-    if vim.fn.isdirectory(dir) ~= 1 then
-        vim.fn.mkdir(dir, "p", "0700")
-    end
-
-    opt.undodir = dir
-    opt.undofile = true
+if vim.fn.isdirectory(dir) ~= 1 then
+    vim.fn.mkdir(dir, "p", "0700")
 end
+
+opt.undodir = dir
+opt.undofile = true
 
 local function mkdir()
     local dir = vim.fn.expand("<afile>:p:h")
