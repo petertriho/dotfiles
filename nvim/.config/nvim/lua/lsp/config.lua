@@ -68,16 +68,19 @@ return {
     terraformls = {},
     tflint = {},
     tsserver = {
-        commands = {
-            TSServerOrganizeImports = {
-                function()
+        user_commands = {
+            {
+                name = "TSServerOrganizeImports",
+                command = function()
                     local params = {
                         command = "_typescript.organizeImports",
                         arguments = { vim.api.nvim_buf_get_name(0) },
                     }
                     vim.lsp.buf.execute_command(params)
                 end,
-                description = "Organize Imports",
+                opts = {
+                    desc = "Organize Imports",
+                },
             },
         },
     },

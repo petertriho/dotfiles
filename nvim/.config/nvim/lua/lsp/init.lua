@@ -1,4 +1,30 @@
 -- Setup
+
+local formatting_disabled = {
+    sumneko_lua = true,
+    tsserver = true,
+}
+
+local setup_formatting = function(client, bufnr)
+    if not formatting_disabled[client.name] then
+        vim.keymap.set("n", "<leader>f", function()
+            local formatting_params = vim.lsp.util.make_formatting_params({})
+            client.request("textDocument/formatting", formatting_params, nil, bufnr)
+        end, { buffer = bufnr })
+    end
+end
+
+local setup_range_formatting = function(client, bufnr)
+    if not formatting_disabled[client.name] then
+        vim.keymap.set("v", "<leader>f", function()
+            local formatting_params = vim.lsp.util.make_formatting_params({})
+            local range_params = vim.lsp.util.make_range_params()
+            formatting_params.range = range_params.range
+            client.request("textDocument/rangeFormatting", formatting_params, nil, bufnr)
+        end, { buffer = bufnr })
+    end
+end
+
 local function on_attach(client, bufnr)
     require("illuminate").on_attach(client)
 
@@ -16,13 +42,7 @@ local function on_attach(client, bufnr)
 
     if client.name == "pyright" then
         buf_set_keymap("n", "<Leader>o", "<CMD>PyrightOrganizeImports<CR>")
-    elseif client.name == "sumneko_lua" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
     elseif client.name == "tsserver" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-
         buf_set_keymap("n", "<Leader>o", "<CMD>TSServerOrganizeImports<CR>")
     end
 
@@ -34,7 +54,7 @@ local function on_attach(client, bufnr)
     buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>")
     buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>")
 
-    if client.resolved_capabilities.code_action then
+    if client.server_capabilities.codeActionProvider then
         vim.api.nvim_create_augroup("lsp_code_action", {})
         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
             group = "lsp_code_action",
@@ -46,40 +66,48 @@ local function on_attach(client, bufnr)
         })
     end
 
-    if client.resolved_capabilities.declaration then
-        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
+    if client.server_capabilities.colorProvider then
+        require("lsp.colors").buf_attach(bufnr, { virtual_text = true })
     end
 
-    if client.resolved_capabilities.find_references then
-        buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
-    end
-
-    if client.resolved_capabilities.goto_definition then
+    if client.server_capabilities.definitionProvider then
         buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
     end
 
-    if client.resolved_capabilities.hover then
+    if client.server_capabilities.declarationProvider then
+        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
+    end
+
+    if client.server_capabilities.documentFormattingProvider then
+        setup_formatting(client, bufnr)
+    end
+
+    if client.server_capabilities.documentRangeFormattingProvider then
+        setup_range_formatting(client, bufnr)
+    end
+
+    if client.server_capabilities.hoverProvider then
         buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>")
     end
 
-    if client.resolved_capabilities.implementation then
+    if client.server_capabilities.implementationProvider then
         buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
     end
 
-    if client.resolved_capabilities.rename then
+    if client.server_capabilities.renameProvider then
         buf_set_keymap("n", "<Leader>ar", "<CMD>lua vim.lsp.buf.rename()<CR>")
     end
 
-    if client.resolved_capabilities.signature_help then
+    if client.server_capabilities.referencesProvider then
+        buf_set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
+    end
+
+    if client.server_capabilities.signatureHelpProvider then
         buf_set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>")
     end
 
-    if client.resolved_capabilities.type_definition then
+    if client.server_capabilities.typeDefinitionProvider then
         buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>")
-    end
-
-    if client.server_capabilities.colorProvider then
-        require("lsp.colors").buf_attach(bufnr, { virtual_text = true })
     end
 end
 

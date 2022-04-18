@@ -26,7 +26,7 @@ return {
             c = { "<CMD>Cheat<CR>", "cheat" },
             d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
             e = { "<CMD>NvimTreeFindFileToggle<CR>", "explorer" },
-            f = { "<CMD>lua vim.lsp.buf.formatting()<CR>", "format" },
+            f = "format",
             j = { "<CMD>ToggleGitStatus<CR>", "git-status" },
             J = "reverse-J",
             k = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "code-actions" },
@@ -43,7 +43,7 @@ return {
 
         local leader_visual_keymaps = {
             ["/"] = "comment",
-            f = { "<CMD>lua vim.lsp.buf.range_formatting()<CR>", "format" },
+            f = "format",
             k = { "<CMD>lua vim.lsp.buf.range_code_action()<CR>", "code-actions" },
             q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
             s = "lightspeed->",
