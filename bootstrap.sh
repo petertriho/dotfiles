@@ -41,7 +41,7 @@ function install_homebrew {
 
     brew bundle install --file "$DOTFILES_DIR/bootstrap/homebrew/Brewfile"
 
-    if [[ $OS == "darwin"   ]]; then
+    if [[ $OS == "darwin" ]]; then
         brew bundle install --file "$DOTFILES_DIR/bootstrap/homebrew/Brewfile-macos"
     fi
 }
