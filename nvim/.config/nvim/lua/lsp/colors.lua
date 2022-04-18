@@ -164,36 +164,38 @@ function M.update_highlight(bufnr, options)
 end
 
 --- Should be called `on_attach` when the LSP client attaches
-function M.buf_attach(bufnr, options)
-    bufnr = expand_bufnr(bufnr)
-    if ATTACHED_BUFFERS[bufnr] then
-        return
+function M.on_attach(client, bufnr)
+    if client.server_capabilities.colorProvider then
+        bufnr = expand_bufnr(bufnr)
+        if ATTACHED_BUFFERS[bufnr] then
+            return
+        end
+        ATTACHED_BUFFERS[bufnr] = true
+
+        local options = { virtual_text = true }
+
+        -- VSCode extension also does 200ms debouncing
+        local trigger_update_highlight, timer = debounce_trailing(M.update_highlight, options.debounce or 200, false)
+
+        -- for the first request, the server needs some time before it's ready
+        -- sometimes 200ms is not enough for this
+        -- TODO: figure out when the first request can be send
+        trigger_update_highlight(bufnr, options)
+
+        -- react to changes
+        vim.api.nvim_buf_attach(bufnr, false, {
+            on_lines = function()
+                if not ATTACHED_BUFFERS[bufnr] then
+                    return true
+                end
+                trigger_update_highlight(bufnr, options)
+            end,
+            on_detach = function()
+                timer:close()
+                ATTACHED_BUFFERS[bufnr] = nil
+            end,
+        })
     end
-    ATTACHED_BUFFERS[bufnr] = true
-
-    options = options or {}
-
-    -- VSCode extension also does 200ms debouncing
-    local trigger_update_highlight, timer = debounce_trailing(M.update_highlight, options.debounce or 200, false)
-
-    -- for the first request, the server needs some time before it's ready
-    -- sometimes 200ms is not enough for this
-    -- TODO: figure out when the first request can be send
-    trigger_update_highlight(bufnr, options)
-
-    -- react to changes
-    vim.api.nvim_buf_attach(bufnr, false, {
-        on_lines = function()
-            if not ATTACHED_BUFFERS[bufnr] then
-                return true
-            end
-            trigger_update_highlight(bufnr, options)
-        end,
-        on_detach = function()
-            timer:close()
-            ATTACHED_BUFFERS[bufnr] = nil
-        end,
-    })
 end
 
 --- Can be used to detach from the buffer at any time

@@ -1,32 +1,8 @@
 -- Setup
-
-local formatting_disabled = {
-    sumneko_lua = true,
-    tsserver = true,
-}
-
-local setup_formatting = function(client, bufnr)
-    if not formatting_disabled[client.name] then
-        vim.keymap.set("n", "<leader>f", function()
-            local formatting_params = vim.lsp.util.make_formatting_params({})
-            client.request("textDocument/formatting", formatting_params, nil, bufnr)
-        end, { buffer = bufnr })
-    end
-end
-
-local setup_range_formatting = function(client, bufnr)
-    if not formatting_disabled[client.name] then
-        vim.keymap.set("v", "<leader>f", function()
-            local formatting_params = vim.lsp.util.make_formatting_params({})
-            local range_params = vim.lsp.util.make_range_params()
-            formatting_params.range = range_params.range
-            client.request("textDocument/rangeFormatting", formatting_params, nil, bufnr)
-        end, { buffer = bufnr })
-    end
-end
-
 local function on_attach(client, bufnr)
     require("illuminate").on_attach(client)
+    require("lsp.colors").on_attach(client, bufnr)
+    require("lsp.format").on_attach(client, bufnr)
 
     local opts = { noremap = true, silent = true }
 
@@ -66,24 +42,12 @@ local function on_attach(client, bufnr)
         })
     end
 
-    if client.server_capabilities.colorProvider then
-        require("lsp.colors").buf_attach(bufnr, { virtual_text = true })
-    end
-
     if client.server_capabilities.definitionProvider then
         buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
     end
 
     if client.server_capabilities.declarationProvider then
         buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
-    end
-
-    if client.server_capabilities.documentFormattingProvider then
-        setup_formatting(client, bufnr)
-    end
-
-    if client.server_capabilities.documentRangeFormattingProvider then
-        setup_range_formatting(client, bufnr)
     end
 
     if client.server_capabilities.hoverProvider then
