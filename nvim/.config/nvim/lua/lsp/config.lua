@@ -2,7 +2,7 @@ return {
     bashls = {},
     cssls = {},
     dockerls = {},
-    ["emmet_ls"] = {
+    emmet_ls = {
         filetypes = {
             "css",
             "html",
