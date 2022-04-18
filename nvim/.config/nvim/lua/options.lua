@@ -51,7 +51,7 @@ opt.mouse = "a"
 opt.number = true
 opt.path:append("**")
 opt.pumheight = 10
-opt.relativenumber = true
+-- opt.relativenumber = true
 opt.scrolloff = 5
 -- opt.shada = "!,'0,f0,<50,s10,h"
 opt.shell = "bash"
@@ -169,6 +169,26 @@ set_augroups({
         --         desc = "Highlight on yank",
         --     },
         -- },
+        {
+            { "FocusLost", "InsertEnter", "WinLeave" },
+            {
+                callback = function()
+                    if opt.number:get() then
+                        opt.relativenumber = false
+                    end
+                end,
+            },
+        },
+        {
+            { "FocusGained", "InsertLeave", "WinEnter" },
+            {
+                callback = function()
+                    if opt.number:get() then
+                        opt.relativenumber = true
+                    end
+                end,
+            },
+        },
         {
             "BufWritePre",
             { pattern = "*", callback = mkdir, desc = "Make directory for file if it does not exist" },
