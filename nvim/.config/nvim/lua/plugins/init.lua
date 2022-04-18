@@ -44,7 +44,6 @@ require("packer").startup({
             require("plugins.config.copilot"),
             require("plugins.config.filetype"),
             require("plugins.config.indent-blankline"),
-            require("plugins.config.nvim-markdown"),
             require("plugins.config.rainbow"),
             require("plugins.config.todo-comments"),
             -- require("plugins.config.vim-polyglot"),
