@@ -11,11 +11,11 @@ cmd="arch -x86_64 \\
 "
 
 if [[ -n $(asdf current nodejs 2>&1 | grep "$HOME/.tool-versions") ]]; then
-    cmd+="-e ASDF_NODEJS_VERSION=$(grep "nodejs" "$HOME/.tool-versions-x86" | sed "s/nodejs *\(.*\)/\1/") \\"
+    cmd+="-e ASDF_NODEJS_VERSION=$(grep "nodejs" "$HOME/.tool-versions-x86" | sed "s/nodejs *\(.*\)/\1/") "
 fi
 
 if [[ -n $(asdf current python 2>&1 | grep "$HOME/.tool-versions") ]]; then
-    cmd+="-e ASDF_PYTHON_VERSION=$(grep "python" "$HOME/.tool-versions-x86" | sed "s/python *\(.*\)/\1/") \\"
+    cmd+="-e ASDF_PYTHON_VERSION=$(grep "python" "$HOME/.tool-versions-x86" | sed "s/python *\(.*\)/\1/") "
 fi
 
 cmd+="/usr/local/bin/fish $*"
