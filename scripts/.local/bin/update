@@ -19,8 +19,8 @@ function tool:asdf {
         asdf plugin update --all
 
         if [ "$(uname -m)" == "arm64" ]; then
-            fish -c "xasdf update || true"
-            fish -c "xasdf plugin update --all"
+            xasdf update || true
+            xasdf plugin update --all
         fi
     fi
 }
@@ -32,8 +32,8 @@ function tool:brew {
         brew upgrade
 
         if [ "$(uname -m)" == "arm64" ]; then
-            fish -c "xbrew update"
-            fish -c "xbrew upgrade"
+            xbrew update
+            xbrew upgrade
         fi
     fi
 }
