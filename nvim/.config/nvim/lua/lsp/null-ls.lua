@@ -328,7 +328,7 @@ M.setup = function(overrides)
             }),
             b.formatting.isort.with({
                 extra_args = function(params)
-                    local extra_args = { "--profile", "black" }
+                    local extra_args = { "--profile", "black", "--force-alphabetical-sort-within-sections" }
 
                     if PYTHON_VERSION[2] < 9 then
                         table.insert(extra_args, "--sl")
