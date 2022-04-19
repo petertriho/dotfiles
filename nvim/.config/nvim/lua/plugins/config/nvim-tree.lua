@@ -25,10 +25,10 @@ return {
             },
             filters = {
                 custom = {
-                    ".git",
-                    ".venv",
-                    "__pycache__",
-                    "node_modules",
+                    "^.git$",
+                    "^.venv$",
+                    "^__pycache__$",
+                    "^node_modules$",
                 },
             },
             git = {
