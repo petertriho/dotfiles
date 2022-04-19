@@ -15,7 +15,7 @@ return {
 
         set_keymap(
             "n",
-            "<Leader>S",
+            "\\S",
             "<CMD>lua require('substitute.range').operator({ prefix = 'S' })<CR>",
             { noremap = true }
         )
