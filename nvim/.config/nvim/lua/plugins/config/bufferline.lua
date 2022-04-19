@@ -1,6 +1,7 @@
 return {
     "akinsho/bufferline.nvim",
     requires = "kyazdani42/nvim-web-devicons",
+    after = "tokyonight.nvim",
     setup = function()
         local set_keymap = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
