@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cmd="arch -x86_64 \\
+-e ASDF_DATA_DIR=\"$HOME/.asdf_x86\" \\
+-e ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=\"$HOME/.tool-versions-x86\" \\
+-e ASDF_NPM_DEFAULT_PACKAGES_FILE=\"$HOME/.default-npm-packages-x86\" \\
+-e ASDF_PYTHON_DEFAULT_PACKAGES_FILE=\"$HOME/.default-python-packages-x86\" \\
+-e DOCKER_DEFAULT_PLATFORM=linux/amd64 \\
+"
+
+if [[ -n $(asdf current nodejs 2>&1 | grep "$HOME/.tool-versions") ]]; then
+    cmd+="-e ASDF_NODEJS_VERSION=$(grep "nodejs" "$HOME/.tool-versions-x86" | sed "s/nodejs *\(.*\)/\1/") \\"
+fi
+
+if [[ -n $(asdf current python 2>&1 | grep "$HOME/.tool-versions") ]]; then
+    cmd+="-e ASDF_PYTHON_VERSION=$(grep "python" "$HOME/.tool-versions-x86" | sed "s/python *\(.*\)/\1/") \\"
+fi
+
+cmd+="/usr/local/bin/fish $*"
+
+eval "$cmd"
