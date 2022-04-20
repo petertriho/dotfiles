@@ -33,7 +33,7 @@ require("packer").startup({
             { "hrsh7th/cmp-path", after = "nvim-cmp" },
             { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
             { "kristijanhusak/vim-dadbod-completion", requires = "tpope/vim-dadbod", after = "nvim-cmp" },
-            { "onsails/lspkind-nvim", module = "lspkind" },
+            { "onsails/lspkind.nvim", module = "lspkind" },
             { "rafamadriz/friendly-snippets", after = "nvim-cmp" },
             { "tzachar/cmp-fuzzy-buffer", requires = "tzachar/fuzzy.nvim", after = "nvim-cmp" },
             { "tzachar/cmp-fuzzy-path", requires = "tzachar/fuzzy.nvim", after = "nvim-cmp" },
