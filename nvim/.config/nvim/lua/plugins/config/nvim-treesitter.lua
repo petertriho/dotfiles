@@ -3,6 +3,9 @@ return {
     opt = true,
     run = ":TSUpdateSync",
     config = function()
+        local ts_utils = require("nvim-treesitter.ts_utils")
+        ts_utils.get_node_text = vim.treesitter.query.get_node_text
+
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "bash",
