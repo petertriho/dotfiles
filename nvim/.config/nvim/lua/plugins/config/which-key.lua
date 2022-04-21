@@ -27,6 +27,7 @@ return {
             d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
             e = { "<CMD>NvimTreeFindFileToggle<CR>", "explorer" },
             f = "format",
+            G = { "<CMD>Neogit<CR>", "git-status" },
             j = { "<CMD>ToggleNeogitStatus<CR>", "git-status" },
             J = "reverse-J",
             k = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "code-actions" },
