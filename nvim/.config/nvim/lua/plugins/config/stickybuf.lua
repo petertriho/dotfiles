@@ -4,7 +4,9 @@ return {
         local sidebars = {}
 
         for _, v in ipairs(require("filetypes").sidebars) do
-            sidebars[v] = "filetype"
+            if v ~= "NvimTree" then
+                sidebars[v] = "filetype"
+            end
         end
 
         require("stickybuf").setup({
