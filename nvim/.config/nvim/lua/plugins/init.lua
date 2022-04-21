@@ -199,7 +199,8 @@ local function toggle_buffer(buf, open_cmd)
 end
 
 vim.api.nvim_create_user_command("ToggleGitStatus", toggle_buffer(".git/*index", "Git"), {})
-vim.api.nvim_create_user_command("ToggleNeogitStatus", toggle_buffer("NeogitStatus", "Neogit kind=split"), {})
+vim.api.nvim_create_user_command("ToggleNeogitStatus", toggle_buffer("NeogitStatus", "Neogit"), {})
+vim.api.nvim_create_user_command("ToggleNeogitStatusSplit", toggle_buffer("NeogitStatus", "Neogit kind=split"), {})
 
 vim.api.nvim_create_augroup("update_remote_plugins", {})
 vim.api.nvim_create_autocmd("User", {
