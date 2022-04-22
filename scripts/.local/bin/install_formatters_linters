@@ -3,6 +3,10 @@
 set -euo pipefail
 
 function main {
+    if ! command -v dotenv-linter &> /dev/null; then
+        brew install dotenv-linter
+    fi
+
     if ! command -v hadolint &> /dev/null; then
         brew install hadolint
     fi
@@ -19,20 +23,16 @@ function main {
         brew install shfmt
     fi
 
-    if ! command -v vale &> /dev/null; then
-        brew install vale
-    fi
-
-    if ! command -v dotenv-linter &> /dev/null; then
-        cargo install dotenv-linter
-    fi
-
     if ! command -v selene &> /dev/null; then
-        cargo install selene
+        brew install selene
     fi
 
     if ! command -v stylua &> /dev/null; then
-        cargo install stylua
+        brew install stylua
+    fi
+
+    if ! command -v vale &> /dev/null; then
+        brew install vale
     fi
 
     if ! command -v autoflake &> /dev/null; then
