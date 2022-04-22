@@ -18,4 +18,4 @@ if [[ -n $(asdf current python 2>&1 | grep "$HOME/.tool-versions") ]]; then
     cmd+=" -e ASDF_PYTHON_VERSION=$(grep "python" "$HOME/.tool-versions-x86" | sed "s/python *\(.*\)/\1/")"
 fi
 
-eval "$cmd /usr/local/bin/fish $*"
+eval "$cmd /usr/local/bin/fish --init-command 'fish_add_path -mP \$ASDF_DATA_DIR/shims' $*"
