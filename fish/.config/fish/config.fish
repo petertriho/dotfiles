@@ -17,13 +17,7 @@ end
 eval ($HOMEBREW_PREFIX/bin/brew shellenv | grep -v '$PATH')
 fish_add_path -g "$HOMEBREW_PREFIX/bin"
 fish_add_path -g "$HOMEBREW_PREFIX/sbin"
-# test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
-fish_add_path -g "$HOMEBREW_PREFIX/opt/asdf/bin"
-if test -n "$ASDF_DATA_DIR"
-    fish_add_path -amP "$ASDF_DATA_DIR/shims"
-end
-fish_add_path -amP "$HOME/.asdf/shims"
-
+test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 fish_add_path -g "$HOME/.local/bin"
 
 set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
