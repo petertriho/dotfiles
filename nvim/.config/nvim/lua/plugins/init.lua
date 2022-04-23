@@ -102,6 +102,7 @@ require("packer").startup({
             require("plugins.config.neogit"),
             require("plugins.config.nvim-cheat"),
             require("plugins.config.nvim-pqf"),
+            require("plugins.config.nvim-test"),
             require("plugins.config.nvim-tree"),
             require("plugins.config.package-info"),
             require("plugins.config.todotxt"),

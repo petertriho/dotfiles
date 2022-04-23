@@ -227,15 +227,13 @@ return {
 
         leader_keymaps["t"] = {
             name = "+tests",
-            a = { "<CMD>UltestAttach<CR>", "attach" },
-            c = { "<CMD>UltestClear<CR>", "clear" },
-            d = { "<CMD>UltestDebug<CR>", "debug" },
-            l = { "<CMD>UltestLast<CR>", "last" },
-            n = { "<CMD>UltestNearest<CR>", "nearest" },
-            o = { "<CMD>UltestOutput<CR>", "output" },
-            r = { "<CMD>Ultest<CR>", "run" },
-            s = { "<CMD>UltestStop<CR>", "stop" },
-            t = { "<CMD>UltestSummary<CR>", "toggle" },
+            e = { "<CMD>TestEdit<CR>", "edit" },
+            f = { "<CMD>TestFile<CR>", "file" },
+            i = { "<CMD>TestInfo<CR>", "info" },
+            l = { "<CMD>TestLast<CR>", "last" },
+            n = { "<CMD>TestNearest<CR>", "nearest" },
+            s = { "<CMD>TestSuite<CR>", "suite" },
+            v = { "<CMD>TestVisit<CR>", "visit" },
         }
 
         leader_keymaps["w"] = { name = "+wiki" }
@@ -291,6 +289,19 @@ return {
 
         local semicolon_visual_keymaps = {
             r = { "<ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor" },
+        }
+
+        semicolon_keymaps["u"] = {
+            name = "+ultests",
+            a = { "<CMD>UltestAttach<CR>", "attach" },
+            c = { "<CMD>UltestClear<CR>", "clear" },
+            d = { "<CMD>UltestDebug<CR>", "debug" },
+            l = { "<CMD>UltestLast<CR>", "last" },
+            n = { "<CMD>UltestNearest<CR>", "nearest" },
+            o = { "<CMD>UltestOutput<CR>", "output" },
+            r = { "<CMD>Ultest<CR>", "run" },
+            s = { "<CMD>UltestStop<CR>", "stop" },
+            t = { "<CMD>UltestSummary<CR>", "toggle" },
         }
 
         register(semicolon_keymaps, {
