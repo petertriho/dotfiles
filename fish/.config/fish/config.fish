@@ -20,9 +20,9 @@ fish_add_path -g "$HOMEBREW_PREFIX/sbin"
 # test -e $HOMEBREW_PREFIX/opt/asdf/asdf.fish; and source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
 fish_add_path -g "$HOMEBREW_PREFIX/opt/asdf/bin"
 if test -n "$ASDF_DATA_DIR"
-    fish_add_path -amP "$ASDF_DATA_DIR/shims"
+    fish_add_path -g "$ASDF_DATA_DIR/shims"
 else
-    fish_add_path -amP "$HOME/.asdf/shims"
+    fish_add_path -g "$HOME/.asdf/shims"
 end
 fish_add_path -g "$HOME/.local/bin"
 
