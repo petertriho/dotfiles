@@ -198,7 +198,7 @@ return {
             sources = {
                 { name = "nvim_lsp_signature_help" },
                 { name = "nvim_lsp" },
-                { name = "cmp_git" },
+                { name = "git" },
                 { name = "cmp_tabnine" },
                 { name = "path" },
                 {
