@@ -6,8 +6,8 @@ return {
         local set_keymap = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
 
-        set_keymap("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
-        set_keymap("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
+        set_keymap("n", "<CR>", "<CMD>BufferLineCycleNext<CR>", opts)
+        set_keymap("n", "<BS>", "<CMD>BufferLineCyclePrev<CR>", opts)
 
         set_keymap("n", "<Leader>1", "<CMD>lua require('bufferline').go_to_buffer(1)<CR>", {})
         set_keymap("n", "<Leader>2", "<CMD>lua require('bufferline').go_to_buffer(2)<CR>", {})
