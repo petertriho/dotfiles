@@ -205,8 +205,12 @@ local PYTHON_VERSION = nil
 local get_python_version = function()
     if PYTHON_VERSION == nil then
         PYTHON_VERSION = { string.match(vim.fn.system("python --version"), "(%d+)%.(%d+)%.(%d+)") }
-        for i, v in ipairs(PYTHON_VERSION) do
-            PYTHON_VERSION[i] = tonumber(v)
+        if PYTHON_VERSION and #PYTHON_VERSION <= 0 then
+            PYTHON_VERSION = { 0, 0, 0 }
+        else
+            for i, v in ipairs(PYTHON_VERSION) do
+                PYTHON_VERSION[i] = tonumber(v)
+            end
         end
     end
     return PYTHON_VERSION
@@ -330,6 +334,7 @@ M.setup = function(overrides)
                 extra_args = function(params)
                     local extra_args = { "--profile", "black" }
 
+                    get_python_version()
                     if PYTHON_VERSION[2] < 9 then
                         table.insert(extra_args, "--sl")
                     end
