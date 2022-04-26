@@ -22,7 +22,7 @@ fish_add_path -g "$HOMEBREW_PREFIX/opt/asdf/bin"
 if test -n "$ASDF_DATA_DIR"
     fish_add_path -g "$ASDF_DATA_DIR/shims"
 end
-# fish_add_path -g "$HOME/.asdf/shims"
+fish_add_path -amP "$HOME/.asdf/shims"
 fish_add_path -g "$HOME/.local/bin"
 
 set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
