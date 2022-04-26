@@ -168,6 +168,7 @@ set_augroups({
                         opt.relativenumber = false
                     end
                 end,
+                desc = "Turn off relative number",
             },
         },
         {
@@ -178,6 +179,7 @@ set_augroups({
                         opt.relativenumber = true
                     end
                 end,
+                desc = "Turn on relative number",
             },
         },
         {
