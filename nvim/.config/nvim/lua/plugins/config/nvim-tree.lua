@@ -49,10 +49,12 @@ return {
                     },
                 },
             },
-            window_picker = {
-                exclude = {
-                    filetype = require("filetypes").excludes,
-                    buftype = { "nofile", "terminal", "help" },
+            actions = {
+                window_picker = {
+                    exclude = {
+                        filetype = require("filetypes").excludes,
+                        buftype = { "nofile", "terminal", "help" },
+                    },
                 },
             },
         })
