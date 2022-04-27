@@ -4,6 +4,7 @@ return {
         local colors = require("colors")
 
         require("scrollbar").setup({
+            folds = false,
             marks = {
                 Search = { color = colors.orange },
             },
