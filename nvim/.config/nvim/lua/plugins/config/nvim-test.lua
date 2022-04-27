@@ -10,6 +10,9 @@ return {
         "TestInfo",
     },
     config = function()
-        require("nvim-test").setup()
+        require("nvim-test").setup({})
+        require("nvim-test.runners.pytest"):setup({
+            args = { "-sv" },
+        })
     end,
 }
