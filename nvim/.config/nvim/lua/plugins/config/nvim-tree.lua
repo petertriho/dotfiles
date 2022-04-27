@@ -50,10 +50,12 @@ return {
                 },
             },
             actions = {
-                window_picker = {
-                    exclude = {
-                        filetype = require("filetypes").excludes,
-                        buftype = { "nofile", "terminal", "help" },
+                open_file = {
+                    window_picker = {
+                        exclude = {
+                            filetype = require("filetypes").excludes,
+                            buftype = { "nofile", "terminal", "help" },
+                        },
                     },
                 },
             },
