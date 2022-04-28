@@ -1,12 +1,9 @@
 return {
     "windwp/nvim-autopairs",
-    requires = "nvim-treesitter/nvim-treesitter",
-    after = { "nvim-treesitter", "nvim-cmp" },
+    after = "nvim-cmp",
     config = function()
         local autopairs = require("nvim-autopairs")
-        autopairs.setup({
-            check_ts = true,
-        })
+        autopairs.setup({})
 
         local Rule = require("nvim-autopairs.rule")
         autopairs.add_rules({
