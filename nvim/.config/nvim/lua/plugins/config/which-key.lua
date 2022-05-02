@@ -1,5 +1,6 @@
 return {
-    "folke/which-key.nvim",
+    "zeertzjq/which-key.nvim",
+    branch = "fix-prefix",
     config = function()
         require("which-key").setup({
             layout = {
