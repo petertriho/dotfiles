@@ -155,6 +155,12 @@ require("packer").startup({
     end,
     config = {
         max_jobs = 50,
+        git = {
+            subcommands = {
+                update = "pull --progress",
+            },
+        },
+        autoremove = true,
     },
 })
 
