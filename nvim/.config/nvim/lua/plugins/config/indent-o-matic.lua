@@ -7,6 +7,9 @@ return {
             filetype_markdown = {
                 max_lines = 0,
             },
+            filetype_vimwiki = {
+                max_lines = 0,
+            },
         })
     end,
 }
