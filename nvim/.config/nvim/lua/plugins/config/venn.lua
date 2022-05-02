@@ -20,6 +20,6 @@ return {
                 vim.b.venn_enabled = nil
             end
         end
-        vim.keymap.set("n", "<leader>v", toggle_venn, { noremap = true })
+        vim.keymap.set("n", "<Leader>v", toggle_venn, { noremap = true })
     end,
 }

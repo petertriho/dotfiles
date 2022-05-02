@@ -60,19 +60,19 @@ return {
                 }, {})
 
                 -- Actions
-                map("n", "<leader>hb", function()
+                map("n", "<Leader>hb", function()
                     gs.blame_line({ full = true })
                 end)
-                map("n", "<leader>hD", function()
+                map("n", "<Leader>hD", function()
                     gs.diffthis("~")
                 end)
-                map("n", "<leader>hd", gs.diffthis, { desc = "Diff this" })
-                map("n", "<leader>hp", gs.preview_hunk, { desc = "Preview hunk" })
-                map("n", "<leader>hR", gs.reset_buffer, { desc = "Reset buffer" })
-                map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
-                map("n", "<leader>hS", gs.stage_buffer, { desc = "Stage buffer" })
-                map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
-                map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
+                map("n", "<Leader>hd", gs.diffthis, { desc = "Diff this" })
+                map("n", "<Leader>hp", gs.preview_hunk, { desc = "Preview hunk" })
+                map("n", "<Leader>hR", gs.reset_buffer, { desc = "Reset buffer" })
+                map({ "n", "v" }, "<Leader>hr", ":Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+                map("n", "<Leader>hS", gs.stage_buffer, { desc = "Stage buffer" })
+                map({ "n", "v" }, "<Leader>hs", ":Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
+                map("n", "<Leader>hu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
 
                 -- Text object
                 map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Inner hunk" })

@@ -8,14 +8,14 @@ M.on_attach = function(client, bufnr)
 
     if not disabled[client.name] then
         if client.server_capabilities.documentFormattingProvider then
-            vim.keymap.set("n", "<leader>f", function()
+            vim.keymap.set("n", "<Leader>f", function()
                 local formatting_params = vim.lsp.util.make_formatting_params({})
                 client.request("textDocument/formatting", formatting_params, nil, bufnr)
             end, { buffer = bufnr, desc = "LSP format" })
         end
 
         if client.server_capabilities.documentRangeFormattingProvider then
-            vim.keymap.set("v", "<leader>f", function()
+            vim.keymap.set("v", "<Leader>f", function()
                 local formatting_params = vim.lsp.util.make_formatting_params({})
                 local range_params = vim.lsp.util.make_range_params()
                 formatting_params.range = range_params.range

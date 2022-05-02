@@ -1,6 +1,6 @@
 return {
     "vimwiki/vimwiki",
-    keys = "<leader>w",
+    keys = "<Leader>w",
     setup = function()
         vim.g.vimwiki_list = {
             { path = os.getenv("VIMWIKI_PATH"), syntax = "markdown", ext = ".md" },
