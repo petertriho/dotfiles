@@ -264,7 +264,9 @@ M.setup = function(overrides)
             b.diagnostics.flake8.with({
                 extra_args = {
                     "--ignore",
-                    "E501", -- line too long
+                    -- E501: Line too long
+                    -- W503: Line break occurred before a binary operator
+                    "E501,W503",
                 },
             }),
             -- b.diagnostics.pylint,
