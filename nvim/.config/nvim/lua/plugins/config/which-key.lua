@@ -263,14 +263,12 @@ return {
             C = { "<CMD>CheatList<CR>", "cheat-list" },
             d = { "<CMD>DBUIToggle<CR>", "db" },
             D = { "<CMD>e $DONE_FILE<CR>", "done.txt" },
-            e = { "<CMD>Telescope file_browser hidden=true<CR>", "telescope-explorer" },
             f = { "<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files-all" },
             g = { "<CMD>ToggleNeogitStatusTab<CR>", "git-status" },
             l = { "<CMD>LLToggle<CR>", "loc-list-toggle" },
             m = { "<Plug>MarkdownPreviewToggle", "markdown-preview" },
             n = { "<CMD>lua require('github-notifications.menu').notifications()<CR>", "notifications-github" },
             o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
-            p = { "<CMD>lua require('telescope').extensions.project.project({})<CR>", "project" },
             q = { "<CMD>QFToggle<CR>", "qf-list-toggle" },
             r = { "<ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor" },
             R = { "<CMD>e $REPORT_FILE<CR>", "report.txt" },
@@ -285,7 +283,6 @@ return {
                 "<CMD>lua require('telescope.builtin').live_grep({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
                 "search-wiki",
             },
-            z = { "<CMD>lua require('telescope').extensions.zoxide.list({})<CR>", "zoxide" },
         }
 
         local semicolon_visual_keymaps = {

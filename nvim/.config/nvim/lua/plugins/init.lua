@@ -86,13 +86,7 @@ require("packer").startup({
             require("plugins.config.octo"),
             require("plugins.config.refactoring"),
             require("plugins.config.telescope"),
-            require("plugins.config.telescope-zoxide"),
             { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-            {
-                "nvim-telescope/telescope-project.nvim",
-                after = "telescope.nvim",
-                module = "telescope.extensions.project",
-            },
             -- tools
             require("plugins.config.dirbuf"),
             require("plugins.config.diffview"),

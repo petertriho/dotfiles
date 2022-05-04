@@ -2,7 +2,6 @@ return {
     "nvim-telescope/telescope.nvim",
     requires = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-file-browser.nvim",
     },
     cmd = "Telescope",
     module = "telescope",
@@ -48,9 +47,6 @@ return {
                     override_file_sorter = true,
                     case_mode = "smart_case",
                 },
-                project = {
-                    hidden_files = true,
-                },
             },
             pickers = {
                 file_browser = {
@@ -71,6 +67,5 @@ return {
         })
 
         telescope.load_extension("fzf")
-        telescope.load_extension("file_browser")
     end,
 }
