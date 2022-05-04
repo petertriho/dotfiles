@@ -1,3 +1,4 @@
+nnoremap <buffer> <CR> <CR>
 nnoremap <buffer> <silent> <C-t> <C-W><CR><C-W>T
 nnoremap <buffer> <silent> <C-s> <CMD>lua require('qf_helper').open_split('split')<CR>
 nnoremap <buffer> <silent> <C-v> <CMD>lua require('qf_helper').open_split('vsplit')<CR>
