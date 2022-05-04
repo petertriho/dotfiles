@@ -1,8 +1,6 @@
 return {
     "gbprod/yanky.nvim",
     keys = {
-        "y",
-        "Y",
         "<Plug>(YankyYank)",
     },
     module = "yanky",
