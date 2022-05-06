@@ -202,7 +202,7 @@ return {
             h = { "<CMD>lua require('package-info').hide()<CR>", "hide" },
             i = { "<CMD>lua require('package-info').install()<CR>", "install" },
             r = { "<CMD>lua require('package-info').reinstall()<CR>", "reinstall" },
-            s = { "<CMD>lua require('package-info').show()<CR>", "show" },
+            s = { "<CMD>lua require('package-info').show({ force = true })<CR>", "show" },
             u = { "<CMD>lua require('package-info').update()<CR>", "update" },
         }
 
