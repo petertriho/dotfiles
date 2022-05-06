@@ -7,6 +7,9 @@ return {
             context_commentstring = {
                 enable = true,
                 enable_autocmd = false,
+                config = {
+                    json = { __default = "// %s", __multiline = "/* %s */" },
+                },
             },
         })
     end,
