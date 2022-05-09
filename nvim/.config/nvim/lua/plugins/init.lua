@@ -23,6 +23,7 @@ require("packer").startup({
             { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
             -- completion
             require("plugins.config.cmp-git"),
+            require("plugins.config.cmp-npm"),
             require("plugins.config.nvim-cmp"),
             require("plugins.config.vim-vsnip"),
             { "andersevenrud/cmp-tmux", after = "nvim-cmp" },

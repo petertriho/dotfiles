@@ -161,7 +161,8 @@ return {
                     menu = {
                         buffer = "[BUFFER]",
                         cmdline = "[CMD]",
-                        cmp_git = "[GIT]",
+                        npm = "[NPM]",
+                        git = "[GIT]",
                         cmp_tabnine = "[TABNINE]",
                         copilot = "[COPILOT]",
                         fuzzy_path = "[FZ-PATH]",
@@ -198,6 +199,7 @@ return {
             sources = {
                 { name = "nvim_lsp_signature_help" },
                 { name = "nvim_lsp" },
+                { name = "npm" },
                 { name = "git" },
                 { name = "cmp_tabnine" },
                 { name = "path" },
