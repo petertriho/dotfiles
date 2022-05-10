@@ -14,8 +14,8 @@ return {
         local set_keymap = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
 
-        set_keymap("n", "<C-n>", "<CMD>QNext<CR>", opts)
-        set_keymap("n", "<C-p>", "<CMD>QPrev<CR>", opts)
+        set_keymap("n", "<M-n>", "<CMD>QNext<CR>", opts)
+        set_keymap("n", "<M-p>", "<CMD>QPrev<CR>", opts)
     end,
     config = function()
         require("qf_helper").setup({
