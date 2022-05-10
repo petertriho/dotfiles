@@ -121,7 +121,10 @@ function tool:rust {
             cargo install cargo-update
         fi
 
+        PREV_CC=$CC
+        unset CC
         cargo install-update --all
+        export CC=$PREV_CC
     fi
 }
 
