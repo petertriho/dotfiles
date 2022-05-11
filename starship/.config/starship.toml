@@ -4,6 +4,9 @@ right_format = "${custom.arch}"
 command = "uname -m"
 when = "true"
 
+[battery]
+disabled = true
+
 [directory]
 truncate_to_repo = false
 fish_style_pwd_dir_length = 1
