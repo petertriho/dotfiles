@@ -20,7 +20,7 @@ M.on_attach = function(client, bufnr)
                 local range_params = vim.lsp.util.make_range_params()
                 formatting_params.range = range_params.range
                 client.request("textDocument/rangeFormatting", formatting_params, nil, bufnr)
-            end, { buffer = bufnr, desc = "LSP Range format" })
+            end, { buffer = bufnr, desc = "LSP range format" })
         end
     end
 end
