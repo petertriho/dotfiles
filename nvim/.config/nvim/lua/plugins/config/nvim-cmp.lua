@@ -161,6 +161,7 @@ return {
                     menu = {
                         buffer = "[BUFFER]",
                         cmdline = "[CMD]",
+                        cmdline_history = "[CMD_HISTORY]",
                         npm = "[NPM]",
                         git = "[GIT]",
                         cmp_tabnine = "[TABNINE]",
@@ -236,6 +237,7 @@ return {
 
         cmp.setup.cmdline(":", {
             sources = {
+                { name = "cmdline_history" },
                 { name = "cmdline" },
                 {
                     name = "fuzzy_path",

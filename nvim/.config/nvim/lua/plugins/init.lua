@@ -27,6 +27,7 @@ require("packer").startup({
             require("plugins.config.nvim-cmp"),
             require("plugins.config.vim-vsnip"),
             { "andersevenrud/cmp-tmux", after = "nvim-cmp" },
+            { "dmitmel/cmp-cmdline-history", after = "nvim-cmp" },
             { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
             { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
             { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
