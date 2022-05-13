@@ -222,7 +222,7 @@ M.setup = function(overrides)
             -- *
             b.diagnostics.codespell.with({
                 filetypes = {},
-                disabled_filetypes = { "gitcommit", "markdown", "NvimTree", "vimwiki" },
+                disabled_filetypes = { "markdown", unpack(require("filetypes").excludes) },
             }),
             b.hover.dictionary,
             -- conf
