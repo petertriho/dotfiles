@@ -122,8 +122,13 @@ function tool:rust {
         fi
 
         PREV_CC=$CC
-        unset CC
+
+        if [ "$(uname)" == "Darwin" ]; then
+            unset CC
+        fi
+
         cargo install-update --all
+
         export CC=$PREV_CC
     fi
 }
