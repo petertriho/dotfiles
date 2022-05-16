@@ -23,41 +23,12 @@ g.loaded_netrwFileHandlers = 1
 
 -- options
 local o = vim.o
-o.clipboard = "unnamedplus"
-o.colorcolumn = "80"
-o.cursorline = true
-o.expandtab = true
-o.ignorecase = true
-o.lazyredraw = true
-o.list = true
-o.mouse = "a"
-o.number = true
-o.pumheight = 10
--- o.relativenumber = true
-o.scrolloff = 5
--- o.shada = "!,'0,f0,<50,s10,h"
-o.shell = "bash"
-o.shiftwidth = 4
-o.showmode = false
-o.signcolumn = "yes"
-o.smartcase = true
-o.smartindent = true
-o.softtabstop = 4
-o.splitbelow = true
-o.splitright = true
-o.swapfile = false
-o.tabstop = 4
-o.termguicolors = true
-o.timeoutlen = 300
-o.title = true
-o.titlestring = "nvim %t %M"
-o.ttimeout = false
-o.ttimeoutlen = 0
--- o.updatetime = 100
-o.wrap = false
-
 local opt = vim.opt
+opt.clipboard = "unnamedplus"
+opt.colorcolumn = "80"
+opt.cursorline = true
 opt.diffopt:append("algorithm:histogram,hiddenoff")
+opt.expandtab = true
 opt.fillchars = {
     diff = "╱",
     eob = " ",
@@ -65,6 +36,9 @@ opt.fillchars = {
     msgsep = "‾",
     vert = "│",
 }
+opt.ignorecase = true
+opt.lazyredraw = true
+opt.list = true
 opt.listchars = {
     eol = "¬",
     extends = "›",
@@ -74,8 +48,33 @@ opt.listchars = {
     tab = "» ",
     trail = "·",
 }
+opt.mouse = "a"
+opt.number = true
 opt.path:append("**")
+opt.pumheight = 10
+-- opt.relativenumber = true
+opt.scrolloff = 5
+-- opt.shada = "!,'0,f0,<50,s10,h"
+opt.shell = "bash"
+opt.shiftwidth = 4
 opt.shortmess:append("c")
+opt.showmode = false
+opt.signcolumn = "yes"
+opt.smartcase = true
+opt.smartindent = true
+opt.softtabstop = 4
+opt.splitbelow = true
+opt.splitright = true
+opt.swapfile = false
+opt.tabstop = 4
+opt.termguicolors = true
+opt.timeoutlen = 300
+opt.title = true
+opt.titlestring = "nvim %t %M"
+opt.ttimeout = false
+opt.ttimeoutlen = 0
+-- opt.updatetime = 100
+opt.wrap = false
 opt.wildignore = {
     "*.o",
     "*.pyc",
@@ -103,8 +102,8 @@ if vim.fn.executable("win32yank.exe") == 1 then
 end
 
 if vim.fn.executable("rg") == 1 then
-    o.grepprg = "rg --vimgrep --color=never --no-heading --smart-case --hidden"
-    o.grepformat = "%f:%l:%c:%m,%f:%l:%m"
+    opt.grepprg = "rg --vimgrep --color=never --no-heading --smart-case --hidden"
+    opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
 local dir = vim.fn.expand("~/.undodir")
@@ -113,8 +112,8 @@ if vim.fn.isdirectory(dir) ~= 1 then
     vim.fn.mkdir(dir, "p", "0700")
 end
 
-o.undodir = dir
-o.undofile = true
+opt.undodir = dir
+opt.undofile = true
 
 local function mkdir()
     local dir = vim.fn.expand("<afile>:p:h")
@@ -167,7 +166,7 @@ set_augroups({
             {
                 callback = function()
                     if o.number then
-                        o.relativenumber = false
+                        opt.relativenumber = false
                     end
                 end,
                 desc = "Turn off relative number",
@@ -178,7 +177,7 @@ set_augroups({
             {
                 callback = function()
                     if o.number then
-                        o.relativenumber = true
+                        opt.relativenumber = true
                     end
                 end,
                 desc = "Turn on relative number",
