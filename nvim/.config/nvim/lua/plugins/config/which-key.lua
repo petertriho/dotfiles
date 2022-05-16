@@ -10,8 +10,6 @@ return {
                 gb = "Block Comments",
                 gc = "Comments",
                 s = "Substitute",
-                ["<Leader>s"] = "Substitute Range",
-                ["<Leader>S"] = "Subvert Range",
             },
         })
 
