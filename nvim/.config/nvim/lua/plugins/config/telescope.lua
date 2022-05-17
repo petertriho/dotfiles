@@ -71,8 +71,8 @@ return {
         local commands = require("github-notifications.telescope.commands")
         commands.open_in_browser = function(notification)
             local url = string.gsub(notification.value.subject.url, "api%.github%.com", "github.com"):gsub(
-                "/pulls/(%d+)/",
-                "/pull/%1/"
+                "/pulls/(%d+)",
+                "/pull/%1"
             )
 
             if vim.fn.has("mac") == 1 then
