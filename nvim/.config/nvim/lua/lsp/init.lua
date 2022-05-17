@@ -124,6 +124,8 @@ local function setup()
                 library = { vimruntime = true, types = true, plugins = true },
                 lspconfig = config,
             })
+        elseif server == "yamlls" then
+            config = require("yaml-companion").setup({ lspconfig = config })
         end
 
         lspconfig[server].setup(config)

@@ -280,6 +280,7 @@ return {
                 "<CMD>lua require('telescope.builtin').live_grep({search_dirs = {os.getenv('VIMWIKI_PATH')}})<CR>",
                 "search-wiki",
             },
+            y = { "<CMD>Telescope yaml_schema<CR>", "yaml-schema" },
         }
 
         local semicolon_visual_keymaps = {

@@ -67,6 +67,7 @@ return {
         })
 
         telescope.load_extension("fzf")
+        telescope.load_extension("yaml_schema")
 
         local commands = require("github-notifications.telescope.commands")
         commands.open_in_browser = function(notification)

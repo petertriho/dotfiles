@@ -20,6 +20,7 @@ require("packer").startup({
             require("plugins.config.vim-illuminate"),
             { "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" },
             { "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" },
+            { "someone-stole-my-name/yaml-companion.nvim" },
             { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
             -- completion
             require("plugins.config.cmp-git"),

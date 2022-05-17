@@ -349,6 +349,13 @@ return {
                     local extension = vim.fn.fnamemodify(filename, ":e")
                     local filetype = vim.bo[bufnr].filetype:upper()
 
+                    if filetype == "YAML" then
+                        local schema = require("yaml-companion").get_buf_schema(0)
+                        if schema and schema.result[1].name ~= "none" then
+                            filetype = string.format("%s (%s)", filetype, schema.result[1].name)
+                        end
+                    end
+
                     local icon_str, icon_hlname = require("nvim-web-devicons").get_icon(
                         filename,
                         extension,
