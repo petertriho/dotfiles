@@ -70,9 +70,10 @@ return {
 
         local commands = require("github-notifications.telescope.commands")
         commands.open_in_browser = function(notification)
-            local url = notification.value.subject.url
-
-            url = url:gsub("api%.github%.com", "github.com")
+            local url = string.gsub(notification.value.subject.url, "api%.github%.com", "github.com"):gsub(
+                "/pulls/(%d+)/",
+                "/pull/%1/"
+            )
 
             if vim.fn.has("mac") == 1 then
                 vim.cmd('call jobstart(["open", expand("' .. url .. '")], {"detach": v:true})')
