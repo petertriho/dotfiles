@@ -79,7 +79,13 @@ return {
             if vim.fn.has("mac") == 1 then
                 vim.cmd('call jobstart(["open", expand("' .. url .. '")], {"detach": v:true})')
             elseif vim.fn.has("unix") == 1 then
-                vim.cmd('call jobstart(["xdg-open", expand("' .. url .. '")], {"detach": v:true})')
+                local open_cmd = "xdg-open"
+
+                if vim.fn.executable("wslview") == 1 then
+                    open_cmd = "wslview"
+                end
+
+                vim.cmd('call jobstart(["' .. open_cmd .. '", expand("' .. url .. '")], {"detach": v:true})')
             else
                 vim.notify("gx not supported on this OS", vim.log.levels.ERROR)
             end
