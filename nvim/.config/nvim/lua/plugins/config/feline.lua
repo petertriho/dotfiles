@@ -321,7 +321,7 @@ return {
         components.inactive[2] = {
             {
                 provider = function()
-                    return tostring(vim.fn.win_id2win(vim.api.nvim_get_current_win()))
+                    return tostring(vim.api.nvim_win_get_number(0))
                 end,
                 left_sep = " ",
                 right_sep = " ",
