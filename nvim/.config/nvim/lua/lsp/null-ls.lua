@@ -176,6 +176,21 @@ local sources_formatting = {
         },
         factory = h.formatter_factory,
     }),
+    svgo = h.make_builtin({
+        method = FORMATTING,
+        filetypes = { "svg" },
+        generator_opts = {
+            command = "svgo",
+            args = {
+                "--pretty",
+                "-i",
+                "$FILENAME",
+                "-o",
+                "-",
+            },
+        },
+        factory = h.formatter_factory,
+    }),
     pyupgrade = h.make_builtin({
         method = FORMATTING,
         filetypes = { "python" },
@@ -375,6 +390,8 @@ M.setup = function(overrides)
                     return extra_args
                 end,
             }),
+            -- svg
+            sources_formatting.svgo,
             -- web
             b.diagnostics.stylelint.with({
                 extra_args = {
@@ -427,7 +444,6 @@ M.setup = function(overrides)
                     "jsonc",
                 },
             }),
-
             -- markdown/vimwiki
             b.diagnostics.markdownlint.with({
                 filetypes = { "markdown", "vimwiki" },

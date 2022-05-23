@@ -111,6 +111,10 @@ function main {
         npm install --global stylelint stylelint-config-standard
     fi
 
+    if ! command -v svgo &> /dev/null; then
+        npm install --global svgo
+    fi
+
     asdf reshim
 }
 
