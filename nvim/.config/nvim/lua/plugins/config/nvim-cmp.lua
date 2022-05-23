@@ -158,6 +158,7 @@ return {
             formatting = {
                 format = require("lspkind").cmp_format({
                     mode = "symbol_text",
+                    maxwidth = 50,
                     menu = {
                         buffer = "[BUFFER]",
                         cmdline = "[CMD]",
