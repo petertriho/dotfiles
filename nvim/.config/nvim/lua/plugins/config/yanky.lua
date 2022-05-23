@@ -28,8 +28,8 @@ return {
         set_keymap({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", {})
         set_keymap({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", {})
 
-        set_keymap("n", "<M-n>", "<Plug>(YankyCycleForward)", {})
-        set_keymap("n", "<M-p>", "<Plug>(YankyCycleBackward)", {})
+        set_keymap("n", "<M-f>", "<Plug>(YankyCycleForward)", {})
+        set_keymap("n", "<M-b>", "<Plug>(YankyCycleBackward)", {})
 
         set_keymap("n", "Y", "y$", {})
     end,
