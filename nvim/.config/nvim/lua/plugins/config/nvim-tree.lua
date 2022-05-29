@@ -10,9 +10,6 @@ return {
         "NvimTreeFindFileToggle",
         "NvimTreeClipboard",
     },
-    setup = function()
-        vim.g.nvim_tree_git_hl = 1
-    end,
     config = function()
         require("nvim-tree").setup({
             auto_reload_on_write = false,
@@ -58,6 +55,9 @@ return {
                         },
                     },
                 },
+            },
+            renderer = {
+                highlight_git = true,
             },
         })
     end,
