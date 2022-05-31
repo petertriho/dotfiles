@@ -17,7 +17,7 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- dcpu 'docker compose -p (git_repo_name) up -d'
     abbr -a -U -- dcu  'docker compose up -d'
     abbr -a -U -- e    exa
-    abbr -a -U -- el   'exa --long --header'
+    abbr -a -U -- el   'exa --long --header --all --git'
     abbr -a -U -- et   'exa --tree --level=2'
     abbr -a -U -- g    git
     abbr -a -U -- gaa  'git add --all'
