@@ -51,7 +51,6 @@ return {
                 diagnosticMode = "workspace",
                 useLibraryCodeForTypes = true,
             },
-            venvPath = "./.venv"
         },
     },
     sumneko_lua = {},
