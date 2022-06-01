@@ -90,6 +90,7 @@ function setup_misc {
     chsh -s "$FISH_PATH"
 
     gh auth login
+    gh extension install dlvhdr/gh-dash
 
     (cd "$DOTFILES_DIR" && git config remote.origin.url git@github.com:petertriho/dotfiles.git)
 

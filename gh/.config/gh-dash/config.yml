@@ -1,0 +1,22 @@
+prSections:
+- title: Created
+  filters: is:open author:@me
+- title: Review requests
+  filters: is:open review-requested:@me
+- title: Commented
+  filters: is:open archived:false commenter:@me
+issuesSections:
+- title: Created
+  filters: is:open author:@me
+- title: Assigned
+  filters: is:open assignee:@me
+defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 100
+  issuesLimit: 100
+  view: prs
+keybindings:
+  prs: []
+repoPaths: {}
