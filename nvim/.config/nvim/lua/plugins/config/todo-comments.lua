@@ -14,5 +14,21 @@ return {
             end
             return true
         end
+
+        highlight.is_valid_win = function(win)
+            if not vim.api.nvim_win_is_valid(win) then
+                return false
+            end
+            -- avoid E5108 after pressing q:
+            if vim.fn.getcmdwintype() ~= "" then
+                return false
+            end
+            -- dont do anything for floating windows
+            if highlight.is_float(win) then
+                return false
+            end
+            local buf = vim.api.nvim_win_get_buf(win)
+            return highlight.is_valid_buf(buf)
+        end
     end,
 }
