@@ -1,27 +1,29 @@
 local M = {}
 
+local disabled = {
+    sumneko_lua = true,
+    tsserver = true,
+}
+
+local function filter(client)
+    return not disabled[client.name]
+end
+
 M.on_attach = function(client, bufnr)
-    local disabled = {
-        sumneko_lua = true,
-        tsserver = true,
-    }
+    if client.server_capabilities.documentFormattingProvider then
+        vim.keymap.set("n", "<Leader>f", function()
+            vim.lsp.buf.format({
+                bufnr = bufnr,
+                filter = filter,
+                async = true,
+            })
+        end, { buffer = bufnr, desc = "LSP format" })
+    end
 
-    if not disabled[client.name] then
-        if client.server_capabilities.documentFormattingProvider then
-            vim.keymap.set("n", "<Leader>f", function()
-                local formatting_params = vim.lsp.util.make_formatting_params({})
-                client.request("textDocument/formatting", formatting_params, nil, bufnr)
-            end, { buffer = bufnr, desc = "LSP format" })
-        end
-
-        if client.server_capabilities.documentRangeFormattingProvider then
-            vim.keymap.set("v", "<Leader>f", function()
-                local formatting_params = vim.lsp.util.make_formatting_params({})
-                local range_params = vim.lsp.util.make_range_params()
-                formatting_params.range = range_params.range
-                client.request("textDocument/rangeFormatting", formatting_params, nil, bufnr)
-            end, { buffer = bufnr, desc = "LSP range format" })
-        end
+    if client.server_capabilities.documentRangeFormattingProvider then
+        vim.keymap.set("v", "<Leader>f", function()
+            vim.lsp.buf.range_formatting()
+        end, { buffer = bufnr, desc = "LSP range format" })
     end
 end
 
