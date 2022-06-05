@@ -4,9 +4,9 @@ return {
     config = function()
         require("git-conflict").setup({
             highlights = {
-                ancestor = "DiffChange",
+                ancestor = "DiffDelete",
                 current = "DiffAdd",
-                incoming = "DiffDelete",
+                incoming = "DiffChange",
             },
         })
     end,
