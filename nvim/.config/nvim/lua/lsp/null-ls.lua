@@ -291,7 +291,7 @@ M.setup = function(overrides)
                     return get_python_version()[2] >= 9
                 end,
             }),
-            sources_formatting.pybetter,
+            -- sources_formatting.pybetter,
             sources_formatting.pyupgrade.with({
                 extra_args = function(params)
                     local extra_args = {}
