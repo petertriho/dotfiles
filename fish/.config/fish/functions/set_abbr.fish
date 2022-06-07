@@ -22,7 +22,7 @@ function set_abbr --description "Set abbr(eviations)"
     abbr -a -U -- g    git
     abbr -a -U -- gaa  'git add --all'
     abbr -a -U -- gb   'git branch'
-    abbr -a -U -- gbd  'git branch -D'
+    abbr -a -U -- gbrd 'git branch -D'
     abbr -a -U -- gbu  'git_branch_upstream'
     abbr -a -U -- gc   'git commit'
     abbr -a -U -- gcam 'git commit -am'
