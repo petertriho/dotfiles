@@ -7,7 +7,6 @@ require("packer").startup({
             -- ui
             require("plugins.config.bufferline"),
             require("plugins.config.gitsigns"),
-            require("plugins.config.modes"),
             require("plugins.config.nvim-scrollbar"),
             { "feline-nvim/feline.nvim", requires = "kyazdani42/nvim-web-devicons" },
             -- lsp
