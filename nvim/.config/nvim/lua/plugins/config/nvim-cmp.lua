@@ -166,7 +166,6 @@ return {
                         npm = "[NPM]",
                         git = "[GIT]",
                         cmp_tabnine = "[TABNINE]",
-                        copilot = "[COPILOT]",
                         fuzzy_path = "[FZ-PATH]",
                         fuzzy_buffer = "[FZ-BUFFER]",
                         nvim_lsp = "[LSP]",

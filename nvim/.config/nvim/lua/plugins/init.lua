@@ -44,7 +44,6 @@ require("packer").startup({
             -- language
             "Vimjas/vim-python-pep8-indent",
             require("plugins.config.any-jump"),
-            require("plugins.config.copilot"),
             require("plugins.config.filetype"),
             require("plugins.config.indent-blankline"),
             require("plugins.config.rainbow"),
