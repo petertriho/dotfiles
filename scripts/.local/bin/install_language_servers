@@ -3,6 +3,10 @@
 set -euo pipefail
 
 function main {
+    if ! command -v gopls &> /dev/null; then
+        brew install gopls
+    fi
+
     if ! command -v lua-language-server &> /dev/null; then
         brew install lua-language-server
     fi
@@ -21,10 +25,6 @@ function main {
 
     if ! command -v taplo &> /dev/null; then
         cargo install taplo-cli --locked
-    fi
-
-    if ! command -v gopls &> /dev/null; then
-        GO111MODULE=on go install golang.org/x/tools/gopls@latest
     fi
 
     if ! command -v bash-language-server &> /dev/null; then
