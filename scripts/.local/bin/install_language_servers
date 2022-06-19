@@ -11,16 +11,16 @@ function main {
         brew install lua-language-server
     fi
 
+    if ! command -v rust-analyzer &> /dev/null; then
+        brew install rust-analyzer
+    fi
+
     if ! command -v terraform-ls &> /dev/null; then
         brew install hashicorp/tap/terraform-ls
     fi
 
     if ! command -v tflint &> /dev/null; then
         brew install tflint
-    fi
-
-    if ! command -v rust-analyzer &> /dev/null; then
-        brew install rust-analyzer
     fi
 
     if ! command -v taplo &> /dev/null; then
