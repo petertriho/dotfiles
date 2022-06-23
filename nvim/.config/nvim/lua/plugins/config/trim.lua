@@ -1,7 +1,7 @@
 return {
-    "mcauley-penney/tidy.nvim",
+    "cappyzawa/trim.nvim",
     config = function()
-        require("tidy").setup()
+        require("trim").setup()
     end,
     event = "BufWritePre",
 }

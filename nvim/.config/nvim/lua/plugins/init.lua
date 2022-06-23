@@ -137,7 +137,7 @@ require("packer").startup({
             require("plugins.config.qf_helper"),
             require("plugins.config.range-highlight"),
             require("plugins.config.stickybuf"),
-            require("plugins.config.tidy"),
+            require("plugins.config.trim"),
             require("plugins.config.vim-unimpaired"),
             require("plugins.config.yanky"),
             require("plugins.config.winshift"),
