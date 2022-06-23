@@ -16,9 +16,13 @@ return {
     end,
     config = function()
         require("winshift").setup({
-            window_picker_ignore = {
-                filetype = require("filetypes").excludes,
-            },
+            window_picker = function()
+                return require("winshift.lib").pick_window({
+                    filter_rules = {
+                        filetype = require("filetypes").excludes,
+                    },
+                })
+            end,
         })
     end,
 }
