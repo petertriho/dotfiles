@@ -19,6 +19,8 @@ return {
             window_picker = function()
                 return require("winshift.lib").pick_window({
                     filter_rules = {
+                        cur_win = true,
+                        floats = true,
                         filetype = require("filetypes").excludes,
                     },
                 })
