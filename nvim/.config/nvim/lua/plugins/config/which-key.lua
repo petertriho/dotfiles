@@ -287,19 +287,6 @@ return {
             r = { "<ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor" },
         }
 
-        semicolon_keymaps["u"] = {
-            name = "+ultests",
-            a = { "<CMD>UltestAttach<CR>", "attach" },
-            c = { "<CMD>UltestClear<CR>", "clear" },
-            d = { "<CMD>UltestDebug<CR>", "debug" },
-            l = { "<CMD>UltestLast<CR>", "last" },
-            n = { "<CMD>UltestNearest<CR>", "nearest" },
-            o = { "<CMD>UltestOutput<CR>", "output" },
-            r = { "<CMD>Ultest<CR>", "run" },
-            s = { "<CMD>UltestStop<CR>", "stop" },
-            t = { "<CMD>UltestSummary<CR>", "toggle" },
-        }
-
         register(semicolon_keymaps, {
             prefix = ";",
             mode = "n",

@@ -18,14 +18,6 @@ return {
 
         vim.api.nvim_set_hl(0, "Folded", { fg = colors.comment, bg = nil })
 
-        vim.cmd([[
-            highlight link UltestPass DiagnosticHint
-            highlight link UltestFail DiagnosticError
-            highlight link UltestRunning DiagnosticWarn
-            highlight link UltestBorder FloatBorder
-            highlight link UltestSummaryInfo DiagnosticInfo
-        ]])
-
         vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticSignWarn" })
 
         local diagnostic_signs = {

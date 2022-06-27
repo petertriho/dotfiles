@@ -5,7 +5,6 @@ local sidebars = {
     "MundoDiff",
     "NvimTree",
     "Outline",
-    "UltestSummary",
 }
 
 return {

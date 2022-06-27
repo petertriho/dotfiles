@@ -49,7 +49,6 @@ require("packer").startup({
             require("plugins.config.rainbow"),
             require("plugins.config.todo-comments"),
             require("plugins.config.vim-polyglot"),
-            require("plugins.config.vim-ultest"),
             { "rrethy/vim-hexokinase", run = "make hexokinase", opt = true },
             -- treesitter
             require("plugins.config.iswap"),
@@ -204,11 +203,3 @@ end
 
 vim.api.nvim_create_user_command("ToggleGitStatus", toggle_buffer(".git/*index", "Git"), {})
 vim.api.nvim_create_user_command("ToggleNeogitStatus", toggle_buffer("NeogitStatus", "Neogit kind=split"), {})
-
-vim.api.nvim_create_augroup("update_remote_plugins", {})
-vim.api.nvim_create_autocmd("User", {
-    group = "update_remote_plugins",
-    pattern = "PackerComplete",
-    command = "execute 'PackerLoad vim-test vim-ultest' | silent UpdateRemotePlugins",
-    desc = "Update remote plugins",
-})

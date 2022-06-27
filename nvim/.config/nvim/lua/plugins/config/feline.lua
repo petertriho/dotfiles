@@ -133,62 +133,6 @@ return {
                 priority = 1,
             },
             {
-                provider = function()
-                    return string.format(" %s", vim.g.ultest_running_text)
-                end,
-                enabled = function()
-                    return packer_plugins["vim-ultest"]
-                        and packer_plugins["vim-ultest"].loaded
-                        and vim.fn["ultest#is_test_file"]() == 1
-                        and vim.fn["ultest#status"]().running == 1
-                end,
-                hl = { fg = "warning" },
-                truncate_hide = true,
-                priority = 1,
-            },
-            {
-                provider = function()
-                    local status = vim.fn["ultest#status"]()
-                    return string.format(" ﱔ %s", status.tests)
-                end,
-                enabled = function()
-                    return packer_plugins["vim-ultest"]
-                        and packer_plugins["vim-ultest"].loaded
-                        and vim.fn["ultest#is_test_file"]() == 1
-                end,
-                hl = { fg = "info" },
-                truncate_hide = true,
-                priority = 1,
-            },
-            {
-                provider = function()
-                    local status = vim.fn["ultest#status"]()
-                    return string.format(" %s %s", vim.g.ultest_pass_text, status.passed)
-                end,
-                enabled = function()
-                    return packer_plugins["vim-ultest"]
-                        and packer_plugins["vim-ultest"].loaded
-                        and vim.fn["ultest#is_test_file"]() == 1
-                end,
-                hl = { fg = "hint" },
-                truncate_hide = true,
-                priority = 1,
-            },
-            {
-                provider = function()
-                    local status = vim.fn["ultest#status"]()
-                    return string.format(" %s %s ", vim.g.ultest_fail_text, status.failed)
-                end,
-                enabled = function()
-                    return packer_plugins["vim-ultest"]
-                        and packer_plugins["vim-ultest"].loaded
-                        and vim.fn["ultest#is_test_file"]() == 1
-                end,
-                hl = { fg = "error" },
-                truncate_hide = true,
-                priority = 1,
-            },
-            {
                 provider = "github_notifications",
                 enabled = function()
                     return packer_plugins["github-notifications.nvim"]
