@@ -89,6 +89,7 @@ require("packer").startup({
             require("plugins.config.telescope"),
             { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
             -- tools
+            require("plugins.config.color-picker"),
             require("plugins.config.dirbuf"),
             require("plugins.config.diffview"),
             require("plugins.config.git-conflict"),
