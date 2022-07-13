@@ -237,8 +237,8 @@ return {
 
         cmp.setup.cmdline(":", {
             sources = {
-                -- { name = "cmdline_history" },
                 { name = "cmdline" },
+                { name = "cmdline_history" },
                 {
                     name = "fuzzy_path",
                     options = {
