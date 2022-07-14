@@ -75,12 +75,12 @@ require("packer").startup({
             require("plugins.config.Comment"),
             require("plugins.config.dial"),
             require("plugins.config.nvim-autopairs"),
+            require("plugins.config.nvim-surround"),
             require("plugins.config.sort"),
             require("plugins.config.splitjoin"),
             require("plugins.config.substitute"),
             require("plugins.config.vim-abolish"),
             require("plugins.config.vim-caser"),
-            require("plugins.config.vim-sandwich"),
             require("plugins.config.vim-wordmotion"),
             { "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" },
             -- telescope
