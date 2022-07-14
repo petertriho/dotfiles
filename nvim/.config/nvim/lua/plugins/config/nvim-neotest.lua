@@ -2,18 +2,21 @@ return {
     "nvim-neotest/neotest",
     requires = {
         "nvim-treesitter/nvim-treesitter",
-        "nvim-neotest/neotest-python",
-        "haydenmeade/neotest-jest",
-        "nvim-neotest/neotest-vim-test",
-        "vim-test/vim-test",
+        { "nvim-neotest/neotest-python", module = "neotest" },
+        { "haydenmeade/neotest-jest", module = "neotest" },
+        { "nvim-neotest/neotest-vim-test", module = "neotest" },
+        { "vim-test/vim-test", module = "neotest" },
     },
+    module = "neotest",
     setup = function()
-        vim.keymap.set("n", "]t", function()
+        local set_keymap = vim.keymap.set
+
+        set_keymap("n", "]t", function()
             require("neotest").jump.next("Next test")
-        end, {})
-        vim.keymap.set("n", "[t", function()
+        end, { desc = "Next test" })
+        set_keymap("n", "[t", function()
             require("neotest").jump.prev("Previous test")
-        end, {})
+        end, { desc = "Previous Test" })
     end,
     config = function()
         require("neotest").setup({
