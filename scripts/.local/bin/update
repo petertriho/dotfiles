@@ -95,7 +95,7 @@ function tool:nvim {
             +qall
 
         nvim \
-            +"autocmd User PackerComplete sleep 100m | write /tmp/packer-sync-result.txt | quitall" \
+            +"autocmd User PackerComplete sleep 100m | write! /tmp/packer-sync-result.txt | quitall" \
             +PackerSync
 
         cat /tmp/packer-sync-result.txt
