@@ -13,10 +13,11 @@ return {
                 colors = {
                     colors.red,
                     colors.green,
-                    colors.yellow,
                     colors.blue,
-                    colors.magenta,
+                    colors.yellow,
                     colors.cyan,
+                    colors.magenta,
+                    colors.orange,
                 },
             },
         })
