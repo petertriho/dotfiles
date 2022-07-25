@@ -15,6 +15,7 @@ brew "gh"
 brew "git"
 brew "git-delta"
 brew "glow"
+brew "howdoi"
 brew "libffi"
 brew "neovim", args: ["HEAD"]
 brew "ripgrep"
