@@ -25,6 +25,6 @@ return {
         -- FIXME: expr keymaps appear to be broken?
         set_keymap("n", "gcc", "<Plug>(comment_toggle_current_linewise)")
         set_keymap("n", "<Leader>/", "<Plug>(comment_toggle_current_linewise)")
-        set_keymap("v", "<Leader>/", "gc")
+        set_keymap("v", "<Leader>/", "gc", { remap = true})
     end,
 }
