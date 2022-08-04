@@ -137,6 +137,7 @@ require("packer").startup({
             require("plugins.config.nvim-lastplace"),
             require("plugins.config.qf_helper"),
             require("plugins.config.range-highlight"),
+            require("plugins.config.scope"),
             require("plugins.config.stickybuf"),
             require("plugins.config.trim"),
             require("plugins.config.vim-unimpaired"),
