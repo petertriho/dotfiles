@@ -148,7 +148,27 @@ return {
             end,
         })
 
+        local types = require("cmp.types")
+
+        local function deprioritize_snippet(entry1, entry2)
+            if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
+                return false
+            end
+            if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then
+                return true
+            end
+        end
+
+        local default_comparators = require("cmp.config.default")().sorting.comparators
+
         cmp.setup({
+            sorting = {
+                priority_weight = 2,
+                comparators = {
+                    deprioritize_snippet,
+                    unpack(default_comparators),
+                },
+            },
             window = {
                 documentation = {
                     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
