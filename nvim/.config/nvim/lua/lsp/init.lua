@@ -1,6 +1,5 @@
 -- Setup
 local function on_attach(client, bufnr)
-    require("illuminate").on_attach(client)
     require("lsp.colors").on_attach(client, bufnr)
     require("lsp.format").on_attach(client, bufnr)
 

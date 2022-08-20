@@ -13,10 +13,14 @@ return {
 
         local colors = require("colors")
 
+        vim.api.nvim_set_hl(0, "Folded", { fg = colors.comment, bg = nil })
+
+        vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = colors.bg_highlight, underline = true })
+        vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = colors.bg_highlight, underline = true })
+        vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = colors.bg_highlight, underline = true })
+
         vim.api.nvim_set_hl(0, "QuickScopePrimary", { fg = colors.blue, underline = true })
         vim.api.nvim_set_hl(0, "QuickScopeSecondary", { fg = colors.red, underline = true })
-
-        vim.api.nvim_set_hl(0, "Folded", { fg = colors.comment, bg = nil })
 
         vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticSignWarn" })
 
