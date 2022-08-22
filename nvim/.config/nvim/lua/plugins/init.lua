@@ -204,5 +204,5 @@ local function toggle_buffer(buf, open_cmd)
     end
 end
 
-vim.api.nvim_create_user_command("ToggleGitStatus", toggle_buffer("fugitive:///*.git/", "Git"), {})
+vim.api.nvim_create_user_command("ToggleGitStatus", toggle_buffer("fugitive:///*.git*//$", "Git"), {})
 vim.api.nvim_create_user_command("ToggleNeogitStatus", toggle_buffer("NeogitStatus", "Neogit kind=split"), {})
