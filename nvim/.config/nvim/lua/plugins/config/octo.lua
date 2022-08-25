@@ -23,112 +23,114 @@ return {
         require("octo").setup({
             mappings = {
                 issue = {
-                    close_issue = ",ic", -- close issue
-                    reopen_issue = ",io", -- reopen issue
-                    list_issues = ",il", -- list open issues on same repo
-                    reload = "<C-r>", -- reload issue
-                    open_in_browser = "<C-b>", -- open issue in browser
-                    copy_url = "<C-y>", -- copy url to system clipboard
-                    add_assignee = ",aa", -- add assignee
-                    remove_assignee = ",ad", -- remove assignee
-                    create_label = ",lc", -- create label
-                    add_label = ",la", -- add label
-                    remove_label = ",ld", -- remove label
-                    goto_issue = ",gi", -- navigate to a local repo issue
-                    add_comment = ",ca", -- add comment
-                    delete_comment = ",cd", -- delete comment
-                    next_comment = "]c", -- go to next comment
-                    prev_comment = "[c", -- go to previous comment
-                    react_hooray = ",ep", -- add/remove 🎉 reaction
-                    react_heart = ",eh", -- add/remove ❤️ reaction
-                    react_eyes = ",ee", -- add/remove 👀 reaction
-                    react_thumbs_up = ",e+", -- add/remove 👍 reaction
-                    react_thumbs_down = ",e-", -- add/remove 👎 reaction
-                    react_rocket = ",er", -- add/remove 🚀 reaction
-                    react_laugh = ",el", -- add/remove 😄 reaction
-                    react_confused = ",ec", -- add/remove 😕 reaction
+                    close_issue = { lhs = ",ic", desc = "close issue" },
+                    reopen_issue = { lhs = ",io", desc = "reopen issue" },
+                    list_issues = { lhs = ",il", desc = "list open issues on same repo" },
+                    reload = { lhs = "<C-r>", desc = "reload issue" },
+                    open_in_browser = { lhs = "<C-b>", desc = "open issue in browser" },
+                    copy_url = { lhs = "<C-y>", desc = "copy url to system clipboard" },
+                    add_assignee = { lhs = ",aa", desc = "add assignee" },
+                    remove_assignee = { lhs = ",ad", desc = "remove assignee" },
+                    create_label = { lhs = ",lc", desc = "create label" },
+                    add_label = { lhs = ",la", desc = "add label" },
+                    remove_label = { lhs = ",ld", desc = "remove label" },
+                    goto_issue = { lhs = ",gi", desc = "navigate to a local repo issue" },
+                    add_comment = { lhs = ",ca", desc = "add comment" },
+                    delete_comment = { lhs = ",cd", desc = "delete comment" },
+                    next_comment = { lhs = "]c", desc = "go to next comment" },
+                    prev_comment = { lhs = "[c", desc = "go to previous comment" },
+                    react_hooray = { lhs = ",ep", desc = "add/remove 🎉 reaction" },
+                    react_heart = { lhs = ",eh", desc = "add/remove ❤️ reaction" },
+                    react_eyes = { lhs = ",ee", desc = "add/remove 👀 reaction" },
+                    react_thumbs_up = { lhs = ",e+", desc = "add/remove 👍 reaction" },
+                    react_thumbs_down = { lhs = ",e-", desc = "add/remove 👎 reaction" },
+                    react_rocket = { lhs = ",er", desc = "add/remove 🚀 reaction" },
+                    react_laugh = { lhs = ",el", desc = "add/remove 😄 reaction" },
+                    react_confused = { lhs = ",ec", desc = "add/remove 😕 reaction" },
                 },
                 pull_request = {
-                    checkout_pr = ",po", -- checkout PR
-                    merge_pr = ",pm", -- merge PR
-                    list_commits = ",pc", -- list PR commits
-                    list_changed_files = ",pf", -- list PR changed files
-                    show_pr_diff = ",pd", -- show PR diff
-                    add_reviewer = ",va", -- add reviewer
-                    remove_reviewer = ",vd", -- remove reviewer request
-                    close_issue = ",ic", -- close PR
-                    reopen_issue = ",io", -- reopen PR
-                    list_issues = ",il", -- list open issues on same repo
-                    reload = "<C-r>", -- reload PR
-                    open_in_browser = "<C-b>", -- open PR in browser
-                    copy_url = "<C-y>", -- copy url to system clipboard
-                    add_assignee = ",aa", -- add assignee
-                    remove_assignee = ",ad", -- remove assignee
-                    create_label = ",lc", -- create label
-                    add_label = ",la", -- add label
-                    remove_label = ",ld", -- remove label
-                    goto_issue = ",gi", -- navigate to a local repo issue
-                    add_comment = ",ca", -- add comment
-                    delete_comment = ",cd", -- delete comment
-                    next_comment = "]c", -- go to next comment
-                    prev_comment = "[c", -- go to previous comment
-                    react_hooray = ",ep", -- add/remove 🎉 reaction
-                    react_heart = ",eh", -- add/remove ❤️ reaction
-                    react_eyes = ",ee", -- add/remove 👀 reaction
-                    react_thumbs_up = ",e+", -- add/remove 👍 reaction
-                    react_thumbs_down = "er-", -- add/remove 👎 reaction
-                    react_rocket = ",er", -- add/remove 🚀 reaction
-                    react_laugh = ",el", -- add/remove 😄 reaction
-                    react_confused = ",ec", -- add/remove 😕 reaction
+                    checkout_pr = { lhs = ",po", desc = "checkout PR" },
+                    merge_pr = { lhs = ",pm", desc = "merge commit PR" },
+                    squash_and_merge_pr = { lhs = ",psm", desc = "squash and merge PR" },
+                    list_commits = { lhs = ",pc", desc = "list PR commits" },
+                    list_changed_files = { lhs = ",pf", desc = "list PR changed files" },
+                    show_pr_diff = { lhs = ",pd", desc = "show PR diff" },
+                    add_reviewer = { lhs = ",va", desc = "add reviewer" },
+                    remove_reviewer = { lhs = ",vd", desc = "remove reviewer request" },
+                    close_issue = { lhs = ",ic", desc = "close PR" },
+                    reopen_issue = { lhs = ",io", desc = "reopen PR" },
+                    list_issues = { lhs = ",il", desc = "list open issues on same repo" },
+                    reload = { lhs = "<C-r>", desc = "reload PR" },
+                    open_in_browser = { lhs = "<C-b>", desc = "open PR in browser" },
+                    copy_url = { lhs = "<C-y>", desc = "copy url to system clipboard" },
+                    goto_file = { lhs = "gf", desc = "go to file" },
+                    add_assignee = { lhs = ",aa", desc = "add assignee" },
+                    remove_assignee = { lhs = ",ad", desc = "remove assignee" },
+                    create_label = { lhs = ",lc", desc = "create label" },
+                    add_label = { lhs = ",la", desc = "add label" },
+                    remove_label = { lhs = ",ld", desc = "remove label" },
+                    goto_issue = { lhs = ",gi", desc = "navigate to a local repo issue" },
+                    add_comment = { lhs = ",ca", desc = "add comment" },
+                    delete_comment = { lhs = ",cd", desc = "delete comment" },
+                    next_comment = { lhs = "]c", desc = "go to next comment" },
+                    prev_comment = { lhs = "[c", desc = "go to previous comment" },
+                    react_hooray = { lhs = ",ep", desc = "add/remove 🎉 reaction" },
+                    react_heart = { lhs = ",eh", desc = "add/remove ❤️ reaction" },
+                    react_eyes = { lhs = ",ee", desc = "add/remove 👀 reaction" },
+                    react_thumbs_up = { lhs = ",e+", desc = "add/remove 👍 reaction" },
+                    react_thumbs_down = { lhs = ",e-", desc = "add/remove 👎 reaction" },
+                    react_rocket = { lhs = ",er", desc = "add/remove 🚀 reaction" },
+                    react_laugh = { lhs = ",el", desc = "add/remove 😄 reaction" },
+                    react_confused = { lhs = ",ec", desc = "add/remove 😕 reaction" },
                 },
                 review_thread = {
-                    goto_issue = ",gi", -- navigate to a local repo issue
-                    add_comment = ",ca", -- add comment
-                    add_suggestion = ",sa", -- add suggestion
-                    delete_comment = ",cd", -- delete comment
-                    next_comment = "]c", -- go to next comment
-                    prev_comment = "[c", -- go to previous comment
-                    select_next_entry = "]q", -- move to previous changed file
-                    select_prev_entry = "[q", -- move to next changed file
-                    close_review_tab = "<C-c>", -- close review tab
-                    react_hooray = ",ep", -- add/remove 🎉 reaction
-                    react_heart = ",eh", -- add/remove ❤️ reaction
-                    react_eyes = ",ee", -- add/remove 👀 reaction
-                    react_thumbs_up = ",e+", -- add/remove 👍 reaction
-                    react_thumbs_down = ",e-", -- add/remove 👎 reaction
-                    react_rocket = ",er", -- add/remove 🚀 reaction
-                    react_laugh = ",el", -- add/remove 😄 reaction
-                    react_confused = ",ec", -- add/remove 😕 reaction
+                    goto_issue = { lhs = ",gi", desc = "navigate to a local repo issue" },
+                    add_comment = { lhs = ",ca", desc = "add comment" },
+                    add_suggestion = { lhs = ",sa", desc = "add suggestion" },
+                    delete_comment = { lhs = ",cd", desc = "delete comment" },
+                    next_comment = { lhs = "]c", desc = "go to next comment" },
+                    prev_comment = { lhs = "[c", desc = "go to previous comment" },
+                    select_next_entry = { lhs = "]q", desc = "move to previous changed file" },
+                    select_prev_entry = { lhs = "[q", desc = "move to next changed file" },
+                    close_review_tab = { lhs = "<C-c>", desc = "close review tab" },
+                    react_hooray = { lhs = ",ep", desc = "add/remove 🎉 reaction" },
+                    react_heart = { lhs = ",eh", desc = "add/remove ❤️ reaction" },
+                    react_eyes = { lhs = ",ee", desc = "add/remove 👀 reaction" },
+                    react_thumbs_up = { lhs = ",e+", desc = "add/remove 👍 reaction" },
+                    react_thumbs_down = { lhs = ",e-", desc = "add/remove 👎 reaction" },
+                    react_rocket = { lhs = ",er", desc = "add/remove 🚀 reaction" },
+                    react_laugh = { lhs = ",el", desc = "add/remove 😄 reaction" },
+                    react_confused = { lhs = ",ec", desc = "add/remove 😕 reaction" },
                 },
                 submit_win = {
-                    approve_review = "<C-a>", -- approve review
-                    comment_review = "<C-m>", -- comment review
-                    request_changes = "<C-r>", -- request changes review
-                    close_review_tab = "<C-c>", -- close review tab
+                    approve_review = { lhs = "<C-a>", desc = "approve review" },
+                    comment_review = { lhs = "<C-m>", desc = "comment review" },
+                    request_changes = { lhs = "<C-r>", desc = "request changes review" },
+                    close_review_tab = { lhs = "<C-c>", desc = "close review tab" },
                 },
                 review_diff = {
-                    add_review_comment = ",ca", -- add a new review comment
-                    add_review_suggestion = ",sa", -- add a new review suggestion
-                    focus_files = ",e", -- move focus to changed file panel
-                    toggle_files = ",b", -- hide/show changed files panel
-                    next_thread = "]t", -- move to next thread
-                    prev_thread = "[t", -- move to previous thread
-                    select_next_entry = "]q", -- move to previous changed file
-                    select_prev_entry = "[q", -- move to next changed file
-                    close_review_tab = "<C-c>", -- close review tab
-                    toggle_viewed = ",,", -- toggle viewer viewed state
+                    add_review_comment = { lhs = ",ca", desc = "add a new review comment" },
+                    add_review_suggestion = { lhs = ",sa", desc = "add a new review suggestion" },
+                    focus_files = { lhs = ",e", desc = "move focus to changed file panel" },
+                    toggle_files = { lhs = ",b", desc = "hide/show changed files panel" },
+                    next_thread = { lhs = "]t", desc = "move to next thread" },
+                    prev_thread = { lhs = "[t", desc = "move to previous thread" },
+                    select_next_entry = { lhs = "]q", desc = "move to previous changed file" },
+                    select_prev_entry = { lhs = "[q", desc = "move to next changed file" },
+                    close_review_tab = { lhs = "<C-c>", desc = "close review tab" },
+                    toggle_viewed = { lhs = ",,", desc = "toggle viewer viewed state" },
                 },
                 file_panel = {
-                    next_entry = "j", -- move to next changed file
-                    prev_entry = "k", -- move to previous changed file
-                    select_entry = "<cr>", -- show selected changed file diffs
-                    refresh_files = "R", -- refresh changed files panel
-                    focus_files = ",f", -- move focus to changed file panel
-                    toggle_files = ",t", -- hide/show changed files panel
-                    select_next_entry = "]q", -- move to previous changed file
-                    select_prev_entry = "[q", -- move to next changed file
-                    close_review_tab = "<C-c>", -- close review tab
-                    toggle_viewed = ",,", -- toggle viewer viewed state
+                    next_entry = { lhs = "j", desc = "move to next changed file" },
+                    prev_entry = { lhs = "k", desc = "move to previous changed file" },
+                    select_entry = { lhs = "<cr>", desc = "show selected changed file diffs" },
+                    refresh_files = { lhs = "R", desc = "refresh changed files panel" },
+                    focus_files = { lhs = ",e", desc = "move focus to changed file panel" },
+                    toggle_files = { lhs = ",b", desc = "hide/show changed files panel" },
+                    select_next_entry = { lhs = "]q", desc = "move to previous changed file" },
+                    select_prev_entry = { lhs = "[q", desc = "move to next changed file" },
+                    close_review_tab = { lhs = "<C-c>", desc = "close review tab" },
+                    toggle_viewed = { lhs = ",,", desc = "toggle viewer viewed state" },
                 },
             },
         })
