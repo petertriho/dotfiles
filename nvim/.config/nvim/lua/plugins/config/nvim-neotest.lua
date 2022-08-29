@@ -2,10 +2,10 @@ return {
     "nvim-neotest/neotest",
     requires = {
         "nvim-treesitter/nvim-treesitter",
-        { "nvim-neotest/neotest-python", module = "neotest" },
-        { "haydenmeade/neotest-jest", module = "neotest" },
-        { "nvim-neotest/neotest-vim-test", module = "neotest" },
-        { "vim-test/vim-test", module = "neotest" },
+        { "nvim-neotest/neotest-python" },
+        { "haydenmeade/neotest-jest" },
+        { "nvim-neotest/neotest-vim-test" },
+        { "vim-test/vim-test" },
     },
     module = "neotest",
     setup = function()

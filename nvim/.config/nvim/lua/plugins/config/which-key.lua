@@ -288,13 +288,13 @@ return {
 
         semicolon_keymaps["n"] = {
             name = "+neotest",
-            a = { "<CMD>require('neotest').run.attach()<CR>", "attach" },
+            a = { "<CMD>lua require('neotest').run.attach()<CR>", "attach" },
             l = { "<CMD>lua require('neotest').run.run_last()<CR>", "last" },
             n = { "<CMD>lua require('neotest').run.run()<CR>", "nearest" },
             o = { "<CMD>lua require('neotest').output.open({ enter = true })<CR>", "output" },
-            r = { "<CMD>require('neotest').run.run(vim.fn.expand('%'))<CR>", "run" },
-            s = { "<CMD>require('neotest').run.stop()<CR>", "stop" },
-            t = { "<CMD>require('neotest').summary.toggle()<CR>", "toggle" },
+            r = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "run" },
+            s = { "<CMD>lua require('neotest').run.stop()<CR>", "stop" },
+            t = { "<CMD>lua require('neotest').summary.toggle()<CR>", "toggle" },
         }
 
         register(semicolon_keymaps, {
