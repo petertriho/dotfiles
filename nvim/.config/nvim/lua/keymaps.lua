@@ -31,4 +31,7 @@ set_keymap("v", "il", ":<C-u>norm!^vg_<CR>", opts)
 set_keymap("o", "al", ":norm val<CR>", opts)
 set_keymap("o", "il", ":norm vil<CR>", opts)
 
+-- Search: In Visual Selection
+set_keymap("x", "gv", [[<Esc>/\%V]], {})
+
 vim.g.mapleader = " "
