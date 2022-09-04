@@ -46,6 +46,7 @@ require("packer").startup({
             require("plugins.config.any-jump"),
             require("plugins.config.filetype"),
             require("plugins.config.indent-blankline"),
+            require("plugins.config.nvim-colorizer"),
             require("plugins.config.rainbow"),
             require("plugins.config.todo-comments"),
             require("plugins.config.vim-polyglot"),
@@ -172,6 +173,7 @@ local function load_deferred_plugins()
         "quick-scope",
         "vim-illuminate",
         "rainbow",
+        "nvim-colorizer.lua",
         "todo-comments.nvim"
     )
 end
