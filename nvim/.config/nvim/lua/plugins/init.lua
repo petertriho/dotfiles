@@ -49,7 +49,6 @@ require("packer").startup({
             require("plugins.config.rainbow"),
             require("plugins.config.todo-comments"),
             require("plugins.config.vim-polyglot"),
-            { "rrethy/vim-hexokinase", run = "make hexokinase", opt = true },
             -- treesitter
             require("plugins.config.iswap"),
             require("plugins.config.hlargs"),
@@ -173,7 +172,6 @@ local function load_deferred_plugins()
         "quick-scope",
         "vim-illuminate",
         "rainbow",
-        "vim-hexokinase",
         "todo-comments.nvim"
     )
 end
