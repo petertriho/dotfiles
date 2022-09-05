@@ -1,11 +1,14 @@
 return {
     "folke/tokyonight.nvim",
     config = function()
-        vim.g.tokyonight_style = "night"
-        vim.g.tokyonight_sidebars = require("filetypes").sidebars
-        vim.g.tokyonight_colors = {
-            border_highlight = "#565f89",
-        }
+        require("tokyonight").setup({
+            style = "night",
+            sidebars = require("filetypes").sidebars,
+            colors = {
+                border_highlight = "#565f89",
+            },
+        })
+
         vim.cmd("colorscheme tokyonight")
 
         vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = nil })
