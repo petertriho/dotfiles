@@ -21,6 +21,8 @@ return {
                     "--smart-case",
                     "--hidden",
                 },
+                prompt_prefix = "   ",
+                selection_caret = "  ",
                 mappings = {
                     i = {
                         ["<C-j>"] = actions.move_selection_next,
@@ -71,10 +73,9 @@ return {
 
         local commands = require("github-notifications.telescope.commands")
         commands.open_in_browser = function(notification)
-            local url = string.gsub(notification.value.subject.url, "api%.github%.com/repos", "github.com"):gsub(
-                "/pulls/(%d+)",
-                "/pull/%1"
-            )
+            local url = string
+                .gsub(notification.value.subject.url, "api%.github%.com/repos", "github.com")
+                :gsub("/pulls/(%d+)", "/pull/%1")
 
             if vim.fn.has("mac") == 1 then
                 vim.cmd('call jobstart(["open", expand("' .. url .. '")], {"detach": v:true})')

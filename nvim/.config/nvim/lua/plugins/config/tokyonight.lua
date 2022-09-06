@@ -4,22 +4,46 @@ return {
         require("tokyonight").setup({
             style = "night",
             sidebars = require("filetypes").sidebars,
-            colors = {
-                border_highlight = "#565f89",
-            },
+            on_colors = function(colors)
+                colors.border_highlight = "#2d3149"
+            end,
+            on_highlights = function(hl, colors)
+                hl.Folded = { fg = colors.comment, bg = nil }
+
+                hl.QuickScopePrimary = { fg = colors.blue, underline = true }
+                hl.QuickScopeSecondary = { fg = colors.red, underline = true }
+
+                hl.TelescopeNormal = {
+                    bg = colors.bg_dark,
+                    fg = colors.fg_dark,
+                }
+                hl.TelescopeBorder = {
+                    bg = colors.bg_dark,
+                    fg = colors.bg_dark,
+                }
+                hl.TelescopePromptNormal = {
+                    bg = colors.border_highlight,
+                }
+                hl.TelescopePromptBorder = {
+                    bg = colors.border_highlight,
+                    fg = colors.border_highlight,
+                }
+                hl.TelescopePromptTitle = {
+                    bg = colors.border_highlight,
+                    fg = colors.fg_dark,
+                }
+                hl.TelescopePreviewTitle = {
+                    bg = colors.border_highlight,
+                    fg = colors.fg_dark,
+                }
+                hl.TelescopeResultsTitle = {
+                    bg = colors.border_highlight,
+                    fg = colors.fg_dark,
+                }
+            end,
         })
 
         vim.cmd("colorscheme tokyonight")
-
-        vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = nil })
-        vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = nil })
-
-        local colors = require("colors")
-
-        vim.api.nvim_set_hl(0, "Folded", { fg = colors.comment, bg = nil })
-
-        vim.api.nvim_set_hl(0, "QuickScopePrimary", { fg = colors.blue, underline = true })
-        vim.api.nvim_set_hl(0, "QuickScopeSecondary", { fg = colors.red, underline = true })
 
         vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticSignWarn" })
 
