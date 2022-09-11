@@ -415,7 +415,7 @@ M.setup = function(overrides)
                     "yaml",
                 },
                 extra_args = function(params)
-                    local extra_args = {}
+                    local extra_args = { "--cache" }
 
                     if params.options and not params.options.insertSpaces then
                         table.insert(extra_args, "--use-tabs")
