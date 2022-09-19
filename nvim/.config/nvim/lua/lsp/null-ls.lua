@@ -115,11 +115,12 @@ local sources_formatting = {
         generator_opts = {
             command = "autoflake",
             args = {
-                "--in-place",
                 "--remove-all-unused-imports",
+                "--stdin-display-name",
                 "$FILENAME",
+                "-",
             },
-            to_temp_file = true,
+            to_stdin = true,
         },
         factory = h.formatter_factory,
     }),
