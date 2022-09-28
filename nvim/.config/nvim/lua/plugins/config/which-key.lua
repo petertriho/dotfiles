@@ -262,6 +262,7 @@ return {
             D = { "<CMD>e $DONE_FILE<CR>", "done.txt" },
             f = { "<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files-all" },
             g = { "<CMD>lua require('github-notifications.menu').notifications()<CR>", "github-notifications" },
+            h = { "<CMD>TSBufToggle highlight<CR>", "toggle-highlight" },
             l = { "<CMD>LLToggle<CR>", "loc-list-toggle" },
             m = { "<Plug>MarkdownPreviewToggle", "markdown-preview" },
             o = { "<CMD>SymbolsOutline<CR>", "symbols-outline" },
