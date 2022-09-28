@@ -107,6 +107,10 @@ function main {
         npm install --global rustywind
     fi
 
+    if ! command -v sort-package-json &> /dev/null; then
+        npm install --global sort-package-json
+    fi
+
     if ! command -v stylelint &> /dev/null; then
         npm install --global stylelint stylelint-config-standard
     fi
