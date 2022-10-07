@@ -300,11 +300,8 @@ return {
                         end
                     end
 
-                    local icon_str, icon_hlname = require("nvim-web-devicons").get_icon(
-                        filename,
-                        extension,
-                        { default = true }
-                    )
+                    local icon_str, icon_hlname =
+                        require("nvim-web-devicons").get_icon(filename, extension, { default = true })
 
                     local icon = { str = icon_str }
 

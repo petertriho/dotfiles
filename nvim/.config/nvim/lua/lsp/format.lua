@@ -22,7 +22,11 @@ M.on_attach = function(client, bufnr)
 
     if client.server_capabilities.documentRangeFormattingProvider then
         vim.keymap.set("v", "<Leader>f", function()
-            vim.lsp.buf.range_formatting()
+            vim.lsp.buf.format({
+                bufnr = bufnr,
+                filter = filter,
+                async = true,
+            })
         end, { buffer = bufnr, desc = "LSP range format" })
     end
 end
