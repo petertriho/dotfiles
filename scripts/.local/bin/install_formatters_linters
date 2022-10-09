@@ -63,8 +63,16 @@ function main {
         pipx install isort
     fi
 
+    if ! command -v refurb &> /dev/null; then
+        pipx install refurb
+    fi
+
     if ! command -v reorder-python-imports &> /dev/null; then
         pipx install reorder-python-imports
+    fi
+
+    if ! command -v ruff &> /dev/null; then
+        pipx install ruff
     fi
 
     if ! command -v pybetter &> /dev/null; then
