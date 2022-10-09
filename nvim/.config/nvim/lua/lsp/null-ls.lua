@@ -7,6 +7,7 @@ local methods = require("null-ls.methods")
 
 local DIAGNOSTICS = methods.internal.DIAGNOSTICS
 local FORMATTING = methods.internal.FORMATTING
+local RANGE_FORMATTING = methods.internal.RANGE_FORMATTING
 
 local sources_diagnostics = {
     bandit = h.make_builtin({
@@ -15,16 +16,17 @@ local sources_diagnostics = {
         generator_opts = {
             command = "bandit",
             args = {
-                "--quiet",
                 "--format",
                 "json",
-                "$FILENAME",
+                "-",
             },
-            to_temp_file = true,
-            from_stderr = true,
+            to_stdin = true,
+            from_stderr = false,
+            ignore_stderr = true,
             format = "json",
+            check_exit_code = { 0, 1 },
             on_output = function(params)
-                if #params.output.results then
+                if #params.output.results == 0 then
                     return {}
                 end
 
@@ -181,15 +183,14 @@ local sources_formatting = {
         factory = h.formatter_factory,
     }),
     docformatter = h.make_builtin({
-        method = FORMATTING,
+        method = { FORMATTING, RANGE_FORMATTING },
         filetypes = { "python" },
         generator_opts = {
             command = "docformatter",
-            args = {
-                "--in-place",
-                "$FILENAME",
-            },
-            to_temp_file = true,
+            args = h.range_formatting_args_factory({
+                "-",
+            }, "--range", nil, { use_rows = true }),
+            to_stdin = true,
         },
         factory = h.formatter_factory,
     }),
@@ -281,6 +282,7 @@ M.setup = function(overrides)
             b.formatting.fixjson.with({
                 filetypes = { "json", "jsonc" },
             }),
+            b.formatting.jq,
             -- lua
             b.diagnostics.selene.with({
                 condition = function(utils)
