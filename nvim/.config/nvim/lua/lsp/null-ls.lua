@@ -38,6 +38,7 @@ local sources_diagnostics = {
                         message = "issue_text",
                         severity = "issue_severity",
                     },
+                    offsets = { col = 1 },
                     severities = {
                         HIGH = h.diagnostics.severities.error,
                         MEDIUM = h.diagnostics.severities.warning,
