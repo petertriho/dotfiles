@@ -16,6 +16,9 @@ local sources_diagnostics = {
         generator_opts = {
             command = "bandit",
             args = {
+                "--skip",
+                -- B101: assert_used
+                "B101",
                 "--format",
                 "json",
                 "-",
