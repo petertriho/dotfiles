@@ -8,7 +8,7 @@ require("packer").startup({
             require("plugins.config.bufferline"),
             require("plugins.config.gitsigns"),
             require("plugins.config.nvim-scrollbar"),
-            { "feline-nvim/feline.nvim", requires = "kyazdani42/nvim-web-devicons" },
+            { "feline-nvim/feline.nvim", requires = "nvim-tree/nvim-web-devicons" },
             -- lsp
             "b0o/schemastore.nvim",
             "folke/lua-dev.nvim",

@@ -1,6 +1,6 @@
 return {
     "feline-nvim/feline.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    requires = "nvim-tree/nvim-web-devicons",
     config = function()
         local colors = require("colors")
 
