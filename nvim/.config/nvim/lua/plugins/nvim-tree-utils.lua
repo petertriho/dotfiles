@@ -1,6 +1,6 @@
 local M = {}
 
-local openfile = require("nvim-tree.actions.open-file")
+local openfile = require("nvim-tree.actions.node.open-file")
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
@@ -27,7 +27,7 @@ function M.launch_telescope(func_name, opts)
         return
     end
     local node = lib.get_node_at_cursor()
-    local is_folder = node.has_children and true
+    local is_folder = node.fs_stat and node.fs_stat.type == "directory" or false
     local basedir = is_folder and node.absolute_path or vim.fn.fnamemodify(node.absolute_path, ":h")
     if node.name == ".." and TreeExplorer ~= nil then
         basedir = TreeExplorer.cwd
@@ -36,7 +36,7 @@ function M.launch_telescope(func_name, opts)
     opts.cwd = basedir
     opts.search_dirs = { basedir }
     opts.attach_mappings = view_selection
-    return require("telescope.builtin.files")[func_name](opts)
+    return require("telescope.builtin")[func_name](opts)
 end
 
 return M
