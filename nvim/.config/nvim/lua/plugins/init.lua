@@ -11,7 +11,7 @@ require("packer").startup({
             { "feline-nvim/feline.nvim", requires = "nvim-tree/nvim-web-devicons" },
             -- lsp
             "b0o/schemastore.nvim",
-            "folke/lua-dev.nvim",
+            "folke/neodev.nvim",
             "neovim/nvim-lspconfig",
             require("plugins.config.fidget"),
             require("plugins.config.goto-preview"),

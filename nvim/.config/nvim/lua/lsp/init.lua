@@ -123,10 +123,7 @@ local function setup()
         local config = vim.tbl_extend("force", base_config, override or {})
 
         if server == "sumneko_lua" then
-            config = require("lua-dev").setup({
-                library = { vimruntime = true, types = true, plugins = true },
-                lspconfig = config,
-            })
+            require("neodev").setup()
         elseif server == "yamlls" then
             config = require("yaml-companion").setup({ lspconfig = config })
         end
