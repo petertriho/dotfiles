@@ -273,6 +273,23 @@ M.setup = function(overrides)
                 filetypes = {},
                 disabled_filetypes = { "markdown", unpack(require("filetypes").excludes) },
             }),
+            b.diagnostics.cspell.with({
+                filetypes = {},
+                disabled_filetypes = { "gitcommit", "markdown", "NvimTree", "vimwiki" },
+                on_output = h.diagnostics.from_pattern(
+                    [[.*:(%d+):(%d+)%s*(-)%s*(.*)]],
+                    { "row", "col", "severity", "message" },
+                    {
+                        severities = {
+                            ["-"] = h.diagnostics.severities.information,
+                        },
+                    }
+                ),
+                extra_args = {
+                    "--config",
+                    vim.fn.expand("$HOME/.config/format-lint/.cspell.json"),
+                },
+            }),
             b.hover.dictionary,
             -- conf
             sources_diagnostics.dotenv,
