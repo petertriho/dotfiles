@@ -3,8 +3,9 @@ return {
     config = function()
         require("filetype").setup({
             overrides = {
-                extension = {
+                extensions = {
                     prisma = "prisma",
+                    sh = "sh",
                 },
                 literal = {
                     [".prettierrc"] = "jsonc",
