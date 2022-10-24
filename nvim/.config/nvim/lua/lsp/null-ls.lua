@@ -276,7 +276,7 @@ M.setup = function(overrides)
             }),
             b.diagnostics.cspell.with({
                 filetypes = {},
-                disabled_filetypes = { "gitcommit", "markdown", "NvimTree", "vimwiki" },
+                disabled_filetypes = { "markdown", "vimwiki", unpack(require("filetypes").excludes) },
                 on_output = h.diagnostics.from_pattern(
                     [[.*:(%d+):(%d+)%s*(-)%s*(.*)]],
                     { "row", "col", "severity", "message" },
