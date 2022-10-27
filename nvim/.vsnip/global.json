@@ -1,7 +1,7 @@
 {
-  "ref": {
-    "prefix": "ref",
-    "body": ["Ref: https://${VIM:\\$ATLASSIAN_COMPANY_NAME}.atlassian.net/browse/${VIM:\\$ATLASSIAN_PROJECT_KEY}-$0"]
+  "refs": {
+    "prefix": "refs",
+    "body": ["Refs: https://${VIM:\\$ATLASSIAN_COMPANY_NAME}.atlassian.net/browse/${VIM:\\$ATLASSIAN_PROJECT_KEY}-$0"]
   },
   "uuid": {
     "prefix": "uuid",
