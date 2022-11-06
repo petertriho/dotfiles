@@ -23,7 +23,7 @@ return {
                 enable = false,
             },
             indent = {
-                enable = true,
+                enable = false,
                 disable = { "python" },
             },
             fold = { enable = false },

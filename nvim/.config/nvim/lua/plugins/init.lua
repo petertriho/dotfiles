@@ -66,6 +66,7 @@ require("packer").startup({
             require("plugins.config.nvim-ts-context-commentstring"),
             require("plugins.config.nvim-treehopper"),
             require("plugins.config.nvim-ts-rainbow"),
+            require("plugins.config.nvim-yati"),
             require("plugins.config.playground"),
             require("plugins.config.tabout"),
             require("plugins.config.vim-matchup"),
