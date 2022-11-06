@@ -32,8 +32,6 @@ return {
             n = { ":nohl<CR>", "no-highlight" },
             o = "organize-imports",
             q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
-            s = "lightspeed->",
-            S = "lightspeed-<",
             u = { "<CMD>MundoToggle<CR>", "undotree" },
             v = "venn-draw",
             x = { "<CMD>BWipeout all<CR>", "delete-all-buffers" },
@@ -45,8 +43,6 @@ return {
             f = "format",
             k = { "<CMD>lua vim.lsp.buf.range_code_action()<CR>", "code-actions" },
             q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
-            s = "lightspeed->",
-            S = "lightspeed-<",
             x = { "<Plug>(vsnip-select-text)", "snippet-select" },
             X = { "<Plug>(vsnip-cut-text)", "snippet-cut" },
         }
