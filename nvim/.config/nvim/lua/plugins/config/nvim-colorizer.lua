@@ -10,6 +10,7 @@ return {
             },
             user_default_options = {
                 mode = "virtualtext",
+                tailwind = "both",
             },
         })
     end,
