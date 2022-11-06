@@ -121,6 +121,9 @@ require("packer").startup({
             },
             { "skywind3000/asyncrun.vim", cmd = { "Make", "AsyncRun" } },
             -- motions
+            require("plugins.config.flit"),
+            require("plugins.config.leap-spooky"),
+            require("plugins.config.leap"),
             { "unblevable/quick-scope", opt = true },
             -- misc
             "lewis6991/impatient.nvim",
