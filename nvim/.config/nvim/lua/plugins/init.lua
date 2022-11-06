@@ -139,6 +139,7 @@ require("packer").startup({
             require("plugins.config.nvim-lastplace"),
             require("plugins.config.qf_helper"),
             require("plugins.config.range-highlight"),
+            require("plugins.config.readline"),
             require("plugins.config.scope"),
             require("plugins.config.stickybuf"),
             require("plugins.config.trim"),
@@ -147,7 +148,6 @@ require("packer").startup({
             require("plugins.config.winshift"),
             { "dstein64/vim-startuptime", cmd = "StartupTime" },
             { "famiu/bufdelete.nvim", cmd = { "Bwipeout", "Bdelete" } },
-            { "ryvnf/readline.vim", event = "CmdlineEnter" },
         }
 
         for _, plugin in ipairs(plugins) do
