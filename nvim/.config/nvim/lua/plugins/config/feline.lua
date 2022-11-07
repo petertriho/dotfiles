@@ -106,14 +106,10 @@ return {
             },
             {
                 provider = function()
-                    return require("nvim-gps").get_location()
+                    return require("nvim-navic").get_location()
                 end,
                 enabled = function()
-                    return packer_plugins["nvim-treesitter"]
-                        and packer_plugins["nvim-treesitter"].loaded
-                        and packer_plugins["nvim-gps"]
-                        and packer_plugins["nvim-gps"].loaded
-                        and require("nvim-gps").is_available()
+                    return require("nvim-navic").is_available()
                 end,
                 left_sep = " ",
                 truncate_hide = true,
