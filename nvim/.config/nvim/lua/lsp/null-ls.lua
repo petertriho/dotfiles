@@ -126,20 +126,6 @@ local sources_diagnostics = {
         },
         factory = h.generator_factory,
     }),
-    ruff = h.make_builtin({
-        method = DIAGNOSTICS,
-        filetypes = { "python" },
-        generator_opts = {
-            command = "ruff",
-            args = {
-                "$FILENAME",
-            },
-            ignore_stderr = true,
-            format = "line",
-            on_output = h.diagnostics.from_pattern([[:(%d+):(%d+): (.+)]], { "row", "col", "message" }, {}),
-        },
-        factory = h.generator_factory,
-    }),
 }
 
 local sources_formatting = {
@@ -338,7 +324,7 @@ M.setup = function(overrides)
                 },
             }),
             sources_diagnostics.refurb,
-            sources_diagnostics.ruff,
+            b.diagnostics.ruff,
             -- b.diagnostics.pylint,
             sources_formatting.autoflake,
             sources_formatting.docformatter.with({
