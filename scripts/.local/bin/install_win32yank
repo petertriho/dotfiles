@@ -22,8 +22,8 @@ if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
     unzip "$DOWNLOAD_ZIP" -d "$DOWNLOAD_DIR"
 
     cp "${DOWNLOAD_DIR}/${FILE}" "$INSTALL_DIR"
-    echo "$TAG_NAME" > "$VERSION_FILE"
     chmod +x "${INSTALL_DIR}/${FILE}"
+    echo "$TAG_NAME" > "$VERSION_FILE"
 
     rm -rf "$DOWNLOAD_DIR"
 fi
