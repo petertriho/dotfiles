@@ -32,9 +32,7 @@ return {
             },
         },
     },
-    ltex = {
-        filetypes = { "bib", "markdown", "org", "plaintex", "rst", "rnoweb", "tex" },
-    },
+    ltex = {},
     marksman = {},
     quick_lint_js = {
         filetypes = { "javascript", "javascriptreact", "jsx" },
