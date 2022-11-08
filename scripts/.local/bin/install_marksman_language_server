@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+INSTALL_DIR="${HOME}/.local/bin"
+VERSION_FILE="${INSTALL_DIR}/.marksman_version"
+FILE="marksman"
+
+RELEASE_INFO="/tmp/release-info"
+curl -s https://api.github.com/repos/artempyanykh/marksman/releases/latest > "$RELEASE_INFO"
+
+TAG_NAME=$(grep "tag_name" "$RELEASE_INFO" | cut -d\" -f4)
+DOWNLOAD_DIR="/tmp/marksman"
+DOWNLOAD_FILE="${DOWNLOAD_DIR}/marksman"
+
+OS=$(uname -s | tr "[:upper:]" "[:lower:]")
+
+case "$OS" in
+    linux)
+        PLATFORM="linux"
+        ;;
+    darwin)
+        PLATFORM="macos"
+        ;;
+    *)
+        PLATFORM="exe"
+        ;;
+esac
+
+DOWNLOAD_URL=$(grep "browser_download_url.*$PLATFORM" "$RELEASE_INFO" | cut -d\" -f4)
+
+if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
+    rm -rf "$DOWNLOAD_DIR"
+    mkdir -p "$DOWNLOAD_DIR"
+
+    curl -L "$DOWNLOAD_URL" -o "$DOWNLOAD_FILE"
+
+    cp -R "$DOWNLOAD_DIR/." "$INSTALL_DIR"
+    chmod +x "$INSTALL_DIR/$FILE"
+    echo "$TAG_NAME" > "$VERSION_FILE"
+
+    rm -rf "$DOWNLOAD_DIR"
+fi
