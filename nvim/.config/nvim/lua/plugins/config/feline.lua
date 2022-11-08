@@ -109,7 +109,9 @@ return {
                     return require("nvim-navic").get_location()
                 end,
                 enabled = function()
-                    return require("nvim-navic").is_available()
+                    return packer_plugins["nvim-navic"]
+                        and packer_plugins["nvim-navic"].loaded
+                        and require("nvim-navic").is_available()
                 end,
                 left_sep = " ",
                 truncate_hide = true,
