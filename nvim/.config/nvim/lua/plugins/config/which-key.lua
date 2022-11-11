@@ -9,7 +9,7 @@ return {
                 cx = "Exchange",
                 gb = "Block Comments",
                 gc = "Comments",
-                s = "Substitute",
+                ["<Leader>s"] = "Substitute",
             },
         })
 
