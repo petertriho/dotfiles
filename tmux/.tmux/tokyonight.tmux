@@ -20,8 +20,8 @@ set -g status-justify "left"
 
 set -g status-style "fg=${blue},bg=${bg_statusline}"
 
-set -g status-left-length "100"
-set -g status-right-length "200"
+set -g status-left-length "200"
+set -g status-right-length "100"
 
 set -g status-left-style ${none}
 set -g status-right-style ${none}
