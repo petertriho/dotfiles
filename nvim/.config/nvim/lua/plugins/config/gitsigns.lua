@@ -78,5 +78,7 @@ return {
                 map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Inner hunk" })
             end,
         })
+
+        require("scrollbar.handlers.gitsigns").setup()
     end,
 }

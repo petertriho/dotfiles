@@ -7,6 +7,9 @@ return {
             folds = false,
             marks = {
                 Search = { color = colors.orange },
+                GitAdd = { text = "│" },
+                GitChange = { text = "│" },
+                GitDelete = { text = "│" },
             },
             excluded_filetypes = require("filetypes").excludes,
         })
