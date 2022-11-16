@@ -31,6 +31,7 @@ return {
             git = {
                 ignore = false,
             },
+            remove_keymaps = { "s", "S" },
             view = {
                 signcolumn = "no",
                 mappings = {
