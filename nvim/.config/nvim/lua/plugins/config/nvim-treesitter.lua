@@ -6,7 +6,7 @@ return {
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "bash",
-                "comment",
+                -- "comment",
                 "markdown_inline",
                 "prisma",
                 "regex",
