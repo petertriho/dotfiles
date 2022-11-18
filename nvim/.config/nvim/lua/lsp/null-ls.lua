@@ -165,8 +165,9 @@ local sources_formatting = {
             command = "pybetter",
             args = {
                 "--exclude",
-                -- B004: __all__ attribute
-                "B004",
+                -- B002: Default values for kwargs are mutable.
+                -- B004: __all__ attribute is missing.
+                "B002,B004",
                 "$FILENAME",
             },
             to_temp_file = true,
