@@ -1,5 +1,5 @@
 return {
-    "tpope/vim-abolish",
+    "petertriho/vim-abolish",
     cmd = { "Subvert", "S" },
     keys = { { "n", "cr" } },
     setup = function()
