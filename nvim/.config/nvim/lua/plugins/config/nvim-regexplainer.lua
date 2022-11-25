@@ -8,6 +8,9 @@ return {
     config = function()
         require("regexplainer").setup({
             display = "popup",
+            mappings = {
+                toggle = "gE",
+            },
             popup = {
                 border = {
                     padding = { 0, 0 },
