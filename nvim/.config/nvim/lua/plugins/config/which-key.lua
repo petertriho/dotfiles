@@ -153,11 +153,11 @@ return {
                 d = { "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", "document" },
                 w = { "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", "workspace" },
             },
-            i = {
+            l = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "loclist-diagnostics" },
+            m = {
                 "<CMD>lua require('telescope.builtin').lsp_implementations({ jump_type = 'never' })<CR>",
                 "implementations",
             },
-            l = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "loclist-diagnostics" },
             q = { "<CMD>lua vim.diagnostic.setqflist()<CR>", "qflist-diagnostics" },
             r = { "<CMD>lua require('telescope.builtin').lsp_references()<CR>", "references" },
             s = {
@@ -169,7 +169,7 @@ return {
                     "dynamic-workspace",
                 },
             },
-            t = {
+            y = {
                 "<CMD>lua require('telescope.builtin').lsp_type_definitions({ jump_type = 'never' })<CR>",
                 "type-definitions",
             },
