@@ -45,7 +45,7 @@ local function on_attach(client, bufnr)
     end
 
     if client.server_capabilities.declarationProvider then
-        buf_set_keymap("n", "gl", "<CMD>lua vim.lsp.buf.declaration()<CR>")
+        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
     end
 
     if client.server_capabilities.documentSymbolProvider then
@@ -57,7 +57,7 @@ local function on_attach(client, bufnr)
     end
 
     if client.server_capabilities.implementationProvider then
-        buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
+        buf_set_keymap("n", "gm", "<CMD>lua vim.lsp.buf.implementation()<CR>")
     end
 
     if client.server_capabilities.renameProvider then
@@ -73,7 +73,7 @@ local function on_attach(client, bufnr)
     end
 
     if client.server_capabilities.typeDefinitionProvider then
-        buf_set_keymap("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>")
+        buf_set_keymap("n", "gy", "<CMD>lua vim.lsp.buf.type_definition()<CR>")
     end
 end
 
