@@ -23,11 +23,11 @@ return {
                     ["-"] = actions.jump_split,
                     ["s"] = "<Plug>(leap-forward-to)",
                     ["v"] = "v",
-                    ["gP"] = actions.enter_win("preview"),
+                    ["gp"] = actions.enter_win("preview"),
                     ["<leader>l"] = "<leader>l",
                 },
                 preview = {
-                    ["gP"] = actions.enter_win("list"),
+                    ["gp"] = actions.enter_win("list"),
                     ["<leader>l"] = "<leader>l",
                 },
             },
