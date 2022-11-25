@@ -43,7 +43,7 @@ require("packer").startup({
             { "tzachar/cmp-fuzzy-path", requires = "tzachar/fuzzy.nvim", after = "nvim-cmp" },
             { "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" },
             -- language
-            "Vimjas/vim-python-pep8-indent",
+            -- "Vimjas/vim-python-pep8-indent",
             require("plugins.config.any-jump"),
             require("plugins.config.filetype"),
             require("plugins.config.indent-blankline"),
