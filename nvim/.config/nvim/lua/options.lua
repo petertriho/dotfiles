@@ -1,6 +1,5 @@
 -- disable plugins
 local g = vim.g
-g.did_load_filetypes = 1
 
 g.loaded_gzip = 1
 g.loaded_tar = 1
@@ -20,6 +19,21 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.loaded_netrwSettings = 1
 g.loaded_netrwFileHandlers = 1
+
+vim.filetype.add({
+    extension = {
+        prisma = "prisma",
+        sh = "sh",
+    },
+    filename = {
+        [".prettierrc"] = "jsonc",
+        ["todo.txt"] = "todotxt",
+        ["yarn.lock"] = "txt",
+    },
+    pattern = {
+        [".*%.env.*"] = "conf",
+    },
+})
 
 -- options
 local o = vim.o
