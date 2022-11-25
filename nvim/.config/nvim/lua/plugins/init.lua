@@ -15,7 +15,6 @@ require("packer").startup({
             "neovim/nvim-lspconfig",
             require("plugins.config.fidget"),
             require("plugins.config.glance"),
-            require("plugins.config.goto-preview"),
             require("plugins.config.lspactions"),
             require("plugins.config.nvim-navic"),
             require("plugins.config.symbols-outline"),
