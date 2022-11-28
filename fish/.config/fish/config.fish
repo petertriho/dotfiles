@@ -67,6 +67,6 @@ if status is-interactive
     set -g sponge_delay 10
 
     if command -v zoxide &>/dev/null
-        zoxide init --cmd j fish | source
+        zoxide init fish | source
     end
 end
