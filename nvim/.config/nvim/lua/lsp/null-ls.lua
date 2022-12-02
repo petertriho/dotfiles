@@ -55,37 +55,6 @@ local sources_diagnostics = {
         },
         factory = h.generator_factory,
     }),
-    dotenv = h.make_builtin({
-        method = DIAGNOSTICS,
-        filetypes = { "conf" },
-        generator_opts = {
-            command = "dotenv-linter",
-            args = {
-                "$FILENAME",
-            },
-            to_temp_file = true,
-            from_stderr = true,
-            format = "line",
-            on_output = function(line)
-                local pattern = ":(%d+) (.+)"
-                local row, message = line:match(pattern)
-
-                if row == nil then
-                    return nil
-                end
-
-                return {
-                    row = tonumber(row),
-                    col = 1,
-                    end_col = #line,
-                    source = "dotenv-linter",
-                    message = message,
-                    severity = h.diagnostics.severities.error,
-                }
-            end,
-        },
-        factory = h.generator_factory,
-    }),
     jq = h.make_builtin({
         method = DIAGNOSTICS,
         filetypes = { "json", "jsonc" },
@@ -280,7 +249,9 @@ M.setup = function(overrides)
             }),
             b.hover.dictionary,
             -- conf
-            sources_diagnostics.dotenv,
+            b.diagnostics.dotenv_linter.with({
+                filetypes = { "sh", "conf" },
+            }),
             -- dockerfile
             b.diagnostics.hadolint,
             -- fish

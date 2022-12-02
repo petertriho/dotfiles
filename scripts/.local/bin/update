@@ -193,7 +193,7 @@ function tool:all {
     tool:asdf
     tool:npm
     tool:pipx
-    tool:rust
+    # tool:rust
 
     tool:misc
 
