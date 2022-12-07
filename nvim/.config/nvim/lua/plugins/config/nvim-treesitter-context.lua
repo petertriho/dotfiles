@@ -5,7 +5,6 @@ return {
     config = function()
         require("treesitter-context").setup({
             enable = true,
-            throttle = true,
         })
     end,
 }
