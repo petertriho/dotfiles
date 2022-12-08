@@ -16,7 +16,7 @@ require("packer").startup({
             require("plugins.config.fidget"),
             require("plugins.config.glance"),
             require("plugins.config.lspactions"),
-            require("plugins.config.nvim-navic"),
+            -- require("plugins.config.nvim-navic"),
             require("plugins.config.symbols-outline"),
             require("plugins.config.vim-illuminate"),
             { "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" },
