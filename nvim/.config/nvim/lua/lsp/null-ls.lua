@@ -426,6 +426,17 @@ M.setup = function(overrides)
                     "svelte",
                     "vimwiki",
                     "yaml",
+                    -- prettierd
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact",
+                    "vue",
+                    "css",
+                    "scss",
+                    "html",
+                    "json",
+                    "jsonc",
                 },
                 extra_args = function(params)
                     local extra_args = { "--cache" }
@@ -443,20 +454,20 @@ M.setup = function(overrides)
                     return extra_args
                 end,
             }),
-            b.formatting.prettierd.with({
-                filetypes = {
-                    "javascript",
-                    "javascriptreact",
-                    "typescript",
-                    "typescriptreact",
-                    "vue",
-                    "css",
-                    "scss",
-                    "html",
-                    "json",
-                    "jsonc",
-                },
-            }),
+            -- b.formatting.prettierd.with({
+            --     filetypes = {
+            --         "javascript",
+            --         "javascriptreact",
+            --         "typescript",
+            --         "typescriptreact",
+            --         "vue",
+            --         "css",
+            --         "scss",
+            --         "html",
+            --         "json",
+            --         "jsonc",
+            --     },
+            -- }),
             -- markdown/vimwiki
             b.diagnostics.markdownlint.with({
                 filetypes = { "markdown", "vimwiki" },
