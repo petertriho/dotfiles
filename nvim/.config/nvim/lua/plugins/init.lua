@@ -198,7 +198,7 @@ local function toggle_buffer(buf, open_cmd)
     return function()
         local bufname = vim.fn.bufname(buf)
 
-        if vim.fn.buflisted(bufname) == 1 then
+        if vim.fn.bufexists(bufname) == 1 then
             vim.cmd("bw " .. bufname)
         else
             vim.cmd(open_cmd)
