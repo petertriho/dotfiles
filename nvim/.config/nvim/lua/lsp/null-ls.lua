@@ -360,6 +360,7 @@ M.setup = function(overrides)
                     return extra_args
                 end,
             }),
+            b.formatting.ruff,
             b.formatting.isort.with({
                 extra_args = function(params)
                     local extra_args = { "--profile", "black" }
