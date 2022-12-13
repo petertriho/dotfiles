@@ -45,7 +45,7 @@ local function on_attach(client, bufnr)
     end
 
     if client.server_capabilities.declarationProvider then
-        buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
+        buf_set_keymap("n", "gl", "<CMD>lua vim.lsp.buf.declaration()<CR>")
     end
 
     -- if client.server_capabilities.documentSymbolProvider then

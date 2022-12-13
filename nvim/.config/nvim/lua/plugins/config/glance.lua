@@ -10,6 +10,11 @@ return {
         set_keymap("n", "gpr", "<CMD>Glance references<CR>")
         set_keymap("n", "gpy", "<CMD>Glance type_definitions<CR>")
         set_keymap("n", "gpm", "<CMD>Glance implementations<CR>")
+
+        set_keymap("n", "gD", "<CMD>Glance definitions<CR>")
+        set_keymap("n", "gR", "<CMD>Glance references<CR>")
+        set_keymap("n", "gY", "<CMD>Glance type_definitions<CR>")
+        set_keymap("n", "gM", "<CMD>Glance implementations<CR>")
     end,
     config = function()
         local glance = require("glance")

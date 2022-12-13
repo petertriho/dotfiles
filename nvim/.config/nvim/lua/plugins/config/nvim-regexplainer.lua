@@ -14,6 +14,9 @@ return {
                     style = "rounded",
                 },
             },
+            mappings = {
+                toggle = "gx",
+            },
         })
     end,
 }
