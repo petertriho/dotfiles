@@ -121,13 +121,13 @@ if vim.fn.executable("rg") == 1 then
     opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
-local dir = vim.fn.expand("~/.undodir")
+local undodir = vim.fn.expand("~/.undodir")
 
-if vim.fn.isdirectory(dir) ~= 1 then
-    vim.fn.mkdir(dir, "p", "0700")
+if vim.fn.isdirectory(undodir) ~= 1 then
+    vim.fn.mkdir(undodir, "p", "0700")
 end
 
-opt.undodir = dir
+opt.undodir = undodir
 opt.undofile = true
 
 local function mkdir()
