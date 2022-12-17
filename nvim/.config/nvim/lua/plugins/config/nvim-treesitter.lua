@@ -7,6 +7,7 @@ return {
             ensure_installed = {
                 "bash",
                 -- "comment",
+                "help",
                 "markdown_inline",
                 "prisma",
                 "regex",
