@@ -68,5 +68,6 @@ if status is-interactive
 
     if command -v zoxide &>/dev/null
         zoxide init fish | source
+        set -gx _ZO_FZF_OPTS "$FZF_DEFAULT_OPTS --keep-right --exit-0 --select-1 --preview='command exa {2..}' --preview-window=bottom"
     end
 end
