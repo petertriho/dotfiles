@@ -37,6 +37,7 @@ return {
     quick_lint_js = {
         filetypes = { "javascript", "javascriptreact", "jsx" },
     },
+    ruff_lsp = {},
     rust_analyzer = {},
     prismals = {},
     pyright = {

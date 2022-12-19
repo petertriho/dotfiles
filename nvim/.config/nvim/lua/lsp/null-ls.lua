@@ -296,7 +296,7 @@ M.setup = function(overrides)
                 },
             }),
             sources_diagnostics.refurb,
-            b.diagnostics.ruff,
+            -- b.diagnostics.ruff,
             -- b.diagnostics.pylint,
             sources_formatting.autoflake,
             sources_formatting.docformatter.with({
@@ -360,7 +360,7 @@ M.setup = function(overrides)
                     return extra_args
                 end,
             }),
-            b.formatting.ruff,
+            -- b.formatting.ruff,
             b.formatting.isort.with({
                 extra_args = function(params)
                     local extra_args = { "--profile", "black" }

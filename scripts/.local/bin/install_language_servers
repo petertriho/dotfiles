@@ -27,6 +27,10 @@ function main {
         cargo install taplo-cli --locked
     fi
 
+    if ! command -v ruff-lsp &> /dev/null; then
+        pipx install ruff-lsp
+    fi
+
     if ! command -v bash-language-server &> /dev/null; then
         npm install --global bash-language-server
     fi
