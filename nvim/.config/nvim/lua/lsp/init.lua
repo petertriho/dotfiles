@@ -48,9 +48,9 @@ local function on_attach(client, bufnr)
         buf_set_keymap("n", "gl", "<CMD>lua vim.lsp.buf.declaration()<CR>")
     end
 
-    -- if client.server_capabilities.documentSymbolProvider then
-    --     require("nvim-navic").attach(client, bufnr)
-    -- end
+    if client.server_capabilities.documentSymbolProvider then
+        require("nvim-navic").attach(client, bufnr)
+    end
 
     if client.server_capabilities.hoverProvider then
         buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>")
