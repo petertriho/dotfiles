@@ -33,7 +33,7 @@ return {
         },
     },
     ltex = {},
-    marksman = {},
+    -- marksman = {},
     quick_lint_js = {
         filetypes = { "javascript", "javascriptreact", "jsx" },
     },

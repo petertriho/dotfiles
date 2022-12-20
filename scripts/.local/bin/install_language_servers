@@ -86,9 +86,9 @@ function main {
         install_ltex_language_server
     fi
 
-    if ! command -v marksman &> /dev/null; then
-        install_marksman_language_server
-    fi
+    # if ! command -v marksman &> /dev/null; then
+    #     install_marksman_language_server
+    # fi
 
     asdf reshim
 }
