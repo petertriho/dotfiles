@@ -440,7 +440,7 @@ M.setup = function(overrides)
                     "jsonc",
                 },
                 extra_args = function(params)
-                    local extra_args = { "--cache" }
+                    local extra_args = {}
 
                     if params.options and not params.options.insertSpaces then
                         table.insert(extra_args, "--use-tabs")
