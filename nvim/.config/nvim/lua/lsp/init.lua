@@ -117,22 +117,6 @@ local function setup()
         end,
     })
 
-    local configs = require("lspconfig.configs")
-    if not configs.ruff_lsp then
-        configs.ruff_lsp = {
-            default_config = {
-                cmd = { "ruff-lsp" },
-                filetypes = { "python" },
-                root_dir = require("lspconfig").util.find_git_ancestor,
-                settings = {
-                    ruff_lsp = {
-                        args = {},
-                    },
-                },
-            },
-        }
-    end
-
     local lspconfig = require("lspconfig")
     local overrides = require("lsp.config")
 
