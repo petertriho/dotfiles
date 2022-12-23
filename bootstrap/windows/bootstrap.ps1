@@ -8,6 +8,7 @@
 # - Winget
 # - Scoop
 # - dotfiles
+# - thisiswin11
 
 # WSL
 # https://docs.microsoft.com/en-gb/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
@@ -43,3 +44,4 @@ scoop install 7zip aria2 curl dark git neovim starship sudo
 scoop bucket add nerd-fonts
 scoop bucket add extras
 sudo scoop install JetBrainsMono-NF
+scoop install thisiswin11
