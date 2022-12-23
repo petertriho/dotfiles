@@ -38,8 +38,8 @@ winget install --source msstore 9NFNG39387K0 # Yubico Authenticator
 # winget install --source winget --id Postbox.Postbox
 
 # Scoop
-Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
 scoop install 7zip aria2 curl dark git neovim starship sudo
 scoop bucket add nerd-fonts
 scoop bucket add extras
