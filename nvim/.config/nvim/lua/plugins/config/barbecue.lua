@@ -5,8 +5,9 @@ return {
     },
     config = function()
         require("barbecue").setup({
-            create_autocmd = false,
             attach_navic = false,
+            create_autocmd = false,
+            exclude_filetypes = require("filetypes").excludes,
             modifiers = {
                 dirname = ":s?.*??",
             },

@@ -40,6 +40,7 @@ return {
         "dirbuf",
         "fugitive",
         "fugitiveblame",
+        "gitcommit",
         "help",
         "lspinfo",
         "NeogitStatus",
