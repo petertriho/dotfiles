@@ -48,7 +48,6 @@ function install_homebrew {
 
 function install_asdf {
     brew install asdf
-    source "$HOMEBREW_PREFIX/opt/asdf/asdf.sh"
 
     asdf plugin add direnv
     asdf direnv setup --shell fish --version latest
