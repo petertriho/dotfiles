@@ -92,6 +92,8 @@ function setup_misc {
     gh auth login
     gh extension install dlvhdr/gh-dash
 
+    rm ~/.config/gh/config.yml
+
     (cd "$DOTFILES_DIR" && git config remote.origin.url git@github.com:petertriho/dotfiles.git)
 
     (cd "$DOTFILES_DIR" && stow --no-folding -t ~ */)
