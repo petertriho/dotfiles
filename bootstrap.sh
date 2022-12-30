@@ -17,7 +17,10 @@ function install_homebrew {
         linux)
             # assume debian/ubuntu
             sudo apt update
-            sudo apt install build-essential procps curl file git
+            sudo apt install procps curl file git
+            sudo apt install build-essential libssl-dev zlib1g-dev \
+                libbz2-dev libreadline-dev libsqlite3-dev curl llvm \
+                libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
             HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
             ;;
         darwin)
@@ -39,7 +42,7 @@ function install_homebrew {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     eval "$("$HOMEBREW_PREFIX/bin/brew" shellenv)"
-    CC="$HOMEBREW_PREFIX/bin/gcc-11"
+    export CC="$HOMEBREW_PREFIX/bin/gcc-11"
 
     brew bundle install --file "$DOTFILES_DIR/bootstrap/homebrew/Brewfile"
 
