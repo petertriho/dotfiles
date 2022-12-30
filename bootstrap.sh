@@ -16,7 +16,8 @@ function install_homebrew {
     case "$OS" in
         linux)
             # assume debian/ubuntu
-            sudo apt-get install build-essential procps curl file git
+            sudo apt update
+            sudo apt install build-essential procps curl file git
             HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
             ;;
         darwin)
