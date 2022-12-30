@@ -25,7 +25,7 @@ end
 fish_add_path -amP "$HOME/.asdf/shims"
 fish_add_path -g "$HOME/.local/bin"
 
-# set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
+set -gx CC "$HOMEBREW_PREFIX/bin/gcc-11"
 set -gx EDITOR nvim
 
 if command -v starship &>/dev/null

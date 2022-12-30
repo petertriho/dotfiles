@@ -38,6 +38,7 @@ function install_homebrew {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     eval "$("$HOMEBREW_PREFIX/bin/brew" shellenv)"
+    CC="$HOMEBREW_PREFIX/bin/gcc-11"
 
     brew bundle install --file "$DOTFILES_DIR/bootstrap/homebrew/Brewfile"
 
