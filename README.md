@@ -1,7 +1,5 @@
 # dotfiles
 
-## Installation
-
 ```sh
 git clone https://github.com/petertriho/dotfiles.git ~/.dotfiles
 ~/.dotfiles/bootstrap.sh
