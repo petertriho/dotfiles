@@ -97,6 +97,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.default_prog = { "wsl.exe", "-d", "Ubuntu", "--cd", "~" }
     config.font = wezterm.font("JetBrainsMono NF")
     config.font_size = 13
+    config.allow_win32_input_mode = false
 else
     config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
     config.font_size = 14
