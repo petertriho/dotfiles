@@ -29,7 +29,7 @@ function set_theme --description "Set ansi theme"
     set -U fish_color_selection         --background=brblack
     set -U fish_color_status            red
     set -U fish_color_user              brblue
-    set -U fish_color_valid_path        brred --underline
+    set -U fish_color_valid_path        brblue --underline
     set -U fish_pager_color_completion  white
     set -U fish_pager_color_description white
     set -U fish_pager_color_prefix      brgreen
