@@ -257,6 +257,9 @@ M.setup = function(overrides)
             -- fish
             b.diagnostics.fish,
             b.formatting.fish_indent,
+            -- html/xml
+            b.diagnostics.tidy,
+            b.formatting.tidy,
             -- java
             b.formatting.google_java_format,
             -- json

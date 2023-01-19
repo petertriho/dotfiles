@@ -35,6 +35,10 @@ function main {
         brew install stylua
     fi
 
+    if ! command -v tidy &> /dev/null; then
+        brew install tidy-html
+    fi
+
     if ! command -v vale &> /dev/null; then
         brew install vale
     fi
