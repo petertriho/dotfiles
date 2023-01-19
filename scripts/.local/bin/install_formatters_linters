@@ -7,6 +7,10 @@ function main {
         brew install dotenv-linter
     fi
 
+    if ! command -v google-java-format &> /dev/null; then
+        brew install google-java-format
+    fi
+
     if ! command -v hadolint &> /dev/null; then
         brew install hadolint
     fi

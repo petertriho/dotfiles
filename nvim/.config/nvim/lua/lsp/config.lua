@@ -21,6 +21,7 @@ return {
             provideFormatter = false,
         },
     },
+    jdtls = {},
     jsonls = {
         init_options = {
             provideFormatter = false,

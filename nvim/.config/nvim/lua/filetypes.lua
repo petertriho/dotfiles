@@ -19,6 +19,7 @@ return {
         "go",
         "graphql",
         "html",
+        "java",
         "javascript",
         "json",
         "jsonc",

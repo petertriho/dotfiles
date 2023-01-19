@@ -7,6 +7,10 @@ function main {
         brew install gopls
     fi
 
+    if ! command -v jdtls &> /dev/null; then
+        brew install jdtls
+    fi
+
     if ! command -v lua-language-server &> /dev/null; then
         brew install lua-language-server
     fi
