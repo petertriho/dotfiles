@@ -1,7 +1,3 @@
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/argtextobj.vim'
-
 set hlsearch
 set ignorecase
 set incsearch
@@ -10,6 +6,13 @@ set number
 set clipboard+=unnamedplus
 set relativenumber
 
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
+Plug 'preservim/nerdtree`
+set NERDTree
+
+Plug 'vim-scripts/argtextobj.vim'
 let g:argtextobj_pairs="(:),{:},<:>"
 
 set sneak
