@@ -2,7 +2,13 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/argtextobj.vim'
 
+set hlsearch
+set ignorecase
+set incsearch
+set number
+
 set clipboard+=unnamedplus
+set relativenumber
 
 let g:argtextobj_pairs="(:),{:},<:>"
 
