@@ -2,6 +2,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/argtextobj.vim'
 
+set clipboard+=unnamedplus
+
 let g:argtextobj_pairs="(:),{:},<:>"
 
 set quickscope
