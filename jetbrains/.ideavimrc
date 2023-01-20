@@ -15,8 +15,10 @@ set NERDTree
 Plug 'vim-scripts/argtextobj.vim'
 let g:argtextobj_pairs="(:),{:},<:>"
 
-set sneak
-
 set quickscope
 let g:qs_primary_color = '#7aa2f7'
 let g:qs_secondary_color = '#f7768e'
+
+" AceJump
+nmap s <Action>(AceForwardAction)
+nmap S <Action>(AceBackwardAction)
