@@ -4,7 +4,11 @@ set incsearch
 set number
 
 set clipboard+=unnamedplus
+set clipboard+=ideaput
+set ideajoin
+set ideamarks
 set relativenumber
+set showmode
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -22,3 +26,69 @@ let g:qs_secondary_color = '#f7768e'
 " AceJump
 nmap s <Action>(AceForwardAction)
 nmap S <Action>(AceBackwardAction)
+
+nnoremap Y y$
+
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <Del>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-d> <Del>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+
+map <C-c> <Esc>
+
+nmap <C-n> <Action>(NextTab)
+nmap <C-p> <Action>(PreviousTab)
+
+sethandler <C-j> a:vim
+sethandler <C-k> a:vim
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-\> <C-w>p
+nmap <C-m> <Action>MoveEditorToOppositeTabGroup
+
+nmap <C-i> <Action>(Forward)
+nmap <C-o> <Action>(Back)
+
+nmap gh <Action>(ShowErrorDescription)
+
+let mapleader = ' '
+
+nmap <Leader>1 <Action>(GoToTab1)
+nmap <Leader>2 <Action>(GoToTab2)
+nmap <Leader>3 <Action>(GoToTab3)
+nmap <Leader>4 <Action>(GoToTab4)
+nmap <Leader>5 <Action>(GoToTab5)
+nmap <Leader>6 <Action>(GoToTab6)
+nmap <Leader>7 <Action>(GoToTab7)
+nmap <Leader>8 <Action>(GoToTab8)
+nmap <Leader>9 <Action>(GoToTab9)
+nmap <Leader>0 <Action>(GoToTab10)
+
+nmap <Leader><Leader> :w<CR>
+nmap <leader>/ <Action>(CommentByLineComment)
+vmap <leader>/ <Action>(CommentByLineComment)
+nmap <Leader>. <Action>(CloseAllEditorsButActive)
+nmap <Leader>\ <Action>(SplitVertically)
+nmap <Leader>- <Action>(SplitHorizontally)
+nmap <Leader>= <Action>Unsplit)
+
+nmap <Leader>d <Action>(CloseContent)
+nmap <Leader>e :NERDTreeToggle<CR>
+nmap <Leader>f <Action>(ReformatCode)
+nmap <Leader>n :nohl
+nmap <leader>o <Action>(OptimizeImports)
+nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+nmap <Leader>z <Action>(ToggleDistractionFreeMode)
