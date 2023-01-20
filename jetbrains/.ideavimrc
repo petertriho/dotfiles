@@ -86,7 +86,7 @@ nmap <Leader>- <Action>(SplitHorizontally)
 nmap <Leader>= <Action>Unsplit)
 
 nmap <Leader>d <Action>(CloseContent)
-nmap <Leader>e :NERDTreeToggle<CR>
+nmap <Leader>e :NERDTreeFocus<CR>
 nmap <Leader>f <Action>(ReformatCode)
 nmap <Leader>n :nohl
 nmap <leader>o <Action>(OptimizeImports)
