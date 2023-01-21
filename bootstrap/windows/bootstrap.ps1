@@ -44,5 +44,5 @@ irm get.scoop.sh | iex
 scoop install 7zip aria2 curl dark git neovim starship sudo
 scoop bucket add nerd-fonts
 scoop bucket add extras
-sudo scoop install JetBrainsMono-NF
+sudo scoop install --global JetBrainsMono-NF
 scoop install hwinfo hwmonitor thisiswin11 wumgr
