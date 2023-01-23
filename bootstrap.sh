@@ -74,6 +74,10 @@ function install_asdf {
     asdf install rust stable
     asdf global rust stable
 
+    if [[ $OS == "linux" ]]; then
+        cargo install cargo-update --force --features vendored-openssl --features vendored-libgit2
+    fi
+
     asdf reshim
 }
 
