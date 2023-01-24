@@ -24,6 +24,6 @@ return {
         set_keymap("n", "g#", "g#<CMD>lua require('hlslens').start()<CR>", opts)
     end,
     config = function()
-        require("scrollbar.handlers.search").setup()
+        require("scrollbar.handlers.search").setup({ calm_down = true })
     end,
 }
