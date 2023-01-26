@@ -107,6 +107,7 @@ require("packer").startup({
             require("plugins.config.twilight"),
             require("plugins.config.venn"),
             require("plugins.config.vim-dadbod-ui"),
+            require("plugins.config.vim-flog"),
             require("plugins.config.vim-fugitive"),
             require("plugins.config.vim-mergetool"),
             require("plugins.config.vim-mundo"),
