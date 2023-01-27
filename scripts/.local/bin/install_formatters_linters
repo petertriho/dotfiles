@@ -36,7 +36,7 @@ function main {
     fi
 
     if ! command -v tidy &> /dev/null; then
-        brew install tidy-html
+        brew install tidy-html5
     fi
 
     if ! command -v vale &> /dev/null; then
