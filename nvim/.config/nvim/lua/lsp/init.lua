@@ -16,6 +16,8 @@ local function on_attach(client, bufnr)
 
     if client.name == "pyright" then
         buf_set_keymap("n", "<Leader>o", "<CMD>PyrightOrganizeImports<CR>")
+    elseif client.name == "ruff_lsp" then
+        buf_set_keymap("n", "<Leader>o", "<CMD>RuffOrganizeImports<CR>")
     elseif client.name == "tsserver" then
         buf_set_keymap("n", "<Leader>o", "<CMD>TSServerOrganizeImports<CR>")
     end

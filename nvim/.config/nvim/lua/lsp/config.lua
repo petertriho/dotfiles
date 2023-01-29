@@ -40,7 +40,20 @@ return {
     quick_lint_js = {
         filetypes = { "javascript", "javascriptreact", "jsx" },
     },
-    ruff_lsp = {},
+    ruff_lsp = {
+        commands = {
+            RuffOrganizeImports = {
+                function()
+                    local params = {
+                        command = "ruff.applyOrganizeImports",
+                        arguments = { vim.api.nvim_buf_get_name(0) },
+                    }
+                    vim.lsp.buf.execute_command(params)
+                end,
+                description = "Organize Imports",
+            },
+        },
+    },
     rust_analyzer = {},
     prismals = {},
     pyright = {
@@ -78,21 +91,6 @@ return {
                     vim.lsp.buf.execute_command(params)
                 end,
                 description = "Organize Imports",
-            },
-        },
-        user_commands = {
-            {
-                name = "TSServerOrganizeImports",
-                command = function()
-                    local params = {
-                        command = "_typescript.organizeImports",
-                        arguments = { vim.api.nvim_buf_get_name(0) },
-                    }
-                    vim.lsp.buf.execute_command(params)
-                end,
-                opts = {
-                    desc = "Organize Imports",
-                },
             },
         },
     },
