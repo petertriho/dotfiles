@@ -1,7 +1,7 @@
 local M = {}
 
 local disabled = {
-    sumneko_lua = true,
+    lua_ls = true,
     tsserver = true,
 }
 
