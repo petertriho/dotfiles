@@ -12,6 +12,7 @@ return {
         "css",
         "dockerfile",
         "fish",
+        "gitconfig",
         "git_rebase",
         "gitattributes",
         "gitcommit",
