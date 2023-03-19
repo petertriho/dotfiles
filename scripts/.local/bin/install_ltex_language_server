@@ -44,7 +44,7 @@ if [ ! -e "$VERSION_FILE" ] || ! grep -q "$TAG_NAME" < "$VERSION_FILE"; then
 
     cp -R "$DOWNLOAD_DIR/." "$INSTALL_SUB_DIR"
     chmod +x "$INSTALL_SUB_DIR/bin/ltex-ls"
-    ln -s "$INSTALL_SUB_DIR/bin/ltex-ls" "$INSTALL_DIR/ltex-ls"
+    ln -fs "$INSTALL_SUB_DIR/bin/ltex-ls" "$INSTALL_DIR/ltex-ls"
     chmod +x "$INSTALL_DIR/ltex-ls"
     echo "$TAG_NAME" > "$VERSION_FILE"
 
