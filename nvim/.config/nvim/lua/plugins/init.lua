@@ -27,6 +27,8 @@ require("packer").startup({
             -- completion
             require("plugins.config.cmp-git"),
             require("plugins.config.cmp-npm"),
+            require("plugins.config.copilot"),
+            require("plugins.config.copilot-cmp"),
             require("plugins.config.nvim-cmp"),
             require("plugins.config.vim-vsnip"),
             { "andersevenrud/cmp-tmux", after = "nvim-cmp" },

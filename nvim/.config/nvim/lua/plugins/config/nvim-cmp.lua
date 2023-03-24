@@ -166,6 +166,7 @@ return {
                 priority_weight = 2,
                 comparators = {
                     deprioritize_snippet,
+                    require("copilot_cmp.comparators").prioritize,
                     unpack(default_comparators),
                 },
             },
@@ -176,25 +177,50 @@ return {
                 },
             },
             formatting = {
-                format = require("lspkind").cmp_format({
-                    mode = "symbol_text",
-                    maxwidth = 50,
-                    menu = {
-                        buffer = "[BUFFER]",
-                        cmdline = "[CMD]",
-                        cmdline_history = "[CMD_HISTORY]",
-                        npm = "[NPM]",
-                        git = "[GIT]",
-                        cmp_tabnine = "[TABNINE]",
-                        fuzzy_path = "[FZ-PATH]",
-                        fuzzy_buffer = "[FZ-BUFFER]",
-                        nvim_lsp = "[LSP]",
-                        path = "[PATH]",
-                        tmux = "[TMUX]",
-                        vsnip = "[SNIPPET]",
-                        ["vim-dadbod-completion"] = "[DB]",
-                    },
-                }),
+                format = function(entry, vim_item)
+                    if entry.source.name == "cmp_tabnine" then
+                        local detail = (entry.completion_item.data or {}).detail
+                        vim_item.kind = " Tabnine"
+                        vim_item.menu = "[TABNINE]"
+
+                        if detail and detail:find(".*%%.*") then
+                            vim_item.kind = vim_item.kind .. " " .. detail
+                        end
+
+                        if (entry.completion_item.data or {}).multiline then
+                            vim_item.kind = vim_item.kind .. " " .. "[ML]"
+                        end
+
+                        local maxwidth = 80
+                        vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+
+                        return vim_item
+                    else
+                        local cmp_format = require("lspkind").cmp_format({
+                            mode = "symbol_text",
+                            maxwidth = 80,
+                            symbol_map = { Copilot = "" },
+                            menu = {
+                                buffer = "[BUFFER]",
+                                cmdline = "[CMD]",
+                                cmdline_history = "[CMD_HISTORY]",
+                                copilot = "[COPILOT]",
+                                npm = "[NPM]",
+                                git = "[GIT]",
+                                cmp_tabnine = "[TABNINE]",
+                                fuzzy_path = "[FZ-PATH]",
+                                fuzzy_buffer = "[FZ-BUFFER]",
+                                nvim_lsp = "[LSP]",
+                                path = "[PATH]",
+                                tmux = "[TMUX]",
+                                vsnip = "[SNIPPET]",
+                                ["vim-dadbod-completion"] = "[DB]",
+                            },
+                        })
+
+                        return cmp_format(entry, vim_item)
+                    end
+                end,
             },
             mapping = {
                 ["<C-j>"] = select_next_item,
@@ -218,6 +244,7 @@ return {
                 end,
             },
             sources = {
+                { name = "copilot" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "nvim_lsp" },
                 { name = "npm" },
