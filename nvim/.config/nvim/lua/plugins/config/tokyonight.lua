@@ -40,6 +40,28 @@ return {
                     bg = colors.border_highlight,
                     fg = colors.fg_dark,
                 }
+
+                hl.TSRainbowRed = {
+                    fg = colors.red,
+                }
+                hl.TSRainbowOrange = {
+                    fg = colors.orange,
+                }
+                hl.TSRainbowYellow = {
+                    fg = colors.yellow,
+                }
+                hl.TSRainbowGreen = {
+                    fg = colors.green,
+                }
+                hl.TSRainbowCyan = {
+                    fg = colors.cyan,
+                }
+                hl.TSRainbowBlue = {
+                    fg = colors.blue,
+                }
+                hl.TSRainbowViolet = {
+                    fg = colors.magenta,
+                }
             end,
         })
 
