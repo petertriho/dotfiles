@@ -1,2 +1,2 @@
-cargo-update
+cargo-update --features vendored-openssl --features vendored-libgit2
 gfold
