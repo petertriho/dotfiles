@@ -38,7 +38,7 @@ vim.filetype.add({
 -- options
 local o = vim.o
 local opt = vim.opt
-opt.clipboard = "unnamedplus"
+-- opt.clipboard = "unnamedplus"
 -- opt.cmdheight = 0
 opt.colorcolumn = "80"
 opt.cursorline = true
