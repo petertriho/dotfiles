@@ -126,10 +126,10 @@ require("packer").startup({
             },
             { "skywind3000/asyncrun.vim", cmd = { "Make", "AsyncRun" } },
             -- motions
+            require("plugins.config.eyeliner"),
             require("plugins.config.flit"),
             require("plugins.config.leap-spooky"),
             require("plugins.config.leap"),
-            { "unblevable/quick-scope", opt = true },
             -- misc
             "lewis6991/impatient.nvim",
             "nvim-lua/plenary.nvim",
@@ -178,7 +178,7 @@ local function load_deferred_plugins()
         "nvim-treesitter",
         "gitsigns.nvim",
         "indent-blankline.nvim",
-        "quick-scope",
+        "eyeliner.nvim",
         "vim-illuminate",
         "rainbow",
         "nvim-colorizer.lua",

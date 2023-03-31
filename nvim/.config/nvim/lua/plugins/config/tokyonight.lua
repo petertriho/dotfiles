@@ -10,8 +10,8 @@ return {
             on_highlights = function(hl, colors)
                 hl.Folded = { fg = colors.comment, bg = nil }
 
-                hl.QuickScopePrimary = { fg = colors.blue, style = "underline" }
-                hl.QuickScopeSecondary = { fg = colors.red, style = "underline" }
+                hl.EyelinerPrimary = { fg = colors.blue, style = "underline" }
+                hl.EyelinerSecondary = { fg = colors.red, style = "underline" }
 
                 hl.TelescopeNormal = {
                     bg = colors.bg_dark,
