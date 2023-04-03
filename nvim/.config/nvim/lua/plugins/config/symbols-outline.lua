@@ -1,10 +1,10 @@
 return {
     "simrat39/symbols-outline.nvim",
     cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
-    setup = function()
-        vim.g.symbols_outline = {
+    config = function()
+        require("symbols-outline").setup({
             auto_preview = false,
             position = "right",
-        }
+        })
     end,
 }
