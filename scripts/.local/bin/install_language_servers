@@ -31,6 +31,10 @@ function main {
         cargo install taplo-cli --locked
     fi
 
+    if ! command -v pylyzer &> /dev/null; then
+        pipx install pylyzer
+    fi
+
     if ! command -v ruff-lsp &> /dev/null; then
         pipx install ruff-lsp
     fi

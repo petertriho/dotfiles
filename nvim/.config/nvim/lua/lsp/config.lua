@@ -57,6 +57,7 @@ return {
     },
     rust_analyzer = {},
     prismals = {},
+    pylyzer = {},
     pyright = {
         python = {
             analysis = {
