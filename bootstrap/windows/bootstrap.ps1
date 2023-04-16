@@ -30,7 +30,7 @@ winget install --source winget --id Nextcloud.NextcloudDesktop
 winget install --source winget --id wez.wezterm
 winget install --source winget --id Google.Chrome
 winget install --source winget --id Mozilla.Firefox
-winget install --source winget --id valinet.ExplorerPatcher
+# winget install --source winget --id valinet.ExplorerPatcher
 winget install --source winget --id WireGuard.WireGuard
 
 winget install --source msstore --id 9NBLGGH516XP # EarTrumpet
