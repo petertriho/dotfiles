@@ -31,22 +31,29 @@ return {
             git = {
                 ignore = false,
             },
-            remove_keymaps = { "s", "S" },
             view = {
                 signcolumn = "no",
-                mappings = {
-                    list = {
-                        {
-                            key = "<c-f>",
-                            cb = "<CMD>lua require('plugins.nvim-tree-utils').launch_telescope('find_files')<CR>",
-                        },
-                        {
-                            key = "<c-s>",
-                            cb = "<CMD>lua require('plugins.nvim-tree-utils').launch_telescope('live_grep')<CR>",
-                        },
-                    },
-                },
             },
+            on_attach = function(bufnr)
+                local api = require("nvim-tree.api")
+
+                local function opts(desc)
+                    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+                end
+
+                api.config.mappings.default_on_attach(bufnr)
+
+                vim.keymap.del("n", "s", { buffer = bufnr })
+                vim.keymap.del("n", "S", { buffer = bufnr })
+
+                vim.keymap.set("n", "<C-f>", function()
+                    require("plugins.nvim-tree-utils").launch_telescope("find_files")
+                end, opts("Telescope Files"))
+
+                vim.keymap.set("n", "<C-s>", function()
+                    require("plugins.nvim-tree-utils").launch_telescope("live_grep")
+                end, opts("Telescope Grep"))
+            end,
             actions = {
                 open_file = {
                     window_picker = {
