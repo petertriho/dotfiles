@@ -25,6 +25,7 @@ require("packer").startup({
             { "someone-stole-my-name/yaml-companion.nvim" },
             { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
             -- completion
+            require("plugins.config.codeium"),
             require("plugins.config.cmp-git"),
             require("plugins.config.cmp-npm"),
             require("plugins.config.copilot"),

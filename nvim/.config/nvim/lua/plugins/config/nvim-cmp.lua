@@ -199,11 +199,12 @@ return {
                         local cmp_format = require("lspkind").cmp_format({
                             mode = "symbol_text",
                             maxwidth = 80,
-                            symbol_map = { Copilot = "" },
+                            symbol_map = { Codeium = "", Copilot = "" },
                             menu = {
                                 buffer = "[BUFFER]",
                                 cmdline = "[CMD]",
                                 cmdline_history = "[CMD_HISTORY]",
+                                codeium = "[CODEIUM]",
                                 copilot = "[COPILOT]",
                                 npm = "[NPM]",
                                 git = "[GIT]",
@@ -249,6 +250,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "npm" },
                 { name = "git" },
+                { name = "codeium" },
                 { name = "cmp_tabnine" },
                 { name = "path" },
                 {
