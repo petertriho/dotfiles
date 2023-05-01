@@ -1,10 +1,16 @@
 {
+    "amd": {
+        "prefix": "amd",
+        "description": "platform: linux/amd64",
+        "body": ["platform: linux/amd64"]
+    },
+    "arm": {
+        "prefix": "arm",
+        "description": "platform: linux/arm64",
+        "body": ["platform: linux/arm64"]
+    },
     "ConfigMap": {
-        "prefix": [
-            "k8sConfigMap",
-            "kube.cm",
-            "kube.configmap"
-        ],
+        "prefix": ["k8sConfigMap", "kube.cm", "kube.configmap"],
         "description": "ConfigMap",
         "body": [
             "kind: ConfigMap",
@@ -17,11 +23,7 @@
         ]
     },
     "Endpoints": {
-        "prefix": [
-            "k8sEndpoints",
-            "kube.ep",
-            "kube.endpoints"
-        ],
+        "prefix": ["k8sEndpoints", "kube.ep", "kube.endpoints"],
         "description": "Endpoints",
         "body": [
             "# When the EndpointController starts, it will detect the endpoints without corresponding services, and delete these endpoints.",
@@ -57,10 +59,7 @@
         ]
     },
     "Ingress": {
-        "prefix": [
-            "k8sIngress",
-            "kube.ingress"
-        ],
+        "prefix": ["k8sIngress", "kube.ingress"],
         "description": "Ingress",
         "body": [
             "# https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource",
@@ -85,10 +84,7 @@
         ]
     },
     "Ingress(TLS)": {
-        "prefix": [
-            "k8sIngress(TLS)",
-            "kube.ingress_tls"
-        ],
+        "prefix": ["k8sIngress(TLS)", "kube.ingress_tls"],
         "description": "Ingress(TLS)",
         "body": [
             "# https://kubernetes.io/docs/concepts/services-networking/ingress/#tls",
@@ -129,10 +125,7 @@
         ]
     },
     "TraefikMiddleware": {
-        "prefix": [
-            "k8sTraefikMiddleware",
-            "kube.traefik_middleware"
-        ],
+        "prefix": ["k8sTraefikMiddleware", "kube.traefik_middleware"],
         "description": "Traefik Middleware",
         "body": [
             "apiVersion: traefik.containo.us/v1alpha1",
@@ -172,10 +165,7 @@
         ]
     },
     "Secret": {
-        "prefix": [
-            "k8sSecret",
-            "kube.secret"
-        ],
+        "prefix": ["k8sSecret", "kube.secret"],
         "description": "Secret",
         "body": [
             "apiVersion: v1",
@@ -190,11 +180,7 @@
         ]
     },
     "Service": {
-        "prefix": [
-            "k8sService",
-            "kube.svc",
-            "kube.service"
-        ],
+        "prefix": ["k8sService", "kube.svc", "kube.service"],
         "description": "KubernetesService",
         "body": [
             "apiVersion: v1",
@@ -221,10 +207,7 @@
         ]
     },
     "Pod": {
-        "prefix": [
-            "k8sPod",
-            "kube.pod"
-        ],
+        "prefix": ["k8sPod", "kube.pod"],
         "description": "Pod",
         "body": [
             "apiVersion: v1",
@@ -265,11 +248,7 @@
         ]
     },
     "Deployment": {
-        "prefix": [
-            "k8sDeployment",
-            "kube.deploy",
-            "kube.deployment"
-        ],
+        "prefix": ["k8sDeployment", "kube.deploy", "kube.deployment"],
         "description": "Deploymment",
         "body": [
             "apiVersion: apps/v1",
@@ -345,11 +324,7 @@
         ]
     },
     "DaemonSet": {
-        "prefix": [
-            "k8sDaemonSet",
-            "kube.ds",
-            "kube.daemonset"
-        ],
+        "prefix": ["k8sDaemonSet", "kube.ds", "kube.daemonset"],
         "description": "",
         "body": [
             "apiVersion: apps/v1",
@@ -393,10 +368,7 @@
         ]
     },
     "StatefulSet": {
-        "prefix": [
-            "k8sStatefulSet",
-            "kube.statefulset"
-        ],
+        "prefix": ["k8sStatefulSet", "kube.statefulset"],
         "description": "",
         "body": [
             "apiVersion: apps/v1",
@@ -437,10 +409,7 @@
         ]
     },
     "Job": {
-        "prefix": [
-            "k8sJob",
-            "kube.job"
-        ],
+        "prefix": ["k8sJob", "kube.job"],
         "description": "",
         "body": [
             "apiVersion: batch/v1",
@@ -476,10 +445,7 @@
         ]
     },
     "CronJob": {
-        "prefix": [
-            "k8sCronJob",
-            "kube.cronjob"
-        ],
+        "prefix": ["k8sCronJob", "kube.cronjob"],
         "description": "",
         "body": [
             "apiVersion: batch/v1beta1",
@@ -501,11 +467,7 @@
         ]
     },
     "ReplicaSet": {
-        "prefix": [
-            "k8sReplicaSet",
-            "kube_rs",
-            "kube_replicaset"
-        ],
+        "prefix": ["k8sReplicaSet", "kube_rs", "kube_replicaset"],
         "description": "",
         "body": [
             "apiVersion: apps/v1",
