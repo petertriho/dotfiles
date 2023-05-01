@@ -33,7 +33,7 @@ winget install --source winget --id Mozilla.Firefox
 # winget install --source winget --id valinet.ExplorerPatcher
 winget install --source winget --id WireGuard.WireGuard
 
-winget install --source msstore --id 9NBLGGH516XP # EarTrumpet
+# winget install --source msstore --id 9NBLGGH516XP # EarTrumpet
 winget install --source msstore 9NFNG39387K0 # Yubico Authenticator
 
 # winget install --source winget --id Postbox.Postbox
