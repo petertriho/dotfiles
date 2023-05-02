@@ -291,6 +291,7 @@ return {
             l = { "<CMD>lua require('neotest').run.run_last()<CR>", "last" },
             n = { "<CMD>lua require('neotest').run.run()<CR>", "nearest" },
             o = { "<CMD>lua require('neotest').output.open({ enter = true })<CR>", "output" },
+            p = { "<CMD>lua require('neotest').output_panel.toggle()<CR>", "panel" },
             r = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "run" },
             s = { "<CMD>lua require('neotest').run.stop()<CR>", "stop" },
             t = { "<CMD>lua require('neotest').summary.toggle()<CR>", "toggle" },
