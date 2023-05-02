@@ -67,13 +67,13 @@ return {
 
         vim.cmd("colorscheme tokyonight")
 
-        vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticSignWarn" })
+        vim.fn.sign_define("LightBulbSign", { text = "󰌶", texthl = "DiagnosticSignWarn" })
 
         local diagnostic_signs = {
-            [vim.diagnostic.severity.ERROR] = { "Error", " " },
-            [vim.diagnostic.severity.WARN] = { "Warn", " " },
+            [vim.diagnostic.severity.ERROR] = { "Error", "󰅚 " },
+            [vim.diagnostic.severity.WARN] = { "Warn", "󰀪 " },
             [vim.diagnostic.severity.INFO] = { "Info", " " },
-            [vim.diagnostic.severity.HINT] = { "Hint", " " },
+            [vim.diagnostic.severity.HINT] = { "Hint", "󰌶 " },
         }
 
         for _, properties in pairs(diagnostic_signs) do

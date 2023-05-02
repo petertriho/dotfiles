@@ -157,7 +157,7 @@ return {
                 enabled = function()
                     return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
                 end,
-                icon = "  ",
+                icon = " 󰌶 ",
                 hl = { fg = "hint" },
                 truncate_hide = true,
                 priority = 2,
@@ -167,7 +167,7 @@ return {
                 enabled = function()
                     return lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
                 end,
-                icon = "  ",
+                icon = " 󰀪 ",
                 hl = { fg = "warning" },
                 truncate_hide = true,
                 priority = 2,
@@ -177,7 +177,7 @@ return {
                 enabled = function()
                     return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
                 end,
-                icon = "  ",
+                icon = " 󰅚 ",
                 hl = { fg = "error" },
                 truncate_hide = true,
                 priority = 2,
@@ -326,7 +326,7 @@ return {
                         local file_enc = (vim.bo[bufnr].fenc ~= "" and vim.bo[bufnr].fenc) or vim.o.enc
                         local file_format = vim.bo[bufnr].fileformat
 
-                        local tab_style = vim.api.nvim_buf_get_option(bufnr, "expandtab") and "●" or ""
+                        local tab_style = vim.api.nvim_buf_get_option(bufnr, "expandtab") and "●" or "󰌒"
                         local tab = vim.api.nvim_buf_get_option(bufnr, "shiftwidth")
 
                         return string.format(
