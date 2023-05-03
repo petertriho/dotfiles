@@ -2,6 +2,7 @@
 # - Drivers
 # - Sophia script https://github.com/farag2/Sophia-Script-for-Windows
 # - Sophia app https://github.com/Sophia-Community/SophiApp
+# - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 # - WSL
 # - excludeWSL.ps1
 # - speedUp.ps1
