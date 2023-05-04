@@ -5,6 +5,9 @@ return {
 
         require("scrollbar").setup({
             folds = false,
+            handle = {
+                blend = 10,
+            },
             marks = {
                 Search = { color = colors.orange },
                 GitAdd = { text = "│" },
