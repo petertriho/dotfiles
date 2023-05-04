@@ -65,6 +65,7 @@ if status is-interactive
     delta_side_by_side
 
     set -g sponge_delay 10
+    set -g sponge_purge_only_on_exit true
 
     if command -v zoxide &>/dev/null
         zoxide init fish | source
