@@ -159,6 +159,14 @@ return {
             end
         end
 
+        local function prioritize_copilot(entry1, entry2)
+            if entry1.copilot and not entry2.copilot then
+                return true
+            elseif entry2.copilot and not entry1.copilot then
+                return false
+            end
+        end
+
         local default_comparators = require("cmp.config.default")().sorting.comparators
 
         cmp.setup({
@@ -166,7 +174,7 @@ return {
                 priority_weight = 2,
                 comparators = {
                     deprioritize_snippet,
-                    require("copilot_cmp.comparators").prioritize,
+                    prioritize_copilot,
                     unpack(default_comparators),
                 },
             },
