@@ -1,6 +1,6 @@
 vim.opt.shadafile = "NONE"
-if vim.fn.isdirectory(vim.fn.stdpath("data") .. "/site/pack/packer/start/impatient.nvim") == 1 then
-    require("impatient")
+if vim.fn.has("nvim-0.9") == 1 then
+    vim.loader.enable()
 end
 require("options")
 require("plugins")

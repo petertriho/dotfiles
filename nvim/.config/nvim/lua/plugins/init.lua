@@ -132,7 +132,6 @@ require("packer").startup({
             require("plugins.config.leap-spooky"),
             require("plugins.config.leap"),
             -- misc
-            "lewis6991/impatient.nvim",
             "nvim-lua/plenary.nvim",
             "tpope/vim-repeat",
             require("plugins.config.bufjump"),
