@@ -186,53 +186,53 @@ return {
             },
             formatting = {
                 format = function(entry, vim_item)
-                    if entry.source.name == "cmp_tabnine" then
-                        local detail = (entry.completion_item.data or {}).detail
-                        vim_item.kind = " Tabnine"
-                        vim_item.menu = "[TABNINE]"
+                    -- if entry.source.name == "cmp_tabnine" then
+                    --     local detail = (entry.completion_item.data or {}).detail
+                    --     vim_item.kind = " Tabnine"
+                    --     vim_item.menu = "[TABNINE]"
 
-                        if detail and detail:find(".*%%.*") then
-                            vim_item.kind = vim_item.kind .. " " .. detail
-                        end
+                    --     if detail and detail:find(".*%%.*") then
+                    --         vim_item.kind = vim_item.kind .. " " .. detail
+                    --     end
 
-                        if (entry.completion_item.data or {}).multiline then
-                            vim_item.kind = vim_item.kind .. " " .. "[ML]"
-                        end
+                    --     if (entry.completion_item.data or {}).multiline then
+                    --         vim_item.kind = vim_item.kind .. " " .. "[ML]"
+                    --     end
 
-                        local maxwidth = 80
-                        vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+                    --     local maxwidth = 80
+                    --     vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
 
-                        return vim_item
-                    else
-                        local cmp_format = require("lspkind").cmp_format({
-                            mode = "symbol_text",
-                            maxwidth = 80,
-                            menu = {
-                                buffer = "[BUFFER]",
-                                cmdline = "[CMD]",
-                                cmdline_history = "[CMD_HISTORY]",
-                                codeium = "[CODEIUM]",
-                                copilot = "[COPILOT]",
-                                npm = "[NPM]",
-                                git = "[GIT]",
-                                cmp_tabnine = "[TABNINE]",
-                                fuzzy_path = "[FZ-PATH]",
-                                fuzzy_buffer = "[FZ-BUFFER]",
-                                nvim_lsp = "[LSP]",
-                                path = "[PATH]",
-                                tmux = "[TMUX]",
-                                vsnip = "[SNIPPET]",
-                                ["vim-dadbod-completion"] = "[DB]",
-                            },
-                            symbol_map = {
-                                -- Custom
-                                Codeium = "",
-                                Copilot = "",
-                            },
-                        })
+                    --     return vim_item
+                    -- else
+                    local cmp_format = require("lspkind").cmp_format({
+                        mode = "symbol_text",
+                        maxwidth = 80,
+                        menu = {
+                            buffer = "[BUFFER]",
+                            cmdline = "[CMD]",
+                            cmdline_history = "[CMD_HISTORY]",
+                            codeium = "[CODEIUM]",
+                            copilot = "[COPILOT]",
+                            npm = "[NPM]",
+                            git = "[GIT]",
+                            -- cmp_tabnine = "[TABNINE]",
+                            fuzzy_path = "[FZ-PATH]",
+                            fuzzy_buffer = "[FZ-BUFFER]",
+                            nvim_lsp = "[LSP]",
+                            path = "[PATH]",
+                            tmux = "[TMUX]",
+                            vsnip = "[SNIPPET]",
+                            ["vim-dadbod-completion"] = "[DB]",
+                        },
+                        symbol_map = {
+                            -- Custom
+                            Codeium = "",
+                            Copilot = "",
+                        },
+                    })
 
-                        return cmp_format(entry, vim_item)
-                    end
+                    return cmp_format(entry, vim_item)
+                    -- end
                 end,
             },
             mapping = {
@@ -263,7 +263,7 @@ return {
                 { name = "npm" },
                 { name = "git" },
                 { name = "codeium" },
-                { name = "cmp_tabnine" },
+                -- { name = "cmp_tabnine" },
                 { name = "path" },
                 {
                     name = "buffer",
