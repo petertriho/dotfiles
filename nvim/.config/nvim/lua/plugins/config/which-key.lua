@@ -254,7 +254,7 @@ return {
         local semicolon_keymaps = {
             [";"] = { "<CMD>Telescope find_files hidden=true<CR>", "find-files" },
             a = { "<CMD>ToDoTxtCapture<CR>", "add-todo.txt" },
-            b = { "<CMD>Telescope buffers<CR>", "buffers" },
+            b = { "<CMD>Telescope scope buffers<CR>", "buffers" },
             c = { "<CMD>CheatList<CR>", "cheat-list" },
             d = { "<CMD>DBUIToggle<CR>", "db" },
             D = { "<CMD>e $DONE_FILE<CR>", "done.txt" },
