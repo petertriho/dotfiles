@@ -20,7 +20,7 @@ require("packer").startup({
             require("plugins.config.nvim-navic"),
             require("plugins.config.symbols-outline"),
             require("plugins.config.vim-illuminate"),
-            { "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" },
+            { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim", "davidmh/cspell.nvim" } },
             { "kosayoda/nvim-lightbulb", module = "nvim-lightbulb" },
             { "someone-stole-my-name/yaml-companion.nvim" },
             { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },

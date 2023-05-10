@@ -222,7 +222,28 @@ local get_python_version = function()
     return PYTHON_VERSION
 end
 
+local custom_user_data = {
+    user_data = function(entries, _)
+        if not entries then
+            return
+        end
+
+        local suggestions = {}
+        for suggestion in string.gmatch(entries["_suggestions"], "[^, ]+") do
+            table.insert(suggestions, suggestion)
+        end
+
+        return {
+            suggestions = suggestions,
+            misspelled = entries["_quote"],
+        }
+    end,
+}
+
 M.setup = function(overrides)
+    local cspell = require("cspell")
+    local cspell_file = vim.fn.expand("$HOME/.config/format-lint/.cspell.json")
+
     local config = vim.tbl_deep_extend("force", {
         sources = {
             -- *
@@ -230,22 +251,46 @@ M.setup = function(overrides)
                 filetypes = {},
                 disabled_filetypes = { "markdown", unpack(require("filetypes").excludes) },
             }),
-            b.diagnostics.cspell.with({
-                filetypes = {},
-                disabled_filetypes = { "markdown", "vimwiki", unpack(require("filetypes").excludes) },
-                on_output = h.diagnostics.from_pattern(
-                    [[.*:(%d+):(%d+)%s*(-)%s*(.*)]],
-                    { "row", "col", "severity", "message" },
-                    {
-                        severities = {
-                            ["-"] = h.diagnostics.severities.information,
-                        },
-                    }
-                ),
+            cspell.diagnostics.with({
                 extra_args = {
                     "--config",
-                    vim.fn.expand("$HOME/.config/format-lint/.cspell.json"),
+                    cspell_file,
                 },
+                disabled_filetypes = { "markdown", "vimwiki", unpack(require("filetypes").excludes) },
+                on_output = h.diagnostics.from_patterns({
+                    {
+                        pattern = ".*:(%d+):(%d+)%s*(-)%s*(.*%((.*)%))%s*Suggestions:%s*%[(.*)%]",
+                        groups = { "row", "col", "severity", "message", "_quote", "_suggestions" },
+                        overrides = {
+                            severities = {
+                                ["-"] = h.diagnostics.severities.information,
+                            },
+                            adapters = {
+                                h.diagnostics.adapters.end_col.from_quote,
+                                custom_user_data,
+                            },
+                        },
+                    },
+                    {
+                        pattern = [[.*:(%d+):(%d+)%s*(-)%s*(.*%((.*)%))]],
+                        groups = { "row", "col", "severity", "message", "_quote" },
+                        overrides = {
+                            severities = {
+                                ["-"] = h.diagnostics.severities.information,
+                            },
+                            adapters = {
+                                h.diagnostics.adapters.end_col.from_quote,
+                            },
+                        },
+                    },
+                }),
+            }),
+            cspell.code_actions.with({
+                extra_args = {
+                    "--config",
+                    cspell_file,
+                },
+                disabled_filetypes = { "markdown", "vimwiki", unpack(require("filetypes").excludes) },
             }),
             b.hover.dictionary,
             -- conf
