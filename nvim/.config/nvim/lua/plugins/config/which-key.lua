@@ -25,6 +25,7 @@ return {
             d = { "<CMD>Bwipeout<CR>", "delete-buffer" },
             e = { "<CMD>NvimTreeFindFileToggle<CR>", "explorer" },
             f = "format",
+            F = "format-slow",
             G = { "<CMD>ToggleNeogitStatus<CR>", "git-status" },
             j = { "<CMD>ToggleGitStatus<CR>", "git-status" },
             J = "reverse-J",
@@ -43,6 +44,7 @@ return {
         local leader_visual_keymaps = {
             ["/"] = "comment",
             f = "format",
+            F = "format-slow",
             k = { "<CMD>lua vim.lsp.buf.range_code_action()<CR>", "code-actions" },
             q = { "<CMD>CodeActionMenu<CR>", "quickfix" },
             s = "substitute",

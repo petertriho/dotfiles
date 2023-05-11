@@ -354,33 +354,6 @@ M.setup = function(overrides)
                     return get_python_version()[2] >= 9
                 end,
             }),
-            -- sources_formatting.pybetter,
-            sources_formatting.pyupgrade.with({
-                extra_args = function(params)
-                    local extra_args = {}
-
-                    get_python_version()
-                    if PYTHON_VERSION[1] >= 3 then
-                        if PYTHON_VERSION[2] >= 11 then
-                            table.insert(extra_args, "--py311-plus")
-                        elseif PYTHON_VERSION[2] >= 10 then
-                            table.insert(extra_args, "--py310-plus")
-                        elseif PYTHON_VERSION[2] >= 9 then
-                            table.insert(extra_args, "--py39-plus")
-                        elseif PYTHON_VERSION[2] >= 8 then
-                            table.insert(extra_args, "--py38-plus")
-                        elseif PYTHON_VERSION[2] >= 7 then
-                            table.insert(extra_args, "--py37-plus")
-                        elseif PYTHON_VERSION[2] >= 6 then
-                            table.insert(extra_args, "--py36-plus")
-                        else
-                            table.insert(extra_args, "--py3-plus")
-                        end
-                    end
-
-                    return extra_args
-                end,
-            }),
             sources_formatting.ssort.with({
                 condition = function(utils)
                     return get_python_version()[2] >= 9
@@ -539,6 +512,42 @@ M.setup = function(overrides)
     }, overrides or {})
 
     null_ls.setup(config)
+
+    null_ls.register({
+        name = "slow-format",
+        sources = {
+            -- python
+            sources_formatting.pybetter,
+            sources_formatting.pyupgrade.with({
+                extra_args = function(params)
+                    local extra_args = {}
+
+                    get_python_version()
+                    if PYTHON_VERSION[1] >= 3 then
+                        if PYTHON_VERSION[2] >= 11 then
+                            table.insert(extra_args, "--py311-plus")
+                        elseif PYTHON_VERSION[2] >= 10 then
+                            table.insert(extra_args, "--py310-plus")
+                        elseif PYTHON_VERSION[2] >= 9 then
+                            table.insert(extra_args, "--py39-plus")
+                        elseif PYTHON_VERSION[2] >= 8 then
+                            table.insert(extra_args, "--py38-plus")
+                        elseif PYTHON_VERSION[2] >= 7 then
+                            table.insert(extra_args, "--py37-plus")
+                        elseif PYTHON_VERSION[2] >= 6 then
+                            table.insert(extra_args, "--py36-plus")
+                        else
+                            table.insert(extra_args, "--py3-plus")
+                        end
+                    end
+
+                    return extra_args
+                end,
+            }),
+        },
+    })
+
+    null_ls.disable({ name = "slow-format" })
 end
 
 return M
