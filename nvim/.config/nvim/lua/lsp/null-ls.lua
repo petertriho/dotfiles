@@ -514,7 +514,7 @@ M.setup = function(overrides)
     null_ls.setup(config)
 
     null_ls.register({
-        name = "slow-format",
+        name = "slow_formatters",
         sources = {
             -- python
             sources_formatting.pybetter,
@@ -547,7 +547,7 @@ M.setup = function(overrides)
         },
     })
 
-    null_ls.disable({ name = "slow-format" })
+    null_ls.disable({ name = "slow_formatters" })
 end
 
 return M

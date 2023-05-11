@@ -21,9 +21,9 @@ M.on_attach = function(client, bufnr)
     end
 
     local slow_format = function()
-        null_ls.enable({ name = "slow-format" })
+        null_ls.enable({ name = "slow_formatters" })
         format()
-        null_ls.disable({ name = "slow-format" })
+        null_ls.disable({ name = "slow_formatters" })
     end
 
     if client.server_capabilities.documentFormattingProvider then
