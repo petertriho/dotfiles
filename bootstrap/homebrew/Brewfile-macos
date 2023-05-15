@@ -8,6 +8,7 @@ cask "appcleaner"
 cask "bartender"
 cask "betterdummy"
 cask "cursorsense"
+cask "cyberduck"
 cask "discord"
 cask "docker"
 cask "easy-move-plus-resize"
@@ -30,4 +31,5 @@ cask "swish"
 cask "vlc"
 cask "wezterm"
 cask "yubico-authenticator"
+mas "Unsplash Wallpapers", id: 1284863847
 mas "WireGuard", id: 1451685025
