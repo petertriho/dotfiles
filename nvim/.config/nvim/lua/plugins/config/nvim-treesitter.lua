@@ -7,12 +7,12 @@ return {
             ensure_installed = {
                 "bash",
                 -- "comment",
-                "help",
                 "markdown_inline",
                 "prisma",
                 "regex",
                 "todotxt",
                 "tsx",
+                "vimdoc",
                 unpack(require("filetypes").treesitter),
             },
             sync_install = true,
