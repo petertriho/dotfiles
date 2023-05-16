@@ -89,7 +89,7 @@ opt.title = true
 opt.titlestring = "nvim %t %M"
 opt.ttimeout = false
 opt.ttimeoutlen = 0
--- opt.updatetime = 100
+opt.updatetime = 100
 opt.wrap = false
 opt.wildignore = {
     "*.o",

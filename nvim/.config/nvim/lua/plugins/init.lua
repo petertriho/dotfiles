@@ -137,7 +137,6 @@ require("packer").startup({
             require("plugins.config.bufjump"),
             require("plugins.config.close-buffers"),
             -- require("plugins.config.deferred-clipboard"),
-            require("plugins.config.FixCursorHold"),
             require("plugins.config.guess-indent"),
             -- require("plugins.config.indent-o-matic"),
             require("plugins.config.marks"),
