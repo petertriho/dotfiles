@@ -244,19 +244,20 @@ M.setup = function(overrides)
     local cspell = require("cspell")
     local cspell_file = vim.fn.expand("$HOME/.config/format-lint/.cspell.json")
 
+    local spell_disabled_filestypes = { "markdown", "vimwiki", unpack(require("filetypes").excludes) }
+
     local config = vim.tbl_deep_extend("force", {
         sources = {
             -- *
             b.diagnostics.codespell.with({
-                filetypes = {},
-                disabled_filetypes = { "markdown", unpack(require("filetypes").excludes) },
+                disabled_filetypes = spell_disabled_filestypes,
             }),
             cspell.diagnostics.with({
                 extra_args = {
                     "--config",
                     cspell_file,
                 },
-                disabled_filetypes = { "markdown", "vimwiki", unpack(require("filetypes").excludes) },
+                disabled_filetypes = spell_disabled_filestypes,
                 on_output = h.diagnostics.from_patterns({
                     {
                         pattern = ".*:(%d+):(%d+)%s*(-)%s*(.*%((.*)%))%s*Suggestions:%s*%[(.*)%]",
@@ -290,7 +291,7 @@ M.setup = function(overrides)
                     "--config",
                     cspell_file,
                 },
-                disabled_filetypes = { "markdown", "vimwiki", unpack(require("filetypes").excludes) },
+                disabled_filetypes = spell_disabled_filestypes,
             }),
             b.hover.dictionary,
             -- conf
