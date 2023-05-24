@@ -44,6 +44,8 @@ return {
     },
     excludes = {
         "dirbuf",
+        "cmp_docs",
+        "cmp_menu",
         "fugitive",
         "fugitiveblame",
         "gitcommit",
