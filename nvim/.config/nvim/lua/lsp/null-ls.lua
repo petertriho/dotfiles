@@ -437,6 +437,7 @@ M.setup = function(overrides)
                     vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json"),
                 },
             }),
+            b.formatting.eslint_d,
             -- b.formatting.rustywind,
             b.formatting.stylelint.with({
                 extra_args = {

@@ -103,6 +103,10 @@ function main {
         npm install --global cspell
     fi
 
+    if ! command -v eslint_d &> /dev/null; then
+        npm install --global eslint_d
+    fi
+
     if ! command -v fixjson &> /dev/null; then
         npm install --global fixjson
     fi
