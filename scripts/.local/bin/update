@@ -73,8 +73,8 @@ function tool:misc {
     echo "Updating ltex language server ..."
     install_ltex_language_server
 
-    echo "Updating marksman language server ..."
-    install_marksman_language_server
+    # echo "Updating marksman language server ..."
+    # install_marksman_language_server
 
     echo "Updating vale styles ..."
     install_vale_style_microsoft
@@ -193,7 +193,7 @@ function tool:all {
     tool:asdf
     tool:npm
     tool:pipx
-    tool:rust
+    # tool:rust
 
     tool:misc
 
