@@ -17,7 +17,7 @@ OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 
 case "$OS" in
     linux)
-        PLATFORM="linux"
+        PLATFORM="linux-x64"
         ;;
     darwin)
         PLATFORM="macos"
