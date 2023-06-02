@@ -37,7 +37,7 @@ return {
         filetypes = { "bib", "markdown", "org", "plaintex", "rst", "rnoweb", "tex" },
     },
     lua_ls = {},
-    -- marksman = {},
+    marksman = {},
     quick_lint_js = {
         filetypes = { "javascript", "javascriptreact", "jsx" },
     },

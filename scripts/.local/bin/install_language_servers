@@ -15,6 +15,11 @@ function main {
         brew install lua-language-server
     fi
 
+    install_marksman_language_server
+    if ! command -v marksman &> /dev/null; then
+        brew install marksman
+    fi
+
     if ! command -v rust-analyzer &> /dev/null; then
         brew install rust-analyzer
     fi
@@ -93,10 +98,6 @@ function main {
     if ! command -v ltex-ls &> /dev/null; then
         install_ltex_language_server
     fi
-
-    # if ! command -v marksman &> /dev/null; then
-    #     install_marksman_language_server
-    # fi
 
     asdf reshim
 }
