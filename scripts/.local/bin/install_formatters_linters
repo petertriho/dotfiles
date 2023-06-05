@@ -43,10 +43,6 @@ function main {
         brew install vale
     fi
 
-    if ! command -v autoflake &> /dev/null; then
-        pipx install autoflake
-    fi
-
     if ! command -v bandit &> /dev/null; then
         pipx install bandit
     fi
@@ -63,10 +59,6 @@ function main {
         pipx install docformatter
     fi
 
-    if ! command -v flake8 &> /dev/null; then
-        pipx install flake8
-    fi
-
     if ! command -v isort &> /dev/null; then
         pipx install isort
     fi
@@ -75,28 +67,12 @@ function main {
         pipx install refurb
     fi
 
-    if ! command -v reorder-python-imports &> /dev/null; then
-        pipx install reorder-python-imports
-    fi
-
     if ! command -v ruff &> /dev/null; then
         pipx install ruff
     fi
 
     if ! command -v pybetter &> /dev/null; then
         pipx install pybetter
-    fi
-
-    if ! command -v pylint &> /dev/null; then
-        pipx install pylint
-    fi
-
-    if ! command -v pyupgrade &> /dev/null; then
-        pipx install pyupgrade
-    fi
-
-    if ! command -v ssort &> /dev/null; then
-        pipx install ssort
     fi
 
     if ! command -v cspell &> /dev/null; then

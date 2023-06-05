@@ -42,6 +42,12 @@ return {
         filetypes = { "javascript", "javascriptreact", "jsx" },
     },
     ruff_lsp = {
+        init_options = {
+            args = {
+                "--config",
+                vim.fn.expand("$HOME/.config/format-lint/.ruff.toml"),
+            },
+        },
         commands = {
             RuffOrganizeImports = {
                 function()

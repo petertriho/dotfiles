@@ -98,21 +98,6 @@ local sources_diagnostics = {
 }
 
 local sources_formatting = {
-    autoflake = h.make_builtin({
-        method = FORMATTING,
-        filetypes = { "python" },
-        generator_opts = {
-            command = "autoflake",
-            args = {
-                "--remove-all-unused-imports",
-                "--stdin-display-name",
-                "$FILENAME",
-                "-",
-            },
-            to_stdin = true,
-        },
-        factory = h.formatter_factory,
-    }),
     -- for black versions that do not accept stdin
     black = h.make_builtin({
         method = FORMATTING,
@@ -155,18 +140,6 @@ local sources_formatting = {
         },
         factory = h.formatter_factory,
     }),
-    ssort = h.make_builtin({
-        method = FORMATTING,
-        filetypes = { "python" },
-        generator_opts = {
-            command = "ssort",
-            args = {
-                "$FILENAME",
-            },
-            to_temp_file = true,
-        },
-        factory = h.formatter_factory,
-    }),
     svgo = h.make_builtin({
         method = FORMATTING,
         filetypes = { "svg" },
@@ -179,18 +152,6 @@ local sources_formatting = {
                 "-o",
                 "-",
             },
-        },
-        factory = h.formatter_factory,
-    }),
-    pyupgrade = h.make_builtin({
-        method = FORMATTING,
-        filetypes = { "python" },
-        generator_opts = {
-            command = "pyupgrade",
-            args = {
-                "$FILENAME",
-            },
-            to_temp_file = true,
         },
         factory = h.formatter_factory,
     }),
@@ -338,53 +299,12 @@ M.setup = function(overrides)
             b.formatting.nginx_beautifier,
             -- python
             sources_diagnostics.bandit,
-            b.diagnostics.flake8.with({
-                extra_args = {
-                    "--ignore",
-                    -- E501: Line too long
-                    -- W503: Line break occurred before a binary operator
-                    "E501,W503",
-                },
-            }),
             sources_diagnostics.refurb,
-            -- b.diagnostics.ruff,
-            -- b.diagnostics.pylint,
-            sources_formatting.autoflake,
             sources_formatting.docformatter.with({
                 condition = function(utils)
                     return get_python_version()[2] >= 9
                 end,
             }),
-            sources_formatting.ssort.with({
-                condition = function(utils)
-                    return get_python_version()[2] >= 9
-                end,
-            }),
-            b.formatting.reorder_python_imports.with({
-                extra_args = function(params)
-                    local extra_args = {}
-
-                    get_python_version()
-                    if PYTHON_VERSION[1] >= 3 then
-                        if PYTHON_VERSION[2] >= 10 then
-                            table.insert(extra_args, "--py310-plus")
-                        elseif PYTHON_VERSION[2] >= 9 then
-                            table.insert(extra_args, "--py39-plus")
-                        elseif PYTHON_VERSION[2] >= 8 then
-                            table.insert(extra_args, "--py38-plus")
-                        elseif PYTHON_VERSION[2] >= 7 then
-                            table.insert(extra_args, "--py37-plus")
-                        elseif PYTHON_VERSION[2] >= 6 then
-                            table.insert(extra_args, "--py36-plus")
-                        else
-                            table.insert(extra_args, "--py3-plus")
-                        end
-                    end
-
-                    return extra_args
-                end,
-            }),
-            -- b.formatting.ruff,
             b.formatting.isort.with({
                 extra_args = function(params)
                     local extra_args = { "--profile", "black" }
@@ -520,32 +440,6 @@ M.setup = function(overrides)
         sources = {
             -- python
             sources_formatting.pybetter,
-            sources_formatting.pyupgrade.with({
-                extra_args = function(params)
-                    local extra_args = {}
-
-                    get_python_version()
-                    if PYTHON_VERSION[1] >= 3 then
-                        if PYTHON_VERSION[2] >= 11 then
-                            table.insert(extra_args, "--py311-plus")
-                        elseif PYTHON_VERSION[2] >= 10 then
-                            table.insert(extra_args, "--py310-plus")
-                        elseif PYTHON_VERSION[2] >= 9 then
-                            table.insert(extra_args, "--py39-plus")
-                        elseif PYTHON_VERSION[2] >= 8 then
-                            table.insert(extra_args, "--py38-plus")
-                        elseif PYTHON_VERSION[2] >= 7 then
-                            table.insert(extra_args, "--py37-plus")
-                        elseif PYTHON_VERSION[2] >= 6 then
-                            table.insert(extra_args, "--py36-plus")
-                        else
-                            table.insert(extra_args, "--py3-plus")
-                        end
-                    end
-
-                    return extra_args
-                end,
-            }),
         },
     })
 
