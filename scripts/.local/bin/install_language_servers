@@ -33,7 +33,7 @@ function main {
     fi
 
     if ! command -v taplo &> /dev/null; then
-        cargo install taplo-cli --locked
+        cargo install --features lsp --locked taplo-cli
     fi
 
     if ! command -v pylyzer &> /dev/null; then
