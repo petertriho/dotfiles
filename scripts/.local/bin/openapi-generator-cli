@@ -2,7 +2,7 @@
 
 docker run --rm \
     --network="host" \
-    -v="$(pwd):/workdir" \
-    -w="/workdir" \
-    -u="$(id -u):$(id -g)" \
+    --user="$(id -u):$(id -g)" \
+    --volume="$(pwd):/workdir" \
+    --workdir="/workdir" \
     openapitools/openapi-generator-cli "$@"
