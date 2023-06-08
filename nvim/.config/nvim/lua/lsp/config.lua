@@ -63,12 +63,15 @@ return {
     },
     rust_analyzer = {},
     prismals = {},
-    -- pylyzer = {},
+    -- pylyzer = {}, -- NOTE: disabled until virtualenv imports is supported
     pyright = {
         python = {
             analysis = {
                 diagnosticMode = "workspace",
                 useLibraryCodeForTypes = true,
+                diagnosticSeverityOverrides = {
+                    reportGeneralTypeIssues = "information",
+                },
             },
         },
     },
