@@ -8,10 +8,18 @@ return {
                 colors.border_highlight = "#2d3149"
             end,
             on_highlights = function(hl, colors)
-                hl.Folded = { fg = colors.comment, bg = nil }
+                hl.ConflictMarkerBegin = { bg = colors.diff.add }
+                hl.ConflictMarkerOurs = { bg = colors.diff.add }
+                hl.ConflictMarkerCommonAncestors = { bg = colors.diff.delete }
+                hl.ConflictMarkerCommonAncestorsHunk = { bg = colors.diff.delete }
+                hl.ConflictMarkerSeparator = { bg = colors.diff.change }
+                hl.ConflictMarkerTheirs = { bg = colors.diff.change }
+                hl.ConflictMarkerEnd = { bg = colors.diff.change }
 
                 hl.EyelinerPrimary = { fg = colors.blue, style = "underline" }
                 hl.EyelinerSecondary = { fg = colors.red, style = "underline" }
+
+                hl.Folded = { fg = colors.comment, bg = nil }
 
                 hl.TelescopeNormal = {
                     bg = colors.bg_dark,
