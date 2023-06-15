@@ -383,11 +383,13 @@ M.setup = function(overrides)
             }),
             b.formatting.prettier.with({
                 filetypes = {
-                    "graphql",
+                    "yaml",
                     "markdown",
+                    "markdown.mdx",
+                    "graphql",
+                    "handlebars",
                     "svelte",
                     "vimwiki",
-                    "yaml",
                 },
                 extra_args = PRETTIER_EXTRA_ARGS,
             }),
@@ -400,6 +402,7 @@ M.setup = function(overrides)
                     "vue",
                     "css",
                     "scss",
+                    "less",
                     "html",
                     "json",
                     "jsonc",
