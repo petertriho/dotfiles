@@ -9,7 +9,7 @@ git branch -m "$old_branch" "$new_branch"
 git fetch origin
 git branch -u "origin/${new_branch}" "$new_branch"
 git remote set-head origin -a
-git symbolic-ref HEAD refs/heads/main
+git symbolic-ref HEAD "refs/heads/${new_branch}"
 
 if [[ $(git rev-parse --is-bare-repository 2> /dev/null) == true ]]; then
     git worktree move "$old_branch" "$new_branch"
