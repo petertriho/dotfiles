@@ -88,6 +88,7 @@ require("packer").startup({
             require("plugins.config.vim-wordmotion"),
             { "junegunn/vim-easy-align", keys = "<Plug>(EasyAlign)" },
             -- telescope
+            require("plugins.config.dir-telescope"),
             require("plugins.config.octo"),
             require("plugins.config.refactoring"),
             require("plugins.config.telescope"),

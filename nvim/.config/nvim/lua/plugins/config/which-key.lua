@@ -254,6 +254,7 @@ return {
 
         -- Semicolon keymaps
         local semicolon_keymaps = {
+            [":"] = { "<CMD>Telescope dir find_files<CR>", "dir-find-files" },
             [";"] = { "<CMD>Telescope find_files hidden=true<CR>", "find-files" },
             a = { "<CMD>ToDoTxtCapture<CR>", "add-todo.txt" },
             b = { "<CMD>Telescope scope buffers<CR>", "buffers" },
@@ -261,6 +262,7 @@ return {
             d = { "<CMD>DBUIToggle<CR>", "db" },
             D = { "<CMD>e $DONE_FILE<CR>", "done.txt" },
             f = { "<CMD>Telescope find_files find_command=fd,-HIL<CR>", "find-files-all" },
+            F = { "<CMD>Telescope dir find_files<CR>", "dir-find-files" },
             g = { "<CMD>lua require('github-notifications.menu').notifications()<CR>", "github-notifications" },
             h = { "<CMD>TSBufToggle highlight<CR>", "highlight-toggle" },
             l = { "<CMD>LLToggle<CR>", "loc-list-toggle" },
@@ -270,6 +272,7 @@ return {
             r = { "<ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor" },
             R = { "<CMD>e $REPORT_FILE<CR>", "report.txt" },
             s = { "<CMD>Telescope live_grep<CR>", "search-text" },
+            S = { "<CMD>Telescope dir live_grep<CR>", "dir-search-text" },
             t = { "<CMD>ToDoTxtTasksToggle<CR>", "toggle-todo.txt" },
             T = { "<CMD>e $TODO_FILE<CR>", "todo.txt" },
             w = {
