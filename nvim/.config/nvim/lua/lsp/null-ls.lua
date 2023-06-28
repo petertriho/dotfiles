@@ -88,6 +88,9 @@ local sources_diagnostics = {
             command = "refurb",
             args = {
                 "$FILENAME",
+                "--disable",
+                -- FURB109: Replace [] with ()
+                "FURB109",
             },
             from_stderr = true,
             format = "line",
