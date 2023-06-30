@@ -1,4 +1,4 @@
-right_format = "${custom.arch}"
+right_format = "${custom.arch}${time}"
 
 [custom.arch]
 command = "uname -m"
@@ -10,3 +10,6 @@ disabled = true
 [directory]
 truncate_to_repo = false
 fish_style_pwd_dir_length = 1
+
+[time]
+disabled = false

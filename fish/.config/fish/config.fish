@@ -29,7 +29,16 @@ set -gx CC "$HOMEBREW_PREFIX/bin/gcc-13"
 set -gx EDITOR nvim
 
 if command -v starship &>/dev/null
+    # function starship_transient_prompt_func
+    #     starship module character
+    # end
+
+    # function starship_transient_rprompt_func
+    #     starship module time
+    # end
+
     starship init fish | source
+    # enable_transience
 end
 
 if status is-interactive
