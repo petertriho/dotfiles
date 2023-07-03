@@ -49,26 +49,26 @@ return {
                     fg = colors.fg_dark,
                 }
 
-                hl.TSRainbowRed = {
+                hl.RainbowDelimiterRed = {
                     fg = colors.red,
                 }
-                hl.TSRainbowOrange = {
-                    fg = colors.orange,
-                }
-                hl.TSRainbowYellow = {
+                hl.RainbowDelimiterYellow = {
                     fg = colors.yellow,
                 }
-                hl.TSRainbowGreen = {
-                    fg = colors.green,
-                }
-                hl.TSRainbowCyan = {
-                    fg = colors.cyan,
-                }
-                hl.TSRainbowBlue = {
+                hl.RainbowDelimiterBlue = {
                     fg = colors.blue,
                 }
-                hl.TSRainbowViolet = {
+                hl.RainbowDelimiterOrange = {
+                    fg = colors.orange,
+                }
+                hl.RainbowDelimiterGreen = {
+                    fg = colors.green,
+                }
+                hl.RainbowDelimiterViolet = {
                     fg = colors.magenta,
+                }
+                hl.RainbowDelimiterCyan = {
+                    fg = colors.cyan,
                 }
             end,
         })
