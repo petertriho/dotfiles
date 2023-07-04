@@ -67,6 +67,11 @@ function main {
         pipx install isort
     fi
 
+    if ! command -v gixy &> /dev/null; then
+        pipx install gixy
+        pipx inject gixy pyparsing==2.4.7
+    fi
+
     if ! command -v pybetter &> /dev/null; then
         pipx install pybetter
     fi
