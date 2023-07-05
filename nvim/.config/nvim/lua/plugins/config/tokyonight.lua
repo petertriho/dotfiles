@@ -48,28 +48,6 @@ return {
                     bg = colors.border_highlight,
                     fg = colors.fg_dark,
                 }
-
-                hl.RainbowDelimiterRed = {
-                    fg = colors.red,
-                }
-                hl.RainbowDelimiterYellow = {
-                    fg = colors.yellow,
-                }
-                hl.RainbowDelimiterBlue = {
-                    fg = colors.blue,
-                }
-                hl.RainbowDelimiterOrange = {
-                    fg = colors.orange,
-                }
-                hl.RainbowDelimiterGreen = {
-                    fg = colors.green,
-                }
-                hl.RainbowDelimiterViolet = {
-                    fg = colors.magenta,
-                }
-                hl.RainbowDelimiterCyan = {
-                    fg = colors.cyan,
-                }
             end,
         })
 
