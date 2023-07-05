@@ -434,6 +434,18 @@ M.setup = function(overrides)
                     "handlebars",
                     "svelte",
                     "vimwiki",
+                    -- prettierd
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact",
+                    "vue",
+                    "css",
+                    "scss",
+                    "less",
+                    "html",
+                    "json",
+                    "jsonc",
                 },
                 extra_args = function(params)
                     local extra_args = {}
@@ -451,21 +463,21 @@ M.setup = function(overrides)
                     return extra_args
                 end,
             }),
-            b.formatting.prettierd.with({
-                filetypes = {
-                    "javascript",
-                    "javascriptreact",
-                    "typescript",
-                    "typescriptreact",
-                    "vue",
-                    "css",
-                    "scss",
-                    "less",
-                    "html",
-                    "json",
-                    "jsonc",
-                },
-            }),
+            -- b.formatting.prettierd.with({
+            --     filetypes = {
+            --         "javascript",
+            --         "javascriptreact",
+            --         "typescript",
+            --         "typescriptreact",
+            --         "vue",
+            --         "css",
+            --         "scss",
+            --         "less",
+            --         "html",
+            --         "json",
+            --         "jsonc",
+            --     },
+            -- }),
             -- markdown/vimwiki
             b.diagnostics.markdownlint.with({
                 filetypes = { "markdown", "vimwiki" },
