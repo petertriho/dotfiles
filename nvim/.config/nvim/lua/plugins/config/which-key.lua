@@ -194,17 +194,6 @@ return {
             t = { "<CMD>MarksToggleSigns<CR>", "toggle-signs" },
         }
 
-        leader_keymaps["p"] = {
-            name = "+package-info",
-            c = { "<CMD>lua require('package-info').change_version()<CR>", "change-version" },
-            d = { "<CMD>lua require('package-info').delete()<CR>", "delete" },
-            h = { "<CMD>lua require('package-info').hide()<CR>", "hide" },
-            i = { "<CMD>lua require('package-info').install()<CR>", "install" },
-            r = { "<CMD>lua require('package-info').reinstall()<CR>", "reinstall" },
-            s = { "<CMD>lua require('package-info').show({ force = true })<CR>", "show" },
-            u = { "<CMD>lua require('package-info').update()<CR>", "update" },
-        }
-
         leader_keymaps["r"] = {
             name = "+refactoring",
             c = { "<CMD>lua require('refactoring').debug.cleanup({})<CR>", "cleanup" },

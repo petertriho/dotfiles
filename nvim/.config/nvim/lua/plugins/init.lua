@@ -27,7 +27,6 @@ require("packer").startup({
             -- completion
             require("plugins.config.codeium"),
             require("plugins.config.cmp-git"),
-            require("plugins.config.cmp-npm"),
             require("plugins.config.copilot"),
             require("plugins.config.copilot-cmp"),
             require("plugins.config.nvim-cmp"),
@@ -108,7 +107,6 @@ require("packer").startup({
             require("plugins.config.nvim-pqf"),
             require("plugins.config.nvim-test"),
             require("plugins.config.nvim-tree"),
-            require("plugins.config.package-info"),
             require("plugins.config.todotxt"),
             require("plugins.config.twilight"),
             require("plugins.config.venn"),
