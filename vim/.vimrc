@@ -6,7 +6,6 @@ set number
 set noswapfile
 
 set autoread
-set clipboard+=unnamedplus
 set lazyredraw
 set relativenumber
 
