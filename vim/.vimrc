@@ -1,3 +1,6 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 " set hls ic is nu noswf
 set hlsearch
 set ignorecase
