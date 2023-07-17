@@ -33,6 +33,7 @@ winget install --source winget --id VideoLAN.VLC
 winget install --source winget --id WinSCP.WinSCP
 winget install --source winget --id WireGuard.WireGuard
 winget install --source winget --id wez.wezterm
+winget install --source winget --id VivaldiTechnologies.Vivaldi
 
 winget install --source msstore 9NFNG39387K0 # Yubico Authenticator
 
