@@ -12,7 +12,7 @@
 # - thisiswin11
 
 # WSL
-# https://docs.microsoft.com/en-gb/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+wsl --update
 wsl --install -d Ubuntu
 
 # Winget
