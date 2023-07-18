@@ -6,7 +6,7 @@
     # Remove delta_side_by_side function when fixed
     # https://github.com/dandavison/delta/issues/359
     # https://github.com/wfxr/forgit/issues/121
-    pager = delta --width $COLUMNS
+    pager = delta --width ${FZF_PREVIEW_COLUMNS-$COLUMNS}
 
 [delta]
     navigate = true
