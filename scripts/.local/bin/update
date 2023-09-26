@@ -106,7 +106,7 @@ function tool:pipx {
     if command -v pipx &> /dev/null; then
         echo "Updating pipx packages ..."
         pipx upgrade-all
-        pipx install poetry==1.1.15 --force
+        pipx install poetry==1.1.14 --force
     fi
 }
 
