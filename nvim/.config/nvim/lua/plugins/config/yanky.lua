@@ -41,5 +41,9 @@ return {
         set_keymap("n", "<M-b>", "<Plug>(YankyCycleBackward)")
 
         set_keymap("n", "Y", "y$")
+
+        set_keymap({ "o", "x" }, "lp", function()
+            require("yanky.textobj").last_put()
+        end, {})
     end,
 }
