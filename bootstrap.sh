@@ -2,8 +2,8 @@
 
 set -eo pipefail
 
-PYTHON_VERSION=3.10
-NODEJS_VERSION=16
+PYTHON_VERSION=3.12
+NODEJS_VERSION=18
 
 DOTFILES_DIR=$(
               cd "$(dirname "$0")"
