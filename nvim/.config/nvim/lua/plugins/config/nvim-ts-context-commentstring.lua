@@ -1,15 +1,12 @@
 return {
     "JoosepAlviste/nvim-ts-context-commentstring",
-    requires = "nvim-treesitter/nvim-treesitter",
-    after = "nvim-treesitter",
     config = function()
-        require("nvim-treesitter.configs").setup({
-            context_commentstring = {
-                enable = true,
-                enable_autocmd = false,
-                config = {
-                    json = { __default = "// %s", __multiline = "/* %s */" },
-                },
+        vim.g.skip_ts_context_commentstring_module = true
+
+        require("ts_context_commentstring").setup({
+            enable_autocmd = false,
+            languages = {
+                json = { __default = "// %s", __multiline = "/* %s */" },
             },
         })
     end,
