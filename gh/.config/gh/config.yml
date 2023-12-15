@@ -2,3 +2,4 @@ git_protocol: ssh
 editor: nvim
 prompt: enabled
 pager: bat
+version: "1"
