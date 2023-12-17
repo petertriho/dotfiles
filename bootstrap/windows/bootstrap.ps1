@@ -22,20 +22,15 @@ winget install --source winget --id Docker.DockerDesktop
 winget install --source winget --id Giorgiotani.Peazip
 winget install --source winget --id Google.Chrome
 winget install --source winget --id Microsoft.PowerToys
-winget install --source winget --id Microsoft.WindowsTerminal.Preview
 winget install --source winget --id Mozilla.Firefox
 winget install --source winget --id Nextcloud.NextcloudDesktop
 winget install --source winget --id RandyRants.SharpKeys
-winget install --source winget --id Stardock.Start11
 winget install --source winget --id SumatraPDF.SumatraPDF
 winget install --source winget --id Valve.Steam
 winget install --source winget --id VideoLAN.VLC
 winget install --source winget --id WinSCP.WinSCP
 winget install --source winget --id WireGuard.WireGuard
 winget install --source winget --id wez.wezterm
-winget install --source winget --id VivaldiTechnologies.Vivaldi
-
-winget install --source msstore 9NFNG39387K0 # Yubico Authenticator
 
 # Scoop
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -44,4 +39,4 @@ scoop install 7zip aria2 curl dark git neovim starship sudo
 scoop bucket add nerd-fonts
 scoop bucket add extras
 sudo scoop install --global JetBrainsMono-NF
-scoop install hwinfo hwmonitor thisiswin11 wumgr
+scoop install hwmonitor wumgr
