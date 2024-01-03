@@ -1,5 +1,5 @@
 return {
-    "https://gitlab.com/yorickpeterse/nvim-pqf",
+    "yorickpeterse/nvim-pqf",
     config = function()
         require("pqf").setup()
     end,
