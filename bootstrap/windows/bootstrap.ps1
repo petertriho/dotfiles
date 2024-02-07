@@ -2,6 +2,7 @@
 # - Drivers
 # - Sophia script https://github.com/farag2/Sophia-Script-for-Windows
 # - Sophia app https://github.com/Sophia-Community/SophiApp
+# - Bloatynosy https://github.com/builtbybel/Bloatynosy
 # - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 # - WSL
 # - excludeWSL.ps1
@@ -9,7 +10,6 @@
 # - Winget
 # - Scoop
 # - dotfiles
-# - thisiswin11
 
 # WSL
 wsl --update
