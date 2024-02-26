@@ -30,6 +30,7 @@ winget install --source winget --id RandyRants.SharpKeys
 winget install --source winget --id SumatraPDF.SumatraPDF
 winget install --source winget --id Valve.Steam
 winget install --source winget --id VideoLAN.VLC
+winget install --source winget --id voidtools.Everything
 winget install --source winget --id WinSCP.WinSCP
 winget install --source winget --id WireGuard.WireGuard
 winget install --source winget --id wez.wezterm
