@@ -27,6 +27,7 @@ winget install --source winget --id Microsoft.PowerToys
 winget install --source winget --id Mozilla.Firefox
 winget install --source winget --id Nextcloud.NextcloudDesktop
 winget install --source winget --id RandyRants.SharpKeys
+winget install --source winget --id SomePythonThings.WingetUIStore
 winget install --source winget --id SumatraPDF.SumatraPDF
 winget install --source winget --id Valve.Steam
 winget install --source winget --id VideoLAN.VLC
