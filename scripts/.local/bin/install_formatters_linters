@@ -100,10 +100,6 @@ function main {
         npm install --global eslint_d
     fi
 
-    if ! command -v fixjson &> /dev/null; then
-        npm install --global fixjson
-    fi
-
     if ! command -v markdownlint &> /dev/null; then
         npm install --global markdownlint-cli
     fi
@@ -119,10 +115,6 @@ function main {
     if ! command -v prettierd &> /dev/null; then
         npm install --global @fsouza/prettierd
     fi
-
-    # if ! command -v rustywind &> /dev/null; then
-    #     npm install --global rustywind
-    # fi
 
     if ! command -v sort-package-json &> /dev/null; then
         npm install --global sort-package-json

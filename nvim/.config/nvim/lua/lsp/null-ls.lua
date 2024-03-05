@@ -158,6 +158,16 @@ local sources_formatting = {
         },
         factory = h.formatter_factory,
     }),
+    reorder_python_imports = h.make_builtin({
+        method = FORMATTING,
+        filetypes = { "python" },
+        generator_opts = {
+            command = "reorder-python-imports",
+            args = { "-", "--exit-zero-even-if-changed" },
+            to_stdin = true,
+        },
+        factory = h.formatter_factory,
+    }),
     ssort = h.make_builtin({
         method = FORMATTING,
         filetypes = { "python" },
@@ -301,10 +311,7 @@ M.setup = function(overrides)
             b.formatting.google_java_format,
             -- json
             sources_diagnostics.jq,
-            b.formatting.fixjson.with({
-                filetypes = { "json", "jsonc" },
-            }),
-            b.formatting.jq,
+            require("none-ls.formatting.jq"),
             -- lua
             b.diagnostics.selene.with({
                 condition = function(utils)
@@ -341,7 +348,7 @@ M.setup = function(overrides)
                     return get_python_version()[2] >= 9
                 end,
             }),
-            b.formatting.reorder_python_imports.with({
+            sources_formatting.reorder_python_imports.with({
                 extra_args = function(params)
                     local extra_args = {}
 
@@ -388,8 +395,6 @@ M.setup = function(overrides)
                 end,
             }),
             -- shell
-            b.code_actions.shellcheck,
-            b.diagnostics.shellcheck,
             b.formatting.shfmt.with({
                 extra_args = function(params)
                     local extra_args = {
@@ -417,8 +422,7 @@ M.setup = function(overrides)
                     vim.fn.expand("$HOME/.config/format-lint/.stylelintrc.json"),
                 },
             }),
-            b.formatting.eslint_d,
-            -- b.formatting.rustywind,
+            require("none-ls.formatting.eslint_d"),
             b.formatting.stylelint.with({
                 extra_args = {
                     "--config",
@@ -499,6 +503,9 @@ M.setup = function(overrides)
 
     null_ls.setup(config)
 
+    null_ls.register(require("none-ls-shellcheck.diagnostics"))
+    null_ls.register(require("none-ls-shellcheck.code_actions"))
+
     null_ls.register({
         name = "slow_formatters",
         sources = {
@@ -506,7 +513,6 @@ M.setup = function(overrides)
             sources_formatting.pybetter,
         },
     })
-
     null_ls.disable({ name = "slow_formatters" })
 end
 
