@@ -14,7 +14,7 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": "{c397f356-5e7b-55bc-956b-8cb4b9762c26}",
     "newTabMenu": 
     [
         {
@@ -30,7 +30,7 @@
             "colorScheme": "TokyoNight",
             "font": 
             {
-                "face": "JetBrainsMono NF",
+                "face": "JetBrainsMono Nerd Font",
                 "size": 12.0
             },
             "padding": "0"
@@ -53,6 +53,7 @@
                 "guid": "{c397f356-5e7b-55bc-956b-8cb4b9762c26}",
                 "hidden": false,
                 "name": "NixOS",
+                "scrollbarState": "hidden",
                 "source": "Windows.Terminal.Wsl"
             }
         ]
