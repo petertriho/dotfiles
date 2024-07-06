@@ -94,8 +94,8 @@ wezterm.on("format-tab-title", function(tab)
 end)
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.default_prog = { "wsl.exe", "-d", "Ubuntu", "--cd", "~" }
-    config.font = wezterm.font("JetBrainsMono NF")
+    config.default_domain = "WSL:NixOS"
+    config.font = wezterm.font("JetBrainsMono Nerd Font")
     config.font_size = 13
     config.allow_win32_input_mode = false
 else
