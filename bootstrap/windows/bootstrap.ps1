@@ -1,12 +1,8 @@
 # Check list
 # - Drivers
-# - Sophia script https://github.com/farag2/Sophia-Script-for-Windows
 # - Sophia app https://github.com/Sophia-Community/SophiApp
-# - Bloatynosy https://github.com/builtbybel/Bloatynosy
-# - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 # - WSL
 # - excludeWSL.ps1
-# - speedUp.ps1
 # - Winget
 # - Scoop
 # - dotfiles
@@ -39,7 +35,7 @@ winget install --source winget --id wez.wezterm
 # Scoop
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
-scoop install 7zip aria2 curl dark git neovim starship sudo
+scoop install 7zip aria2 curl dark git neovim sudo
 scoop bucket add nerd-fonts
 scoop bucket add extras
 sudo scoop install --global JetBrainsMono-NF
