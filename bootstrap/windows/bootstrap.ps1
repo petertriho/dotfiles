@@ -15,6 +15,7 @@ wsl --install -d Ubuntu
 winget install --source winget --id Alex313031.Thorium.AVX2
 winget install --source winget --id Ablaze.Floorp
 winget install --source winget --id AltSnap.AltSnap
+winget install --source winget --id Betterbird.Betterbird
 winget install --source winget --id Discord.Discord
 winget install --source winget --id Docker.DockerDesktop
 winget install --source winget --id Giorgiotani.Peazip
