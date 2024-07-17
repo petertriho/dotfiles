@@ -36,7 +36,7 @@ winget install --source winget --id wez.wezterm
 # Scoop
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
-scoop install 7zip aria2 curl dark git neovim sudo
+scoop install 7zip aria2 curl dark git neovim sudo win32yank
 scoop bucket add nerd-fonts
 scoop bucket add extras
 sudo scoop install --global JetBrainsMono-NF
