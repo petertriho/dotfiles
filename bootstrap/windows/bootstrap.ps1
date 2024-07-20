@@ -32,6 +32,7 @@ winget install --source winget --id voidtools.Everything
 winget install --source winget --id WinSCP.WinSCP
 winget install --source winget --id WireGuard.WireGuard
 winget install --source winget --id wez.wezterm
+winget install --source winget --id Wireguard.Wireguard
 
 # Scoop
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
