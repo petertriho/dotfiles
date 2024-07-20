@@ -1,41 +1,76 @@
-# https://gist.github.com/noelbundick/9c804a710eb76e1d6a234b14abf42a52
-############
-# This script will add your WSL environments to the Windows Defender exclusion list so that
-# realtime protection does not have an adverse effect on performance.
-#
-# You should be aware that this could make your system less secure. Use at your own risk.
-# Note: This should be run from an administrative PowerShell prompt
-############
+# Modified from https://gist.github.com/dkorobtsov/963f3b90418e51d12aecb1eaf6106958
+# PowerShell script to add Windows Defender exclusions for WSL2 performance issues
+# 
+# For context please read this thread:
+# https://github.com/microsoft/WSL/issues/8995
+# 
+# How to use?
+# - Save the Script: Open a text editor like Notepad and paste the PowerShell script into it. 
+# - Save the file with a .ps1 extension, for example, Add_WindowsDefender_Exclusions.ps1.
+# - Run PowerShell as Administrator: Search for "PowerShell" in the Start menu, right-click on it, and choose "Run as administrator".
+# - Navigate to the Script's Location: Use the cd command to navigate to the directory where you saved the .ps1 file. 
+# - Run the Script: Type .\Add_WindowsDefender_Exclusions.ps1 and press Enter. This will execute the script.
+# - You will be prompted to enter your WSL distro (tested only on Ubuntu), username and IDE of choice
 
-# Find registered WSL environments
-$wslPaths = (Get-ChildItem HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | ForEach-Object { Get-ItemProperty $_.PSPath}).BasePath
-
-# Get the current Windows Defender exclusion paths
-$currentExclusions = $(Get-MpPreference).ExclusionPath
-if (!$currentExclusions) {
-  $currentExclusions = ''
+# Check if running as administrator
+$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+if (-not $isAdmin) {
+    Write-Host "This script must be run as Administrator. Exiting."
+    return
 }
 
-# Find the WSL paths that are not excluded
-$exclusionsToAdd = ((Compare-Object $wslPaths $currentExclusions) | Where-Object SideIndicator -eq "<=").InputObject
+# Define folders to exclude, adjust if needed
+$foldersToExclude = @(
+    "C:\Program Files\Docker",
+    "\\wsl$\NixOS",
+    "\\wsl.localhost\NixOS",
+    "\\wsl$\docker-desktop",
+    "\\wsl.localhost\docker-desktop"
+)
 
-# List of paths inside the Linux distro to exclude (https://github.com/Microsoft/WSL/issues/1932#issuecomment-407855346)
-$dirs = @("\bin", "\sbin", "\usr\bin", "\usr\sbin", "\usr\local\bin", "\usr\local\go\bin")
+# Define file types to exclude, adjust if needed
+$fileTypesToExclude = @(
+    "vhd",
+    "vhdx"
+)
 
-# Add the missing entries to Windows Defender
-if ($exclusionsToAdd.Length -gt 0) {
-  $exclusionsToAdd | ForEach-Object {
+# Define processes to exclude, adjust if needed
+$processesToExclude = @(
+    "docker.exe",
+    "com.docker.*.*",
+    "Desktop Docker.exe",
+    "wsl.exe",
+    "wslhost.exe",
+    "vmmemWSL"
+)
 
-    # Exclude paths from the root of the WSL install
-    Add-MpPreference -ExclusionPath $_
-    Write-Output "Added exclusion for $_"
-
-    # Exclude processes contained inside WSL
-    $rootfs = $_ + "\rootfs"
-    $dirs | ForEach-Object {
-        $exclusion = $rootfs + $_ + "\*"
-        Add-MpPreference -ExclusionProcess $exclusion
-        Write-Output "Added exclusion for $exclusion"
-    }
-  }
+# Add Firewall Rule for WSL
+# For details please read official documentation:
+# https://www.jetbrains.com/help/idea/how-to-use-wsl-development-environment-in-product.html#debugging_system_settings
+Write-Host "Adding firewall rules for WSL. This step may take a few minutes..."
+try {
+    New-NetFirewallRule -DisplayName "WSL" -Direction Inbound  -InterfaceAlias "vEthernet (WSL)"  -Action Allow
+    Get-NetFirewallProfile -Name Public | Get-NetFirewallRule | Where-Object DisplayName -ILike "$($selectedIDE)*" | Disable-NetFirewallRule
+} catch {
+    Write-Host "Error adding firewall rule: $_"
 }
+
+# Add folder exclusions
+Write-Host "Adding folder exclusions..."
+foreach ($folder in $foldersToExclude) {
+    Add-MpPreference -ExclusionPath $folder
+}
+
+# Add file type exclusions
+Write-Host "Adding file type exclusions..."
+foreach ($fileType in $fileTypesToExclude) {
+    Add-MpPreference -ExclusionExtension $fileType
+}
+
+# Add process exclusions
+Write-Host "Adding process exclusions..."
+foreach ($process in $processesToExclude) {
+    Add-MpPreference -ExclusionProcess $process
+}
+
+Write-Host "Script execution completed."
