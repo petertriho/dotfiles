@@ -1,13 +1,17 @@
 local wezterm = require("wezterm")
 
+local leader_key = "b"
+
 local config = {
     color_scheme = "tokyonight",
     bold_brightens_ansi_colors = true,
     -- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
     window_close_confirmation = "NeverPrompt",
     hide_tab_bar_if_only_one_tab = true,
-    leader = { key = "s", mods = "CTRL" },
+    leader = { key = leader_key, mods = "CTRL" },
     keys = {
+        { mods = "LEADER", key = leader_key, action = "ActivateLastTab" },
+        { mods = "LEADER|CTRL", key = leader_key, action = { SendKey = { mods = "CTRL", key = leader_key } } },
         {
             mods = "LEADER",
             key = "\\",
@@ -34,10 +38,8 @@ local config = {
         { mods = "LEADER", key = "l", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
         { mods = "LEADER", key = "n", action = wezterm.action({ ActivateTabRelative = 1 }) },
         { mods = "LEADER", key = "p", action = wezterm.action({ ActivateTabRelative = -1 }) },
-        { mods = "LEADER", key = "s", action = "ActivateLastTab" },
         { mods = "LEADER", key = "x", action = wezterm.action({ CloseCurrentPane = { confirm = false } }) },
         { mods = "LEADER", key = "z", action = "TogglePaneZoomState" },
-        { mods = "LEADER|CTRL", key = "s", action = { SendKey = { mods = "CTRL", key = "s" } } },
         { mods = "LEADER|SHIFT", key = "&", action = wezterm.action({ CloseCurrentTab = { confirm = false } }) },
         { mods = "LEADER|SHIFT", key = "H", action = wezterm.action({ AdjustPaneSize = { "Left", 5 } }) },
         { mods = "LEADER|SHIFT", key = "J", action = wezterm.action({ AdjustPaneSize = { "Down", 5 } }) },
