@@ -10,8 +10,8 @@ local config = {
     hide_tab_bar_if_only_one_tab = true,
     leader = { key = leader_key, mods = "CTRL" },
     keys = {
-        { mods = "LEADER", key = leader_key, action = "ActivateLastTab" },
         { mods = "LEADER|CTRL", key = leader_key, action = { SendKey = { mods = "CTRL", key = leader_key } } },
+        { mods = "LEADER", key = leader_key, action = "ActivateLastTab" },
         {
             mods = "LEADER",
             key = "\\",
@@ -19,6 +19,7 @@ local config = {
         },
         { mods = "LEADER", key = "-", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
         { mods = "LEADER", key = "[", action = "ActivateCopyMode" },
+        { mods = "LEADER", key = "]", action = wezterm.action.PasteFrom("Clipboard") },
         { mods = "LEADER", key = "1", action = wezterm.action({ ActivateTab = 0 }) },
         { mods = "LEADER", key = "2", action = wezterm.action({ ActivateTab = 1 }) },
         { mods = "LEADER", key = "3", action = wezterm.action({ ActivateTab = 2 }) },
