@@ -42,4 +42,4 @@ scoop install 7zip aria2 curl dark git neovim sudo win32yank
 scoop bucket add nerd-fonts
 scoop bucket add extras
 sudo scoop install --global JetBrainsMono-NF
-scoop install hwmonitor wumgr
+scoop install hwinfo wumgr
