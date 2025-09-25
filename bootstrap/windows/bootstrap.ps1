@@ -39,4 +39,28 @@ irm get.scoop.sh | iex
 scoop install 7zip aria2 curl dark git neovim sudo win32yank
 scoop bucket add nerd-fonts
 scoop bucket add extras
-sudo scoop install --global JetBrainsMono-NF
+sudo scoop install --global JetBrainsMono-NF JetBrainsMono-NF-Mono JetBrainsMono-NF-Propo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
